@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!--
+    =========================================================
+    FILE: learn/soft-skills.html
+    PURPOSE:
+    صفحة المهارات الناعمة ضمن قسم التعلّم.
+
+    DESIGN APPROACH:
+    - هذه الصفحة تعمل كبوابة رئيسية للمهارات الناعمة
+    - تعرض المحاور الرئيسية داخل Accordion
+    - تعرض لكل مهارة وصفًا مختصرًا ورابط "المزيد"
+    - تمهّد لاحقًا لصفحة تفصيلية لكل مهارة على حدة
+
+    IMPORTANT:
+    الصفحة داخل مجلد learn/
+    لذلك:
+    - data-root=".."
+    - ملفات CSS وJS تبدأ بـ ../
+    =========================================================
+  -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>المهارات الناعمة | ConsuTrain</title>
+  <meta
+    name="description"
+    content="تعرف على أهم المهارات الناعمة في بيئة العمل الحديثة، مثل التواصل، القيادة، التفكير النقدي، إدارة الذات، والعمل الجماعي."
+  >
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml,
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="%230f2747"/>
+          <stop offset="1" stop-color="%23d4a63a"/>
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="14" fill="url(%23g)"/>
+      <text x="50%" y="54%" font-size="16" text-anchor="middle"
+            fill="white" font-family="Arial" font-weight="700">CT</text>
+    </svg>'>
+</head>
+
+<body data-root="..">
+  <div id="header-placeholder"></div>
+
+  <main class="inner-page">
+    <!-- =====================================================
+         PAGE HERO
+         ===================================================== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">المهارات الناعمة</span>
+        <h1>مهارات سلوكية وشخصية تدعم النجاح في العمل</h1>
+        <p>
+          المهارات الناعمة هي قدرات تؤثر في طريقة التواصل، وإدارة الذات،
+          والعمل ضمن فريق، والتعامل مع التغيير والضغوط. وهي اليوم من أهم
+          عناصر التميز المهني والاستمرار في بيئة العمل الحديثة.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
+    <section class="home-section">
+      <div class="container">
+        <div class="section-card">
+          <h2>لماذا تُعد المهارات الناعمة مهمة؟</h2>
+          <p class="section-intro">
+            لأن النجاح في العمل لا يعتمد فقط على المعرفة الفنية، بل يعتمد أيضًا
+            على القدرة على التواصل، وفهم الآخرين، والعمل بمرونة، وإدارة الوقت،
+            وحل المشكلات، وتحمل المسؤولية.
+          </p>
+
+          <div class="soft-inline-note">
+            <strong>ملاحظة:</strong>
+            هذه الصفحة تقدم مدخلًا منظمًا للمهارات الناعمة، وسيتم لاحقًا
+            توفير صفحات تفصيلية مستقلة لكل مهارة.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         MAIN ACCORDION
+         ===================================================== -->
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>تصنيف المهارات الناعمة</h2>
+            <p>تم تنظيم المهارات ضمن محاور رئيسية لتسهيل التعلم والمتابعة.</p>
+          </div>
+        </div>
+
+        <div class="soft-accordion">
+
+          <!-- ================================================
+               1) التواصل والتفاعل
+               ================================================ -->
+          <details class="soft-group" open>
+            <summary>
+              <div class="soft-summary-wrap">
+                <div class="soft-group-title">مهارات التواصل والتفاعل</div>
+                <div class="soft-group-hint">المهارات المرتبطة بالتعبير، الفهم، وبناء العلاقات المهنية</div>
+              </div>
+            </summary>
+
+            <div class="soft-group-body">
+              <article class="soft-skill-item">
+                <h3>التواصل الفعّال</h3>
+                <p>القدرة على إيصال الأفكار والمعلومات بوضوح وبأسلوب مناسب للموقف والجمهور.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=effective-communication">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>الاستماع النشط</h3>
+                <p>الإصغاء بوعي لفهم الرسالة والمقصد، وليس مجرد سماع الكلمات فقط.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=active-listening">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>الذكاء العاطفي</h3>
+                <p>فهم المشاعر الذاتية ومشاعر الآخرين والتعامل معها بشكل متوازن وفعّال.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=emotional-intelligence">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>إدارة الخلافات</h3>
+                <p>التعامل مع الخلافات المهنية بطريقة تحفظ العلاقة وتساعد على الوصول إلى حل مناسب.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=conflict-management">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>التفاوض</h3>
+                <p>إدارة الحوار بهدف الوصول إلى اتفاق متوازن يحقق مصلحة الأطراف.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=negotiation">... المزيد</a>
+              </article>
+            </div>
+          </details>
+
+          <!-- ================================================
+               2) العمل الجماعي والقيادة
+               ================================================ -->
+          <details class="soft-group">
+            <summary>
+              <div class="soft-summary-wrap">
+                <div class="soft-group-title">مهارات العمل الجماعي والقيادة</div>
+                <div class="soft-group-hint">المهارات التي تدعم التعاون، التأثير، وتحقيق الأهداف المشتركة</div>
+              </div>
+            </summary>
+
+            <div class="soft-group-body">
+              <article class="soft-skill-item">
+                <h3>العمل ضمن فريق</h3>
+                <p>القدرة على التعاون مع الآخرين والمشاركة في تحقيق نتائج مشتركة.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=teamwork">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>القيادة</h3>
+                <p>توجيه وتحفيز الآخرين، وتنسيق الجهود للوصول إلى نتائج واضحة.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=leadership">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>التفويض</h3>
+                <p>توزيع المهام والمسؤوليات بطريقة مناسبة ترفع الكفاءة وتبني الثقة.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=delegation">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>بناء الثقة</h3>
+                <p>تعزيز المصداقية والاعتماد المتبادل داخل الفريق أو بيئة العمل.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=building-trust">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>إدارة الاجتماعات</h3>
+                <p>تنظيم النقاشات والقرارات والمتابعة داخل الاجتماعات بطريقة فعّالة.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=meeting-management">... المزيد</a>
+              </article>
+            </div>
+          </details>
+
+          <!-- ================================================
+               3) التفكير وحل المشكلات
+               ================================================ -->
+          <details class="soft-group">
+            <summary>
+              <div class="soft-summary-wrap">
+                <div class="soft-group-title">مهارات التفكير وحل المشكلات</div>
+                <div class="soft-group-hint">المهارات المرتبطة بالتحليل، اتخاذ القرار، والإبداع</div>
+              </div>
+            </summary>
+
+            <div class="soft-group-body">
+              <article class="soft-skill-item">
+                <h3>التفكير النقدي</h3>
+                <p>تحليل المعلومات والتمييز بين المعطيات والافتراضات للوصول إلى فهم أدق.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=critical-thinking">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>حل المشكلات</h3>
+                <p>القدرة على تحديد المشكلة وتحليل أسبابها واقتراح حلول عملية لها.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=problem-solving">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>اتخاذ القرار</h3>
+                <p>اختيار البديل الأنسب في الوقت المناسب بناءً على معلومات ومعايير واضحة.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=decision-making">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>الإبداع والابتكار</h3>
+                <p>تطوير أفكار أو أساليب جديدة تسهم في تحسين العمل ورفع القيمة المضافة.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=creativity-innovation">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>التفكير التحليلي</h3>
+                <p>تفكيك المسائل إلى عناصرها وفهم العلاقات بينها للوصول إلى استنتاجات أدق.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=analytical-thinking">... المزيد</a>
+              </article>
+            </div>
+          </details>
+
+          <!-- ================================================
+               4) إدارة الذات والاحترافية
+               ================================================ -->
+          <details class="soft-group">
+            <summary>
+              <div class="soft-summary-wrap">
+                <div class="soft-group-title">مهارات إدارة الذات والاحترافية</div>
+                <div class="soft-group-hint">الانضباط، المرونة، وإدارة الأداء الشخصي في العمل</div>
+              </div>
+            </summary>
+
+            <div class="soft-group-body">
+              <article class="soft-skill-item">
+                <h3>إدارة الوقت</h3>
+                <p>تنظيم الوقت وتحديد الأولويات بما يساعد على الإنجاز وتقليل الهدر.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=time-management">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>الانضباط الذاتي</h3>
+                <p>الالتزام بالمهام والمسؤوليات دون حاجة دائمة إلى توجيه مباشر.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=self-discipline">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>المرونة والتكيف</h3>
+                <p>القدرة على التكيف مع التغيير والضغوط والتحديات المهنية المختلفة.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=adaptability">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>إدارة الضغوط</h3>
+                <p>الحفاظ على التوازن النفسي والمهني عند مواجهة ضغط العمل أو التغيرات.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=stress-management">... المزيد</a>
+              </article>
+
+              <article class="soft-skill-item">
+                <h3>أخلاقيات العمل المهنية</h3>
+                <p>الالتزام بالنزاهة والمسؤولية والاحترام داخل بيئة العمل.</p>
+                <a class="soft-more-link" href="soft-skill.html?id=work-ethics">... المزيد</a>
+              </article>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+  </main>
+<button id="backToTopBtn" class="back-to-top" type="button" aria-label="العودة إلى الأعلى">
+  ↑
+</button>
+  <div id="footer-placeholder"></div>
+
+  <script>
+  /*
+    إغلاق بقية مجموعات الأكورديون عند فتح واحدة
+  */
+  document.querySelectorAll(".soft-group").forEach((group) => {
+    group.addEventListener("toggle", () => {
+      if (!group.open) return;
+
+      document.querySelectorAll(".soft-group").forEach((otherGroup) => {
+        if (otherGroup !== group) {
+          otherGroup.removeAttribute("open");
+        }
+      });
+    });
+  });
+</script>
+<script>
+  /*
+    زر العودة إلى الأعلى
+  */
+  const backToTopBtn = document.getElementById("backToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (!backToTopBtn) return;
+
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  });
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+</script>
+  <script src="../assets/js/includes.js"></script>
+</body>
+</html>

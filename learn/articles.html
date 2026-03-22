@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!--
+    =========================================================
+    FILE: learn/articles.html
+    PURPOSE:
+    صفحة عرض قائمة المقالات ضمن قسم التعلّم.
+    =========================================================
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>المقالات | ConsuTrain</title>
+  <meta
+    name="description"
+    content="اكتشف المقالات المهنية داخل منصة ConsuTrain في مجالات الإدارة والأعمال والذكاء الاصطناعي والمهارات العملية."
+  >
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml,
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="%230f2747"/>
+          <stop offset="1" stop-color="%23d4a63a"/>
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="14" fill="url(%23g)"/>
+      <text x="50%" y="54%" font-size="16" text-anchor="middle"
+            fill="white" font-family="Arial" font-weight="700">CT</text>
+    </svg>'>
+</head>
+
+<body data-root="..">
+  <div id="header-placeholder"></div>
+
+  <main class="inner-page">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">المقالات المهنية</span>
+        <h1>مقالات تساعدك على الفهم والتطوير واتخاذ القرار</h1>
+        <p>
+          يضم هذا القسم مجموعة من المقالات المرتبطة بالإدارة والأعمال والمهارات
+          المهنية، لتقديم محتوى واضح وعملي يدعم التعلم والتطبيق.
+        </p>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-card articles-search-box">
+          <h2>ابحث في المقالات</h2>
+          <p class="section-intro">
+            يمكنك البحث بعنوان المقال أو ملخصه أو وسومه للوصول بسرعة إلى المحتوى المناسب.
+          </p>
+
+          <div class="articles-toolbar">
+            <input
+              id="articlesSearch"
+              class="search-input"
+              type="text"
+              placeholder="مثال: الذكاء الاصطناعي، الهيكل التنظيمي، السلامة..."
+              aria-label="البحث في المقالات"
+            >
+
+            <button id="articlesResetBtn" class="btn btn-secondary glossary-action-btn" type="button">
+              إعادة الضبط
+            </button>
+          </div>
+
+          <div class="glossary-meta">
+            <span id="articlesCount">جاري تحميل المقالات...</span>
+          </div>
+
+          <div id="articlesTags" class="articles-tags-bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="articles-list" id="articlesList"></div>
+
+        <div id="articlesEmptyState" class="section-card glossary-empty" hidden>
+          <h3>لا توجد مقالات مطابقة</h3>
+          <p>جرّب كلمة بحث أخرى أو أعد ضبط البحث والوسوم لعرض جميع المقالات.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="backToTopBtn" class="back-to-top" type="button" aria-label="العودة إلى الأعلى">
+    ↑
+  </button>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../assets/js/includes.js"></script>
+  <script src="../assets/js/articles-page.js"></script>
+</body>
+</html>

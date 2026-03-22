@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!--
+    =========================================================
+    FILE: learn/article.html
+    PURPOSE:
+    صفحة عرض مقال واحد داخل قسم التعلّم.
+
+    HOW IT WORKS:
+    - تقرأ قيمة id من الرابط
+    - تحمل ملف articles.json
+    - تبحث عن المقال المطابق
+    - تعرض المحتوى داخل الصفحة
+
+    EXAMPLE URL:
+    article.html?id=ai-in-business
+
+    IMPORTANT:
+    الصفحة داخل مجلد learn/
+    لذلك:
+    - data-root=".."
+    - ملفات CSS وJS تبدأ بـ ../
+    =========================================================
+  -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>قراءة المقال | ConsuTrain</title>
+  <meta
+    name="description"
+    content="اقرأ المقالات المهنية داخل منصة ConsuTrain في الإدارة والأعمال والمهارات العملية."
+  >
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml,
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="%230f2747"/>
+          <stop offset="1" stop-color="%23d4a63a"/>
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="14" fill="url(%23g)"/>
+      <text x="50%" y="54%" font-size="16" text-anchor="middle"
+            fill="white" font-family="Arial" font-weight="700">CT</text>
+    </svg>'>
+</head>
+
+<body data-root="..">
+  <!-- الهيدر المشترك -->
+  <div id="header-placeholder"></div>
+
+  <main class="inner-page">
+    <!--
+      =======================================================
+      ARTICLE WRAPPER
+      سيتم حقن المقال هنا عبر JavaScript
+      =======================================================
+    -->
+    <section class="home-section">
+      <div class="container">
+        <div id="articleContainer">
+          <div class="section-card article-loading">
+            <h2>جاري تحميل المقال...</h2>
+            <p>يرجى الانتظار لحظات حتى يتم عرض المحتوى.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- زر العودة للأعلى -->
+  <button id="backToTopBtn" class="back-to-top" type="button" aria-label="العودة إلى الأعلى">
+    ↑
+  </button>
+
+  <!-- الفوتر المشترك -->
+  <div id="footer-placeholder"></div>
+
+  <!-- الأجزاء المشتركة -->
+  <script src="../assets/js/includes.js"></script>
+
+  <!-- منطق صفحة المقال -->
+  <script src="../assets/js/article-page.js"></script>
+</body>
+</html>

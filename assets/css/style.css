@@ -1,0 +1,1459 @@
+/* =========================================================
+   FILE: assets/css/style.css
+   PURPOSE:
+   ملف التنسيق العام الأساسي لمنصة ConsuTrain-MVP.
+
+   DESIGN RULES:
+   - الاعتماد على الأزرق والذهبي والرمادي الفاتح
+   - أسلوب نظيف واحترافي
+   - وضوح القراءة
+   - قابلية إعادة الاستخدام في أكثر من صفحة
+
+   IMPORTANT:
+   هذا الملف سيكبر لاحقًا، لذلك تم تقسيمه إلى أقسام واضحة
+   مع تعليقات لتسهيل الصيانة والتعلم والتعديل.
+   ========================================================= */
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo-VariableFont_slnt,wght.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* =========================================================
+   1) ROOT VARIABLES
+   متغيرات الألوان والأبعاد العامة للمشروع
+   ========================================================= */
+:root{
+  --bg:#f5f7fb;
+  --surface:#ffffff;
+
+  /* تدرجات الأزرق */
+  --primary:#0f2747;
+  --primary-2:#163760;
+  --primary-3:#1d4d82;
+
+  /* تدرجات الذهبي */
+  --gold:#d4a63a;
+  --gold-2:#c39221;
+  --gold-soft:#f4ead1;
+
+  /* تدرجات محايدة */
+  --text:#1a1f2b;
+  --muted:#667085;
+  --border:#e4e7ec;
+  --light:#f9fafb;
+
+  /* الظلال والانحناءات */
+  --shadow:0 10px 30px rgba(15,39,71,.08);
+  --radius:18px;
+
+  /* عرض المحتوى العام */
+  --max-width:1200px;
+}
+
+/* =========================================================
+   2) GLOBAL RESET
+   تهيئة عامة للعناصر
+   ========================================================= */
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  
+  font-family: "Cairo", Arial, "Segoe UI", Tahoma, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  direction:rtl;
+}
+html, body, button, input, select, textarea {
+  font-family: "Cairo", Arial, "Segoe UI", Tahoma, sans-serif;
+}
+/* روابط عامة */
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* الصور بشكل آمن */
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* حاوية موحدة للعناصر */
+.container{
+  width:min(100% - 32px, var(--max-width));
+  margin-inline:auto;
+}
+
+/* =========================================================
+   3) HEADER
+   تنسيقات الهيدر العام
+   ========================================================= */
+.site-header{
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.header-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  min-height:76px;
+}
+
+/* الشعار النصي */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* الأيقونة المربعة للشعار */
+.brand-mark{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg, var(--primary), var(--gold));
+  color:#fff;
+  font-weight:700;
+  font-size:1.2rem;
+}
+
+/* نص الشعار */
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+
+.brand-text strong{
+  font-size:1.05rem;
+  color:var(--primary);
+}
+
+.brand-text small{
+  color:var(--muted);
+  font-size:.8rem;
+}
+
+/* القائمة الرئيسية */
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.main-nav a{
+  color:var(--primary);
+  font-weight:600;
+  font-size:.95rem;
+}
+
+.main-nav a:hover{
+  color:var(--gold-2);
+}
+
+/* زر القائمة في الهاتف */
+.nav-toggle{
+  display:none;
+  border:none;
+  background:var(--primary);
+  color:#fff;
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:1.2rem;
+}
+
+/* =========================================================
+   4) HERO SECTION
+   تنسيقات مقدمة الصفحة الرئيسية
+   ========================================================= */
+.hero{
+  padding:72px 0 40px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:28px;
+  align-items:center;
+}
+
+/* بطاقات عامة تشترك في المظهر */
+.hero-card,
+.feature-card,
+.section-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+/* البطاقة الرئيسية الكبيرة */
+.hero-card{
+  padding:34px;
+}
+
+/* سطر تمهيدي صغير أعلى العنوان */
+.eyebrow{
+  display:inline-block;
+  margin-bottom:12px;
+  color:var(--gold-2);
+  font-weight:700;
+  font-size:.95rem;
+}
+
+/* عنوان المنصة */
+.hero h1{
+  margin:0 0 14px;
+  color:var(--primary);
+  font-size:clamp(2rem, 4vw, 3.2rem);
+  line-height:1.2;
+}
+
+/* النص الوصفي الرئيسي */
+.hero p{
+  margin:0 0 22px;
+  color:var(--muted);
+  font-size:1.02rem;
+  line-height:1.9;
+}
+
+/* أزرار الدعوة إلى الإجراء */
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+/* نمط زر عام */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:140px;
+  padding:12px 18px;
+  border-radius:14px;
+  font-weight:700;
+  transition:.2s ease;
+}
+
+/* الزر الأساسي */
+.btn-primary{
+  background:linear-gradient(135deg, var(--primary), var(--primary-2));
+  color:#fff;
+}
+
+.btn-primary:hover{
+  background:linear-gradient(135deg, var(--primary-2), var(--primary-3));
+}
+
+/* الزر الثانوي */
+.btn-secondary{
+  background:var(--gold-soft);
+  color:var(--primary);
+}
+
+.btn-secondary:hover{
+  background:#ebddb9;
+}
+
+/* بطاقات الجانب */
+.hero-side{
+  display:grid;
+  gap:18px;
+}
+
+.feature-card{
+  padding:22px;
+}
+
+.feature-card h3{
+  margin:0 0 8px;
+  color:var(--primary);
+}
+
+.feature-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* =========================================================
+   5) HOME SECTIONS
+   تنسيقات الأقسام التي تأتي بعد المقدمة
+   ========================================================= */
+.home-section{
+  padding:18px 0 54px;
+}
+
+/* عنوان القسم ووصفه */
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:18px;
+}
+
+.section-head h2{
+  margin:0;
+  color:var(--primary);
+  font-size:1.6rem;
+}
+
+.section-head p{
+  margin:8px 0 0;
+  color:var(--muted);
+}
+
+/* شبكة البطاقات */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+}
+
+/* بطاقة كل قسم */
+.section-card{
+  padding:24px;
+}
+
+.section-card h3{
+  margin:0 0 10px;
+  color:var(--primary);
+}
+
+.section-card p{
+  margin:0 0 16px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* رابط أسفل البطاقة */
+.card-link{
+  color:var(--gold-2);
+  font-weight:700;
+}
+
+/* =========================================================
+   6) FOOTER
+   تنسيقات الفوتر العام
+   ========================================================= */
+.site-footer{
+  margin-top:40px;
+  background:linear-gradient(135deg, var(--primary), var(--primary-2));
+  color:#fff;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:24px;
+  padding:42px 0 28px;
+}
+
+.site-footer h3,
+.site-footer h4{
+  margin-top:0;
+  margin-bottom:12px;
+}
+
+.site-footer p,
+.footer-links a{
+  color:rgba(255,255,255,.88);
+  line-height:1.9;
+}
+
+.footer-links{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.12);
+  text-align:center;
+  padding:14px 12px;
+  color:rgba(255,255,255,.8);
+}
+
+/* =========================================================
+   7) RESPONSIVE RULES
+   قواعد الشاشات المتوسطة والصغيرة
+   ========================================================= */
+@media (max-width: 900px){
+  .hero-grid,
+  .cards-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .main-nav{
+    position:absolute;
+    top:76px;
+    right:16px;
+    left:16px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:14px;
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .main-nav.open{
+    display:flex;
+  }
+
+  .nav-toggle{
+    display:inline-grid;
+    place-items:center;
+  }
+}
+
+/* =========================================================
+   8) INNER PAGES
+   تنسيقات الصفحات الداخلية مثل:
+   - learn
+   - tools
+   - services
+   - about
+   - contact
+   - expert
+   ========================================================= */
+.inner-page{
+  min-height:60vh;
+}
+
+.page-hero{
+  padding:64px 0 24px;
+}
+
+.page-hero h1{
+  margin:0 0 14px;
+  color:var(--primary);
+  font-size:clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.page-hero p{
+  margin:0;
+  max-width:850px;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:1rem;
+}
+
+
+/* =========================================================
+   9) GLOSSARY PAGE
+   تنسيقات صفحة القاموس الإداري
+   ========================================================= */
+
+/* صندوق البحث أعلى القاموس */
+.glossary-search-box h2{
+  margin:0 0 10px;
+  color:var(--primary);
+}
+
+.section-intro{
+  margin:0 0 16px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* حقل البحث */
+.search-input{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  font-size:1rem;
+  outline:none;
+  background:#fff;
+  color:var(--text);
+}
+
+.search-input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 4px rgba(212,166,58,.12);
+}
+
+/* شبكة المصطلحات */
+.glossary-list{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+}
+
+/* بطاقة كل مصطلح */
+.glossary-item h3{
+  margin:0 0 10px;
+  color:var(--primary);
+}
+
+.glossary-item p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+@media (max-width: 900px){
+  .glossary-list{
+    grid-template-columns:1fr;
+  }
+}
+
+/* =========================================================
+   10) GLOSSARY PAGE - DYNAMIC VERSION
+   تنسيقات إضافية لنسخة القاموس المرتبطة بملف JSON
+   ========================================================= */
+
+/* شريط البحث مع زر إعادة الضبط */
+.glossary-toolbar{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.glossary-toolbar .search-input{
+  flex:1 1 320px;
+}
+
+.glossary-action-btn{
+  min-width:140px;
+  border:none;
+  cursor:pointer;
+}
+
+/* سطر المعلومات أسفل البحث */
+.glossary-meta{
+  margin-top:14px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+/* رأس بطاقة المصطلح */
+.glossary-item-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.glossary-item-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* أزرار صغيرة داخل البطاقة */
+.mini-btn{
+  border:1px solid var(--border);
+  background:var(--light);
+  color:var(--primary);
+  padding:8px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:.88rem;
+  font-weight:700;
+}
+
+.mini-btn:hover{
+  border-color:var(--gold);
+  background:var(--gold-soft);
+}
+
+/* حالة عدم وجود نتائج أو وجود خطأ */
+.glossary-empty,
+.glossary-error{
+  text-align:center;
+}
+
+.glossary-empty h3,
+.glossary-error h3{
+  margin-top:0;
+  color:var(--primary);
+}
+
+.glossary-empty p,
+.glossary-error p{
+  margin-bottom:0;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* زر العودة للأعلى */
+.back-to-top{
+  position:fixed;
+  left:20px;
+  bottom:20px;
+  width:46px;
+  height:46px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--primary), var(--gold));
+  color:#fff;
+  font-size:1.2rem;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:.25s ease;
+  z-index:1200;
+}
+
+.back-to-top.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+@media (max-width: 700px){
+  .glossary-item-head{
+    flex-direction:column;
+  }
+
+  .glossary-item-actions{
+    width:100%;
+  }
+
+  .mini-btn{
+    width:100%;
+  }
+
+  .glossary-action-btn{
+    width:100%;
+  }
+}
+
+/* =========================================================
+   11) GLOSSARY ENGLISH TERM
+   عرض المصطلح الإنجليزي داخل بطاقة القاموس
+   ========================================================= */
+.glossary-item-title-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.glossary-item-en{
+  color:var(--muted);
+  font-size:.92rem;
+  font-weight:600;
+  direction:ltr;
+  text-align:right;
+}
+
+/* =========================================================
+   12) ARTICLES PAGE
+   تنسيقات صفحة قائمة المقالات
+   ========================================================= */
+
+.articles-toolbar{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.articles-toolbar .search-input{
+  flex:1 1 320px;
+}
+
+.articles-tags-bar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:16px;
+}
+
+.tag-chip{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--primary);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:.9rem;
+}
+
+.tag-chip:hover{
+  border-color:var(--gold);
+  background:var(--gold-soft);
+}
+
+.tag-chip.active{
+  background:linear-gradient(135deg, var(--primary), var(--primary-2));
+  color:#fff;
+  border-color:transparent;
+}
+
+.articles-list{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+}
+
+.article-card h3{
+  margin:0 0 12px;
+  color:var(--primary);
+}
+
+.article-card p{
+  margin:0 0 16px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.article-meta-row{
+  display:flex;
+  justify-content:flex-start;
+  margin-bottom:10px;
+}
+
+.article-date{
+  color:var(--muted);
+  font-size:.9rem;
+  font-weight:600;
+}
+
+.article-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:16px;
+}
+
+.article-tag{
+  background:var(--gold-soft);
+  color:var(--primary);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:700;
+}
+
+@media (max-width: 900px){
+  .articles-list{
+    grid-template-columns:1fr;
+  }
+
+  .articles-toolbar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+}
+
+/* =========================================================
+   13) SINGLE ARTICLE PAGE
+   تنسيقات صفحة المقال المفرد
+   ========================================================= */
+
+.article-loading,
+.article-error-state{
+  text-align:center;
+}
+
+.article-loading h2,
+.article-error-state h2{
+  margin-top:0;
+  color:var(--primary);
+}
+
+.article-loading p,
+.article-error-state p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:18px;
+}
+
+.article-full{
+  padding:32px;
+}
+
+.article-full-top{
+  margin-bottom:18px;
+}
+
+.back-link{
+  color:var(--gold-2);
+  font-weight:700;
+}
+
+.article-full-header{
+  margin-bottom:28px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+}
+
+.article-full-header h1{
+  margin:0 0 14px;
+  color:var(--primary);
+  font-size:clamp(1.8rem, 3vw, 2.6rem);
+  line-height:1.4;
+}
+
+.article-full-excerpt{
+  margin:0 0 16px;
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.9;
+}
+
+.article-full-meta{
+  margin-bottom:14px;
+}
+
+.article-full-content{
+  display:grid;
+  gap:18px;
+}
+
+.article-full-content p{
+  margin:0;
+  color:var(--text);
+  line-height:2;
+  font-size:1.02rem;
+}
+
+/* تحسين عرض الفقرات التي تحتوي على strong */
+.article-full-content strong{
+  color:var(--primary);
+}
+
+@media (max-width: 700px){
+  .article-full{
+    padding:22px;
+  }
+}
+
+/* =========================================================
+   14) AI GUIDE PAGE
+   تنسيقات صفحة learn/ai.html
+   ========================================================= */
+
+/* =========================================================
+   شريط تقدم القراءة
+   نثبته على نافذة العرض مباشرة أسفل الهيدر
+   ========================================================= */
+.reading-progress{
+  position: fixed !important;
+top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  height: 4px;
+  width: 0;
+  background: linear-gradient(90deg, var(--gold), var(--primary));
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.ai-layout{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:24px;
+  align-items:start;
+  padding-top:36px;
+  padding-bottom:40px;
+}
+
+.ai-sidebar{
+  position:sticky;
+  top:100px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  padding:20px;
+}
+
+.ai-sidebar h3{
+  margin-top:0;
+  margin-bottom:14px;
+  color:var(--primary);
+}
+
+.ai-toc-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+}
+
+.ai-toc-list a{
+  display:block;
+  color:var(--primary);
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:.95rem;
+  line-height:1.7;
+}
+
+.ai-toc-list a:hover,
+.ai-toc-list a.active{
+  background:var(--gold-soft);
+  border-color:var(--gold);
+}
+
+.ai-content{
+  background:transparent;
+}
+
+.ai-content .page-title{
+  margin:0 0 12px;
+  color:var(--primary);
+  font-size:clamp(2rem, 4vw, 3rem);
+  line-height:1.3;
+}
+
+.reading-meta{
+  margin-bottom:10px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.ai-content .page-subtitle{
+  margin:0 0 26px;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:1.05rem;
+}
+
+.ai-content section{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  padding:26px;
+  margin-bottom:18px;
+}
+
+.ai-content section h2{
+  margin-top:0;
+  color:var(--primary);
+}
+
+.ai-content section h3{
+  color:var(--primary);
+  margin-top:18px;
+  margin-bottom:10px;
+}
+
+.ai-content section p,
+.ai-content section li,
+.ai-content blockquote{
+  line-height:1.95;
+  color:var(--text);
+}
+
+.ai-content ul{
+  padding-right:20px;
+}
+
+.callout{
+  border-radius:14px;
+  padding:16px 18px;
+  margin:14px 0 18px;
+  line-height:1.9;
+}
+
+.callout.insight{
+  background:#eef4fb;
+  border-right:4px solid var(--primary);
+}
+
+.callout.strategy{
+  background:#faf4e4;
+  border-right:4px solid var(--gold);
+}
+
+.callout.warning{
+  background:#fff3f0;
+  border-right:4px solid #c75b39;
+}
+
+.faq-list{
+  display:grid;
+  gap:12px;
+}
+
+.faq-item{
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.faq-question{
+  width:100%;
+  border:none;
+  background:#fff;
+  padding:16px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  cursor:pointer;
+  font-weight:700;
+  color:var(--primary);
+  text-align:right;
+}
+
+.faq-answer{
+  padding:0 18px 18px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.ai-cta{
+  background:linear-gradient(135deg, #f9fbff, #f8f3e5);
+}
+
+.cta-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
+
+.cta-primary,
+.cta-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:180px;
+  padding:12px 18px;
+  border-radius:14px;
+  font-weight:700;
+}
+
+.cta-primary{
+  background:linear-gradient(135deg, var(--primary), var(--primary-2));
+  color:#fff;
+}
+
+.cta-secondary{
+  background:var(--gold-soft);
+  color:var(--primary);
+}
+
+@media (max-width: 1000px){
+  .ai-layout{
+    grid-template-columns:1fr;
+  }
+
+  .ai-sidebar{
+    position:static;
+  }
+}
+
+
+/* =========================================================
+   15) AI PROMPTS PAGE
+   تنسيقات صفحة learn/ai-prompts.html
+   ========================================================= */
+
+.prompts-toolbar{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.prompts-toolbar .search-input{
+  flex:1 1 320px;
+}
+
+.prompts-list{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+}
+
+.prompt-card{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.prompt-card-top{
+  display:flex;
+  justify-content:flex-start;
+}
+
+.prompt-card h3{
+  margin:0;
+  color:var(--primary);
+}
+
+.prompt-box{
+  background:#fbfbfd;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+}
+
+.prompt-box p{
+  margin:0;
+  color:var(--text);
+  line-height:2;
+  white-space:pre-wrap;
+}
+
+.prompt-actions{
+  display:flex;
+  justify-content:flex-start;
+}
+
+.prompt-copy-btn{
+  border:none;
+  cursor:pointer;
+}
+
+@media (max-width: 900px){
+  .prompts-list{
+    grid-template-columns:1fr;
+  }
+
+  .prompts-toolbar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+}
+
+/* =========================================================
+   16) SOFT SKILLS PAGE
+   تنسيقات صفحة learn/soft-skills.html
+   ========================================================= */
+
+.soft-inline-note{
+  margin-top:16px;
+  background:var(--gold-soft);
+  border-right:4px solid var(--gold);
+  border-radius:14px;
+  padding:14px 16px;
+  line-height:1.9;
+  color:var(--text);
+}
+
+.soft-accordion{
+  display:grid;
+  gap:16px;
+}
+
+.soft-group{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.soft-group summary{
+  list-style:none;
+  cursor:pointer;
+  padding:20px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  background:linear-gradient(135deg, #eef4fb, #f7f9fc);
+}
+
+/* رمز الأكورديون */
+.soft-group summary::after{
+  content:"+";
+  flex-shrink:0;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--gold-soft);
+  color:var(--primary);
+  font-weight:700;
+  font-size:1.1rem;
+  transition:.2s ease;
+}
+
+/* عند الفتح يتحول الرمز */
+.soft-group[open] summary::after{
+  content:"−";
+  background:var(--primary);
+  color:#fff;
+}
+
+.soft-group summary::-webkit-details-marker{
+  display:none;
+}
+
+.soft-summary-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.soft-group-title{
+  color:var(--primary);
+  font-size:1.15rem;
+  font-weight:700;
+}
+
+.soft-group-hint{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.soft-group-body{
+  border-top:1px solid var(--border);
+  padding:18px 22px 22px;
+  display:grid;
+  gap:14px;
+}
+
+.soft-skill-item{
+  background:#ffffff;
+  border:1px solid #e8ecf2;
+  border-radius:14px;
+  padding:16px 18px;
+}
+
+.soft-skill-item h3{
+  margin:0 0 8px;
+  color:var(--primary);
+  font-size:1rem;
+}
+
+.soft-skill-item p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+/* =========================================================
+   17) SOFT SKILLS LINKS
+   تنسيق روابط "المزيد" داخل صفحة المهارات الناعمة
+   ========================================================= */
+
+.soft-more-link{
+  display:inline-flex;
+  align-items:center;
+  margin-top:10px;
+  color:var(--gold-2);
+  font-weight:700;
+}
+
+.soft-more-link:hover{
+  color:var(--primary);
+}
+
+/* =========================================================
+   18) SOFT SKILL DETAIL PAGE
+   تنسيقات صفحة learn/soft-skill.html
+   ========================================================= */
+
+.soft-detail-page{
+  padding:32px;
+}
+
+.soft-detail-section{
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid var(--border);
+}
+
+.soft-detail-section:first-of-type{
+  margin-top:0;
+  padding-top:0;
+  border-top:none;
+}
+
+.soft-detail-section h2{
+  margin:0 0 12px;
+  color:var(--primary);
+  font-size:1.2rem;
+}
+
+.soft-detail-section p{
+  margin:0;
+  color:var(--text);
+  line-height:2;
+}
+
+.soft-detail-list{
+  margin:12px 0 0;
+  padding-right:22px;
+  color:var(--text);
+}
+
+.soft-detail-list li{
+  margin-bottom:10px;
+  line-height:1.9;
+}
+
+/* =========================================================
+   19) LEARN PAGE IMPROVEMENTS
+   تحسينات صفحة learn.html
+   ========================================================= */
+
+.learn-hero{
+  padding-bottom: 18px;
+}
+
+.learn-hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.learn-start-card{
+  padding:28px;
+}
+
+.learn-start-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:16px;
+  margin-top:18px;
+}
+
+.learn-start-item{
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+}
+
+.learn-start-item h3{
+  margin:0 0 8px;
+  color:var(--primary);
+  font-size:1rem;
+}
+
+.learn-start-item p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.learn-paths-grid{
+  grid-template-columns:repeat(2, 1fr);
+}
+
+.learn-path-card{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.learn-feature-list{
+  margin:0;
+  padding-right:20px;
+  color:var(--text);
+}
+
+.learn-feature-list li{
+  margin-bottom:8px;
+  line-height:1.8;
+}
+
+.learning-journey-card{
+  padding:28px;
+}
+
+.learning-journey-card h2{
+  margin-top:0;
+  color:var(--primary);
+}
+
+.learning-journey-steps{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:16px;
+  margin-top:18px;
+}
+
+.journey-step{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+}
+
+.journey-number{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg, var(--primary), var(--gold));
+  color:#fff;
+  font-weight:700;
+  flex-shrink:0;
+}
+
+.journey-step h3{
+  margin:0 0 6px;
+  color:var(--primary);
+  font-size:1rem;
+}
+
+.journey-step p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+@media (max-width: 900px){
+  .learn-start-grid,
+  .learn-paths-grid,
+  .learning-journey-steps{
+    grid-template-columns:1fr;
+  }
+}

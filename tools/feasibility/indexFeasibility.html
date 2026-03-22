@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!--
+    =========================================================
+    FILE: tools/feasibility/index.html
+    PURPOSE:
+    أداة دراسة جدوى المشاريع داخل منصة ConsuTrain.
+
+    MAIN GOAL:
+    - الحفاظ على وظائف الأداة الحالية
+    - توحيد الصفحة مع نظام الموقع العام
+    - استخدام الهيدر والفوتر المشتركين
+    - دعم التنقل إلى الرئيسية وبقية الصفحات
+    =========================================================
+  -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نموذج دراسة جدوى المشاريع | ConsuTrain</title>
+
+  <!-- CSS الموقع العام -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <!-- CSS الأداة -->
+  <link rel="stylesheet" href="./feasibility.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml,
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="%230f2747"/>
+          <stop offset="1" stop-color="%23d4a63a"/>
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="14" fill="url(%23g)"/>
+      <text x="50%" y="54%" font-size="16" text-anchor="middle"
+            fill="white" font-family="Arial" font-weight="700">CT</text>
+    </svg>'>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body data-root="../..">
+  <!-- =====================================================
+       HEADER PLACEHOLDER
+       يتم تحميل الهيدر العام هنا
+       ===================================================== -->
+  <div id="header-placeholder"></div>
+
+  <!-- =====================================================
+       TOOL PAGE WRAPPER
+       ===================================================== -->
+  <main class="tool-page">
+    <!-- عنوان الأداة -->
+    <section class="page-hero tool-page-hero">
+      <div class="container">
+        <span class="eyebrow">أداة عملية</span>
+        <h1>نموذج أسئلة المشاريع (دراسة جدوى)</h1>
+        <p>
+          أداة تساعد على جمع بيانات المشروع، وتنظيم الأسئلة، وتقدير الإيرادات
+          والتكاليف، وتكوين ملخص مالي أولي يدعم دراسة الجدوى.
+        </p>
+      </div>
+    </section>
+
+    <!-- شريط أدوات الأداة -->
+    <div class="tool-wrap tool-feasibility">
+      <header class="topbar">
+        <div class="brand">
+          <h2>لوحة العمل</h2>
+          <p class="saved" id="saveStatus">آخر حفظ: —</p>
+        </div>
+
+        <div class="actions">
+          <button id="btnSave" class="btn">حفظ الآن</button>
+          <button id="btnImport" class="btn btn-soft">استيراد JSON</button>
+          <input type="file" id="importFile" accept="application/json" hidden />
+          <button id="btnExportJson" class="btn btn-soft">تصدير JSON</button>
+          <button id="btnExportDoc" class="btn btn-soft">تصدير Word</button>
+          <button id="btnExportPdf" class="btn btn-soft">تصدير PDF</button>
+          <button id="btnClear" class="btn btn-danger">مسح البيانات</button>
+        </div>
+      </header>
+
+      <!-- التخطيط الرئيسي للأداة -->
+      <main class="layout">
+        <aside class="sidebar">
+          <div class="sidebar-head">
+            <h2>الأقسام</h2>
+            <input id="searchBox" type="text" placeholder="بحث في الأسئلة..." />
+          </div>
+          <ul id="navSections"></ul>
+        </aside>
+
+        <section class="content">
+          <!-- الأقسام والأسئلة تبنى تلقائيًا -->
+          <div id="formContainer"></div>
+
+          <hr class="sep" />
+
+          <!-- الإيرادات -->
+          <section class="card" id="revenues">
+            <div class="card-head">
+              <h2>الإيرادات</h2>
+              <p class="hint">أضف منتجات/خدمات واحصل على الإجماليات تلقائياً.</p>
+            </div>
+
+            <div class="table-wrap">
+              <table class="grid" id="revTable">
+                <thead>
+                  <tr>
+                    <th>المنتج / الخدمة</th>
+                    <th>الوحدة</th>
+                    <th>الكمية الشهرية</th>
+                    <th>قيمة الوحدة</th>
+                    <th>إيراد شهري</th>
+                    <th>إيراد سنوي</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="4" class="right"><strong>الإجمالي</strong></td>
+                    <td id="revTotalMonthly">0</td>
+                    <td id="revTotalYearly">0</td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="row">
+              <button class="btn" id="addRevRow">+ إضافة صف</button>
+            </div>
+          </section>
+
+          <!-- التكاليف -->
+          <section class="card" id="costs">
+            <div class="card-head">
+              <h2>التكاليف</h2>
+              <p class="hint">أضف بنود التكاليف وسيتم احتساب الإجمالي تلقائياً.</p>
+            </div>
+
+            <div class="table-wrap">
+              <table class="grid" id="costTable">
+                <thead>
+                  <tr>
+                    <th>البند</th>
+                    <th>الوحدة</th>
+                    <th>الكمية الشهرية</th>
+                    <th>تكلفة الوحدة</th>
+                    <th>تكلفة شهرية</th>
+                    <th>تكلفة سنوية</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="4" class="right"><strong>الإجمالي</strong></td>
+                    <td id="costTotalMonthly">0</td>
+                    <td id="costTotalYearly">0</td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="row">
+              <button class="btn" id="addCostRow">+ إضافة صف</button>
+            </div>
+          </section>
+
+          <!-- الملخص المالي -->
+          <section class="card summary" id="summaryCard">
+            <h2>ملخص مالي سريع (تقديري)</h2>
+            <div class="summary-grid">
+              <div class="sum-box">
+                <div class="k">إيرادات شهرية</div>
+                <div class="v" id="sumRevM">0</div>
+              </div>
+              <div class="sum-box">
+                <div class="k">إيرادات سنوية</div>
+                <div class="v" id="sumRevY">0</div>
+              </div>
+              <div class="sum-box">
+                <div class="k">تكاليف شهرية</div>
+                <div class="v" id="sumCostM">0</div>
+              </div>
+              <div class="sum-box">
+                <div class="k">تكاليف سنوية</div>
+                <div class="v" id="sumCostY">0</div>
+              </div>
+              <div class="sum-box highlight">
+                <div class="k">صافي شهري</div>
+                <div class="v" id="sumNetM">0</div>
+              </div>
+              <div class="sum-box highlight">
+                <div class="k">صافي سنوي</div>
+                <div class="v" id="sumNetY">0</div>
+              </div>
+            </div>
+            <p class="hint">* الصافي = الإيرادات − التكاليف (تقدير أولي بناءً على إدخالاتك).</p>
+          </section>
+        </section>
+      </main>
+    </div>
+  </main>
+
+  <!-- =====================================================
+       REPORT SECTION
+       قسم التقرير للطباعة والتصدير
+       ===================================================== -->
+  <section id="report" class="report">
+    <div class="report-header">
+      <div class="report-title">
+        <h1 id="reportTitle">تقرير دراسة جدوى شامل</h1>
+        <div class="report-meta">
+          <span id="reportProjectName"></span>
+          <span id="reportDate"></span>
+        </div>
+      </div>
+      <div class="report-badge">
+        <div class="badge-line">Generated</div>
+        <div class="badge-line">from Web Form</div>
+      </div>
+    </div>
+
+    <div id="reportBody"></div>
+
+    <div class="report-footer">
+      <small>هذا التقرير تم توليده تلقائياً من نموذج الأسئلة + جداول الإيرادات والتكاليف.</small>
+    </div>
+  </section>
+
+  <!-- الفوتر المشترك -->
+  <div id="footer-placeholder"></div>
+
+  <!-- includes.js مسؤول عن الهيدر والفوتر -->
+  <script src="../../assets/js/includes.js"></script>
+
+  <!-- منطق الأداة -->
+  <script src="feasibility.js"></script>
+</body>
+</html>

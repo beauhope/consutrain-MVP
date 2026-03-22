@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!--
+    =========================================================
+    FILE: learn/glossary.html
+    PURPOSE:
+    صفحة القاموس الإداري ضمن قسم التعلّم.
+
+    WHAT THIS PAGE DOES:
+    - تحميل المصطلحات من ملف JSON
+    - عرضها ديناميكيًا داخل الصفحة
+    - توفير بحث حي
+    - إظهار عدد النتائج
+    - السماح بنسخ المصطلح أو التعريف
+
+    IMPORTANT:
+    هذه الصفحة داخل مجلد learn/
+    لذلك:
+    - data-root=".."
+    - ملفات CSS وJS تبدأ بـ ../
+    =========================================================
+  -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>القاموس الإداري | ConsuTrain</title>
+  <meta
+    name="description"
+    content="اكتشف مجموعة من المصطلحات الإدارية الأساسية داخل القاموس الإداري في منصة ConsuTrain."
+  >
+
+  <!-- ملف التنسيق العام -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Favicon المنصة -->
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml,
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="%230f2747"/>
+          <stop offset="1" stop-color="%23d4a63a"/>
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="14" fill="url(%23g)"/>
+      <text x="50%" y="54%" font-size="16" text-anchor="middle"
+            fill="white" font-family="Arial" font-weight="700">CT</text>
+    </svg>'>
+</head>
+
+<body data-root="..">
+  <!-- الهيدر المشترك -->
+  <div id="header-placeholder"></div>
+
+  <main class="inner-page">
+    <!-- مقدمة الصفحة -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">القاموس الإداري</span>
+        <h1>مصطلحات تساعدك على فهم اللغة الإدارية بشكل أوضح</h1>
+        <p>
+          يضم هذا القاموس مجموعة من المصطلحات المستخدمة في الإدارة والأعمال،
+          بهدف تسهيل الفهم وتوفير مرجع مبسط للمهتمين بالتعلم والعمل المهني.
+        </p>
+      </div>
+    </section>
+
+    <!-- أدوات البحث والنتائج -->
+    <section class="home-section">
+      <div class="container">
+        <div class="section-card glossary-search-box">
+          <h2>ابحث في القاموس</h2>
+          <p class="section-intro">
+            اكتب كلمة أو جزءًا من مصطلح للعثور على النتائج المناسبة بسرعة.
+          </p>
+
+          <div class="glossary-toolbar">
+            <input
+              id="glossarySearch"
+              class="search-input"
+              type="text"
+              placeholder="مثال: استراتيجية، إجراء، حوكمة..."
+              aria-label="البحث في القاموس الإداري"
+            >
+
+            <button id="glossaryResetBtn" class="btn btn-secondary glossary-action-btn" type="button">
+              إعادة الضبط
+            </button>
+          </div>
+
+          <div class="glossary-meta">
+            <span id="glossaryCount">جاري تحميل المصطلحات...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قائمة النتائج -->
+    <section class="home-section">
+      <div class="container">
+        <div class="glossary-list" id="glossaryList">
+          <!-- سيتم حقن البطاقات هنا عبر JavaScript -->
+        </div>
+
+        <!-- رسالة في حالة عدم وجود نتائج -->
+        <div id="glossaryEmptyState" class="section-card glossary-empty" hidden>
+          <h3>لا توجد نتائج مطابقة</h3>
+          <p>جرّب كلمة أخرى أو أعد ضبط البحث لعرض جميع المصطلحات.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- زر العودة للأعلى -->
+  <button id="backToTopBtn" class="back-to-top" type="button" aria-label="العودة إلى الأعلى">
+    ↑
+  </button>
+
+  <!-- الفوتر المشترك -->
+  <div id="footer-placeholder"></div>
+
+  <!-- ملف تحميل الأجزاء المشتركة -->
+  <script src="../assets/js/includes.js"></script>
+
+  <!-- ملف منطق القاموس -->
+  <script src="../assets/js/glossary.js"></script>
+</body>
+</html>
