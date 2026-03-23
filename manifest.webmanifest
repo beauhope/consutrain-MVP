@@ -1,7 +1,7 @@
 {
-  "name": "ConsuTrain Hub",
+  "name": "ConsuTrain",
   "short_name": "ConsuTrain",
-  "description": "منصة تجمع بين التعلم، الأدوات، والخدمات الإدارية في تجربة سريعة وقابلة للتثبيت.",
+  "description": "منصة للتعلّم والأدوات والخدمات الإدارية",
   "lang": "ar",
   "dir": "rtl",
   "start_url": "./index.html",
@@ -10,7 +10,6 @@
   "orientation": "portrait-primary",
   "background_color": "#f7f9fc",
   "theme_color": "#0f2747",
-  "categories": ["business", "education", "productivity"],
   "icons": [
     {
       "src": "./assets/icons/icon-192.png",
