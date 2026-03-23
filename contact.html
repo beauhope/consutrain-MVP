@@ -5,11 +5,7 @@
     =========================================================
     FILE: contact.html
     PURPOSE:
-    صفحة التواصل داخل المنصة.
-
-    الهدف:
-    - منح الزائر وسيلة واضحة للتواصل
-    - تمهيد لاحق لإضافة نموذج تواصل حقيقي أو دمجه بخدمة خارجية
+    صفحة التواصل داخل منصة ConsuTrain
     =========================================================
   -->
   <meta charset="utf-8">
@@ -18,7 +14,7 @@
   <title>تواصل | ConsuTrain</title>
   <meta
     name="description"
-    content="تواصل مع منصة ConsuTrain للاستفسارات والخدمات المهنية والتعاون."
+    content="تواصل مع ConsuTrain للاستفسارات والخدمات المهنية والتعاون وطلبات التطوير."
   >
 
   <link rel="stylesheet" href="assets/css/style.css">
@@ -27,51 +23,234 @@
 <body data-root=".">
   <div id="header-placeholder"></div>
 
-  <main class="inner-page">
-    <section class="page-hero">
+  <main class="inner-page contact-page">
+    <!-- HERO -->
+    <section class="page-hero contact-hero">
       <div class="container">
         <span class="eyebrow">تواصل معنا</span>
-        <h1>يسعدنا استقبال استفساراتك وطلباتك</h1>
+        <h1>لنبدأ الحديث حول احتياجك المهني</h1>
         <p>
-          يمكنك استخدام هذه الصفحة كمدخل للتواصل حول الخدمات، أو الاستفسار عن
-          المحتوى، أو مناقشة فكرة مشروع أو تعاون مهني.
+          إذا كنت تبحث عن خدمة إدارية، أو ترغب في مناقشة فكرة مشروع، أو تحتاج
+          إلى استشارة أولية، فهذه الصفحة هي المدخل المناسب لبدء التواصل بصورة
+          واضحة ومنظمة.
         </p>
+
+        <div class="contact-hero-actions">
+          <a class="btn btn-primary" href="#contact-options">ابدأ من هنا</a>
+          <a class="btn btn-outline" href="services.html">استعرض الخدمات أولًا</a>
+        </div>
       </div>
     </section>
 
+    <!-- INTRO CARDS -->
     <section class="home-section">
       <div class="container">
-        <div class="cards-grid">
-          <article class="section-card">
-            <h3>طلب خدمة</h3>
+        <div class="section-head contact-head">
+          <span class="section-kicker">كيف يمكننا مساعدتك</span>
+          <h2>صفحة واحدة لعدة أنواع من التواصل</h2>
+          <p>
+            تم تصميم هذه الصفحة لتكون مدخلًا واضحًا وسهلًا لكل من يرغب في طلب
+            خدمة، أو الاستفسار عن مجال معين، أو فتح باب تعاون مهني منظم.
+          </p>
+        </div>
+
+        <div class="cards-grid contact-top-grid" id="contact-options">
+          <article class="section-card contact-card">
+            <h3>طلب خدمة مهنية</h3>
             <p>
-              إذا كنت تبحث عن خدمة مهنية في الإدارة أو التخطيط أو الأنظمة
-              الإدارية أو التدريب، فيمكنك استخدام هذه الصفحة كنقطة بداية للتواصل.
+              إذا كنت تمثل جهة، أو تدير مشروعًا، أو تحتاج إلى دعم في مجال
+              إداري أو تخطيطي أو تطويري، فيمكن بدء التواصل من هنا لعرض الاحتياج
+              وتحديد المسار المناسب.
             </p>
           </article>
 
-          <article class="section-card">
-            <h3>استفسار عام</h3>
+          <article class="section-card contact-card">
+            <h3>استفسار أو سؤال عام</h3>
             <p>
-              في حال كان لديك سؤال عن المنصة أو أحد الأقسام أو الأدوات، يمكنك
-              تخصيص هذه الصفحة لاحقًا لإضافة البريد الإلكتروني أو نموذج التواصل.
+              إذا كان لديك سؤال حول المنصة، أو أحد الأقسام، أو طبيعة الخدمات،
+              أو طريقة الاستفادة من المحتوى والأدوات، فيمكنك استخدام هذه الصفحة
+              كنقطة بداية مناسبة.
             </p>
           </article>
 
-          <article class="section-card">
-            <h3>قنوات التواصل</h3>
+          <article class="section-card contact-card">
+            <h3>تعاون أو شراكة</h3>
             <p>
-              سيتم في المرحلة التالية إضافة وسائل تواصل مباشرة مثل البريد
-              الإلكتروني أو رابط واتساب أو نموذج مراسلة من داخل الموقع.
+              في حال وجود فكرة تعاون، أو مبادرة مشتركة، أو رغبة في تنسيق عمل
+              تدريبي أو استشاري، فهذه الصفحة مناسبة لفتح التواصل الأولي بصورة
+              مهنية وواضحة.
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT JOURNEY -->
+    <section class="home-section contact-section-soft">
+      <div class="container">
+        <div class="section-head contact-head">
+          <span class="section-kicker">آلية التواصل</span>
+          <h2>كيف تسير الخطوات بعد بدء التواصل</h2>
+          <p>
+            نحرص على أن تكون بداية التواصل واضحة ومباشرة، حتى يتم فهم الاحتياج
+            بشكل جيد وتوجيهه إلى المسار الأنسب.
+          </p>
+        </div>
+
+        <div class="contact-journey">
+          <article class="journey-item">
+            <div class="journey-number">01</div>
+            <div class="journey-content">
+              <h3>عرض الاحتياج أو الفكرة</h3>
+              <p>
+                تبدأ الخطوة الأولى بتوضيح طبيعة الطلب، أو وصف التحدي، أو عرض
+                الفكرة التي ترغب في مناقشتها بصورة مختصرة وواضحة.
+              </p>
+            </div>
+          </article>
+
+          <article class="journey-item">
+            <div class="journey-number">02</div>
+            <div class="journey-content">
+              <h3>فهم المجال وتحديد المسار</h3>
+              <p>
+                بعد ذلك يتم النظر في طبيعة الطلب وتحديد ما إذا كان يندرج ضمن
+                خدمة قائمة، أو استشارة، أو دعم تطويري، أو تعاون مهني محتمل.
+              </p>
+            </div>
+          </article>
+
+          <article class="journey-item">
+            <div class="journey-number">03</div>
+            <div class="journey-content">
+              <h3>الرد الأولي والتوجيه</h3>
+              <p>
+                يتم تقديم رد أولي منظم يوضح الاتجاه المناسب، والخطوة التالية،
+                وما إذا كانت هناك حاجة إلى معلومات إضافية أو تنسيق لاحق.
+              </p>
+            </div>
+          </article>
+
+          <article class="journey-item">
+            <div class="journey-number">04</div>
+            <div class="journey-content">
+              <h3>الانتقال إلى المرحلة المناسبة</h3>
+              <p>
+                بعد وضوح الصورة، يتم الانتقال إلى مرحلة أكثر تحديدًا، سواء كانت
+                مناقشة خدمة، أو ترتيب تعاون، أو متابعة طلب مهني بصورة أوسع.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT TO INCLUDE -->
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head contact-head">
+          <span class="section-kicker">لتسريع التواصل</span>
+          <h2>ما الأفضل ذكره في الرسالة الأولى</h2>
+          <p>
+            كلما كانت الرسالة الأولى أوضح، أصبح فهم الاحتياج أسرع، وكانت
+            الاستجابة أكثر دقة وتنظيمًا.
+          </p>
+        </div>
+
+        <div class="cards-grid contact-info-grid">
+          <article class="section-card contact-info-card">
+            <h3>نوع الطلب</h3>
+            <p>
+              هل هو استفسار، أم طلب خدمة، أم تعاون، أم فكرة مشروع تحتاج إلى
+              مناقشة؟
+            </p>
+          </article>
+
+          <article class="section-card contact-info-card">
+            <h3>المجال</h3>
+            <p>
+              يفضّل توضيح المجال المرتبط بالطلب، مثل التخطيط، الإجراءات،
+              التطوير المؤسسي، التدريب، أو غير ذلك.
+            </p>
+          </article>
+
+          <article class="section-card contact-info-card">
+            <h3>الهدف المطلوب</h3>
+            <p>
+              ما النتيجة التي ترغب في الوصول إليها؟ كلما كان الهدف واضحًا كان
+              التوجيه أدق من البداية.
+            </p>
+          </article>
+
+          <article class="section-card contact-info-card">
+            <h3>الجهة أو الفئة المستفيدة</h3>
+            <p>
+              يساعد ذكر الجهة أو الفئة المستهدفة على فهم السياق المهني بصورة
+              أفضل.
+            </p>
+          </article>
+
+          <article class="section-card contact-info-card">
+            <h3>أي تفاصيل مساندة</h3>
+            <p>
+              يمكن إضافة أي معلومات مختصرة تساعد في تكوين صورة أولية أوضح عن
+              الموضوع.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="home-section">
+      <div class="container">
+        <div class="section-card contact-cta">
+          <span class="section-kicker">جاهزون للتواصل</span>
+          <h2>ابدأ بخطوة بسيطة وواضحة</h2>
+          <p>
+            سواء كان لديك طلب محدد، أو استفسار أولي، أو فكرة تحتاج إلى مناقشة،
+            فإن بداية التواصل الواضحة تساعد على الوصول إلى المسار الأنسب بصورة
+            أسرع وأكثر تنظيمًا.
+          </p>
+
+          <div class="contact-cta-actions">
+            <a class="btn btn-primary" href="services.html">العودة إلى الخدمات</a>
+            <a class="btn btn-outline" href="about.html">التعرف على المنصة</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <div id="footer-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
 
+    if (scrollTopBtn) {
+      const toggleScrollBtn = () => {
+        if (window.scrollY > 300) {
+          scrollTopBtn.classList.add("show");
+        } else {
+          scrollTopBtn.classList.remove("show");
+        }
+      };
+
+      window.addEventListener("scroll", toggleScrollBtn);
+      toggleScrollBtn();
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+  });
+</script>
   <script src="assets/js/includes.js"></script>
+   <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+  ↑
+</button>
 </body>
 </html>

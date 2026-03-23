@@ -187,6 +187,37 @@
     - تحميل الفوتر
     - تفعيل القائمة في الشاشات الصغيرة
   -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    if (scrollTopBtn) {
+      const toggleScrollBtn = () => {
+        if (window.scrollY > 300) {
+          scrollTopBtn.classList.add("show");
+        } else {
+          scrollTopBtn.classList.remove("show");
+        }
+      };
+
+      window.addEventListener("scroll", toggleScrollBtn);
+      toggleScrollBtn();
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+  });
+</script>
+<!-- ملف تحميل الأجزاء المشتركة -->
   <script src="assets/js/includes.js"></script>
+   <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+  ↑
+</button>
+  
+  
 </body>
 </html>

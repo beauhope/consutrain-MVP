@@ -66,6 +66,8 @@
         <div class="learn-hero-actions">
           <a class="btn btn-primary" href="learn/articles.html">ابدأ بالمقالات</a>
           <a class="btn btn-secondary" href="learn/glossary.html">استكشف القاموس</a>
+            <a class="btn btn-secondary" href="learn/topics.html">استكشف محاور التميز</a>
+
         </div>
       </div>
     </section>
@@ -226,6 +228,37 @@
   <!-- الفوتر المشترك -->
   <div id="footer-placeholder"></div>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    if (scrollTopBtn) {
+      const toggleScrollBtn = () => {
+        if (window.scrollY > 300) {
+          scrollTopBtn.classList.add("show");
+        } else {
+          scrollTopBtn.classList.remove("show");
+        }
+      };
+
+      window.addEventListener("scroll", toggleScrollBtn);
+      toggleScrollBtn();
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+  });
+</script>
+<!-- ملف تحميل الأجزاء المشتركة -->
   <script src="assets/js/includes.js"></script>
+   <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+  ↑
+</button>
+  
+  
 </body>
 </html>
