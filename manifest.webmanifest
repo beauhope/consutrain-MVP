@@ -1,4 +1,5 @@
 {
+  "id": "/consutrain-MVP/index.html",
   "name": "ConsuTrain",
   "short_name": "ConsuTrain",
   "description": "منصة للتعلّم والأدوات والخدمات الإدارية",
@@ -34,6 +35,21 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./assets/screenshots/screenshot-desktop-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "الواجهة الرئيسية لمنصة ConsuTrain على سطح المكتب"
+    },
+    {
+      "src": "./assets/screenshots/screenshot-mobile.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "label": "الواجهة الرئيسية لمنصة ConsuTrain على الهاتف"
     }
   ]
 }
