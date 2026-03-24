@@ -146,3 +146,30 @@ Examples:
 
 - Second-level subpage:
   `../../assets/js/includes.js`
+
+
+  ## 12. Breadcrumb data rule for internal pages
+
+Internal pages that use breadcrumbs must define the appropriate breadcrumb metadata on the `<body>` tag.
+
+### Required attributes:
+- `data-breadcrumb-section`
+- `data-breadcrumb-title`
+
+### Standard rules:
+- Any page inside `learn/` should use:
+  `<body data-root=".." data-breadcrumb-section="التعلّم" data-breadcrumb-title="عنوان الصفحة">`
+
+- Any page inside `services/` should use:
+  `<body data-root=".." data-breadcrumb-section="الخدمات" data-breadcrumb-title="عنوان الصفحة">`
+
+- Any page inside `tools/` at one folder level should use:
+  `<body data-root=".." data-breadcrumb-section="الأدوات" data-breadcrumb-title="عنوان الصفحة">`
+
+- Any page inside `tools/` at two folder levels should use:
+  `<body data-root="../.." data-breadcrumb-section="الأدوات" data-breadcrumb-title="عنوان الصفحة">`
+
+### Important:
+- `data-breadcrumb-title` must use the visitor-facing page title, not the file name.
+- Breadcrumb labels must remain clear, professional, and consistent with public page headings.
+- This rule should be applied to new internal pages unless there is a deliberate reason not to use breadcrumbs.
