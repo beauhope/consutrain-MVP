@@ -1,10 +1,20 @@
+<!--
+  =========================================================
+  FILE: partials/header.html
+  PURPOSE:
+  - الهيدر المشترك للمنصة
+  - قائمة رئيسية واضحة للزائر
+  - قوائم فرعية للشاشات الكبيرة
+  - أكورديون منظم للشاشات الصغيرة
+
+  IMPORTANT:
+  الروابط تستعمل __ROOT__ ليتم استبدالها لاحقًا عبر includes.js
+  =========================================================
+-->
 <header class="site-header">
   <div class="container header-wrap">
-    <!--
-      الشعار الرئيسي للمنصة
-      نستخدم __ROOT__ كقيمة مؤقتة سيتم استبدالها لاحقًا عبر JavaScript
-    -->
-    <a href="__ROOT__/index.html" class="brand">
+    <!-- الشعار الرئيسي للمنصة -->
+    <a href="__ROOT__/index.html" class="brand" aria-label="العودة إلى الصفحة الرئيسية">
       <span class="brand-mark">C</span>
       <div class="brand-text">
         <strong>ConsuTrain</strong>
@@ -12,25 +22,78 @@
       </div>
     </a>
 
-    <!-- زر القائمة للشاشات الصغيرة -->
-    <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة">☰</button>
+    <!-- زر فتح القائمة في الهاتف -->
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      type="button"
+      aria-label="فتح القائمة"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >☰</button>
 
     <!--
-      القائمة الرئيسية
-      جميع الروابط تستعمل __ROOT__ حتى تعمل من:
-      - الصفحات الرئيسية
-      - الصفحات داخل مجلدات فرعية
-      - التشغيل المحلي
-      - النشر لاحقًا
+      القائمة الرئيسية:
+      - desktop: dropdown menus
+      - mobile: accordion groups
     -->
-    <nav class="main-nav" id="mainNav">
-      <a href="__ROOT__/index.html">الرئيسية</a>
-      <a href="__ROOT__/learn.html">تعلّم</a>
-      <a href="__ROOT__/tools.html">الأدوات</a>
-      <a href="__ROOT__/services.html">الخدمات</a>
-      <a href="__ROOT__/expert.html">Project:Expert</a>
-      <a href="__ROOT__/about.html">عن المنصة</a>
-      <a href="__ROOT__/contact.html">تواصل</a>
+    <nav class="main-nav" id="mainNav" aria-label="التنقل الرئيسي">
+      <a class="nav-link nav-link--single" href="__ROOT__/index.html">الرئيسية</a>
+
+      <div class="nav-item has-submenu">
+        <a class="nav-link nav-link--parent" href="__ROOT__/learn.html">التعلّم</a>
+        <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="فتح قائمة التعلّم الفرعية">
+          <span>▾</span>
+        </button>
+        <div class="submenu" aria-label="روابط التعلّم">
+          <a href="__ROOT__/learn.html">نظرة عامة</a>
+          <a href="__ROOT__/learn/topics.html">محاور التميز</a>
+          <a href="__ROOT__/learn/articles.html">المقالات</a>
+          <a href="__ROOT__/learn/glossary.html">القاموس الإداري</a>
+          <a href="__ROOT__/learn/ai.html">الذكاء الاصطناعي</a>
+          <a href="__ROOT__/learn/ai-prompts.html">مكتبة Prompts</a>
+          <a href="__ROOT__/learn/soft-skills.html">المهارات الناعمة</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-submenu">
+        <a class="nav-link nav-link--parent" href="__ROOT__/tools.html">الأدوات</a>
+        <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="فتح قائمة الأدوات الفرعية">
+          <span>▾</span>
+        </button>
+        <div class="submenu" aria-label="روابط الأدوات">
+          <a href="__ROOT__/tools.html">نظرة عامة</a>
+          <a href="__ROOT__/tools/feasibility/indexFeasibility.html">أداة دراسة الجدوى</a>
+          <a href="__ROOT__/tools/mytodo/index.html">MyTodo</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-submenu">
+        <a class="nav-link nav-link--parent" href="__ROOT__/services.html">الخدمات</a>
+        <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="فتح قائمة الخدمات الفرعية">
+          <span>▾</span>
+        </button>
+        <div class="submenu" aria-label="روابط الخدمات">
+          <a href="__ROOT__/services.html">نظرة عامة</a>
+          <a href="__ROOT__/services/strategic-planning.html">التخطيط الاستراتيجي</a>
+          <a href="__ROOT__/services/feasibility-studies.html">دراسات الجدوى</a>
+          <a href="__ROOT__/services/iso-consulting.html">ISO Consulting</a>
+          <a href="__ROOT__/services/project-management.html">إدارة المشاريع</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-submenu nav-item--small">
+        <a class="nav-link nav-link--parent" href="__ROOT__/about.html">حول المنصة</a>
+        <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="فتح قائمة حول المنصة الفرعية">
+          <span>▾</span>
+        </button>
+        <div class="submenu" aria-label="روابط حول المنصة">
+          <a href="__ROOT__/about.html">من نحن</a>
+          <a href="__ROOT__/expert.html">الخبراء</a>
+        </div>
+      </div>
+
+      <a class="nav-link nav-link--single" href="__ROOT__/contact.html">تواصل معنا</a>
     </nav>
   </div>
 </header>
