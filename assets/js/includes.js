@@ -80,7 +80,7 @@ async function loadPartial(selector, filePath) {
   if (!target) return;
 
   try {
-    const version = "v=20260324_3";
+    const version = "v=20260324_4";
     const separator = filePath.includes("?") ? "&" : "?";
     const cacheSafePath = `${filePath}${separator}${version}`;
 
@@ -321,4 +321,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadPartial("#header-placeholder", `${partialsBase}/header.html`);
   loadPartial("#footer-placeholder", `${partialsBase}/footer.html`);
+  initBreadcrumbs();
 });
+
+/*
+  ---------------------------------------------------------
+  FUNCTION: initBreadcrumbs
+  PURPOSE:
+  إنشاء Breadcrumbs داخل الصفحات الداخلية اعتمادًا على:
+  - data-breadcrumb-section
+  - data-breadcrumb-title
+
+  EXAMPLE:
+  <body
+    data-root="."
+    data-breadcrumb-section="التعلّم"
+    data-breadcrumb-title="القاموس الإداري"
+  >
+  ---------------------------------------------------------
+*/
+function initBreadcrumbs() {
+  const container = document.getElementById("breadcrumbs-placeholder");
+  if (!container) return;
+
+  const root = getRootPath();
+  const section = document.body.dataset.breadcrumbSection;
+  const title = document.body.dataset.breadcrumbTitle;
+
+  if (!section || !title) return;
+
+  let sectionHref = null;
+
+  if (section === "التعلّم") {
+    sectionHref = `${root}/learn.html`;
+  } else if (section === "الأدوات") {
+    sectionHref = `${root}/tools.html`;
+  } else if (section === "الخدمات") {
+    sectionHref = `${root}/services.html`;
+  } else if (section === "حول المنصة") {
+    sectionHref = `${root}/about.html`;
+  }
+
+  const nav = document.createElement("nav");
+  nav.className = "breadcrumbs";
+  nav.setAttribute("aria-label", "مسار التنقل");
+
+  const list = document.createElement("ol");
+
+  const homeItem = document.createElement("li");
+  homeItem.innerHTML = `<a href="${root}/index.html">الرئيسية</a>`;
+  list.appendChild(homeItem);
+
+  if (section && sectionHref) {
+    const sectionItem = document.createElement("li");
+    sectionItem.innerHTML = `<a href="${sectionHref}">${section}</a>`;
+    list.appendChild(sectionItem);
+  }
+
+  const currentItem = document.createElement("li");
+  currentItem.innerHTML = `<span class="current">${title}</span>`;
+  list.appendChild(currentItem);
+
+  nav.appendChild(list);
+  container.innerHTML = "";
+  container.appendChild(nav);
+}
