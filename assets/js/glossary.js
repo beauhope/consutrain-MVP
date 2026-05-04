@@ -345,7 +345,7 @@ async function loadGlossaryData() {
   try {
     glossaryCount.textContent = "جاري تحميل المصطلحات...";
 
-    const response = await fetch("../assets/data/glossary.json");
+    const response = await fetch(`../assets/data/glossary.json?v=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) {
       throw new Error("Failed to load glossary.json");
     }

@@ -187,7 +187,7 @@ async function loadArticlesData() {
   try {
     articlesCount.textContent = "جاري تحميل المقالات...";
 
-    const response = await fetch("../assets/data/articles.json");
+    const response = await fetch(`../assets/data/articles.json?v=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) {
       throw new Error("Failed to load articles.json");
     }

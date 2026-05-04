@@ -5,28 +5,26 @@
     =========================================================
     FILE: learn/ai.html
     PURPOSE:
-    صفحة دليل الذكاء الاصطناعي داخل قسم التعلّم.
+    بوابة الذكاء الاصطناعي داخل قسم Learn.
 
-    SOURCE NOTE:
-    هذه الصفحة مبنية على ai-guide السابق، لكن تم تكييفها
-    مع مشروع ConsuTrain-MVP الحالي من حيث:
-    - نظام الهيدر والفوتر
-    - data-root
-    - المسارات النسبية
-    - أسلوب التعليقات والتنظيم
+    ROLE:
+    هذه الصفحة ليست الدليل الطويل، بل بوابة توجيهية تربط بين:
+    - ai-guide.html: المرجع التعليمي
+    - ai-prompts.html: مكتبة الـ Prompts
+    - articles.html: مقالات الذكاء الاصطناعي
     =========================================================
   -->
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>الذكاء الاصطناعي في الإدارة | ConsuTrain</title>
+  <title>بوابة الذكاء الاصطناعي | ConsuTrain</title>
   <meta
     name="description"
-    content="دليل عملي يوضح كيف يمكن توظيف الذكاء الاصطناعي في الإدارة والأعمال، مع أمثلة استخدام، أدوات، ومبادئ Prompt Engineering."
+    content="بوابة تعليمية وعملية لفهم الذكاء الاصطناعي في الإدارة، مع دليل شامل، مكتبة Prompts، ومقالات تطبيقية مرتبطة."
   >
 
-  <link rel="stylesheet" href="../assets/css/style.css?v=20260504_menu">
+  <link rel="stylesheet" href="../assets/css/style.css">
 
   <link rel="icon" type="image/svg+xml"
     href='data:image/svg+xml,
@@ -48,279 +46,184 @@
   data-breadcrumb-section="التعلّم"
   data-breadcrumb-title="الذكاء الاصطناعي"
 >
-  <!-- الهيدر المشترك -->
   <div id="header-placeholder"></div>
 
-  <div id="breadcrumbs-placeholder"></div>
+  <main class="inner-page ai-portal-page">
+    <section class="page-hero ai-portal-hero">
+      <div class="container ai-portal-hero__grid">
+        <div>
+          <span class="eyebrow">AI Portal</span>
+          <h1>الذكاء الاصطناعي في الإدارة والأعمال</h1>
+          <p>
+            بوابة تجمع بين الفهم النظري، الاستخدام العملي، والمقالات التطبيقية.
+            ابدأ من الدليل إذا كنت تريد بناء تصور واضح، أو انتقل مباشرة إلى
+            مكتبة الـ Prompts إذا كنت تريد أدوات جاهزة للاستخدام.
+          </p>
+          <div class="ai-portal-actions">
+            <a class="btn btn-primary" href="ai-guide.html">قراءة الدليل الشامل</a>
+            <a class="btn btn-secondary" href="ai-prompts.html">تصفح مكتبة الـ Prompts</a>
+          </div>
+        </div>
 
-  <!-- شريط تقدم القراءة -->
-  <div id="readingProgress" class="reading-progress"></div>
-
-  <main class="container ai-layout">
-    <!--
-      =======================================================
-      SIDEBAR / TABLE OF CONTENTS
-      فهرس المحتويات الجانبي
-      =======================================================
-    -->
-    <aside class="ai-sidebar">
-      <h3>فهرس المحتويات</h3>
-
-      <ul class="ai-toc-list">
-        <li><a href="#why-ai">1. لماذا الذكاء الاصطناعي مهم للإدارة؟</a></li>
-        <li><a href="#tools">2. أهم أدوات الذكاء الاصطناعي للأعمال</a></li>
-        <li><a href="#use-cases">3. حالات استخدام عملية</a></li>
-        <li><a href="#reliable-sources">4. مصادر معلومات موثوقة</a></li>
-        <li><a href="#learning">5. كيف تتعلم الذكاء الاصطناعي عمليًا؟</a></li>
-        <li><a href="#prompt">6. دليل Prompt Engineering</a></li>
-        <li><a href="#risks">7. مخاطر الاستخدام غير المنضبط</a></li>
-        <li><a href="#faq">8. الأسئلة الشائعة</a></li>
-      </ul>
-    </aside>
-
-    <!--
-      =======================================================
-      MAIN CONTENT
-      المحتوى الرئيسي للدليل
-      =======================================================
-    -->
-    <div class="ai-content">
-      <h1 class="page-title">توظيف الذكاء الاصطناعي في الإدارة والأعمال</h1>
-
-      <div class="reading-meta">
-        ⏱ وقت القراءة المتوقع: <span id="readingTime">...</span>
+        <div class="ai-portal-visual" aria-hidden="true">
+          <div class="ai-orbit ai-orbit--one">يفهم</div>
+          <div class="ai-orbit ai-orbit--two">يحلل</div>
+          <div class="ai-orbit ai-orbit--three">يدعم القرار</div>
+          <div class="ai-core">AI</div>
+        </div>
       </div>
+    </section>
 
-      <p class="page-subtitle">
-        دليل عملي يساعد المديرين ورواد الأعمال والمهتمين بالإدارة على فهم
-        الاستخدام الذكي للذكاء الاصطناعي داخل بيئة العمل.
-      </p>
-
-      <!-- 1 -->
-      <section id="why-ai">
-        <h2>1. لماذا الذكاء الاصطناعي مهم للإدارة؟</h2>
-
-        <div class="callout insight">
-          <strong>رؤية عملية:</strong><br>
-          الذكاء الاصطناعي ليس مجرد وسيلة لتوفير الوقت، بل أداة تساعد على
-          تحسين التحليل، وصناعة القرار، وجودة المخرجات إذا استُخدم بطريقة منهجية.
+    <section class="home-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">اختر مسارك</span>
+          <h2>ثلاثة مداخل لفهم واستخدام الذكاء الاصطناعي</h2>
+          <p>
+            تم تنظيم هذا القسم حتى لا يشعر الزائر بالتشتت. هناك مسار للتعلم،
+            ومسار للتطبيق، ومسار للقراءة السريعة عبر المقالات.
+          </p>
         </div>
 
-        <p>
-          أصبح الذكاء الاصطناعي جزءًا من بيئة الأعمال الحديثة، لأنه يساند
-          المديرين والفرق في مهام متعددة مثل:
-        </p>
+        <div class="ai-portal-cards">
+          <article class="ai-portal-card ai-portal-card--featured">
+            <span class="ai-card-kicker">مرجع تعليمي</span>
+            <h3>دليل الذكاء الاصطناعي في الإدارة</h3>
+            <p>
+              شرح منظم لكيف يمكن للمدير أو المستشار أو رائد الأعمال أن يستفيد
+              من الذكاء الاصطناعي في التحليل، التخطيط، التقارير، وصناعة القرار.
+            </p>
+            <ul>
+              <li>لماذا أصبح الذكاء الاصطناعي مهمًا؟</li>
+              <li>حالات استخدام عملية في الإدارة.</li>
+              <li>مخاطر الاستخدام غير المنضبط.</li>
+            </ul>
+            <a href="ai-guide.html" class="card-link">افتح الدليل</a>
+          </article>
 
-        <ul>
-          <li>اتخاذ القرار المبني على البيانات</li>
-          <li>تحليل السوق والمنافسين</li>
-          <li>إعداد دراسات الجدوى بسرعة أكبر</li>
-          <li>بناء الخطط التشغيلية والمقترحات</li>
-          <li>تقليل الوقت الضائع في الأعمال الروتينية</li>
-        </ul>
+          <article class="ai-portal-card">
+            <span class="ai-card-kicker">أداة عملية</span>
+            <h3>مكتبة الـ Prompts</h3>
+            <p>
+              أوامر جاهزة وقابلة للتعديل تساعدك في التخطيط الاستراتيجي،
+              دراسات الجدوى، إدارة المشاريع، التسويق، وتحسين النصوص الإدارية.
+            </p>
+            <a href="ai-prompts.html" class="card-link">تصفح الـ Prompts</a>
+          </article>
 
-        <p>
-          القيمة الحقيقية لا تكمن في الأداة وحدها، بل في اختيار الاستخدام
-          الصحيح داخل سياق العمل.
-        </p>
-      </section>
-
-      <!-- 2 -->
-      <section id="tools">
-        <h2>2. أهم أدوات الذكاء الاصطناعي للأعمال</h2>
-
-        <div class="callout strategy">
-          <strong>قاعدة مهمة:</strong><br>
-          لا تبحث عن عشر أدوات دفعة واحدة. اختر أداة مناسبة لكل وظيفة رئيسية،
-          وتعلّم استخدامها بإتقان.
+          <article class="ai-portal-card">
+            <span class="ai-card-kicker">مقالات تطبيقية</span>
+            <h3>مقالات الذكاء الاصطناعي</h3>
+            <p>
+              مقالات مبسطة مبنية على شروحات الفيديو، وتربط بين المفاهيم التقنية
+              والاستخدام الإداري العملي داخل المؤسسات.
+            </p>
+            <a href="articles.html?tag=الذكاء الاصطناعي" class="card-link">قراءة المقالات</a>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <ul>
-          <li>ChatGPT لصياغة المحتوى والتحليل والمساعدة في التفكير</li>
-          <li>Claude أو Gemini للمقارنة وتوسيع وجهات النظر</li>
-          <li>أدوات التلخيص والاجتماعات</li>
-          <li>أدوات إنشاء العروض والنصوص المهنية</li>
-          <li>أدوات تحليل البيانات والمحتوى</li>
-        </ul>
-
-        <p>
-          المهم هو بناء مجموعة استخدامات عملية تناسب طبيعة العمل الحقيقي داخل
-          المؤسسة أو المشروع.
-        </p>
-      </section>
-
-      <!-- 3 -->
-      <section id="use-cases">
-        <h2>3. حالات استخدام عملية</h2>
-
-        <h3>تحليل السوق</h3>
-        <ul>
-          <li>جمع مؤشرات أولية عن اتجاهات السوق</li>
-          <li>تلخيص المنافسين</li>
-          <li>صياغة أسئلة التحقق قبل دراسة الجدوى</li>
-        </ul>
-
-        <h3>الإدارة والتشغيل</h3>
-        <ul>
-          <li>تلخيص الاجتماعات إلى قرارات ومهام</li>
-          <li>إعداد مسودات مراسلات وتقارير</li>
-          <li>تحويل المعلومات إلى جداول عمل واضحة</li>
-        </ul>
-
-        <h3>ريادة الأعمال</h3>
-        <ul>
-          <li>صياغة الرؤية والرسالة</li>
-          <li>تحليل SWOT وPESTEL</li>
-          <li>إعداد نموذج أولي لـ Business Model Canvas</li>
-          <li>تجهيز عرض أولي للمشروع</li>
-        </ul>
-      </section>
-
-      <!-- 4 -->
-      <section id="reliable-sources">
-        <h2>4. مصادر معلومات موثوقة</h2>
-
-        <ul>
-          <li>تقارير McKinsey وBCG</li>
-          <li>Harvard Business Review</li>
-          <li>World Economic Forum</li>
-          <li>MIT Sloan Management Review</li>
-        </ul>
-
-        <p>
-          الذكاء الاصطناعي يساعدك في الفهم والبناء، لكنه ليس بديلًا عن
-          التحقق من المصادر الموثوقة عند الحاجة.
-        </p>
-      </section>
-
-      <!-- 5 -->
-      <section id="learning">
-        <h2>5. كيف تتعلم الذكاء الاصطناعي عمليًا؟</h2>
-
-        <ul>
-          <li>التجربة اليومية على حالات استخدام صغيرة</li>
-          <li>اختيار مشكلة واقعية من العمل وحلها تدريجيًا</li>
-          <li>تعلم صياغة الأوامر (Prompt Engineering)</li>
-          <li>تقييم المخرجات وتحسينها بدل قبولها مباشرة</li>
-        </ul>
-
-        <p>
-          أفضل طريقة للتعلم ليست كثرة القراءة فقط، بل تطبيقات صغيرة متكررة
-          على أعمال حقيقية.
-        </p>
-      </section>
-
-      <!-- 6 -->
-      <section id="prompt">
-        <h2>6. دليل Prompt Engineering للإدارة</h2>
-
-        <h3>القاعدة الأساسية</h3>
-        <ul>
-          <li>حدد السياق بوضوح</li>
-          <li>حدد الدور المطلوب من الأداة</li>
-          <li>حدد الهدف النهائي</li>
-          <li>حدد شكل الإخراج المطلوب</li>
-        </ul>
-
-        <h3>مثال عملي</h3>
-        <div class="callout strategy">
-          <strong>مثال Prompt:</strong>
-          <blockquote>
-            تصرف كمستشار دراسات جدوى. قم بتحليل فكرة مشروع في قطاع [المجال]
-            داخل [المدينة]، وقدم لي ملخصًا يتضمن: فرص السوق، أبرز المخاطر،
-            الفرضيات الأساسية، والتوصيات الأولية.
-          </blockquote>
-        </div>
-
-        <p>
-          الصياغة الجيدة تقلل العشوائية وترفع جودة النتيجة بشكل واضح.
-        </p>
-      </section>
-
-      <!-- 7 -->
-      <section id="risks">
-        <h2>7. مخاطر الاستخدام غير المنضبط</h2>
-
-        <div class="callout warning">
-          <strong>تنبيه:</strong><br>
-          لا تدخل بيانات حساسة أو مالية حقيقية في الأدوات العامة المفتوحة.
-        </div>
-
-        <ul>
-          <li>الاعتماد الكلي على المخرجات دون مراجعة</li>
-          <li>تسريب بيانات أو معلومات حساسة</li>
-          <li>قبول نتائج غير دقيقة أو غير مناسبة للسياق</li>
-          <li>ضعف التفكير النقدي إذا أصبح المستخدم مجرد ناقل</li>
-        </ul>
-      </section>
-
-      <!-- 8 -->
-      <section id="faq">
-        <h2>8. الأسئلة الشائعة حول الذكاء الاصطناعي في الإدارة</h2>
-
-        <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>هل يمكن الاعتماد على الذكاء الاصطناعي بالكامل في الإدارة؟</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              لا. الذكاء الاصطناعي أداة مساندة قوية، لكنه لا يغني عن التحقق
-              والمراجعة البشرية والفهم المهني للسياق.
-            </div>
+    <section class="home-section ai-learning-path-section">
+      <div class="container">
+        <div class="section-card ai-learning-path-card">
+          <div class="section-heading compact">
+            <span class="eyebrow">مسار مقترح</span>
+            <h2>من أين تبدأ؟</h2>
+            <p>
+              إذا كنت جديدًا في الموضوع، اتبع هذا الترتيب حتى تنتقل من الفهم
+              العام إلى التطبيق العملي دون قفزات مزعجة.
+            </p>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>ما أفضل بداية عملية للتعلم؟</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              اختر مهمة واحدة من عملك اليومي، وجرّب تحسينها باستخدام الذكاء
-              الاصطناعي خطوة بخطوة، ثم قارن النتيجة قبل وبعد.
-            </div>
-          </div>
+          <div class="ai-steps">
+            <a href="article.html?id=ai-introduction-non-specialists" class="ai-step">
+              <span>1</span>
+              <strong>افهم المفهوم العام</strong>
+              <small>ما هو الذكاء الاصطناعي؟</small>
+            </a>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>ما المهارة الأهم؟</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              صياغة الأوامر بوضوح، مع التفكير النقدي في تقييم النتائج، هما من
-              أهم المهارات العملية في هذه المرحلة.
-            </div>
+            <a href="article.html?id=ai-sense-machine" class="ai-step">
+              <span>2</span>
+              <strong>تعرف على طريقة عمله</strong>
+              <small>كيف تستشعر الآلة؟</small>
+            </a>
+
+            <a href="article.html?id=ai-vuca-business" class="ai-step">
+              <span>3</span>
+              <strong>اربطه ببيئة الأعمال</strong>
+              <small>الذكاء الاصطناعي في عالم VUCA</small>
+            </a>
+
+            <a href="ai-guide.html" class="ai-step">
+              <span>4</span>
+              <strong>انتقل إلى الدليل</strong>
+              <small>استخدامات الإدارة والأعمال</small>
+            </a>
+
+            <a href="ai-prompts.html" class="ai-step">
+              <span>5</span>
+              <strong>طبّق عمليًا</strong>
+              <small>استعمل Prompts جاهزة</small>
+            </a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- CTA -->
-      <section class="ai-cta">
-        <h2>هل تريد استخدام الذكاء الاصطناعي في عملك بشكل عملي؟</h2>
-
-        <p>
-          انتقل إلى مكتبة الـ Prompts لتجد أوامر جاهزة في التخطيط الاستراتيجي،
-          دراسات الجدوى، التسويق، إدارة المشاريع، وريادة الأعمال.
-        </p>
-
-        <div class="cta-buttons">
-          <a href="ai-prompts.html" class="cta-primary">تصفح مكتبة الـ Prompts</a>
-          <a href="articles.html" class="cta-secondary">العودة إلى المقالات</a>
+    <section class="home-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">مقالات مختارة</span>
+          <h2>ابدأ بهذه المقالات</h2>
+          <p>
+            هذه المقالات الثلاثة تشكل مدخلًا مناسبًا لفهم الذكاء الاصطناعي
+            من منظور إداري غير تقني.
+          </p>
         </div>
-      </section>
-    </div>
+
+        <div class="ai-featured-articles">
+          <article class="ai-article-mini">
+            <h3>ما هو الذكاء الاصطناعي؟</h3>
+            <p>مدخل مبسط يشرح الفكرة العامة بعيدًا عن التعقيد التقني.</p>
+            <a href="article.html?id=ai-introduction-non-specialists">قراءة المقال</a>
+          </article>
+
+          <article class="ai-article-mini">
+            <h3>كيف تستشعر الآلة؟</h3>
+            <p>شرح مبسط لفكرة AI Sense وربطها بالصور والصوت والنص.</p>
+            <a href="article.html?id=ai-sense-machine">قراءة المقال</a>
+          </article>
+
+          <article class="ai-article-mini">
+            <h3>الذكاء الاصطناعي في عالم VUCA</h3>
+            <p>لماذا تحتاج المؤسسات إلى فهم الذكاء الاصطناعي في بيئة متقلبة؟</p>
+            <a href="article.html?id=ai-vuca-business">قراءة المقال</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-card ai-portal-cta">
+          <h2>هل تريد تحويل الذكاء الاصطناعي إلى ممارسة يومية؟</h2>
+          <p>
+            ابدأ بمهمة واحدة من عملك اليومي، ثم استخدم أحد الـ Prompts الجاهزة،
+            وراجع النتيجة بعين مهنية قبل اعتمادها.
+          </p>
+          <div class="cta-buttons">
+            <a href="ai-prompts.html" class="cta-primary">ابدأ من مكتبة الـ Prompts</a>
+            <a href="glossary.html?q=الذكاء الاصطناعي" class="cta-secondary">شرح المصطلح في القاموس</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- زر العودة للأعلى -->
-  <button id="aiScrollTopBtn" aria-label="العودة للأعلى" class="back-to-top" type="button">↑</button>
-
-  <!-- الفوتر المشترك -->
   <div id="footer-placeholder"></div>
 
-  <!-- الأجزاء المشتركة -->
-  <script src="../assets/js/includes.js?v=20260504_menu"></script>
-
-  <!-- منطق صفحة الذكاء الاصطناعي -->
-  <script src="../assets/js/ai-page.js"></script>
+  <script src="../assets/js/includes.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
