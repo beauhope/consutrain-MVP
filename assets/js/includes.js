@@ -372,7 +372,7 @@ function initBreadcrumbs() {
   homeItem.innerHTML = `<a href="${root}/index.html">الرئيسية</a>`;
   list.appendChild(homeItem);
 
-  if (section && sectionHref) {
+  if (section && sectionHref && section !== title) {
     const sectionItem = document.createElement("li");
     sectionItem.innerHTML = `<a href="${sectionHref}">${section}</a>`;
     list.appendChild(sectionItem);
