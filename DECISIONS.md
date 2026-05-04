@@ -129,3 +129,9 @@ tools/mytodo/sw.js
 - تحسين اختبار PWA والكاش.
 
 Status: Approved
+
+## Learn – Main Learning Portal Enhancement
+
+تم تحسين صفحة learn.html لتصبح بوابة رئيسية واضحة لقسم التعلّم داخل ConsuTrain، مع إبراز مسارات القاموس الإداري، المقالات، محاور التميز، الذكاء الاصطناعي، والمهارات الناعمة. كما تم تحسين قسم "من أين تبدأ؟" وربط المحتوى التعليمي ببقية أقسام المنصة.
+
+Status: Approved after local and GitHub testing.
