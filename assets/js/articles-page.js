@@ -63,6 +63,7 @@ function buildArticleCard(article) {
   const excerpt = escapeHtml(article.excerpt || "");
   const date = formatArabicDate(article.date || "");
   const id = encodeURIComponent(article.id || "");
+  const hasVideo = Boolean(article.video_url || article.videoUrl);
 
   const tagsHtml = (article.tags || [])
     .map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`)
@@ -72,6 +73,7 @@ function buildArticleCard(article) {
     <article class="section-card article-card">
       <div class="article-meta-row">
         <span class="article-date">${date}</span>
+        ${hasVideo ? `<span class="article-media-badge">يتضمن فيديو</span>` : ""}
       </div>
 
       <h3>${title}</h3>
@@ -133,12 +135,14 @@ function applyFilters() {
     const title = (article.title || "").toLowerCase();
     const excerpt = (article.excerpt || "").toLowerCase();
     const tags = (article.tags || []).join(" ").toLowerCase();
+    const relatedTerms = (article.related_terms || article.relatedTerms || []).join(" ").toLowerCase();
 
     const matchesQuery =
       !query ||
       title.includes(query) ||
       excerpt.includes(query) ||
-      tags.includes(query);
+      tags.includes(query) ||
+      relatedTerms.includes(query);
 
     const matchesTag =
       !activeTag ||
@@ -201,7 +205,9 @@ async function loadArticlesData() {
       excerpt: article.excerpt || "",
       date: article.date || "",
       tags: Array.isArray(article.tags) ? article.tags : [],
-      content: Array.isArray(article.content) ? article.content : []
+      content: Array.isArray(article.content) ? article.content : [],
+      video_url: article.video_url || article.videoUrl || "",
+      related_terms: Array.isArray(article.related_terms) ? article.related_terms : []
     }));
 
     filteredArticles = [...articlesData];

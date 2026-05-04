@@ -62,20 +62,76 @@ function getArticleIdFromUrl() {
 /* =========================================================
    3) BUILD ARTICLE HTML
    ========================================================= */
-function buildArticleHtml(article) {
+function buildArticleHtml(article, allArticles = []) {
   const title = escapeHtml(article.title || "");
   const excerpt = escapeHtml(article.excerpt || "");
   const date = formatArabicDate(article.date || "");
+  const imageUrl = article.image_url || article.imageUrl || "";
+  const imageAlt = escapeHtml(article.image_alt || article.imageAlt || title);
+  const videoTitle = escapeHtml(article.video_title || article.videoTitle || "شرح الفيديو المرتبط بالمقال");
+  const videoUrl = article.video_url || article.videoUrl || "";
 
   const tagsHtml = (article.tags || [])
     .map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`)
     .join("");
 
+  const imageHtml = imageUrl
+    ? `<figure class="article-visual">
+        <img src="${escapeHtml(imageUrl)}" alt="${imageAlt}" loading="lazy">
+      </figure>`
+    : "";
+
+  const videoHtml = videoUrl
+    ? `<section class="article-extra-card article-video-card">
+        <div>
+          <span class="article-extra-label">فيديو مرتبط</span>
+          <h2>شاهد الشرح بالفيديو</h2>
+          <p>لفهم الموضوع بصورة أوضح، يمكنك مشاهدة الفيديو المرتبط بهذا المقال.</p>
+          <p class="article-video-title">${videoTitle}</p>
+        </div>
+        <a class="btn btn-primary" href="${escapeHtml(videoUrl)}" target="_blank" rel="noopener">
+          شاهد الشرح بالفيديو
+        </a>
+      </section>`
+    : "";
+
+  const relatedTermsHtml = (article.related_terms || article.relatedTerms || []).length
+    ? `<section class="article-extra-card">
+        <span class="article-extra-label">مصطلحات تساعدك على الفهم</span>
+        <div class="article-related-chips">
+          ${(article.related_terms || article.relatedTerms || []).map(term => {
+            const label = typeof term === "string" ? term : (term.label || term.term || "");
+            const query = typeof term === "string" ? term : (term.query || label);
+            return `<a class="article-related-chip" href="glossary.html?q=${encodeURIComponent(query)}">${escapeHtml(label)}</a>`;
+          }).join("")}
+        </div>
+      </section>`
+    : "";
+
+  const relatedIds = article.related_articles || article.relatedArticles || [];
+  const relatedArticles = relatedIds
+    .map(id => allArticles.find(item => item.id === id))
+    .filter(Boolean);
+
+  const relatedArticlesHtml = relatedArticles.length
+    ? `<section class="article-extra-card">
+        <span class="article-extra-label">مقالات مرتبطة</span>
+        <div class="article-related-list">
+          ${relatedArticles.map(item => `
+            <a class="article-related-item" href="article.html?id=${encodeURIComponent(item.id)}">
+              <strong>${escapeHtml(item.title || "")}</strong>
+              <span>${escapeHtml(item.excerpt || "")}</span>
+            </a>
+          `).join("")}
+        </div>
+      </section>`
+    : "";
+
   /*
     NOTE:
     content في ملف JSON عبارة عن مصفوفة فقرات.
-    بعض الفقرات تحتوي على HTML بسيط مثل <strong>.
-    لذلك سنعرضها كما هي مباشرة بعد فحص كونها نصًا.
+    بعض الفقرات تحتوي على HTML بسيط مثل <strong> أو روابط داخلية.
+    لذلك سنعرضها كما هي مباشرة لأنها محتوى موثوق من ملف البيانات الخاص بالموقع.
   */
   const contentHtml = (article.content || [])
     .map(paragraph => `<p>${paragraph}</p>`)
@@ -101,9 +157,15 @@ function buildArticleHtml(article) {
         </div>
       </header>
 
+      ${imageHtml}
+      ${videoHtml}
+
       <section class="article-full-content">
         ${contentHtml}
       </section>
+
+      ${relatedTermsHtml}
+      ${relatedArticlesHtml}
     </article>
   `;
 }
@@ -175,7 +237,7 @@ async function loadSingleArticle() {
     /*
       عرض المقال
     */
-    articleContainer.innerHTML = buildArticleHtml(article);
+    articleContainer.innerHTML = buildArticleHtml(article, sourceArray);
 
   } catch (error) {
     console.error("Single article loading error:", error);

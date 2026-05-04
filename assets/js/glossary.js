@@ -369,9 +369,16 @@ async function loadGlossaryData() {
       .filter((item) => item.term && item.definition)
       .sort((a, b) => a.term.localeCompare(b.term, "ar"));
 
-    filteredGlossaryData = [...glossaryData];
+    const initialQuery = new URLSearchParams(window.location.search).get("q") || "";
 
-    renderGlossary();
+    if (initialQuery && glossarySearch) {
+      glossarySearch.value = initialQuery;
+      filterGlossary(initialQuery);
+    } else {
+      filteredGlossaryData = [...glossaryData];
+      renderGlossary();
+    }
+
     injectStructuredData();
 
   } catch (error) {
