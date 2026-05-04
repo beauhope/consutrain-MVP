@@ -80,7 +80,7 @@ async function loadPartial(selector, filePath) {
   if (!target) return;
 
   try {
-    const version = "v=20260504_1";
+    const version = "v=20260324_4";
     const separator = filePath.includes("?") ? "&" : "?";
     const cacheSafePath = `${filePath}${separator}${version}`;
 
@@ -372,12 +372,7 @@ function initBreadcrumbs() {
   homeItem.innerHTML = `<a href="${root}/index.html">الرئيسية</a>`;
   list.appendChild(homeItem);
 
-  /*
-    إذا كانت الصفحة الحالية هي نفس صفحة القسم،
-    لا نكرر اسم القسم مرتين في مسار التنقل.
-    مثال: الرئيسية > التعلّم بدل الرئيسية > التعلّم > التعلّم
-  */
-  if (section && sectionHref && section !== title) {
+  if (section && sectionHref) {
     const sectionItem = document.createElement("li");
     sectionItem.innerHTML = `<a href="${sectionHref}">${section}</a>`;
     list.appendChild(sectionItem);

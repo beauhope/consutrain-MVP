@@ -585,7 +585,7 @@ function showWebReminder(task) {
 
   new Notification("⏰ تذكير مهمة", {
     body: task.title || "لديك مهمة حان وقتها",
-    // icon: "./icons/icon-192.png",
+    // icon: "/JYD/icons/icon-192.png",
     // tag يساعد على تقليل التكرار في بعض المتصفحات
     tag: `task_${task.id}`
   });
