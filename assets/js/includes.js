@@ -80,7 +80,7 @@ async function loadPartial(selector, filePath) {
   if (!target) return;
 
   try {
-    const version = "v=20260324_4";
+    const version = "v=20260504_menu";
     const separator = filePath.includes("?") ? "&" : "?";
     const cacheSafePath = `${filePath}${separator}${version}`;
 
@@ -121,65 +121,38 @@ async function loadPartial(selector, filePath) {
 function initHeaderNavigation() {
   const toggle = document.getElementById("navToggle");
   const nav = document.getElementById("mainNav");
+  const header = document.querySelector(".site-header");
 
-  if (!toggle || !nav) return;
+  if (!toggle || !nav || !header) return;
 
+  const MOBILE_BREAKPOINT = 900;
   const submenuToggles = document.querySelectorAll(".submenu-toggle");
   const submenuParents = document.querySelectorAll(".has-submenu");
+  const navLinks = nav.querySelectorAll("a");
 
-  /*
-    -------------------------------------------------------
-    MAIN MOBILE NAV TOGGLE
-    PURPOSE:
-    فتح وإغلاق القائمة الرئيسية في الشاشات الصغيرة
-    -------------------------------------------------------
-  */
-  toggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-  });
+  let backdrop = document.querySelector(".nav-backdrop");
+  if (!backdrop) {
+    backdrop = document.createElement("div");
+    backdrop.className = "nav-backdrop";
+    backdrop.setAttribute("hidden", "");
+    header.insertAdjacentElement("afterend", backdrop);
+  }
 
-  /*
-    -------------------------------------------------------
-    SUBMENU TOGGLES
-    PURPOSE:
-    على الجوال فقط:
-    فتح وإغلاق القوائم الفرعية داخل الهيدر
-    بشكل accordion
-    -------------------------------------------------------
-  */
-  submenuToggles.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const parentItem = event.currentTarget.closest(".has-submenu");
-      if (!parentItem) return;
+  let closeButton = nav.querySelector(".mobile-nav-close");
+  if (!closeButton) {
+    closeButton = document.createElement("button");
+    closeButton.className = "mobile-nav-close";
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "إغلاق القائمة");
+    closeButton.textContent = "× إغلاق";
+    nav.insertAdjacentElement("afterbegin", closeButton);
+  }
 
-      /*
-        على سطح المكتب لا نستخدم هذا السلوك،
-        لأن القوائم الفرعية تظهر عبر hover / focus في CSS
-      */
-      if (window.innerWidth > 900) return;
+  function isMobileView() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
 
-      const isOpen = parentItem.classList.toggle("submenu-open");
-      button.setAttribute("aria-expanded", String(isOpen));
-    });
-  });
-
-  /*
-    -------------------------------------------------------
-    OUTSIDE CLICK HANDLER
-    PURPOSE:
-    عند الضغط خارج الهيدر:
-    - تغلق القائمة الرئيسية على الجوال
-    - وتغلق أي قائمة فرعية مفتوحة
-    -------------------------------------------------------
-  */
-  document.addEventListener("click", (event) => {
-    const clickedInsideHeader = event.target.closest(".site-header");
-    if (clickedInsideHeader) return;
-
-    nav.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-
+  function closeSubmenus() {
     submenuParents.forEach((item) => {
       item.classList.remove("submenu-open");
 
@@ -188,32 +161,95 @@ function initHeaderNavigation() {
         button.setAttribute("aria-expanded", "false");
       }
     });
+  }
+
+  function closeMobileNav() {
+    nav.classList.remove("open");
+    document.body.classList.remove("nav-is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "فتح القائمة");
+    toggle.textContent = "☰";
+    backdrop.setAttribute("hidden", "");
+    closeSubmenus();
+  }
+
+  function openMobileNav() {
+    nav.classList.add("open");
+    document.body.classList.add("nav-is-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "إغلاق القائمة");
+    toggle.textContent = "×";
+    backdrop.removeAttribute("hidden");
+  }
+
+  // Reset any stale state after partial injection.
+  closeMobileNav();
+
+  toggle.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!isMobileView()) return;
+
+    const isOpen = nav.classList.contains("open");
+    isOpen ? closeMobileNav() : openMobileNav();
   });
 
-  /*
-    -------------------------------------------------------
-    RESIZE HANDLER
-    PURPOSE:
-    عند الانتقال من موبايل إلى سطح مكتب:
-    تنظيف حالات الفتح القديمة حتى لا تنتقل
-    إلى التخطيط الأكبر بشكل غير مرغوب
-    -------------------------------------------------------
-  */
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 900) {
-      nav.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
+  closeButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    closeMobileNav();
+  });
 
-      submenuParents.forEach((item) => {
-        item.classList.remove("submenu-open");
+  backdrop.addEventListener("click", closeMobileNav);
 
-        const button = item.querySelector(".submenu-toggle");
-        if (button) {
-          button.setAttribute("aria-expanded", "false");
-        }
-      });
+  submenuToggles.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const parentItem = event.currentTarget.closest(".has-submenu");
+      if (!parentItem || !isMobileView()) return;
+
+      const willOpen = !parentItem.classList.contains("submenu-open");
+      closeSubmenus();
+
+      if (willOpen) {
+        parentItem.classList.add("submenu-open");
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (isMobileView()) {
+        closeMobileNav();
+      }
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    const clickedInsideHeader = event.target.closest(".site-header");
+    const clickedInsideNav = event.target.closest("#mainNav");
+
+    if (isMobileView() && !clickedInsideHeader && !clickedInsideNav) {
+      closeMobileNav();
     }
   });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileNav();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (!isMobileView()) {
+      closeMobileNav();
+    }
+  });
+
+  window.addEventListener("pageshow", closeMobileNav);
 }
 
 /*

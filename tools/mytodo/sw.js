@@ -5,7 +5,7 @@
    - Update flow ready
 ================================ */
 
-const VERSION = "mytodo-v3";                // غيّر النسخة عند كل تحديث
+const VERSION = "mytodo-v4";                // غيّر النسخة عند كل تحديث
 const STATIC_CACHE = `${VERSION}-static`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 
@@ -23,12 +23,12 @@ const ASSETS = [
 
   "./icons/icon-192.png",
   "./icons/icon-512.png",
-  "./icons/msvsylogo.png",
+  "./icons/mysvglogo.png",
 
-  // ✅ خطوطك حسب الشجرة (TTF)
+  // ✅ الخطوط الموجودة فعليًا داخل مجلد fonts
   "./fonts/Cairo-Regular.ttf",
   "./fonts/Cairo-Bold.ttf",
-  "./fonts/Roboto-VariableFont_slnt,wght.woff2"
+  "./fonts/Cairo-VariableFont_slnt,wght.woff2"
 ];
 
 /* -------------------------------

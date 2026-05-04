@@ -2721,6 +2721,7 @@ z-index:1100;
     top:76px;
     right:16px;
     left:16px;
+    z-index:1200;
     background:#fff;
     border:1px solid var(--border);
     border-radius:18px;
@@ -2730,6 +2731,9 @@ z-index:1100;
     flex-direction:column;
     align-items:stretch;
     gap:6px;
+    max-height:calc(100vh - 96px);
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
   }
 
   .main-nav.open{
@@ -2774,20 +2778,21 @@ z-index:1100;
   }
 
   .submenu{
-  position:absolute;
-  top:100%;
-  right:0;
-  min-width:230px;
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:18px;
-  box-shadow:var(--shadow);
-  padding:10px;
-  display:none;
-  flex-direction:column;
-  gap:2px;
-  z-index:1100;
-}
+    position:static;
+    width:100%;
+    min-width:0;
+    margin-top:6px;
+    background:#fff;
+    border:1px solid rgba(30,58,138,.08);
+    border-radius:14px;
+    box-shadow:none;
+    padding:8px;
+    display:none;
+    flex-direction:column;
+    gap:2px;
+    z-index:auto;
+    grid-column:1 / -1;
+  }
 
   .has-submenu:hover > .submenu,
   .has-submenu:focus-within > .submenu{
@@ -2878,5 +2883,120 @@ z-index:1100;
   .breadcrumbs{
     font-size: 0.88rem;
     margin: 14px 0 6px;
+  }
+}
+
+/* =========================================================
+   MOBILE NAV HOTFIX - 2026-05-04
+   PURPOSE:
+   منع بقاء قائمة الهاتف مفتوحة فوق واجهة الموقع، مع إضافة خلفية
+   قابلة للضغط وزر إغلاق واضح داخل القائمة.
+   الملفات ذات العلاقة: assets/js/includes.js + assets/css/style.css
+   ========================================================= */
+@media (max-width: 900px){
+  body.nav-is-open{
+    overflow:hidden;
+  }
+
+  .nav-backdrop{
+    position:fixed;
+    inset:0;
+    z-index:1190;
+    background:rgba(10,17,36,.42);
+  }
+
+  .nav-backdrop[hidden]{
+    display:none !important;
+  }
+
+  .site-header{
+    position:relative;
+    z-index:1210;
+  }
+
+  .nav-toggle{
+    display:inline-grid !important;
+    place-items:center;
+    position:relative;
+    z-index:1230;
+  }
+
+  .main-nav{
+    position:fixed !important;
+    top:86px !important;
+    right:16px !important;
+    left:16px !important;
+    z-index:1220 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:8px !important;
+    max-height:calc(100vh - 112px);
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:22px;
+    box-shadow:0 24px 80px rgba(10,17,36,.24);
+    padding:14px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(-8px);
+    transition:opacity .2s ease, transform .2s ease, visibility .2s ease;
+  }
+
+  .main-nav.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateY(0);
+  }
+
+  .mobile-nav-close{
+    display:block;
+    width:100%;
+    border:1px solid rgba(30,58,138,.12);
+    background:rgba(30,58,138,.04);
+    color:var(--primary);
+    font-family:inherit;
+    font-weight:800;
+    font-size:1rem;
+    cursor:pointer;
+    border-radius:14px;
+    padding:12px 14px;
+    text-align:center;
+    margin-bottom:4px;
+  }
+
+  .nav-link--single,
+  .nav-item{
+    background:#fff;
+  }
+
+  .submenu{
+    position:static !important;
+    inset:auto !important;
+    width:100% !important;
+    min-width:0 !important;
+    grid-column:1 / -1;
+    z-index:auto !important;
+    box-shadow:none !important;
+  }
+
+  .has-submenu:hover > .submenu,
+  .has-submenu:focus-within > .submenu{
+    display:none;
+  }
+
+  .has-submenu.submenu-open > .submenu{
+    display:flex !important;
+  }
+}
+
+@media (min-width: 901px){
+  .mobile-nav-close,
+  .nav-backdrop{
+    display:none !important;
   }
 }
