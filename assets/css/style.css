@@ -2721,7 +2721,6 @@ z-index:1100;
     top:76px;
     right:16px;
     left:16px;
-    z-index:1200;
     background:#fff;
     border:1px solid var(--border);
     border-radius:18px;
@@ -2731,9 +2730,6 @@ z-index:1100;
     flex-direction:column;
     align-items:stretch;
     gap:6px;
-    max-height:calc(100vh - 96px);
-    overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
   }
 
   .main-nav.open{
@@ -2778,21 +2774,20 @@ z-index:1100;
   }
 
   .submenu{
-    position:static;
-    width:100%;
-    min-width:0;
-    margin-top:6px;
-    background:#fff;
-    border:1px solid rgba(30,58,138,.08);
-    border-radius:14px;
-    box-shadow:none;
-    padding:8px;
-    display:none;
-    flex-direction:column;
-    gap:2px;
-    z-index:auto;
-    grid-column:1 / -1;
-  }
+  position:absolute;
+  top:100%;
+  right:0;
+  min-width:230px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  padding:10px;
+  display:none;
+  flex-direction:column;
+  gap:2px;
+  z-index:1100;
+}
 
   .has-submenu:hover > .submenu,
   .has-submenu:focus-within > .submenu{
@@ -2858,10 +2853,10 @@ z-index:1100;
   gap: 8px;
 }
 
-.breadcrumbs li + li::before{
+.breadcrumbs li:not(:last-child)::before{
   content: "←";
   color: var(--gold-2);
-  margin-inline: 2px;
+  margin-left: 2px;
 }
 
 .breadcrumbs a{
@@ -2885,118 +2880,138 @@ z-index:1100;
     margin: 14px 0 6px;
   }
 }
-
 /* =========================================================
-   MOBILE NAV HOTFIX - 2026-05-04
-   PURPOSE:
-   منع بقاء قائمة الهاتف مفتوحة فوق واجهة الموقع، مع إضافة خلفية
-   قابلة للضغط وزر إغلاق واضح داخل القائمة.
-   الملفات ذات العلاقة: assets/js/includes.js + assets/css/style.css
+   23) LEARN MAIN PAGE — CONTENT ENHANCEMENT
+   تحسينات إضافية لصفحة learn.html بعد Phase 1
    ========================================================= */
-@media (max-width: 900px){
-  body.nav-is-open{
-    overflow:hidden;
-  }
 
-  .nav-backdrop{
-    position:fixed;
-    inset:0;
-    z-index:1190;
-    background:rgba(10,17,36,.42);
-  }
+.learn-page .page-hero p{
+  max-width: 850px;
+}
 
-  .nav-backdrop[hidden]{
-    display:none !important;
-  }
+.compact-head{
+  margin-bottom: 14px;
+}
 
-  .site-header{
-    position:relative;
-    z-index:1210;
-  }
+.compact-head h2{
+  margin-bottom: 6px;
+}
 
-  .nav-toggle{
-    display:inline-grid !important;
-    place-items:center;
-    position:relative;
-    z-index:1230;
-  }
+.learn-start-grid--wide{
+  grid-template-columns: repeat(3, 1fr);
+}
 
-  .main-nav{
-    position:fixed !important;
-    top:86px !important;
-    right:16px !important;
-    left:16px !important;
-    z-index:1220 !important;
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:stretch !important;
-    gap:8px !important;
-    max-height:calc(100vh - 112px);
-    overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:22px;
-    box-shadow:0 24px 80px rgba(10,17,36,.24);
-    padding:14px;
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transform:translateY(-8px);
-    transition:opacity .2s ease, transform .2s ease, visibility .2s ease;
-  }
+.learn-start-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
 
-  .main-nav.open{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
-    transform:translateY(0);
-  }
+.learn-start-link:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(15, 39, 71, .08);
+  border-color: rgba(212, 166, 58, .45);
+}
 
-  .mobile-nav-close{
-    display:block;
-    width:100%;
-    border:1px solid rgba(30,58,138,.12);
-    background:rgba(30,58,138,.04);
-    color:var(--primary);
-    font-family:inherit;
-    font-weight:800;
-    font-size:1rem;
-    cursor:pointer;
-    border-radius:14px;
-    padding:12px 14px;
-    text-align:center;
-    margin-bottom:4px;
-  }
+.learn-start-label,
+.path-kicker{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:28px;
+  padding:3px 10px;
+  margin-bottom:10px;
+  border-radius:999px;
+  background:rgba(212, 166, 58, .12);
+  color:var(--primary);
+  font-size:.82rem;
+  font-weight:700;
+}
 
-  .nav-link--single,
-  .nav-item{
-    background:#fff;
-  }
+.learn-start-note{
+  background:linear-gradient(135deg, rgba(15, 39, 71, .04), rgba(212, 166, 58, .08));
+}
 
-  .submenu{
-    position:static !important;
-    inset:auto !important;
-    width:100% !important;
-    min-width:0 !important;
-    grid-column:1 / -1;
-    z-index:auto !important;
-    box-shadow:none !important;
-  }
+.learn-paths-grid--enhanced{
+  grid-template-columns: repeat(3, 1fr);
+}
 
-  .has-submenu:hover > .submenu,
-  .has-submenu:focus-within > .submenu{
-    display:none;
-  }
+.learn-path-card .path-kicker{
+  width:max-content;
+}
 
-  .has-submenu.submenu-open > .submenu{
-    display:flex !important;
+.learn-path-card--muted{
+  background:linear-gradient(135deg, #fff, rgba(244, 247, 251, .96));
+}
+
+.card-link--disabled{
+  opacity:.65;
+  cursor:not-allowed;
+}
+
+.learn-map-card{
+  padding:28px;
+}
+
+.learn-map-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
+  margin-top:18px;
+}
+
+.learn-map-item{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#fff;
+}
+
+.learn-map-item strong{
+  color:var(--primary);
+  font-size:1rem;
+}
+
+.learn-map-item span{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.learning-journey-steps--five{
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.learning-journey-steps--five .journey-step{
+  flex-direction:column;
+}
+
+@media (max-width: 1100px){
+  .learn-start-grid--wide,
+  .learn-paths-grid--enhanced,
+  .learn-map-grid,
+  .learning-journey-steps--five{
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 901px){
-  .mobile-nav-close,
-  .nav-backdrop{
-    display:none !important;
+@media (max-width: 700px){
+  .learn-start-grid--wide,
+  .learn-paths-grid--enhanced,
+  .learn-map-grid,
+  .learning-journey-steps--five{
+    grid-template-columns: 1fr;
+  }
+
+  .learn-hero-actions{
+    align-items:stretch;
+  }
+
+  .learn-hero-actions .btn{
+    width:100%;
+    justify-content:center;
   }
 }

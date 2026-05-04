@@ -9,13 +9,9 @@
 
     ROLE OF THIS PAGE:
     - تعمل كبوابة رئيسية لمسارات التعلّم
-    - تساعد الزائر على فهم الأقسام بسرعة
-    - توجّه المستخدم إلى المسار الأنسب بحسب حاجته
-    - تربط بين المحتوى المعرفي والجانب العملي
-
-    DESIGN NOTE:
-    تم تطوير هذه الصفحة لتكون أوضح من النسخة الأولى،
-    مع إبراز قيمة كل مسار تعلّم بشكل أفضل.
+    - تساعد الزائر على اختيار نقطة البداية المناسبة
+    - تربط بين القاموس، المقالات، محاور التميز، الذكاء الاصطناعي، والمهارات الناعمة
+    - تمهّد لاحقًا لإضافة مكتبة الفيديوهات والمسارات التعليمية
     =========================================================
   -->
 
@@ -25,10 +21,10 @@
   <title>التعلّم | ConsuTrain</title>
   <meta
     name="description"
-    content="اكتشف مسارات التعلّم داخل ConsuTrain، بما يشمل القاموس الإداري، المقالات، الذكاء الاصطناعي، والمهارات الناعمة."
+    content="اكتشف قسم التعلّم في ConsuTrain: قاموس إداري، مقالات مهنية، محاور التميز المؤسسي، الذكاء الاصطناعي، والمهارات الناعمة."
   >
 
-  <link rel="stylesheet" href="assets/css/style.css?v=20260504_menu">
+  <link rel="stylesheet" href="assets/css/style.css">
 
   <link rel="icon" type="image/svg+xml"
     href='data:image/svg+xml,
@@ -50,30 +46,26 @@
   data-breadcrumb-section="التعلّم"
   data-breadcrumb-title="التعلّم"
 >
-  <!-- الهيدر المشترك -->
   <div id="header-placeholder"></div>
 
-  <div id="breadcrumbs-placeholder"></div>
-
-  <main class="inner-page">
+  <main class="inner-page learn-page">
     <!-- =====================================================
          PAGE HERO
          ===================================================== -->
     <section class="page-hero learn-hero">
       <div class="container">
         <span class="eyebrow">قسم التعلّم</span>
-        <h1>تعلّم بطريقة عملية ومنظمة</h1>
+        <h1>مكتبة معرفية عملية للإدارة والتميز المؤسسي</h1>
         <p>
-          يضم هذا القسم مسارات معرفية تساعدك على تطوير فهمك للمفاهيم الإدارية،
-          والاستفادة من الذكاء الاصطناعي، وتنمية المهارات المهنية التي تحتاجها
-          في بيئة العمل والأعمال.
+          يجمع هذا القسم بين الشرح المبسط والتطبيق العملي. ستجد قاموسًا إداريًا،
+          مقالات مهنية، محاور للتميز المؤسسي، محتوى للذكاء الاصطناعي،
+          ومهارات ناعمة تساعدك على الانتقال من الفهم إلى التطبيق.
         </p>
 
         <div class="learn-hero-actions">
-          <a class="btn btn-primary" href="learn/articles.html">ابدأ بالمقالات</a>
-          <a class="btn btn-secondary" href="learn/glossary.html">استكشف القاموس</a>
-            <a class="btn btn-secondary" href="learn/topics.html">استكشف محاور التميز</a>
-
+          <a class="btn btn-primary" href="learn/topics.html">استكشف محاور التميز</a>
+          <a class="btn btn-secondary" href="learn/articles.html">اقرأ المقالات</a>
+          <a class="btn btn-secondary" href="learn/ai.html">ابدأ مع الذكاء الاصطناعي</a>
         </div>
       </div>
     </section>
@@ -84,30 +76,50 @@
     <section class="home-section">
       <div class="container">
         <div class="section-card learn-start-card">
-          <h2>من أين تبدأ؟</h2>
-          <p class="section-intro">
-            إذا كنت تزور هذا القسم لأول مرة، يمكنك البدء وفق احتياجك الحالي:
-          </p>
+          <div class="section-head compact-head">
+            <div>
+              <h2>من أين تبدأ؟</h2>
+              <p>
+                اختر نقطة البداية حسب احتياجك الحالي. لا تحتاج إلى قراءة كل شيء دفعة واحدة.
+              </p>
+            </div>
+          </div>
 
-          <div class="learn-start-grid">
-            <div class="learn-start-item">
-              <h3>إذا كنت تريد فهم المصطلحات</h3>
+          <div class="learn-start-grid learn-start-grid--wide">
+            <a class="learn-start-item learn-start-link" href="learn/glossary.html">
+              <span class="learn-start-label">01</span>
+              <h3>أريد فهم المصطلحات</h3>
               <p>ابدأ بالقاموس الإداري لتكوين قاعدة مفاهيمية واضحة وسريعة.</p>
-            </div>
+            </a>
 
-            <div class="learn-start-item">
-              <h3>إذا كنت تريد محتوى تطبيقيًا</h3>
-              <p>انتقل إلى المقالات لقراءة موضوعات مهنية مرتبطة بالإدارة والأعمال.</p>
-            </div>
+            <a class="learn-start-item learn-start-link" href="learn/topics.html">
+              <span class="learn-start-label">02</span>
+              <h3>أريد فهم محاور التميز</h3>
+              <p>استكشف التخطيط، التنظيم، الممكنات، والموضوعات المرتبطة بها.</p>
+            </a>
 
-            <div class="learn-start-item">
-              <h3>إذا كنت تريد توظيف الذكاء الاصطناعي</h3>
-              <p>ابدأ بدليل الذكاء الاصطناعي ثم انتقل إلى مكتبة الـ Prompts.</p>
-            </div>
+            <a class="learn-start-item learn-start-link" href="learn/articles.html">
+              <span class="learn-start-label">03</span>
+              <h3>أريد محتوى تطبيقيًا</h3>
+              <p>انتقل إلى المقالات لقراءة موضوعات عملية في الإدارة والأعمال.</p>
+            </a>
 
-            <div class="learn-start-item">
-              <h3>إذا كنت تريد تطوير ذاتك مهنيًا</h3>
-              <p>استكشف قسم المهارات الناعمة لفهم المهارات المطلوبة في سوق العمل.</p>
+            <a class="learn-start-item learn-start-link" href="learn/ai.html">
+              <span class="learn-start-label">04</span>
+              <h3>أريد استخدام الذكاء الاصطناعي</h3>
+              <p>ابدأ من بوابة AI ثم انتقل إلى الدليل ومكتبة الـ Prompts.</p>
+            </a>
+
+            <a class="learn-start-item learn-start-link" href="learn/soft-skills.html">
+              <span class="learn-start-label">05</span>
+              <h3>أريد تطوير مهاراتي المهنية</h3>
+              <p>راجع المهارات الناعمة المطلوبة في بيئة العمل والاستشارات والتدريب.</p>
+            </a>
+
+            <div class="learn-start-item learn-start-note">
+              <span class="learn-start-label">قريبًا</span>
+              <h3>مسارات الفيديو والدروس</h3>
+              <p>سيتم لاحقًا توظيف فيديوهات YouTube والعروض المرتبطة بها داخل مسارات تعلم منظمة.</p>
             </div>
           </div>
         </div>
@@ -121,67 +133,144 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>المسارات الرئيسية للتعلّم</h2>
-            <p>اختر المسار الذي يناسب هدفك الحالي داخل المنصة.</p>
+            <h2>المسارات الرئيسية داخل Learn</h2>
+            <p>كل مسار له وظيفة مختلفة، ويمكن الربط بينها عند بناء المعرفة أو تنفيذ عمل إداري.</p>
           </div>
         </div>
 
-        <div class="cards-grid learn-paths-grid">
+        <div class="cards-grid learn-paths-grid learn-paths-grid--enhanced">
           <article class="section-card learn-path-card">
+            <span class="path-kicker">مرجع سريع</span>
             <h3>القاموس الإداري</h3>
             <p>
-              مرجع مبسط للمصطلحات الإدارية والمفاهيم الأساسية الأكثر استخدامًا،
-              مع بحث حي يساعدك على الوصول إلى المعنى بسرعة.
+              مرجع مختصر للمصطلحات الإدارية والمفاهيم الأساسية، مع بحث حي ونسخ مباشر
+              للمصطلح أو التعريف.
             </p>
             <ul class="learn-feature-list">
-              <li>مصطلحات إدارية أساسية</li>
-              <li>بحث مباشر</li>
-              <li>نسخ المصطلح أو التعريف</li>
+              <li>تعريفات قصيرة وواضحة</li>
+              <li>بحث مباشر داخل المصطلحات</li>
+              <li>مناسب للطلاب والموظفين والمستشارين</li>
             </ul>
             <a class="card-link" href="learn/glossary.html">فتح القاموس</a>
           </article>
 
           <article class="section-card learn-path-card">
-            <h3>المقالات المهنية</h3>
+            <span class="path-kicker">بوابة موضوعية</span>
+            <h3>محاور التميز المؤسسي</h3>
             <p>
-              محتوى مهني منظم يساعدك على الفهم والتطوير واتخاذ القرار في موضوعات
-              مرتبطة بالإدارة والأعمال والتحول المهني.
+              صفحة منظمة تعرض محاور التميز المؤسسي من خلال أكورديون تفاعلي،
+              وتربط الموضوعات الكبرى بموضوعات فرعية قابلة للتوسع.
             </p>
             <ul class="learn-feature-list">
-              <li>مقالات منظمة</li>
-              <li>بحث وتصفية بالوسوم</li>
+              <li>التخطيط للمستقبل</li>
+              <li>التنظيم المحكم</li>
+              <li>ممكنات التميز</li>
+            </ul>
+            <a class="card-link" href="learn/topics.html">استكشاف المحاور</a>
+          </article>
+
+          <article class="section-card learn-path-card">
+            <span class="path-kicker">محتوى مهني</span>
+            <h3>المقالات المهنية</h3>
+            <p>
+              مقالات عملية تساعد على فهم موضوعات الإدارة والجودة والتخطيط والتحسين،
+              مع قابلية التصفية والبحث.
+            </p>
+            <ul class="learn-feature-list">
+              <li>مقالات منظمة حسب الوسوم</li>
               <li>صفحة تفصيلية لكل مقال</li>
+              <li>قابلة للربط بالخدمات والفيديوهات</li>
             </ul>
             <a class="card-link" href="learn/articles.html">عرض المقالات</a>
           </article>
 
           <article class="section-card learn-path-card">
+            <span class="path-kicker">تطبيق عملي</span>
             <h3>الذكاء الاصطناعي في الإدارة</h3>
             <p>
-              دليل عملي يساعدك على فهم توظيف الذكاء الاصطناعي في الإدارة،
-              مع أمثلة استخدام ومكتبة Prompts جاهزة.
+              بوابة تجمع بين الدليل التعليمي ومكتبة Prompts عملية تساعد في التخطيط،
+              كتابة التقارير، تحليل المخاطر، وبناء المحتوى الإداري.
             </p>
             <ul class="learn-feature-list">
-              <li>دليل منظم</li>
-              <li>FAQ وفهرس محتويات</li>
-              <li>مكتبة Prompts عملية</li>
+              <li>بوابة AI منظمة</li>
+              <li>دليل تعليمي شامل</li>
+              <li>Prompts جاهزة للنسخ</li>
             </ul>
-            <a class="card-link" href="learn/ai.html">استكشاف المحتوى</a>
+            <a class="card-link" href="learn/ai.html">استكشاف AI</a>
           </article>
 
           <article class="section-card learn-path-card">
+            <span class="path-kicker">تطوير مهني</span>
             <h3>المهارات الناعمة</h3>
             <p>
-              مسار يعرّفك بأهم المهارات السلوكية والشخصية المطلوبة في بيئة العمل،
-              مع صفحات تفصيلية لكل مهارة.
+              مسار يشرح المهارات السلوكية والمهنية المطلوبة في العمل، مثل التواصل،
+              القيادة، التفاوض، إدارة الوقت، وحل المشكلات.
             </p>
             <ul class="learn-feature-list">
-              <li>تصنيف منظم للمهارات</li>
-              <li>أكورديون توضيحي</li>
-              <li>صفحات شرح تفصيلية</li>
+              <li>بوابة مهارات مصنفة</li>
+              <li>صفحة تفصيلية لكل مهارة</li>
+              <li>أمثلة وحالات استخدام</li>
             </ul>
             <a class="card-link" href="learn/soft-skills.html">عرض المهارات</a>
           </article>
+
+          <article class="section-card learn-path-card learn-path-card--muted">
+            <span class="path-kicker">مرحلة لاحقة</span>
+            <h3>الفيديوهات ومسارات التعلم</h3>
+            <p>
+              سيتم لاحقًا تحويل فيديوهات القناة والعروض وملاحظات الشرح إلى مكتبة فيديوهات،
+              دروس قصيرة، ومسارات تعلم مثل الاستشراف والتخطيط بالسيناريو.
+            </p>
+            <ul class="learn-feature-list">
+              <li>مكتبة فيديوهات مصنفة</li>
+              <li>دروس مرتبطة بالعروض</li>
+              <li>قابلة للتحويل إلى دورات مصغرة</li>
+            </ul>
+            <span class="card-link card-link--disabled">قيد الإعداد</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CONTENT MAP
+         ===================================================== -->
+    <section class="home-section">
+      <div class="container">
+        <div class="section-card learn-map-card">
+          <div class="section-head compact-head">
+            <div>
+              <h2>كيف ترتبط صفحات Learn ببعضها؟</h2>
+              <p>الفكرة ليست أن تكون الصفحات منفصلة، بل أن تخدم بعضها وتدعم خدمات المنصة.</p>
+            </div>
+          </div>
+
+          <div class="learn-map-grid">
+            <div class="learn-map-item">
+              <strong>القاموس</strong>
+              <span>يفسر المصطلحات التي تظهر داخل المقالات والموضوعات.</span>
+            </div>
+            <div class="learn-map-item">
+              <strong>المقالات</strong>
+              <span>تحول المفاهيم إلى شرح عملي قابل للقراءة والمشاركة.</span>
+            </div>
+            <div class="learn-map-item">
+              <strong>محاور التميز</strong>
+              <span>تنظم الموضوعات الكبرى وتساعد الزائر على اختيار مجال التعلم.</span>
+            </div>
+            <div class="learn-map-item">
+              <strong>AI Prompts</strong>
+              <span>تحول المعرفة إلى أوامر عملية يمكن استخدامها مباشرة.</span>
+            </div>
+            <div class="learn-map-item">
+              <strong>المهارات الناعمة</strong>
+              <span>تكمل الجانب الفني بسلوكيات ومهارات العمل اليومية.</span>
+            </div>
+            <div class="learn-map-item">
+              <strong>الخدمات</strong>
+              <span>تستفيد من المحتوى التعليمي لإثبات الخبرة وتحويل الزائر إلى عميل.</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -193,7 +282,7 @@
       <div class="container">
         <div class="section-card learning-journey-card">
           <h2>مسار مقترح للاستفادة من القسم</h2>
-          <div class="learning-journey-steps">
+          <div class="learning-journey-steps learning-journey-steps--five">
             <div class="journey-step">
               <span class="journey-number">1</span>
               <div>
@@ -205,24 +294,32 @@
             <div class="journey-step">
               <span class="journey-number">2</span>
               <div>
-                <h3>اقرأ محتوى تطبيقيًا</h3>
-                <p>انتقل إلى المقالات لفهم التطبيقات العملية.</p>
+                <h3>افتح المحاور</h3>
+                <p>حدد المجال الأقرب إلى عملك أو اهتمامك.</p>
               </div>
             </div>
 
             <div class="journey-step">
               <span class="journey-number">3</span>
               <div>
-                <h3>وسّع أدواتك</h3>
-                <p>استخدم دليل الذكاء الاصطناعي ومكتبة الـ Prompts.</p>
+                <h3>اقرأ مقالًا تطبيقيًا</h3>
+                <p>انتقل من التعريف المختصر إلى الفهم العملي.</p>
               </div>
             </div>
 
             <div class="journey-step">
               <span class="journey-number">4</span>
               <div>
-                <h3>طوّر الجانب الشخصي</h3>
-                <p>اعمل على المهارات الناعمة بوصفها أساسًا للنجاح المهني.</p>
+                <h3>استخدم الذكاء الاصطناعي</h3>
+                <p>جرّب Prompt مناسبًا لتحويل الفهم إلى مخرج عملي.</p>
+              </div>
+            </div>
+
+            <div class="journey-step">
+              <span class="journey-number">5</span>
+              <div>
+                <h3>طوّر مهارة داعمة</h3>
+                <p>اختر مهارة ناعمة تساعدك على تطبيق ما تعلمته بفعالية.</p>
               </div>
             </div>
           </div>
@@ -231,40 +328,31 @@
     </section>
   </main>
 
-  <!-- الفوتر المشترك -->
   <div id="footer-placeholder"></div>
 
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
+  <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+    ↑
+  </button>
 
-    if (scrollTopBtn) {
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      if (!scrollTopBtn) return;
+
       const toggleScrollBtn = () => {
-        if (window.scrollY > 300) {
-          scrollTopBtn.classList.add("show");
-        } else {
-          scrollTopBtn.classList.remove("show");
-        }
+        scrollTopBtn.classList.toggle("show", window.scrollY > 300);
       };
 
       window.addEventListener("scroll", toggleScrollBtn);
       toggleScrollBtn();
 
       scrollTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
-    }
-  });
-</script>
-<!-- ملف تحميل الأجزاء المشتركة -->
-  <script src="assets/js/includes.js?v=20260504_menu"></script>
-   <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
-  ↑
-</button>
-  
-  
+    });
+  </script>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/pwa.js"></script>
 </body>
 </html>
