@@ -121,12 +121,36 @@ async function loadPartial(selector, filePath) {
 function initHeaderNavigation() {
   const toggle = document.getElementById("navToggle");
   const nav = document.getElementById("mainNav");
+  const header = document.querySelector(".site-header");
 
-  if (!toggle || !nav) return;
+  if (!toggle || !nav || !header) return;
 
+  const MOBILE_BREAKPOINT = 900;
   const submenuToggles = document.querySelectorAll(".submenu-toggle");
   const submenuParents = document.querySelectorAll(".has-submenu");
   const navLinks = nav.querySelectorAll("a");
+
+  let backdrop = document.querySelector(".nav-backdrop");
+  if (!backdrop) {
+    backdrop = document.createElement("div");
+    backdrop.className = "nav-backdrop";
+    backdrop.setAttribute("hidden", "");
+    header.insertAdjacentElement("afterend", backdrop);
+  }
+
+  let closeButton = nav.querySelector(".mobile-nav-close");
+  if (!closeButton) {
+    closeButton = document.createElement("button");
+    closeButton.className = "mobile-nav-close";
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "إغلاق القائمة");
+    closeButton.textContent = "× إغلاق";
+    nav.insertAdjacentElement("afterbegin", closeButton);
+  }
+
+  function isMobileView() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
 
   function closeSubmenus() {
     submenuParents.forEach((item) => {
@@ -141,58 +165,50 @@ function initHeaderNavigation() {
 
   function closeMobileNav() {
     nav.classList.remove("open");
+    document.body.classList.remove("nav-is-open");
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "فتح القائمة");
     toggle.textContent = "☰";
+    backdrop.setAttribute("hidden", "");
     closeSubmenus();
   }
 
   function openMobileNav() {
     nav.classList.add("open");
+    document.body.classList.add("nav-is-open");
     toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "إغلاق القائمة");
     toggle.textContent = "×";
+    backdrop.removeAttribute("hidden");
   }
 
-  /*
-    -------------------------------------------------------
-    MAIN MOBILE NAV TOGGLE
-    PURPOSE:
-    فتح وإغلاق القائمة الرئيسية في الشاشات الصغيرة
-    -------------------------------------------------------
-  */
+  // Reset any stale state after partial injection.
+  closeMobileNav();
+
   toggle.addEventListener("click", (event) => {
+    event.preventDefault();
     event.stopPropagation();
 
-    const isOpen = nav.classList.contains("open");
+    if (!isMobileView()) return;
 
-    if (isOpen) {
-      closeMobileNav();
-    } else {
-      openMobileNav();
-    }
+    const isOpen = nav.classList.contains("open");
+    isOpen ? closeMobileNav() : openMobileNav();
   });
 
-  /*
-    -------------------------------------------------------
-    SUBMENU TOGGLES
-    PURPOSE:
-    على الجوال فقط:
-    فتح وإغلاق القوائم الفرعية داخل الهيدر
-    بشكل accordion، مع فتح قائمة واحدة فقط في كل مرة.
-    -------------------------------------------------------
-  */
+  closeButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    closeMobileNav();
+  });
+
+  backdrop.addEventListener("click", closeMobileNav);
+
   submenuToggles.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
 
       const parentItem = event.currentTarget.closest(".has-submenu");
-      if (!parentItem) return;
-
-      /*
-        على سطح المكتب لا نستخدم هذا السلوك،
-        لأن القوائم الفرعية تظهر عبر hover / focus في CSS
-      */
-      if (window.innerWidth > 900) return;
+      if (!parentItem || !isMobileView()) return;
 
       const willOpen = !parentItem.classList.contains("submenu-open");
       closeSubmenus();
@@ -204,67 +220,36 @@ function initHeaderNavigation() {
     });
   });
 
-  /*
-    -------------------------------------------------------
-    NAV LINK HANDLER
-    PURPOSE:
-    عند الضغط على أي رابط في قائمة الجوال، نغلق القائمة
-    حتى لا تبقى فوق واجهة الصفحة بعد الانتقال.
-    -------------------------------------------------------
-  */
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      if (window.innerWidth <= 900) {
+      if (isMobileView()) {
         closeMobileNav();
       }
     });
   });
 
-  /*
-    -------------------------------------------------------
-    OUTSIDE CLICK HANDLER
-    PURPOSE:
-    عند الضغط خارج الهيدر:
-    - تغلق القائمة الرئيسية على الجوال
-    - وتغلق أي قائمة فرعية مفتوحة
-    -------------------------------------------------------
-  */
   document.addEventListener("click", (event) => {
     const clickedInsideHeader = event.target.closest(".site-header");
-    if (clickedInsideHeader) return;
+    const clickedInsideNav = event.target.closest("#mainNav");
 
-    if (window.innerWidth <= 900) {
+    if (isMobileView() && !clickedInsideHeader && !clickedInsideNav) {
       closeMobileNav();
     }
   });
 
-  /*
-    -------------------------------------------------------
-    ESC KEY HANDLER
-    PURPOSE:
-    إتاحة إغلاق قائمة الجوال بزر Escape عند الاختبار على سطح المكتب.
-    -------------------------------------------------------
-  */
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeMobileNav();
     }
   });
 
-  /*
-    -------------------------------------------------------
-    RESIZE HANDLER
-    PURPOSE:
-    عند الانتقال من موبايل إلى سطح مكتب:
-    تنظيف حالات الفتح القديمة حتى لا تنتقل
-    إلى التخطيط الأكبر بشكل غير مرغوب
-    -------------------------------------------------------
-  */
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 900) {
+    if (!isMobileView()) {
       closeMobileNav();
     }
   });
+
+  window.addEventListener("pageshow", closeMobileNav);
 }
 
 /*
