@@ -96,10 +96,36 @@ function normalizeGlossaryItem(item) {
     item.explanation ||
     "";
 
+  const category =
+    item.category ||
+    item.domain ||
+    item.field ||
+    "";
+
+  const example =
+    item.example ||
+    item.use_case ||
+    item.practice_example ||
+    "";
+
+  const videoTitle =
+    item.video_title ||
+    item.videoTitle ||
+    "";
+
+  const videoUrl =
+    item.video_url ||
+    item.videoUrl ||
+    "";
+
   return {
     term: String(term).trim(),
     termEn: String(termEn).trim(),
-    definition: String(definition).trim()
+    category: String(category).trim(),
+    definition: String(definition).trim(),
+    example: String(example).trim(),
+    videoTitle: String(videoTitle).trim(),
+    videoUrl: String(videoUrl).trim()
   };
 }
 
@@ -139,12 +165,17 @@ async function copyText(text, successMessage = "تم النسخ بنجاح") {
 function buildGlossaryCard(item) {
   const term = escapeHtml(item.term);
   const termEn = escapeHtml(item.termEn || "");
+  const category = escapeHtml(item.category || "");
   const definition = escapeHtml(item.definition);
+  const example = escapeHtml(item.example || "");
+  const videoTitle = escapeHtml(item.videoTitle || "");
+  const videoUrl = escapeHtml(item.videoUrl || "");
 
   return `
     <article class="section-card glossary-item">
       <div class="glossary-item-head">
         <div class="glossary-item-title-wrap">
+          ${category ? `<span class="glossary-category">${category}</span>` : ""}
           <h3>${term}</h3>
           ${termEn ? `<div class="glossary-item-en">${termEn}</div>` : ""}
         </div>
@@ -172,7 +203,31 @@ function buildGlossaryCard(item) {
         </div>
       </div>
 
-      <p>${definition}</p>
+      <div class="glossary-definition">
+        <strong>التعريف:</strong>
+        <p>${definition}</p>
+      </div>
+
+      ${example ? `
+        <div class="glossary-example">
+          <strong>مثال عملي:</strong>
+          <p>${example}</p>
+        </div>
+      ` : ""}
+
+      ${videoUrl ? `
+        <div class="glossary-video-box">
+          <span>${videoTitle || "فيديو مرتبط بالمصطلح"}</span>
+          <a
+            class="term-video-link"
+            href="${videoUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            شاهد الشرح بالفيديو
+          </a>
+        </div>
+      ` : ""}
     </article>
   `;
 }
@@ -235,12 +290,18 @@ function filterGlossary(query) {
   filteredGlossaryData = glossaryData.filter((item) => {
   const termText = (item.term || "").toLowerCase();
   const termEnText = (item.termEn || "").toLowerCase();
+  const categoryText = (item.category || "").toLowerCase();
   const definitionText = (item.definition || "").toLowerCase();
+  const exampleText = (item.example || "").toLowerCase();
+  const videoTitleText = (item.videoTitle || "").toLowerCase();
 
   return (
     termText.includes(normalizedQuery) ||
     termEnText.includes(normalizedQuery) ||
-    definitionText.includes(normalizedQuery)
+    categoryText.includes(normalizedQuery) ||
+    definitionText.includes(normalizedQuery) ||
+    exampleText.includes(normalizedQuery) ||
+    videoTitleText.includes(normalizedQuery)
   );
 });
   renderGlossary();
@@ -253,9 +314,11 @@ function filterGlossary(query) {
    لتحسين البنية المنظمة لمحركات البحث
    ========================================================= */
 function injectStructuredData() {
-  const structuredItems = glossaryData.slice(0, 50).map((item) => ({
+  const structuredItems = glossaryData.slice(0, 100).map((item) => ({
     "@type": "DefinedTerm",
     "name": item.term,
+    "alternateName": item.termEn || undefined,
+    "termCode": item.category || undefined,
     "description": item.definition
   }));
 

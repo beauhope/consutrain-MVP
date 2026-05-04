@@ -1497,60 +1497,6 @@ top: 0 !important;
   gap:18px;
 }
 
-.topics-video-card{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:22px;
-  align-items:center;
-  background:linear-gradient(135deg, #ffffff, #f8fafc);
-  border:1px solid var(--border);
-  border-radius:22px;
-  box-shadow:var(--shadow);
-  padding:22px;
-  margin:0 0 22px;
-}
-
-.topics-video-card__content{
-  display:grid;
-  gap:10px;
-}
-
-.topics-video-card__content h3{
-  margin:0;
-  color:var(--primary);
-  font-size:1.25rem;
-  line-height:1.6;
-}
-
-.topics-video-card__content p{
-  margin:0;
-  color:var(--text);
-  line-height:1.9;
-}
-
-.topics-video-card__meta{
-  margin:4px 0 0;
-  padding:0;
-  list-style:none;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-.topics-video-card__meta li{
-  background:var(--gold-soft);
-  color:var(--primary);
-  border:1px solid rgba(242,169,59,.35);
-  border-radius:999px;
-  padding:6px 10px;
-  font-size:.86rem;
-  font-weight:700;
-}
-
-.topics-video-card__media .video-embed{
-  margin-bottom:0;
-}
-
 .pillar{
   background:var(--surface);
   border:1px solid var(--border);
@@ -1765,8 +1711,7 @@ top: 0 !important;
 }
 
 @media (max-width: 1000px){
-  .acc__grid,
-  .topics-video-card{
+  .acc__grid{
     grid-template-columns:1fr;
   }
 }
@@ -2936,137 +2881,98 @@ z-index:1100;
   }
 }
 /* =========================================================
-   23) LEARN MAIN PAGE — CONTENT ENHANCEMENT
-   تحسينات إضافية لصفحة learn.html بعد Phase 1
+   GLOSSARY PAGE - EXPANDED LEARNING CARDS
+   بطاقات موسعة للقاموس الإداري مع التصنيف والمثال والفيديو
    ========================================================= */
-
-.learn-page .page-hero p{
-  max-width: 850px;
-}
-
-.compact-head{
-  margin-bottom: 14px;
-}
-
-.compact-head h2{
-  margin-bottom: 6px;
-}
-
-.learn-start-grid--wide{
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.learn-start-link{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-
-.learn-start-link:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(15, 39, 71, .08);
-  border-color: rgba(212, 166, 58, .45);
-}
-
-.learn-start-label,
-.path-kicker{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:28px;
-  padding:3px 10px;
-  margin-bottom:10px;
-  border-radius:999px;
-  background:rgba(212, 166, 58, .12);
-  color:var(--primary);
-  font-size:.82rem;
-  font-weight:700;
-}
-
-.learn-start-note{
-  background:linear-gradient(135deg, rgba(15, 39, 71, .04), rgba(212, 166, 58, .08));
-}
-
-.learn-paths-grid--enhanced{
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.learn-path-card .path-kicker{
-  width:max-content;
-}
-
-.learn-path-card--muted{
-  background:linear-gradient(135deg, #fff, rgba(244, 247, 251, .96));
-}
-
-.card-link--disabled{
-  opacity:.65;
-  cursor:not-allowed;
-}
-
-.learn-map-card{
-  padding:28px;
-}
-
-.learn-map-grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:14px;
-  margin-top:18px;
-}
-
-.learn-map-item{
+.glossary-item{
   display:flex;
   flex-direction:column;
-  gap:8px;
-  padding:16px;
+  gap:14px;
+}
+
+.glossary-category{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  padding:5px 10px;
+  border-radius:999px;
+  background:rgba(212,166,58,.12);
+  color:var(--primary);
+  border:1px solid rgba(212,166,58,.28);
+  font-size:.82rem;
+  font-weight:800;
+}
+
+.glossary-definition,
+.glossary-example{
   border:1px solid var(--border);
   border-radius:16px;
+  padding:12px 14px;
   background:#fff;
 }
 
-.learn-map-item strong{
+.glossary-definition strong,
+.glossary-example strong{
+  display:block;
+  margin-bottom:6px;
   color:var(--primary);
-  font-size:1rem;
 }
 
-.learn-map-item span{
+.glossary-definition p,
+.glossary-example p{
+  margin:0;
   color:var(--muted);
-  line-height:1.8;
+  line-height:1.9;
 }
 
-.learning-journey-steps--five{
-  grid-template-columns: repeat(5, 1fr);
+.glossary-example{
+  background:linear-gradient(180deg, #fff, rgba(15,39,71,.025));
 }
 
-.learning-journey-steps--five .journey-step{
-  flex-direction:column;
+.glossary-video-box{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border-radius:16px;
+  background:linear-gradient(135deg, rgba(15,39,71,.06), rgba(212,166,58,.12));
+  border:1px solid rgba(212,166,58,.22);
 }
 
-@media (max-width: 1100px){
-  .learn-start-grid--wide,
-  .learn-paths-grid--enhanced,
-  .learn-map-grid,
-  .learning-journey-steps--five{
-    grid-template-columns: repeat(2, 1fr);
-  }
+.glossary-video-box span{
+  color:var(--primary);
+  font-weight:800;
+  line-height:1.6;
+}
+
+.term-video-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+  text-decoration:none;
+  color:#fff;
+  background:linear-gradient(135deg, var(--primary), var(--gold));
+  padding:9px 12px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.9rem;
+  box-shadow:0 10px 22px rgba(15,39,71,.12);
+}
+
+.term-video-link:hover{
+  transform:translateY(-1px);
+  box-shadow:0 14px 28px rgba(15,39,71,.18);
 }
 
 @media (max-width: 700px){
-  .learn-start-grid--wide,
-  .learn-paths-grid--enhanced,
-  .learn-map-grid,
-  .learning-journey-steps--five{
-    grid-template-columns: 1fr;
+  .glossary-video-box{
+    align-items:flex-start;
+    flex-direction:column;
   }
 
-  .learn-hero-actions{
-    align-items:stretch;
-  }
-
-  .learn-hero-actions .btn{
+  .term-video-link{
     width:100%;
-    justify-content:center;
   }
 }
