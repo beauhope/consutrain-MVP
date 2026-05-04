@@ -80,7 +80,7 @@ async function loadPartial(selector, filePath) {
   if (!target) return;
 
   try {
-    const version = "v=20260324_4";
+    const version = "v=20260504_menu";
     const separator = filePath.includes("?") ? "&" : "?";
     const cacheSafePath = `${filePath}${separator}${version}`;
 
@@ -126,6 +126,31 @@ function initHeaderNavigation() {
 
   const submenuToggles = document.querySelectorAll(".submenu-toggle");
   const submenuParents = document.querySelectorAll(".has-submenu");
+  const navLinks = nav.querySelectorAll("a");
+
+  function closeSubmenus() {
+    submenuParents.forEach((item) => {
+      item.classList.remove("submenu-open");
+
+      const button = item.querySelector(".submenu-toggle");
+      if (button) {
+        button.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  function closeMobileNav() {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = "☰";
+    closeSubmenus();
+  }
+
+  function openMobileNav() {
+    nav.classList.add("open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.textContent = "×";
+  }
 
   /*
     -------------------------------------------------------
@@ -134,9 +159,16 @@ function initHeaderNavigation() {
     فتح وإغلاق القائمة الرئيسية في الشاشات الصغيرة
     -------------------------------------------------------
   */
-  toggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    const isOpen = nav.classList.contains("open");
+
+    if (isOpen) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
+    }
   });
 
   /*
@@ -145,11 +177,14 @@ function initHeaderNavigation() {
     PURPOSE:
     على الجوال فقط:
     فتح وإغلاق القوائم الفرعية داخل الهيدر
-    بشكل accordion
+    بشكل accordion، مع فتح قائمة واحدة فقط في كل مرة.
     -------------------------------------------------------
   */
   submenuToggles.forEach((button) => {
     button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
       const parentItem = event.currentTarget.closest(".has-submenu");
       if (!parentItem) return;
 
@@ -159,8 +194,29 @@ function initHeaderNavigation() {
       */
       if (window.innerWidth > 900) return;
 
-      const isOpen = parentItem.classList.toggle("submenu-open");
-      button.setAttribute("aria-expanded", String(isOpen));
+      const willOpen = !parentItem.classList.contains("submenu-open");
+      closeSubmenus();
+
+      if (willOpen) {
+        parentItem.classList.add("submenu-open");
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  /*
+    -------------------------------------------------------
+    NAV LINK HANDLER
+    PURPOSE:
+    عند الضغط على أي رابط في قائمة الجوال، نغلق القائمة
+    حتى لا تبقى فوق واجهة الصفحة بعد الانتقال.
+    -------------------------------------------------------
+  */
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 900) {
+        closeMobileNav();
+      }
     });
   });
 
@@ -177,17 +233,22 @@ function initHeaderNavigation() {
     const clickedInsideHeader = event.target.closest(".site-header");
     if (clickedInsideHeader) return;
 
-    nav.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
+    if (window.innerWidth <= 900) {
+      closeMobileNav();
+    }
+  });
 
-    submenuParents.forEach((item) => {
-      item.classList.remove("submenu-open");
-
-      const button = item.querySelector(".submenu-toggle");
-      if (button) {
-        button.setAttribute("aria-expanded", "false");
-      }
-    });
+  /*
+    -------------------------------------------------------
+    ESC KEY HANDLER
+    PURPOSE:
+    إتاحة إغلاق قائمة الجوال بزر Escape عند الاختبار على سطح المكتب.
+    -------------------------------------------------------
+  */
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileNav();
+    }
   });
 
   /*
@@ -201,17 +262,7 @@ function initHeaderNavigation() {
   */
   window.addEventListener("resize", () => {
     if (window.innerWidth > 900) {
-      nav.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-
-      submenuParents.forEach((item) => {
-        item.classList.remove("submenu-open");
-
-        const button = item.querySelector(".submenu-toggle");
-        if (button) {
-          button.setAttribute("aria-expanded", "false");
-        }
-      });
+      closeMobileNav();
     }
   });
 }
