@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-services-strategic-v20260505";
-const RUNTIME_CACHE = "consutrain-runtime-v20260505-services-strategic";
+const STATIC_CACHE = "consutrain-templates-hub-v20260505";
+const RUNTIME_CACHE = "consutrain-runtime-v20260505-templates-hub";
 
 const PRECACHE_URLS = [
   "./",
@@ -23,6 +23,7 @@ const PRECACHE_URLS = [
   "./services.html",
   "./tools.html",
 
+  "./templates/index.html",
   "./templates/operational-plan-template.html",
   "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
   "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",
@@ -32,6 +33,7 @@ const PRECACHE_URLS = [
   "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.pdf",
   "./downloads/ConsuTrain_Simple_Risk_Register_AR.docx",
   "./downloads/ConsuTrain_Simple_Risk_Register_AR.pdf",
+  "./downloads/ConsuTrain_Profile_and_Services_AR.pdf",
 
   "./learn/ai-prompts.html",
   "./learn/ai.html",

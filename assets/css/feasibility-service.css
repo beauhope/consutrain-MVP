@@ -1,0 +1,109 @@
+/* =========================================================
+   FEASIBILITY SERVICE PAGE LIGHT THEME OVERRIDES
+   ملف تنسيق خفيف لصفحة دراسات الجدوى فقط
+   الهدف: توحيد ألوان الصفحة مع باقي صفحات الخدمات دون تعديل style.css
+   ========================================================= */
+
+.feasibility-page{
+  background:#ffffff;
+  color:var(--text);
+}
+
+.feasibility-page .page-hero,
+.feasibility-page .service-detail-hero,
+.feasibility-page .feasibility-hero{
+  background:
+    radial-gradient(circle at top right, rgba(212,166,58,.16), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(14,44,84,.06), transparent 34%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%) !important;
+  color:var(--text) !important;
+}
+
+.feasibility-page .page-hero h1,
+.feasibility-page h1,
+.feasibility-page h2,
+.feasibility-page h3{
+  color:var(--primary) !important;
+}
+
+.feasibility-page .page-hero p,
+.feasibility-page p,
+.feasibility-page li{
+  color:var(--muted);
+}
+
+.feasibility-page .eyebrow,
+.feasibility-page .section-kicker,
+.feasibility-page .resource-tag{
+  color:var(--accent);
+}
+
+.feasibility-page .home-section{
+  background:#ffffff;
+}
+
+.feasibility-page .service-detail-soft{
+  background:linear-gradient(180deg, #fbfdff 0%, #f7fafe 100%) !important;
+}
+
+.feasibility-page .section-card,
+.feasibility-page .service-acc-item{
+  background:#ffffff !important;
+  color:var(--text) !important;
+  border:1px solid rgba(14,44,84,.08) !important;
+  box-shadow:0 12px 34px rgba(9,30,66,.06) !important;
+}
+
+.feasibility-page .service-acc-item summary{
+  color:var(--primary) !important;
+}
+
+.feasibility-page .service-acc-item summary::before{
+  color:var(--accent) !important;
+}
+
+.feasibility-output-grid{
+  grid-template-columns:repeat(4, 1fr);
+}
+
+.feasibility-resource-grid{
+  grid-template-columns:repeat(3, 1fr);
+}
+
+.feasibility-resource-card{
+  text-align:right;
+}
+
+.feasibility-resource-card h3{
+  margin-top:10px;
+  margin-bottom:8px;
+}
+
+.feasibility-resource-card p{
+  margin-bottom:0;
+  line-height:1.95;
+}
+
+.resource-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 12px;
+  border-radius:999px;
+  background:rgba(212,166,58,.12);
+  font-weight:800;
+  font-size:.88rem;
+}
+
+.feasibility-final-cta{
+  background:
+    radial-gradient(circle at top right, rgba(212,166,58,.14), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%) !important;
+}
+
+@media (max-width:980px){
+  .feasibility-output-grid,
+  .feasibility-resource-grid{
+    grid-template-columns:1fr;
+  }
+}
