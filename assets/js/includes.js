@@ -320,6 +320,8 @@ function setActiveNavLink() {
     path.endsWith("/")
   ) {
     activeHref = "index.html";
+  } else if (path.endsWith("/start-here.html")) {
+    activeHref = "start-here.html";
   } else if (path.includes("/learn/") || path.endsWith("/learn.html")) {
     activeHref = "learn.html";
   } else if (path.includes("/services/") || path.endsWith("/services.html")) {
@@ -388,7 +390,9 @@ function initBreadcrumbs() {
 
   let sectionHref = null;
 
-  if (section === "التعلّم") {
+  if (section === "البداية") {
+    sectionHref = `${root}/start-here.html`;
+  } else if (section === "التعلّم") {
     sectionHref = `${root}/learn.html`;
   } else if (section === "الأدوات") {
     sectionHref = `${root}/tools.html`;

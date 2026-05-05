@@ -7,15 +7,9 @@
     PURPOSE:
     صفحة توجيهية للزائر الجديد داخل منصة ConsuTrain.
 
-    STRUCTURE ROLE:
-    - تعمل كخريطة دخول سريعة للمنصة.
-    - تساعد الزائر على اختيار المسار المناسب حسب حاجته.
-    - تربط بين التعلّم، الأدوات، الخدمات، ومن نحن، والتواصل.
-
-    TECHNICAL NOTES:
-    - الصفحة موجودة في جذر المشروع، لذلك تستخدم data-root=".".
-    - يتم تحميل الهيدر والفوتر من partials عبر includes.js.
-    - الصفحة تستخدم Breadcrumbs لأنها صفحة داخلية توجيهية.
+    NOTES:
+    - تساعد الزائر على اختيار المسار المناسب بسرعة.
+    - ترتبط بالأقسام الرئيسية: التعلّم، الأدوات، الخدمات، والتواصل.
     =========================================================
   -->
 
@@ -25,10 +19,10 @@
   <title>ابدأ من هنا | ConsuTrain</title>
   <meta
     name="description"
-    content="ابدأ من هنا في ConsuTrain: صفحة توجيهية تساعد الزائر على اختيار المسار المناسب بين التعلم، الأدوات، الخدمات، والتواصل."
+    content="صفحة ابدأ من هنا في ConsuTrain تساعد الزائر الجديد على اختيار المسار المناسب بين التعلم، الأدوات، الخدمات، والاستشارة."
   >
 
-  <link rel="stylesheet" href="assets/css/style.css?v=20260505_start_here_v2">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260505_start_here">
 
   <link rel="icon" type="image/svg+xml"
     href='data:image/svg+xml,
@@ -59,95 +53,74 @@
     <div id="breadcrumbs-placeholder"></div>
   </div>
 
-  <main class="start-page">
-    <!--
-      =======================================================
-      HERO SECTION
-      الهدف: شرح وظيفة الصفحة بسرعة وتقديم أهم مسارين للزائر الجديد.
-      =======================================================
-    -->
-    <section class="hero start-hero">
+  <main>
+    <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-card start-hero-card">
-          <span class="eyebrow">دليل الدخول السريع إلى المنصة</span>
+        <div class="hero-card">
+          <span class="eyebrow">دليل سريع لاستخدام المنصة</span>
           <h1>ابدأ من هنا</h1>
           <p>
-            هذه الصفحة تساعدك على اختيار الطريق الأنسب داخل ConsuTrain. يمكنك البدء بالتعلّم،
-            تجربة الأدوات، الاطلاع على الخدمات، أو التواصل عندما يكون لديك احتياج محدد.
+            إذا كنت تزور ConsuTrain لأول مرة، فهذه الصفحة تساعدك على اختيار المسار المناسب:
+            هل تريد التعلّم؟ استخدام أداة؟ الاطلاع على خدمة؟ أم التواصل لطلب استشارة؟
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#visitor-paths">اختر مسارك</a>
-            <a class="btn btn-secondary" href="learn.html">ابدأ بالتعلّم</a>
+            <a class="btn btn-primary" href="learn.html">أريد أن أتعلّم</a>
+            <a class="btn btn-secondary" href="tools.html">أريد استخدام أداة</a>
           </div>
         </div>
 
-        <aside class="hero-side start-summary" aria-label="ملخص سريع للمنصة">
+        <div class="hero-side">
           <article class="feature-card">
-            <h3>للتعلّم</h3>
-            <p>مقالات، قاموس إداري، مسارات مهارية، ومحتوى عملي يساعد على بناء المعرفة.</p>
+            <h3>للمتعلّم</h3>
+            <p>ابدأ من مكتبة المعرفة، القاموس الإداري، أو مسارات المهارات العملية.</p>
           </article>
 
           <article class="feature-card">
-            <h3>للإنجاز</h3>
-            <p>أدوات تساعدك على تنظيم المهام، التفكير في دراسة الجدوى، وتحويل المعرفة إلى تطبيق.</p>
+            <h3>لصاحب العمل</h3>
+            <p>انتقل إلى الخدمات إذا كنت تبحث عن تخطيط، دراسة جدوى، ISO، أو إدارة مشاريع.</p>
           </article>
 
           <article class="feature-card">
-            <h3>للاستشارة</h3>
-            <p>خدمات مهنية في التخطيط، دراسات الجدوى، ISO، إدارة المشاريع، وبناء الأنظمة.</p>
+            <h3>لمن يريد إنجازًا سريعًا</h3>
+            <p>جرّب الأدوات العملية مثل MyTodo أو أداة دراسة الجدوى.</p>
           </article>
-        </aside>
+        </div>
       </div>
     </section>
 
-    <!--
-      =======================================================
-      VISITOR PATHS
-      الهدف: تحويل احتياج الزائر إلى مسار واضح داخل الموقع.
-      =======================================================
-    -->
-    <section class="home-section" id="visitor-paths">
+    <section class="home-section">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>ما الذي تبحث عنه اليوم؟</h2>
-            <p>اختر الجملة الأقرب لاحتياجك، ثم انتقل مباشرة إلى الصفحة المناسبة.</p>
+            <h2>اختر مسارك داخل المنصة</h2>
+            <p>تم تنظيم المنصة حول أربعة احتياجات رئيسية.</p>
           </div>
         </div>
 
-        <div class="start-path-grid">
-          <article class="section-card start-path-card">
-            <span class="start-card-number">01</span>
-            <h3>أريد فهم فكرة المنصة بسرعة</h3>
+        <div class="cards-grid">
+          <article class="section-card">
+            <h3>1. أريد بناء معرفة إدارية</h3>
             <p>
-              مناسب إذا كنت تزور ConsuTrain لأول مرة وتريد معرفة الفكرة، المجالات، وطريقة الاستفادة.
-            </p>
-            <a class="card-link" href="about.html">تعرف على المنصة</a>
-          </article>
-
-          <article class="section-card start-path-card">
-            <span class="start-card-number">02</span>
-            <h3>أريد تطوير معرفتي الإدارية</h3>
-            <p>
-              مناسب للطلاب، الموظفين، المدربين، والاستشاريين الذين يبحثون عن محتوى واضح ومنظم.
+              مناسب للطلاب، الموظفين، المدربين، والاستشاريين الذين يريدون محتوى مبسطًا وعمليًا
+              في الإدارة والذكاء الاصطناعي والمهارات المهنية.
             </p>
             <a class="card-link" href="learn.html">الانتقال إلى التعلّم</a>
           </article>
 
-          <article class="section-card start-path-card">
-            <span class="start-card-number">03</span>
-            <h3>أريد أداة عملية تساعدني</h3>
+          <article class="section-card">
+            <h3>2. أريد أداة تساعدني في العمل</h3>
             <p>
-              مناسب لمن يريد تنظيم المهام، تجربة أداة دراسة الجدوى، أو استعمال أدوات مساندة للعمل اليومي.
+              مناسب لمن يريد تنظيم المهام، إعداد تصور أولي لدراسة جدوى، أو استخدام أدوات عملية
+              تساعده في العمل اليومي.
             </p>
             <a class="card-link" href="tools.html">استكشاف الأدوات</a>
           </article>
 
-          <article class="section-card start-path-card">
-            <span class="start-card-number">04</span>
-            <h3>أحتاج خدمة مهنية أو استشارة</h3>
+          <article class="section-card">
+            <h3>3. أريد خدمة مهنية</h3>
             <p>
-              مناسب للمنشآت والفرق ورواد الأعمال الذين يحتاجون دعمًا في التخطيط، الجودة، المخاطر، أو المشاريع.
+              مناسب للمنشآت ورواد الأعمال والفرق التي تحتاج دعمًا في التخطيط، بناء الأنظمة،
+              دراسة الجدوى، إدارة المشاريع، أو التأهيل للمعايير.
             </p>
             <a class="card-link" href="services.html">عرض الخدمات</a>
           </article>
@@ -155,137 +128,46 @@
       </div>
     </section>
 
-    <!--
-      =======================================================
-      RECOMMENDED FIRST STEPS
-      الهدف: تقديم روابط عملية للزائر الذي لا يعرف من أين يبدأ.
-      =======================================================
-    -->
-    <section class="home-section home-section--soft start-recommended">
+    <section class="home-section home-section--soft">
       <div class="container">
         <div class="section-head">
           <div>
             <h2>روابط مقترحة للبداية</h2>
-            <p>هذه الصفحات مناسبة كبداية سريعة قبل التعمق في باقي أقسام المنصة.</p>
+            <p>هذه الروابط تساعدك على الوصول السريع إلى أكثر الصفحات فائدة للزائر الجديد.</p>
           </div>
         </div>
 
         <div class="cards-grid">
           <article class="section-card">
-            <h3>مكتبة المعرفة الإدارية</h3>
-            <p>ابدأ بالمقالات المنظمة إذا كنت تريد تعلم مفاهيم الإدارة والمشاريع والمهارات بطريقة مبسطة.</p>
+            <h3>مكتبة المعرفة</h3>
+            <p>مقالات إدارية مبسطة ومنظمة حسب الموضوعات.</p>
             <a class="card-link" href="learn/articles.html">فتح مكتبة المعرفة</a>
           </article>
 
           <article class="section-card">
             <h3>القاموس الإداري</h3>
-            <p>استخدمه عندما تواجه مصطلحًا إداريًا أو مفهومًا تحتاج إلى فهمه بسرعة.</p>
+            <p>مصطلحات ومفاهيم تساعدك على فهم لغة الإدارة والأعمال.</p>
             <a class="card-link" href="learn/glossary.html">فتح القاموس الإداري</a>
           </article>
 
           <article class="section-card">
-            <h3>مسار المهارات الإدارية الأساسية</h3>
-            <p>مسار منظم لمن يريد تعلم التخطيط، التنظيم، القيادة، الرقابة، والعمل بالمشاريع.</p>
-            <a class="card-link" href="learn/management-skills.html">فتح المسار</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!--
-      =======================================================
-      TOOLS AND SERVICES SHORTCUTS
-      الهدف: إبراز الروابط العملية والتحويلية دون جعل الصفحة بيعية بالكامل.
-      =======================================================
-    -->
-    <section class="home-section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>اختصارات عملية</h2>
-            <p>انتقل مباشرة إلى الأدوات أو الخدمات الأكثر ارتباطًا بالإنجاز العملي.</p>
-          </div>
-        </div>
-
-        <div class="start-shortcuts-grid">
-          <article class="section-card start-shortcut-card">
             <h3>MyTodo</h3>
-            <p>أداة لتنظيم المهام والأفكار والمتابعة اليومية.</p>
+            <p>أداة عملية لتنظيم المهام والأفكار والمتابعة اليومية.</p>
             <a class="card-link" href="tools/mytodo/index.html">فتح MyTodo</a>
           </article>
-
-          <article class="section-card start-shortcut-card">
-            <h3>أداة دراسة الجدوى</h3>
-            <p>نقطة بداية عملية لتجميع معلومات أولية حول فكرة مشروع.</p>
-            <a class="card-link" href="tools/feasibility/indexFeasibility.html">فتح الأداة</a>
-          </article>
-
-          <article class="section-card start-shortcut-card">
-            <h3>خدمة التخطيط الاستراتيجي</h3>
-            <p>مناسبة للجهات التي تحتاج إلى اتجاه واضح وأهداف قابلة للتنفيذ.</p>
-            <a class="card-link" href="services/strategic-planning.html">عرض الخدمة</a>
-          </article>
-
-          <article class="section-card start-shortcut-card">
-            <h3>خدمة دراسات الجدوى</h3>
-            <p>مناسبة لمن يريد تحليل فكرة أو مشروع قبل قرار التنفيذ.</p>
-            <a class="card-link" href="services/feasibility-studies.html">عرض الخدمة</a>
-          </article>
         </div>
       </div>
     </section>
 
-    <!--
-      =======================================================
-      SIMPLE DECISION GUIDE
-      الهدف: توجيه الزائر المتردد إلى قرار سريع.
-      =======================================================
-    -->
-    <section class="home-section home-section--soft">
-      <div class="container">
-        <div class="start-guide-panel">
-          <div>
-            <span class="eyebrow">اختيار سريع</span>
-            <h2>إذا لم تكن متأكدًا، اتبع هذه القاعدة البسيطة</h2>
-          </div>
-
-          <div class="start-guide-list">
-            <div class="start-guide-item">
-              <strong>للمعرفة:</strong>
-              <span>ابدأ من قسم التعلّم.</span>
-            </div>
-            <div class="start-guide-item">
-              <strong>للتطبيق:</strong>
-              <span>ابدأ من قسم الأدوات.</span>
-            </div>
-            <div class="start-guide-item">
-              <strong>للدعم المهني:</strong>
-              <span>ابدأ من قسم الخدمات.</span>
-            </div>
-            <div class="start-guide-item">
-              <strong>للاستفسار:</strong>
-              <span>انتقل إلى صفحة التواصل.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--
-      =======================================================
-      CTA SECTION
-      الهدف: توفير مخرج واضح للزائر الذي لديه طلب محدد.
-      =======================================================
-    -->
     <section class="home-section">
       <div class="container">
-        <div class="cta-panel start-cta-panel">
+        <div class="cta-panel">
           <div>
             <span class="eyebrow">هل لديك احتياج محدد؟</span>
-            <h2>اكتب احتياجك باختصار وسنحدد نقطة البداية المناسبة</h2>
+            <h2>ابدأ بالتواصل ووضح المطلوب باختصار</h2>
             <p>
-              إذا لم تكن متأكدًا من الصفحة المناسبة، أرسل وصفًا مختصرًا لما تحتاجه،
-              وسيساعد ذلك على توجيهك نحو الخدمة أو المورد أو الأداة المناسبة.
+              إذا لم تكن متأكدًا من المسار المناسب، أرسل وصفًا مختصرًا لما تحتاجه،
+              وسنحدد معك نقطة البداية الأنسب.
             </p>
           </div>
           <a class="btn btn-primary" href="contact.html">تواصل معنا</a>
@@ -296,41 +178,8 @@
 
   <div id="footer-placeholder"></div>
 
-  <!--
-    ملف includes.js مسؤول عن تحميل الهيدر والفوتر وتفعيل القائمة وBreadcrumbs.
-  -->
-  <script src="assets/js/includes.js?v=20260505_start_here_v2"></script>
-
-  <!--
-    زر العودة إلى الأعلى مستخدم في عدة صفحات داخل المنصة.
-    السكربت هنا محلي لتجنب إضافة سلوك عام قبل توحيده لاحقًا.
-  -->
+  <script src="assets/js/includes.js?v=20260505_start_here"></script>
   <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">↑</button>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const scrollTopBtn = document.getElementById("scrollTopBtn");
-      if (!scrollTopBtn) return;
-
-      const toggleScrollBtn = () => {
-        if (window.scrollY > 300) {
-          scrollTopBtn.classList.add("show");
-        } else {
-          scrollTopBtn.classList.remove("show");
-        }
-      };
-
-      window.addEventListener("scroll", toggleScrollBtn);
-      toggleScrollBtn();
-
-      scrollTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      });
-    });
-  </script>
-
   <script src="assets/js/pwa.js"></script>
 </body>
 </html>

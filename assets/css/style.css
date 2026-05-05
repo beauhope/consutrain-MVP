@@ -4114,3 +4114,50 @@ z-index:1100;
 .articles-tags-panel + .articles-results-head .articles-view-switch{
   margin-top:0;
 }
+
+/* =========================================================
+   MOBILE NAV CLOSE BUTTON FIX
+   يظهر زر إغلاق القائمة على الهاتف فقط، ولا يظهر في سطح المكتب.
+   ========================================================= */
+.mobile-nav-close,
+.mobile-nav-backdrop{
+  display:none;
+}
+
+@media (max-width: 900px){
+  .mobile-nav-close{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    align-self:flex-start;
+    gap:6px;
+    margin:0 0 8px;
+    padding:8px 12px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:#fff;
+    color:var(--primary);
+    font-family:inherit;
+    font-weight:700;
+    cursor:pointer;
+  }
+
+  .mobile-nav-backdrop.is-visible{
+    display:block;
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.35);
+    z-index:900;
+  }
+
+  .main-nav.open{
+    z-index:1000;
+  }
+}
+
+@media (min-width: 901px){
+  .mobile-nav-close,
+  .mobile-nav-backdrop{
+    display:none !important;
+  }
+}
