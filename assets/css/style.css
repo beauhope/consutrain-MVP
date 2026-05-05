@@ -5554,3 +5554,310 @@ z-index:1100;
   }
 }
 
+/* =========================================================
+   DESIGN CONSISTENCY — BUTTON SYSTEM
+   توحيد شكل الأزرار بين صفحات ConsuTrain
+   Phase B / Step 6
+   ========================================================= */
+
+:root{
+  --btn-radius: 14px;
+  --btn-min-height: 46px;
+  --btn-padding-y: 11px;
+  --btn-padding-x: 18px;
+  --btn-font-size: .95rem;
+  --btn-shadow: 0 10px 22px rgba(15,39,71,.12);
+  --btn-shadow-hover: 0 14px 28px rgba(15,39,71,.18);
+}
+
+/* القاعدة العامة لكل الأزرار والروابط التي تعمل كزر */
+.btn,
+.button,
+.cta-btn,
+.cta-primary,
+.cta-secondary,
+.glossary-action-btn,
+.prompt-copy-btn,
+.view-switch-btn,
+.phase-filter-btn,
+.tags-toggle-btn,
+.service-link-btn,
+.service-resource-link,
+.term-video-link,
+.article-table-actions a,
+.article-related-chip,
+.article-related-item,
+.pwa-install-btn{
+  font-family: inherit;
+  border-radius: var(--btn-radius);
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+/* الأزرار الرئيسية */
+.btn,
+.button,
+.cta-btn,
+.cta-primary,
+.cta-secondary,
+.glossary-action-btn,
+.prompt-copy-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--btn-min-height);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--btn-font-size);
+  line-height: 1.45;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: normal;
+}
+
+/* الزر الأساسي */
+.btn-primary,
+.cta-primary,
+.glossary-action-btn,
+.prompt-copy-btn{
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff;
+  box-shadow: var(--btn-shadow);
+}
+
+.btn-primary:hover,
+.cta-primary:hover,
+.glossary-action-btn:hover,
+.prompt-copy-btn:hover{
+  background: linear-gradient(135deg, var(--primary-2), var(--primary-3));
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+/* الزر الثانوي */
+.btn-secondary,
+.cta-secondary{
+  background: var(--gold-soft);
+  color: var(--primary);
+  border-color: rgba(212,166,58,.28);
+}
+
+.btn-secondary:hover,
+.cta-secondary:hover{
+  background: #ebddb9;
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(212,166,58,.14);
+}
+
+/* زر خفيف / رابط على شكل زر */
+.service-link-btn,
+.service-inline-links a,
+.article-table-actions a,
+.tags-toggle-btn,
+.phase-filter-btn,
+.view-switch-btn{
+  border: 1px solid rgba(15,39,71,.12);
+  background: #fff;
+  color: var(--primary);
+}
+
+.service-link-btn:hover,
+.service-inline-links a:hover,
+.article-table-actions a:hover,
+.tags-toggle-btn:hover,
+.phase-filter-btn:hover,
+.view-switch-btn:hover{
+  background: var(--gold-soft);
+  border-color: rgba(212,166,58,.45);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* الحالة النشطة */
+.phase-filter-btn.active,
+.view-switch-btn.active,
+.tag-chip.active{
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: var(--btn-shadow);
+}
+
+/* أزرار الفيديو أو الموارد */
+.term-video-link{
+  border-radius: 999px;
+  min-height: 42px;
+  padding: 9px 14px;
+  background: linear-gradient(135deg, var(--primary), var(--gold));
+  color: #fff;
+  box-shadow: var(--btn-shadow);
+}
+
+.term-video-link:hover{
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+/* أزرار صغيرة داخل البطاقات */
+.mini-btn{
+  min-height: 38px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-weight: 800;
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease;
+}
+
+.mini-btn:hover{
+  transform: translateY(-1px);
+}
+
+/* مجموعات الأزرار */
+.hero-actions,
+.service-hero-actions,
+.services-hero-actions,
+.contact-hero-actions,
+.contact-cta-actions,
+.template-actions,
+.home-free-resources-actions,
+.cta-buttons,
+.ai-portal-actions,
+.management-hero-actions,
+.management-next-actions,
+.lesson-actions,
+.acc__actions{
+  gap: 12px;
+}
+
+/* قابلية الوصول عند استخدام لوحة المفاتيح */
+.btn:focus-visible,
+.button:focus-visible,
+.cta-btn:focus-visible,
+.cta-primary:focus-visible,
+.cta-secondary:focus-visible,
+.glossary-action-btn:focus-visible,
+.prompt-copy-btn:focus-visible,
+.view-switch-btn:focus-visible,
+.phase-filter-btn:focus-visible,
+.tags-toggle-btn:focus-visible,
+.service-link-btn:focus-visible,
+.service-inline-links a:focus-visible,
+.article-table-actions a:focus-visible,
+.term-video-link:focus-visible,
+.mini-btn:focus-visible{
+  outline: 3px solid rgba(212,166,58,.35);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — MOBILE BUTTON SYSTEM
+   توحيد الأزرار على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  :root{
+    --btn-radius: 13px;
+    --btn-min-height: 46px;
+    --btn-padding-y: 11px;
+    --btn-padding-x: 16px;
+    --btn-font-size: .93rem;
+  }
+
+  .hero-actions,
+  .service-hero-actions,
+  .services-hero-actions,
+  .contact-hero-actions,
+  .contact-cta-actions,
+  .template-actions,
+  .home-free-resources-actions,
+  .cta-buttons,
+  .ai-portal-actions,
+  .management-hero-actions,
+  .management-next-actions{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .btn,
+  .button,
+  .cta-btn,
+  .cta-primary,
+  .cta-secondary,
+  .glossary-action-btn,
+  .prompt-copy-btn,
+  .service-hero-actions .btn,
+  .services-hero-actions .btn,
+  .contact-hero-actions .btn,
+  .contact-cta-actions .btn,
+  .template-actions .btn,
+  .home-free-resources-actions .btn,
+  .ai-portal-actions .btn,
+  .management-hero-actions .btn,
+  .management-next-actions .btn{
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .view-switch-btn,
+  .phase-filter-btn,
+  .tags-toggle-btn{
+    min-height: 42px;
+  }
+
+  .service-inline-links{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .service-inline-links a{
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .article-table-actions{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .article-table-actions a{
+    min-height: 42px;
+  }
+}
+
+@media (max-width: 480px){
+
+  :root{
+    --btn-font-size: .9rem;
+  }
+
+  .btn,
+  .button,
+  .cta-btn,
+  .cta-primary,
+  .cta-secondary,
+  .glossary-action-btn,
+  .prompt-copy-btn{
+    min-height: 44px;
+  }
+}
+
