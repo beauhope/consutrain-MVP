@@ -368,6 +368,104 @@ img{
   font-weight:700;
 }
 
+
+
+/* =========================================================
+   HOME FREE RESOURCES SECTION
+   قسم الموارد المجانية في الصفحة الرئيسية
+   ========================================================= */
+.home-free-resources{
+  padding:18px 0 38px;
+}
+
+.home-free-resources-box{
+  display:grid;
+  grid-template-columns:1.5fr .9fr;
+  gap:24px;
+  align-items:center;
+  background:linear-gradient(135deg, rgba(15,39,71,.06), rgba(212,166,58,.13));
+  border:1px solid var(--border);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:30px;
+}
+
+.section-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:var(--gold-soft);
+  color:var(--primary);
+  font-weight:800;
+  font-size:.9rem;
+}
+
+.home-free-resources h2{
+  margin:14px 0 10px;
+  color:var(--primary);
+  font-size:clamp(1.45rem, 3vw, 2rem);
+}
+
+.home-free-resources p{
+  margin:0 0 12px;
+  color:var(--muted);
+  line-height:1.95;
+}
+
+.home-free-resources-note{
+  font-weight:700;
+  color:var(--primary) !important;
+}
+
+.home-free-resources-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
+
+.home-free-resources-list{
+  display:grid;
+  gap:12px;
+}
+
+.home-resource-item{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px 18px;
+  box-shadow:0 8px 24px rgba(15,39,71,.06);
+}
+
+.home-resource-item strong{
+  display:block;
+  color:var(--primary);
+  margin-bottom:4px;
+}
+
+.home-resource-item span{
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+@media (max-width: 900px){
+  .home-free-resources-box{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .home-free-resources-box{
+    padding:22px;
+  }
+
+  .home-free-resources-actions .btn{
+    width:100%;
+  }
+}
+
 /* =========================================================
    6) FOOTER
    تنسيقات الفوتر العام
@@ -4169,4 +4267,237 @@ z-index:1100;
    ========================================================= */
 .mobile-nav-close{
   display:none !important;
+}
+
+/* =========================================================
+   MONETIZATION / TEMPLATES
+   صفحة تحميل قالب الخطة التشغيلية المجاني
+   ========================================================= */
+.template-hero{
+  padding:64px 0 36px;
+  background:linear-gradient(135deg, rgba(15,39,71,.06), rgba(212,166,58,.10));
+}
+
+.template-hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0, 1.4fr) minmax(280px, .7fr);
+  gap:28px;
+  align-items:stretch;
+}
+
+.template-hero-copy p{
+  max-width:760px;
+}
+
+.template-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:22px;
+}
+
+.template-download-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:24px;
+}
+
+.template-file-icon{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:var(--gold-soft);
+  font-size:1.8rem;
+  margin-bottom:12px;
+}
+
+.template-download-card h2{
+  margin:0 0 12px;
+  color:var(--primary);
+  font-size:1.25rem;
+}
+
+.template-download-card ul{
+  margin:0;
+  padding-right:20px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.template-features-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+.template-feature-card h3{
+  color:var(--primary);
+}
+
+.template-use-box{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:20px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:26px;
+}
+
+.template-use-box h2{
+  margin:0 0 10px;
+  color:var(--primary);
+}
+
+.template-use-box p{
+  margin:0 0 16px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.template-note{
+  background:var(--light);
+  border:1px dashed var(--border);
+  border-radius:18px;
+  padding:18px 20px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.template-note strong{
+  color:var(--primary);
+}
+
+@media (max-width: 900px){
+  .template-hero-grid,
+  .template-use-box{
+    grid-template-columns:1fr;
+  }
+
+  .template-features-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px){
+  .template-features-grid{
+    grid-template-columns:1fr;
+  }
+
+  .template-actions .btn{
+    width:100%;
+  }
+}
+
+
+/* =========================================================
+   MONETIZATION / RECIPROCITY CONTENT
+   توظيف مبدأ المعاملة بالمثل: قيمة تعليمية قبل التحميل
+   ========================================================= */
+.template-value-box{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:28px;
+}
+
+.template-value-box h2{
+  margin:8px 0 14px;
+  color:var(--primary);
+}
+
+.template-value-box p{
+  color:var(--muted);
+  line-height:2;
+  margin:0 0 12px;
+}
+
+.template-mini-grid,
+.template-tricks-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:18px;
+}
+
+.template-mini-card h3,
+.template-trick-card h3{
+  color:var(--primary);
+  margin-top:0;
+}
+
+.template-mini-card p,
+.template-trick-card p{
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.template-trick-card span{
+  display:inline-flex;
+  width:42px;
+  height:42px;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:var(--gold-soft);
+  color:var(--primary);
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.template-table-wrap{
+  overflow-x:auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+}
+
+.template-compare-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:760px;
+  direction:rtl;
+}
+
+.template-compare-table th,
+.template-compare-table td{
+  padding:16px 18px;
+  text-align:right;
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+  line-height:1.8;
+}
+
+.template-compare-table th{
+  background:linear-gradient(135deg, rgba(15,39,71,.08), rgba(212,166,58,.12));
+  color:var(--primary);
+  font-weight:800;
+}
+
+.template-compare-table td{
+  color:var(--muted);
+}
+
+.template-compare-table tr:last-child td{
+  border-bottom:0;
+}
+
+@media (max-width: 1000px){
+  .template-mini-grid,
+  .template-tricks-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px){
+  .template-mini-grid,
+  .template-tricks-grid{
+    grid-template-columns:1fr;
+  }
 }

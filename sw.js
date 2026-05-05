@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-force-top-fix-v20260505";
-const RUNTIME_CACHE = "consutrain-runtime-v20260505-nav-scroll-fix";
+const STATIC_CACHE = "consutrain-home-free-resources-v20260505";
+const RUNTIME_CACHE = "consutrain-runtime-v20260505-home-free-resources";
 
 const PRECACHE_URLS = [
   "./",
@@ -22,6 +22,16 @@ const PRECACHE_URLS = [
   "./learn.html",
   "./services.html",
   "./tools.html",
+
+  "./templates/operational-plan-template.html",
+  "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
+  "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",
+  "./templates/operational-plan-checklist.html",
+  "./templates/simple-risk-register.html",
+  "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.docx",
+  "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.pdf",
+  "./downloads/ConsuTrain_Simple_Risk_Register_AR.docx",
+  "./downloads/ConsuTrain_Simple_Risk_Register_AR.pdf",
 
   "./learn/ai-prompts.html",
   "./learn/ai.html",

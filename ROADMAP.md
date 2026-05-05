@@ -300,6 +300,8 @@ Prepare the platform to generate income in a professional and gradual way.
 - Define lead generation strategy.
 - Add clear calls to action.
 - Build trust through useful free content first.
+- Keep the homepage linked to current free downloads and free tools.
+- Create a dedicated `free-resources.html` page when the number of free downloadable models increases.
 
 ### Possible monetization channels
 
@@ -435,4 +437,27 @@ Phase 1 — MVP Stabilization
 
 Current focus:
 
-Project documentation, technical stability, and preparation for controlled expansion.
+Project documentation, technical stability, controlled expansion, and early monetization support through free resources.
+
+---
+
+# 10. Monetization reminder — Free resources page
+
+A homepage section has been added to direct visitors to current free downloads and free tools in `tools.html`.
+
+When the library grows beyond the initial free resources, create a dedicated page:
+
+`free-resources.html`
+
+This future page should collect:
+- free Word templates
+- free PDF checklists
+- simple Excel tools
+- practical administrative forms
+- links to relevant interactive tools
+
+Purpose:
+- improve visitor retention
+- make free value visible
+- support the Reciprocity principle
+- prepare visitors for paid templates, services, and consultations
