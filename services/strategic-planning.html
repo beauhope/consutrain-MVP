@@ -17,6 +17,38 @@
     content="خدمة التخطيط الاستراتيجي في ConsuTrain لمساعدة الجهات والمؤسسات على بناء توجه واضح وأهداف عملية وخطط قابلة للتنفيذ."
   >
 
+
+  <script>
+    /*
+      Early scroll reset for service pages.
+      This runs in the head before the browser restores an old scroll position.
+    */
+    (function () {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+
+      function resetToTop() {
+        if (window.location.hash) return;
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        if (document.body) document.body.scrollTop = 0;
+      }
+
+      resetToTop();
+      window.addEventListener("DOMContentLoaded", resetToTop);
+      window.addEventListener("pageshow", function () {
+        resetToTop();
+        setTimeout(resetToTop, 80);
+        setTimeout(resetToTop, 250);
+      });
+      window.addEventListener("load", function () {
+        resetToTop();
+        setTimeout(resetToTop, 120);
+        setTimeout(resetToTop, 400);
+      });
+    })();
+  </script>
   <link rel="stylesheet" href="../assets/css/style.css?v=20260504_menu">
 </head>
 
@@ -441,6 +473,6 @@
     });
   </script>
 
-  <script src="../assets/js/includes.js?v=20260505_nav_scroll_fix"></script>
+  <script src="../assets/js/includes.js?v=20260505_force_top_fix"></script>
 </body>
 </html>

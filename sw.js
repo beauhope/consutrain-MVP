@@ -9,7 +9,7 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260505-nav-scroll-fix";
+const STATIC_CACHE = "consutrain-force-top-fix-v20260505";
 const RUNTIME_CACHE = "consutrain-runtime-v20260505-nav-scroll-fix";
 
 const PRECACHE_URLS = [

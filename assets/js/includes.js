@@ -32,14 +32,27 @@ if ("scrollRestoration" in window.history) {
 }
 
 function forceTopOnFreshNavigation() {
-  if (!window.location.hash) {
-    window.scrollTo(0, 0);
+  if (window.location.hash) return;
+
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  if (document.body) {
+    document.body.scrollTop = 0;
   }
 }
 
+forceTopOnFreshNavigation();
 window.addEventListener("DOMContentLoaded", forceTopOnFreshNavigation);
-window.addEventListener("load", forceTopOnFreshNavigation);
-window.addEventListener("pageshow", forceTopOnFreshNavigation);
+window.addEventListener("load", () => {
+  forceTopOnFreshNavigation();
+  setTimeout(forceTopOnFreshNavigation, 120);
+  setTimeout(forceTopOnFreshNavigation, 400);
+});
+window.addEventListener("pageshow", () => {
+  forceTopOnFreshNavigation();
+  setTimeout(forceTopOnFreshNavigation, 80);
+  setTimeout(forceTopOnFreshNavigation, 250);
+});
 
 /*
   ---------------------------------------------------------
@@ -103,7 +116,7 @@ async function loadPartial(selector, filePath) {
   if (!target) return;
 
   try {
-    const version = "v=20260505_nav_scroll_fix";
+    const version = "v=20260505_force_top_fix";
     const separator = filePath.includes("?") ? "&" : "?";
     const cacheSafePath = `${filePath}${separator}${version}`;
 
