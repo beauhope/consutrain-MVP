@@ -2872,20 +2872,21 @@ z-index:1100;
   }
 
   .submenu{
-  position:absolute;
-  top:100%;
-  right:0;
-  min-width:230px;
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:18px;
-  box-shadow:var(--shadow);
-  padding:10px;
-  display:none;
-  flex-direction:column;
-  gap:2px;
-  z-index:1100;
-}
+    position:static;
+    grid-column:1 / -1;
+    width:100%;
+    min-width:0;
+    margin:4px 0 8px;
+    background:rgba(248,250,252,.92);
+    border:1px solid rgba(30,58,138,.08);
+    border-radius:14px;
+    box-shadow:none;
+    padding:8px;
+    display:none;
+    flex-direction:column;
+    gap:2px;
+    z-index:auto;
+  }
 
   .has-submenu:hover > .submenu,
   .has-submenu:focus-within > .submenu{
@@ -4267,6 +4268,55 @@ z-index:1100;
    ========================================================= */
 .mobile-nav-close{
   display:none !important;
+}
+
+
+/* =========================================================
+   TECHNICAL FIX - Mobile navigation stability
+   يمنع بقاء قائمة الهاتف مفتوحة فوق صفحات MyTodo،
+   ويجعل القوائم الفرعية داخل القائمة نفسها لا كطبقة عائمة.
+   ========================================================= */
+.nav-backdrop{
+  display:none;
+}
+
+@media (max-width: 900px){
+  body.nav-is-open{
+    overflow:hidden;
+  }
+
+  .main-nav{
+    z-index:1001;
+    max-height:calc(100vh - 96px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+  }
+
+  .nav-backdrop:not([hidden]){
+    display:block;
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.38);
+    z-index:900;
+  }
+
+  .main-nav .submenu{
+    position:static !important;
+    grid-column:1 / -1;
+    width:100%;
+    min-width:0;
+    box-shadow:none;
+  }
+}
+
+@media (min-width: 901px){
+  .nav-backdrop{
+    display:none !important;
+  }
+
+  body.nav-is-open{
+    overflow:auto;
+  }
 }
 
 /* =========================================================

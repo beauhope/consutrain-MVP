@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-templates-hub-v20260505";
-const RUNTIME_CACHE = "consutrain-runtime-v20260505-templates-hub";
+const STATIC_CACHE = "consutrain-mobile-nav-mytodo-v20260505";
+const RUNTIME_CACHE = "consutrain-runtime-mobile-nav-mytodo-v20260505";
 
 const PRECACHE_URLS = [
   "./",

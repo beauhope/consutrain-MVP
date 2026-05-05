@@ -264,10 +264,19 @@ function initHeaderNavigation() {
     const clickedInsideHeader = event.target.closest(".site-header");
     const clickedInsideNav = event.target.closest("#mainNav");
 
-    if (isMobileView() && !clickedInsideHeader && !clickedInsideNav) {
+    if (isMobileView() && nav.classList.contains("open") && !clickedInsideHeader && !clickedInsideNav) {
       closeMobileNav();
     }
   });
+
+  document.addEventListener("touchstart", (event) => {
+    const touchedInsideHeader = event.target.closest(".site-header");
+    const touchedInsideNav = event.target.closest("#mainNav");
+
+    if (isMobileView() && nav.classList.contains("open") && !touchedInsideHeader && !touchedInsideNav) {
+      closeMobileNav();
+    }
+  }, { passive: true });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
@@ -282,6 +291,9 @@ function initHeaderNavigation() {
   });
 
   window.addEventListener("pageshow", closeMobileNav);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) closeMobileNav();
+  });
 }
 
 /*
