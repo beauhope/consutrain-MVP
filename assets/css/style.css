@@ -5861,3 +5861,116 @@ z-index:1100;
   }
 }
 
+/* =========================================================
+   UI/UX MOBILE FIX — NAV SUBMENU ACCORDION
+   إصلاح القوائم المنسدلة داخل قائمة الهاتف
+   - منع ظهور القائمة الفرعية كنافذة عائمة
+   - جعلها جزءًا من القائمة نفسها
+   - منع اختفاء الروابط الفرعية أو الحاجة لتحريك مزعج
+   ========================================================= */
+
+@media (max-width: 900px){
+
+  body.nav-is-open .main-nav.open{
+    position: fixed !important;
+    top: 84px !important;
+    right: 12px !important;
+    left: 12px !important;
+    max-height: calc(100dvh - 110px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 14px !important;
+    border-radius: 22px !important;
+    overscroll-behavior: contain;
+  }
+
+  .main-nav .nav-item{
+    width: 100%;
+    overflow: visible !important;
+  }
+
+  .main-nav .has-submenu{
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center;
+  }
+
+  /* القائمة الفرعية على الجوال تصبح داخلية وليست absolute */
+  .main-nav .submenu{
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    grid-column: 1 / -1;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 8px 0 4px !important;
+    padding: 8px !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+    background: #f8fafc !important;
+    border: 1px solid rgba(15,39,71,.08) !important;
+    display: none !important;
+    gap: 6px !important;
+  }
+
+  .main-nav .has-submenu.submenu-open > .submenu{
+    display: grid !important;
+  }
+
+  .main-nav .submenu a{
+    display: flex !important;
+    width: 100% !important;
+    min-height: 42px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    background: #fff;
+    color: var(--primary);
+    line-height: 1.6;
+  }
+
+  .main-nav .submenu a:hover,
+  .main-nav .submenu a:focus-visible,
+  .main-nav .submenu a.is-active-sub{
+    background: var(--gold-soft);
+    color: var(--primary);
+  }
+
+  .main-nav .submenu-toggle{
+    display: inline-grid !important;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .main-nav .has-submenu.submenu-open .submenu-toggle span{
+    transform: rotate(180deg);
+  }
+
+  /* منع زر CTA أسفل القائمة من تغطية عناصر القائمة */
+  body.nav-is-open{
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px){
+
+  body.nav-is-open .main-nav.open{
+    top: 78px !important;
+    right: 10px !important;
+    left: 10px !important;
+    max-height: calc(100dvh - 96px) !important;
+    padding: 12px !important;
+  }
+
+  .main-nav .submenu a{
+    min-height: 40px;
+    padding: 9px 10px !important;
+    font-size: .92rem;
+  }
+}
+
