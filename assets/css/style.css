@@ -4161,3 +4161,12 @@ z-index:1100;
     display:none !important;
   }
 }
+
+
+/* =========================================================
+   MONETIZATION FIX - hide old textual close button
+   يمنع ظهور زر "× إغلاق" داخل القائمة.
+   ========================================================= */
+.mobile-nav-close{
+  display:none !important;
+}

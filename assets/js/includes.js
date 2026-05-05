@@ -18,6 +18,29 @@
   =========================================================
 */
 
+
+/*
+  ---------------------------------------------------------
+  GLOBAL SCROLL FIX
+  PURPOSE:
+  منع المتصفح من فتح الصفحات الداخلية من منتصفها عند التنقل
+  من القوائم أو عند الرجوع من الكاش.
+  ---------------------------------------------------------
+*/
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+
+function forceTopOnFreshNavigation() {
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", forceTopOnFreshNavigation);
+window.addEventListener("load", forceTopOnFreshNavigation);
+window.addEventListener("pageshow", forceTopOnFreshNavigation);
+
 /*
   ---------------------------------------------------------
   FUNCTION: getRootPath
@@ -80,7 +103,7 @@ async function loadPartial(selector, filePath) {
   if (!target) return;
 
   try {
-    const version = "v=20260505_knowledge_library_fix";
+    const version = "v=20260505_nav_scroll_fix";
     const separator = filePath.includes("?") ? "&" : "?";
     const cacheSafePath = `${filePath}${separator}${version}`;
 
@@ -138,15 +161,9 @@ function initHeaderNavigation() {
     header.insertAdjacentElement("afterend", backdrop);
   }
 
-  let closeButton = nav.querySelector(".mobile-nav-close");
-  if (!closeButton) {
-    closeButton = document.createElement("button");
-    closeButton.className = "mobile-nav-close";
-    closeButton.type = "button";
-    closeButton.setAttribute("aria-label", "إغلاق القائمة");
-    closeButton.textContent = "× إغلاق";
-    nav.insertAdjacentElement("afterbegin", closeButton);
-  }
+  // لا نضيف زر إغلاق نصي داخل القائمة حتى لا يظهر بجانب العناوين.
+  // يتم الإغلاق من زر القائمة نفسه أو بالضغط خارج القائمة.
+  const closeButton = null;
 
   function isMobileView() {
     return window.innerWidth <= MOBILE_BREAKPOINT;
@@ -195,10 +212,12 @@ function initHeaderNavigation() {
     isOpen ? closeMobileNav() : openMobileNav();
   });
 
-  closeButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    closeMobileNav();
-  });
+  if (closeButton) {
+    closeButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      closeMobileNav();
+    });
+  }
 
   backdrop.addEventListener("click", closeMobileNav);
 

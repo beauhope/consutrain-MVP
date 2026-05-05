@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260505-book-consultation-safe";
-const RUNTIME_CACHE = "consutrain-runtime-v20260505-book-consultation-safe";
+const STATIC_CACHE = "consutrain-static-v20260505-nav-scroll-fix";
+const RUNTIME_CACHE = "consutrain-runtime-v20260505-nav-scroll-fix";
 
 const PRECACHE_URLS = [
   "./",
