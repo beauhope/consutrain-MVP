@@ -5009,3 +5009,145 @@ z-index:1100;
     text-align: right;
   }
 }
+/* =========================================================
+   MOBILE FIX — STEP NUMBER INLINE WITH TITLE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* بطاقة الخطوة نفسها */
+  .service-detail-page .process-card,
+  .service-detail-page .step-card,
+  .service-detail-page .workflow-card {
+    display: grid !important;
+    grid-template-columns: 52px 1fr !important;
+    column-gap: 14px;
+    row-gap: 8px;
+    align-items: start;
+    text-align: right;
+    direction: rtl;
+    padding: 22px 18px !important;
+  }
+
+  /* الرقم */
+  .service-detail-page .process-card .step-number,
+  .service-detail-page .step-card .step-number,
+  .service-detail-page .workflow-card .step-number,
+  .service-detail-page .process-card .number,
+  .service-detail-page .step-card .number,
+  .service-detail-page .workflow-card .number {
+    position: static !important;
+    grid-column: 1;
+    grid-row: 1;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: grid !important;
+    place-items: center;
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 0 !important;
+  }
+
+  /* عنوان الخطوة */
+  .service-detail-page .process-card h3,
+  .service-detail-page .step-card h3,
+  .service-detail-page .workflow-card h3 {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    font-size: clamp(1.1rem, 4.8vw, 1.35rem);
+    line-height: 1.45;
+    text-align: right;
+  }
+
+  /* وصف الخطوة */
+  .service-detail-page .process-card p,
+  .service-detail-page .step-card p,
+  .service-detail-page .workflow-card p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-right: 0 !important;
+    margin: 8px 0 0 0 !important;
+    font-size: 0.96rem;
+    line-height: 1.85;
+    text-align: right;
+  }
+}
+
+/* =========================================================
+   MOBILE FIX — SERVICE JOURNEY STEPS INLINE LAYOUT
+   يعالج بطاقات خطوات الخدمة التي تستخدم journey-item / journey-number
+   ========================================================= */
+
+@media (max-width: 768px){
+  .service-detail-page .service-journey .journey-item,
+  .service-detail-page .journey-item{
+    display: grid !important;
+    grid-template-columns: 54px minmax(0, 1fr) !important;
+    gap: 12px !important;
+    align-items: start !important;
+    direction: rtl;
+    padding: 18px !important;
+  }
+
+  .service-detail-page .service-journey .journey-number,
+  .service-detail-page .journey-number{
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    border-radius: 16px !important;
+    margin: 0 !important;
+    align-self: start !important;
+    justify-self: start !important;
+    display: grid !important;
+    place-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .service-detail-page .service-journey .journey-content,
+  .service-detail-page .journey-content{
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    text-align: right !important;
+  }
+
+  .service-detail-page .service-journey .journey-content h3,
+  .service-detail-page .journey-content h3{
+    margin: 0 0 8px 0 !important;
+    font-size: clamp(1.08rem, 4.8vw, 1.35rem) !important;
+    line-height: 1.45 !important;
+    text-align: right !important;
+  }
+
+  .service-detail-page .service-journey .journey-content p,
+  .service-detail-page .journey-content p{
+    margin: 0 !important;
+    font-size: .95rem !important;
+    line-height: 1.85 !important;
+    text-align: right !important;
+  }
+}
+
+@media (max-width: 420px){
+  .service-detail-page .service-journey .journey-item,
+  .service-detail-page .journey-item{
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    padding: 16px !important;
+  }
+
+  .service-detail-page .service-journey .journey-number,
+  .service-detail-page .journey-number{
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    border-radius: 14px !important;
+    font-size: .92rem !important;
+  }
+}
