@@ -31,7 +31,7 @@
     ربط ملف التنسيق العام للمشروع
     هذا الملف سيستخدم في أكثر من صفحة، لذلك نحافظ على مركزية التنسيق
   -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20260505_home_free_resources">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260506_home_polish">
 
   <!--
     FAVICON مؤقت للمنصة الرئيسية
@@ -80,24 +80,30 @@
       - توجيه المستخدم إلى أهم مسارين
       =======================================================
     -->
-    <section class="hero">
+    <section class="hero home-polish-hero">
       <div class="container hero-grid">
 
         <!-- البطاقة الرئيسية للنص -->
-        <div class="hero-card">
-          <span class="eyebrow">بوابتك إلى المعرفة والأدوات والخدمات الإدارية</span>
+        <div class="hero-card home-hero-card">
+          <span class="eyebrow">منصة عملية للتعلّم، الأدوات، والخدمات الإدارية</span>
 
-          <h1>ConsuTrain</h1>
+          <h1>طوّر عملك الإداري من الفكرة إلى التنفيذ</h1>
 
           <p>
-            منصة مهنية تجمع بين المحتوى العملي، الأدوات المفيدة، والخدمات الإدارية،
-            لتخدم المهتمين بالإدارة والأعمال والتطوير المهني في مكان واحد.
+            ConsuTrain تجمع لك مسارات التعلّم، الأدوات العملية، الموارد القابلة للتحميل،
+            والخدمات المهنية في مكان واحد، حتى تنتقل من المعرفة إلى التطبيق بثقة وتنظيم.
           </p>
+
+          <div class="home-hero-highlights" aria-label="أبرز مزايا منصة ConsuTrain">
+            <span>تعلم موجه</span>
+            <span>أدوات عملية</span>
+            <span>خدمات استشارية</span>
+          </div>
 
           <!-- أزرار التوجيه الرئيسية -->
           <div class="hero-actions">
             <a class="btn btn-primary" href="start-here.html">ابدأ من هنا</a>
-            <a class="btn btn-secondary" href="learn.html">ابدأ التعلّم</a>
+            <a class="btn btn-secondary" href="services.html">استعرض الخدمات</a>
           </div>
         </div>
 
@@ -105,30 +111,54 @@
           البطاقات الجانبية:
           تعرض المسارات الأساسية بطريقة مبسطة وسريعة
         -->
-        <div class="hero-side">
-          <article class="feature-card">
+        <div class="hero-side home-hero-side" aria-label="مسارات منصة ConsuTrain">
+          <a class="feature-card home-feature-card" href="learn.html">
+            <span class="home-card-icon">01</span>
             <h3>تعلّم</h3>
             <p>
-              محتوى منظم يشمل المفاهيم الإدارية، الذكاء الاصطناعي في العمل،
-              والمهارات العملية التي يحتاجها المهتمون بالإدارة والأعمال.
+              مقالات، قاموس إداري، مسارات مهارية، ومحتوى تطبيقي يساعدك على فهم المفاهيم واستخدامها.
             </p>
-          </article>
+          </a>
 
-          <article class="feature-card">
+          <a class="feature-card home-feature-card" href="tools.html">
+            <span class="home-card-icon">02</span>
             <h3>أدوات</h3>
             <p>
-              أدوات عملية تساعد على الإنجاز والمتابعة والتنظيم،
-              مثل إدارة المهام ودراسة الجدوى وغيرها من الأدوات المفيدة.
+              أدوات وقوالب تساعدك على التنظيم، المتابعة، التخطيط، ودراسة الأفكار بطريقة عملية.
             </p>
-          </article>
+          </a>
 
-          <article class="feature-card">
+          <a class="feature-card home-feature-card" href="services.html">
+            <span class="home-card-icon">03</span>
             <h3>خدمات</h3>
             <p>
-              نافذة للوصول إلى خدمات مهنية في الاستشارات والتخطيط
-              والأنظمة الإدارية والتدريب.
+              خدمات مهنية في التخطيط، الجودة، إدارة المشاريع، المخاطر، ودراسات الجدوى.
             </p>
-          </article>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!--
+      =======================================================
+      VALUE STRIP SECTION
+      يوضح القيمة العملية للمنصة بسرعة بعد الـ Hero
+      =======================================================
+    -->
+    <section class="home-value-strip" aria-label="القيمة العملية لمنصة ConsuTrain">
+      <div class="container home-value-grid">
+        <div class="home-value-item">
+          <strong>تعلم</strong>
+          <span>مفاهيم وشرح مبسط</span>
+        </div>
+        <div class="home-value-item">
+          <strong>طبّق</strong>
+          <span>أدوات وقوالب جاهزة</span>
+        </div>
+        <div class="home-value-item">
+          <strong>طوّر</strong>
+          <span>خدمات واستشارات مهنية</span>
         </div>
       </div>
     </section>
@@ -176,6 +206,42 @@
       </div>
     </section>
 
+
+    <!--
+      =======================================================
+      AUDIENCE SECTION
+      يوضح لمن تناسب المنصة
+      =======================================================
+    -->
+    <section class="home-section home-audience-section" aria-labelledby="home-audience-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">لمن تناسب المنصة؟</span>
+            <h2 id="home-audience-title">مسارات واضحة حسب احتياجك</h2>
+            <p>اختر ما يناسب وضعك الحالي، ثم انتقل إلى المحتوى أو الأداة أو الخدمة المناسبة.</p>
+          </div>
+        </div>
+
+        <div class="home-audience-grid">
+          <article class="home-audience-card">
+            <h3>للمديرين والفرق</h3>
+            <p>تنظيم العمل، متابعة الأداء، بناء خطط تشغيلية، وتحسين طريقة إعداد التقارير.</p>
+          </article>
+
+          <article class="home-audience-card">
+            <h3>للمستشارين والمدربين</h3>
+            <p>موارد عملية، أفكار محتوى، أدوات مساعدة، ونماذج يمكن تطويرها لخدمة العملاء.</p>
+          </article>
+
+          <article class="home-audience-card">
+            <h3>للطلاب والباحثين</h3>
+            <p>شرح مبسط للمفاهيم الإدارية، قوالب تعليمية، ومحتوى يساعد على بناء الفهم التطبيقي.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!--
       =======================================================
       MAIN PATHS SECTION
@@ -186,8 +252,9 @@
       <div class="container">
         <div class="section-head">
           <div>
+            <span class="section-eyebrow">استكشف المنصة</span>
             <h2>الأقسام الرئيسية</h2>
-            <p>اختر المسار المناسب حسب ما تبحث عنه داخل المنصة.</p>
+            <p>ثلاثة مداخل أساسية تساعدك على التعلّم، التطبيق، وطلب الدعم المهني.</p>
           </div>
         </div>
 
