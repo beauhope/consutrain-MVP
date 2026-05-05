@@ -143,3 +143,48 @@ Completed:
 Next:
 - Final local/GitHub test for all Phase 1 lesson links.
 - Start Phase 2: Leadership, teams, emotional intelligence, and decision-making.
+
+### Learn – Essential Management Skills Path – Phase 2
+
+Status: Completed
+
+Completed:
+- Added EMS-13 to EMS-21 articles.
+- Covered leadership, leadership styles, situational leadership, emotional intelligence, teamwork, team development, and decision-making.
+- Linked each lesson to its article and YouTube video.
+- Added SVG visuals for all Phase 2 articles.
+- Updated `assets/data/articles.json`.
+- Updated `learn/management-skills.html`.
+
+Next:
+- Final test of all Phase 2 links and visuals.
+- Start Phase 3: Project management and methodologies.
+
+### Learn – Knowledge Library Enhancement
+
+Status: In Progress / Stable for Testing
+
+Completed:
+- Renamed the articles section conceptually to "مكتبة المعرفة الإدارية".
+- Updated the page title and introductory text.
+- Updated the learning dropdown menu label to "مكتبة المعرفة".
+- Added a topic dropdown for easier filtering.
+- Kept popular topics visible for quick discovery.
+- Added a toggle to show or hide the full keyword list.
+- Preserved the existing search function.
+- Preserved card/table view switching.
+- Updated the knowledge library data with the latest management skills and project management articles.
+
+Testing Required:
+- Verify that the header dropdown shows "مكتبة المعرفة" instead of "المقالات".
+- Verify that `learn/articles.html` opens correctly.
+- Verify that the search bar works.
+- Verify that the topic dropdown filters articles correctly.
+- Verify that popular tags filter articles correctly.
+- Verify that the full keyword list is hidden by default and appears only when requested.
+- Verify mobile display and spacing.
+
+Next:
+- Continue testing the Learn section.
+- Later, consider adding a domain-based classification layer for the knowledge library:
+  Project Management, Strategic Planning, Institutional Excellence, Operations Management, Administrative Skills, AI for Management, Tools and Templates.

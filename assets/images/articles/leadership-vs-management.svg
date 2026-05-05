@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="الفرق بين القيادة والإدارة">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#f7fbff"/><stop offset="100%" stop-color="#fff8ee"/></linearGradient>
+    <linearGradient id="left" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#0f2d5d"/><stop offset="100%" stop-color="#1e668f"/></linearGradient>
+    <linearGradient id="right" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#5c4312"/><stop offset="100%" stop-color="#d0a137"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f2d5d" flood-opacity=".14"/></filter>
+    <style>
+      .title{font:700 62px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#0f2d5d}
+      .sub{font:400 30px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#65768d}
+      .head{font:700 46px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#fff}
+      .white{font:400 27px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#fff}
+      .h{font:700 31px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#0f2d5d}
+      .p{font:400 24px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#52657f}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1460" cy="95" r="140" fill="#efe4d0" opacity=".64"/>
+  <circle cx="130" cy="795" r="145" fill="#dce9f7" opacity=".7"/>
+
+  <text x="800" y="95" class="title" text-anchor="middle">الفرق بين القيادة والإدارة</text>
+  <text x="800" y="155" class="sub" text-anchor="middle">تنظيم العمل من جهة، والتأثير في الناس من جهة أخرى</text>
+  <line x1="645" y1="190" x2="760" y2="190" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="800" cy="190" r="6" fill="#d9a933"/>
+  <line x1="840" y1="190" x2="955" y2="190" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="275" width="610" height="430" rx="40" fill="url(#left)" stroke="#e2b653" stroke-width="4"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="870" y="275" width="610" height="430" rx="40" fill="url(#right)" stroke="#f2cf7a" stroke-width="4"/>
+  </g>
+
+  <text x="425" y="365" class="head" text-anchor="middle">الإدارة</text>
+  <text x="1175" y="365" class="head" text-anchor="middle">القيادة</text>
+
+  <text x="425" y="440" class="white" text-anchor="middle">تنظيم الموارد والعمل والأنظمة</text>
+  <text x="425" y="500" class="white" text-anchor="middle">تخطيط • تنظيم • متابعة • ضبط</text>
+  <text x="425" y="560" class="white" text-anchor="middle">تركز على: كيف ننجز العمل؟</text>
+  <rect x="245" y="620" width="360" height="55" rx="28" fill="#edbf56"/>
+  <text x="425" y="657" class="h" text-anchor="middle">نظام وتنفيذ واضح</text>
+
+  <text x="1175" y="440" class="white" text-anchor="middle">تأثير وتوجيه وتحفيز الناس</text>
+  <text x="1175" y="500" class="white" text-anchor="middle">رؤية • ثقة • إلهام • تغيير</text>
+  <text x="1175" y="560" class="white" text-anchor="middle">تركز على: لماذا نعمل؟</text>
+  <rect x="995" y="620" width="360" height="55" rx="28" fill="#ffffff"/>
+  <text x="1175" y="657" class="h" text-anchor="middle">معنى والتزام</text>
+
+  <g filter="url(#shadow)">
+    <rect x="510" y="750" width="580" height="95" rx="30" fill="#ffffff" stroke="#c4d9ee" stroke-width="2"/>
+  </g>
+  <text x="800" y="810" class="h" text-anchor="middle">المؤسسة تحتاج الاثنين: إدارة تحفظ النظام وقيادة تحرك الناس</text>
+</svg>

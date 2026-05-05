@@ -2,13 +2,13 @@
   =========================================================
   FILE: assets/js/articles-page.js
   PURPOSE:
-  هذا الملف مسؤول عن صفحة learn/articles.html
+  صفحة مكتبة المعرفة الإدارية ضمن قسم التعلّم.
 
   RESPONSIBILITIES:
   - تحميل ملف articles.json
   - عرض المقالات كبطاقات أو جدول
   - تنفيذ البحث الحي
-  - توليد الوسوم
+  - توليد قائمة الموضوعات والكلمات المفتاحية
   - التصفية حسب الوسم
   - تحديث عداد النتائج
   - تشغيل زر العودة للأعلى
@@ -22,6 +22,23 @@ let articlesData = [];
 let filteredArticles = [];
 let activeTag = "";
 let currentView = localStorage.getItem("consutrainArticlesView") || "cards";
+let allArticleTags = [];
+let allTagsExpanded = false;
+
+const preferredPopularTags = [
+  "إدارة المشاريع",
+  "القيادة",
+  "التخطيط",
+  "التنظيم",
+  "اتخاذ القرار",
+  "فرق العمل",
+  "الذكاء الاصطناعي",
+  "Agile",
+  "Scrum",
+  "Kanban",
+  "Lean",
+  "Waterfall"
+];
 
 /* =========================================================
    2) ELEMENT REFERENCES
@@ -34,6 +51,9 @@ const articlesCount = document.getElementById("articlesCount");
 const articlesResetBtn = document.getElementById("articlesResetBtn");
 const articlesEmptyState = document.getElementById("articlesEmptyState");
 const articlesTags = document.getElementById("articlesTags");
+const articlesPopularTags = document.getElementById("articlesPopularTags");
+const articlesTopicSelect = document.getElementById("articlesTopicSelect");
+const articlesToggleTagsBtn = document.getElementById("articlesToggleTagsBtn");
 const articlesCardsViewBtn = document.getElementById("articlesCardsViewBtn");
 const articlesTableViewBtn = document.getElementById("articlesTableViewBtn");
 const backToTopBtn = document.getElementById("backToTopBtn");
@@ -77,6 +97,32 @@ function getArticleCategory(article) {
 
 function getArticleReadLink(article) {
   return `article.html?id=${encodeURIComponent(article.id || "")}`;
+}
+
+function getTagFrequencyMap() {
+  const freq = new Map();
+
+  articlesData.forEach((article) => {
+    (article.tags || []).forEach((tag) => {
+      freq.set(tag, (freq.get(tag) || 0) + 1);
+    });
+  });
+
+  return freq;
+}
+
+function buildTagButton(tag, label = tag) {
+  return `
+    <button class="tag-chip ${activeTag === tag ? "active" : ""}" type="button" data-tag="${escapeHtml(tag)}">
+      ${escapeHtml(label)}
+    </button>
+  `;
+}
+
+function syncTopicSelect() {
+  if (articlesTopicSelect) {
+    articlesTopicSelect.value = activeTag || "";
+  }
 }
 
 /* =========================================================
@@ -155,7 +201,7 @@ function updateArticlesCount() {
   const count = filteredArticles.length;
 
   if (count === 0) {
-    articlesCount.textContent = "لم يتم العثور على مقالات.";
+    articlesCount.textContent = "لم يتم العثور على محتوى مطابق.";
   } else if (count === 1) {
     articlesCount.textContent = "تم العثور على مقال واحد.";
   } else {
@@ -260,33 +306,81 @@ function applyFilters() {
     return matchesQuery && matchesTag;
   });
 
+  syncTopicSelect();
+  renderFilters();
   renderArticles();
 }
 
 /* =========================================================
-   10) TAGS RENDER
+   10) TAGS AND TOPIC FILTERS
    ========================================================= */
-function renderTagsBar() {
-  if (!articlesTags) return;
+function renderTopicSelect() {
+  if (!articlesTopicSelect) return;
 
+  articlesTopicSelect.innerHTML = `
+    <option value="">كل الموضوعات</option>
+    ${allArticleTags.map(tag => `
+      <option value="${escapeHtml(tag)}">${escapeHtml(tag)}</option>
+    `).join("")}
+  `;
+
+  syncTopicSelect();
+}
+
+function getPopularTags() {
+  const freq = getTagFrequencyMap();
+  const existingPreferred = preferredPopularTags.filter(tag => allArticleTags.includes(tag));
+  const frequentTags = [...allArticleTags]
+    .filter(tag => !existingPreferred.includes(tag))
+    .sort((a, b) => {
+      const countDiff = (freq.get(b) || 0) - (freq.get(a) || 0);
+      return countDiff || a.localeCompare(b, "ar");
+    });
+
+  return [...existingPreferred, ...frequentTags].slice(0, 12);
+}
+
+function renderTagButtons(container, tags, includeAll = false) {
+  if (!container) return;
+
+  container.innerHTML = `
+    ${includeAll ? buildTagButton("", "الكل") : ""}
+    ${tags.map(tag => buildTagButton(tag)).join("")}
+  `;
+}
+
+function renderFilters() {
+  const popularTags = getPopularTags();
+
+  renderTagButtons(articlesPopularTags, popularTags, true);
+  renderTagButtons(articlesTags, allArticleTags, true);
+
+  if (articlesTags) {
+    const shouldHideAllTags = !allTagsExpanded;
+    articlesTags.hidden = shouldHideAllTags;
+    articlesTags.setAttribute("aria-hidden", String(shouldHideAllTags));
+    articlesTags.style.display = shouldHideAllTags ? "none" : "flex";
+  }
+
+  if (articlesToggleTagsBtn) {
+    articlesToggleTagsBtn.textContent = allTagsExpanded
+      ? "إخفاء الكلمات المفتاحية"
+      : "عرض كل الكلمات المفتاحية";
+    articlesToggleTagsBtn.setAttribute("aria-expanded", String(allTagsExpanded));
+  }
+}
+
+function renderTagsBar() {
   const tagsSet = new Set();
 
   articlesData.forEach((article) => {
     (article.tags || []).forEach((tag) => tagsSet.add(tag));
   });
 
-  const allTags = Array.from(tagsSet).sort((a, b) => a.localeCompare(b, "ar"));
+  allArticleTags = Array.from(tagsSet).sort((a, b) => a.localeCompare(b, "ar"));
 
-  articlesTags.innerHTML = `
-    <button class="tag-chip ${activeTag === "" ? "active" : ""}" type="button" data-tag="">
-      الكل
-    </button>
-    ${allTags.map(tag => `
-      <button class="tag-chip ${activeTag === tag ? "active" : ""}" type="button" data-tag="${escapeHtml(tag)}">
-        ${escapeHtml(tag)}
-      </button>
-    `).join("")}
-  `;
+  renderTopicSelect();
+  renderFilters();
 }
 
 /* =========================================================
@@ -294,7 +388,7 @@ function renderTagsBar() {
    ========================================================= */
 async function loadArticlesData() {
   try {
-    articlesCount.textContent = "جاري تحميل المقالات...";
+    articlesCount.textContent = "جاري تحميل مكتبة المعرفة...";
 
     const response = await fetch(`../assets/data/articles.json?v=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) {
@@ -332,7 +426,7 @@ async function loadArticlesData() {
     if (articlesList) {
       articlesList.innerHTML = `
         <div class="section-card glossary-error">
-          <h3>تعذر تحميل المقالات</h3>
+          <h3>تعذر تحميل مكتبة المعرفة</h3>
           <p>يرجى التحقق من ملف البيانات ومساره ثم إعادة المحاولة.</p>
         </div>
       `;
@@ -354,24 +448,44 @@ if (articlesSearch) {
   articlesSearch.addEventListener("input", applyFilters);
 }
 
+if (articlesTopicSelect) {
+  articlesTopicSelect.addEventListener("change", () => {
+    activeTag = articlesTopicSelect.value || "";
+    applyFilters();
+  });
+}
+
 if (articlesResetBtn) {
   articlesResetBtn.addEventListener("click", () => {
     if (articlesSearch) articlesSearch.value = "";
     activeTag = "";
-    renderTagsBar();
+    allTagsExpanded = false;
+    syncTopicSelect();
     applyFilters();
     articlesSearch?.focus();
   });
 }
 
-if (articlesTags) {
-  articlesTags.addEventListener("click", (event) => {
-    const btn = event.target.closest("[data-tag]");
-    if (!btn) return;
+function handleTagClick(event) {
+  const btn = event.target.closest("[data-tag]");
+  if (!btn) return;
 
-    activeTag = btn.dataset.tag || "";
-    renderTagsBar();
-    applyFilters();
+  activeTag = btn.dataset.tag || "";
+  applyFilters();
+}
+
+if (articlesPopularTags) {
+  articlesPopularTags.addEventListener("click", handleTagClick);
+}
+
+if (articlesTags) {
+  articlesTags.addEventListener("click", handleTagClick);
+}
+
+if (articlesToggleTagsBtn) {
+  articlesToggleTagsBtn.addEventListener("click", () => {
+    allTagsExpanded = !allTagsExpanded;
+    renderFilters();
   });
 }
 

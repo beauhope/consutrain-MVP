@@ -3909,3 +3909,107 @@ z-index:1100;
     flex:1;
   }
 }
+
+
+/* =========================================================
+   Learn Articles – Knowledge Library Filters
+   تحسين صفحة مكتبة المعرفة الإدارية
+   ========================================================= */
+.articles-topic-filter{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:16px;
+  flex-wrap:wrap;
+}
+
+.articles-topic-filter label{
+  color:var(--primary);
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.articles-topic-select{
+  flex:1 1 260px;
+  min-height:46px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#fff;
+  color:var(--primary);
+  padding:0 14px;
+  font-weight:800;
+  outline:none;
+}
+
+.articles-topic-select:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 4px rgba(212,166,58,.16);
+}
+
+.articles-tags-panel{
+  margin-top:18px;
+  border-top:1px solid rgba(15,39,71,.08);
+  padding-top:16px;
+}
+
+.articles-tags-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+
+.articles-tags-head span{
+  color:var(--primary);
+  font-weight:900;
+}
+
+.tags-toggle-btn{
+  border:1px solid rgba(15,39,71,.12);
+  background:#fff;
+  color:var(--primary);
+  border-radius:999px;
+  padding:8px 12px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.tags-toggle-btn:hover{
+  background:var(--gold-soft);
+  border-color:rgba(212,166,58,.45);
+}
+
+.articles-popular-tags{
+  margin-top:0;
+}
+
+.articles-all-tags{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px dashed rgba(15,39,71,.14);
+}
+
+@media (max-width: 700px){
+  .articles-topic-filter{
+    align-items:stretch;
+  }
+
+  .articles-topic-filter label,
+  .articles-topic-select,
+  .tags-toggle-btn{
+    width:100%;
+  }
+
+  .articles-tags-head{
+    align-items:stretch;
+  }
+}
+
+
+/* Fix: ensure all keyword tags are really hidden when collapsed */
+.articles-all-tags[hidden],
+.articles-all-tags.is-hidden{
+  display:none !important;
+}

@@ -149,3 +149,35 @@ Status: Approved after cache fix and local testing.
 تم ربط كل درس بمقال تعليمي داخل assets/data/articles.json، مع إضافة رابط الفيديو المرتبط وصورة SVG تعليمية وروابط داخلية للمصطلحات ذات العلاقة في القاموس الإداري.
 
 Status: Completed
+
+### Decision – Rename Articles Section to Knowledge Library
+
+Date: 2026-05-05
+
+The section previously named "Articles" has been renamed to "Administrative Knowledge Library" / "مكتبة المعرفة الإدارية".
+
+Reason:
+- The section is no longer limited to simple articles.
+- It now includes structured knowledge, learning content, videos, internal links, glossary connections, and future learning paths.
+- The new name better reflects the value offered to users and supports future expansion.
+
+Implementation:
+- Update the page title and hero text.
+- Update the learning menu label from "المقالات" to "مكتبة المعرفة".
+- Keep the page URL as `learn/articles.html` for now to avoid breaking existing links.
+
+Future Direction:
+The knowledge library may later be organized by main knowledge domains, such as:
+- Project Management
+- Strategic Planning
+- Institutional Excellence and Quality
+- Operations Management
+- Administrative Skills
+- AI for Management
+- Tools and Templates
+
+The current structure will remain light for now, using:
+- Search bar
+- Topic dropdown
+- Popular tags
+- Full keyword list on demand
