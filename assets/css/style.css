@@ -4915,3 +4915,97 @@ z-index:1100;
     padding:16px;
   }
 }
+
+/* =========================================================
+   MOBILE FIX — SERVICE PROCESS SECTION
+   Fix heading hierarchy + step number position
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* عنوان قسم آلية العمل */
+  .service-detail-page .section-head,
+  .service-detail-page .section-header {
+    display: block !important;
+    text-align: right;
+  }
+
+  .service-detail-page .section-head .eyebrow,
+  .service-detail-page .section-header .eyebrow,
+  .service-detail-page .section-kicker {
+    display: block !important;
+    width: 100%;
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--gold-2, #b8860b);
+    text-align: right;
+  }
+
+  .service-detail-page .section-head h2,
+  .service-detail-page .section-header h2 {
+    display: block !important;
+    width: 100%;
+    font-size: clamp(1.45rem, 6vw, 2rem);
+    line-height: 1.35;
+    margin: 0 0 12px 0;
+    text-align: right;
+  }
+
+  .service-detail-page .section-head p,
+  .service-detail-page .section-header p {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.85;
+    text-align: right;
+    margin: 0;
+  }
+
+  /* بطاقات خطوات آلية العمل */
+  .service-detail-page .process-card,
+  .service-detail-page .step-card,
+  .service-detail-page .workflow-card {
+    position: relative;
+    padding: 22px 20px 20px 20px;
+    text-align: right;
+  }
+
+  /* الرقم في يمين الخطوة وليس أعلى/وسط البطاقة */
+  .service-detail-page .process-card .step-number,
+  .service-detail-page .step-card .step-number,
+  .service-detail-page .workflow-card .step-number,
+  .service-detail-page .process-card .number,
+  .service-detail-page .step-card .number {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  /* ترك مساحة للرقم داخل البطاقة */
+  .service-detail-page .process-card h3,
+  .service-detail-page .step-card h3,
+  .service-detail-page .workflow-card h3 {
+    padding-right: 62px;
+    margin-top: 4px;
+    font-size: clamp(1.15rem, 5vw, 1.45rem);
+    line-height: 1.4;
+    text-align: right;
+  }
+
+  .service-detail-page .process-card p,
+  .service-detail-page .step-card p,
+  .service-detail-page .workflow-card p {
+    padding-right: 62px;
+    font-size: 0.96rem;
+    line-height: 1.85;
+    text-align: right;
+  }
+}
