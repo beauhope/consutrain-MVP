@@ -6,7 +6,7 @@
 
   RESPONSIBILITIES:
   - تحميل ملف articles.json
-  - عرض المقالات كبطاقات
+  - عرض المقالات كبطاقات أو جدول
   - تنفيذ البحث الحي
   - توليد الوسوم
   - التصفية حسب الوسم
@@ -21,16 +21,21 @@
 let articlesData = [];
 let filteredArticles = [];
 let activeTag = "";
+let currentView = localStorage.getItem("consutrainArticlesView") || "cards";
 
 /* =========================================================
    2) ELEMENT REFERENCES
    ========================================================= */
 const articlesList = document.getElementById("articlesList");
+const articlesTableWrap = document.getElementById("articlesTableWrap");
+const articlesTableBody = document.getElementById("articlesTableBody");
 const articlesSearch = document.getElementById("articlesSearch");
 const articlesCount = document.getElementById("articlesCount");
 const articlesResetBtn = document.getElementById("articlesResetBtn");
 const articlesEmptyState = document.getElementById("articlesEmptyState");
 const articlesTags = document.getElementById("articlesTags");
+const articlesCardsViewBtn = document.getElementById("articlesCardsViewBtn");
+const articlesTableViewBtn = document.getElementById("articlesTableViewBtn");
 const backToTopBtn = document.getElementById("backToTopBtn");
 
 /* =========================================================
@@ -45,6 +50,8 @@ function escapeHtml(text) {
 function formatArabicDate(dateString) {
   try {
     const date = new Date(dateString);
+    if (Number.isNaN(date.getTime())) return dateString || "";
+
     return new Intl.DateTimeFormat("ar", {
       year: "numeric",
       month: "long",
@@ -55,6 +62,23 @@ function formatArabicDate(dateString) {
   }
 }
 
+function getArticleVideoUrl(article) {
+  return article.video_url || article.videoUrl || "";
+}
+
+function getArticleCategory(article) {
+  return (
+    article.category ||
+    article.field ||
+    article.domain ||
+    (Array.isArray(article.tags) && article.tags.length ? article.tags[0] : "مقال عام")
+  );
+}
+
+function getArticleReadLink(article) {
+  return `article.html?id=${encodeURIComponent(article.id || "")}`;
+}
+
 /* =========================================================
    4) BUILD ARTICLE CARD
    ========================================================= */
@@ -62,8 +86,7 @@ function buildArticleCard(article) {
   const title = escapeHtml(article.title || "");
   const excerpt = escapeHtml(article.excerpt || "");
   const date = formatArabicDate(article.date || "");
-  const id = encodeURIComponent(article.id || "");
-  const hasVideo = Boolean(article.video_url || article.videoUrl);
+  const hasVideo = Boolean(getArticleVideoUrl(article));
 
   const tagsHtml = (article.tags || [])
     .map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`)
@@ -83,13 +106,50 @@ function buildArticleCard(article) {
         ${tagsHtml}
       </div>
 
-      <a class="card-link" href="article.html?id=${id}">قراءة المقال</a>
+      <a class="card-link" href="${getArticleReadLink(article)}">قراءة المقال</a>
     </article>
   `;
 }
 
 /* =========================================================
-   5) COUNT UPDATE
+   5) BUILD ARTICLE TABLE ROW
+   ========================================================= */
+function buildArticleTableRow(article) {
+  const title = escapeHtml(article.title || "");
+  const excerpt = escapeHtml(article.excerpt || "");
+  const date = formatArabicDate(article.date || "");
+  const category = escapeHtml(getArticleCategory(article));
+  const videoUrl = getArticleVideoUrl(article);
+  const videoTitle = escapeHtml(article.video_title || article.videoTitle || "شاهد الفيديو");
+
+  const tagsHtml = (article.tags || [])
+    .map(tag => `<span class="article-table-tag">${escapeHtml(tag)}</span>`)
+    .join("");
+
+  return `
+    <tr>
+      <td class="articles-table-title-cell">
+        <a href="${getArticleReadLink(article)}">${title}</a>
+        ${excerpt ? `<small>${excerpt}</small>` : ""}
+      </td>
+      <td>${date}</td>
+      <td><span class="article-category-pill">${category}</span></td>
+      <td><div class="article-table-tags">${tagsHtml || "—"}</div></td>
+      <td>
+        ${videoUrl ? `<span class="article-video-yes">نعم</span>` : `<span class="article-video-no">لا</span>`}
+      </td>
+      <td>
+        <div class="article-table-actions">
+          <a href="${getArticleReadLink(article)}">قراءة</a>
+          ${videoUrl ? `<a href="${escapeHtml(videoUrl)}" target="_blank" rel="noopener">${videoTitle}</a>` : ""}
+        </div>
+      </td>
+    </tr>
+  `;
+}
+
+/* =========================================================
+   6) COUNT UPDATE
    ========================================================= */
 function updateArticlesCount() {
   const count = filteredArticles.length;
@@ -104,13 +164,43 @@ function updateArticlesCount() {
 }
 
 /* =========================================================
-   6) RENDER ARTICLES
+   7) VIEW SWITCH
+   ========================================================= */
+function updateViewButtons() {
+  const isCards = currentView === "cards";
+
+  if (articlesCardsViewBtn) {
+    articlesCardsViewBtn.classList.toggle("active", isCards);
+    articlesCardsViewBtn.setAttribute("aria-pressed", String(isCards));
+  }
+
+  if (articlesTableViewBtn) {
+    articlesTableViewBtn.classList.toggle("active", !isCards);
+    articlesTableViewBtn.setAttribute("aria-pressed", String(!isCards));
+  }
+}
+
+function setArticlesView(view) {
+  currentView = view === "table" ? "table" : "cards";
+  localStorage.setItem("consutrainArticlesView", currentView);
+  renderArticles();
+}
+
+/* =========================================================
+   8) RENDER ARTICLES
    ========================================================= */
 function renderArticles() {
   if (!articlesList) return;
 
+  updateViewButtons();
+
   if (!filteredArticles.length) {
     articlesList.innerHTML = "";
+    articlesList.hidden = true;
+
+    if (articlesTableBody) articlesTableBody.innerHTML = "";
+    if (articlesTableWrap) articlesTableWrap.hidden = true;
+
     if (articlesEmptyState) articlesEmptyState.hidden = false;
     updateArticlesCount();
     return;
@@ -118,15 +208,32 @@ function renderArticles() {
 
   if (articlesEmptyState) articlesEmptyState.hidden = true;
 
-  articlesList.innerHTML = filteredArticles
-    .map(buildArticleCard)
-    .join("");
+  if (currentView === "table") {
+    articlesList.innerHTML = "";
+    articlesList.hidden = true;
+
+    if (articlesTableBody) {
+      articlesTableBody.innerHTML = filteredArticles
+        .map(buildArticleTableRow)
+        .join("");
+    }
+
+    if (articlesTableWrap) articlesTableWrap.hidden = false;
+  } else {
+    if (articlesTableBody) articlesTableBody.innerHTML = "";
+    if (articlesTableWrap) articlesTableWrap.hidden = true;
+
+    articlesList.hidden = false;
+    articlesList.innerHTML = filteredArticles
+      .map(buildArticleCard)
+      .join("");
+  }
 
   updateArticlesCount();
 }
 
 /* =========================================================
-   7) FILTER LOGIC
+   9) FILTER LOGIC
    ========================================================= */
 function applyFilters() {
   const query = (articlesSearch?.value || "").trim().toLowerCase();
@@ -134,6 +241,7 @@ function applyFilters() {
   filteredArticles = articlesData.filter((article) => {
     const title = (article.title || "").toLowerCase();
     const excerpt = (article.excerpt || "").toLowerCase();
+    const category = getArticleCategory(article).toLowerCase();
     const tags = (article.tags || []).join(" ").toLowerCase();
     const relatedTerms = (article.related_terms || article.relatedTerms || []).join(" ").toLowerCase();
 
@@ -141,6 +249,7 @@ function applyFilters() {
       !query ||
       title.includes(query) ||
       excerpt.includes(query) ||
+      category.includes(query) ||
       tags.includes(query) ||
       relatedTerms.includes(query);
 
@@ -155,7 +264,7 @@ function applyFilters() {
 }
 
 /* =========================================================
-   8) TAGS RENDER
+   10) TAGS RENDER
    ========================================================= */
 function renderTagsBar() {
   if (!articlesTags) return;
@@ -181,7 +290,7 @@ function renderTagsBar() {
 }
 
 /* =========================================================
-   9) LOAD DATA
+   11) LOAD DATA
    ========================================================= */
 async function loadArticlesData() {
   try {
@@ -204,8 +313,10 @@ async function loadArticlesData() {
       title: article.title || "",
       excerpt: article.excerpt || "",
       date: article.date || "",
+      category: article.category || article.field || article.domain || "",
       tags: Array.isArray(article.tags) ? article.tags : [],
       content: Array.isArray(article.content) ? article.content : [],
+      video_title: article.video_title || article.videoTitle || "",
       video_url: article.video_url || article.videoUrl || "",
       related_terms: Array.isArray(article.related_terms) ? article.related_terms : []
     }));
@@ -225,7 +336,10 @@ async function loadArticlesData() {
           <p>يرجى التحقق من ملف البيانات ومساره ثم إعادة المحاولة.</p>
         </div>
       `;
+      articlesList.hidden = false;
     }
+
+    if (articlesTableWrap) articlesTableWrap.hidden = true;
 
     if (articlesCount) {
       articlesCount.textContent = "حدث خطأ أثناء تحميل البيانات.";
@@ -234,7 +348,7 @@ async function loadArticlesData() {
 }
 
 /* =========================================================
-   10) EVENTS
+   12) EVENTS
    ========================================================= */
 if (articlesSearch) {
   articlesSearch.addEventListener("input", applyFilters);
@@ -261,8 +375,16 @@ if (articlesTags) {
   });
 }
 
+if (articlesCardsViewBtn) {
+  articlesCardsViewBtn.addEventListener("click", () => setArticlesView("cards"));
+}
+
+if (articlesTableViewBtn) {
+  articlesTableViewBtn.addEventListener("click", () => setArticlesView("table"));
+}
+
 /* =========================================================
-   11) BACK TO TOP
+   13) BACK TO TOP
    ========================================================= */
 window.addEventListener("scroll", () => {
   if (!backToTopBtn) return;
@@ -284,7 +406,7 @@ if (backToTopBtn) {
 }
 
 /* =========================================================
-   12) INIT
+   14) INIT
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   loadArticlesData();

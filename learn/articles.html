@@ -75,8 +75,19 @@
             </button>
           </div>
 
-          <div class="glossary-meta">
-            <span id="articlesCount">جاري تحميل المقالات...</span>
+          <div class="articles-results-head">
+            <div class="glossary-meta">
+              <span id="articlesCount">جاري تحميل المقالات...</span>
+            </div>
+
+            <div class="articles-view-switch" role="group" aria-label="اختيار طريقة عرض المقالات">
+              <button id="articlesCardsViewBtn" class="view-switch-btn active" type="button" aria-pressed="true">
+                عرض البطاقات
+              </button>
+              <button id="articlesTableViewBtn" class="view-switch-btn" type="button" aria-pressed="false">
+                عرض الجدول
+              </button>
+            </div>
           </div>
 
           <div id="articlesTags" class="articles-tags-bar"></div>
@@ -87,6 +98,22 @@
     <section class="home-section">
       <div class="container">
         <div class="articles-list" id="articlesList"></div>
+
+        <div class="articles-table-wrap" id="articlesTableWrap" hidden>
+          <table class="articles-table">
+            <thead>
+              <tr>
+                <th scope="col">المقال</th>
+                <th scope="col">التاريخ</th>
+                <th scope="col">المجال</th>
+                <th scope="col">الكلمات المفتاحية</th>
+                <th scope="col">يتضمن فيديو</th>
+                <th scope="col">الروابط</th>
+              </tr>
+            </thead>
+            <tbody id="articlesTableBody"></tbody>
+          </table>
+        </div>
 
         <div id="articlesEmptyState" class="section-card glossary-empty" hidden>
           <h3>لا توجد مقالات مطابقة</h3>
@@ -103,6 +130,6 @@
   <div id="footer-placeholder"></div>
 
   <script src="../assets/js/includes.js?v=20260504_menu"></script>
-  <script src="../assets/js/articles-page.js"></script>
+  <script src="../assets/js/articles-page.js?v=20260505_articles_view"></script>
 </body>
 </html>

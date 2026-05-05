@@ -1,64 +1,95 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Essential Management Skills</title>
-  <desc id="desc">A simple Arabic visual showing technical, interpersonal and conceptual management skills around management functions.</desc>
+  <title id="title">المهارات الإدارية الأساسية</title>
+  <desc id="desc">رسم تعليمي منظم يوضح علاقة الإدارة بالمهارات التقنية والإنسانية والفكرية.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#eef5ff"/>
+      <stop offset="0" stop-color="#eef6ff"/>
       <stop offset="0.55" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#fff6df"/>
+      <stop offset="1" stop-color="#fff7e3"/>
     </linearGradient>
-    <linearGradient id="primary" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0f2747"/>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d2442"/>
       <stop offset="1" stop-color="#1f6f9f"/>
     </linearGradient>
     <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f7d77b"/>
-      <stop offset="1" stop-color="#d4a63a"/>
+      <stop offset="1" stop-color="#d6a73c"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0f2747" flood-opacity="0.16"/>
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0d2442" flood-opacity="0.14"/>
     </filter>
+    <style>
+      .font{font-family: Tahoma, Arial, sans-serif; direction:rtl; unicode-bidi:bidi-override;}
+      .title{font-size:40px;font-weight:800;fill:#0d2442;}
+      .subtitle{font-size:21px;fill:#5a6878;}
+      .card-title{font-size:24px;font-weight:800;fill:#0d2442;}
+      .card-text{font-size:16px;fill:#5a6878;}
+      .small{font-size:15px;fill:#5a6878;}
+    </style>
   </defs>
-  <rect width="1200" height="680" rx="34" fill="url(#bg)"/>
-  <circle cx="1050" cy="110" r="120" fill="#d4a63a" opacity="0.14"/>
-  <circle cx="120" cy="570" r="150" fill="#1f6f9f" opacity="0.10"/>
 
-  <g transform="translate(120 92)">
-    <text x="960" y="0" text-anchor="end" font-family="Tahoma, Arial, sans-serif" font-size="34" font-weight="800" fill="#0f2747">المهارات الإدارية الأساسية</text>
-    <text x="960" y="46" text-anchor="end" font-family="Tahoma, Arial, sans-serif" font-size="20" fill="#526173">من المعرفة إلى التنفيذ العملي</text>
+  <rect width="1200" height="680" rx="36" fill="url(#bg)"/>
+  <circle cx="1080" cy="105" r="120" fill="#d6a73c" opacity="0.12"/>
+  <circle cx="115" cy="575" r="155" fill="#1f6f9f" opacity="0.09"/>
+  <circle cx="260" cy="115" r="48" fill="#1f6f9f" opacity="0.06"/>
+  <circle cx="940" cy="580" r="54" fill="#d6a73c" opacity="0.08"/>
+
+  <text class="font title" x="600" y="82" text-anchor="middle">المهارات الإدارية الأساسية</text>
+  <text class="font subtitle" x="600" y="122" text-anchor="middle">من المعرفة إلى التنفيذ العملي</text>
+  <line x1="475" y1="145" x2="545" y2="145" stroke="#d6a73c" stroke-width="5" stroke-linecap="round"/>
+  <line x1="655" y1="145" x2="725" y2="145" stroke="#d6a73c" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- connectors behind cards -->
+  <g stroke="#d6a73c" stroke-width="5" stroke-linecap="round" opacity="0.75" fill="none">
+    <path d="M420 325 H380"/>
+    <path d="M780 325 H820"/>
+    <path d="M600 410 V465"/>
+    <circle cx="420" cy="325" r="6" fill="#d6a73c" stroke="none"/>
+    <circle cx="780" cy="325" r="6" fill="#d6a73c" stroke="none"/>
+    <circle cx="600" cy="410" r="6" fill="#d6a73c" stroke="none"/>
   </g>
 
+  <!-- center -->
   <g filter="url(#shadow)">
-    <rect x="420" y="190" width="360" height="210" rx="30" fill="url(#primary)"/>
-    <text x="600" y="260" text-anchor="middle" font-family="Tahoma, Arial, sans-serif" font-size="28" font-weight="800" fill="#ffffff">الإدارة</text>
-    <text x="600" y="306" text-anchor="middle" font-family="Tahoma, Arial, sans-serif" font-size="18" fill="#dcefff">تخطيط • تنظيم • قيادة • رقابة</text>
-    <rect x="512" y="330" width="176" height="40" rx="20" fill="url(#gold)"/>
-    <text x="600" y="356" text-anchor="middle" font-family="Tahoma, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f2747">نتائج قابلة للقياس</text>
+    <rect x="420" y="210" width="360" height="200" rx="30" fill="url(#navy)"/>
+    <circle cx="600" cy="258" r="28" fill="#ffffff" opacity="0.11"/>
+    <path d="M588 256a12 12 0 1 0 24 0a12 12 0 1 0-24 0M570 298c10-22 50-22 60 0M545 300c7-16 33-16 40 0M615 300c7-16 33-16 40 0" fill="none" stroke="#f7d77b" stroke-width="5" stroke-linecap="round"/>
+    <text class="font" x="600" y="315" text-anchor="middle" font-size="32" font-weight="800" fill="#ffffff">الإدارة</text>
+    <text class="font" x="600" y="352" text-anchor="middle" font-size="19" fill="#e3f2ff">تخطيط • تنظيم • قيادة • رقابة</text>
+    <rect x="500" y="370" width="200" height="42" rx="21" fill="url(#gold)"/>
+    <text class="font" x="600" y="397" text-anchor="middle" font-size="16" font-weight="800" fill="#0d2442">نتائج قابلة للقياس</text>
   </g>
 
-  <g font-family="Tahoma, Arial, sans-serif" filter="url(#shadow)">
-    <rect x="112" y="210" width="250" height="150" rx="28" fill="#ffffff"/>
-    <circle cx="310" cy="252" r="34" fill="#e9f3ff"/>
-    <text x="250" y="258" text-anchor="end" font-size="21" font-weight="800" fill="#0f2747">مهارات تقنية</text>
-    <text x="320" y="306" text-anchor="end" font-size="15" fill="#526173">أدوات، أنظمة، بيانات،</text>
-    <text x="320" y="330" text-anchor="end" font-size="15" fill="#526173">تقارير وتنفيذ متخصص</text>
-
-    <rect x="838" y="210" width="250" height="150" rx="28" fill="#ffffff"/>
-    <circle cx="1036" cy="252" r="34" fill="#fff4d8"/>
-    <text x="974" y="258" text-anchor="end" font-size="21" font-weight="800" fill="#0f2747">مهارات إنسانية</text>
-    <text x="1048" y="306" text-anchor="end" font-size="15" fill="#526173">تواصل، تحفيز، تعاون،</text>
-    <text x="1048" y="330" text-anchor="end" font-size="15" fill="#526173">تعامل مع الخلافات</text>
-
-    <rect x="430" y="450" width="340" height="142" rx="28" fill="#ffffff"/>
-    <circle cx="720" cy="492" r="34" fill="#edf8f2"/>
-    <text x="645" y="498" text-anchor="end" font-size="21" font-weight="800" fill="#0f2747">مهارات فكرية</text>
-    <text x="720" y="546" text-anchor="end" font-size="15" fill="#526173">فهم الصورة الكبرى، تحليل المشكلات،</text>
-    <text x="720" y="570" text-anchor="end" font-size="15" fill="#526173">وربط القرارات بالنتائج</text>
+  <!-- left card -->
+  <g filter="url(#shadow)">
+    <rect x="90" y="245" width="290" height="165" rx="28" fill="#ffffff"/>
+    <circle cx="320" cy="292" r="34" fill="#e7f3ff"/>
+    <path d="M307 295h26M312 304h16M314 281h22M304 278l7-7M337 278l-7-7" fill="none" stroke="#1f6f9f" stroke-width="4" stroke-linecap="round"/>
+    <text class="font card-title" x="235" y="292" text-anchor="middle">مهارات تقنية</text>
+    <line x1="180" y1="312" x2="290" y2="312" stroke="#1f6f9f" stroke-width="4" stroke-linecap="round" opacity="0.65"/>
+    <text class="font card-text" x="235" y="345" text-anchor="middle">أدوات، أنظمة، بيانات،</text>
+    <text class="font card-text" x="235" y="371" text-anchor="middle">تقارير وتنفيذ متخصص</text>
   </g>
 
-  <g stroke="#d4a63a" stroke-width="5" stroke-linecap="round" opacity="0.8">
-    <path d="M420 295 C390 292 382 292 362 292" fill="none"/>
-    <path d="M780 295 C808 292 816 292 838 292" fill="none"/>
-    <path d="M600 400 C600 426 600 430 600 450" fill="none"/>
+  <!-- right card -->
+  <g filter="url(#shadow)">
+    <rect x="820" y="245" width="290" height="165" rx="28" fill="#ffffff"/>
+    <circle cx="1050" cy="292" r="34" fill="#fff2d2"/>
+    <path d="M1034 292c9-9 20-9 28 0M1034 292l-10 10M1062 292l10 10M1034 280a8 8 0 1 0 16 0M1054 280a8 8 0 1 0 16 0" fill="none" stroke="#d6a73c" stroke-width="4" stroke-linecap="round"/>
+    <text class="font card-title" x="965" y="292" text-anchor="middle">مهارات إنسانية</text>
+    <line x1="910" y1="312" x2="1020" y2="312" stroke="#d6a73c" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+    <text class="font card-text" x="965" y="345" text-anchor="middle">تواصل، تحفيز، تعاون،</text>
+    <text class="font card-text" x="965" y="371" text-anchor="middle">تعامل مع الخلافات</text>
+  </g>
+
+  <!-- bottom card -->
+  <g filter="url(#shadow)">
+    <rect x="385" y="465" width="430" height="150" rx="28" fill="#ffffff"/>
+    <circle cx="745" cy="512" r="34" fill="#eaf8f0"/>
+    <path d="M740 527h14M742 520h10M732 505c0-15 27-20 32-4c3 10-6 16-11 22M725 505h-10M778 505h10M734 487l-7-8M768 487l7-8" fill="none" stroke="#3e9b6f" stroke-width="4" stroke-linecap="round"/>
+    <text class="font card-title" x="600" y="510" text-anchor="middle">مهارات فكرية</text>
+    <line x1="535" y1="530" x2="665" y2="530" stroke="#3e9b6f" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    <text class="font card-text" x="600" y="563" text-anchor="middle">فهم الصورة الكبرى، تحليل المشكلات</text>
+    <text class="font card-text" x="600" y="589" text-anchor="middle">وربط القرارات بالنتائج</text>
   </g>
 </svg>
