@@ -328,7 +328,7 @@
     </section>
 
 
-    <section class="home-section">
+    <section class="home-section management-phase-section" data-phase="phase-2">
       <div class="container">
         <div class="management-section-head">
           <div>
@@ -494,7 +494,7 @@
     </section>
 
 
-    <section class="home-section">
+    <section class="home-section management-phase-section" data-phase="phase-3">
       <div class="container">
         <div class="management-section-head">
           <div>
@@ -682,6 +682,29 @@
         </div>
       </div>
     </section>
+
+    <section class="home-section management-phase-filter-section">
+      <div class="container">
+        <div class="section-card management-phase-filter-card">
+          <div>
+            <span class="eyebrow">تصفح المسار</span>
+            <h2>اختر المرحلة التي تريد دراستها</h2>
+            <p>
+              يمكنك عرض جميع الدروس أو التركيز على مرحلة محددة حسب حاجتك:
+              وظائف الإدارة، القيادة وفرق العمل، أو إدارة المشاريع والمنهجيات.
+            </p>
+          </div>
+
+          <div class="management-phase-filter" role="group" aria-label="تصفية دروس مسار المهارات الإدارية حسب المرحلة">
+            <button class="phase-filter-btn active" type="button" data-phase-filter="all">كل الدروس</button>
+            <button class="phase-filter-btn" type="button" data-phase-filter="phase-1">المرحلة الأولى: وظائف الإدارة</button>
+            <button class="phase-filter-btn" type="button" data-phase-filter="phase-2">المرحلة الثانية: القيادة وفرق العمل</button>
+            <button class="phase-filter-btn" type="button" data-phase-filter="phase-3">المرحلة الثالثة: إدارة المشاريع والمنهجيات</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <div id="footer-placeholder"></div>
@@ -706,5 +729,36 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const phaseButtons = document.querySelectorAll("[data-phase-filter]");
+      const phaseSections = document.querySelectorAll(".management-phase-section");
+
+      if (!phaseButtons.length || !phaseSections.length) return;
+
+      function applyPhaseFilter(selectedPhase) {
+        phaseSections.forEach(function (section) {
+          const sectionPhase = section.getAttribute("data-phase");
+          section.hidden = selectedPhase !== "all" && sectionPhase !== selectedPhase;
+        });
+
+        phaseButtons.forEach(function (button) {
+          const isActive = button.getAttribute("data-phase-filter") === selectedPhase;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+      }
+
+      phaseButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyPhaseFilter(button.getAttribute("data-phase-filter") || "all");
+        });
+      });
+
+      applyPhaseFilter("all");
+    });
+  </script>
+
 </body>
 </html>

@@ -684,7 +684,7 @@ img{
 
 /* =========================================================
    12) ARTICLES PAGE
-   تنسيقات صفحة قائمة المقالات
+   تنسيقات صفحة مكتبة المعرفة الإدارية
    ========================================================= */
 
 .articles-toolbar{
@@ -3722,7 +3722,7 @@ z-index:1100;
 
 /* =========================================================
    Learn Articles – Cards/Table View Switch
-   عرض المقالات كبطاقات أو جدول
+   عرض محتوى المعرفة كبطاقات أو جدول
    ========================================================= */
 .articles-results-head{
   display:flex;
@@ -4012,4 +4012,105 @@ z-index:1100;
 .articles-all-tags[hidden],
 .articles-all-tags.is-hidden{
   display:none !important;
+}
+
+
+/* Position the full keyword toggle below popular topics */
+.articles-tags-toggle-row{
+  margin-top:14px;
+  display:flex;
+  justify-content:flex-start;
+}
+
+
+/* =========================================================
+   Learn – Management Skills Phase Filter
+   ========================================================= */
+.management-phase-filter-section{
+  padding-top:24px;
+  padding-bottom:8px;
+}
+
+.management-phase-filter-card{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.management-phase-filter-card h2{
+  margin-bottom:10px;
+}
+
+.management-phase-filter-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.management-phase-filter{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:flex-end;
+  max-width:620px;
+}
+
+.phase-filter-btn{
+  border:1px solid rgba(15,39,71,.14);
+  background:#fff;
+  color:var(--primary);
+  border-radius:999px;
+  padding:10px 14px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.phase-filter-btn:hover{
+  transform:translateY(-1px);
+  border-color:rgba(212,166,58,.5);
+  background:var(--gold-soft);
+}
+
+.phase-filter-btn.active{
+  background:var(--primary);
+  color:#fff;
+  border-color:var(--primary);
+  box-shadow:0 10px 20px rgba(15,39,71,.16);
+}
+
+.management-phase-section[hidden]{
+  display:none !important;
+}
+
+@media (max-width: 900px){
+  .management-phase-filter-card{
+    flex-direction:column;
+  }
+
+  .management-phase-filter{
+    justify-content:flex-start;
+    max-width:100%;
+  }
+}
+
+@media (max-width: 640px){
+  .phase-filter-btn{
+    width:100%;
+  }
+
+  .articles-tags-toggle-row{
+    justify-content:stretch;
+  }
+}
+
+
+/* Knowledge Library – View Switch after topic filters */
+.articles-tags-panel + .articles-results-head{
+  margin-top:18px;
+}
+
+.articles-tags-panel + .articles-results-head .articles-view-switch{
+  margin-top:0;
 }

@@ -181,3 +181,20 @@ The current structure will remain light for now, using:
 - Topic dropdown
 - Popular tags
 - Full keyword list on demand
+
+### Decision – Separate Soft Skills and Management Skills Path
+
+Date: 2026-05-05
+
+The Learn dropdown will include both:
+- Soft Skills / المهارات الناعمة
+- Essential Management Skills Path / مسار المهارات الإدارية الأساسية
+
+Reason:
+The Soft Skills page is a separate learning page focused on behavioral and personal skills, while the Management Skills path is a structured course-style path covering management functions, leadership, teamwork, decision-making, and project management methodologies.
+
+Implementation:
+- Keep `learn/soft-skills.html`.
+- Keep `learn/management-skills.html`.
+- Show both links in the Learn dropdown.
+- Use relative links inside the Learn dropdown to avoid duplicated paths such as `learn/learn/...`.

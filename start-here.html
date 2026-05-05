@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!--
+    =========================================================
+    FILE: start-here.html
+    PURPOSE:
+    صفحة توجيهية للزائر الجديد داخل منصة ConsuTrain.
+
+    STRUCTURE ROLE:
+    - تعمل كخريطة دخول سريعة للمنصة.
+    - تساعد الزائر على اختيار المسار المناسب حسب حاجته.
+    - تربط بين التعلّم، الأدوات، الخدمات، ومن نحن، والتواصل.
+
+    TECHNICAL NOTES:
+    - الصفحة موجودة في جذر المشروع، لذلك تستخدم data-root=".".
+    - يتم تحميل الهيدر والفوتر من partials عبر includes.js.
+    - الصفحة تستخدم Breadcrumbs لأنها صفحة داخلية توجيهية.
+    =========================================================
+  -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ابدأ من هنا | ConsuTrain</title>
+  <meta
+    name="description"
+    content="ابدأ من هنا في ConsuTrain: صفحة توجيهية تساعد الزائر على اختيار المسار المناسب بين التعلم، الأدوات، الخدمات، والتواصل."
+  >
+
+  <link rel="stylesheet" href="assets/css/style.css?v=20260505_start_here_v2">
+
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml,
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="%230f2747"/>
+          <stop offset="1" stop-color="%23d4a63a"/>
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="14" fill="url(%23g)"/>
+      <text x="50%" y="54%" font-size="16" text-anchor="middle"
+            fill="white" font-family="Arial" font-weight="700">CT</text>
+    </svg>'>
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+</head>
+<body data-root="." data-breadcrumb-section="البداية" data-breadcrumb-title="ابدأ من هنا">
+
+  <div id="header-placeholder"></div>
+
+  <div class="container">
+    <div id="breadcrumbs-placeholder"></div>
+  </div>
+
+  <main class="start-page">
+    <!--
+      =======================================================
+      HERO SECTION
+      الهدف: شرح وظيفة الصفحة بسرعة وتقديم أهم مسارين للزائر الجديد.
+      =======================================================
+    -->
+    <section class="hero start-hero">
+      <div class="container hero-grid">
+        <div class="hero-card start-hero-card">
+          <span class="eyebrow">دليل الدخول السريع إلى المنصة</span>
+          <h1>ابدأ من هنا</h1>
+          <p>
+            هذه الصفحة تساعدك على اختيار الطريق الأنسب داخل ConsuTrain. يمكنك البدء بالتعلّم،
+            تجربة الأدوات، الاطلاع على الخدمات، أو التواصل عندما يكون لديك احتياج محدد.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#visitor-paths">اختر مسارك</a>
+            <a class="btn btn-secondary" href="learn.html">ابدأ بالتعلّم</a>
+          </div>
+        </div>
+
+        <aside class="hero-side start-summary" aria-label="ملخص سريع للمنصة">
+          <article class="feature-card">
+            <h3>للتعلّم</h3>
+            <p>مقالات، قاموس إداري، مسارات مهارية، ومحتوى عملي يساعد على بناء المعرفة.</p>
+          </article>
+
+          <article class="feature-card">
+            <h3>للإنجاز</h3>
+            <p>أدوات تساعدك على تنظيم المهام، التفكير في دراسة الجدوى، وتحويل المعرفة إلى تطبيق.</p>
+          </article>
+
+          <article class="feature-card">
+            <h3>للاستشارة</h3>
+            <p>خدمات مهنية في التخطيط، دراسات الجدوى، ISO، إدارة المشاريع، وبناء الأنظمة.</p>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <!--
+      =======================================================
+      VISITOR PATHS
+      الهدف: تحويل احتياج الزائر إلى مسار واضح داخل الموقع.
+      =======================================================
+    -->
+    <section class="home-section" id="visitor-paths">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>ما الذي تبحث عنه اليوم؟</h2>
+            <p>اختر الجملة الأقرب لاحتياجك، ثم انتقل مباشرة إلى الصفحة المناسبة.</p>
+          </div>
+        </div>
+
+        <div class="start-path-grid">
+          <article class="section-card start-path-card">
+            <span class="start-card-number">01</span>
+            <h3>أريد فهم فكرة المنصة بسرعة</h3>
+            <p>
+              مناسب إذا كنت تزور ConsuTrain لأول مرة وتريد معرفة الفكرة، المجالات، وطريقة الاستفادة.
+            </p>
+            <a class="card-link" href="about.html">تعرف على المنصة</a>
+          </article>
+
+          <article class="section-card start-path-card">
+            <span class="start-card-number">02</span>
+            <h3>أريد تطوير معرفتي الإدارية</h3>
+            <p>
+              مناسب للطلاب، الموظفين، المدربين، والاستشاريين الذين يبحثون عن محتوى واضح ومنظم.
+            </p>
+            <a class="card-link" href="learn.html">الانتقال إلى التعلّم</a>
+          </article>
+
+          <article class="section-card start-path-card">
+            <span class="start-card-number">03</span>
+            <h3>أريد أداة عملية تساعدني</h3>
+            <p>
+              مناسب لمن يريد تنظيم المهام، تجربة أداة دراسة الجدوى، أو استعمال أدوات مساندة للعمل اليومي.
+            </p>
+            <a class="card-link" href="tools.html">استكشاف الأدوات</a>
+          </article>
+
+          <article class="section-card start-path-card">
+            <span class="start-card-number">04</span>
+            <h3>أحتاج خدمة مهنية أو استشارة</h3>
+            <p>
+              مناسب للمنشآت والفرق ورواد الأعمال الذين يحتاجون دعمًا في التخطيط، الجودة، المخاطر، أو المشاريع.
+            </p>
+            <a class="card-link" href="services.html">عرض الخدمات</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      =======================================================
+      RECOMMENDED FIRST STEPS
+      الهدف: تقديم روابط عملية للزائر الذي لا يعرف من أين يبدأ.
+      =======================================================
+    -->
+    <section class="home-section home-section--soft start-recommended">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>روابط مقترحة للبداية</h2>
+            <p>هذه الصفحات مناسبة كبداية سريعة قبل التعمق في باقي أقسام المنصة.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card">
+            <h3>مكتبة المعرفة الإدارية</h3>
+            <p>ابدأ بالمقالات المنظمة إذا كنت تريد تعلم مفاهيم الإدارة والمشاريع والمهارات بطريقة مبسطة.</p>
+            <a class="card-link" href="learn/articles.html">فتح مكتبة المعرفة</a>
+          </article>
+
+          <article class="section-card">
+            <h3>القاموس الإداري</h3>
+            <p>استخدمه عندما تواجه مصطلحًا إداريًا أو مفهومًا تحتاج إلى فهمه بسرعة.</p>
+            <a class="card-link" href="learn/glossary.html">فتح القاموس الإداري</a>
+          </article>
+
+          <article class="section-card">
+            <h3>مسار المهارات الإدارية الأساسية</h3>
+            <p>مسار منظم لمن يريد تعلم التخطيط، التنظيم، القيادة، الرقابة، والعمل بالمشاريع.</p>
+            <a class="card-link" href="learn/management-skills.html">فتح المسار</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      =======================================================
+      TOOLS AND SERVICES SHORTCUTS
+      الهدف: إبراز الروابط العملية والتحويلية دون جعل الصفحة بيعية بالكامل.
+      =======================================================
+    -->
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>اختصارات عملية</h2>
+            <p>انتقل مباشرة إلى الأدوات أو الخدمات الأكثر ارتباطًا بالإنجاز العملي.</p>
+          </div>
+        </div>
+
+        <div class="start-shortcuts-grid">
+          <article class="section-card start-shortcut-card">
+            <h3>MyTodo</h3>
+            <p>أداة لتنظيم المهام والأفكار والمتابعة اليومية.</p>
+            <a class="card-link" href="tools/mytodo/index.html">فتح MyTodo</a>
+          </article>
+
+          <article class="section-card start-shortcut-card">
+            <h3>أداة دراسة الجدوى</h3>
+            <p>نقطة بداية عملية لتجميع معلومات أولية حول فكرة مشروع.</p>
+            <a class="card-link" href="tools/feasibility/indexFeasibility.html">فتح الأداة</a>
+          </article>
+
+          <article class="section-card start-shortcut-card">
+            <h3>خدمة التخطيط الاستراتيجي</h3>
+            <p>مناسبة للجهات التي تحتاج إلى اتجاه واضح وأهداف قابلة للتنفيذ.</p>
+            <a class="card-link" href="services/strategic-planning.html">عرض الخدمة</a>
+          </article>
+
+          <article class="section-card start-shortcut-card">
+            <h3>خدمة دراسات الجدوى</h3>
+            <p>مناسبة لمن يريد تحليل فكرة أو مشروع قبل قرار التنفيذ.</p>
+            <a class="card-link" href="services/feasibility-studies.html">عرض الخدمة</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      =======================================================
+      SIMPLE DECISION GUIDE
+      الهدف: توجيه الزائر المتردد إلى قرار سريع.
+      =======================================================
+    -->
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="start-guide-panel">
+          <div>
+            <span class="eyebrow">اختيار سريع</span>
+            <h2>إذا لم تكن متأكدًا، اتبع هذه القاعدة البسيطة</h2>
+          </div>
+
+          <div class="start-guide-list">
+            <div class="start-guide-item">
+              <strong>للمعرفة:</strong>
+              <span>ابدأ من قسم التعلّم.</span>
+            </div>
+            <div class="start-guide-item">
+              <strong>للتطبيق:</strong>
+              <span>ابدأ من قسم الأدوات.</span>
+            </div>
+            <div class="start-guide-item">
+              <strong>للدعم المهني:</strong>
+              <span>ابدأ من قسم الخدمات.</span>
+            </div>
+            <div class="start-guide-item">
+              <strong>للاستفسار:</strong>
+              <span>انتقل إلى صفحة التواصل.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      =======================================================
+      CTA SECTION
+      الهدف: توفير مخرج واضح للزائر الذي لديه طلب محدد.
+      =======================================================
+    -->
+    <section class="home-section">
+      <div class="container">
+        <div class="cta-panel start-cta-panel">
+          <div>
+            <span class="eyebrow">هل لديك احتياج محدد؟</span>
+            <h2>اكتب احتياجك باختصار وسنحدد نقطة البداية المناسبة</h2>
+            <p>
+              إذا لم تكن متأكدًا من الصفحة المناسبة، أرسل وصفًا مختصرًا لما تحتاجه،
+              وسيساعد ذلك على توجيهك نحو الخدمة أو المورد أو الأداة المناسبة.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="contact.html">تواصل معنا</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!--
+    ملف includes.js مسؤول عن تحميل الهيدر والفوتر وتفعيل القائمة وBreadcrumbs.
+  -->
+  <script src="assets/js/includes.js?v=20260505_start_here_v2"></script>
+
+  <!--
+    زر العودة إلى الأعلى مستخدم في عدة صفحات داخل المنصة.
+    السكربت هنا محلي لتجنب إضافة سلوك عام قبل توحيده لاحقًا.
+  -->
+  <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">↑</button>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      if (!scrollTopBtn) return;
+
+      const toggleScrollBtn = () => {
+        if (window.scrollY > 300) {
+          scrollTopBtn.classList.add("show");
+        } else {
+          scrollTopBtn.classList.remove("show");
+        }
+      };
+
+      window.addEventListener("scroll", toggleScrollBtn);
+      toggleScrollBtn();
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+
+  <script src="assets/js/pwa.js"></script>
+</body>
+</html>

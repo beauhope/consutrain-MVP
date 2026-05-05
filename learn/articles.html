@@ -5,7 +5,7 @@
     =========================================================
     FILE: learn/articles.html
     PURPOSE:
-    صفحة عرض قائمة المقالات ضمن قسم التعلّم.
+    صفحة مكتبة المعرفة الإدارية ضمن قسم التعلّم.
     =========================================================
   -->
   <meta charset="utf-8">
@@ -75,21 +75,6 @@
             </button>
           </div>
 
-          <div class="articles-results-head">
-            <div class="glossary-meta">
-              <span id="articlesCount">جاري تحميل مكتبة المعرفة...</span>
-            </div>
-
-            <div class="articles-view-switch" role="group" aria-label="اختيار طريقة عرض المقالات">
-              <button id="articlesCardsViewBtn" class="view-switch-btn active" type="button" aria-pressed="true">
-                عرض البطاقات
-              </button>
-              <button id="articlesTableViewBtn" class="view-switch-btn" type="button" aria-pressed="false">
-                عرض الجدول
-              </button>
-            </div>
-          </div>
-
           <div class="articles-topic-filter">
             <label for="articlesTopicSelect">اختر موضوعًا</label>
             <select id="articlesTopicSelect" class="articles-topic-select" aria-label="اختيار موضوع من مكتبة المعرفة">
@@ -100,13 +85,32 @@
           <div class="articles-tags-panel">
             <div class="articles-tags-head">
               <span>موضوعات شائعة</span>
+            </div>
+
+            <div id="articlesPopularTags" class="articles-tags-bar articles-popular-tags"></div>
+
+            <div class="articles-tags-toggle-row">
               <button id="articlesToggleTagsBtn" class="tags-toggle-btn" type="button" aria-expanded="false">
                 عرض كل الكلمات المفتاحية
               </button>
             </div>
 
-            <div id="articlesPopularTags" class="articles-tags-bar articles-popular-tags"></div>
             <div id="articlesTags" class="articles-tags-bar articles-all-tags" hidden></div>
+          </div>
+
+          <div class="articles-results-head">
+            <div class="glossary-meta">
+              <span id="articlesCount">جاري تحميل مكتبة المعرفة...</span>
+            </div>
+
+            <div class="articles-view-switch" role="group" aria-label="اختيار طريقة عرض محتوى المعرفة">
+              <button id="articlesCardsViewBtn" class="view-switch-btn active" type="button" aria-pressed="true">
+                عرض البطاقات
+              </button>
+              <button id="articlesTableViewBtn" class="view-switch-btn" type="button" aria-pressed="false">
+                عرض الجدول
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -134,7 +138,7 @@
 
         <div id="articlesEmptyState" class="section-card glossary-empty" hidden>
           <h3>لا توجد مقالات مطابقة</h3>
-          <p>جرّب كلمة بحث أخرى أو أعد ضبط البحث والوسوم لعرض جميع المقالات.</p>
+          <p>جرّب كلمة بحث أخرى أو أعد ضبط البحث والوسوم لعرض جميع مواد المعرفة.</p>
         </div>
       </div>
     </section>

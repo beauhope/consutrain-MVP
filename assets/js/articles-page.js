@@ -6,7 +6,7 @@
 
   RESPONSIBILITIES:
   - تحميل ملف articles.json
-  - عرض المقالات كبطاقات أو جدول
+  - عرض مواد المعرفة كبطاقات أو جدول
   - تنفيذ البحث الحي
   - توليد قائمة الموضوعات والكلمات المفتاحية
   - التصفية حسب الوسم
@@ -203,9 +203,9 @@ function updateArticlesCount() {
   if (count === 0) {
     articlesCount.textContent = "لم يتم العثور على محتوى مطابق.";
   } else if (count === 1) {
-    articlesCount.textContent = "تم العثور على مقال واحد.";
+    articlesCount.textContent = "تم العثور على مادة معرفة واحدة.";
   } else {
-    articlesCount.textContent = `عدد المقالات المعروضة: ${count}`;
+    articlesCount.textContent = `عدد مواد المعرفة المعروضة: ${count}`;
   }
 }
 
@@ -421,7 +421,7 @@ async function loadArticlesData() {
     renderArticles();
 
   } catch (error) {
-    console.error("Articles loading error:", error);
+    console.error("Knowledge library loading error:", error);
 
     if (articlesList) {
       articlesList.innerHTML = `

@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260504-mobile-nav-fix";
-const RUNTIME_CACHE = "consutrain-runtime-v20260504-mobile-nav-fix";
+const STATIC_CACHE = "consutrain-static-v20260505-book-consultation";
+const RUNTIME_CACHE = "consutrain-runtime-v20260505-book-consultation";
 
 const PRECACHE_URLS = [
   "./",
@@ -35,6 +35,7 @@ const PRECACHE_URLS = [
   "./services/iso-consulting.html",
   "./services/project-management.html",
   "./services/strategic-planning.html",
+  "./services/book-consultation.html",
 
   "./tools/feasibility/indexFeasibility.html",
 

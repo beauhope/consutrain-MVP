@@ -188,3 +188,39 @@ Next:
 - Continue testing the Learn section.
 - Later, consider adding a domain-based classification layer for the knowledge library:
   Project Management, Strategic Planning, Institutional Excellence, Operations Management, Administrative Skills, AI for Management, Tools and Templates.
+
+
+  ### Learn – Knowledge Library Enhancement
+
+Status: Completed
+
+Completed:
+- Renamed the articles section to "مكتبة المعرفة الإدارية".
+- Unified the naming across the page, header, JavaScript messages, and interface labels.
+- Replaced inconsistent labels such as "المقالات" and "المكتبة المعرفية".
+- Added topic dropdown filtering.
+- Added popular topic tags.
+- Added show/hide control for the full keyword list.
+- Preserved search, card view, and table view.
+- Tested the page successfully and confirmed stability.
+
+Closed:
+- Knowledge Library naming and filtering enhancement is now stable.
+
+### Learn – Knowledge Library and Management Skills Navigation
+
+Status: Completed
+
+Completed:
+- Knowledge Library page is stable.
+- Unified naming as "مكتبة المعرفة الإدارية" and "مكتبة المعرفة".
+- Repositioned the card/table view buttons below the popular topics and keyword controls.
+- Added phase filtering to the Management Skills path page.
+- Restored the Soft Skills page link.
+- Added the Management Skills path as a separate link in the Learn dropdown.
+- Fixed Learn dropdown links to avoid duplicated paths such as `learn/learn/management-skills.html`.
+- Tested navigation successfully.
+
+Closed:
+- Knowledge Library interface enhancement.
+- Management Skills path navigation enhancement.
