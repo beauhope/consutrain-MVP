@@ -5350,3 +5350,207 @@ z-index:1100;
   }
 }
 
+/* =========================================================
+   DESIGN CONSISTENCY — TYPOGRAPHY SYSTEM
+   توحيد أحجام العناوين بين صفحات ConsuTrain
+   Phase B / Step 5
+   ========================================================= */
+
+/* العناوين العامة */
+:root{
+  --fs-page-title: clamp(2rem, 4vw, 3rem);
+  --fs-section-title: clamp(1.45rem, 2.6vw, 2rem);
+  --fs-card-title: clamp(1.08rem, 1.8vw, 1.3rem);
+  --fs-body: 1rem;
+  --fs-small: .92rem;
+
+  --lh-title: 1.28;
+  --lh-section: 1.38;
+  --lh-body: 1.9;
+}
+
+/* عنوان الصفحة الرئيسي */
+.page-hero h1,
+.hero h1,
+.article-full-header h1,
+.ai-content .page-title,
+.section__title{
+  font-size: var(--fs-page-title);
+  line-height: var(--lh-title);
+  color: var(--primary);
+  letter-spacing: 0;
+}
+
+/* عناوين الأقسام */
+.section-head h2,
+.home-section h2,
+.service-detail-page h2,
+.services-page h2,
+.about-block .section-head h2,
+.contact-page h2,
+.template-value-box h2,
+.management-map-card h2,
+.management-next-card h2,
+.ai-portal-cta h2,
+.article-extra-card h2{
+  font-size: var(--fs-section-title);
+  line-height: var(--lh-section);
+  color: var(--primary);
+  letter-spacing: 0;
+}
+
+/* عناوين البطاقات */
+.section-card h3,
+.feature-card h3,
+.service-card h3,
+.service-quick-card h3,
+.service-fit-card h3,
+.service-output-card h3,
+.service-resource-card h3,
+.audience-card h3,
+.contact-card h3,
+.contact-info-card h3,
+.about-feature-card h3,
+.value-card h3,
+.article-card h3,
+.prompt-card h3,
+.tool-card h3,
+.topic-card h3{
+  font-size: var(--fs-card-title);
+  line-height: 1.45;
+  color: var(--primary);
+  letter-spacing: 0;
+}
+
+/* الفقرات العامة */
+.page-hero p,
+.hero p,
+.section-head p,
+.section__desc,
+.section-card p,
+.feature-card p,
+.service-detail-page p,
+.services-page p,
+.about-block p,
+.contact-page p,
+.article-card p,
+.article-full-content p,
+.ai-content p,
+.template-value-box p,
+.management-next-card p{
+  line-height: var(--lh-body);
+}
+
+/* منع تضخم العناوين داخل صفحات الخدمات */
+.service-detail-page .page-hero h1,
+.service-detail-page h1{
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  line-height: 1.3;
+}
+
+/* ضبط العنوان الفرعي الصغير مثل آلية العمل */
+.eyebrow,
+.section-kicker,
+.section-eyebrow,
+.ai-card-kicker,
+.resource-tag{
+  font-size: var(--fs-small);
+  line-height: 1.55;
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — MOBILE TYPOGRAPHY
+   ضبط العناوين على الجوال بشكل موحد
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  :root{
+    --fs-page-title: clamp(1.55rem, 7vw, 2.05rem);
+    --fs-section-title: clamp(1.25rem, 5.6vw, 1.6rem);
+    --fs-card-title: clamp(1.05rem, 4.5vw, 1.25rem);
+    --fs-body: .96rem;
+    --fs-small: .86rem;
+
+    --lh-title: 1.32;
+    --lh-section: 1.42;
+    --lh-body: 1.85;
+  }
+
+  .page-hero h1,
+  .hero h1,
+  .article-full-header h1,
+  .ai-content .page-title,
+  .section__title,
+  .service-detail-page .page-hero h1,
+  .service-detail-page h1{
+    font-size: var(--fs-page-title) !important;
+    line-height: var(--lh-title) !important;
+    margin-bottom: 12px;
+  }
+
+  .section-head h2,
+  .home-section h2,
+  .service-detail-page h2,
+  .services-page h2,
+  .about-block .section-head h2,
+  .contact-page h2,
+  .template-value-box h2,
+  .management-map-card h2,
+  .management-next-card h2,
+  .ai-portal-cta h2,
+  .article-extra-card h2{
+    font-size: var(--fs-section-title) !important;
+    line-height: var(--lh-section) !important;
+  }
+
+  .section-card h3,
+  .feature-card h3,
+  .service-card h3,
+  .service-quick-card h3,
+  .service-fit-card h3,
+  .service-output-card h3,
+  .service-resource-card h3,
+  .audience-card h3,
+  .contact-card h3,
+  .contact-info-card h3,
+  .about-feature-card h3,
+  .value-card h3,
+  .article-card h3,
+  .prompt-card h3,
+  .tool-card h3,
+  .topic-card h3{
+    font-size: var(--fs-card-title) !important;
+    line-height: 1.45 !important;
+  }
+
+  .page-hero p,
+  .hero p,
+  .section-head p,
+  .section__desc,
+  .section-card p,
+  .feature-card p,
+  .service-detail-page p,
+  .services-page p,
+  .about-block p,
+  .contact-page p,
+  .article-card p,
+  .article-full-content p,
+  .ai-content p,
+  .template-value-box p,
+  .management-next-card p,
+  li{
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+}
+
+@media (max-width: 480px){
+
+  :root{
+    --fs-page-title: clamp(1.42rem, 7.6vw, 1.85rem);
+    --fs-section-title: clamp(1.16rem, 6vw, 1.42rem);
+    --fs-card-title: clamp(1rem, 4.8vw, 1.18rem);
+  }
+}
+
