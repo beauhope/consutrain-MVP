@@ -224,3 +224,32 @@ Completed:
 Closed:
 - Knowledge Library interface enhancement.
 - Management Skills path navigation enhancement.
+
+### معالجة مشكلة بقاء قائمة الهاتف مفتوحة في MyTodo
+
+ظهرت مشكلة بقاء قائمة الهاتف مفتوحة فوق صفحة MyTodo على الهاتف رغم اختفائها على الحاسوب بعد رفع الملفات إلى GitHub Pages. وبعد مراجعة السلوك، تبيّن أن السبب كان مرتبطًا بكاش الهاتف أو Service Worker وليس بالكود الجديد. تم حل المشكلة بعد مسح بيانات الموقع من إعدادات Chrome عبر: إعدادات Chrome ← إعدادات الموقع ← التخزين ← beauhope.github.io ← حذف البيانات. بعد ذلك ظهرت النسخة الصحيحة واختفت القائمة المفتوحة.
+
+## Phase 1 — MVP Stabilization
+
+Status: Completed technically
+
+The first technical stabilization phase of ConsuTrain MVP has been completed. The platform was reviewed and tested across the main pages, internal navigation, shared header and footer, breadcrumbs, MyTodo integration, GitHub Pages deployment, PWA installation, Service Worker behavior, and mobile browsing.
+
+Key outcomes:
+- Unnecessary local files were removed.
+- Broken links and path issues were reviewed.
+- `data-root` rules were validated across page levels.
+- Shared partials for header and footer were tested.
+- Breadcrumbs were activated on the main internal pages.
+- MyTodo was tested on desktop and mobile.
+- The mobile navigation issue was fixed.
+- GitHub Pages deployment was verified.
+- PWA installation was tested successfully.
+- Cache and Service Worker issues were reviewed and resolved.
+- No blocking 404 errors or broken internal links remain.
+
+Technical note:
+A mobile issue in MyTodo where the navigation menu remained open was confirmed to be caused by browser cache / Service Worker behavior, not by the latest code. It was resolved by clearing site data from Chrome settings on the phone.
+
+Next phase:
+Move to Structure and Monetization improvements, starting with “Start Here”, consulting booking, downloadable lead magnet, service page improvements, and templates landing page.
