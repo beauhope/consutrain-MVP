@@ -162,6 +162,8 @@ function initHeaderNavigation() {
   if (!toggle || !nav || !header) return;
 
   const MOBILE_BREAKPOINT = 900;
+  nav.setAttribute("hidden", "");
+
   const submenuToggles = document.querySelectorAll(".submenu-toggle");
   const submenuParents = document.querySelectorAll(".has-submenu");
   const navLinks = nav.querySelectorAll("a");
@@ -196,6 +198,14 @@ function initHeaderNavigation() {
   function closeMobileNav() {
     nav.classList.remove("open");
     document.body.classList.remove("nav-is-open");
+
+    // hidden is used only on mobile. On desktop, keeping hidden would remove the normal nav.
+    if (isMobileView()) {
+      nav.setAttribute("hidden", "");
+    } else {
+      nav.removeAttribute("hidden");
+    }
+
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-label", "فتح القائمة");
     toggle.textContent = "☰";
@@ -204,6 +214,7 @@ function initHeaderNavigation() {
   }
 
   function openMobileNav() {
+    nav.removeAttribute("hidden");
     nav.classList.add("open");
     document.body.classList.add("nav-is-open");
     toggle.setAttribute("aria-expanded", "true");
@@ -264,19 +275,10 @@ function initHeaderNavigation() {
     const clickedInsideHeader = event.target.closest(".site-header");
     const clickedInsideNav = event.target.closest("#mainNav");
 
-    if (isMobileView() && nav.classList.contains("open") && !clickedInsideHeader && !clickedInsideNav) {
+    if (isMobileView() && !clickedInsideHeader && !clickedInsideNav) {
       closeMobileNav();
     }
   });
-
-  document.addEventListener("touchstart", (event) => {
-    const touchedInsideHeader = event.target.closest(".site-header");
-    const touchedInsideNav = event.target.closest("#mainNav");
-
-    if (isMobileView() && nav.classList.contains("open") && !touchedInsideHeader && !touchedInsideNav) {
-      closeMobileNav();
-    }
-  }, { passive: true });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
@@ -291,6 +293,8 @@ function initHeaderNavigation() {
   });
 
   window.addEventListener("pageshow", closeMobileNav);
+  window.addEventListener("pagehide", closeMobileNav);
+  window.addEventListener("orientationchange", closeMobileNav);
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) closeMobileNav();
   });

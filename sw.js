@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-mobile-nav-mytodo-v20260505";
-const RUNTIME_CACHE = "consutrain-runtime-mobile-nav-mytodo-v20260505";
+const STATIC_CACHE = "consutrain-mobile-nav-final-v20260505-2";
+const RUNTIME_CACHE = "consutrain-runtime-mobile-nav-final-v20260505-2";
 
 const PRECACHE_URLS = [
   "./",
