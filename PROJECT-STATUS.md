@@ -128,3 +128,18 @@ The JavaScript logic for breadcrumbs exists, but some pages may still need the v
 
 ```html
 <div id="breadcrumbs-placeholder"></div>
+
+### Learn – Essential Management Skills Path
+
+Status: Phase 1 Completed
+
+Completed:
+- Created and linked `learn/management-skills.html`.
+- Added 12 articles covering EMS-01 to EMS-12.
+- Linked each lesson to its article and related YouTube video.
+- Added SVG educational visuals for all Phase 1 articles.
+- Updated `assets/data/articles.json`.
+
+Next:
+- Final local/GitHub test for all Phase 1 lesson links.
+- Start Phase 2: Leadership, teams, emotional intelligence, and decision-making.

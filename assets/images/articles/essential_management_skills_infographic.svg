@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="المهارات الإدارية الأساسية">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="100%" stop-color="#fffaf2"/>
+    </linearGradient>
+    <linearGradient id="mainBox" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e2f64"/>
+      <stop offset="100%" stop-color="#174f85"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#15325f" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      .title{font:700 64px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#0f2d5d;}
+      .subtitle{font:400 34px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#65768d;}
+      .h1{font:700 38px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#0f2d5d;}
+      .h1-dark{font:700 60px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#ffffff;}
+      .body{font:400 28px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#42556f;}
+      .body-dark{font:400 28px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#ffffff;}
+      .small{font:600 24px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#12315f;}
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Decorative background shapes -->
+  <circle cx="1510" cy="75" r="125" fill="#efe5d3" opacity="0.65"/>
+  <circle cx="95" cy="820" r="130" fill="#d9e7f6" opacity="0.72"/>
+  <circle cx="280" cy="175" r="55" fill="#dce9f7" opacity="0.9"/>
+  <circle cx="1460" cy="735" r="28" fill="#f1e7d8" opacity="0.9"/>
+  <circle cx="1290" cy="842" r="3.5" fill="#d2deef"/>
+  <circle cx="1310" cy="842" r="3.5" fill="#d2deef"/>
+  <circle cx="1330" cy="842" r="3.5" fill="#d2deef"/>
+  <circle cx="1350" cy="842" r="3.5" fill="#d2deef"/>
+  <circle cx="1370" cy="842" r="3.5" fill="#d2deef"/>
+  <circle cx="1290" cy="862" r="3.5" fill="#d2deef"/>
+  <circle cx="1310" cy="862" r="3.5" fill="#d2deef"/>
+  <circle cx="1330" cy="862" r="3.5" fill="#d2deef"/>
+  <circle cx="1350" cy="862" r="3.5" fill="#d2deef"/>
+  <circle cx="1370" cy="862" r="3.5" fill="#d2deef"/>
+  <circle cx="80" cy="95" r="3.5" fill="#d2deef"/>
+  <circle cx="100" cy="95" r="3.5" fill="#d2deef"/>
+  <circle cx="120" cy="95" r="3.5" fill="#d2deef"/>
+  <circle cx="140" cy="95" r="3.5" fill="#d2deef"/>
+  <circle cx="160" cy="95" r="3.5" fill="#d2deef"/>
+  <circle cx="80" cy="115" r="3.5" fill="#d2deef"/>
+  <circle cx="100" cy="115" r="3.5" fill="#d2deef"/>
+  <circle cx="120" cy="115" r="3.5" fill="#d2deef"/>
+  <circle cx="140" cy="115" r="3.5" fill="#d2deef"/>
+  <circle cx="160" cy="115" r="3.5" fill="#d2deef"/>
+  <path d="M0,40 Q20,0 60,0" fill="none" stroke="#e2be77" stroke-width="2" opacity="0.6"/>
+  <path d="M1600,760 Q1580,870 1500,900" fill="none" stroke="#e2be77" stroke-width="2" opacity="0.6"/>
+
+  <!-- Title -->
+  <text x="800" y="100" class="title" text-anchor="middle">المهارات الإدارية الأساسية</text>
+  <text x="800" y="170" class="subtitle" text-anchor="middle">من المعرفة إلى التنفيذ العملي</text>
+  <line x1="640" y1="202" x2="760" y2="202" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="800" cy="202" r="6" fill="#d9a933"/>
+  <line x1="840" y1="202" x2="960" y2="202" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Connector lines -->
+  <line x1="520" y1="420" x2="570" y2="420" stroke="#d5a033" stroke-width="6" stroke-linecap="round"/>
+  <line x1="1030" y1="420" x2="1080" y2="420" stroke="#d5a033" stroke-width="6" stroke-linecap="round"/>
+  <line x1="800" y1="605" x2="800" y2="660" stroke="#d5a033" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="520" cy="420" r="14" fill="#ffffff" stroke="#d5a033" stroke-width="6"/>
+  <circle cx="1080" cy="420" r="14" fill="#ffffff" stroke="#d5a033" stroke-width="6"/>
+  <circle cx="800" cy="605" r="14" fill="#ffffff" stroke="#d5a033" stroke-width="6"/>
+
+  <!-- Left card -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="320" rx="28" ry="28" width="410" height="225" fill="#ffffff" stroke="#bdd7ef" stroke-width="2"/>
+  </g>
+  <circle cx="135" cy="430" r="52" fill="#edf5fe" stroke="#b6d1ec" stroke-width="5"/>
+  <!-- Technical icon -->
+  <g stroke="#173d74" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="135" cy="420" r="18"/>
+    <path d="M135 389 v8 M135 443 v8 M104 420 h8 M158 420 h8 M114 399 l6 6 M150 435 l6 6 M114 441 l6-6 M150 405 l6-6"/>
+    <path d="M115 445 v20 M129 435 v30 M143 428 v37 M157 418 v47"/>
+  </g>
+  <text x="235" y="382" class="h1" text-anchor="middle">مهارات تقنية</text>
+  <line x1="168" y1="406" x2="406" y2="406" stroke="#5fa0d9" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="410" cy="406" r="5" fill="#5fa0d9"/>
+  <text x="268" y="465" class="body" text-anchor="middle">أدوات، أنظمة، بيانات،</text>
+  <text x="268" y="510" class="body" text-anchor="middle">تقارير وتنفيذ متخصص</text>
+
+  <!-- Main card -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="240" rx="38" ry="38" width="480" height="360" fill="url(#mainBox)" stroke="#e0b150" stroke-width="4"/>
+  </g>
+  <!-- Main icon -->
+  <g stroke="#efc35a" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="800" cy="320" r="22"/>
+    <path d="M735 382 q30-40 65-20 q35-20 65 20"/>
+    <path d="M770 382 q10-35 30-35 q20 0 30 35"/>
+  </g>
+  <text x="800" y="470" class="h1-dark" text-anchor="middle">الإدارة</text>
+  <text x="800" y="540" class="body-dark" text-anchor="middle">تخطيط  •  تنظيم  •  قيادة  •  رقابة</text>
+  <g filter="url(#shadow)">
+    <rect x="610" y="510" rx="24" ry="24" width="380" height="60" fill="#edbf56"/>
+  </g>
+  <text x="800" y="551" class="h1" style="font-size:30px; fill:#0f2d5d;" text-anchor="middle">نتائج قابلة للقياس</text>
+
+  <!-- Right card -->
+  <g filter="url(#shadow)">
+    <rect x="1090" y="320" rx="28" ry="28" width="410" height="225" fill="#ffffff" stroke="#bdd7ef" stroke-width="2"/>
+  </g>
+  <circle cx="1430" cy="430" r="52" fill="#fff4e3" stroke="#e7c77c" stroke-width="5"/>
+  <!-- Human icon -->
+  <g stroke="#9a6c10" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="1405" cy="422" r="13"/>
+    <circle cx="1450" cy="422" r="13"/>
+    <path d="M1388 456 q17-18 34 0 M1433 456 q17-18 34 0"/>
+    <path d="M1416 400 h24 q12 0 12 11 v8 q0 11-12 11 h-10 l-14 10 v-10 h-10 q-12 0-12-11 v-8 q0-11 12-11z"/>
+  </g>
+  <text x="1270" y="382" class="h1" text-anchor="middle">مهارات إنسانية</text>
+  <line x1="1160" y1="406" x2="1360" y2="406" stroke="#d6a843" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="1364" cy="406" r="5" fill="#d6a843"/>
+  <text x="1270" y="465" class="body" text-anchor="middle">تواصل، تحفيز، تعاون،</text>
+  <text x="1270" y="510" class="body" text-anchor="middle">تعامل مع الخلافات</text>
+
+  <!-- Bottom card -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="660" rx="28" ry="28" width="600" height="210" fill="#ffffff" stroke="#bdd7ef" stroke-width="2"/>
+  </g>
+  <circle cx="585" cy="763" r="56" fill="#ebf7eb" stroke="#c5dec5" stroke-width="5"/>
+  <!-- Thinking icon -->
+  <g stroke="#3f8d53" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M565 762 q0-25 20-35 q17-8 34 0 q20 10 20 35 q0 19-16 29 q-4 3-4 9 h-34 q0-6-4-9 q-16-10-16-29z"/>
+    <path d="M592 801 h20 M588 812 h28"/>
+    <path d="M603 708 v14 M574 717 l8 12 M632 717 l-8 12 M555 740 l13 6 M650 740 l-13 6"/>
+  </g>
+  <text x="760" y="735" class="h1" text-anchor="middle">مهارات فكرية</text>
+  <line x1="560" y1="755" x2="920" y2="755" stroke="#7ab987" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="925" cy="755" r="5" fill="#7ab987"/>
+  <text x="790" y="810" class="body" text-anchor="middle">فهم الصورة الكبرى، تحليل المشكلات</text>
+  <text x="790" y="852" class="body" text-anchor="middle">وربط القرارات بالنتائج</text>
+</svg>

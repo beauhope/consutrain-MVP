@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="التنظيم الإداري">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f7fbff"/><stop offset="100%" stop-color="#fffaf2"/></linearGradient>
+    <linearGradient id="center" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0e2f64"/><stop offset="100%" stop-color="#1b5b90"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#16325f" flood-opacity="0.15"/></filter>
+    <style>
+      .title{font:700 64px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#0f2d5d;}
+      .subtitle{font:400 32px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#64758b;}
+      .centerTitle{font:700 56px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#fff;}
+      .centerText{font:500 27px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#fff;}
+      .stepTitle{font:700 29px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#0f2d5d;}
+      .stepText{font:400 22px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#475a73;}
+      .badge{font:700 24px 'Segoe UI', Tahoma, Arial, sans-serif; fill:#0f2d5d;}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1510" cy="80" r="125" fill="#efe5d3" opacity="0.65"/>
+  <circle cx="120" cy="820" r="145" fill="#d9e7f6" opacity="0.65"/>
+  <circle cx="270" cy="175" r="52" fill="#dce9f7" opacity="0.9"/>
+  <g fill="#d2deef" opacity=".9"><circle cx="80" cy="100" r="4"/><circle cx="105" cy="100" r="4"/><circle cx="130" cy="100" r="4"/><circle cx="155" cy="100" r="4"/><circle cx="80" cy="125" r="4"/><circle cx="105" cy="125" r="4"/><circle cx="130" cy="125" r="4"/><circle cx="155" cy="125" r="4"/></g>
+  <text x="800" y="100" class="title" text-anchor="middle">التنظيم الإداري</text>
+  <text x="800" y="164" class="subtitle" text-anchor="middle">من الخطة إلى أدوار ومسؤوليات واضحة</text>
+  <line x1="640" y1="196" x2="760" y2="196" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/><circle cx="800" cy="196" r="6" fill="#d9a933"/><line x1="840" y1="196" x2="960" y2="196" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+  <g filter="url(#shadow)"><rect x="550" y="275" width="500" height="275" rx="38" fill="url(#center)" stroke="#e0b150" stroke-width="4"/></g>
+  <g stroke="#efc35a" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="728" y="315" width="145" height="80" rx="16"/><path d="M800 395 v45 M685 440 h230 M685 440 v45 M800 440 v45 M915 440 v45"/><circle cx="685" cy="510" r="20"/><circle cx="800" cy="510" r="20"/><circle cx="915" cy="510" r="20"/></g>
+  <text x="800" y="455" class="centerTitle" text-anchor="middle">التنظيم</text>
+  <text x="800" y="505" class="centerText" text-anchor="middle">أنشطة • وحدات • سلطات • مسؤوليات</text>
+  <g filter="url(#shadow)"><rect x="625" y="555" width="350" height="60" rx="24" fill="#edbf56"/></g>
+  <text x="800" y="595" class="badge" text-anchor="middle">تنسيق العمل وتوضيح الاختصاص</text>
+
+  <line x1="405" y1="360" x2="550" y2="360" stroke="#d5a033" stroke-width="5"/><line x1="1050" y1="360" x2="1195" y2="360" stroke="#d5a033" stroke-width="5"/><line x1="405" y1="545" x2="550" y2="545" stroke="#d5a033" stroke-width="5"/><line x1="1050" y1="545" x2="1195" y2="545" stroke="#d5a033" stroke-width="5"/>
+  <circle cx="550" cy="360" r="12" fill="#fff" stroke="#d5a033" stroke-width="5"/><circle cx="1050" cy="360" r="12" fill="#fff" stroke="#d5a033" stroke-width="5"/><circle cx="550" cy="545" r="12" fill="#fff" stroke="#d5a033" stroke-width="5"/><circle cx="1050" cy="545" r="12" fill="#fff" stroke="#d5a033" stroke-width="5"/>
+
+  <g filter="url(#shadow)"><rect x="70" y="280" width="350" height="155" rx="26" fill="#fff" stroke="#bdd7ef" stroke-width="2"/></g>
+  <circle cx="125" cy="355" r="38" fill="#edf5fe" stroke="#b6d1ec" stroke-width="4"/><text x="125" y="364" class="badge" text-anchor="middle">1</text>
+  <text x="260" y="340" class="stepTitle" text-anchor="middle">تحديد الأنشطة</text><text x="260" y="382" class="stepText" text-anchor="middle">ما الأعمال والعمليات المطلوبة؟</text>
+
+  <g filter="url(#shadow)"><rect x="1180" y="280" width="350" height="155" rx="26" fill="#fff" stroke="#bdd7ef" stroke-width="2"/></g>
+  <circle cx="1475" cy="355" r="38" fill="#fff4e3" stroke="#e7c77c" stroke-width="4"/><text x="1475" y="364" class="badge" text-anchor="middle">2</text>
+  <text x="1355" y="340" class="stepTitle" text-anchor="middle">تجميع الأعمال</text><text x="1355" y="382" class="stepText" text-anchor="middle">تحويل الأنشطة إلى وحدات مناسبة</text>
+
+  <g filter="url(#shadow)"><rect x="70" y="510" width="350" height="165" rx="26" fill="#fff" stroke="#bdd7ef" stroke-width="2"/></g>
+  <circle cx="125" cy="592" r="38" fill="#ebf7eb" stroke="#c5dec5" stroke-width="4"/><text x="125" y="601" class="badge" text-anchor="middle">3</text>
+  <text x="260" y="575" class="stepTitle" text-anchor="middle">تحديد السلطة والمسؤولية</text><text x="260" y="617" class="stepText" text-anchor="middle">من يقرر؟ ومن يتحمل النتيجة؟</text>
+
+  <g filter="url(#shadow)"><rect x="1180" y="510" width="350" height="165" rx="26" fill="#fff" stroke="#bdd7ef" stroke-width="2"/></g>
+  <circle cx="1475" cy="592" r="38" fill="#f0ecff" stroke="#cac1f6" stroke-width="4"/><text x="1475" y="601" class="badge" text-anchor="middle">4</text>
+  <text x="1355" y="575" class="stepTitle" text-anchor="middle">توضيح الاختصاصات</text><text x="1355" y="617" class="stepText" text-anchor="middle">هيكل، أوصاف وظيفية، وتدفق معلومات</text>
+</svg>

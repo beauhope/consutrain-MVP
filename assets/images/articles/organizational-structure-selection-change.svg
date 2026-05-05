@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="كيف تختار الهيكل التنظيمي المناسب">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="100%" stop-color="#fff8ed"/>
+    </linearGradient>
+    <linearGradient id="main" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f2d5d"/>
+      <stop offset="100%" stop-color="#1f6a94"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f2d5d" flood-opacity=".15"/>
+    </filter>
+    <style>
+      .title{font:700 62px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#0f2d5d}
+      .sub{font:400 30px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#65768d}
+      .h{font:700 32px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#0f2d5d}
+      .p{font:400 25px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#52657f}
+      .white{font:700 48px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#fff}
+      .white2{font:400 28px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#fff}
+      .pill{font:700 25px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#0f2d5d}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1445" cy="120" r="140" fill="#efe4d0" opacity=".65"/>
+  <circle cx="145" cy="790" r="145" fill="#dce9f7" opacity=".68"/>
+  <circle cx="285" cy="145" r="52" fill="#dce9f7" opacity=".8"/>
+  <path d="M0 56 Q28 0 82 0" fill="none" stroke="#d9a933" stroke-width="2" opacity=".55"/>
+  <path d="M1600 760 Q1565 850 1490 900" fill="none" stroke="#d9a933" stroke-width="2" opacity=".55"/>
+
+  <text x="800" y="98" class="title" text-anchor="middle">اختيار الهيكل التنظيمي المناسب</text>
+  <text x="800" y="156" class="sub" text-anchor="middle">من رسم الهيكل إلى وضوح المسؤوليات وسرعة القرار</text>
+  <line x1="650" y1="190" x2="760" y2="190" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="800" cy="190" r="6" fill="#d9a933"/>
+  <line x1="840" y1="190" x2="950" y2="190" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="545" y="245" width="510" height="270" rx="40" fill="url(#main)" stroke="#e2b653" stroke-width="4"/>
+  </g>
+  <g stroke="#efc35a" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="735" y="290" width="130" height="78" rx="14"/>
+    <path d="M800 368 v55 M735 423 h130 M670 423 h260"/>
+    <rect x="620" y="405" width="110" height="64" rx="14"/>
+    <rect x="745" y="405" width="110" height="64" rx="14"/>
+    <rect x="870" y="405" width="110" height="64" rx="14"/>
+  </g>
+  <text x="800" y="570" class="white" text-anchor="middle">الهيكل المناسب يخدم العمل</text>
+  <rect x="625" y="600" width="350" height="58" rx="29" fill="#edbf56"/>
+  <text x="800" y="638" class="pill" text-anchor="middle">وضوح أدوار وصلاحيات</text>
+
+  <!-- Cards -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="330" width="390" height="190" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+  </g>
+  <text x="265" y="388" class="h" text-anchor="middle">طبيعة العمل</text>
+  <line x1="170" y1="410" x2="360" y2="410" stroke="#6fa7d9" stroke-width="4" stroke-linecap="round"/>
+  <text x="265" y="462" class="p" text-anchor="middle">خدمات، مشاريع، منتجات</text>
+  <text x="265" y="500" class="p" text-anchor="middle">أو مناطق تشغيل</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1140" y="330" width="390" height="190" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+  </g>
+  <text x="1335" y="388" class="h" text-anchor="middle">حجم المؤسسة</text>
+  <line x1="1240" y1="410" x2="1430" y2="410" stroke="#d6a843" stroke-width="4" stroke-linecap="round"/>
+  <text x="1335" y="462" class="p" text-anchor="middle">نمو، فروع، فرق عمل</text>
+  <text x="1335" y="500" class="p" text-anchor="middle">ومستويات إشراف</text>
+
+  <g filter="url(#shadow)">
+    <rect x="165" y="615" width="420" height="180" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+  </g>
+  <text x="375" y="674" class="h" text-anchor="middle">الصلاحيات والمسؤوليات</text>
+  <line x1="255" y1="696" x2="495" y2="696" stroke="#7ab987" stroke-width="4" stroke-linecap="round"/>
+  <text x="375" y="746" class="p" text-anchor="middle">من يقرر؟ من ينفذ؟</text>
+  <text x="375" y="782" class="p" text-anchor="middle">ومن يتابع النتائج؟</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1015" y="615" width="420" height="180" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+  </g>
+  <text x="1225" y="674" class="h" text-anchor="middle">المرونة وسرعة القرار</text>
+  <line x1="1100" y1="696" x2="1350" y2="696" stroke="#e0b150" stroke-width="4" stroke-linecap="round"/>
+  <text x="1225" y="746" class="p" text-anchor="middle">هيكل لا يعطل المبادرات</text>
+  <text x="1225" y="782" class="p" text-anchor="middle">ولا يضيع المساءلة</text>
+
+  <!-- connectors -->
+  <line x1="460" y1="425" x2="545" y2="425" stroke="#d5a033" stroke-width="6" stroke-linecap="round"/>
+  <line x1="1055" y1="425" x2="1140" y2="425" stroke="#d5a033" stroke-width="6" stroke-linecap="round"/>
+  <line x1="520" y1="615" x2="620" y2="515" stroke="#d5a033" stroke-width="6" stroke-linecap="round"/>
+  <line x1="1080" y1="615" x2="980" y2="515" stroke="#d5a033" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="545" cy="425" r="13" fill="#fff" stroke="#d5a033" stroke-width="6"/>
+  <circle cx="1055" cy="425" r="13" fill="#fff" stroke="#d5a033" stroke-width="6"/>
+  <circle cx="620" cy="515" r="13" fill="#fff" stroke="#d5a033" stroke-width="6"/>
+  <circle cx="980" cy="515" r="13" fill="#fff" stroke="#d5a033" stroke-width="6"/>
+</svg>
