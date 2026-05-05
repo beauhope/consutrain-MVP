@@ -5974,3 +5974,52 @@ z-index:1100;
   }
 }
 
+/* =========================================================
+   UI/UX MOBILE FIX — BIGGER ACCORDION ARROW
+   تكبير سهم الأكورديون في قائمة الهاتف
+   ========================================================= */
+
+@media (max-width: 900px){
+
+  .main-nav .submenu-toggle{
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background: rgba(15,39,71,.04);
+  }
+
+  .main-nav .submenu-toggle span{
+    display: inline-grid;
+    place-items: center;
+    font-size: 1.15rem !important;
+    line-height: 1;
+    font-weight: 900;
+    color: var(--primary);
+  }
+
+  .main-nav .submenu-toggle:hover,
+  .main-nav .submenu-toggle:focus-visible{
+    background: var(--gold-soft);
+  }
+
+  .main-nav .has-submenu.submenu-open .submenu-toggle{
+    background: rgba(212,166,58,.16);
+  }
+
+  .main-nav .has-submenu.submenu-open .submenu-toggle span{
+    color: var(--gold-2);
+  }
+}
+
+@media (max-width: 480px){
+
+  .main-nav .submenu-toggle{
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .main-nav .submenu-toggle span{
+    font-size: 1.1rem !important;
+  }
+}
+
