@@ -253,3 +253,54 @@ A mobile issue in MyTodo where the navigation menu remained open was confirmed t
 
 Next phase:
 Move to Structure and Monetization improvements, starting with “Start Here”, consulting booking, downloadable lead magnet, service page improvements, and templates landing page.
+
+
+## تحديث الحالة – ConsuTrain UI/UX
+
+### آخر حالة
+تم الانتهاء مبدئيًا من مسار:
+
+ConsuTrain – UI/UX – التصميم العام
+
+وتم تنفيذ تحسينات واسعة على الهوية البصرية وتجربة المستخدم.
+
+### ما تم إنجازه
+
+1. تحسين عرض الموقع على الجوال:
+   - ضبط Hero والعناوين.
+   - تحسين البطاقات والأزرار.
+   - تحسين قائمة الهاتف والقوائم الفرعية.
+   - تكبير سهم الأكورديون.
+   - تحسين الفوتر.
+
+2. توحيد التصميم:
+   - توحيد أحجام العناوين.
+   - توحيد الأزرار.
+   - توحيد البطاقات.
+   - تحسين الخلفيات والمسافات.
+
+3. تحسين الصفحات الرئيسية:
+   - الصفحة الرئيسية.
+   - صفحات Learn.
+   - صفحات Tools.
+   - صفحات Services.
+
+4. إصلاحات إضافية:
+   - إصلاح تباين نص Hero في صفحة الأدوات.
+   - تحسين وضوح Breadcrumbs فوق الخلفيات الداكنة.
+   - اختبار سريع للروابط والملفات الأساسية.
+   - التأكد من وجود ملفات المشروع الأساسية:
+     - index.html
+     - style.css
+     - includes.js
+     - header.html
+     - footer.html
+     - manifest.webmanifest
+     - sw.js
+     - offline.html
+
+### ملاحظة قبل الإغلاق النهائي
+تم تجهيز ملف إصلاح خاص بصفحات Learn التي كانت تفتقد:
+
+```html
+<div id="breadcrumbs-placeholder"></div>

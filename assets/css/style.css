@@ -6990,3 +6990,1240 @@ body{
   }
 }
 
+/* =========================================================
+   POLISH — LEARN PAGES ENHANCEMENT
+   تحسين صفحات Learn: التعلّم، المقالات، القاموس، AI، المهارات
+   Phase C / Step 10
+   ========================================================= */
+
+/* Hero صفحات Learn */
+.learn-hero,
+.topics-hero,
+.ai-portal-page .page-hero,
+.management-skills-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(15,39,71,.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.learn-hero .container,
+.topics-hero .container,
+.ai-portal-page .page-hero .container,
+.management-skills-hero .container{
+  position: relative;
+}
+
+/* جعل مقدمات Learn أكثر وضوحًا */
+.learn-hero h1,
+.topics-hero h1,
+.ai-portal-page .page-hero h1,
+.management-skills-hero h1{
+  max-width: 880px;
+}
+
+.learn-hero p,
+.topics-hero p,
+.ai-portal-page .page-hero p,
+.management-skills-hero p{
+  max-width: 900px;
+}
+
+/* بطاقات مسارات التعلم */
+.learn-path-card,
+.learn-start-card,
+.learning-journey-card,
+.management-overview-card,
+.management-map-card,
+.management-next-card{
+  border: 1px solid rgba(15,39,71,.09);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.learn-path-card{
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-path-card::after{
+  content: "";
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  left: -42px;
+  bottom: -48px;
+  background: rgba(212,166,58,.10);
+  pointer-events: none;
+}
+
+/* تحسين عناصر البداية */
+.learn-start-item{
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-start-item::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 18px;
+  width: 4px;
+  height: 38px;
+  border-radius: 999px 0 0 999px;
+  background: var(--gold);
+}
+
+/* مكتبة المعرفة */
+.articles-toolbar,
+.prompts-toolbar,
+.glossary-toolbar{
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 10px 24px rgba(15,39,71,.045);
+}
+
+.articles-topic-filter{
+  background: rgba(15,39,71,.025);
+  border: 1px solid rgba(15,39,71,.06);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.articles-tags-panel{
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(15,39,71,.04);
+}
+
+/* بطاقات المقالات */
+.article-card{
+  position: relative;
+  overflow: hidden;
+}
+
+.article-card::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 4px;
+  height: 44px;
+  border-radius: 999px 0 0 999px;
+  background: rgba(212,166,58,.85);
+}
+
+.article-card h3,
+.article-card p,
+.article-card .article-tags,
+.article-card .article-meta-row,
+.article-card .card-link{
+  position: relative;
+  z-index: 1;
+}
+
+/* القاموس */
+.glossary-item{
+  position: relative;
+}
+
+.glossary-category{
+  margin-bottom: 2px;
+}
+
+.glossary-definition,
+.glossary-example{
+  border-color: rgba(15,39,71,.08);
+}
+
+.glossary-definition{
+  background: #ffffff;
+}
+
+.glossary-example{
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+}
+
+/* صفحة AI */
+.ai-portal-card,
+.ai-article-mini,
+.ai-step{
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-step span,
+.ai-core{
+  box-shadow: 0 12px 26px rgba(15,39,71,.16);
+}
+
+.ai-guide-nav{
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 10px 24px rgba(15,39,71,.045);
+}
+
+/* مكتبة Prompts */
+.prompt-card--pro{
+  overflow: hidden;
+}
+
+.prompt-level-badge{
+  box-shadow: 0 8px 18px rgba(212,166,58,.10);
+}
+
+.prompt-box,
+.prompt-box--long{
+  background: #fbfdff;
+  border-color: rgba(15,39,71,.08);
+}
+
+/* المهارات الإدارية */
+.management-module-pill{
+  min-height: 150px;
+}
+
+.management-lesson-card{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.lesson-code{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212,166,58,.22), transparent 28%),
+    linear-gradient(135deg, rgba(15,39,71,.10), rgba(212,166,58,.20));
+}
+
+/* تحسين أزرار التبديل والفلاتر في Learn */
+.articles-view-switch,
+.management-phase-filter-card,
+.articles-results-head{
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 10px 24px rgba(15,39,71,.04);
+}
+
+.articles-results-head{
+  margin-bottom: 16px;
+}
+
+/* ترتيب أفضل للكلمات المفتاحية */
+.articles-tags-bar{
+  gap: 8px;
+}
+
+.tag-chip{
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   POLISH — LEARN PAGES MOBILE
+   تحسين صفحات Learn على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .learn-hero,
+  .topics-hero,
+  .ai-portal-page .page-hero,
+  .management-skills-hero{
+    padding-top: 28px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .learn-hero-actions,
+  .ai-portal-actions,
+  .management-hero-actions{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .learn-hero-actions .btn,
+  .ai-portal-actions .btn,
+  .management-hero-actions .btn{
+    width: 100%;
+  }
+
+  .learn-start-grid,
+  .learn-paths-grid,
+  .learning-journey-steps,
+  .management-overview-grid,
+  .management-modules-grid,
+  .articles-list,
+  .prompts-list,
+  .glossary-list,
+  .ai-portal-cards,
+  .ai-featured-articles{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .articles-toolbar,
+  .prompts-toolbar,
+  .glossary-toolbar,
+  .articles-topic-filter,
+  .articles-tags-panel,
+  .ai-guide-nav,
+  .articles-view-switch,
+  .management-phase-filter-card,
+  .articles-results-head{
+    border-radius: 16px;
+    padding: 12px;
+  }
+
+  .articles-toolbar,
+  .prompts-toolbar,
+  .glossary-toolbar{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .articles-topic-filter{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .articles-tags-head{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .articles-tags-toggle-row{
+    justify-content: stretch;
+  }
+
+  .tags-toggle-btn{
+    width: 100%;
+  }
+
+  .articles-view-switch{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .view-switch-btn{
+    width: 100%;
+  }
+
+  .article-card::before,
+  .learn-start-item::before,
+  .home-audience-card::before{
+    height: 34px;
+    top: 18px;
+  }
+
+  .ai-portal-visual{
+    min-height: 230px;
+  }
+
+  .ai-orbit{
+    width: 82px;
+    height: 82px;
+    font-size: .82rem;
+  }
+
+  .ai-core{
+    width: 94px;
+    height: 94px;
+    font-size: 1.55rem;
+  }
+
+  .management-lesson-card{
+    gap: 12px;
+  }
+
+  .lesson-code{
+    min-height: 58px;
+  }
+}
+
+@media (max-width: 480px){
+
+  .tag-chip{
+    width: 100%;
+  }
+
+  .articles-tags-bar{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ai-portal-visual{
+    min-height: 210px;
+  }
+
+  .ai-orbit--one{
+    top: 24px;
+    right: 18px;
+  }
+
+  .ai-orbit--two{
+    bottom: 24px;
+    right: 24px;
+  }
+
+  .ai-orbit--three{
+    bottom: 34px;
+    left: 18px;
+    width: 92px;
+    height: 92px;
+  }
+}
+
+/* =========================================================
+   POLISH — TOOLS PAGES ENHANCEMENT
+   تحسين صفحات Tools: الأدوات، MyTodo، القوالب، دراسة الجدوى
+   Phase C / Step 11
+   ========================================================= */
+
+/* Hero صفحة الأدوات */
+.tools-page .page-hero,
+.tools-hero,
+.tools-page .tools-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(15,39,71,.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.tools-page .page-hero h1,
+.tools-page .page-hero p,
+.tools-hero h1,
+.tools-hero p{
+  max-width: 920px;
+}
+
+/* شبكات الأدوات */
+.tools-grid,
+.portal-grid,
+.tools-page .cards-grid{
+  gap: 20px;
+}
+
+/* بطاقات الأدوات */
+.tool-card,
+.tools-page .section-card,
+.tools-page .feature-card,
+.tools-page .service-card{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.tool-card::before,
+.tools-page .section-card::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 4px;
+  height: 44px;
+  border-radius: 999px 0 0 999px;
+  background: rgba(212,166,58,.85);
+}
+
+.tool-card h3,
+.tool-card p,
+.tool-card a,
+.tools-page .section-card h3,
+.tools-page .section-card p,
+.tools-page .section-card a{
+  position: relative;
+  z-index: 1;
+}
+
+/* إبراز الأدوات العملية */
+.tools-page .card-link,
+.tool-card .card-link,
+.tool-card a:not(.btn){
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--primary);
+  font-weight: 900;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+}
+
+.tools-page .card-link:hover,
+.tool-card .card-link:hover,
+.tool-card a:not(.btn):hover{
+  color: var(--gold-2);
+}
+
+/* صناديق الموارد والقوالب داخل Tools */
+.tools-page .home-free-resources-box,
+.tools-page .template-value-box,
+.tools-page .template-download-card,
+.tools-page .template-use-box,
+.tools-page .service-problem-card{
+  background:
+    radial-gradient(circle at 12% 20%, rgba(212,166,58,.10), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+/* تحسين أزرار Tools */
+.tools-page .hero-actions,
+.tools-page .template-actions,
+.tools-page .home-free-resources-actions,
+.tools-page .acc__actions{
+  gap: 12px;
+}
+
+/* MyTodo داخل ConsuTrain */
+.mytodo-page,
+.tools-mytodo-page{
+  background:
+    radial-gradient(circle at 90% 10%, rgba(212,166,58,.08), transparent 30%),
+    linear-gradient(180deg, #f7fafe 0%, #f5f7fb 100%);
+}
+
+.mytodo-page .page-hero,
+.tools-mytodo-page .page-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.15), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+/* بطاقات أو أقسام MyTodo العامة */
+.mytodo-page .section-card,
+.mytodo-page .feature-card,
+.mytodo-page .tool-card,
+.mytodo-page .card,
+.tools-mytodo-page .section-card,
+.tools-mytodo-page .feature-card,
+.tools-mytodo-page .tool-card,
+.tools-mytodo-page .card{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border-color: rgba(15,39,71,.09);
+}
+
+/* أدوات الحساب والفواتير والقوالب */
+.tools-page [class*="calculator"],
+.tools-page [class*="invoice"],
+.tools-page [class*="template"],
+.tools-page [class*="crm"],
+.tools-page [class*="timer"]{
+  scroll-margin-top: 96px;
+}
+
+/* جداول أو نماذج الأدوات */
+.tools-page form,
+.mytodo-page form,
+.tools-page .form-card,
+.mytodo-page .form-card,
+.tools-page .table-wrap,
+.mytodo-page .table-wrap,
+.tools-page .planner-table-wrapper,
+.mytodo-page .planner-table-wrapper{
+  border-radius: 20px;
+}
+
+/* حقول الإدخال داخل الأدوات */
+.tools-page input,
+.tools-page textarea,
+.tools-page select,
+.mytodo-page input,
+.mytodo-page textarea,
+.mytodo-page select,
+.tools-mytodo-page input,
+.tools-mytodo-page textarea,
+.tools-mytodo-page select{
+  border-radius: 14px;
+  border: 1px solid rgba(15,39,71,.12);
+  background: #fff;
+  min-height: 44px;
+}
+
+.tools-page input:focus,
+.tools-page textarea:focus,
+.tools-page select:focus,
+.mytodo-page input:focus,
+.mytodo-page textarea:focus,
+.mytodo-page select:focus,
+.tools-mytodo-page input:focus,
+.tools-mytodo-page textarea:focus,
+.tools-mytodo-page select:focus{
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212,166,58,.14);
+  outline: none;
+}
+
+/* أزرار الأدوات الداخلية */
+.tools-page button,
+.mytodo-page button,
+.tools-mytodo-page button{
+  font-family: inherit;
+}
+
+/* حالة الأدوات العملية */
+.tool-status,
+.tools-badge,
+.tool-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  color: var(--primary);
+  font-size: .84rem;
+  font-weight: 900;
+}
+
+/* =========================================================
+   POLISH — TOOLS PAGES MOBILE
+   تحسين صفحات Tools على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .tools-page .page-hero,
+  .tools-hero,
+  .tools-page .tools-hero,
+  .mytodo-page .page-hero,
+  .tools-mytodo-page .page-hero{
+    padding-top: 28px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .tools-grid,
+  .portal-grid,
+  .tools-page .cards-grid{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .tool-card,
+  .tools-page .section-card,
+  .tools-page .feature-card,
+  .tools-page .service-card{
+    border-radius: 18px !important;
+    padding: 18px !important;
+  }
+
+  .tool-card::before,
+  .tools-page .section-card::before{
+    top: 18px;
+    height: 34px;
+  }
+
+  .tools-page .hero-actions,
+  .tools-page .template-actions,
+  .tools-page .home-free-resources-actions,
+  .tools-page .acc__actions{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .tools-page .hero-actions .btn,
+  .tools-page .template-actions .btn,
+  .tools-page .home-free-resources-actions .btn,
+  .tools-page .acc__actions .btn{
+    width: 100%;
+  }
+
+  .tools-page input,
+  .tools-page textarea,
+  .tools-page select,
+  .mytodo-page input,
+  .mytodo-page textarea,
+  .mytodo-page select,
+  .tools-mytodo-page input,
+  .tools-mytodo-page textarea,
+  .tools-mytodo-page select{
+    width: 100%;
+    min-height: 44px;
+    font-size: .95rem;
+  }
+
+  .tools-page form,
+  .mytodo-page form,
+  .tools-mytodo-page form{
+    display: grid;
+    gap: 10px;
+  }
+
+  .tools-page table,
+  .mytodo-page table,
+  .tools-mytodo-page table{
+    font-size: .9rem;
+  }
+
+  .tools-page .table-wrap,
+  .mytodo-page .table-wrap,
+  .tools-page .planner-table-wrapper,
+  .mytodo-page .planner-table-wrapper{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px){
+
+  .tool-card,
+  .tools-page .section-card,
+  .tools-page .feature-card,
+  .tools-page .service-card{
+    padding: 16px !important;
+  }
+
+  .tools-page table,
+  .mytodo-page table,
+  .tools-mytodo-page table{
+    font-size: .86rem;
+  }
+}
+
+/* =========================================================
+   UI/UX FIX — TOOLS HERO CONTRAST
+   إصلاح تباين نص Hero في صفحة الأدوات
+   ========================================================= */
+
+.tools-page .page-hero,
+.tools-page .tools-hero,
+.tools-hero{
+  color: var(--primary);
+}
+
+.tools-page .page-hero h1,
+.tools-page .tools-hero h1,
+.tools-hero h1,
+.tools-page .page-hero h2,
+.tools-page .tools-hero h2,
+.tools-hero h2{
+  color: var(--primary) !important;
+  text-shadow: none !important;
+}
+
+.tools-page .page-hero p,
+.tools-page .tools-hero p,
+.tools-hero p{
+  color: var(--muted) !important;
+  text-shadow: none !important;
+}
+
+.tools-page .page-hero .eyebrow,
+.tools-page .tools-hero .eyebrow,
+.tools-hero .eyebrow,
+.tools-page .section-kicker,
+.tools-hero .section-kicker{
+  color: var(--gold-2) !important;
+  text-shadow: none !important;
+}
+
+/* إذا كان هناك overlay أبيض أو فاتح فوق الهيرو، نخففه */
+.tools-page .page-hero::before,
+.tools-page .tools-hero::before,
+.tools-hero::before{
+  opacity: .35;
+}
+
+/* تحسين القراءة على الجوال */
+@media (max-width: 768px){
+  .tools-page .page-hero,
+  .tools-page .tools-hero,
+  .tools-hero{
+    background:
+      radial-gradient(circle at 88% 18%, rgba(212,166,58,.12), transparent 28%),
+      linear-gradient(180deg, #f8fbff 0%, #ffffff 100%) !important;
+  }
+
+  .tools-page .page-hero h1,
+  .tools-page .tools-hero h1,
+  .tools-hero h1{
+    color: var(--primary) !important;
+  }
+
+  .tools-page .page-hero p,
+  .tools-page .tools-hero p,
+  .tools-hero p{
+    color: var(--muted) !important;
+  }
+}
+
+/* =========================================================
+   UI/UX FIX — BREADCRUMBS CONTRAST
+   جعل Breadcrumbs واضحة فوق الخلفيات الداكنة والفاتحة
+   ========================================================= */
+
+#breadcrumbs-placeholder{
+  background: #f8fbff;
+  border-bottom: 1px solid rgba(15,39,71,.08);
+}
+
+#breadcrumbs-placeholder .container{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#breadcrumbs-placeholder .breadcrumbs,
+.breadcrumbs{
+  margin: 0;
+  color: var(--muted);
+}
+
+#breadcrumbs-placeholder .breadcrumbs ol{
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 999px;
+  padding: 8px 14px;
+  width: fit-content;
+  max-width: 100%;
+  box-shadow: 0 8px 20px rgba(15,39,71,.045);
+}
+
+#breadcrumbs-placeholder .breadcrumbs a,
+.breadcrumbs a{
+  color: var(--primary) !important;
+  font-weight: 800;
+}
+
+#breadcrumbs-placeholder .breadcrumbs .current,
+.breadcrumbs .current{
+  color: var(--muted) !important;
+  font-weight: 800;
+}
+
+#breadcrumbs-placeholder .breadcrumbs li + li::before,
+.breadcrumbs li + li::before{
+  color: var(--gold-2) !important;
+  font-weight: 900;
+}
+
+/* صفحات الأدوات و MyTodo قد تحتوي خلفيات داكنة، لذلك نعزل الشريط بخلفية فاتحة */
+.tools-page #breadcrumbs-placeholder,
+.mytodo-page #breadcrumbs-placeholder,
+.tools-mytodo-page #breadcrumbs-placeholder{
+  background: #f8fbff !important;
+}
+
+/* تحسين على الجوال */
+@media (max-width: 768px){
+
+  #breadcrumbs-placeholder .container{
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs{
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs ol{
+    width: max-content;
+    min-width: auto;
+    max-width: 100%;
+    padding: 7px 12px;
+    border-radius: 999px;
+    flex-wrap: nowrap;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs a,
+  #breadcrumbs-placeholder .breadcrumbs .current{
+    font-size: .84rem;
+  }
+}
+
+/* =========================================================
+   POLISH — SERVICES PAGES ENHANCEMENT
+   تحسين صفحات Services بشكل موحد
+   Phase C / Step 12
+   ========================================================= */
+
+/* Hero صفحة الخدمات وصفحات الخدمات الفردية */
+.services-page .page-hero,
+.services-page .services-hero,
+.service-detail-page .page-hero,
+.service-detail-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(15,39,71,.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  color: var(--primary);
+}
+
+.services-page .page-hero h1,
+.services-page .services-hero h1,
+.service-detail-page .page-hero h1,
+.service-detail-hero h1{
+  max-width: 900px;
+  color: var(--primary) !important;
+  text-shadow: none !important;
+}
+
+.services-page .page-hero p,
+.services-page .services-hero p,
+.service-detail-page .page-hero p,
+.service-detail-hero p{
+  max-width: 920px;
+  color: var(--muted) !important;
+  text-shadow: none !important;
+}
+
+.services-page .page-hero .eyebrow,
+.services-page .services-hero .eyebrow,
+.service-detail-page .page-hero .eyebrow,
+.service-detail-hero .eyebrow,
+.services-page .section-kicker,
+.service-detail-page .section-kicker{
+  color: var(--gold-2) !important;
+  text-shadow: none !important;
+}
+
+/* تحسين صفحة الخدمات الرئيسية */
+.services-page .services-intro-grid,
+.services-page .services-audience-grid,
+.services-page .cards-grid,
+.services-page .service-resource-grid,
+.service-detail-page .service-quick-grid,
+.service-detail-page .service-fit-grid,
+.service-detail-page .service-output-grid,
+.service-detail-page .service-resource-grid{
+  gap: 20px;
+}
+
+/* بطاقات الخدمات الرئيسية والفردية */
+.services-page .section-card,
+.services-page .services-mini-card,
+.services-page .audience-card,
+.services-page .service-card,
+.service-detail-page .service-quick-card,
+.service-detail-page .service-fit-card,
+.service-detail-page .service-output-card,
+.service-detail-page .service-resource-card,
+.service-detail-page .service-cta-card{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border-color: rgba(15,39,71,.09);
+}
+
+/* خط جانبي ذهبي لتوحيد هوية بطاقات الخدمات */
+.services-page .section-card::before,
+.services-page .services-mini-card::before,
+.services-page .audience-card::before,
+.services-page .service-card::before,
+.service-detail-page .service-quick-card::before,
+.service-detail-page .service-fit-card::before,
+.service-detail-page .service-output-card::before,
+.service-detail-page .service-resource-card::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 4px;
+  height: 44px;
+  border-radius: 999px 0 0 999px;
+  background: rgba(212,166,58,.85);
+}
+
+.services-page .section-card h3,
+.services-page .section-card p,
+.services-page .section-card a,
+.services-page .services-mini-card h2,
+.services-page .services-mini-card p,
+.services-page .audience-card h3,
+.services-page .audience-card p,
+.service-detail-page .service-quick-card h3,
+.service-detail-page .service-quick-card p,
+.service-detail-page .service-fit-card h3,
+.service-detail-page .service-fit-card p,
+.service-detail-page .service-output-card h3,
+.service-detail-page .service-output-card p,
+.service-detail-page .service-resource-card h3,
+.service-detail-page .service-resource-card p,
+.service-detail-page .service-resource-card a{
+  position: relative;
+  z-index: 1;
+}
+
+/* تحسين أقسام المشكلة والقيمة */
+.service-problem-card{
+  background:
+    radial-gradient(circle at 12% 20%, rgba(212,166,58,.11), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border: 1px solid rgba(15,39,71,.09);
+  border-radius: 28px;
+}
+
+.service-problem-points div{
+  background:
+    linear-gradient(135deg, rgba(15,39,71,.045), rgba(212,166,58,.10));
+  border-color: rgba(15,39,71,.08);
+}
+
+/* تحسين بطاقات رحلة/خطوات الخدمة */
+.service-journey .journey-item,
+.service-detail-page .journey-item{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border: 1px solid rgba(15,39,71,.09);
+}
+
+.service-journey .journey-number,
+.service-detail-page .journey-number{
+  background:
+    radial-gradient(circle at 28% 22%, rgba(212,166,58,.35), transparent 34%),
+    linear-gradient(135deg, var(--primary), #355c9a);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(15,39,71,.14);
+}
+
+.service-journey .journey-content h3,
+.service-detail-page .journey-content h3{
+  color: var(--primary);
+}
+
+.service-journey .journey-content p,
+.service-detail-page .journey-content p{
+  color: var(--text);
+}
+
+/* تحسين الأكورديون في الخدمات */
+.service-acc-item{
+  border: 1px solid rgba(15,39,71,.09);
+  background: #fff;
+}
+
+.service-acc-item summary{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  color: var(--primary);
+  padding-left: 56px;
+}
+
+.service-acc-item summary::before{
+  left: 20px;
+  color: var(--gold-2);
+  background: rgba(212,166,58,.12);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+}
+
+.service-acc-item[open] summary::before{
+  background: var(--primary);
+  color: #fff;
+}
+
+.service-acc-body{
+  background: #fff;
+  border-top: 1px solid rgba(15,39,71,.08);
+}
+
+/* روابط الموارد داخل صفحات الخدمات */
+.service-inline-links{
+  gap: 10px;
+}
+
+.service-inline-links a,
+.service-resource-link,
+.service-link-btn{
+  border: 1px solid rgba(15,39,71,.12);
+  background: #fff;
+  color: var(--primary);
+}
+
+.service-inline-links a:hover,
+.service-resource-link:hover,
+.service-link-btn:hover{
+  background: var(--gold-soft);
+  border-color: rgba(212,166,58,.45);
+  color: var(--primary);
+}
+
+/* CTA نهاية صفحات الخدمات */
+.service-cta-card,
+.services-cta-card{
+  background:
+    radial-gradient(circle at 12% 20%, rgba(212,166,58,.14), transparent 28%),
+    linear-gradient(135deg, #ffffff, #fbf6e9);
+  border: 1px solid rgba(212,166,58,.24);
+  border-radius: 28px;
+}
+
+.service-cta-card h2,
+.services-cta-card h2{
+  color: var(--primary);
+}
+
+/* توحيد محاذاة وتباعد عناوين الخدمات */
+.services-page .section-head,
+.service-detail-page .section-head,
+.services-page .section__head,
+.service-detail-page .section__head,
+.services-head,
+.service-detail-head{
+  max-width: 980px;
+}
+
+/* =========================================================
+   POLISH — SERVICES PAGES MOBILE
+   تحسين صفحات Services على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .services-page .page-hero,
+  .services-page .services-hero,
+  .service-detail-page .page-hero,
+  .service-detail-hero{
+    padding-top: 28px !important;
+    padding-bottom: 22px !important;
+    background:
+      radial-gradient(circle at 88% 18%, rgba(212,166,58,.12), transparent 28%),
+      linear-gradient(180deg, #f8fbff 0%, #ffffff 100%) !important;
+  }
+
+  .services-page .services-intro-grid,
+  .services-page .services-audience-grid,
+  .services-page .cards-grid,
+  .services-page .service-resource-grid,
+  .service-detail-page .service-quick-grid,
+  .service-detail-page .service-fit-grid,
+  .service-detail-page .service-output-grid,
+  .service-detail-page .service-resource-grid{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .services-page .section-card,
+  .services-page .services-mini-card,
+  .services-page .audience-card,
+  .services-page .service-card,
+  .service-detail-page .service-quick-card,
+  .service-detail-page .service-fit-card,
+  .service-detail-page .service-output-card,
+  .service-detail-page .service-resource-card,
+  .service-detail-page .service-cta-card{
+    border-radius: 18px !important;
+    padding: 18px !important;
+  }
+
+  .services-page .section-card::before,
+  .services-page .services-mini-card::before,
+  .services-page .audience-card::before,
+  .services-page .service-card::before,
+  .service-detail-page .service-quick-card::before,
+  .service-detail-page .service-fit-card::before,
+  .service-detail-page .service-output-card::before,
+  .service-detail-page .service-resource-card::before{
+    top: 18px;
+    height: 34px;
+  }
+
+  .service-problem-card{
+    border-radius: 20px !important;
+    padding: 18px !important;
+  }
+
+  .service-problem-points{
+    gap: 10px;
+  }
+
+  .service-problem-points div{
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .service-journey .journey-item,
+  .service-detail-page .journey-item{
+    gap: 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .service-journey .journey-number,
+  .service-detail-page .journey-number{
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    font-size: .95rem;
+  }
+
+  .service-acc-item summary{
+    padding: 16px 18px 16px 54px !important;
+    line-height: 1.6;
+  }
+
+  .service-acc-item summary::before{
+    left: 16px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .service-acc-body{
+    padding: 0 18px 18px !important;
+  }
+
+  .service-inline-links{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .service-inline-links a,
+  .service-link-btn{
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .service-hero-actions,
+  .services-hero-actions{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .service-hero-actions .btn,
+  .services-hero-actions .btn{
+    width: 100%;
+  }
+
+  .service-cta-card,
+  .services-cta-card{
+    border-radius: 20px !important;
+  }
+}
+
+@media (max-width: 480px){
+
+  .services-page .section-card,
+  .services-page .services-mini-card,
+  .services-page .audience-card,
+  .services-page .service-card,
+  .service-detail-page .service-quick-card,
+  .service-detail-page .service-fit-card,
+  .service-detail-page .service-output-card,
+  .service-detail-page .service-resource-card,
+  .service-detail-page .service-cta-card{
+    padding: 16px !important;
+  }
+
+  .service-acc-item summary{
+    font-size: .96rem;
+  }
+}
+
