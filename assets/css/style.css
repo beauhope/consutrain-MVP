@@ -4533,3 +4533,56 @@ z-index:1100;
     padding: 14px 12px;
   }
 }
+
+/* =========================================================
+   Learn – Goal Management Path
+   ========================================================= */
+.goal-management-page .page-hero{
+  position:relative;
+  overflow:hidden;
+}
+
+.goal-management-hero{
+  background:
+    radial-gradient(circle at 15% 20%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(15,39,71,.08), transparent 30%),
+    linear-gradient(135deg, #f7fbff 0%, #fffaf0 100%);
+}
+
+.goal-path-intro-card p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:18px;
+}
+
+.goal-path-highlights{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.goal-path-highlights span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  padding:8px 12px;
+  background:var(--gold-soft);
+  color:var(--primary);
+  font-weight:900;
+  border:1px solid rgba(212,166,58,.28);
+}
+
+.goal-lesson-card .lesson-code{
+  background:linear-gradient(135deg, var(--primary), #1f6a94);
+}
+
+.goal-management-page .management-next-card{
+  border-inline-start:5px solid var(--gold);
+}
+
+@media (max-width: 640px){
+  .goal-path-highlights span{
+    flex:1 1 auto;
+  }
+}

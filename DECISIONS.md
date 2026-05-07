@@ -396,3 +396,22 @@ This resource strengthens the project management and operational planning resour
 - 2026-05-07: اعتماد حزمة Prompts لدراسة الجدوى كمورد مجاني ضمن الذكاء الاصطناعي للإدارة، مع تفعيل روابط الشرح والتحميل والمعاينة.
 
 - اعتماد مورد حزمة Prompts لإدارة المشاريع والجودة كآخر مورد ضمن حزم الذكاء الاصطناعي للإدارة، وربطه بصفحات الموارد والقوالب.
+
+
+### Decision – Add Goal Management and Performance Measurement Path
+
+Date: 2026-05-05
+
+A new structured Learn path will be added under the title:
+`مسار إدارة الأهداف وقياس الأداء`
+
+Reason:
+- The content is not just standalone articles; it forms a coherent learning sequence.
+- It supports core ConsuTrain service areas such as strategic planning, operational planning, performance indicators, institutional excellence, and performance management.
+- It provides a structured path from MBO to SMART, BSC, and OKRs.
+
+Implementation:
+- Create `learn/goal-management.html`.
+- Add the path to the Learn dropdown.
+- Keep article creation incremental, one lesson at a time.
+- Add verified video links before activating video buttons.

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="الأهداف الذكية SMART">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#f7fbff"/><stop offset="100%" stop-color="#fff8ee"/></linearGradient>
+    <linearGradient id="main" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#0f2d5d"/><stop offset="100%" stop-color="#1f6a94"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f2d5d" flood-opacity=".14"/></filter>
+    <style>
+      .title{font:700 60px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#0f2d5d}
+      .sub{font:400 30px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#65768d}
+      .letter{font:700 44px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#fff}
+      .h{font:700 25px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#0f2d5d}
+      .p{font:400 20px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#52657f}
+      .white{font:700 46px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#fff}
+      .white2{font:400 27px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#fff}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1460" cy="95" r="140" fill="#efe4d0" opacity=".64"/>
+  <circle cx="130" cy="795" r="145" fill="#dce9f7" opacity=".7"/>
+
+  <text x="800" y="96" class="title" text-anchor="middle">الأهداف الذكية SMART</text>
+  <text x="800" y="156" class="sub" text-anchor="middle">صياغة هدف واضح، قابل للقياس، ومحدد بزمن</text>
+  <line x1="645" y1="190" x2="760" y2="190" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="800" cy="190" r="6" fill="#d9a933"/>
+  <line x1="840" y1="190" x2="955" y2="190" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="535" y="240" width="530" height="160" rx="42" fill="url(#main)" stroke="#e2b653" stroke-width="4"/>
+  </g>
+  <text x="800" y="310" class="white" text-anchor="middle">SMART Goal</text>
+  <text x="800" y="360" class="white2" text-anchor="middle">من عبارة عامة إلى هدف قابل للإدارة</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="510" width="260" height="185" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+    <circle cx="220" cy="490" r="42" fill="#0f2d5d"/>
+  </g>
+  <text x="220" y="505" class="letter" text-anchor="middle">S</text>
+  <text x="220" y="570" class="h" text-anchor="middle">Specific</text>
+  <text x="220" y="625" class="p" text-anchor="middle">محدد وواضح</text>
+
+  <g filter="url(#shadow)">
+    <rect x="385" y="510" width="260" height="185" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+    <circle cx="515" cy="490" r="42" fill="#0f2d5d"/>
+  </g>
+  <text x="515" y="505" class="letter" text-anchor="middle">M</text>
+  <text x="515" y="570" class="h" text-anchor="middle">Measurable</text>
+  <text x="515" y="625" class="p" text-anchor="middle">قابل للقياس</text>
+
+  <g filter="url(#shadow)">
+    <rect x="680" y="510" width="260" height="185" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+    <circle cx="810" cy="490" r="42" fill="#0f2d5d"/>
+  </g>
+  <text x="810" y="505" class="letter" text-anchor="middle">A</text>
+  <text x="810" y="570" class="h" text-anchor="middle">Achievable</text>
+  <text x="810" y="625" class="p" text-anchor="middle">قابل للتحقيق</text>
+
+  <g filter="url(#shadow)">
+    <rect x="975" y="510" width="260" height="185" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+    <circle cx="1105" cy="490" r="42" fill="#0f2d5d"/>
+  </g>
+  <text x="1105" y="505" class="letter" text-anchor="middle">R</text>
+  <text x="1105" y="570" class="h" text-anchor="middle">Relevant</text>
+  <text x="1105" y="625" class="p" text-anchor="middle">مرتبط بالأولويات</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1270" y="510" width="260" height="185" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+    <circle cx="1400" cy="490" r="42" fill="#0f2d5d"/>
+  </g>
+  <text x="1400" y="505" class="letter" text-anchor="middle">T</text>
+  <text x="1400" y="570" class="h" text-anchor="middle">Time-bound</text>
+  <text x="1400" y="625" class="p" text-anchor="middle">محدد بزمن</text>
+
+  <g filter="url(#shadow)">
+    <rect x="440" y="775" width="720" height="70" rx="28" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+  </g>
+  <text x="800" y="820" class="h" text-anchor="middle">الهدف الذكي يساعد على التنفيذ والقياس والمراجعة</text>
+</svg>
