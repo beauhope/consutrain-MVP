@@ -18,6 +18,42 @@
   =========================================================
 */
 
+
+/*
+  ---------------------------------------------------------
+  GLOBAL SCROLL FIX
+  PURPOSE:
+  منع المتصفح من فتح الصفحات الداخلية من منتصفها عند التنقل
+  من القوائم أو عند الرجوع من الكاش.
+  ---------------------------------------------------------
+*/
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+
+function forceTopOnFreshNavigation() {
+  if (window.location.hash) return;
+
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  if (document.body) {
+    document.body.scrollTop = 0;
+  }
+}
+
+forceTopOnFreshNavigation();
+window.addEventListener("DOMContentLoaded", forceTopOnFreshNavigation);
+window.addEventListener("load", () => {
+  forceTopOnFreshNavigation();
+  setTimeout(forceTopOnFreshNavigation, 120);
+  setTimeout(forceTopOnFreshNavigation, 400);
+});
+window.addEventListener("pageshow", () => {
+  forceTopOnFreshNavigation();
+  setTimeout(forceTopOnFreshNavigation, 80);
+  setTimeout(forceTopOnFreshNavigation, 250);
+});
+
 /*
   ---------------------------------------------------------
   FUNCTION: getRootPath
@@ -80,7 +116,7 @@ async function loadPartial(selector, filePath) {
   if (!target) return;
 
   try {
-    const version = "v=20260506_resources";
+    const version = "v=20260507_quick_contact";
     const separator = filePath.includes("?") ? "&" : "?";
     const cacheSafePath = `${filePath}${separator}${version}`;
 
@@ -100,6 +136,10 @@ async function loadPartial(selector, filePath) {
     if (selector === "#header-placeholder") {
       initHeaderNavigation();
       setActiveNavLink();
+    }
+
+    if (selector === "#footer-placeholder") {
+      initQuickContact();
     }
 
   } catch (error) {
@@ -138,15 +178,9 @@ function initHeaderNavigation() {
     header.insertAdjacentElement("afterend", backdrop);
   }
 
-  let closeButton = nav.querySelector(".mobile-nav-close");
-  if (!closeButton) {
-    closeButton = document.createElement("button");
-    closeButton.className = "mobile-nav-close";
-    closeButton.type = "button";
-    closeButton.setAttribute("aria-label", "إغلاق القائمة");
-    closeButton.textContent = "× إغلاق";
-    nav.insertAdjacentElement("afterbegin", closeButton);
-  }
+  // لا نضيف زر إغلاق نصي داخل القائمة حتى لا يظهر بجانب العناوين.
+  // يتم الإغلاق من زر القائمة نفسه أو بالضغط خارج القائمة.
+  const closeButton = null;
 
   function isMobileView() {
     return window.innerWidth <= MOBILE_BREAKPOINT;
@@ -195,10 +229,12 @@ function initHeaderNavigation() {
     isOpen ? closeMobileNav() : openMobileNav();
   });
 
-  closeButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    closeMobileNav();
-  });
+  if (closeButton) {
+    closeButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      closeMobileNav();
+    });
+  }
 
   backdrop.addEventListener("click", closeMobileNav);
 
@@ -344,6 +380,63 @@ function setActiveNavLink() {
   });
 }
 
+
+
+/*
+  ---------------------------------------------------------
+  FUNCTION: initQuickContact
+  PURPOSE:
+  تشغيل زر التواصل السريع العائم بعد تحميل الفوتر.
+  ---------------------------------------------------------
+*/
+function initQuickContact() {
+  const widget = document.querySelector(".quick-contact-widget");
+  const toggle = document.getElementById("quickContactToggle");
+  const panel = document.getElementById("quickContactPanel");
+  const closeButton = widget?.querySelector(".quick-contact-close");
+
+  if (!widget || !toggle || !panel) return;
+
+  function openPanel() {
+    panel.removeAttribute("hidden");
+    toggle.setAttribute("aria-expanded", "true");
+  }
+
+  function closePanel() {
+    panel.setAttribute("hidden", "");
+    toggle.setAttribute("aria-expanded", "false");
+  }
+
+  toggle.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (panel.hasAttribute("hidden")) {
+      openPanel();
+    } else {
+      closePanel();
+    }
+  });
+
+  closeButton?.addEventListener("click", (event) => {
+    event.preventDefault();
+    closePanel();
+    toggle.focus();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".quick-contact-widget")) {
+      closePanel();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closePanel();
+    }
+  });
+}
+
 /*
   ---------------------------------------------------------
   DOM READY
@@ -426,41 +519,3 @@ function initBreadcrumbs() {
   container.innerHTML = "";
   container.appendChild(nav);
 }
-
-/* =========================================================
-   Global Scroll To Top Button
-   Ensures the button appears on all pages
-   ========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-  let scrollTopBtn = document.getElementById("scrollTopBtn");
-
-  if (!scrollTopBtn) {
-    scrollTopBtn = document.createElement("button");
-    scrollTopBtn.id = "scrollTopBtn";
-    scrollTopBtn.className = "scroll-top-left";
-    scrollTopBtn.setAttribute("aria-label", "العودة إلى الأعلى");
-    scrollTopBtn.setAttribute("title", "العودة إلى الأعلى");
-    scrollTopBtn.textContent = "↑";
-    document.body.appendChild(scrollTopBtn);
-  }
-
-  const toggleScrollButton = () => {
-    if (window.scrollY > 350) {
-      scrollTopBtn.classList.add("show");
-    } else {
-      scrollTopBtn.classList.remove("show");
-    }
-  };
-
-  window.addEventListener("scroll", toggleScrollButton);
-
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-
-  toggleScrollButton();
-});

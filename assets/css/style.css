@@ -4593,3 +4593,170 @@ z-index:1100;
     gap: 10px;
   }
 }
+
+/* =========================================================
+   QUICK CONTACT FLOATING WIDGET
+   زر تواصل سريع عائم في جميع الصفحات
+   ========================================================= */
+.quick-contact-widget{
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 1250;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.quick-contact-toggle,
+.quick-contact-panel{
+  pointer-events: auto;
+}
+
+.quick-contact-toggle{
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, var(--gold), #f4c764);
+  color: #132f52;
+  font-weight: 800;
+  font-size: .84rem;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.quick-contact-toggle:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.22);
+  filter: brightness(1.02);
+}
+
+.quick-contact-toggle:focus-visible{
+  outline: 3px solid rgba(212,166,58,.35);
+  outline-offset: 3px;
+}
+
+.quick-contact-icon{
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255,255,255,.65);
+  font-size: .78rem;
+}
+
+.quick-contact-panel{
+  width: min(350px, calc(100vw - 32px));
+  padding: 18px;
+  border: 1px solid rgba(19,47,82,.12);
+  border-radius: 24px;
+  background: rgba(255,255,255,.98);
+  box-shadow: 0 22px 55px rgba(0,0,0,.20);
+  color: #132f52;
+}
+
+.quick-contact-panel[hidden]{
+  display: none !important;
+}
+
+.quick-contact-panel__head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.quick-contact-panel__head strong{
+  font-size: 1.05rem;
+  color: var(--primary);
+}
+
+.quick-contact-close{
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--gold-soft, #f6ead0);
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.quick-contact-panel p{
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: .92rem;
+}
+
+.quick-contact-actions{
+  display: grid;
+  gap: 7px;
+}
+
+.quick-contact-action{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  text-align: center;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.quick-contact-action:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+}
+
+.quick-contact-action.primary{
+  background: var(--primary);
+  color: #fff;
+}
+
+.quick-contact-action.whatsapp{
+  background: #e9f8ef;
+  color: #137a3a;
+  border: 1px solid rgba(19,122,58,.14);
+}
+
+.quick-contact-action.mail{
+  background: var(--gold-soft, #f6ead0);
+  color: var(--primary);
+}
+
+@media (max-width: 640px){
+  .quick-contact-widget{
+    right: 14px;
+    bottom: 18px;
+  }
+
+  .quick-contact-toggle{
+    padding: 9px 12px;
+    font-size: .8rem;
+  }
+
+  .quick-contact-icon{
+    width: 19px;
+    height: 19px;
+  }
+
+  .quick-contact-panel{
+    width: min(330px, calc(100vw - 28px));
+    border-radius: 20px;
+  }
+}
+

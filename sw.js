@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-footer-compact-logo-v20260507";
-const RUNTIME_CACHE = "consutrain-runtime-v20260507-footer-compact-logo";
+const STATIC_CACHE = "consutrain-quick-contact-v20260507";
+const RUNTIME_CACHE = "consutrain-runtime-v20260507-quick-contact";
 
 const PRECACHE_URLS = [
   "./",
