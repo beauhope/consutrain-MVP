@@ -455,43 +455,6 @@ Decision applied:
 - تمت إضافة مورد حزمة Prompts لإدارة المشاريع والجودة ضمن موارد الذكاء الاصطناعي للإدارة، مع صفحة شرح وملفات Word/PDF وروابط مفعلة في الموارد والقوالب.
 
 
-### Learn – Goal Management Path
+## تحديث - قسم الدورات
 
-Status: In Progress
-
-Completed:
-- Added a new Learn path page: `learn/goal-management.html`.
-- Added the path link to the Learn dropdown menu.
-- Created an initial lesson structure for YJ-35 to YJ-40.
-- Covered MBO, SMART, BSC, and OKRs as the core sequence.
-- Kept video and article buttons as pending until verified links and articles are added.
-
-Next:
-- Add verified YouTube links for each lesson.
-- Start creating the first article: "مدخل إلى إدارة الأهداف: من MBO إلى OKRs".
-- Add each article to `assets/data/articles.json` and link it from the path page.
-
-### Learn – Goal Management and Performance Measurement Path
-
-Status: Completed / Ready for Testing
-
-Completed:
-- Created the Goal Management and Performance Measurement path.
-- Added the path page: `learn/goal-management.html`.
-- Added the path to the Learn dropdown.
-- Added six structured lessons from YJ-35 to YJ-40.
-- Added six knowledge articles to the Knowledge Library.
-- Linked each lesson to its verified YouTube video.
-- Added SVG educational visuals for each article.
-- Updated `sw.js` cache version during the latest article updates.
-
-Testing Required:
-- Test `learn/goal-management.html`.
-- Test all video buttons.
-- Test all article links.
-- Test article display from `learn/article.html`.
-- Test Knowledge Library search using MBO, SMART, BSC, OKRs, and إدارة الأهداف.
-- Test mobile layout.
-
-Closed When:
-- All six lessons and articles display correctly on desktop and mobile.
+تم استحداث قسم الدورات داخل `courses/` وإضافة صفحة مركزية للدورات وصفحة أولى لدورة إدارة الأهداف وقياس الأداء بعنوان: «من الهدف إلى الإنجاز: برنامج عملي لإدارة الأهداف ومؤشرات الأداء».
