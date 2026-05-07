@@ -300,6 +300,8 @@ Prepare the platform to generate income in a professional and gradual way.
 - Define lead generation strategy.
 - Add clear calls to action.
 - Build trust through useful free content first.
+- Keep the homepage linked to current free downloads and free tools.
+- Create a dedicated `free-resources.html` page when the number of free downloadable models increases.
 
 ### Possible monetization channels
 
@@ -435,211 +437,78 @@ Phase 1 — MVP Stabilization
 
 Current focus:
 
-Project documentation, technical stability, and preparation for controlled expansion.
+Project documentation, technical stability, controlled expansion, and early monetization support through free resources.
+
 ---
 
-## Update – Free Resources Expansion
+# 10. Monetization reminder — Free resources page
 
-Date: 2026-05-06
+A homepage section has been added to direct visitors to current free downloads and free tools in `tools.html`.
 
-A dedicated Free Resources section has been added to support visitor value, SEO, and future monetization.
+When the library grows beyond the initial free resources, create a dedicated page:
 
-Current implementation:
-- `resources/index.html`
-- 32 initial downloadable starter resources
-- Category filters
-- Header and homepage links
+`free-resources.html`
 
-Future tasks:
-- Convert priority resources into branded PDF/Word/Excel files.
-- Add more resources by domain.
-- Link resources to relevant service pages.
-- Consider using selected resources as lead magnets connected to consultation booking.
+This future page should collect:
+- free Word templates
+- free PDF checklists
+- simple Excel tools
+- practical administrative forms
+- links to relevant interactive tools
 
-Related paths:
-- ConsuTrain – Structure – خريطة الموقع
-- ConsuTrain – Monetization – تحقيق الدخل
-- ConsuTrain – Tools – الأدوات التفاعلية
-- ConsuTrain – Learn – المحتوى التعليمي
+Purpose:
+- improve visitor retention
+- make free value visible
+- support the Reciprocity principle
+- prepare visitors for paid templates, services, and consultations
 
+---
 
-### Resources Library – next enhancement
-- Convert selected high-value resources from Markdown into Word, PDF, and Excel formats.
-- Keep HTML presentation pages separate from downloadable files.
-- Store downloadable files inside categorized folders under `resources/downloads/`.
+# 11. Future enhancement — Internal Arabic RTL request form
 
+Current contact/conversion flow uses:
 
-## Free Resources — Next Upgrade Step
+- quick WhatsApp button
+- external Tally form: `https://tally.so/r/ja5Dlx`
+- email contact
 
-- Continue upgrading the most important free resources from Markdown into Word, Excel, and PDF formats.
-- Priority resources: strategic planning templates, ISO checklists, feasibility study templates, project management templates, and SOP templates.
-- Keep all downloadable resources organized by category under `resources/downloads/`.
+Future enhancement:
 
-## Free Resources — Explanation Page Model
+Build an internal Arabic RTL request form inside ConsuTrain, starting with `contact.html`, then reuse it in:
 
-The first explanation-page model has been implemented for priority resources:
-- Operational Plan Template
-- Operational Plan Readiness Checklist
-- Simple Risk Register
+- `services/book-consultation.html`
+- service pages
+- course pages
 
-Future task:
-Apply the same model to the remaining free resources gradually, especially high-value resources in:
-- Strategic Planning
-- ISO and Quality
-- Feasibility Studies
-- Project Management
-- SOP and Procedures
-- AI for Management
+Target behavior:
 
-Rule:
-Downloads stay in `resources/downloads/`, while explanation pages stay in `templates/` or another suitable content folder when the resource type is not a template.
+- form direction is fully RTL
+- submissions go to Google Sheets through Google Apps Script
+- optional email notification is added later
+- spam protection is added through a simple honeypot field or equivalent
+- Tally remains as a backup option until the internal form is fully tested
 
+Reason:
 
-## Free Resources — KPI resource completed
+The external Tally form works well for collecting submissions, but Arabic RTL control is limited because the form is hosted by Tally. An internal form gives ConsuTrain full control over Arabic layout, visual identity, and future automation.
 
-The KPI Performance Card has been upgraded from a lightweight starter idea into a full free resource:
-- Explanation page under `templates/kpi-performance-card.html`
-- Word file under `resources/downloads/performance-management/`
-- PDF preview under `resources/downloads/performance-management/`
+---
 
-Next resources should follow this sequence:
-1. Present the basic model textually for review.
-2. Apply improvement notes.
-3. Create the downloadable file.
-4. Create the explanation page using the approved style.
-5. Link the resource from `resources/index.html` and the suitable listing page.
+# 12. Brand identity update — Logo in header and footer
 
-## Free Resources — Operational Plan Follow-up Report completed
+The official ConsuTrain logo has been added to the shared header and footer.
 
-The Operational Plan Follow-up Report has been upgraded into a full free resource:
-- Explanation page under `templates/operational-plan-follow-up-report.html`
-- Word file under `resources/downloads/operational-plans/`
-- PDF preview under `resources/downloads/operational-plans/`
+Affected areas:
 
-Next recommended resource:
-- A Strategic Planning resource, such as a Strategic Objective Card or SWOT/TOWS template, should be presented as a basic model textually for review before implementation.
+- `partials/header.html`
+- `partials/footer.html`
+- `assets/css/style.css`
+- `assets/images/consutrain-logo-horizontal.png`
+- `assets/images/consutrain-logo-mark.png`
+- `assets/images/consutrain-banner.png` for future visual use
 
+Next possible branding steps:
 
-## Free Resources — Stakeholder Register completed
-
-The Stakeholder Register has been upgraded into a full free resource:
-- Explanation page under `templates/stakeholder-register.html`
-- Word file under `resources/downloads/project-management/`
-- PDF preview under `resources/downloads/project-management/`
-
-Next recommended resources:
-- Project Charter Template or Project Status Report Template, then strategic planning resources such as SWOT/TOWS or Strategic Objective Card.
-
-
-### مورد منجز - نموذج خطة تواصل المشروع
-تم إنجاز مورد جديد ضمن مسار الموارد المجانية، ويكمل سلسلة: ميثاق المشروع، سجل أصحاب المصلحة، خطة تواصل المشروع.
-
-
-### مورد منجز - نموذج محضر اجتماع ومتابعة القرارات
-تم إنجاز مورد جديد ضمن مسار الموارد المجانية، ويكمل سلسلة: ميثاق المشروع، سجل أصحاب المصلحة، خطة تواصل المشروع، ومحضر اجتماع ومتابعة القرارات.
-
-- تمت إضافة نسخة PDF لمورد نموذج محضر اجتماع ومتابعة القرارات للمعاينة، وتحديث روابط صفحة المورد وصفحتي الموارد والقوالب.
-
-## تحديث خارطة الطريق - الموارد المجانية
-
-تمت إضافة مورد سجل الإجراءات التصحيحية والتحسينية إلى مكتبة الموارد المجانية. يستمر العمل على إضافة موارد جديدة وفق منهج: عرض النموذج الأساسي نصيًا، مراجعته، ثم تحويله إلى ملف تحميل وصفحة شرح.
-
-- تم تنفيذ مورد: نموذج خطة التدقيق الداخلي ضمن مسار الموارد المجانية / ISO والجودة.
-
-- تم تنفيذ مورد: قائمة تحقق التدقيق الداخلي ISO 9001 ضمن مسار الموارد المجانية / ISO والجودة.
-- مورد منجز: نموذج سجل عدم المطابقة ضمن موارد ISO والجودة المجانية.
-
-
-- [x] إضافة مورد مجاني: نموذج سياسة الجودة بصيغة Word/PDF مع صفحة شرح وربطه بأهداف الجودة.
-- تم توسيع مكتبة الموارد المجانية بإضافة مورد أهداف الجودة ومؤشرات القياس ضمن موارد ISO والجودة.
-- تم توسيع موارد ISO والجودة بإضافة نموذج ضبط الوثائق والسجلات والوثائق الخارجية.
-- إضافة مورد الشكاوى ورضا العملاء إلى مكتبة الموارد المجانية، ويمكن تطويره لاحقًا إلى نسخة Excel ولوحة مؤشرات.
-
-
-- إضافة مورد مجاني: نموذج مراجعة الإدارة لنظام الجودة، مع صفحة شرح وملفات Word/PDF ضمن موارد ISO والجودة.
-
-### تم إنجازه - مورد خطة تحسين العمليات
-- إنشاء صفحة شرح: templates/process-improvement-plan.html
-- إضافة ملفات التحميل: ConsuTrain_Process_Improvement_Plan_AR.docx و PDF
-- ربط المورد في resources/index.html و templates/index.html.
-
-### تم إنجازه - مورد بطاقة عملية
-- إنشاء صفحة شرح: templates/process-card.html
-- إضافة ملفات التحميل: ConsuTrain_Process_Card_AR.docx و PDF
-- ربط المورد في resources/index.html و templates/index.html.
-- إضافة جدول الموارد اللازمة لتفعيل العملية ضمن النموذج.
-
-### تم إنجازه - مورد نموذج إجراء تشغيلي SOP
-- إنشاء صفحة شرح: templates/sop-template.html
-- إضافة ملفات التحميل: ConsuTrain_SOP_Template_AR.docx و PDF
-- ربط المورد في resources/index.html و templates/index.html.
-- تحويل مورد SOP الموجود سابقًا من ملف Markdown بسيط إلى مورد Word/PDF احترافي.
-
-- [x] تطوير نموذج تحليل SWOT من مورد Markdown إلى صفحة شرح وملفات Word/PDF.
-
-- [x] تطوير نموذج تحليل PESTEL من مورد Markdown إلى صفحة شرح وملفات Word/PDF.
-
-
-## تقدم - الموارد المجانية
-تمت إضافة مورد نموذج بطاقة هدف استراتيجي ضمن مرحلة توسيع مكتبة الموارد المجانية.
-
-
-## تقدم - الموارد المجانية
-تمت إضافة مورد نموذج سجل المبادرات الاستراتيجية ضمن مرحلة توسيع مكتبة الموارد المجانية.
-
-
-## تقدم - الموارد المجانية
-تمت إضافة مورد قائمة تحقق لمراجعة الخطة الاستراتيجية ضمن مرحلة توسيع مكتبة الموارد المجانية.
-
-
-## تقدم - الموارد المجانية
-تمت إضافة مورد تحويل الأهداف إلى أنشطة تنفيذية ضمن مرحلة توسيع مكتبة الموارد المجانية.
-
-- إضافة مورد مصفوفة تقييم المخاطر ضمن مكتبة الموارد المجانية واستكمال موارد إدارة المخاطر تدريجيًا.
-
-
-- إضافة نموذج خطة معالجة المخاطر ضمن موارد إدارة المخاطر، بعد مصفوفة تقييم المخاطر، مع صفحة شرح وملفات تحميل.
-
-
-- [x] إضافة مورد `قائمة تحقق لمراجعة نظام إدارة المخاطر` ضمن موارد إدارة المخاطر.
-
-
-### مورد جديد - نموذج وصف فكرة مشروع
-تمت إضافة صفحة الشرح `templates/project-idea-description-template.html` وملفات التحميل `resources/downloads/feasibility-studies/ConsuTrain_Project_Idea_Description_Template_AR.docx` و`ConsuTrain_Project_Idea_Description_Template_AR.pdf`، وتحديث صفحات الموارد والقوالب.
-
-
-### مورد جديد - نموذج تحليل السوق
-تمت إضافة صفحة الشرح `templates/market-analysis-template.html` وملفات التحميل `resources/downloads/feasibility-studies/ConsuTrain_Market_Analysis_Template_AR.docx` و`ConsuTrain_Market_Analysis_Template_AR.pdf`، وتحديث صفحات الموارد والقوالب.
-
-### تم إنجازه - مورد تقدير التكاليف الأولية
-- إنشاء صفحة شرح: templates/initial-cost-estimate-template.html
-- إضافة ملفات التحميل: ConsuTrain_Initial_Cost_Estimate_Template_AR.docx و PDF
-- تحديث resources/index.html و templates/index.html و sw.js.
-
-
-- إضافة مورد قائمة تحقق قبل دراسة الجدوى إلى موارد دراسات الجدوى وربطه بالمسار المجاني: وصف فكرة مشروع -> تحليل السوق -> تقدير التكاليف -> قائمة تحقق -> أداة دراسة الجدوى.
-
-
-- إضافة مورد نموذج متابعة مهام المشروع إلى موارد إدارة المشاريع وربطه بسلسلة: ميثاق المشروع، سجل أصحاب المصلحة، خطة التواصل، ومحاضر الاجتماعات.
-
-
-- إضافة مورد نموذج تقرير حالة مشروع إلى موارد إدارة المشاريع وربطه بمتابعة المهام، ميثاق المشروع، وسجل المخاطر.
-
-- تحديث الموارد المجانية: إكمال مورد قائمة تحقق لمراجعة دليل الإجراءات ضمن مجموعة الأدلة والإجراءات.
-- تحديث مكتبة الموارد: إضافة قائمة تحقق جاهزية ISO 9001 ضمن موارد ISO والجودة.
-- إضافة مورد: نموذج إجراء تصحيحي ضمن مكتبة الموارد المجانية.
-
-## الموارد المجانية - الذكاء الاصطناعي للإدارة
-- تم إنجاز حزمة Prompts للتخطيط الاستراتيجي.
-- التالي المقترح: حزمة Prompts لدراسة الجدوى، ثم حزمة Prompts لإدارة المشاريع والجودة.
-
-- [x] إضافة مورد حزمة Prompts لدراسة الجدوى ضمن الموارد المجانية.
-
-- تم إنجاز حزمة Prompts لإدارة المشاريع والجودة، ويستكمل ذلك مجموعة Prompts: التخطيط الاستراتيجي، دراسة الجدوى، إدارة المشاريع والجودة.
-
-
-## التالي - الدورات
-
-- ربط قسم الدورات من الهيدر عند تحديث ملف `partials/header.html`.
-- إضافة ملفات عروض دورة إدارة الأهداف وروابط YouTube عند توفرها.
-- إضافة دورات جديدة بنفس القالب المعتمد.
+- update favicon and PWA icons using the small logo mark
+- use the banner image in selected hero/cover sections if needed
+- gradually update downloadable PDFs and Word templates with the same logo identity

@@ -1,77 +1,248 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
+  <!--
+    =========================================================
+    FILE: services/book-consultation.html
+    PURPOSE:
+    صفحة حجز استشارة ضمن مسار تحقيق الدخل في ConsuTrain.
+
+    ROLE OF THIS PAGE:
+    - تحويل الزائر المهتم إلى طلب تواصل واضح
+    - توضيح مجالات الاستشارة والمخرجات المتوقعة
+    - ربط الخدمات المهنية بقناة تواصل عملية
+    =========================================================
+  -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>احجز استشارة | ConsuTrain</title>
-  <meta name="description" content="احجز استشارة مهنية مع ConsuTrain في التخطيط الاستراتيجي، الخطط التشغيلية، ISO، إدارة المخاطر، دراسات الجدوى، وإدارة المشاريع.">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20260506_kpi_resource">
-  <link rel="manifest" href="../manifest.webmanifest">
-  <meta name="theme-color" content="#0f2747">
+  <meta
+    name="description"
+    content="احجز استشارة إدارية مع ConsuTrain لتشخيص الاحتياج، ترتيب الأولويات، واختيار المسار الأنسب في التخطيط والجودة والمخاطر والإجراءات ودراسات الجدوى."
+  >
+
+
+  <script>
+    /*
+      Early scroll reset for service pages.
+      This runs in the head before the browser restores an old scroll position.
+    */
+    (function () {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+
+      function resetToTop() {
+        if (window.location.hash) return;
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        if (document.body) document.body.scrollTop = 0;
+      }
+
+      resetToTop();
+      window.addEventListener("DOMContentLoaded", resetToTop);
+      window.addEventListener("pageshow", function () {
+        resetToTop();
+        setTimeout(resetToTop, 80);
+        setTimeout(resetToTop, 250);
+      });
+      window.addEventListener("load", function () {
+        resetToTop();
+        setTimeout(resetToTop, 120);
+        setTimeout(resetToTop, 400);
+      });
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260504_menu">
 </head>
-<body data-root=".." data-breadcrumb-section="الخدمات" data-breadcrumb-title="احجز استشارة">
+
+<body
+  data-root=".."
+  data-breadcrumb-section="الخدمات"
+  data-breadcrumb-title="احجز استشارة"
+>
   <div id="header-placeholder"></div>
+
   <div id="breadcrumbs-placeholder"></div>
 
-  <main class="inner-page service-detail-page">
+  <main class="inner-page service-detail-page consultation-page">
+
     <section class="page-hero service-detail-hero">
-      <div class="container service-detail-hero-grid">
-        <div class="service-detail-hero-copy">
-          <span class="eyebrow">خطوة عملية بعد استخدام الموارد المجانية</span>
-          <h1>احجز استشارة مهنية</h1>
-          <p>
-            إذا استخدمت أحد القوالب أو الموارد المجانية وتحتاج إلى مراجعة أعمق أو تحويل الفكرة إلى خطة قابلة للتنفيذ،
-            يمكنك إرسال احتياجك بشكل مختصر ليتم توجيهك إلى المسار المناسب.
-          </p>
-          <div class="service-detail-actions">
-            <a class="btn btn-primary" href="../contact.html">تواصل الآن</a>
-            <a class="btn btn-secondary" href="../services.html">استعراض الخدمات</a>
-          </div>
+      <div class="container">
+        <span class="eyebrow">استشارة مهنية</span>
+        <h1>احجز استشارة إدارية لمشروعك أو مؤسستك</h1>
+        <p>
+          تساعدك الاستشارة على فهم الوضع الحالي بصورة أوضح، وتحديد الأولويات،
+          واختيار المسار الأنسب في مجالات التخطيط، الجودة، المخاطر، الإجراءات،
+          دراسات الجدوى، وإدارة المشاريع.
+        </p>
+
+        <div class="service-hero-actions">
+          <a class="btn btn-primary" href="https://tally.so/r/ja5Dlx" target="_blank" rel="noopener">إرسال طلب استشارة أو دورة تدريبية</a>
+          <a class="btn btn-outline" href="../services.html">استعرض الخدمات أولًا</a>
         </div>
-        <aside class="service-detail-card">
-          <h2>مجالات الاستشارة</h2>
-          <ul>
-            <li>التخطيط الاستراتيجي والخطط التشغيلية.</li>
-            <li>ISO والجودة والتميز المؤسسي.</li>
-            <li>إدارة المخاطر واستمرارية الأعمال.</li>
-            <li>دراسات الجدوى وتحليل الأعمال.</li>
-            <li>إدارة المشاريع وبناء الأدلة والإجراءات.</li>
-          </ul>
-        </aside>
       </div>
     </section>
 
     <section class="home-section">
       <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">ماذا تذكر في رسالتك الأولى؟</h2>
-          <p class="section__desc">كلما كانت الرسالة واضحة، كان الرد الأولي أدق وأسرع.</p>
+        <div class="section-head service-detail-head">
+          <span class="section-kicker">لمن تناسب؟</span>
+          <h2>استشارة قصيرة قد تختصر عليك الكثير من التشتت</h2>
+          <p>
+            هذه الصفحة مخصصة لمن لديه فكرة أو مشكلة أو مشروع، لكنه يحتاج إلى
+            ترتيب الصورة قبل الانتقال إلى التنفيذ أو شراء خدمة كاملة.
+          </p>
         </div>
-        <div class="service-detail-grid">
-          <article class="section-card"><h3>نوع الطلب</h3><p>استشارة، مراجعة ملف، إعداد نموذج، خدمة تدريبية، أو تطوير نظام إداري.</p></article>
-          <article class="section-card"><h3>المجال</h3><p>تخطيط، جودة، مخاطر، جدوى، مشاريع، إجراءات، أو مجال آخر.</p></article>
-          <article class="section-card"><h3>الهدف</h3><p>ما الذي تريد الوصول إليه؟ ملف جاهز، مراجعة، خطة عمل، أو جلسة توجيه.</p></article>
-          <article class="section-card"><h3>المرفقات إن وجدت</h3><p>يمكن ذكر وجود خطة، نموذج، ملف سابق، أو متطلبات تحتاج إلى مراجعة.</p></article>
+
+        <div class="cards-grid service-quick-grid">
+          <article class="section-card service-quick-card">
+            <h3>رواد الأعمال وأصحاب المشاريع</h3>
+            <p>
+              عندما تحتاج إلى فهم أولي لطريقة بناء الخطة، دراسة الجدوى، أو تنظيم
+              التشغيل قبل اتخاذ قرار أكبر.
+            </p>
+          </article>
+
+          <article class="section-card service-quick-card">
+            <h3>الإدارات والفرق المؤسسية</h3>
+            <p>
+              عندما توجد حاجة إلى تطوير إجراء، بناء نظام إداري، مراجعة خطة، أو
+              ترتيب أولويات العمل داخل الإدارة.
+            </p>
+          </article>
+
+          <article class="section-card service-quick-card">
+            <h3>المهتمون بالجودة والتميز</h3>
+            <p>
+              عندما يكون الهدف هو الاستعداد لمتطلبات ISO، تحسين الأداء، بناء
+              مؤشرات، أو مراجعة ممارسات قائمة.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="home-section service-detail-cta-section">
-      <div class="container service-detail-cta-box">
-        <div>
-          <span class="eyebrow">جاهز للخطوة التالية؟</span>
-          <h2>ابدأ برسالة مختصرة، ثم نحدد المسار الأنسب.</h2>
-          <p>يمكن أن تبدأ الاستشارة من مورد مجاني قمت بتحميله، أو من خدمة محددة ترغب في تطويرها داخل مؤسستك.</p>
+    <section class="home-section service-detail-soft">
+      <div class="container">
+        <div class="section-head service-detail-head">
+          <span class="section-kicker">مجالات الاستشارة</span>
+          <h2>اختر المجال الأقرب لاحتياجك</h2>
+          <p>
+            لا يشترط أن يكون الطلب مكتملًا من البداية. يكفي أن توضّح الوضع
+            الحالي، ثم يتم تحديد المسار الأنسب بحسب طبيعة الحاجة.
+          </p>
         </div>
-        <div class="service-detail-actions">
-          <a class="btn btn-primary" href="../contact.html">الانتقال إلى صفحة التواصل</a>
+
+        <div class="service-accordion">
+          <details class="service-acc-item" open>
+            <summary>التخطيط الاستراتيجي والتشغيلي</summary>
+            <div class="service-acc-body">
+              <p>
+                مراجعة فكرة الخطة، ترتيب الأهداف، تحويل التوجهات إلى مبادرات،
+                أو بناء تصور أولي لخطة تشغيلية قابلة للتنفيذ والمتابعة.
+              </p>
+            </div>
+          </details>
+
+          <details class="service-acc-item">
+            <summary>الجودة وأنظمة ISO</summary>
+            <div class="service-acc-body">
+              <p>
+                تشخيص مستوى الجاهزية، توضيح المتطلبات الأساسية، تحديد الوثائق
+                المطلوبة، أو اقتراح خطة عمل للتأهيل أو التحسين.
+              </p>
+            </div>
+          </details>
+
+          <details class="service-acc-item">
+            <summary>إدارة المخاطر والإجراءات</summary>
+            <div class="service-acc-body">
+              <p>
+                تنظيم سجل المخاطر، مراجعة الإجراءات، بناء بطاقات العمليات، أو
+                تحديد الفجوات التي تؤثر في الانضباط التشغيلي.
+              </p>
+            </div>
+          </details>
+
+          <details class="service-acc-item">
+            <summary>دراسات الجدوى وإدارة المشاريع</summary>
+            <div class="service-acc-body">
+              <p>
+                مناقشة فكرة المشروع، تحديد المعلومات الناقصة، مراجعة عناصر
+                الجدوى، أو اقتراح خطوات أولية لإدارة المشروع بطريقة منظمة.
+              </p>
+            </div>
+          </details>
+
+          <details class="service-acc-item">
+            <summary>مراجعة ملفات أو عروض فنية</summary>
+            <div class="service-acc-body">
+              <p>
+                قراءة أولية لملف أو عرض أو وثيقة عمل، مع تحديد جوانب القوة،
+                النواقص، وفرص التحسين قبل التسليم أو التطوير.
+              </p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head service-detail-head">
+          <span class="section-kicker">مخرجات متوقعة</span>
+          <h2>ماذا يمكن أن تحصل عليه بعد الاستشارة؟</h2>
+          <p>
+            تختلف المخرجات بحسب طبيعة الطلب، لكن الهدف دائمًا هو الخروج بتوجيه
+            عملي يساعدك على اتخاذ قرار أو بدء خطوة تنفيذية واضحة.
+          </p>
+        </div>
+
+        <div class="cards-grid service-output-grid">
+          <article class="section-card service-output-card">
+            <h3>تشخيص مختصر</h3>
+            <p>فهم أوضح للمشكلة أو الاحتياج، مع تحديد النقاط المؤثرة فعلًا.</p>
+          </article>
+
+          <article class="section-card service-output-card">
+            <h3>أولويات عمل</h3>
+            <p>ترتيب ما يجب البدء به، وما يمكن تأجيله، وما يحتاج إلى معالجة أعمق.</p>
+          </article>
+
+          <article class="section-card service-output-card">
+            <h3>خطوات مقترحة</h3>
+            <p>تصور عملي للخطوات التالية، سواء كانت قالبًا، تدريبًا، مراجعة، أو خدمة تنفيذية.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section service-detail-soft">
+      <div class="container">
+        <article class="section-card service-cta-card">
+          <h2>كيف تبدأ؟</h2>
+          <p>
+            أرسل وصفًا مختصرًا لاحتياجك من صفحة التواصل. اذكر المجال المطلوب،
+            الوضع الحالي، وما تريد الوصول إليه. بعد ذلك يتم تحديد أنسب صيغة
+            للاستشارة أو الخدمة.
+          </p>
+          <div class="service-hero-actions">
+            <a class="btn btn-primary" href="https://tally.so/r/ja5Dlx" target="_blank" rel="noopener">إرسال طلب استشارة أو دورة تدريبية</a>
+            <a class="btn btn-outline" href="https://wa.me/212773275105" target="_blank" rel="noopener">تواصل سريع عبر واتساب</a>
+            <a class="btn btn-secondary" href="../services.html">العودة إلى الخدمات</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
   </main>
 
   <div id="footer-placeholder"></div>
-  <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">↑</button>
-  <script src="../assets/js/includes.js?v=20260506_kpi_resource"></script>
+
+  <script src="../assets/js/includes.js?v=20260505_force_top_fix"></script>
+  <script src="../assets/js/main.js?v=20260504_menu"></script>
+  <script src="../assets/js/pwa.js?v=20260504_menu"></script>
 </body>
 </html>
