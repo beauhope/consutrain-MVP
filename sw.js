@@ -1,4 +1,4 @@
-/* cache-version: v20260505-goals-final-clean */
+/* cache-version: v20260505-service-related-feasibility */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260505-goals-final-clean";
-const RUNTIME_CACHE = "consutrain-runtime-v20260505-goals-final-clean";
+const STATIC_CACHE = "consutrain-static-v20260505-service-related-feasibility";
+const RUNTIME_CACHE = "consutrain-runtime-v20260505-service-related-feasibility";
 
 const PRECACHE_URLS = [
   "./",

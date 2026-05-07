@@ -4586,3 +4586,105 @@ z-index:1100;
     flex:1 1 auto;
   }
 }
+
+
+/* =========================================================
+   Services – Related Learning and Resources
+   ========================================================= */
+.service-related-section{
+  background:linear-gradient(135deg, rgba(247,251,255,.9), rgba(255,250,240,.85));
+}
+
+.service-related-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+  align-items:stretch;
+}
+
+.service-related-card{
+  height:100%;
+}
+
+.service-related-card h3{
+  margin-bottom:10px;
+  color:var(--primary);
+}
+
+.service-related-card p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:14px;
+}
+
+.service-related-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+}
+
+.service-related-list li{
+  position:relative;
+  padding-inline-start:20px;
+}
+
+.service-related-list li::before{
+  content:"";
+  position:absolute;
+  inset-inline-start:0;
+  top:.75em;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--gold);
+}
+
+.service-related-list a{
+  color:var(--primary);
+  font-weight:800;
+  text-decoration:none;
+}
+
+.service-related-list a:hover{
+  color:var(--gold-dark);
+  text-decoration:underline;
+}
+
+.service-related-path-card{
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  border-inline-start:5px solid var(--gold);
+}
+
+.service-related-path-card h3{
+  color:var(--primary);
+  margin:8px 0;
+}
+
+.service-related-path-card p{
+  color:var(--muted);
+  line-height:1.9;
+  margin:0;
+}
+
+@media (max-width: 980px){
+  .service-related-grid{
+    grid-template-columns:1fr;
+  }
+
+  .service-related-path-card{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
+@media (max-width: 640px){
+  .service-related-path-card .btn{
+    width:100%;
+  }
+}
