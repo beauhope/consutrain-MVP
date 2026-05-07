@@ -8,9 +8,10 @@
     صفحة الخدمات داخل منصة ConsuTrain.
 
     ROLE OF THIS PAGE:
-    - تقديم الخدمات كبوابة تحويل واضحة نحو الصفحات التفصيلية
-    - توجيه الزائر إلى الخدمة المناسبة أو إلى حجز استشارة
-    - ربط الخدمات بالموارد المجانية ودليل ConsuTrain
+    - تقديم الخدمات بطريقة منظمة وواضحة
+    - شرح ما تتضمنه كل خدمة بصورة عملية
+    - توضيح آلية العمل من بداية الطلب حتى التسليم
+    - توجيه الزائر إلى التواصل بعد فهم الخدمة المناسبة
     =========================================================
   -->
 
@@ -20,11 +21,13 @@
   <title>الخدمات | ConsuTrain</title>
   <meta
     name="description"
-    content="استعرض خدمات ConsuTrain في التخطيط الاستراتيجي، الخطط التشغيلية، دراسات الجدوى، ISO، إدارة المشاريع، وبناء الأنظمة الإدارية، مع موارد مجانية ودليل تعريفي قابل للتحميل."
+    content="استعرض خدمات ConsuTrain في الاستشارات الإدارية، التخطيط، بناء الأنظمة، إدارة المشاريع، المخاطر، الجودة، التدريب، ودراسات الجدوى ضمن صفحة منظمة وواضحة."
   >
 
+  <!-- ملف التنسيق العام للموقع -->
   <link rel="stylesheet" href="assets/css/style.css?v=20260504_menu">
 
+  <!-- Favicon موحد للمنصة -->
   <link rel="icon" type="image/svg+xml"
     href='data:image/svg+xml,
     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
@@ -45,64 +48,79 @@
   data-breadcrumb-section="الخدمات"
   data-breadcrumb-title="الخدمات"
 >
+  <!-- الهيدر المشترك -->
   <div id="header-placeholder"></div>
+
   <div id="breadcrumbs-placeholder"></div>
 
   <main class="inner-page services-page">
 
+    <!-- =====================================================
+         PAGE HERO
+         مقدمة الصفحة مع توجيه سريع للزائر
+         ===================================================== -->
     <section class="page-hero services-hero">
       <div class="container">
-        <span class="eyebrow">خدمات ConsuTrain</span>
-        <h1>خدمات عملية تساعدك على تحويل الأفكار والخطط إلى مخرجات قابلة للتنفيذ</h1>
+        <span class="eyebrow">قسم الخدمات</span>
+        <h1>خدمات عملية تساعدك على التنظيم، التطوير، وتحويل الأفكار إلى عمل منضبط</h1>
         <p>
-          هذه الصفحة تساعدك على اختيار الخدمة الأقرب لاحتياجك. يمكنك البدء بتحميل الموارد المجانية،
-          أو قراءة الصفحة التفصيلية لكل خدمة، أو حجز استشارة قصيرة إذا لم تكن متأكدًا من المسار المناسب.
+          تم إعداد هذا القسم ليقدم صورة أوضح عن نوع الخدمات التي يمكن الاستفادة منها داخل ConsuTrain.
+          الفكرة ليست مجرد عرض عناوين عامة، بل توضيح ما الذي تتضمنه الخدمة، وكيف يمكن أن تبدأ، وما الذي
+          يمكن أن يحصل عليه طالب الخدمة في النهاية بصورة عملية ومنظمة.
         </p>
 
         <div class="services-hero-actions">
-          <a class="btn btn-primary" href="services/book-consultation.html">احجز استشارة</a>
-          <a class="btn btn-secondary" href="downloads/ConsuTrain_Profile_and_Services_AR.pdf">تحميل دليل ConsuTrain</a>
-          <a class="btn btn-secondary" href="tools.html">استعرض الموارد المجانية</a>
+          <a class="btn btn-primary" href="contact.html">اطلب خدمة</a>
+          <a class="btn btn-secondary" href="#services-accordion">استعرض تفاصيل الخدمات</a>
         </div>
       </div>
     </section>
 
+    <!-- =====================================================
+         QUICK INTRO BLOCKS
+         بطاقات تمهيدية سريعة قبل الأكورديون
+         ===================================================== -->
     <section class="home-section services-intro-section">
       <div class="container">
         <div class="cards-grid services-intro-grid">
           <article class="section-card services-mini-card">
-            <h2>ابدأ من المشكلة</h2>
+            <h2>خدمات مبنية على واقع العمل</h2>
             <p>
-              لا نبدأ من اسم الخدمة فقط، بل من السؤال الأهم: ما المشكلة التي تريد حلها؟
-              هل تحتاج خطة، دراسة، نظام إداري، تنظيم مشروع، أم مراجعة مهنية قبل اتخاذ قرار؟
+              تم توجيه الخدمات نحو احتياجات عملية متكررة في الجهات الحكومية، والشركات، والمشاريع، وأعمال
+              التطوير المؤسسي، مع التركيز على الوضوح وقابلية التطبيق.
             </p>
           </article>
 
           <article class="section-card services-mini-card">
-            <h2>مخرجات قابلة للاستخدام</h2>
+            <h2>مخرجات منظمة وقابلة للاستخدام</h2>
             <p>
-              الهدف من الخدمة أن تنتهي إلى مخرجات واضحة، مثل خطة، نموذج، تقرير تشخيص، سجل مخاطر،
-              دليل إجراءات، أو تصور تنفيذي يمكن تطبيقه ومراجعته.
+              الهدف من كل خدمة أن تنتهي إلى مخرجات واضحة يمكن استخدامها فعليًا، مثل خطة، دليل، نموذج، منهجية،
+              تشخيص، أو تصور تنفيذي يساعد على الانتقال إلى الخطوة التالية بثقة أكبر.
             </p>
           </article>
 
           <article class="section-card services-mini-card">
-            <h2>موارد مجانية قبل الحجز</h2>
+            <h2>مرونة في مستوى الدعم</h2>
             <p>
-              يمكنك تحميل بعض القوالب المجانية أولًا لفهم طريقة العمل. هذه الموارد تساعدك على تقييم احتياجك
-              قبل طلب خدمة أوسع أو حجز استشارة.
+              بعض الحالات تحتاج توجيهًا سريعًا، وبعضها يحتاج عملاً أعمق أو مرافقة تمتد على مراحل.
+              لذلك يتم تحديد النطاق وفق طبيعة الاحتياج لا وفق قالب واحد ثابت.
             </p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- =====================================================
+         SERVICES ACCORDION
+         عرض الخدمات في شكل أكورديون منسجم مع الموقع
+         ===================================================== -->
     <section class="section" id="services-accordion">
       <div class="container">
+
         <div class="section__head services-head">
-          <h2 class="section__title">اختر الخدمة الأقرب لاحتياجك</h2>
+          <h2 class="section__title">استكشف الخدمات بالتفصيل</h2>
           <p class="section__desc">
-            كل بطاقة تقودك إلى صفحة تفصيلية أو إلى موارد مساندة تساعدك على البدء بطريقة عملية.
+            افتح الخدمة التي تناسبك لقراءة ما تتضمنه، وكيف يمكن الاستفادة منها، وما الذي يمكن أن تتوقعه من المخرجات.
           </p>
         </div>
 
@@ -111,193 +129,125 @@
           <details class="pillar" open>
             <summary class="pillar__sum">
               <div class="pillar__text">
+                <span class="pillar__title">الاستشارات الإدارية</span>
+                <span class="pillar__hint">تشخيص التحديات، ترتيب الأولويات، واقتراح حلول عملية قابلة للتطبيق.</span>
+              </div>
+            </summary>
+
+            <div class="pillar__body">
+              <div class="sub-acc">
+
+                <details class="acc" open>
+                  <summary class="acc__sum">ماذا تشمل هذه الخدمة؟</summary>
+                  <div class="acc__body">
+                    <p class="card__p">
+                      هذه الخدمة مناسبة عندما تكون لدى الجهة أو صاحب المشروع حاجة إلى فهم الوضع بشكل أدق قبل البدء
+                      في تعديل أو تطوير أي جانب إداري. يبدأ العمل عادة بفهم التحدي القائم، ثم تحليل الوضع، ثم تقديم
+                      تصور عملي يساعد على اتخاذ قرار أو بدء مسار تحسين واضح.
+                    </p>
+                    <div class="acc__grid">
+                      <div class="acc__block">
+                        <h4 class="acc__h">أمثلة على الحالات المناسبة</h4>
+                        <ul class="acc__list">
+                          <li>وجود تشتت في المسؤوليات أو ضعف في وضوح الأدوار.</li>
+                          <li>الرغبة في تحسين إدارة معينة أو معالجة قصور تشغيلي متكرر.</li>
+                          <li>الحاجة إلى رأي مهني قبل إطلاق مشروع أو مبادرة جديدة.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">ما الذي يتم عمله عادة؟</h4>
+                        <ul class="acc__list">
+                          <li>مراجعة أولية للتحدي أو الفكرة أو الوضع القائم.</li>
+                          <li>تحديد الأسباب أو الفجوات أو نقاط التعثر الأكثر تأثيرًا.</li>
+                          <li>اقتراح بدائل أو حلول أو مسارات تطوير مناسبة.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">مخرجات محتملة</h4>
+                        <ul class="acc__list">
+                          <li>ملخص تشخيصي للوضع.</li>
+                          <li>توصيات عملية مرتبة حسب الأولوية.</li>
+                          <li>تصور مبدئي لخطة تطوير أو معالجة.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+
+                <details class="acc">
+                  <summary class="acc__sum">كيف تفيد هذه الخدمة الجهة؟</summary>
+                  <div class="acc__body">
+                    <p class="card__p">
+                      القيمة الأساسية هنا هي تقليل العشوائية في معالجة المشكلات الإدارية. بدل الانتقال السريع إلى حلول
+                      متفرقة، تساعد هذه الخدمة على النظر إلى الصورة بشكل أكثر توازنًا، ثم ترتيب التحسينات بما يتناسب مع
+                      الأولوية والقدرة على التنفيذ.
+                    </p>
+                  </div>
+                </details>
+
+              </div>
+            </div>
+          </details>
+
+          <details class="pillar">
+            <summary class="pillar__sum">
+              <div class="pillar__text">
                 <span class="pillar__title">التخطيط الاستراتيجي والتشغيلي</span>
-                <span class="pillar__hint">تحويل التوجهات العامة إلى أهداف ومبادرات ومؤشرات وخطط تشغيلية واضحة.</span>
+                <span class="pillar__hint">تحويل التوجهات والطموحات إلى أهداف وخطط وأنشطة ومؤشرات واضحة.</span>
                 <a class="service-link-btn" href="services/strategic-planning.html">عرض الصفحة التفصيلية</a>
               </div>
             </summary>
+
             <div class="pillar__body">
               <div class="sub-acc">
+
                 <details class="acc" open>
-                  <summary class="acc__sum">متى تحتاج هذه الخدمة؟</summary>
+                  <summary class="acc__sum">ما الذي تتضمنه الخدمة؟</summary>
                   <div class="acc__body">
                     <p class="card__p">
-                      تحتاجها عندما تكون الأهداف غير مترجمة إلى إجراءات واضحة، أو عندما توجد خطة عامة دون مؤشرات،
-                      أو عندما تحتاج الجهة إلى ربط الاستراتيجية بالتنفيذ اليومي والمتابعة.
+                      هذه الخدمة تناسب الجهات التي تريد بناء توجه واضح، أو مراجعة خطة قائمة، أو الانتقال من أفكار عامة
+                      إلى أهداف ومبادرات وأنشطة يمكن متابعتها. كما تناسب المشاريع التي تحتاج إلى خطة تشغيلية مرتبطة
+                      بالأهداف والنتائج والمسؤوليات.
                     </p>
                     <div class="acc__grid">
                       <div class="acc__block">
-                        <h4 class="acc__h">مخرجات محتملة</h4>
+                        <h4 class="acc__h">محاور العمل المعتادة</h4>
+                        <ul class="acc__list">
+                          <li>تحليل الوضع الحالي والفرص والتحديات.</li>
+                          <li>صياغة أو مراجعة الرؤية والرسالة والأهداف.</li>
+                          <li>تحويل الأهداف إلى مبادرات وخطط تشغيلية.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">تفصيل إضافي</h4>
+                        <ul class="acc__list">
+                          <li>بناء مؤشرات أداء مرتبطة بالأهداف.</li>
+                          <li>تحديد المسؤوليات وفترات التنفيذ.</li>
+                          <li>تحسين الربط بين الخطة والتنفيذ الفعلي.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">أمثلة على المخرجات</h4>
                         <ul class="acc__list">
                           <li>خطة استراتيجية أو تشغيلية.</li>
                           <li>مصفوفة أهداف ومؤشرات ومبادرات.</li>
-                          <li>خطة متابعة تنفيذية.</li>
-                        </ul>
-                      </div>
-                      <div class="acc__block">
-                        <h4 class="acc__h">موارد مرتبطة</h4>
-                        <ul class="acc__list">
-                          <li><a href="templates/operational-plan-template.html">قالب الخطة التشغيلية</a></li>
-                          <li><a href="templates/operational-plan-checklist.html">Checklist جاهزية الخطة</a></li>
-                          <li><a href="downloads/ConsuTrain_Profile_and_Services_AR.pdf">دليل ConsuTrain</a></li>
-                        </ul>
-                      </div>
-                      <div class="acc__block">
-                        <h4 class="acc__h">الخطوة التالية</h4>
-                        <ul class="acc__list">
-                          <li>اطلع على الصفحة التفصيلية.</li>
-                          <li>حمّل القالب المجاني.</li>
-                          <li>احجز استشارة إذا كنت تريد تطوير الخطة.</li>
+                          <li>وثيقة تنظيمية تسهّل المتابعة والتنفيذ.</li>
                         </ul>
                       </div>
                     </div>
                   </div>
                 </details>
-              </div>
-            </div>
-          </details>
 
-          <details class="pillar">
-            <summary class="pillar__sum">
-              <div class="pillar__text">
-                <span class="pillar__title">دراسات الجدوى وتحليل الأفكار</span>
-                <span class="pillar__hint">تقييم فكرة المشروع قبل الاستثمار أو التوسع، من زاوية السوق والتشغيل والمال والمخاطر.</span>
-                <a class="service-link-btn" href="services/feasibility-studies.html">عرض الصفحة التفصيلية</a>
-              </div>
-            </summary>
-            <div class="pillar__body">
-              <div class="sub-acc">
-                <details class="acc" open>
-                  <summary class="acc__sum">ماذا تغطي الخدمة؟</summary>
+                <details class="acc">
+                  <summary class="acc__sum">متى تكون هذه الخدمة مهمة؟</summary>
                   <div class="acc__body">
                     <p class="card__p">
-                      تساعدك الخدمة على فهم الفكرة قبل الالتزام بالتنفيذ. يتم النظر إلى السوق، العملاء، نموذج الإيرادات،
-                      المتطلبات التشغيلية، المخاطر، والتقديرات المالية بحسب عمق الدراسة المطلوب.
+                      تكون هذه الخدمة مهمة عندما تصبح الأهداف غير مترجمة إلى عمل يومي واضح، أو عندما توجد رغبة في
+                      توحيد الاتجاه، أو عند الحاجة إلى خطة أكثر واقعية تساعد على المتابعة والقياس بدل الاكتفاء بعناوين عامة.
                     </p>
-                    <div class="acc__grid">
-                      <div class="acc__block">
-                        <h4 class="acc__h">مخرجات محتملة</h4>
-                        <ul class="acc__list">
-                          <li>تصور جدوى أولي أو متكامل.</li>
-                          <li>تحليل سوق ومنافسين.</li>
-                          <li>توصية مهنية حول الاستمرار أو التعديل.</li>
-                        </ul>
-                      </div>
-                      <div class="acc__block">
-                        <h4 class="acc__h">تناسب من؟</h4>
-                        <ul class="acc__list">
-                          <li>رواد الأعمال.</li>
-                          <li>أصحاب المشاريع الصغيرة والمتوسطة.</li>
-                          <li>الجهات التي تدرس مبادرة أو توسعًا جديدًا.</li>
-                        </ul>
-                      </div>
-                      <div class="acc__block">
-                        <h4 class="acc__h">ابدأ الآن</h4>
-                        <ul class="acc__list">
-                          <li><a href="services/feasibility-studies.html">اقرأ تفاصيل الخدمة</a></li>
-                          <li><a href="downloads/ConsuTrain_Profile_and_Services_AR.pdf">حمّل دليل ConsuTrain</a></li>
-                        </ul>
-                      </div>
-                    </div>
                   </div>
                 </details>
-              </div>
-            </div>
-          </details>
 
-          <details class="pillar">
-            <summary class="pillar__sum">
-              <div class="pillar__text">
-                <span class="pillar__title">ISO والجودة وأنظمة الإدارة</span>
-                <span class="pillar__hint">بناء أو تحسين النظام الإداري، وليس مجرد التحضير للحصول على شهادة.</span>
-                <a class="service-link-btn" href="services/iso-consulting.html">عرض صفحة ISO والتأهيل</a>
-              </div>
-            </summary>
-            <div class="pillar__body">
-              <div class="sub-acc">
-                <details class="acc" open>
-                  <summary class="acc__sum">ما الذي يمكن دعمه؟</summary>
-                  <div class="acc__body">
-                    <p class="card__p">
-                      تشمل الخدمة دعم أنظمة الجودة، البيئة، السلامة، المخاطر، شكاوى العملاء، أو نظام الإدارة المتكامل،
-                      من خلال تحليل الفجوات، بناء الوثائق، دعم التطبيق، والاستعداد للتدقيق.
-                    </p>
-                    <div class="acc__grid">
-                      <div class="acc__block">
-                        <h4 class="acc__h">أمثلة المعايير</h4>
-                        <ul class="acc__list">
-                          <li>ISO 9001</li>
-                          <li>ISO 14001</li>
-                          <li>ISO 45001</li>
-                          <li>ISO 31000</li>
-                          <li>ISO 10002</li>
-                        </ul>
-                      </div>
-                      <div class="acc__block">
-                        <h4 class="acc__h">مخرجات محتملة</h4>
-                        <ul class="acc__list">
-                          <li>تقرير فجوات.</li>
-                          <li>خطة تأهيل أو تحسين.</li>
-                          <li>وثائق وإجراءات ونماذج.</li>
-                        </ul>
-                      </div>
-                      <div class="acc__block">
-                        <h4 class="acc__h">موارد مرتبطة</h4>
-                        <ul class="acc__list">
-                          <li><a href="templates/simple-risk-register.html">نموذج سجل المخاطر</a></li>
-                          <li><a href="services/book-consultation.html">احجز استشارة ISO</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </details>
-              </div>
-            </div>
-          </details>
-
-          <details class="pillar">
-            <summary class="pillar__sum">
-              <div class="pillar__text">
-                <span class="pillar__title">إدارة المشاريع والمتابعة الإدارية</span>
-                <span class="pillar__hint">تنظيم النطاق، المهام، المسؤوليات، المخاطر، وآلية المتابعة.</span>
-                <a class="service-link-btn" href="services/project-management.html">عرض الصفحة التفصيلية</a>
-              </div>
-            </summary>
-            <div class="pillar__body">
-              <div class="sub-acc">
-                <details class="acc" open>
-                  <summary class="acc__sum">كيف تساعد الخدمة؟</summary>
-                  <div class="acc__body">
-                    <p class="card__p">
-                      تساعد الخدمة على ترتيب المشروع إداريًا، خصوصًا عندما تكون الفكرة جيدة لكن التنفيذ غير منظم،
-                      أو عندما تتداخل المسؤوليات ولا توجد متابعة واضحة للتقدم والمخاطر.
-                    </p>
-                    <div class="acc__grid">
-                      <div class="acc__block">
-                        <h4 class="acc__h">مخرجات محتملة</h4>
-                        <ul class="acc__list">
-                          <li>خطة تنفيذ مبسطة.</li>
-                          <li>جدول مهام ومسؤوليات.</li>
-                          <li>سجل مخاطر وتقرير حالة مختصر.</li>
-                        </ul>
-                      </div>
-                      <div class="acc__block">
-                        <h4 class="acc__h">موارد مرتبطة</h4>
-                        <ul class="acc__list">
-                          <li><a href="templates/simple-risk-register.html">نموذج سجل المخاطر</a></li>
-                          <li><a href="templates/operational-plan-template.html">قالب الخطة التشغيلية</a></li>
-                        </ul>
-                      </div>
-                      <div class="acc__block">
-                        <h4 class="acc__h">الخطوة التالية</h4>
-                        <ul class="acc__list">
-                          <li><a href="services/project-management.html">اقرأ تفاصيل الخدمة</a></li>
-                          <li><a href="services/book-consultation.html">احجز استشارة لتنظيم مشروعك</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </details>
               </div>
             </div>
           </details>
@@ -306,45 +256,211 @@
             <summary class="pillar__sum">
               <div class="pillar__text">
                 <span class="pillar__title">بناء الأنظمة الإدارية والأدلة التشغيلية</span>
-                <span class="pillar__hint">تنظيم العمل من خلال السياسات، الإجراءات، النماذج، بطاقات العمليات، والأوصاف الوظيفية.</span>
+                <span class="pillar__hint">تنظيم العمل من خلال الأدلة، الإجراءات، النماذج، والهياكل والأدوار.</span>
               </div>
             </summary>
+
             <div class="pillar__body">
               <div class="sub-acc">
+
                 <details class="acc" open>
-                  <summary class="acc__sum">متى تكون هذه الخدمة مناسبة؟</summary>
+                  <summary class="acc__sum">ما الذي يمكن بناؤه ضمن هذه الخدمة؟</summary>
                   <div class="acc__body">
                     <p class="card__p">
-                      تكون مناسبة عندما يوجد تكرار في الأخطاء، تفاوت في طريقة العمل، غموض في المسؤوليات،
-                      أو حاجة إلى توثيق إجراءات العمل بصورة واضحة وقابلة للاستخدام.
+                      هذه الخدمة مناسبة عندما تحتاج الجهة إلى تنظيم أعمالها بصورة أوضح، أو عند وجود رغبة في توحيد
+                      الإجراءات وتقليل التفاوت في التنفيذ. التركيز هنا يكون على بناء أو تطوير مكونات النظام الإداري بحيث
+                      يصبح العمل أكثر وضوحًا واستقرارًا وسهولة في المتابعة.
                     </p>
                     <div class="acc__grid">
                       <div class="acc__block">
-                        <h4 class="acc__h">مخرجات محتملة</h4>
+                        <h4 class="acc__h">أمثلة على الأعمال</h4>
                         <ul class="acc__list">
-                          <li>دليل إجراءات أو دليل تشغيلي.</li>
-                          <li>نماذج وسجلات عمل.</li>
-                          <li>بطاقات عمليات وأوصاف وظيفية.</li>
+                          <li>إعداد أو تطوير الأدلة التشغيلية.</li>
+                          <li>كتابة السياسات والإجراءات والنماذج.</li>
+                          <li>إعداد الهياكل التنظيمية والأوصاف الوظيفية.</li>
                         </ul>
                       </div>
                       <div class="acc__block">
                         <h4 class="acc__h">الفائدة العملية</h4>
                         <ul class="acc__list">
-                          <li>وضوح الأدوار.</li>
-                          <li>تقليل الازدواجية.</li>
-                          <li>تحسين قابلية المتابعة والمراجعة.</li>
+                          <li>رفع وضوح الأدوار والمسؤوليات.</li>
+                          <li>تقليل الازدواجية والتداخل بين الأعمال.</li>
+                          <li>تحسين الانضباط واستقرار الأداء.</li>
                         </ul>
                       </div>
                       <div class="acc__block">
-                        <h4 class="acc__h">ابدأ بتشخيص سريع</h4>
+                        <h4 class="acc__h">مخرجات متوقعة</h4>
                         <ul class="acc__list">
-                          <li><a href="services/book-consultation.html">احجز استشارة لتحديد نطاق العمل</a></li>
-                          <li><a href="downloads/ConsuTrain_Profile_and_Services_AR.pdf">حمّل دليل ConsuTrain</a></li>
+                          <li>أدلة عمل جاهزة للاستخدام.</li>
+                          <li>نماذج موحدة تدعم التنفيذ والمتابعة.</li>
+                          <li>وثائق تنظيمية قابلة للتطوير لاحقًا.</li>
                         </ul>
                       </div>
                     </div>
                   </div>
                 </details>
+
+              </div>
+            </div>
+          </details>
+
+          <details class="pillar">
+            <summary class="pillar__sum">
+              <div class="pillar__text">
+                <span class="pillar__title">إدارة المشاريع والمتابعة الإدارية</span>
+                <span class="pillar__hint">تنظيم التنفيذ، توزيع المسؤوليات، وتوضيح التقدم عبر خطوات ومخرجات قابلة للمتابعة.</span>
+              <a class="service-link-btn" href="services/project-management.html">عرض الصفحة التفصيلية</a>
+              </div>
+            </summary>
+
+            <div class="pillar__body">
+              <div class="sub-acc">
+
+                <details class="acc" open>
+                  <summary class="acc__sum">كيف تُفهم هذه الخدمة؟</summary>
+                  <div class="acc__body">
+                    <p class="card__p">
+                      لا يقتصر العمل هنا على إدارة المشروع نظريًا، بل يركز على تنظيمه إداريًا بصورة تساعد على وضوح المهام،
+                      والمراحل، والمسؤوليات، والتقارير، والمتابعة. وهي خدمة مفيدة عندما يكون المشروع قائمًا أو على وشك البدء
+                      ويحتاج إلى إطار متابعة أكثر انضباطًا.
+                    </p>
+                    <div class="acc__grid">
+                      <div class="acc__block">
+                        <h4 class="acc__h">ما الذي يمكن دعمه؟</h4>
+                        <ul class="acc__list">
+                          <li>تجزئة الأعمال إلى مراحل وأنشطة فرعية.</li>
+                          <li>إعداد جداول متابعة ومسؤوليات.</li>
+                          <li>دعم التقارير الدورية ومتابعة الإنجاز.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">ما الذي يتحسن غالبًا؟</h4>
+                        <ul class="acc__list">
+                          <li>وضوح ما تم إنجازه وما لم يتم إنجازه بعد.</li>
+                          <li>سرعة اكتشاف التعثرات والمخاطر المبكرة.</li>
+                          <li>تحسين التنسيق بين الأطراف المعنية.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">مخرجات محتملة</h4>
+                        <ul class="acc__list">
+                          <li>خطة متابعة أو جدول زمني تفصيلي.</li>
+                          <li>سجل مهام ومسؤوليات.</li>
+                          <li>نماذج متابعة وتقارير مرحلية.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+
+              </div>
+            </div>
+          </details>
+
+          <details class="pillar">
+            <summary class="pillar__sum">
+              <div class="pillar__text">
+                <span class="pillar__title">دراسات الجدوى وتحليل الأعمال</span>
+                <span class="pillar__hint">فهم الفكرة، تحليل السوق والاحتياج، وتكوين تصور يساعد على اتخاذ القرار.</span>
+                <a class="service-link-btn" href="services/feasibility-studies.html">عرض الصفحة التفصيلية</a>
+
+              </div>
+            </summary>
+
+            <div class="pillar__body">
+              <div class="sub-acc">
+
+                <details class="acc" open>
+                  <summary class="acc__sum">ماذا يمكن أن تغطي هذه الخدمة؟</summary>
+                  <div class="acc__body">
+                    <p class="card__p">
+                      هذه الخدمة مهمة عند الرغبة في تقييم فكرة مشروع أو نشاط أو توسع قبل البدء الفعلي. ويتم التركيز فيها
+                      على جمع عناصر تساعد في الحكم على الفكرة بصورة أكثر اتزانًا، سواء من ناحية الاحتياج، أو الجدوى، أو
+                      المتطلبات، أو المخاطر، أو التكاليف التقديرية.
+                    </p>
+                    <div class="acc__grid">
+                      <div class="acc__block">
+                        <h4 class="acc__h">محاور شائعة</h4>
+                        <ul class="acc__list">
+                          <li>فهم الفكرة والهدف منها.</li>
+                          <li>قراءة أولية للسوق أو الفئة المستهدفة.</li>
+                          <li>تحديد الاحتياجات والتكاليف الأساسية.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">ما الذي تساعد عليه؟</h4>
+                        <ul class="acc__list">
+                          <li>تقليل القرارات المتسرعة.</li>
+                          <li>إظهار النقاط الغامضة قبل البدء.</li>
+                          <li>رفع جودة القرار الاستثماري أو التشغيلي.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">نتائج متوقعة</h4>
+                        <ul class="acc__list">
+                          <li>تصور جدوى أولي أو متكامل حسب النطاق.</li>
+                          <li>قراءة أوضح لفرص النجاح والتحديات.</li>
+                          <li>توصيات تساعد على اتخاذ قرار البدء أو التعديل.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+
+              </div>
+            </div>
+          </details>
+
+          <details class="pillar">
+            <summary class="pillar__sum">
+              <div class="pillar__text">
+                <span class="pillar__title">إدارة المخاطر والجودة والتأهيل والتدريب</span>
+                <span class="pillar__hint">دعم الجهات في بناء منهجيات أو تحسين أنظمة قائمة وربطها بواقع العمل الفعلي.</span>
+                <a class="service-link-btn" href="services/iso-consulting.html">عرض صفحة ISO والتأهيل</a>
+
+              </div>
+            </summary>
+
+            <div class="pillar__body">
+              <div class="sub-acc">
+
+                <details class="acc" open>
+                  <summary class="acc__sum">ما طبيعة هذه الخدمة؟</summary>
+                  <div class="acc__body">
+                    <p class="card__p">
+                      هذه الخدمة تناسب الجهات التي تريد بناء منهجية في المخاطر، أو تحسين نظام جودة، أو الاستعداد لمتطلبات
+                      تنظيمية أو مهنية، أو تنفيذ تدريب أكثر ارتباطًا بالممارسة الفعلية. ويكون التركيز على الإفادة العملية لا
+                      على الجانب النظري فقط.
+                    </p>
+                    <div class="acc__grid">
+                      <div class="acc__block">
+                        <h4 class="acc__h">أمثلة على الأعمال</h4>
+                        <ul class="acc__list">
+                          <li>إعداد سجلات ومصفوفات مخاطر.</li>
+                          <li>مراجعة وتحسين أدلة أو إجراءات الجودة.</li>
+                          <li>إعداد محتوى تأهيلي أو تدريبي عملي.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">الفائدة المتوقعة</h4>
+                        <ul class="acc__list">
+                          <li>تحسين الاستعداد للمخاطر أو المتطلبات التنظيمية.</li>
+                          <li>رفع موثوقية العمل وتقليل الأخطاء والتباين.</li>
+                          <li>تقريب المفاهيم المهنية إلى واقع التطبيق.</li>
+                        </ul>
+                      </div>
+                      <div class="acc__block">
+                        <h4 class="acc__h">مخرجات ممكنة</h4>
+                        <ul class="acc__list">
+                          <li>سجل مخاطر أو إطار عمل واضح.</li>
+                          <li>خطة جودة أو تحسين أو تأهيل.</li>
+                          <li>مادة تدريبية أو برنامج تطوير موجّه.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+
               </div>
             </div>
           </details>
@@ -353,76 +469,110 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         TARGET AUDIENCES
+         الجهات والفئات المناسبة للخدمات
+         ===================================================== -->
     <section class="home-section services-audience-section">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>غير متأكد من الخدمة المناسبة؟</h2>
-            <p>يمكنك تحديد احتياجك من خلال هذا التقسيم السريع قبل الحجز.</p>
+            <h2>لمن تناسب هذه الخدمات؟</h2>
+            <p>تمت صياغة الخدمات بحيث تكون مرنة وقابلة للتكييف مع أكثر من نوع من الجهات والاحتياجات.</p>
           </div>
         </div>
 
         <div class="cards-grid services-audience-grid">
           <article class="section-card audience-card">
-            <h3>لديك هدف لكن التنفيذ غير واضح</h3>
-            <p>ابدأ بصفحة التخطيط الاستراتيجي والتشغيلي، وحمّل قالب الخطة التشغيلية.</p>
-            <a class="service-link-btn" href="services/strategic-planning.html">التخطيط والخطط التشغيلية</a>
+            <h3>الجهات الحكومية</h3>
+            <p>
+              عند الحاجة إلى بناء أدلة، تطوير إجراءات، إعداد خطط، ضبط الأدوار، أو تحسين الممارسات الإدارية والتشغيلية.
+            </p>
           </article>
 
           <article class="section-card audience-card">
-            <h3>لديك فكرة مشروع وتريد تقييمها</h3>
-            <p>ابدأ بصفحة دراسات الجدوى لفهم ما تحتاجه قبل الاستثمار أو التوسع.</p>
-            <a class="service-link-btn" href="services/feasibility-studies.html">دراسات الجدوى</a>
+            <h3>الشركات والمنشآت</h3>
+            <p>
+              عندما تكون الحاجة مرتبطة بتنظيم الإدارة، أو تحسين المتابعة، أو بناء نظام جودة أو مخاطر أو تشغيل أكثر وضوحًا.
+            </p>
           </article>
 
           <article class="section-card audience-card">
-            <h3>لديك مشروع قائم لكنه غير منظم</h3>
-            <p>ابدأ بخدمة إدارة المشاريع، أو حمّل نموذج سجل المخاطر لتقييم الوضع الأولي.</p>
-            <a class="service-link-btn" href="services/project-management.html">إدارة المشاريع</a>
+            <h3>رواد الأعمال والمستقلون</h3>
+            <p>
+              عند الرغبة في تقييم فكرة، أو إعداد دراسة أولية، أو تنظيم مشروع، أو الاستفادة من استشارة قبل اتخاذ قرار مهم.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- =====================================================
+         PROCESS SECTION
+         شرح الإجراءات بشكل أوضح من النسخة السابقة
+         ===================================================== -->
     <section class="home-section">
       <div class="container">
         <div class="section-card services-process-card">
-          <h2>كيف نعمل معك؟</h2>
+          <h2>كيف تبدأ الخدمة؟</h2>
           <p class="section-intro">
-            يبدأ العمل بفهم الاحتياج، ثم تحديد النطاق، ثم إعداد المخرجات المناسبة. لا يتم اقتراح خدمة كبيرة
-            عندما يكفي قالب أو مراجعة سريعة، ولا يتم الاكتفاء بملف بسيط عندما يكون الاحتياج أعمق.
+            يتم التعامل مع الطلبات بصورة منظمة حتى يكون نطاق العمل واضحًا من البداية، وتكون التوقعات متوازنة، ويصبح
+            التنفيذ أكثر سلاسة. الخطوات التالية تمثل الإطار العام الذي يمكن أن يبدأ منه العمل.
           </p>
 
           <div class="services-process-steps">
             <div class="journey-step">
               <span class="journey-number">1</span>
               <div>
-                <h3>فهم الطلب</h3>
-                <p>نبدأ بوصف مختصر للمشكلة أو الفكرة أو الهدف.</p>
+                <h3>التواصل الأولي</h3>
+                <p>
+                  يبدأ الأمر بتوضيح الفكرة أو التحدي أو نوع الخدمة المطلوبة. لا يشترط أن يكون الوصف مكتملًا، لكن كلما كان
+                  التوضيح أفضل كان فهم الاحتياج أسرع وأكثر دقة.
+                </p>
               </div>
             </div>
 
             <div class="journey-step">
               <span class="journey-number">2</span>
               <div>
-                <h3>تحديد المسار</h3>
-                <p>نحدد هل الأنسب قالب، مراجعة، استشارة، تدريب، أم خدمة تنفيذية.</p>
+                <h3>فهم الاحتياج وتحديد الأولوية</h3>
+                <p>
+                  يتم النظر إلى طبيعة الطلب: هل المطلوب استشارة، أم إعداد وثيقة، أم تطوير نظام، أم مرافقة في التنفيذ؟
+                  وفي هذه المرحلة يتضح ما هو الأكثر إلحاحًا وما الذي يجب أن يبدأ أولًا.
+                </p>
               </div>
             </div>
 
             <div class="journey-step">
               <span class="journey-number">3</span>
               <div>
-                <h3>ضبط المخرجات</h3>
-                <p>يتم الاتفاق على ما سيتم تسليمه بشكل واضح قبل بدء العمل.</p>
+                <h3>تحديد النطاق والمخرجات</h3>
+                <p>
+                  يتم ضبط حدود العمل المتفق عليه، وبيان المخرجات المنتظرة، وما إذا كانت الخدمة ستنتهي إلى تقرير، أو خطة،
+                  أو دليل، أو نماذج، أو مراجعة، أو تصور تنفيذي، أو أكثر من ذلك حسب الحالة.
+                </p>
               </div>
             </div>
 
             <div class="journey-step">
               <span class="journey-number">4</span>
               <div>
-                <h3>التنفيذ والمراجعة</h3>
-                <p>يتم إعداد المخرجات ومراجعتها وتحسينها وفق طبيعة الخدمة.</p>
+                <h3>البدء في التنفيذ والمتابعة</h3>
+                <p>
+                  بعد وضوح النطاق يبدأ العمل على الخدمة مع متابعة مرحلية بحسب طبيعة المطلوب. بعض الخدمات تكون سريعة
+                  ومباشرة، وبعضها يحتاج إلى مراحل ومراجعات حتى تخرج المخرجات بصورة أكثر نضجًا.
+                </p>
+              </div>
+            </div>
+
+            <div class="journey-step">
+              <span class="journey-number">5</span>
+              <div>
+                <h3>التسليم والمراجعة والتحسين</h3>
+                <p>
+                  يتم تسليم المخرجات بصورة منظمة، مع إتاحة مساحة للمراجعة والتحسين عند الحاجة، حتى تكون النتيجة النهائية
+                  أقرب إلى الاستخدام الفعلي داخل الجهة أو المشروع.
+                </p>
               </div>
             </div>
           </div>
@@ -430,25 +580,33 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         CTA SECTION
+         دعوة ختامية للتواصل
+         ===================================================== -->
     <section class="home-section">
       <div class="container">
         <div class="section-card services-cta-card">
-          <h2>ابدأ بخطوة بسيطة</h2>
+          <h2>هل لديك خدمة محددة تريد مناقشتها؟</h2>
           <p>
-            حمّل دليل ConsuTrain أو استعرض الموارد المجانية أولًا. وإذا كان احتياجك واضحًا، يمكنك حجز استشارة
-            لتحديد النطاق والمخرجات المناسبة.
+            يمكنك الانتقال إلى صفحة التواصل وشرح الفكرة أو نوع الخدمة التي تبحث عنها. حتى لو لم يكن الاحتياج مصاغًا
+            بشكل نهائي، فإن التوضيح الأولي يكفي لبدء النقاش وتحديد المسار الأنسب.
           </p>
 
           <div class="services-hero-actions">
-            <a class="btn btn-primary" href="services/book-consultation.html">احجز استشارة</a>
-            <a class="btn btn-secondary" href="downloads/ConsuTrain_Profile_and_Services_AR.pdf">تحميل دليل ConsuTrain</a>
-            <a class="btn btn-secondary" href="tools.html">الموارد المجانية</a>
+            <a class="btn btn-primary" href="contact.html">الانتقال إلى التواصل</a>
+            <a class="btn btn-secondary" href="about.html">التعرّف على المنصة</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- الفوتر المشترك -->
+  <div id="footer-placeholder"></div>
+
+
+    <!-- الفوتر المشترك -->
   <div id="footer-placeholder"></div>
 
   <script>
@@ -459,7 +617,9 @@
         item.addEventListener("toggle", () => {
           if (item.open) {
             mainAccordions.forEach((other) => {
-              if (other !== item) other.open = false;
+              if (other !== item) {
+                other.open = false;
+              }
             });
           }
         });
@@ -474,7 +634,9 @@
           item.addEventListener("toggle", () => {
             if (item.open) {
               subAccordions.forEach((other) => {
-                if (other !== item) other.open = false;
+                if (other !== item) {
+                  other.open = false;
+                }
               });
             }
           });
@@ -483,7 +645,77 @@
     });
   </script>
 
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const mainAccordions = document.querySelectorAll(".services-acc > .pillar");
+
+    mainAccordions.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (item.open) {
+          mainAccordions.forEach((other) => {
+            if (other !== item) other.open = false;
+          });
+
+          setTimeout(() => {
+            item.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          }, 120);
+        }
+      });
+    });
+
+    const subGroups = document.querySelectorAll(".pillar .sub-acc");
+
+    subGroups.forEach((group) => {
+      const subAccordions = group.querySelectorAll(":scope > .acc");
+
+      subAccordions.forEach((item) => {
+        item.addEventListener("toggle", () => {
+          if (item.open) {
+            subAccordions.forEach((other) => {
+              if (other !== item) other.open = false;
+            });
+
+            setTimeout(() => {
+              item.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+            }, 120);
+          }
+        });
+      });
+    });
+
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    if (scrollTopBtn) {
+      const toggleScrollBtn = () => {
+        if (window.scrollY > 300) {
+          scrollTopBtn.classList.add("show");
+        } else {
+          scrollTopBtn.classList.remove("show");
+        }
+      };
+
+      window.addEventListener("scroll", toggleScrollBtn);
+      toggleScrollBtn();
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+  });
+</script>
+  <!-- تحميل الأجزاء المشتركة -->
   <script src="assets/js/includes.js?v=20260504_menu"></script>
-  <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">↑</button>
+  <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+  ↑
+</button>
 </body>
 </html>

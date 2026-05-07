@@ -18,42 +18,6 @@
   =========================================================
 */
 
-
-/*
-  ---------------------------------------------------------
-  GLOBAL SCROLL FIX
-  PURPOSE:
-  منع المتصفح من فتح الصفحات الداخلية من منتصفها عند التنقل
-  من القوائم أو عند الرجوع من الكاش.
-  ---------------------------------------------------------
-*/
-if ("scrollRestoration" in window.history) {
-  window.history.scrollRestoration = "manual";
-}
-
-function forceTopOnFreshNavigation() {
-  if (window.location.hash) return;
-
-  window.scrollTo(0, 0);
-  document.documentElement.scrollTop = 0;
-  if (document.body) {
-    document.body.scrollTop = 0;
-  }
-}
-
-forceTopOnFreshNavigation();
-window.addEventListener("DOMContentLoaded", forceTopOnFreshNavigation);
-window.addEventListener("load", () => {
-  forceTopOnFreshNavigation();
-  setTimeout(forceTopOnFreshNavigation, 120);
-  setTimeout(forceTopOnFreshNavigation, 400);
-});
-window.addEventListener("pageshow", () => {
-  forceTopOnFreshNavigation();
-  setTimeout(forceTopOnFreshNavigation, 80);
-  setTimeout(forceTopOnFreshNavigation, 250);
-});
-
 /*
   ---------------------------------------------------------
   FUNCTION: getRootPath
@@ -116,7 +80,7 @@ async function loadPartial(selector, filePath) {
   if (!target) return;
 
   try {
-    const version = "v=20260505_force_top_fix";
+    const version = "v=20260506_resources";
     const separator = filePath.includes("?") ? "&" : "?";
     const cacheSafePath = `${filePath}${separator}${version}`;
 
@@ -162,8 +126,6 @@ function initHeaderNavigation() {
   if (!toggle || !nav || !header) return;
 
   const MOBILE_BREAKPOINT = 900;
-  nav.setAttribute("hidden", "");
-
   const submenuToggles = document.querySelectorAll(".submenu-toggle");
   const submenuParents = document.querySelectorAll(".has-submenu");
   const navLinks = nav.querySelectorAll("a");
@@ -176,9 +138,15 @@ function initHeaderNavigation() {
     header.insertAdjacentElement("afterend", backdrop);
   }
 
-  // لا نضيف زر إغلاق نصي داخل القائمة حتى لا يظهر بجانب العناوين.
-  // يتم الإغلاق من زر القائمة نفسه أو بالضغط خارج القائمة.
-  const closeButton = null;
+  let closeButton = nav.querySelector(".mobile-nav-close");
+  if (!closeButton) {
+    closeButton = document.createElement("button");
+    closeButton.className = "mobile-nav-close";
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "إغلاق القائمة");
+    closeButton.textContent = "× إغلاق";
+    nav.insertAdjacentElement("afterbegin", closeButton);
+  }
 
   function isMobileView() {
     return window.innerWidth <= MOBILE_BREAKPOINT;
@@ -198,14 +166,6 @@ function initHeaderNavigation() {
   function closeMobileNav() {
     nav.classList.remove("open");
     document.body.classList.remove("nav-is-open");
-
-    // hidden is used only on mobile. On desktop, keeping hidden would remove the normal nav.
-    if (isMobileView()) {
-      nav.setAttribute("hidden", "");
-    } else {
-      nav.removeAttribute("hidden");
-    }
-
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-label", "فتح القائمة");
     toggle.textContent = "☰";
@@ -214,7 +174,6 @@ function initHeaderNavigation() {
   }
 
   function openMobileNav() {
-    nav.removeAttribute("hidden");
     nav.classList.add("open");
     document.body.classList.add("nav-is-open");
     toggle.setAttribute("aria-expanded", "true");
@@ -236,12 +195,10 @@ function initHeaderNavigation() {
     isOpen ? closeMobileNav() : openMobileNav();
   });
 
-  if (closeButton) {
-    closeButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      closeMobileNav();
-    });
-  }
+  closeButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    closeMobileNav();
+  });
 
   backdrop.addEventListener("click", closeMobileNav);
 
@@ -293,11 +250,6 @@ function initHeaderNavigation() {
   });
 
   window.addEventListener("pageshow", closeMobileNav);
-  window.addEventListener("pagehide", closeMobileNav);
-  window.addEventListener("orientationchange", closeMobileNav);
-  document.addEventListener("visibilitychange", () => {
-    if (!document.hidden) closeMobileNav();
-  });
 }
 
 /*
@@ -474,3 +426,41 @@ function initBreadcrumbs() {
   container.innerHTML = "";
   container.appendChild(nav);
 }
+
+/* =========================================================
+   Global Scroll To Top Button
+   Ensures the button appears on all pages
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  let scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  if (!scrollTopBtn) {
+    scrollTopBtn = document.createElement("button");
+    scrollTopBtn.id = "scrollTopBtn";
+    scrollTopBtn.className = "scroll-top-left";
+    scrollTopBtn.setAttribute("aria-label", "العودة إلى الأعلى");
+    scrollTopBtn.setAttribute("title", "العودة إلى الأعلى");
+    scrollTopBtn.textContent = "↑";
+    document.body.appendChild(scrollTopBtn);
+  }
+
+  const toggleScrollButton = () => {
+    if (window.scrollY > 350) {
+      scrollTopBtn.classList.add("show");
+    } else {
+      scrollTopBtn.classList.remove("show");
+    }
+  };
+
+  window.addEventListener("scroll", toggleScrollButton);
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  toggleScrollButton();
+});

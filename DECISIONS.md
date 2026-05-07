@@ -198,49 +198,201 @@ Implementation:
 - Keep `learn/management-skills.html`.
 - Show both links in the Learn dropdown.
 - Use relative links inside the Learn dropdown to avoid duplicated paths such as `learn/learn/...`.
+### Decision – Add Free Resources as a Dedicated Section
+
+Date: 2026-05-06
+
+Decision:
+A dedicated Free Resources section has been added under `resources/index.html` instead of limiting resources to a single downloadable file or only to the Templates area.
+
+Reason:
+The platform needs a strong value entry point for visitors. Free resources support trust-building, SEO, lead generation, and future monetization. The structure is broader than templates because resources may include checklists, guides, prompts, models, Word files, Excel files, PDFs, and future interactive tools.
+
+Implementation:
+- Created `resources/index.html`.
+- Added 32 initial downloadable Markdown resources in `resources/downloads/`.
+- Added a main navigation link for `الموارد المجانية`.
+- Linked the new section from the homepage and `start-here.html`.
+- Updated the Service Worker cache version.
+
+Future Direction:
+- Convert selected resources into branded PDF/Word/Excel lead magnets.
+- Add resource detail pages when needed.
+- Link each resource to its related consulting service and future course path.
+
+Status: Approved for review.
+
+
+## Decision: Categorize free resource downloads
+
+- Free downloadable resources should not remain in one flat downloads folder.
+- Files are organized inside `resources/downloads/` by domain, such as `operational-plans`, `risk-management`, `iso-quality`, `feasibility-studies`, `project-management`, `sop-procedures`, and `ai-management`.
+- Pages that display resources should link to these categorized paths.
+- The former root-level `/downloads/` folder should be avoided for new resources and can be removed after confirming no links depend on it.
+
+
+## 2026-05-06 — Decision: Store professional downloadable resources inside `resources/downloads`
+
+- Root-level `/downloads/` should not be used for new files.
+- Professional Word/PDF resources should be stored inside categorized folders under `resources/downloads/`.
+- The resources page should show Word/PDF buttons when professional versions are available, while keeping Markdown starter resources for the remaining items until they are upgraded.
+
+## 2026-05-06 — Decision: Every important free resource should have an explanation page
+
+Decision:
+Free resources should not be treated only as downloadable files. Important resources will have a dedicated HTML explanation page that introduces the resource, explains when to use it, who it is for, how to use it, and provides download buttons for the available formats.
+
+Implementation:
+- `templates/` is used for explanation pages related to practical templates and downloadable resources.
+- `resources/downloads/` remains the storage location for downloadable files such as Word, PDF, Excel, and Markdown.
+- `resources/index.html` acts as the main free resources library and links selected resources to their explanation pages.
+
+Reason:
+This gives the website added value, improves user guidance, supports SEO, and creates a stronger bridge between free resources and paid services.
+
+
+## 2026-05-06 — Decision: Review resource model before implementation
+
+Decision:
+For new free resources, the proposed model/content structure should be presented textually first. The downloadable file and explanation page should be prepared only after review and improvement notes are applied.
+
+Reason:
+The user wants to apply professional judgment before implementation so that each resource reflects practical consulting expertise and not just a generic template.
+
+Applied now:
+- KPI Performance Card model was reviewed and approved.
+- It was converted into Word/PDF and connected to a dedicated explanation page.
+
+## 2026-05-06 — Decision: Upgrade approved resource models into full free resources
+
+Decision:
+When a proposed free resource model is reviewed and approved, it can be converted into a professional downloadable Word/PDF file and connected to a dedicated explanation page.
+
+Applied now:
+- The Operational Plan Follow-up Report model was approved.
+- It was converted into Word/PDF and connected to `templates/operational-plan-follow-up-report.html`.
+
+Reason:
+This keeps the free resources practical and professional while maintaining the agreed workflow: review the model first, then implement the downloadable file and explanation page.
+
+
+## 2026-05-06 — Decision: Upgrade Stakeholder Register into a full free resource
+
+Decision:
+The approved Stakeholder Register model is converted into a professional free resource with a downloadable Word/PDF file and a dedicated explanation page.
+
+Applied now:
+- Added `templates/stakeholder-register.html`.
+- Added Word/PDF files under `resources/downloads/project-management/`.
+- Linked the resource from both `resources/index.html` and `templates/index.html`.
+
+Reason:
+This resource strengthens the project management and operational planning resource chain by helping users identify, analyze, and communicate with stakeholders before and during implementation.
+
+## Decision - Project Charter resource
+
+- Approved adding a free `Project Charter` resource as part of the project management resources.
+- Each major free resource must include an explanation page plus downloadable Word/PDF files.
 
 
 
----
+## قرار: اعتماد نموذج خطة تواصل المشروع كمورد مجاني
+تم اعتماد المورد ضمن موارد إدارة المشاريع، مع صفحة شرح مستقلة وملفات Word/PDF داخل `resources/downloads/project-management/`.
 
-## 3) نص يضاف إلى `DECISIONS.md`
 
-```md
-## قرار – إغلاق مبدئي لمسار UI/UX
+## قرار: اعتماد نموذج محضر اجتماع ومتابعة القرارات كمورد مجاني
+تم اعتماد المورد ضمن موارد إدارة المشاريع بصيغة Word فقط في هذه المرحلة، مع صفحة شرح مستقلة داخل `templates/` وملف تحميل داخل `resources/downloads/project-management/`.
 
-### القرار
-تم اعتماد أن مسار:
+- تمت إضافة نسخة PDF لمورد نموذج محضر اجتماع ومتابعة القرارات للمعاينة، وتحديث روابط صفحة المورد وصفحتي الموارد والقوالب.
 
-ConsuTrain – UI/UX – التصميم العام
+## قرار - اعتماد مورد سجل الإجراءات التصحيحية والتحسينية
 
-أصبح مكتملًا مبدئيًا من حيث الهوية البصرية وتجربة المستخدم، بعد تنفيذ مراحل:
+تم اعتماد نموذج سجل الإجراءات التصحيحية والتحسينية كمورد مجاني ضمن مجال ISO والجودة، مع صفحة شرح مستقلة وملفات تحميل Word/PDF.
 
-- Mobile Stabilization
-- Design Consistency
-- Polish
+### قرار: اعتماد نموذج خطة التدقيق الداخلي كمورد مجاني
+تم اعتماد نموذج خطة التدقيق الداخلي كمورد مجاني بصيغة Word وPDF، مع صفحة شرح مستقلة بنفس نسق موارد ConsuTrain.
 
-### القرارات التصميمية المعتمدة
+### قرار: اعتماد قائمة تحقق التدقيق الداخلي ISO 9001 كمورد مجاني
+تم اعتماد نموذج قائمة تحقق التدقيق الداخلي ISO 9001 كمورد مجاني بصيغة Word وPDF، مع صفحة شرح مستقلة بنفس نسق موارد ConsuTrain.
+- قرار: اعتماد نموذج سجل عدم المطابقة كمورد مجاني ضمن ISO والجودة، وربطه بخطة التدقيق الداخلي وقائمة تحقق ISO 9001 وسجل الإجراءات التصحيحية.
 
-1. اعتماد CSS مركزي واحد للتعديلات العامة.
-2. عدم تعديل HTML إلا عند الحاجة الفعلية، مثل إضافة عناصر Breadcrumbs.
-3. اعتماد RTL كاتجاه افتراضي للتصميم.
-4. اعتماد الأزرق والذهبي والرمادي الفاتح كأساس بصري.
-5. توحيد:
-   - العناوين
-   - الأزرار
-   - البطاقات
-   - الخلفيات
-   - المسافات
-6. اعتماد القوائم الفرعية في الهاتف كـ Accordion داخلي وليس كـ Dropdown عائم.
-7. جعل Breadcrumbs واضحة فوق الخلفيات الداكنة والفاتحة.
-8. اعتماد تحسين تدريجي حسب المسارات بدل إعادة بناء عشوائية.
 
-### ملاحظة تنفيذية
-قبل الإغلاق النهائي، يجب رفع تصحيح Breadcrumbs الخاص ببعض صفحات Learn، ثم تنفيذ اختبار بصري سريع.
+### قرار - ربط سياسة الجودة بأهداف جودة
+تم اعتماد أن نموذج سياسة الجودة لا يقتصر على نص السياسة، بل يتضمن أهداف جودة قابلة للقياس ومسؤوليات متابعة ومراجعة.
+- اعتماد نموذج أهداف الجودة ومؤشرات القياس كمورد مجاني يدعم سياسة الجودة ونظام ISO 9001.
+- اعتماد نموذج سجل ضبط الوثائق والسجلات كمورد مجاني ضمن ISO والجودة، مع إضافة تصنيف مستقل للوثائق الخارجية.
+- اعتماد نموذج سجل الشكاوى ورضا العملاء / المستفيدين كمورد مجاني ضمن مجال ISO والجودة، مع ربطه بالتحسين المستمر ومؤشرات الرضا.
 
-### الخطوة التالية بعد الإغلاق
-الانتقال إلى:
 
-ConsuTrain – Learn – المحتوى التعليمي
+- إضافة مورد مجاني: نموذج مراجعة الإدارة لنظام الجودة، مع صفحة شرح وملفات Word/PDF ضمن موارد ISO والجودة.
 
-والتركيز في هذا المسار القادم سيكون على تحسين المحتوى، ترتيب الصفحات التعليمية، وربط المقالات والقاموس والـ AI والمهارات بطريقة أوضح.
+### قرار - إضافة نموذج خطة تحسين العمليات
+تم اعتماد نموذج خطة تحسين العمليات كمورد مجاني مكمل لموارد الجودة والتحسين المستمر، بهدف مساعدة المستخدم على تحليل العملية الحالية ووضع إجراءات تحسين قابلة للقياس والتحقق.
+
+### قرار - إضافة نموذج بطاقة عملية
+تم اعتماد نموذج بطاقة عملية كمورد مجاني ضمن مسار الأدلة والإجراءات، على أن يتضمن تعريف العملية، مدخلاتها، مخرجاتها، أدوارها، مواردها، مؤشراتها، مخاطرها، وفرص تحسينها.
+
+### قرار - إضافة نموذج إجراء تشغيلي SOP
+تم اعتماد نموذج إجراء تشغيلي SOP كمورد مجاني ضمن مسار الأدلة والإجراءات، باعتباره النموذج التفصيلي المكمل لبطاقة العملية، ويستخدم لتوثيق طريقة تنفيذ العمل خطوة بخطوة.
+
+- اعتماد نموذج تحليل SWOT كمورد مجاني ضمن قسم التخطيط الاستراتيجي، مع تحويل النسخة المختصرة السابقة إلى مورد احترافي قابل للتحميل.
+
+- اعتماد نموذج تحليل PESTEL كمورد مجاني ضمن قسم التخطيط الاستراتيجي، وربطه بتحليل SWOT والخدمات ذات العلاقة.
+
+
+## قرار - اعتماد نموذج بطاقة هدف استراتيجي
+تم اعتماد النموذج كمورد مجاني ضمن التخطيط الاستراتيجي، ليكمل موارد SWOT وPESTEL ويربط التحليل بالأهداف والمؤشرات والمبادرات.
+
+
+## قرار - اعتماد نموذج سجل المبادرات الاستراتيجية
+تم اعتماد النموذج كمورد مجاني ضمن التخطيط الاستراتيجي، ليكمل موارد SWOT وPESTEL وبطاقة الهدف الاستراتيجي.
+
+
+## قرار - اعتماد قائمة تحقق لمراجعة الخطة الاستراتيجية
+تم اعتماد القائمة كمورد مجاني ضمن التخطيط الاستراتيجي، لمراجعة ترابط الخطة بين التحليل والأهداف والمؤشرات والمبادرات والمخاطر والحوكمة.
+
+
+## قرار - اعتماد نموذج تحويل الأهداف إلى أنشطة تنفيذية
+تم اعتماد النموذج كمورد مجاني ضمن الخطط التشغيلية، مع إضافة شرح مختصر لمفهوم WBS ومصفوفة RACI مختصرة لتوزيع الأدوار.
+
+- اعتماد نموذج مصفوفة تقييم المخاطر كمورد مجاني ضمن إدارة المخاطر، وربطه بسجل المخاطر وخدمة إدارة المخاطر.
+
+
+## قرار - مورد نموذج خطة معالجة المخاطر
+تم اعتماد نموذج خطة معالجة المخاطر كمورد مجاني ضمن إدارة المخاطر، بصيغة Word/PDF، وربطه بسجل المخاطر ومصفوفة تقييم المخاطر.
+
+
+### قرار: اعتماد قائمة تحقق لمراجعة نظام إدارة المخاطر
+تم اعتماد المورد كمورد مجاني ضمن إدارة المخاطر، لاستكمال منظومة السجل والتقييم والمعالجة بمراجعة شاملة لنضج النظام.
+
+
+### مورد جديد - نموذج وصف فكرة مشروع
+تمت إضافة صفحة الشرح `templates/project-idea-description-template.html` وملفات التحميل `resources/downloads/feasibility-studies/ConsuTrain_Project_Idea_Description_Template_AR.docx` و`ConsuTrain_Project_Idea_Description_Template_AR.pdf`، وتحديث صفحات الموارد والقوالب.
+
+
+### مورد جديد - نموذج تحليل السوق
+تمت إضافة صفحة الشرح `templates/market-analysis-template.html` وملفات التحميل `resources/downloads/feasibility-studies/ConsuTrain_Market_Analysis_Template_AR.docx` و`ConsuTrain_Market_Analysis_Template_AR.pdf`، وتحديث صفحات الموارد والقوالب.
+
+### قرار - إضافة نموذج تقدير التكاليف الأولية
+تم اعتماد نموذج تقدير التكاليف الأولية كمورد مجاني ضمن مسار دراسات الجدوى، مع ربطه بأداة دراسة الجدوى ليكون جزءًا من مسار: وصف الفكرة، تحليل السوق، تقدير التكاليف، استخدام الأداة، ثم طلب استشارة عند الحاجة.
+
+
+- اعتماد مورد قائمة تحقق قبل دراسة الجدوى كأداة أولية لتقييم جاهزية فكرة المشروع قبل استخدام أداة دراسة الجدوى أو طلب خدمة تفصيلية.
+
+
+- اعتماد مورد نموذج متابعة مهام المشروع كأداة مجانية لمتابعة المهام والمسؤوليات والمواعيد ونسبة الإنجاز والقرارات المطلوبة.
+
+
+- اعتماد مورد نموذج تقرير حالة مشروع كأداة مجانية لرفع حالة المشروع بصورة تنفيذية تشمل النطاق والجدول والميزانية والمخاطر والقرارات.
+
+- اعتماد مورد: قائمة تحقق لمراجعة دليل الإجراءات كقائمة مراجعة عملية لدليل الإجراءات قبل الاعتماد أو النشر.
+- اعتماد قائمة تحقق جاهزية ISO 9001 كمدخل أولي لخدمة التأهيل والاستشارات ISO.
+- اعتماد نموذج إجراء تصحيحي كمورد مستقل لحالة واحدة، مكمل لسجل الإجراءات التصحيحية والتحسينية.
+
+## قرار - تفعيل موارد الذكاء الاصطناعي بروابط شرح وتحميل
+- عند تحويل أي مورد من صيغة Markdown قديمة إلى مورد احترافي، يجب استبدال بطاقته داخل resources/index.html بروابط: شرح المورد، تحميل Word، عرض PDF.
+- لا يتم استخدام مجلد _snippets إلا بطلب صريح من المستخدم.
+
+- 2026-05-07: اعتماد حزمة Prompts لدراسة الجدوى كمورد مجاني ضمن الذكاء الاصطناعي للإدارة، مع تفعيل روابط الشرح والتحميل والمعاينة.
+
+- اعتماد مورد حزمة Prompts لإدارة المشاريع والجودة كآخر مورد ضمن حزم الذكاء الاصطناعي للإدارة، وربطه بصفحات الموارد والقوالب.

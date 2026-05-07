@@ -17,38 +17,6 @@
     content="خدمة التخطيط الاستراتيجي في ConsuTrain لمساعدة الجهات والمؤسسات على بناء توجه واضح وأهداف عملية وخطط قابلة للتنفيذ."
   >
 
-
-  <script>
-    /*
-      Early scroll reset for service pages.
-      This runs in the head before the browser restores an old scroll position.
-    */
-    (function () {
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "manual";
-      }
-
-      function resetToTop() {
-        if (window.location.hash) return;
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        if (document.body) document.body.scrollTop = 0;
-      }
-
-      resetToTop();
-      window.addEventListener("DOMContentLoaded", resetToTop);
-      window.addEventListener("pageshow", function () {
-        resetToTop();
-        setTimeout(resetToTop, 80);
-        setTimeout(resetToTop, 250);
-      });
-      window.addEventListener("load", function () {
-        resetToTop();
-        setTimeout(resetToTop, 120);
-        setTimeout(resetToTop, 400);
-      });
-    })();
-  </script>
   <link rel="stylesheet" href="../assets/css/style.css?v=20260504_menu">
 </head>
 
@@ -79,9 +47,8 @@
         </p>
 
         <div class="service-hero-actions">
-          <a class="btn btn-primary" href="book-consultation.html">احجز استشارة لتطوير خطتك</a>
-          <a class="btn btn-outline" href="../templates/operational-plan-template.html">تحميل قالب الخطة التشغيلية</a>
-          <a class="btn btn-outline" href="../downloads/ConsuTrain_Profile_and_Services_AR.pdf" target="_blank" rel="noopener">تحميل دليل ConsuTrain</a>
+          <a class="btn btn-primary" href="../contact.html">اطلب هذه الخدمة</a>
+          <a class="btn btn-outline" href="../services.html">العودة إلى الخدمات</a>
         </div>
       </div>
     </section>
@@ -127,38 +94,6 @@
               الانتقال من التفكير إلى التطبيق.
             </p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!--
-      =======================================================
-      CLIENT PROBLEM / CONVERSION BLOCK
-      =======================================================
-    -->
-    <section class="home-section service-detail-soft">
-      <div class="container">
-        <div class="service-problem-card">
-          <div class="service-problem-content">
-            <span class="section-kicker">المشكلة التي نعالجها</span>
-            <h2>عندما تبقى الاستراتيجية في مستوى العناوين، يصعب تحويلها إلى إنجاز</h2>
-            <p>
-              كثير من الجهات تمتلك وثائق أو أفكارًا جيدة، لكن التحدي يبدأ عند تحويلها إلى أهداف واضحة،
-              مبادرات محددة، مؤشرات قابلة للقياس، وخطط تشغيلية يفهمها فريق العمل. هنا تأتي قيمة الخدمة:
-              ترتيب التفكير، تقليل التشتت، وبناء مسار عملي يمكن متابعته.
-            </p>
-          </div>
-
-          <div class="service-problem-points">
-            <div>
-              <strong>قبل الخدمة</strong>
-              <p>أهداف عامة، أنشطة كثيرة، ومتابعة غير واضحة.</p>
-            </div>
-            <div>
-              <strong>بعد الخدمة</strong>
-              <p>اتجاه أوضح، أولويات محددة، ومخرجات مرتبطة بالتنفيذ.</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -430,66 +365,6 @@
 
     <!--
       =======================================================
-      FREE RESOURCES / RECIPROCITY
-      =======================================================
-    -->
-    <section class="home-section service-detail-soft">
-      <div class="container">
-        <div class="section-head service-detail-head">
-          <span class="section-kicker">موارد مجانية مرتبطة بالخدمة</span>
-          <h2>ابدأ بتقييم خطتك قبل طلب الخدمة</h2>
-          <p>
-            قبل أن تحجز استشارة، يمكنك استخدام هذه النماذج المجانية لفهم عناصر الخطة التشغيلية
-            ومراجعة مستوى جاهزيتها. هذا يساعدك على الدخول إلى النقاش بصورة أوضح وأكثر فاعلية.
-          </p>
-        </div>
-
-        <div class="cards-grid service-resource-grid">
-          <article class="section-card service-resource-card">
-            <span class="resource-tag">Word + PDF</span>
-            <h3>قالب الخطة التشغيلية المبسط</h3>
-            <p>
-              نموذج عملي يساعدك على تنظيم بيانات الخطة، الأهداف المرتبطة، الإجراءات، المسؤوليات،
-              المخاطر، وآلية المتابعة.
-            </p>
-            <a class="service-resource-link" href="../templates/operational-plan-template.html">فتح صفحة القالب</a>
-          </article>
-
-          <article class="section-card service-resource-card">
-            <span class="resource-tag">Checklist</span>
-            <h3>قائمة فحص جاهزية الخطة التشغيلية</h3>
-            <p>
-              قائمة مراجعة سريعة تساعدك على معرفة ما إذا كانت خطتك واضحة، قابلة للتنفيذ،
-              ومربوطة بمؤشرات ومسؤوليات ومتابعة.
-            </p>
-            <a class="service-resource-link" href="../templates/operational-plan-checklist.html">فتح قائمة الفحص</a>
-          </article>
-
-          <article class="section-card service-resource-card">
-            <span class="resource-tag">مخاطر</span>
-            <h3>نموذج سجل مخاطر مبسط</h3>
-            <p>
-              أداة مساعدة لتحديد المخاطر التي قد تؤثر في تنفيذ الخطة، وتوثيق الإجراءات والمسؤوليات
-              وحالة المتابعة.
-            </p>
-            <a class="service-resource-link" href="../templates/simple-risk-register.html">فتح سجل المخاطر</a>
-          </article>
-
-          <article class="section-card service-resource-card">
-            <span class="resource-tag">دليل PDF</span>
-            <h3>دليل ConsuTrain للخدمات والموارد العملية</h3>
-            <p>
-              ملف تعريفي مختصر يشرح خدمات ConsuTrain، منهجية العمل، والموارد المجانية المتاحة.
-              يمكنك الاحتفاظ به أو مشاركته مع فريقك قبل طلب الاستشارة.
-            </p>
-            <a class="service-resource-link" href="../downloads/ConsuTrain_Profile_and_Services_AR.pdf" target="_blank" rel="noopener">تحميل الدليل</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!--
-      =======================================================
       CTA
       =======================================================
     -->
@@ -505,9 +380,8 @@
           </p>
 
           <div class="service-hero-actions">
-            <a class="btn btn-primary" href="book-consultation.html">احجز استشارة</a>
-            <a class="btn btn-outline" href="../templates/operational-plan-template.html">ابدأ بالقالب المجاني</a>
-            <a class="btn btn-outline" href="../downloads/ConsuTrain_Profile_and_Services_AR.pdf" target="_blank" rel="noopener">تحميل دليل ConsuTrain</a>
+            <a class="btn btn-primary" href="../contact.html">تواصل الآن</a>
+            <a class="btn btn-outline" href="../about.html">تعرف على المنصة</a>
           </div>
         </div>
       </div>
@@ -567,6 +441,6 @@
     });
   </script>
 
-  <script src="../assets/js/includes.js?v=20260505_force_top_fix"></script>
+  <script src="../assets/js/includes.js?v=20260504_menu"></script>
 </body>
 </html>

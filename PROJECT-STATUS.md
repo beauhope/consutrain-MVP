@@ -224,83 +224,232 @@ Completed:
 Closed:
 - Knowledge Library interface enhancement.
 - Management Skills path navigation enhancement.
+### Structure + Monetization – Free Resources Library
 
-### معالجة مشكلة بقاء قائمة الهاتف مفتوحة في MyTodo
+Status: Completed / Ready for Review
 
-ظهرت مشكلة بقاء قائمة الهاتف مفتوحة فوق صفحة MyTodo على الهاتف رغم اختفائها على الحاسوب بعد رفع الملفات إلى GitHub Pages. وبعد مراجعة السلوك، تبيّن أن السبب كان مرتبطًا بكاش الهاتف أو Service Worker وليس بالكود الجديد. تم حل المشكلة بعد مسح بيانات الموقع من إعدادات Chrome عبر: إعدادات Chrome ← إعدادات الموقع ← التخزين ← beauhope.github.io ← حذف البيانات. بعد ذلك ظهرت النسخة الصحيحة واختفت القائمة المفتوحة.
+Completed:
+- Added a new section for free resources under `resources/index.html`.
+- Added 32 downloadable starter resources under categorized folders inside `resources/downloads/`.
+- Organized resources into eight categories:
+  Strategic Planning, Operational Plans, ISO and Quality, Risk Management, Feasibility Studies, Project Management, SOP and Procedures, and AI for Management.
+- Added filter buttons on the resources page to help visitors browse by category.
+- Added the Resources link to the shared header.
+- Added Resources links to the homepage and `start-here.html`.
+- Updated the Service Worker cache version and included `resources/index.html` in the precache list.
 
-## Phase 1 — MVP Stabilization
+Notes:
+- The current downloadable files are lightweight Markdown starter templates. They can later be converted into Word, PDF, Excel, or interactive web templates.
+- Future service pages should remain scalable because more consulting services will be added gradually.
 
-Status: Completed technically
-
-The first technical stabilization phase of ConsuTrain MVP has been completed. The platform was reviewed and tested across the main pages, internal navigation, shared header and footer, breadcrumbs, MyTodo integration, GitHub Pages deployment, PWA installation, Service Worker behavior, and mobile browsing.
-
-Key outcomes:
-- Unnecessary local files were removed.
-- Broken links and path issues were reviewed.
-- `data-root` rules were validated across page levels.
-- Shared partials for header and footer were tested.
-- Breadcrumbs were activated on the main internal pages.
-- MyTodo was tested on desktop and mobile.
-- The mobile navigation issue was fixed.
-- GitHub Pages deployment was verified.
-- PWA installation was tested successfully.
-- Cache and Service Worker issues were reviewed and resolved.
-- No blocking 404 errors or broken internal links remain.
-
-Technical note:
-A mobile issue in MyTodo where the navigation menu remained open was confirmed to be caused by browser cache / Service Worker behavior, not by the latest code. It was resolved by clearing site data from Chrome settings on the phone.
-
-Next phase:
-Move to Structure and Monetization improvements, starting with “Start Here”, consulting booking, downloadable lead magnet, service page improvements, and templates landing page.
+Next:
+- Review the resources page visually on desktop and mobile.
+- Decide whether to convert selected high-value resources into PDF/Word lead magnets.
+- Later, connect each resource more precisely to its related service page.
 
 
-## تحديث الحالة – ConsuTrain UI/UX
+### Resources downloads organization update
+- Reorganized free resource download files under `resources/downloads/` by category folders.
+- Updated `resources/index.html` download links to point to the new categorized paths.
+- The old flat `resources/downloads/*.md` structure is no longer used.
 
-### آخر حالة
-تم الانتهاء مبدئيًا من مسار:
 
-ConsuTrain – UI/UX – التصميم العام
+## 2026-05-06 — Free Resources downloadable files integrated
 
-وتم تنفيذ تحسينات واسعة على الهوية البصرية وتجربة المستخدم.
+- Moved the uploaded Word/PDF download files into categorized folders under `resources/downloads/`.
+- Operational plan files were placed under `resources/downloads/operational-plans/`.
+- Simple risk register files were placed under `resources/downloads/risk-management/`.
+- ConsuTrain profile PDF was placed under `resources/downloads/profile/`.
+- Updated `resources/index.html` to link to the Word/PDF versions where available.
+- Confirmed that no root-level `/downloads/` folder is needed in the updated package.
 
-### ما تم إنجازه
+## 2026-05-06 — Templates linked to Free Resources
 
-1. تحسين عرض الموقع على الجوال:
-   - ضبط Hero والعناوين.
-   - تحسين البطاقات والأزرار.
-   - تحسين قائمة الهاتف والقوائم الفرعية.
-   - تكبير سهم الأكورديون.
-   - تحسين الفوتر.
+Status: Completed / Ready for Review
 
-2. توحيد التصميم:
-   - توحيد أحجام العناوين.
-   - توحيد الأزرار.
-   - توحيد البطاقات.
-   - تحسين الخلفيات والمسافات.
+Completed:
+- Added a dedicated `templates/` section for resources that need explanation pages before download.
+- Created `templates/index.html` as a lightweight listing page for explained templates.
+- Created explanation pages for:
+  - `templates/operational-plan-template.html`
+  - `templates/operational-plan-checklist.html`
+  - `templates/simple-risk-register.html`
+- Linked the related cards in `resources/index.html` to their explanation pages.
+- Kept downloadable Word/PDF files under categorized folders inside `resources/downloads/`.
+- Added CSS support for template detail pages.
+- Updated the Service Worker cache version and precache list for the new template pages.
 
-3. تحسين الصفحات الرئيسية:
-   - الصفحة الرئيسية.
-   - صفحات Learn.
-   - صفحات Tools.
-   - صفحات Services.
+Decision applied:
+- Each important free resource should have a useful explanation page inside the website, not only a download link.
 
-4. إصلاحات إضافية:
-   - إصلاح تباين نص Hero في صفحة الأدوات.
-   - تحسين وضوح Breadcrumbs فوق الخلفيات الداكنة.
-   - اختبار سريع للروابط والملفات الأساسية.
-   - التأكد من وجود ملفات المشروع الأساسية:
-     - index.html
-     - style.css
-     - includes.js
-     - header.html
-     - footer.html
-     - manifest.webmanifest
-     - sw.js
-     - offline.html
+Next:
+- Review the template pages visually on desktop and mobile.
+- Apply the same model gradually to the remaining free resources.
 
-### ملاحظة قبل الإغلاق النهائي
-تم تجهيز ملف إصلاح خاص بصفحات Learn التي كانت تفتقد:
 
-```html
-<div id="breadcrumbs-placeholder"></div>
+## 2026-05-06 — KPI Performance Card resource finalized
+
+Status: Completed / Ready for Review
+
+Completed:
+- Added a new explained free resource page: `templates/kpi-performance-card.html`.
+- Added the downloadable Word file: `resources/downloads/performance-management/ConsuTrain_KPI_Performance_Card_AR.docx`.
+- Added the PDF preview: `resources/downloads/performance-management/ConsuTrain_KPI_Performance_Card_AR.pdf`.
+- Updated `resources/index.html` to replace the old lightweight KPI Markdown resource with the professional Word/PDF version and explanation page.
+- Updated `templates/index.html` to include the KPI resource.
+- Restored the stronger explanation-page style for the three previously prepared resources and updated their download paths to the categorized `resources/downloads/` structure.
+- Rendered and visually checked the KPI DOCX output before packaging.
+- Added `services/book-consultation.html` because template CTA links point to this consultation page and the current package did not include it.
+
+Decision applied:
+- For future free resources, the basic model will first be presented textually for review before preparing the downloadable file and explanation page.
+
+## 2026-05-06 — Operational Plan Follow-up Report resource finalized
+
+Status: Completed / Ready for Review
+
+Completed:
+- Added a new explained free resource page: `templates/operational-plan-follow-up-report.html`.
+- Added the downloadable Word file: `resources/downloads/operational-plans/ConsuTrain_Operational_Plan_Follow_Up_Report_AR.docx`.
+- Added the PDF preview: `resources/downloads/operational-plans/ConsuTrain_Operational_Plan_Follow_Up_Report_AR.pdf`.
+- Updated `resources/index.html` by upgrading the former operational follow-up starter resource into a professional Word/PDF resource with an explanation page.
+- Updated `templates/index.html` to include the operational plan follow-up report resource.
+- Updated the Service Worker cache version and precache list.
+- Rendered and visually checked the DOCX output before packaging.
+
+Decision applied:
+- Approved resources are upgraded into a downloadable file and a dedicated explanation page after the basic model is reviewed.
+
+
+## 2026-05-06 — Stakeholder Register resource finalized
+
+Status: Completed / Ready for Review
+
+Completed:
+- Added a new explained free resource page: `templates/stakeholder-register.html`.
+- Added the downloadable Word file: `resources/downloads/project-management/ConsuTrain_Stakeholder_Register_AR.docx`.
+- Added the PDF preview: `resources/downloads/project-management/ConsuTrain_Stakeholder_Register_AR.pdf`.
+- Updated `resources/index.html` by upgrading the former stakeholder register starter resource into a professional Word/PDF resource with an explanation page.
+- Updated `templates/index.html` to include the stakeholder register resource.
+- Updated the Service Worker cache version and precache list.
+- Rendered and visually checked the DOCX output before packaging.
+
+Decision applied:
+- Approved resource models are upgraded into a downloadable file and a dedicated explanation page after the basic model is reviewed.
+
+### Resource update - Project Charter
+
+- Added `templates/project-charter.html` as the explanation page for the free Project Charter resource.
+- Added Word/PDF files under `resources/downloads/project-management/`.
+- Updated `resources/index.html` and `templates/index.html` to link the resource.
+
+
+
+### إضافة مورد مجاني: نموذج خطة تواصل المشروع
+- تمت إضافة صفحة شرح: `templates/project-communication-plan.html`.
+- تمت إضافة ملفات التحميل: `resources/downloads/project-management/ConsuTrain_Project_Communication_Plan_AR.docx` ونسخة PDF.
+- تم ربط المورد داخل `resources/index.html` و `templates/index.html`.
+
+
+### إضافة مورد مجاني: نموذج محضر اجتماع ومتابعة القرارات
+- تمت إضافة صفحة شرح: `templates/meeting-minutes-decision-tracking.html`.
+- تمت إضافة ملف Word قابل للتعديل: `resources/downloads/project-management/ConsuTrain_Meeting_Minutes_Decision_Tracking_AR.docx`.
+- تم ربط المورد داخل `resources/index.html` و `templates/index.html`.
+- تم عرض ملف Word بصريًا بعد الإنشاء للتحقق من سلامة الجداول والتنسيق.
+
+- تمت إضافة نسخة PDF لمورد نموذج محضر اجتماع ومتابعة القرارات للمعاينة، وتحديث روابط صفحة المورد وصفحتي الموارد والقوالب.
+
+## تحديث الموارد المجانية - سجل الإجراءات التصحيحية والتحسينية
+
+تم اعتماد مورد مجاني جديد بعنوان: نموذج سجل الإجراءات التصحيحية والتحسينية. تمت إضافة صفحة شرح داخل templates، وملفات تحميل Word/PDF داخل resources/downloads/iso-quality، وتحديث صفحات الموارد والقوالب ونسخة الكاش في sw.js.
+
+### مورد جديد: نموذج خطة التدقيق الداخلي
+تمت إضافة مورد مجاني جديد ضمن ISO والجودة، ويشمل صفحة شرح وملفي تحميل Word وPDF داخل resources/downloads/iso-quality.
+
+### مورد جديد: قائمة تحقق التدقيق الداخلي ISO 9001
+تمت إضافة مورد مجاني جديد ضمن ISO والجودة، ويشمل صفحة شرح وملفي تحميل Word وPDF داخل resources/downloads/iso-quality.
+- تمت إضافة مورد مجاني جديد: نموذج سجل عدم المطابقة، مع صفحة شرح وملفات Word/PDF ضمن قسم ISO والجودة.
+
+
+### مورد مجاني جديد - نموذج سياسة الجودة
+تمت إضافة نموذج سياسة الجودة ضمن موارد ISO والجودة، مع تضمين أهداف جودة قابلة للقياس داخل السياسة، وإضافة صفحة شرح وملفات Word/PDF.
+- إضافة مورد مجاني جديد: نموذج أهداف الجودة ومؤشرات القياس، مع صفحة شرح وملفات Word/PDF ضمن قسم ISO والجودة.
+- إضافة مورد مجاني جديد: نموذج سجل ضبط الوثائق والسجلات، مع إدراج صنف الوثائق الخارجية مثل التشريعات والقوانين واللوائح والمعايير ذات العلاقة.
+- تمت إضافة مورد مجاني جديد: نموذج سجل الشكاوى ورضا العملاء / المستفيدين بصيغتي Word وPDF، مع صفحة شرح داخل templates وربطه ضمن الموارد المجانية.
+
+
+- إضافة مورد مجاني: نموذج مراجعة الإدارة لنظام الجودة، مع صفحة شرح وملفات Word/PDF ضمن موارد ISO والجودة.
+
+### تحديث الموارد المجانية - نموذج خطة تحسين العمليات
+تم اعتماد وإضافة مورد جديد بعنوان "نموذج خطة تحسين العمليات" ضمن موارد ISO والجودة، مع صفحة شرح وملفات تحميل Word/PDF داخل resources/downloads/iso-quality.
+
+### تحديث الموارد المجانية - نموذج بطاقة عملية
+تم اعتماد وإضافة مورد جديد بعنوان "نموذج بطاقة عملية" ضمن موارد الأدلة والإجراءات، مع صفحة شرح وملفات تحميل Word/PDF داخل resources/downloads/sop-procedures. يتضمن النموذج جدولًا خاصًا بالموارد اللازمة لتفعيل العملية: بشرية، مادية، مالية، ومعرفية.
+
+### تحديث الموارد المجانية - نموذج إجراء تشغيلي SOP
+تم اعتماد وإضافة مورد جديد بعنوان "نموذج إجراء تشغيلي SOP" ضمن موارد الأدلة والإجراءات، مع صفحة شرح وملفات تحميل Word/PDF داخل resources/downloads/sop-procedures. يوضح النموذج الغرض والنطاق والمسؤوليات والمدخلات وخطوات التنفيذ والمخرجات والسجلات والمؤشرات والمخاطر ومعايير الجودة وحالات التصعيد.
+
+- تمت إضافة مورد نموذج تحليل SWOT ضمن موارد التخطيط الاستراتيجي، مع صفحة شرح وملفات Word/PDF.
+
+- تمت إضافة مورد نموذج تحليل PESTEL ضمن موارد التخطيط الاستراتيجي، مع صفحة شرح وملفات Word/PDF.
+
+
+## تحديث - مورد نموذج بطاقة هدف استراتيجي
+تم اعتماد وإضافة نموذج بطاقة هدف استراتيجي ضمن موارد التخطيط الاستراتيجي، مع صفحة شرح وملفات Word/PDF وروابط في الموارد والقوالب.
+
+
+## تحديث - مورد نموذج سجل المبادرات الاستراتيجية
+تم اعتماد وإضافة نموذج سجل المبادرات الاستراتيجية ضمن موارد التخطيط الاستراتيجي، مع صفحة شرح وملفات Word/PDF وروابط في الموارد والقوالب.
+
+
+## تحديث - مورد قائمة تحقق لمراجعة الخطة الاستراتيجية
+تم اعتماد وإضافة قائمة تحقق لمراجعة الخطة الاستراتيجية ضمن موارد التخطيط الاستراتيجي، مع صفحة شرح وملفات Word/PDF وروابط في الموارد والقوالب.
+
+
+## تحديث - مورد تحويل الأهداف إلى أنشطة تنفيذية
+تم اعتماد وإضافة نموذج تحويل الأهداف إلى أنشطة تنفيذية ضمن موارد الخطط التشغيلية، مع تضمين مفهوم WBS ومصفوفة RACI مختصرة، وصفحة شرح وملفات Word/PDF.
+
+- تمت إضافة مورد مجاني جديد: نموذج مصفوفة تقييم المخاطر ضمن قسم إدارة المخاطر، مع صفحة شرح وملفات Word/PDF.
+
+
+- تمت إضافة مورد مجاني جديد: نموذج خطة معالجة المخاطر ضمن قسم إدارة المخاطر، مع صفحة شرح وملفات Word/PDF وروابط في الموارد والقوالب.
+
+
+### تم إضافة مورد: قائمة تحقق لمراجعة نظام إدارة المخاطر
+تمت إضافة صفحة الشرح `templates/risk-management-system-review-checklist.html` وملفات التحميل Word/PDF ضمن `resources/downloads/risk-management/`، مع تحديث صفحة الموارد والقوالب والكاش.
+
+
+### مورد جديد - نموذج وصف فكرة مشروع
+تمت إضافة صفحة الشرح `templates/project-idea-description-template.html` وملفات التحميل `resources/downloads/feasibility-studies/ConsuTrain_Project_Idea_Description_Template_AR.docx` و`ConsuTrain_Project_Idea_Description_Template_AR.pdf`، وتحديث صفحات الموارد والقوالب.
+
+
+### مورد جديد - نموذج تحليل السوق
+تمت إضافة صفحة الشرح `templates/market-analysis-template.html` وملفات التحميل `resources/downloads/feasibility-studies/ConsuTrain_Market_Analysis_Template_AR.docx` و`ConsuTrain_Market_Analysis_Template_AR.pdf`، وتحديث صفحات الموارد والقوالب.
+
+### تحديث الموارد المجانية - نموذج تقدير التكاليف الأولية
+تم اعتماد وإضافة مورد جديد ضمن دراسات الجدوى بعنوان "نموذج تقدير التكاليف الأولية"، مع صفحة شرح وملفات Word/PDF، وربطه بأداة دراسة الجدوى داخل الموقع.
+
+
+### مورد جديد - قائمة تحقق قبل دراسة الجدوى
+تمت إضافة صفحة شرح وملفات Word/PDF لمورد قائمة تحقق قبل دراسة الجدوى ضمن موارد دراسات الجدوى، مع ربط المورد بأداة دراسة الجدوى.
+
+
+### مورد جديد - نموذج متابعة مهام المشروع
+تمت إضافة صفحة شرح وملفات Word/PDF لمورد نموذج متابعة مهام المشروع ضمن موارد إدارة المشاريع.
+
+
+### مورد جديد - نموذج تقرير حالة مشروع
+تمت إضافة صفحة شرح وملفات Word/PDF لمورد نموذج تقرير حالة مشروع ضمن موارد إدارة المشاريع.
+
+- تم إضافة مورد مجاني جديد: قائمة تحقق لمراجعة دليل الإجراءات، مع صفحة شرح وملفات Word/PDF ضمن قسم الأدلة والإجراءات.
+- تمت إضافة مورد مجاني جديد: قائمة تحقق جاهزية ISO 9001، مع صفحة شرح وملفات Word/PDF.
+- تمت إضافة مورد نموذج إجراء تصحيحي ضمن موارد ISO والجودة مع صفحة شرح وملفات Word/PDF.
+
+## تحديث الموارد المجانية - حزمة Prompts للتخطيط الاستراتيجي
+- تم تفعيل مورد حزمة Prompts للتخطيط الاستراتيجي ضمن صفحة الموارد المجانية.
+- تم إنشاء صفحة شرح للمورد وربطها بملفات Word وPDF.
+- تم تنظيف صفحة القوالب وإعادة بنائها من بطاقات الموارد المشروحة لتجنب التكرار أو وضع بطاقات خارج الشبكة.
+
+- 2026-05-07: تمت إضافة مورد حزمة Prompts لدراسة الجدوى مع صفحة شرح وملفات Word/PDF وربطه بصفحة الموارد والقوالب.
+
+- تمت إضافة مورد حزمة Prompts لإدارة المشاريع والجودة ضمن موارد الذكاء الاصطناعي للإدارة، مع صفحة شرح وملفات Word/PDF وروابط مفعلة في الموارد والقوالب.
