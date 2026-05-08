@@ -3,478 +3,158 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>قوالب ConsuTrain المجانية | ConsuTrain</title>
-  <meta name="description" content="صفحة تعرض القوالب والموارد المجانية المتاحة داخل ConsuTrain مع روابط الشرح والتحميل.">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20260507_templates_clean">
-  <link rel="manifest" href="../manifest.webmanifest">
-  <meta name="theme-color" content="#0f2747">
-  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <title>مكتبة القوالب والتحميلات المجانية | ConsuTrain</title>
+  <meta name="description" content="مكتبة قوالب ونماذج مجانية قابلة للتحميل من ConsuTrain، تشمل الخطة التشغيلية، قائمة فحص الجاهزية، سجل المخاطر، وقوالب إدارية قادمة.">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260505_templates_hub">
+  <style>
+    .templates-hub{background:#f7f9fc;min-height:100vh;}
+    .templates-hub-hero{padding:56px 20px 36px;background:linear-gradient(135deg,#f8fbff 0%,#eef5ff 55%,#fffaf0 100%);border-bottom:1px solid rgba(11,31,58,.08);}
+    .templates-hub .container{max-width:1160px;margin:0 auto;}
+    .templates-hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:26px;align-items:center;}
+    .templates-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;background:#fff7df;color:#8a5a00;border:1px solid rgba(244,180,0,.25);font-weight:700;font-size:.9rem;margin-bottom:14px;}
+    .templates-hub h1{margin:0 0 14px;color:#0b1f3a;font-size:clamp(1.9rem,4vw,3.1rem);line-height:1.35;}
+    .templates-hub p{line-height:1.9;color:#5f6b7a;margin:0;}
+    .templates-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+    .templates-side-card{background:#fff;border:1px solid rgba(11,31,58,.08);border-radius:24px;padding:24px;box-shadow:0 18px 45px rgba(11,31,58,.08);}
+    .templates-side-card strong{display:block;color:#0b1f3a;font-size:1.15rem;margin-bottom:10px;}
+    .templates-side-card ul{margin:12px 0 0;padding:0 18px;color:#5f6b7a;line-height:1.9;}
+    .templates-section{padding:38px 20px;}
+    .templates-section-head{margin-bottom:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+    .templates-section-head h2{margin:0 0 8px;color:#0b1f3a;font-size:1.55rem;}
+    .templates-section-head p{max-width:760px;}
+    .templates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+    .template-card{background:#fff;border:1px solid rgba(11,31,58,.08);border-radius:22px;padding:22px;box-shadow:0 12px 34px rgba(11,31,58,.06);display:flex;flex-direction:column;gap:14px;min-height:250px;}
+    .template-card:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(11,31,58,.10);transition:.18s ease;}
+    .template-icon{width:54px;height:54px;border-radius:17px;background:linear-gradient(135deg,#eaf2ff,#fff8e6);display:grid;place-items:center;font-size:1.55rem;}
+    .template-card h3{margin:0;color:#0b1f3a;font-size:1.12rem;}
+    .template-card p{font-size:.95rem;}
+    .template-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;}
+    .template-badge{display:inline-flex;align-items:center;border-radius:999px;padding:6px 10px;font-size:.82rem;font-weight:700;}
+    .template-badge.free{background:#eaf8ef;color:#166534;}
+    .template-badge.ready{background:#eef4fb;color:#16385f;}
+    .template-badge.soon{background:#fff4e5;color:#9a6700;}
+    .template-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#0b4c8c;font-weight:800;margin-top:4px;}
+    .template-link:hover{text-decoration:underline;}
+    .templates-note-box{background:#0b1f3a;color:#fff;border-radius:26px;padding:28px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(240px,.9fr);gap:22px;align-items:center;box-shadow:0 18px 44px rgba(11,31,58,.18);}
+    .templates-note-box h2{color:#fff;margin:0 0 10px;}
+    .templates-note-box p{color:rgba(255,255,255,.88);}
+    .templates-note-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-start;}
+    .templates-note-actions .btn-secondary{background:#fff;color:#0b1f3a;border-color:#fff;}
+    .coming-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;}
+    .coming-item{background:#fff;border:1px dashed rgba(11,31,58,.18);border-radius:18px;padding:16px;min-height:105px;}
+    .coming-item strong{display:block;color:#0b1f3a;margin-bottom:6px;}
+    .coming-item span{display:inline-flex;margin-top:10px;border-radius:999px;background:#fff4e5;color:#9a6700;padding:5px 9px;font-size:.8rem;font-weight:700;}
+    @media(max-width:760px){.templates-hero-grid,.templates-note-box{grid-template-columns:1fr}.templates-hub-hero{padding-top:38px}.templates-note-actions .btn,.templates-hero-actions .btn{width:100%;justify-content:center}.template-card{min-height:auto}}
+  </style>
 </head>
-<body data-root=".." data-breadcrumb-section="القوالب والموارد" data-breadcrumb-title="قوالب ConsuTrain المجانية">
+<body data-root=".." data-breadcrumb-section="القوالب" data-breadcrumb-title="مكتبة القوالب والتحميلات المجانية">
   <div id="header-placeholder"></div>
-  <div class="container"><div id="breadcrumbs-placeholder"></div></div>
+  <div id="breadcrumbs-placeholder"></div>
 
-  <main class="template-detail-page">
-    <section class="hero template-hero">
-      <div class="container hero-grid">
-        <div class="hero-card">
-          <span class="eyebrow">قوالب عملية قابلة للشرح والتحميل</span>
-          <h1>قوالب ConsuTrain المجانية</h1>
+  <main class="templates-hub">
+    <section class="templates-hub-hero">
+      <div class="container templates-hero-grid">
+        <div>
+          <span class="templates-eyebrow">قوالب مجانية الآن — والمكتبة في توسع مستمر</span>
+          <h1>قوالب ونماذج عملية قابلة للتحميل</h1>
           <p>
-            هذه الصفحة تجمع الموارد التي لها صفحات شرح داخل الموقع. كل مورد لا يظهر فقط كرابط تحميل،
-            بل يتم تقديمه مع فكرة الاستخدام، الفئة المناسبة، وطريقة الاستفادة منه.
+            هذه الصفحة تجمع النماذج المجانية التي تساعدك على التخطيط، تنظيم العمل، متابعة المخاطر، ومراجعة جاهزية الخطط قبل التنفيذ. نضيف قوالب جديدة تدريجيًا حتى تصبح هذه المكتبة مرجعًا عمليًا للمستشارين، الإدارات، ورواد الأعمال.
           </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="../resources/index.html">مكتبة الموارد المجانية</a>
-            <a class="btn btn-secondary" href="../services.html">استكشاف الخدمات</a>
+          <div class="templates-hero-actions">
+            <a class="btn btn-primary" href="#free-templates">استعرض القوالب المجانية</a>
+            <a class="btn btn-secondary" href="../downloads/ConsuTrain_Profile_and_Services_AR.pdf" target="_blank" rel="noopener">تحميل دليل ConsuTrain</a>
           </div>
         </div>
-        <div class="hero-side">
-          <article class="feature-card"><h3>40 موردًا مشروحًا</h3><p>كل مورد مهم يحصل على صفحة توضح قيمته وطريقة استخدامه.</p></article>
-          <article class="feature-card"><h3>روابط واضحة</h3><p>يمكن فتح صفحة الشرح أو تحميل Word/PDF مباشرة.</p></article>
-          <article class="feature-card"><h3>قابل للتوسع</h3><p>يمكن إضافة موارد جديدة تدريجيًا دون إرباك بنية الموقع.</p></article>
+        <aside class="templates-side-card" aria-label="لماذا هذه المكتبة؟">
+          <strong>لماذا نبدأ بالقوالب؟</strong>
+          <p>القالب الجيد يختصر وقت البداية، لكنه لا يغني عن التفكير. لذلك نضع مع كل مورد شرحًا مختصرًا يساعدك على استخدامه بطريقة صحيحة.</p>
+          <ul>
+            <li>موارد مجانية قابلة للتنزيل.</li>
+            <li>قوالب مرتبطة بالخدمات الاستشارية.</li>
+            <li>نماذج جديدة ستضاف قريبًا.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="templates-section" id="free-templates">
+      <div class="container">
+        <div class="templates-section-head">
+          <div>
+            <h2>القوالب المجانية المتاحة الآن</h2>
+            <p>ابدأ بهذه الموارد الثلاثة، فهي مترابطة وتخدم التخطيط والتنفيذ والمتابعة.</p>
+          </div>
+          <a class="template-link" href="../services/consultation-form.html">تحتاج مساعدة في اختيار القالب؟ احجز استشارة ←</a>
+        </div>
+
+        <div class="templates-grid">
+          <article class="template-card">
+            <div class="template-icon">📅</div>
+            <h3>قالب الخطة التشغيلية</h3>
+            <p>قالب Word يساعد على تحويل الأهداف إلى إجراءات واضحة، مسؤوليات، مؤشرات، مواعيد، ومخاطر محتملة.</p>
+            <div class="template-meta"><span class="template-badge free">مجاني</span><span class="template-badge ready">جاهز</span></div>
+            <a class="template-link" href="operational-plan-template.html">فتح صفحة القالب ←</a>
+          </article>
+
+          <article class="template-card">
+            <div class="template-icon">✅</div>
+            <h3>Checklist جاهزية الخطة التشغيلية</h3>
+            <p>قائمة فحص تساعدك على مراجعة الخطة قبل اعتمادها، والتأكد من وضوح المسؤوليات والمؤشرات والمتابعة.</p>
+            <div class="template-meta"><span class="template-badge free">مجاني</span><span class="template-badge ready">جاهز</span></div>
+            <a class="template-link" href="operational-plan-checklist.html">فتح صفحة القائمة ←</a>
+          </article>
+
+          <article class="template-card">
+            <div class="template-icon">⚠️</div>
+            <h3>نموذج سجل مخاطر مبسط</h3>
+            <p>نموذج عملي لتحديد المخاطر، تقييمها، وضع المعالجات، وتحديد المسؤوليات وحالة المتابعة.</p>
+            <div class="template-meta"><span class="template-badge free">مجاني</span><span class="template-badge ready">جاهز</span></div>
+            <a class="template-link" href="simple-risk-register.html">فتح صفحة السجل ←</a>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="home-section">
+    <section class="templates-section">
       <div class="container">
-        <div class="section-head">
+        <div class="templates-note-box">
           <div>
-            <h2>القوالب المتاحة حاليًا</h2>
-            <p>ابدأ بفتح صفحة الشرح، ثم حمّل النسخة المناسبة حسب حاجتك.</p>
+            <h2>قريبًا: مكتبة أوسع من النماذج الإدارية</h2>
+            <p>
+              سيتم توسيع المكتبة تدريجيًا لتشمل قوالب في دراسة الجدوى، مؤشرات الأداء، الإجراءات التشغيلية، إدارة المشاريع، وتحليل أصحاب المصلحة. بعض الموارد ستبقى مجانية، وقد تتحول بعض الحزم المتقدمة لاحقًا إلى منتجات رقمية مدفوعة.
+            </p>
+          </div>
+          <div class="templates-note-actions">
+            <a class="btn btn-secondary" href="../tools.html">العودة إلى الأدوات</a>
+            <a class="btn btn-primary" href="../services/consultation-form.html">احجز استشارة</a>
           </div>
         </div>
-        <div class="template-list-grid">
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>التخطيط الاستراتيجي</span><small>Word / PDF</small></div>
-            <h3>نموذج تحليل SWOT</h3>
-            <p>قالب عملي لتحليل نقاط القوة والضعف والفرص والتهديدات، ثم تحويل النتائج إلى أولويات ومبادرات باستخدام TOWS.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="swot-analysis-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/strategic-planning/ConsuTrain_SWOT_Analysis_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/strategic-planning/ConsuTrain_SWOT_Analysis_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>التخطيط الاستراتيجي</span><small>Word / PDF</small></div>
-            <h3>نموذج تحليل PESTEL</h3>
-            <p>قالب عملي لتحليل البيئة الخارجية سياسيًا واقتصاديًا واجتماعيًا وتقنيًا وبيئيًا وقانونيًا، ثم تحويل النتائج إلى فرص وتهديدات.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="pestel-analysis-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/strategic-planning/ConsuTrain_PESTEL_Analysis_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/strategic-planning/ConsuTrain_PESTEL_Analysis_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>التخطيط الاستراتيجي</span><small>Word / PDF</small></div>
-            <h3>نموذج بطاقة هدف استراتيجي</h3>
-            <p>قالب عملي لصياغة الهدف الاستراتيجي وربطه بمصدره ومؤشراته ومبادراته وموارده ومخاطره وخطة المتابعة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="strategic-objective-card.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/strategic-planning/ConsuTrain_Strategic_Objective_Card_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/strategic-planning/ConsuTrain_Strategic_Objective_Card_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>التخطيط الاستراتيجي</span><small>Word / PDF</small></div>
-            <h3>نموذج سجل المبادرات الاستراتيجية</h3>
-            <p>قالب عملي لتحويل الأهداف إلى مبادرات واضحة، مع نطاق ومخرجات وموارد ومؤشرات ومخاطر وخطة متابعة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="strategic-initiatives-register.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/strategic-planning/ConsuTrain_Strategic_Initiatives_Register_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/strategic-planning/ConsuTrain_Strategic_Initiatives_Register_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>التخطيط الاستراتيجي</span><small>Word / PDF</small></div>
-            <h3>قائمة تحقق لمراجعة الخطة الاستراتيجية</h3>
-            <p>قائمة عملية لمراجعة جودة الخطة الاستراتيجية، والتأكد من ترابط التحليل والأهداف والمؤشرات والمبادرات والمخاطر والحوكمة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="strategic-plan-review-checklist.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/strategic-planning/ConsuTrain_Strategic_Plan_Review_Checklist_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/strategic-planning/ConsuTrain_Strategic_Plan_Review_Checklist_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الخطط التشغيلية</span><small>مجاني</small></div>
-            <h3>قالب خطة تشغيلية سنوية</h3>
-            <p>قالب يساعد على تحويل الأهداف إلى أنشطة تنفيذية ومسؤوليات ومواعيد ومؤشرات.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="operational-plan-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/operational-plans/ConsuTrain_Free_Operational_Plan_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/operational-plans/ConsuTrain_Free_Operational_Plan_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الخطط التشغيلية</span><small>Word / PDF</small></div>
-            <h3>قائمة جاهزية الخطة التشغيلية</h3>
-            <p>قائمة تحقق تساعد على مراجعة عناصر الخطة التشغيلية قبل اعتمادها أو مشاركتها مع فريق العمل.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="operational-plan-checklist.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/operational-plans/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/operational-plans/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الخطط التشغيلية</span><small>Word / PDF</small></div>
-            <h3>نموذج تحويل الأهداف إلى أنشطة تنفيذية</h3>
-            <p>نموذج عملي لتحويل الهدف إلى مخرجات وأنشطة ومهام فرعية وفق WBS، مع مصفوفة RACI مختصرة ومؤشرات ومخاطر وجدول متابعة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="objectives-to-actions-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/operational-plans/ConsuTrain_Objectives_To_Actions_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/operational-plans/ConsuTrain_Objectives_To_Actions_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الخطط التشغيلية</span><small>Word / PDF</small></div>
-            <h3>نموذج تقرير متابعة الخطة التشغيلية</h3>
-            <p>نموذج عملي لمتابعة تنفيذ الخطة، رصد الإنجاز، متابعة المؤشرات، توثيق المخاطر، وتحديد القرارات المطلوبة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="operational-plan-follow-up-report.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/operational-plans/ConsuTrain_Operational_Plan_Follow_Up_Report_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/operational-plans/ConsuTrain_Operational_Plan_Follow_Up_Report_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الخطط التشغيلية</span><small>Word / PDF</small></div>
-            <h3>نموذج بطاقة مؤشر أداء KPI</h3>
-            <p>نموذج عملي لتوثيق تعريف المؤشر، طريقة احتسابه، مصدر بياناته، مستهدفاته، وآلية المتابعة والتحسين.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="kpi-performance-card.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/performance-management/ConsuTrain_KPI_Performance_Card_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/performance-management/ConsuTrain_KPI_Performance_Card_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>قائمة تحقق جاهزية ISO 9001</h3>
-            <p>قائمة أولية لمراجعة جاهزية نظام إدارة الجودة قبل التأهيل أو التدقيق، وتحديد أهم الفجوات والخطوة التالية.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="iso9001-readiness-checklist.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_ISO9001_Readiness_Checklist_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_ISO9001_Readiness_Checklist_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج إجراء تصحيحي</h3>
-            <p>نموذج تفصيلي لإجراء تصحيحي واحد، يشمل وصف الحالة، تحليل السبب الجذري، خطة الإجراء، المتابعة، والتحقق من الفاعلية قبل الإغلاق.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="corrective-action-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Corrective_Action_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Corrective_Action_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج سياسة الجودة</h3>
-            <p>قالب عملي لصياغة سياسة جودة واضحة، وربطها بأهداف جودة قابلة للقياس ومسؤوليات نشر ومراجعة واعتماد.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="quality-policy-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Quality_Policy_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Quality_Policy_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج أهداف الجودة ومؤشرات القياس</h3>
-            <p>قالب عملي لترجمة سياسة الجودة إلى أهداف قابلة للقياس، مع مؤشرات وخط أساس ومستهدف وخطة متابعة وتحسين.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="quality-objectives-kpis.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Quality_Objectives_KPIs_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Quality_Objectives_KPIs_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج سجل ضبط الوثائق والسجلات</h3>
-            <p>قالب عملي لتنظيم الوثائق الداخلية والخارجية والسجلات، وضبط الإصدارات والمراجعات والاعتماد والتوزيع.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="document-records-control-register.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Document_Records_Control_Register_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Document_Records_Control_Register_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج سجل الإجراءات التصحيحية والتحسينية</h3>
-            <p>نموذج عملي لتوثيق الملاحظات وعدم المطابقات وفرص التحسين، وتحليل الأسباب الجذرية، ومتابعة تنفيذ الإجراءات والتحقق من فاعليتها.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="corrective-improvement-actions-register.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Corrective_Improvement_Actions_Register_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Corrective_Improvement_Actions_Register_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج خطة التدقيق الداخلي</h3>
-            <p>قالب عملي لتنظيم أهداف التدقيق ونطاقه ومعاييره وفريق التدقيق والجدول ومحاور المراجعة ومتابعة ما بعد التدقيق.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="internal-audit-plan.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Internal_Audit_Plan_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Internal_Audit_Plan_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>قائمة تحقق التدقيق الداخلي ISO 9001</h3>
-            <p>قائمة أسئلة عملية حسب بنود ISO 9001:2015، مع الأدلة المطلوبة وملخص النتائج والإجراءات التصحيحية.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="iso9001-internal-audit-checklist.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_ISO9001_Internal_Audit_Checklist_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_ISO9001_Internal_Audit_Checklist_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج سجل عدم المطابقة</h3>
-            <p>قالب عملي لتوثيق حالات عدم المطابقة، ربطها بالمتطلبات والأدلة، تحليل السبب الجذري، متابعة الإجراء التصحيحي، والتحقق من الفاعلية.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="nonconformity-register.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Nonconformity_Register_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Nonconformity_Register_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج مراجعة الإدارة لنظام الجودة</h3>
-            <p>قالب عملي لتوثيق مدخلات ومخرجات مراجعة الإدارة، وقرارات التحسين، ومتابعة أداء نظام الجودة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="management-review-report.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Management_Review_Report_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Management_Review_Report_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج سجل الشكاوى ورضا العملاء / المستفيدين</h3>
-            <p>نموذج عملي لتوثيق الشكاوى والملاحظات، تحليلها، متابعة معالجتها،
-              قياس رضا العملاء أو المستفيدين، واستخراج فرص التحسين.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="complaints-customer-satisfaction-register.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Complaints_Customer_Satisfaction_Register_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Complaints_Customer_Satisfaction_Register_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>ISO والجودة</span><small>Word / PDF</small></div>
-            <h3>نموذج خطة تحسين العمليات</h3>
-            <p>قالب عملي لتحليل العملية الحالية، تحديد أسباب الحاجة إلى التحسين، وضع أهداف ومؤشرات، ومتابعة فاعلية إجراءات التحسين.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="process-improvement-plan.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/iso-quality/ConsuTrain_Process_Improvement_Plan_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/iso-quality/ConsuTrain_Process_Improvement_Plan_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المخاطر</span><small>مجاني</small></div>
-            <h3>سجل مخاطر مبسط</h3>
-            <p>قالب لحصر المخاطر، أسبابها، آثارها، تقييمها، والاستجابة لها.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="simple-risk-register.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/risk-management/ConsuTrain_Simple_Risk_Register_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/risk-management/ConsuTrain_Simple_Risk_Register_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المخاطر</span><small>Word / PDF</small></div>
-            <h3>نموذج مصفوفة تقييم المخاطر</h3>
-            <p>نموذج عملي لتعريف مستويات الاحتمالية والأثر، احتساب درجة الخطر، تصنيف المخاطر، وتحديد أولوية المعالجة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="risk-assessment-matrix.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/risk-management/ConsuTrain_Risk_Assessment_Matrix_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/risk-management/ConsuTrain_Risk_Assessment_Matrix_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المخاطر</span><small>Word / PDF</small></div>
-            <h3>نموذج خطة معالجة المخاطر</h3>
-            <p>نموذج عملي لتحويل نتائج تقييم المخاطر إلى إجراءات معالجة واضحة، مع تحديد الاستراتيجية والمسؤوليات والموارد والمتابعة والتصعيد.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="risk-treatment-plan.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/risk-management/ConsuTrain_Risk_Treatment_Plan_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/risk-management/ConsuTrain_Risk_Treatment_Plan_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المخاطر</span><small>Word / PDF</small></div>
-            <h3>قائمة تحقق لمراجعة نظام إدارة المخاطر</h3>
-            <p>قائمة عملية لمراجعة منهجية إدارة المخاطر والسجل والتقييم والمعالجة والتواصل والتكامل مع التخطيط والأداء والتحسين المستمر.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="risk-management-system-review-checklist.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/risk-management/ConsuTrain_Risk_Management_System_Review_Checklist_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/risk-management/ConsuTrain_Risk_Management_System_Review_Checklist_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>دراسات الجدوى</span><small>Word / PDF</small></div>
-            <h3>نموذج وصف فكرة مشروع</h3>
-            <p>قالب عملي لتوضيح فكرة المشروع، الفئة المستهدفة، القيمة المقترحة، السوق، المنافسين، الموارد، التكاليف، والقرار الأولي قبل دراسة الجدوى.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="project-idea-description-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/feasibility-studies/ConsuTrain_Project_Idea_Description_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/feasibility-studies/ConsuTrain_Project_Idea_Description_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>دراسات الجدوى</span><small>Word / PDF</small></div>
-            <h3>نموذج تحليل السوق</h3>
-            <p>قالب عملي لتحليل العملاء، الاحتياجات، حجم السوق، المنافسين، الأسعار، قنوات الوصول، واختبار السوق الأولي قبل دراسة الجدوى.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="market-analysis-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/feasibility-studies/ConsuTrain_Market_Analysis_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/feasibility-studies/ConsuTrain_Market_Analysis_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>دراسات الجدوى</span><small>Word / PDF</small></div>
-            <h3>نموذج تقدير التكاليف الأولية</h3>
-            <p>قالب عملي لحصر تكاليف التأسيس والتشغيل والتسويق والموارد البشرية والتقنية، قبل الانتقال إلى دراسة جدوى تفصيلية.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="initial-cost-estimate-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/feasibility-studies/ConsuTrain_Initial_Cost_Estimate_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/feasibility-studies/ConsuTrain_Initial_Cost_Estimate_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>دراسات الجدوى</span><small>Word / PDF</small></div>
-            <h3>قائمة تحقق قبل دراسة الجدوى</h3>
-            <p>قائمة عملية لتقييم جاهزية فكرة المشروع قبل دراسة الجدوى، من حيث وضوح الفكرة، السوق، التكاليف، الإيرادات، المخاطر، واختبار الفكرة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="pre-feasibility-checklist.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/feasibility-studies/ConsuTrain_Pre_Feasibility_Checklist_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/feasibility-studies/ConsuTrain_Pre_Feasibility_Checklist_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المشاريع</span><small>Word / PDF</small></div>
-            <h3>نموذج ميثاق المشروع</h3>
-            <p>نموذج عملي لتوثيق مبررات المشروع وأهدافه ونطاقه ومخرجاته وأصحاب المصلحة والمخاطر الأولية ومعايير القبول.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="project-charter.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/project-management/ConsuTrain_Project_Charter_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/project-management/ConsuTrain_Project_Charter_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المشاريع</span><small>Word / PDF</small></div>
-            <h3>نموذج خطة تواصل المشروع</h3>
-            <p>نموذج عملي لتنظيم أهداف التواصل، أصحاب المصلحة، الرسائل، القنوات، الاجتماعات، التقارير، التصعيد، وسجل المتابعة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="project-communication-plan.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/project-management/ConsuTrain_Project_Communication_Plan_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/project-management/ConsuTrain_Project_Communication_Plan_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المشاريع</span><small>Word / PDF</small></div>
-            <h3>نموذج محضر اجتماع ومتابعة القرارات</h3>
-            <p>نموذج عملي لتوثيق بيانات الاجتماع، جدول الأعمال، القرارات، التكليفات، النقاط المعلقة، المخاطر، والاجتماع القادم.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="meeting-minutes-decision-tracking.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/project-management/ConsuTrain_Meeting_Minutes_Decision_Tracking_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/project-management/ConsuTrain_Meeting_Minutes_Decision_Tracking_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المشاريع</span><small>Word / PDF</small></div>
-            <h3>نموذج سجل أصحاب المصلحة</h3>
-            <p>نموذج عملي لحصر أصحاب المصلحة وتحليل التأثير والاهتمام وتنظيم التواصل والمخاطر المرتبطة بهم.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="stakeholder-register.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/project-management/ConsuTrain_Stakeholder_Register_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/project-management/ConsuTrain_Stakeholder_Register_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المشاريع</span><small>Word / PDF</small></div>
-            <h3>نموذج متابعة مهام المشروع</h3>
-            <p>نموذج عملي لمتابعة مهام المشروع والمسؤوليات والمواعيد ونسبة الإنجاز والمهام المتأخرة والقرارات المطلوبة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="project-task-tracker.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/project-management/ConsuTrain_Project_Task_Tracker_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/project-management/ConsuTrain_Project_Task_Tracker_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>إدارة المشاريع</span><small>Word / PDF</small></div>
-            <h3>نموذج تقرير حالة مشروع</h3>
-            <p>نموذج مختصر لعرض حالة المشروع، النطاق، الجدول، الميزانية، المخرجات، المؤشرات، المخاطر، والقرارات المطلوبة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="project-status-report.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/project-management/ConsuTrain_Project_Status_Report_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/project-management/ConsuTrain_Project_Status_Report_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الأدلة والإجراءات</span><small>Word / PDF</small></div>
-            <h3>نموذج بطاقة عملية</h3>
-            <p>قالب عملي لتوثيق هدف العملية ونطاقها ومدخلاتها ومخرجاتها ومسؤولياتها ومواردها ومؤشراتها ومخاطرها والوثائق المرتبطة بها.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="process-card.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/sop-procedures/ConsuTrain_Process_Card_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/sop-procedures/ConsuTrain_Process_Card_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الأدلة والإجراءات</span><small>Word / PDF</small></div>
-            <h3>نموذج إجراء تشغيلي SOP</h3>
-            <p>قالب عملي لتوثيق الغرض والنطاق والمسؤوليات وخطوات التنفيذ والمدخلات والمخرجات والسجلات والمخاطر ومعايير الجودة.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="sop-template.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/sop-procedures/ConsuTrain_SOP_Template_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/sop-procedures/ConsuTrain_SOP_Template_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الأدلة والإجراءات</span><small>Word / PDF</small></div>
-            <h3>قائمة تحقق لمراجعة دليل الإجراءات</h3>
-            <p>قائمة عملية لمراجعة اكتمال دليل الإجراءات ووضوح العمليات والإجراءات والنماذج والسجلات والمسؤوليات قبل الاعتماد أو النشر.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="procedure-manual-review-checklist.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/sop-procedures/ConsuTrain_Procedure_Manual_Review_Checklist_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/sop-procedures/ConsuTrain_Procedure_Manual_Review_Checklist_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الذكاء الاصطناعي للإدارة</span><small>Word / PDF</small></div>
-            <h3>Prompts للتخطيط الاستراتيجي</h3>
-            <p>حزمة أوامر جاهزة تساعدك على استخدام ChatGPT في تحليل الوضع، إعداد SWOT وPESTEL، صياغة الرؤية والرسالة، بناء الأهداف، المؤشرات، المبادرات، ومراجعة الخطة الاستراتيجية.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="strategic-planning-prompts.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/ai-management/ConsuTrain_Strategic_Planning_Prompts_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/ai-management/ConsuTrain_Strategic_Planning_Prompts_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الذكاء الاصطناعي للإدارة</span><small>Word / PDF</small></div>
-            <h3>Prompts لدراسة الجدوى</h3>
-            <p>حزمة أوامر جاهزة تساعدك على تحليل فكرة المشروع، السوق، المنافسين، التكاليف، الإيرادات، والمخاطر باستخدام ChatGPT.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="feasibility-study-prompts.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/ai-management/ConsuTrain_Feasibility_Study_Prompts_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/ai-management/ConsuTrain_Feasibility_Study_Prompts_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
-          <article class="resource-card">
-            <div class="resource-card__meta"><span>الذكاء الاصطناعي للإدارة</span><small>Word / PDF</small></div>
-            <h3>Prompts لإدارة المشاريع والجودة</h3>
-            <p>حزمة أوامر جاهزة تساعدك على إعداد وثائق المشاريع والجودة ومراجعتها وتحسينها باستخدام ChatGPT.</p>
-            <div class="resource-card__actions">
-              <a class="btn btn-secondary btn-small" href="project-quality-prompts.html">شرح المورد</a>
-              <a class="btn btn-primary btn-small" href="../resources/downloads/ai-management/ConsuTrain_Project_Quality_Prompts_AR.docx" download>تحميل Word</a>
-              <a class="card-link" href="../resources/downloads/ai-management/ConsuTrain_Project_Quality_Prompts_AR.pdf" target="_blank" rel="noopener">عرض PDF</a>
-            </div>
-          </article>
+      </div>
+    </section>
+
+    <section class="templates-section">
+      <div class="container">
+        <div class="templates-section-head">
+          <div>
+            <h2>قوالب مخطط لإضافتها لاحقًا</h2>
+            <p>هذه القائمة مبدئية، وسنضيف إليها حسب احتياج الزوار والخدمات الأكثر طلبًا.</p>
+          </div>
+        </div>
+        <div class="coming-list">
+          <div class="coming-item"><strong>قالب دراسة جدوى مبسط</strong><p>مدخل عملي لتقييم فكرة المشروع قبل الاستثمار.</p><span>قريبًا</span></div>
+          <div class="coming-item"><strong>بطاقة مؤشر أداء KPI</strong><p>نموذج لصياغة المؤشر، خط الأساس، المستهدفات، ومصدر البيانات.</p><span>قريبًا</span></div>
+          <div class="coming-item"><strong>بطاقة هدف استراتيجي</strong><p>ربط الهدف بالمحور، المالك، النتائج، والمؤشرات.</p><span>قريبًا</span></div>
+          <div class="coming-item"><strong>نموذج SOP</strong><p>قالب مبسط لتوثيق الإجراءات التشغيلية خطوة بخطوة.</p><span>قريبًا</span></div>
+          <div class="coming-item"><strong>تقرير متابعة شهري</strong><p>نموذج متابعة مختصر للإنجازات، التعثرات، والمخاطر.</p><span>قريبًا</span></div>
+          <div class="coming-item"><strong>نموذج خطة مشروع</strong><p>قالب لتنظيم النطاق، المراحل، المسؤوليات، والجدول الزمني.</p><span>قريبًا</span></div>
+          <div class="coming-item"><strong>تحليل أصحاب المصلحة</strong><p>نموذج لتصنيف الأطراف، توقعاتهم، وتأثيرهم على المشروع.</p><span>قريبًا</span></div>
         </div>
       </div>
     </section>
   </main>
 
   <div id="footer-placeholder"></div>
-  <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">↑</button>
-  <script src="../assets/js/includes.js?v=20260507_templates_clean"></script>
-  <script src="../assets/js/pwa.js"></script>
+  <script src="../assets/js/includes.js?v=20260505_force_top" defer></script>
+  <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

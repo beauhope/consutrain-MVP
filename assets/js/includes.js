@@ -140,6 +140,7 @@ async function loadPartial(selector, filePath) {
 
     if (selector === "#footer-placeholder") {
       initQuickContact();
+      initBackToTop();
     }
 
   } catch (error) {
@@ -381,6 +382,36 @@ function setActiveNavLink() {
 }
 
 
+
+
+/*
+  ---------------------------------------------------------
+  FUNCTION: initBackToTop
+  PURPOSE:
+  تشغيل زر الصعود إلى أعلى الصفحة بعد تحميل الفوتر.
+  ---------------------------------------------------------
+*/
+function initBackToTop() {
+  const button = document.getElementById("backToTop");
+  if (!button) return;
+
+  function toggleButton() {
+    const shouldShow = window.scrollY > 280;
+    button.classList.toggle("show", shouldShow);
+  }
+
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  window.addEventListener("scroll", toggleButton, { passive: true });
+  window.addEventListener("pageshow", toggleButton);
+  toggleButton();
+}
 
 /*
   ---------------------------------------------------------

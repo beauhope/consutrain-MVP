@@ -462,53 +462,34 @@ Purpose:
 - support the Reciprocity principle
 - prepare visitors for paid templates, services, and consultations
 
----
 
-# 11. Future enhancement — Internal Arabic RTL request form
+## صفحة شاركنا رأيك
 
-Current contact/conversion flow uses:
+### الحالة
+تم استحداث صفحة عامة في الجذر باسم:
 
-- quick WhatsApp button
-- external Tally form: `https://tally.so/r/ja5Dlx`
-- email contact
+`feedback.html`
 
-Future enhancement:
+### الغرض
+استقبال ملاحظات ومقترحات زوار ConsuTrain، وتشمل:
 
-Build an internal Arabic RTL request form inside ConsuTrain, starting with `contact.html`, then reuse it in:
+- مقترح تطوير
+- مشكلة في الموقع
+- رأي عام
+- طلب مورد جديد
+- اقتراح خدمة أو دورة
+- ملاحظة على صفحة محددة
 
-- `services/book-consultation.html`
-- service pages
-- course pages
+### الربط داخل الموقع
+تم ربط الصفحة من:
 
-Target behavior:
+- الفوتر تحت قسم التواصل
+- صفحة التواصل `contact.html`
 
-- form direction is fully RTL
-- submissions go to Google Sheets through Google Apps Script
-- optional email notification is added later
-- spam protection is added through a simple honeypot field or equivalent
-- Tally remains as a backup option until the internal form is fully tested
+### الخطوة اللاحقة
+إنشاء نموذج Tally بعنوان:
 
-Reason:
+`ملاحظات ومقترحات زوار ConsuTrain`
 
-The external Tally form works well for collecting submissions, but Arabic RTL control is limited because the form is hosted by Tally. An internal form gives ConsuTrain full control over Arabic layout, visual identity, and future automation.
+ثم استبدال صندوق Tally المؤقت داخل `feedback.html` بكود التضمين النهائي.
 
----
-
-# 12. Brand identity update — Logo in header and footer
-
-The official ConsuTrain logo has been added to the shared header and footer.
-
-Affected areas:
-
-- `partials/header.html`
-- `partials/footer.html`
-- `assets/css/style.css`
-- `assets/images/consutrain-logo-horizontal.png`
-- `assets/images/consutrain-logo-mark.png`
-- `assets/images/consutrain-banner.png` for future visual use
-
-Next possible branding steps:
-
-- update favicon and PWA icons using the small logo mark
-- use the banner image in selected hero/cover sections if needed
-- gradually update downloadable PDFs and Word templates with the same logo identity

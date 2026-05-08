@@ -1,3 +1,4 @@
+/* cache-version: v20260505-header-courses-feedback */
 /*
   =========================================================
   FILE: sw.js
@@ -9,29 +10,18 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-quick-contact-v20260507";
-const RUNTIME_CACHE = "consutrain-runtime-v20260507-quick-contact";
+const STATIC_CACHE = "consutrain-static-v20260505-header-courses-feedback";
+const RUNTIME_CACHE = "consutrain-runtime-v20260505-header-courses-feedback";
 
 const PRECACHE_URLS = [
   "./",
   "./index.html",
-  "./start-here.html",
   "./about.html",
   "./contact.html",
   "./expert.html",
   "./learn.html",
   "./services.html",
   "./tools.html",
-
-  "./templates/operational-plan-template.html",
-  "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
-  "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",
-  "./templates/operational-plan-checklist.html",
-  "./templates/simple-risk-register.html",
-  "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.docx",
-  "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.pdf",
-  "./downloads/ConsuTrain_Simple_Risk_Register_AR.docx",
-  "./downloads/ConsuTrain_Simple_Risk_Register_AR.pdf",
 
   "./learn/ai-prompts.html",
   "./learn/ai.html",
@@ -46,7 +36,6 @@ const PRECACHE_URLS = [
   "./services/iso-consulting.html",
   "./services/project-management.html",
   "./services/strategic-planning.html",
-  "./services/book-consultation.html",
 
   "./tools/feasibility/indexFeasibility.html",
 
@@ -54,10 +43,6 @@ const PRECACHE_URLS = [
   "./partials/footer.html",
 
   "./assets/css/style.css",
-
-  "./assets/images/consutrain-logo-horizontal.png",
-  "./assets/images/consutrain-logo-mark.png",
-  "./assets/images/consutrain-banner.png",
 
   "./assets/js/includes.js",
   "./assets/js/main.js",

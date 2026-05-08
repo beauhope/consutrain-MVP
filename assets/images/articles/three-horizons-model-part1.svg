@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="نموذج الآفاق الثلاث">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#f7fbff"/><stop offset="100%" stop-color="#fff8ee"/></linearGradient>
+    <linearGradient id="h1" x1="0" x2="1"><stop offset="0%" stop-color="#0f2d5d"/><stop offset="100%" stop-color="#1f6a94"/></linearGradient>
+    <linearGradient id="h2" x1="0" x2="1"><stop offset="0%" stop-color="#d4a63a"/><stop offset="100%" stop-color="#f0c96a"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f2d5d" flood-opacity=".14"/></filter>
+    <style>
+      .title{font:700 56px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#0f2d5d}
+      .sub{font:400 30px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#65768d}
+      .h{font:700 30px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#0f2d5d}
+      .p{font:400 22px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#52657f}
+      .white{font:700 32px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#fff}
+      .axis{font:700 24px 'Segoe UI', Tahoma, Arial, sans-serif;fill:#65768d}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1460" cy="95" r="140" fill="#efe4d0" opacity=".64"/>
+  <circle cx="130" cy="795" r="145" fill="#dce9f7" opacity=".7"/>
+
+  <text x="800" y="96" class="title" text-anchor="middle">نموذج الآفاق الثلاث Three Horizons</text>
+  <text x="800" y="156" class="sub" text-anchor="middle">فهم التحول بين النظام الحالي والمستقبل الناشئ</text>
+  <line x1="645" y1="190" x2="760" y2="190" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="800" cy="190" r="6" fill="#d9a933"/>
+  <line x1="840" y1="190" x2="955" y2="190" stroke="#d9a933" stroke-width="5" stroke-linecap="round"/>
+
+  <g transform="translate(180,250)">
+    <line x1="0" y1="470" x2="1180" y2="470" stroke="#9aa9bb" stroke-width="3"/>
+    <line x1="0" y1="470" x2="0" y2="30" stroke="#9aa9bb" stroke-width="3"/>
+    <text x="590" y="535" class="axis" text-anchor="middle">الزمن والتحول</text>
+    <text x="-45" y="250" class="axis" text-anchor="middle" transform="rotate(-90 -45 250)">قوة الحضور والتأثير</text>
+
+    <path d="M20 110 C270 130, 420 240, 580 330 C760 430, 950 455, 1140 465"
+          fill="none" stroke="#0f2d5d" stroke-width="12" stroke-linecap="round"/>
+    <path d="M120 430 C320 390, 460 250, 610 210 C770 165, 930 210, 1080 380"
+          fill="none" stroke="#d4a63a" stroke-width="12" stroke-linecap="round"/>
+    <path d="M90 455 C320 430, 520 360, 700 250 C850 160, 1010 100, 1140 80"
+          fill="none" stroke="#43a875" stroke-width="12" stroke-linecap="round"/>
+
+    <g filter="url(#shadow)">
+      <rect x="30" y="45" width="270" height="120" rx="26" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+    </g>
+    <text x="165" y="95" class="h" text-anchor="middle">H1</text>
+    <text x="165" y="135" class="p" text-anchor="middle">النظام الحالي</text>
+
+    <g filter="url(#shadow)">
+      <rect x="455" y="145" width="300" height="120" rx="26" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+    </g>
+    <text x="605" y="195" class="h" text-anchor="middle">H2</text>
+    <text x="605" y="235" class="p" text-anchor="middle">مساحة التحول والتجريب</text>
+
+    <g filter="url(#shadow)">
+      <rect x="875" y="45" width="270" height="120" rx="26" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+    </g>
+    <text x="1010" y="95" class="h" text-anchor="middle">H3</text>
+    <text x="1010" y="135" class="p" text-anchor="middle">المستقبل الناشئ</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="390" y="815" width="820" height="54" rx="27" fill="#fff" stroke="#c4d9ee" stroke-width="2"/>
+  </g>
+  <text x="800" y="850" class="h" text-anchor="middle">التحول لا يلغي الحاضر فورًا، بل يدير الانتقال نحو مستقبل ناشئ</text>
+</svg>

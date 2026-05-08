@@ -455,36 +455,34 @@ Decision applied:
 - تمت إضافة مورد حزمة Prompts لإدارة المشاريع والجودة ضمن موارد الذكاء الاصطناعي للإدارة، مع صفحة شرح وملفات Word/PDF وروابط مفعلة في الموارد والقوالب.
 
 
-## تحديث - قسم الدورات
+### Learn – Goal Management Path
 
-تم استحداث قسم الدورات داخل `courses/` وإضافة صفحة مركزية للدورات وصفحة أولى لدورة إدارة الأهداف وقياس الأداء بعنوان: «من الهدف إلى الإنجاز: برنامج عملي لإدارة الأهداف ومؤشرات الأداء».
+Status: In Progress
+
+Completed:
+- Added a new Learn path page: `learn/goal-management.html`.
+- Added the path link to the Learn dropdown menu.
+- Created an initial lesson structure for YJ-35 to YJ-40.
+- Covered MBO, SMART, BSC, and OKRs as the core sequence.
+- Kept video and article buttons as pending until verified links and articles are added.
+
+Next:
+- Add verified YouTube links for each lesson.
+- Start creating the first article: "مدخل إلى إدارة الأهداف: من MBO إلى OKRs".
+- Add each article to `assets/data/articles.json` and link it from the path page.
 
 
-# تحديث حالة المشروع – قسم الدورات والموارد
-تاريخ التحديث: 2026-05-07
+### Learn – Futures and Scenario Planning Path
 
-## ما تم إنجازه
+Status: Initial Path Created
 
-### 1. الموارد المجانية
-تم الانتهاء من إعداد وتفعيل مجموعة واسعة من الموارد المجانية داخل منصة ConsuTrain، ووصل العدد إلى 44 موردًا تقريبًا.
+Completed:
+- Created `learn/futures-and-scenarios.html`.
+- Added the path to the Learn dropdown.
+- Added ten lessons from YJ-24 to YJ-33.
+- Linked each lesson to its matched F&S YouTube video.
+- Preserved global floating buttons through the shared `includes.js` and `style.css`.
 
-تم اعتماد منهج موحد لكل مورد يتضمن:
-- صفحة شرح مستقلة.
-- ملف Word قابل للتحميل.
-- ملف PDF للمعاينة.
-- بطاقة داخل صفحة الموارد المجانية.
-- بطاقة داخل صفحة القوالب عند الحاجة.
-- ربط المورد بالخدمات أو الأدوات ذات العلاقة عند الحاجة.
-
-تمت معالجة عدد من الملاحظات أثناء العمل، منها:
-- منع تداخل الجداول في صفحات الشرح.
-- تحسين عرض جداول الشرح داخل حاوية مناسبة بدل تمددها على كامل الصفحة.
-- اعتماد زر العودة إلى الأعلى كعنصر عام في جميع الصفحات.
-- حذف فكرة مجلد `_snippets` وعدم اعتماده في النسخ النهائية.
-- اعتماد تسليم الملفات المتأثرة والنظيفة فقط بدل الحزم الكاملة.
-
-### 2. قسم الدورات
-تم استحداث قسم جديد داخل الموقع باسم:
-
-```text
-courses/
+Next:
+- Review the page visually on desktop and mobile.
+- Later, create Knowledge Library articles for the lessons one by one.

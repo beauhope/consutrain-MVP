@@ -14,14 +14,12 @@
 <header class="site-header">
   <div class="container header-wrap">
     <!-- الشعار الرئيسي للمنصة -->
-    <a href="__ROOT__/index.html" class="brand brand--image" aria-label="العودة إلى الصفحة الرئيسية">
-      <img
-        src="__ROOT__/assets/images/consutrain-logo-horizontal.png"
-        alt="ConsuTrain"
-        class="brand-logo"
-        width="220"
-        height="60"
-      />
+    <a href="__ROOT__/index.html" class="brand" aria-label="العودة إلى الصفحة الرئيسية">
+      <span class="brand-mark">C</span>
+      <div class="brand-text">
+        <strong>ConsuTrain</strong>
+        <small>Learn • Tools • Services</small>
+      </div>
     </a>
 
     <!-- زر فتح القائمة في الهاتف -->
@@ -56,7 +54,9 @@
           <a href="__ROOT__/learn/ai.html">الذكاء الاصطناعي</a>
           <a href="__ROOT__/learn/ai-prompts.html">مكتبة Prompts</a>
           <a href="__ROOT__/learn/soft-skills.html">المهارات الناعمة</a>
-              <a href="__ROOT__/learn/management-skills.html">مسار المهارات الإدارية الأساسية</a>
+          <a href="__ROOT__/learn/management-skills.html">مسار المهارات الإدارية الأساسية</a>
+          <a href="__ROOT__/learn/goal-management.html">مسار إدارة الأهداف وقياس الأداء</a>
+          <a href="__ROOT__/learn/futures-and-scenarios.html">مسار استشراف المستقبل والتخطيط بالسيناريو</a>
         </div>
       </div>
 
@@ -68,10 +68,13 @@
         <div class="submenu" aria-label="روابط الأدوات">
           <a href="__ROOT__/tools.html">نظرة عامة</a>
           <a href="__ROOT__/tools/feasibility/indexFeasibility.html">أداة دراسة الجدوى</a>
-          <a href="__ROOT__/tools.html#project-management-tools">القوالب المجانية</a>
           <a href="__ROOT__/tools/mytodo/index.html">MyTodo</a>
         </div>
       </div>
+
+            <a class="nav-link nav-link--single" href="__ROOT__/courses.html">الدورات</a>
+
+<a class="nav-link nav-link--single" href="__ROOT__/resources/index.html">الموارد المجانية</a>
 
       <div class="nav-item has-submenu">
         <a class="nav-link nav-link--parent" href="__ROOT__/services.html">الخدمات</a>
@@ -80,7 +83,6 @@
         </button>
         <div class="submenu" aria-label="روابط الخدمات">
           <a href="__ROOT__/services.html">نظرة عامة</a>
-          <a href="__ROOT__/services/book-consultation.html">احجز استشارة</a>
           <a href="__ROOT__/services/strategic-planning.html">التخطيط الاستراتيجي</a>
           <a href="__ROOT__/services/feasibility-studies.html">دراسات الجدوى</a>
           <a href="__ROOT__/services/iso-consulting.html">ISO Consulting</a>
@@ -99,7 +101,16 @@
         </div>
       </div>
 
-      <a class="nav-link nav-link--single" href="__ROOT__/contact.html">تواصل معنا</a>
+      <div class="nav-item has-submenu nav-item--contact">
+        <a class="nav-link nav-link--parent" href="__ROOT__/contact.html">تواصل معنا</a>
+        <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="فتح قائمة التواصل الفرعية">
+          <span>▾</span>
+        </button>
+        <div class="submenu" aria-label="روابط التواصل">
+          <a href="__ROOT__/contact.html">تواصل معنا</a>
+          <a href="__ROOT__/feedback.html" class="submenu-highlight">شاركنا رأيك</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>

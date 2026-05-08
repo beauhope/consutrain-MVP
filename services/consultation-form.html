@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!--
+    =========================================================
+    FILE: services/consultation-form.html
+    PURPOSE:
+    صفحة مستقلة لتضمين نموذج Tally الخاص بطلب استشارة أو دورة.
+    =========================================================
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>نموذج طلب استشارة أو دورة | ConsuTrain</title>
+  <meta
+    name="description"
+    content="نموذج طلب استشارة أو دورة تدريبية من ConsuTrain عبر نموذج منظم لتوضيح نوع الطلب والاحتياج وبيانات التواصل."
+  >
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260508_consultation_form">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+</head>
+
+<body
+  data-root=".."
+  data-breadcrumb-section="الخدمات"
+  data-breadcrumb-title="نموذج طلب استشارة أو دورة"
+>
+  <div id="header-placeholder"></div>
+  <div id="breadcrumbs-placeholder"></div>
+
+  <main class="inner-page consultation-form-page">
+    <section class="page-hero consultation-form-hero">
+      <div class="container">
+        <span class="eyebrow">نموذج منظم للطلبات</span>
+        <h1>طلب استشارة أو دورة تدريبية</h1>
+        <p>
+          استخدم النموذج التالي لإرسال طلب استشارة، دورة تدريبية، عرض سعر، أو استفسار عام.
+          يساعدنا ذلك على فهم احتياجك وتحديد الخطوة المناسبة للتواصل معك.
+        </p>
+
+        <div class="feedback-hero-actions">
+          <a class="btn btn-primary" href="#consultation-tally-form">الانتقال إلى النموذج</a>
+          <a class="btn btn-secondary" href="consultation-form.html">العودة إلى صفحة الحجز</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section consultation-form-info-section" aria-labelledby="consultation-info-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">قبل تعبئة النموذج</span>
+            <h2 id="consultation-info-title">ما المعلومات التي تساعدنا؟</h2>
+            <p>
+              يفضل توضيح نوع الطلب، المجال المطلوب، الجهة أو الفئة المستفيدة،
+              الوضع الحالي، وأي موعد أو مخرجات متوقعة إن كانت متاحة.
+            </p>
+          </div>
+        </div>
+
+        <div class="consultation-types-grid">
+          <article class="consultation-type-card">
+            <h3>نوع الطلب</h3>
+            <p>استشارة، دورة تدريبية، عرض سعر، أو استفسار عام.</p>
+          </article>
+
+          <article class="consultation-type-card">
+            <h3>المجال المطلوب</h3>
+            <p>مثل التخطيط الاستراتيجي، الجودة، إدارة المشاريع، المخاطر، أو دراسات الجدوى.</p>
+          </article>
+
+          <article class="consultation-type-card">
+            <h3>وصف مختصر للاحتياج</h3>
+            <p>ما المشكلة أو الهدف الذي تريد الوصول إليه؟ وما السياق العام للطلب؟</p>
+          </article>
+
+          <article class="consultation-type-card">
+            <h3>بيانات التواصل</h3>
+            <p>الاسم ووسيلة التواصل المناسبة حتى نتمكن من الرجوع إليك.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section consultation-tally-section" id="consultation-tally-form" aria-labelledby="consultation-form-title">
+      <div class="container">
+        <div class="consultation-form-card">
+          <div class="consultation-form-copy">
+            <span class="section-eyebrow">النموذج</span>
+            <h2 id="consultation-form-title">أرسل طلبك الآن</h2>
+            <p>
+              املأ النموذج بالمعلومات المتوفرة لديك. لا يلزم أن تكون التفاصيل مكتملة،
+              لكن كل معلومة إضافية تساعد على فهم الطلب بصورة أفضل.
+            </p>
+          </div>
+
+          <div class="consultation-tally-wrapper" dir="rtl">
+            <iframe
+              data-tally-src="https://tally.so/embed/ja5Dlx?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              loading="lazy"
+              width="100%"
+              height="620"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="طلب استشارة أو دورة تدريبية"
+            ></iframe>
+            <script>
+              var d = document;
+              var w = "https://tally.so/widgets/embed.js";
+              var v = function () {
+                if (typeof Tally !== "undefined") {
+                  Tally.loadEmbeds();
+                } else {
+                  d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+                    e.src = e.dataset.tallySrc;
+                  });
+                }
+              };
+              if (typeof Tally !== "undefined") {
+                v();
+              } else if (d.querySelector('script[src="' + w + '"]') == null) {
+                var s = d.createElement("script");
+                s.src = w;
+                s.onload = v;
+                s.onerror = v;
+                d.body.appendChild(s);
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../assets/js/includes.js?v=20260508_consultation_form"></script>
+  <script src="../assets/js/pwa.js"></script>
+
+  <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+    ↑
+  </button>
+</body>
+</html>
