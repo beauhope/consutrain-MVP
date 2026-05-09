@@ -210,37 +210,12 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         LOGIN SCREEN
-         ===================================================== -->
-    <div id="lockScreen" class="lock-screen">
-      <div class="login-box">
-        <form id="loginForm">
-          <h2>منظّم مهامي Login</h2>
-
-          <input id="email"
-            type="email"
-            placeholder="Email"
-            autocomplete="email"
-            required>
-
-          <input id="password"
-            type="password"
-            placeholder="Password"
-            autocomplete="current-password"
-            required>
-
-          <button type="button" id="registerBtn" class="btn-primary">Register</button>
-          <button type="button" id="loginBtn" class="btn-primary">Login</button>
-
-          <p id="status">Not logged in</p>
-        </form>
-      </div>
-    </div>
-
     <!-- PUBLIC CHILD TOOLS -->
     <section class="card" aria-labelledby="mytodo-public-tools-title">
       <h2 id="mytodo-public-tools-title">أدوات منظّم مهامي</h2>
+      <p class="mytodo-public-tools-intro">
+        يمكنك استخدام هذه الأدوات مباشرة دون تسجيل الدخول، بينما تبقى لوحة المهام والمزامنة متاحة بعد الدخول.
+      </p>
 
       <div class="quick-links-row">
         <button type="button" class="btn-primary small"
@@ -269,6 +244,34 @@
         </button>
       </div>
     </section>
+
+    <!-- =====================================================
+         LOGIN SCREEN
+         ===================================================== -->
+    <div id="lockScreen" class="lock-screen">
+      <div class="login-box">
+        <form id="loginForm">
+          <h2>تسجيل الدخول إلى منظّم مهامي</h2>
+
+          <input id="email"
+            type="email"
+            placeholder="البريد الإلكتروني"
+            autocomplete="email"
+            required>
+
+          <input id="password"
+            type="password"
+            placeholder="كلمة المرور"
+            autocomplete="current-password"
+            required>
+
+          <button type="button" id="registerBtn" class="btn-primary">إنشاء حساب</button>
+          <button type="button" id="loginBtn" class="btn-primary">تسجيل الدخول</button>
+
+          <p id="status">لم يتم تسجيل الدخول</p>
+        </form>
+      </div>
+    </div>
 
     <!-- =====================================================
          APP CONTAINER

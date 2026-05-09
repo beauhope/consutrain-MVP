@@ -207,6 +207,12 @@ button {
   background:linear-gradient(90deg,var(--gold),transparent);
 }
 
+.mytodo-public-tools-intro{
+  margin:0 0 16px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
 /* ===============================
    FORM ELEMENTS
 =============================== */
@@ -1601,4 +1607,3 @@ a.btn,
     width: 100% !important;
   }
 }
-
