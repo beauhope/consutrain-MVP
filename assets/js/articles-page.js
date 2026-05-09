@@ -402,18 +402,20 @@ async function loadArticlesData() {
       Array.isArray(rawData.articles) ? rawData.articles :
       [];
 
-    articlesData = sourceArray.map((article) => ({
-      id: article.id || "",
-      title: article.title || "",
-      excerpt: article.excerpt || "",
-      date: article.date || "",
-      category: article.category || article.field || article.domain || "",
-      tags: Array.isArray(article.tags) ? article.tags : [],
-      content: Array.isArray(article.content) ? article.content : [],
-      video_title: article.video_title || article.videoTitle || "",
-      video_url: article.video_url || article.videoUrl || "",
-      related_terms: Array.isArray(article.related_terms) ? article.related_terms : []
-    }));
+    articlesData = sourceArray
+      .filter((article) => article.content_type === "article")
+      .map((article) => ({
+        id: article.id || "",
+        title: article.title || "",
+        excerpt: article.excerpt || "",
+        date: article.date || "",
+        category: article.category || article.field || article.domain || "",
+        tags: Array.isArray(article.tags) ? article.tags : [],
+        content: Array.isArray(article.content) ? article.content : [],
+        video_title: article.video_title || article.videoTitle || "",
+        video_url: article.video_url || article.videoUrl || "",
+        related_terms: Array.isArray(article.related_terms) ? article.related_terms : []
+      }));
 
     filteredArticles = [...articlesData];
 

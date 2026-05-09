@@ -1,4 +1,4 @@
-/* cache-version: v20260508-header-feedback-link */
+/* cache-version: v20260509-header-tools-cache-refresh */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260508-header-feedback-link";
-const RUNTIME_CACHE = "consutrain-runtime-v20260508-header-feedback-link";
+const STATIC_CACHE = "consutrain-static-v20260509-header-tools-cache-refresh";
+const RUNTIME_CACHE = "consutrain-runtime-v20260509-header-tools-cache-refresh";
 
 const PRECACHE_URLS = [
   "./",

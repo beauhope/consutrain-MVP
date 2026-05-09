@@ -140,6 +140,7 @@ async function loadPartial(selector, filePath) {
 
     if (selector === "#footer-placeholder") {
       initQuickContact();
+      initBackToTop();
     }
 
   } catch (error) {
@@ -436,6 +437,37 @@ function initQuickContact() {
     if (event.key === "Escape") {
       closePanel();
     }
+  });
+}
+
+/*
+  ---------------------------------------------------------
+  FUNCTION: initBackToTop
+  PURPOSE:
+  تشغيل زر العودة إلى الأعلى المشترك بعد تحميل الفوتر.
+  ---------------------------------------------------------
+*/
+function initBackToTop() {
+  const backToTop = document.getElementById("backToTop");
+  if (!backToTop) return;
+
+  function updateBackToTopVisibility() {
+    if (window.scrollY > 250) {
+      backToTop.classList.add("show");
+    } else {
+      backToTop.classList.remove("show");
+    }
+  }
+
+  window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+  updateBackToTopVisibility();
+
+  backToTop.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
 }
 
