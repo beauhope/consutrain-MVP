@@ -1,4 +1,4 @@
-/* cache-version: v20260509-phase4-final-cache-refresh */
+/* cache-version: v20260509-tools-mytodo-wording-refresh */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260509-phase4-final-cache-refresh";
-const RUNTIME_CACHE = "consutrain-runtime-v20260509-phase4-final-cache-refresh";
+const STATIC_CACHE = "consutrain-static-v20260509-tools-mytodo-wording-refresh";
+const RUNTIME_CACHE = "consutrain-runtime-v20260509-tools-mytodo-wording-refresh";
 
 const PRECACHE_URLS = [
   "./",
