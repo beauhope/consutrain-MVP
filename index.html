@@ -142,6 +142,21 @@
       </div>
     </section>
 
+    <section class="home-management-flash">
+      <div class="container">
+        <div class="home-management-flash-box">
+          <div>
+            <span class="eyebrow">أداة تفاعلية مجانية</span>
+            <h2>ومضة إدارية من ConsuTrain</h2>
+            <p>
+              خذ دقيقة واحدة للحصول على فكرة إدارية قصيرة تساعدك على تحسين التفكير، التخطيط، الأداء، أو إدارة المشاريع.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="tools/management-flash.html">جرّب ومضة إدارية</a>
+        </div>
+      </div>
+    </section>
+
     <!--
       =======================================================
       MAIN PATHS SECTION
@@ -198,6 +213,26 @@
     </section>
   </main>
 
+  <section class="home-share-section" id="share-benefit" aria-label="مشاركة ConsuTrain">
+    <div class="container">
+      <div class="home-share-box">
+        <div>
+          <h2>شارك الفائدة</h2>
+          <h3>شارك ConsuTrain مع من قد يستفيد</h3>
+          <p>
+            إذا وجدت في ConsuTrain أدوات أو موارد مفيدة، يمكنك مشاركة المنصة مع زميل أو صديق مهتم بالإدارة، التخطيط، الجودة، أو تطوير الأعمال.
+          </p>
+        </div>
+        <div class="home-share-actions">
+          <button class="btn btn-secondary" id="homeShareWhatsapp" type="button">مشاركة عبر واتساب</button>
+          <button class="btn btn-secondary" id="homeShareLinkedin" type="button">مشاركة عبر LinkedIn</button>
+          <button class="btn btn-secondary" id="homeCopyLink" type="button">نسخ رابط الموقع</button>
+          <p class="home-share-status" id="homeShareStatus" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!--
     =========================================================
     FOOTER PLACEHOLDER
@@ -235,6 +270,52 @@
         });
       });
     }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const whatsappBtn = document.getElementById("homeShareWhatsapp");
+    const linkedinBtn = document.getElementById("homeShareLinkedin");
+    const copyBtn = document.getElementById("homeCopyLink");
+    const status = document.getElementById("homeShareStatus");
+
+    if (!whatsappBtn || !linkedinBtn || !copyBtn) return;
+
+    const getHomepageUrl = () => window.location.origin + window.location.pathname;
+    const getShareText = () => `منصة ConsuTrain تقدم أدوات وموارد مجانية في الإدارة، التخطيط، الجودة، دراسات الجدوى، وإدارة المشاريع.\n\nجرّب المنصة:\n${getHomepageUrl()}`;
+
+    whatsappBtn.addEventListener("click", () => {
+      window.open(`https://wa.me/?text=${encodeURIComponent(getShareText())}`, "_blank", "noopener,noreferrer");
+    });
+
+    linkedinBtn.addEventListener("click", () => {
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(getHomepageUrl())}`, "_blank", "noopener,noreferrer");
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      status.textContent = "";
+      const shareText = getShareText();
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(shareText);
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = shareText;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "fixed";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textarea);
+        }
+
+        status.textContent = "تم نسخ رابط الموقع";
+      } catch (error) {
+        status.textContent = "تعذر النسخ، حاول مرة أخرى";
+      }
+    });
   });
 </script>
 <!-- ملف تحميل الأجزاء المشتركة -->

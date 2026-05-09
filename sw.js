@@ -1,4 +1,4 @@
-/* cache-version: v20260509-mytodo-shell-refresh */
+/* cache-version: v20260509-feasibility-tool-refresh */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260509-mytodo-shell-refresh";
-const RUNTIME_CACHE = "consutrain-runtime-v20260509-mytodo-shell-refresh";
+const STATIC_CACHE = "consutrain-static-v20260509-feasibility-tool-refresh";
+const RUNTIME_CACHE = "consutrain-runtime-v20260509-feasibility-tool-refresh";
 
 const PRECACHE_URLS = [
   "./",
@@ -48,6 +48,8 @@ const PRECACHE_URLS = [
   "./services/strategic-planning.html",
 
   "./tools/feasibility/indexFeasibility.html",
+  "./tools/feasibility/feasibility.css",
+  "./tools/feasibility/feasibility.js",
   "./tools/mytodo/index.html",
   "./tools/mytodo/css/style.css",
   "./tools/mytodo/templates/page-shell.html",

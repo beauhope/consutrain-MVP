@@ -141,6 +141,7 @@ async function loadPartial(selector, filePath) {
     if (selector === "#footer-placeholder") {
       initQuickContact();
       initBackToTop();
+      initGlobalShareButton();
     }
 
   } catch (error) {
@@ -468,6 +469,76 @@ function initBackToTop() {
       top: 0,
       behavior: "smooth"
     });
+  });
+}
+
+function getConsuTrainHomepageUrl() {
+  const root = getRootPath();
+  return new URL(`${root}/index.html`, window.location.href).href;
+}
+
+function getConsuTrainShareText() {
+  return `منصة ConsuTrain تقدم أدوات وموارد مجانية في الإدارة، التخطيط، الجودة، دراسات الجدوى، وإدارة المشاريع.\n\nجرّب المنصة:\n${getConsuTrainHomepageUrl()}`;
+}
+
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+}
+
+function showGlobalShareStatus(message) {
+  const status = document.getElementById("globalShareStatus");
+  if (!status) return;
+
+  status.textContent = message;
+  status.classList.add("show");
+  window.clearTimeout(showGlobalShareStatus.timer);
+  showGlobalShareStatus.timer = window.setTimeout(() => {
+    status.classList.remove("show");
+  }, 2400);
+}
+
+function initGlobalShareButton() {
+  const shareButton = document.getElementById("globalShareButton");
+  if (!shareButton) return;
+
+  shareButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    const homepageUrl = getConsuTrainHomepageUrl();
+    const shareText = getConsuTrainShareText();
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "ConsuTrain",
+          text: shareText,
+          url: homepageUrl
+        });
+        return;
+      } catch (error) {
+        if (error?.name === "AbortError") return;
+      }
+    }
+
+    try {
+      await copyTextToClipboard(shareText);
+      showGlobalShareStatus("تم نسخ رابط الموقع");
+    } catch (error) {
+      showGlobalShareStatus("تعذر النسخ، حاول مرة أخرى");
+    }
   });
 }
 
