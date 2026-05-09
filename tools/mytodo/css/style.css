@@ -23,21 +23,25 @@
 =============================== */
 
 :root{
-  --bg:#0a1124;
-  --bg2:#0f1b3d;
+  --bg:#f6f8fc;
+  --bg2:#ffffff;
 
-  --card:#101a35;
-  --card-soft:#0d162f;
+  --card:#ffffff;
+  --card-soft:#fbfdff;
 
-  --text:#e6ecff;
-  --muted:#7f8db3;
+  --text:#17233a;
+  --muted:#607089;
 
   --gold:#c6a74a;
   --gold-soft:rgba(198,167,74,.15);
-  --gold-glow:rgba(198,167,74,.35);
+  --gold-glow:rgba(198,167,74,.25);
 
-  --danger:#ff7b7b;
-  --line:rgba(255,255,255,.06);
+  --danger:#b42318;
+  --line:rgba(15,39,71,.09);
+
+  --primary:#0f2747;
+  --primary-2:#1f497d;
+  --border:rgba(15,39,71,.10);
 }
 
 *{
@@ -51,8 +55,8 @@ body{
   letter-spacing: .2px;
 
   background:
-    radial-gradient(circle at 20% 20%, rgba(198,167,74,.06), transparent 40%),
-    linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);
+    radial-gradient(circle at 88% 12%, rgba(198,167,74,.10), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 42%, #f6f8fc 100%);
   color:var(--text);
 }
 
@@ -1193,3 +1197,408 @@ a.btn-primary, a.btn-gold, a.btn-danger{
   background: rgba(198,167,74,.10);
   box-shadow: 0 0 12px rgba(198,167,74,.25);
 }
+
+/* =========================================================
+   MYTODO LIGHT THEME V3 — منظّم مهامي
+   تعديل مباشر على ثيم MyTodo المحلي ليتوافق مع ConsuTrain
+   ========================================================= */
+
+html,
+body{
+  background:
+    radial-gradient(circle at 88% 12%, rgba(198,167,74,.10), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 42%, #f6f8fc 100%) !important;
+  color:#17233a !important;
+}
+
+.app{
+  background: transparent !important;
+}
+
+.mytodo-page-hero,
+.page-hero,
+.hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(198,167,74,.12), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%) !important;
+  border: 1px solid rgba(15,39,71,.08) !important;
+  border-radius: 26px !important;
+  box-shadow: 0 12px 30px rgba(15,39,71,.06) !important;
+  margin: 24px auto 20px !important;
+  max-width: 1120px;
+  padding: 34px 24px !important;
+}
+
+.mytodo-page-hero h1,
+.page-hero h1,
+.hero h1{
+  color:#0f2747 !important;
+  -webkit-text-fill-color: initial !important;
+  background: none !important;
+  text-shadow: none !important;
+}
+
+.mytodo-page-hero p,
+.page-hero p,
+.hero p{
+  color:#607089 !important;
+}
+
+.main-title{
+  color:#0f2747 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #0f2747 !important;
+  text-shadow: none !important;
+}
+
+.header-center .main-title{
+  color:#0f2747 !important;
+}
+
+.app-header,
+.mini-home,
+.mini-app-header{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%) !important;
+  border: 1px solid rgba(15,39,71,.10) !important;
+  box-shadow: 0 12px 30px rgba(15,39,71,.06) !important;
+}
+
+.mini-logo,
+.home-logo{
+  background: linear-gradient(135deg, #f7d77a, #c6a74a) !important;
+  border: 1px solid rgba(198,167,74,.45) !important;
+  color:#0f2747 !important;
+}
+
+.mini-logo-icon{
+  color:#0f2747 !important;
+}
+
+.card,
+.section-accordion,
+.login-box,
+.list li,
+.planner-table-wrap,
+.planner-card,
+.ideas-card,
+.tasks-card{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%) !important;
+  color:#17233a !important;
+  border: 1px solid rgba(15,39,71,.10) !important;
+  box-shadow: 0 12px 30px rgba(15,39,71,.06) !important;
+}
+
+.card h2,
+.card h3,
+.section-accordion h2,
+.section-accordion h3{
+  color:#0f2747 !important;
+  -webkit-text-fill-color: initial !important;
+  background: none !important;
+}
+
+p,
+small,
+label,
+.list li,
+.task-desc,
+.idea-desc{
+  color:#607089;
+}
+
+input,
+textarea,
+select{
+  background:#ffffff !important;
+  color:#17233a !important;
+  border:1px solid rgba(15,39,71,.14) !important;
+  box-shadow:none !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#c6a74a !important;
+  box-shadow:0 0 0 4px rgba(198,167,74,.16) !important;
+}
+
+select option{
+  background-color:#ffffff !important;
+  color:#17233a !important;
+}
+
+button{
+  background:#ffffff !important;
+  color:#0f2747 !important;
+  border:1px solid rgba(15,39,71,.12) !important;
+  box-shadow:0 6px 16px rgba(15,39,71,.05) !important;
+}
+
+button:hover{
+  border-color:#c6a74a !important;
+  box-shadow:0 8px 20px rgba(198,167,74,.18) !important;
+}
+
+.btn-primary,
+.btn-gold,
+button[type="submit"]{
+  background: linear-gradient(135deg, #f7d77a, #c6a74a) !important;
+  color:#0f2747 !important;
+  border:0 !important;
+  font-weight:800;
+}
+
+.btn-danger{
+  background:#fff5f5 !important;
+  color:#b42318 !important;
+  border:1px solid rgba(180,35,24,.22) !important;
+}
+
+.pill{
+  background:#ffffff !important;
+  color:#0f2747 !important;
+  border:1px solid rgba(15,39,71,.12) !important;
+  box-shadow:0 6px 16px rgba(15,39,71,.04) !important;
+}
+
+.pill.late{
+  background:#fff5f5 !important;
+  color:#b42318 !important;
+  border-color:rgba(180,35,24,.22) !important;
+}
+
+.status-indicator,
+.connection-bar{
+  background:#f8fbff !important;
+  color:#0f2747 !important;
+  border-color:rgba(15,39,71,.10) !important;
+}
+
+.accordion-header,
+.section-accordion__header,
+.section-title{
+  background:#ffffff !important;
+  color:#0f2747 !important;
+}
+
+table,
+.planner-table{
+  background:#ffffff !important;
+  color:#17233a !important;
+}
+
+th,
+.planner-table thead th{
+  background:#f6f8fc !important;
+  color:#0f2747 !important;
+  border-bottom:1px solid rgba(15,39,71,.10) !important;
+}
+
+td{
+  border-color:rgba(15,39,71,.08) !important;
+}
+
+#breadcrumbs-placeholder{
+  background:#f8fbff !important;
+  border-bottom:1px solid rgba(15,39,71,.08) !important;
+}
+
+.mytasks-brand-strip{
+  display:none !important;
+}
+
+.app{
+  margin-top:26px !important;
+}
+
+@media (max-width:768px){
+  .mytodo-page-hero,
+  .page-hero,
+  .hero{
+    margin:16px 12px 18px !important;
+    padding:24px 18px !important;
+    border-radius:20px !important;
+  }
+
+  .app{
+    margin-top:18px !important;
+  }
+}
+
+/* =========================================================
+   MYTODO VISUAL POLISH — تحسين نهائي لمنظّم مهامي
+   - إزالة تكرار العنوان
+   - تحسين لوحة التطبيق الداخلية
+   - توحيد أزرار الأدوات السفلية
+   ========================================================= */
+
+/* لوحة التطبيق الداخلية */
+.app{
+  max-width: 1120px !important;
+  margin: 30px auto 46px !important;
+  padding: 0 18px !important;
+}
+
+.app-header,
+.mini-home{
+  border-radius: 28px !important;
+  padding: 28px 24px !important;
+  margin-bottom: 22px !important;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(198,167,74,.11), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%) !important;
+  border: 1px solid rgba(15,39,71,.09) !important;
+  box-shadow: 0 14px 34px rgba(15,39,71,.07) !important;
+}
+
+/* الشعار الداخلي الصغير */
+.app-header .mini-logo,
+.mini-home .mini-logo{
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 24px rgba(198,167,74,.18) !important;
+}
+
+/* عنوان اللوحة الداخلية */
+.main-title{
+  font-size: clamp(1.7rem, 3vw, 2.3rem) !important;
+  margin: 0 0 14px !important;
+  color: #0f2747 !important;
+  line-height: 1.35 !important;
+}
+
+/* حالة الاتصال */
+.connection-bar{
+  width: max-content;
+  margin: 0 auto 18px !important;
+  min-height: 36px;
+  padding: 7px 14px !important;
+  border-radius: 999px !important;
+}
+
+/* الإحصائيات */
+.stats{
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+}
+
+.pill{
+  min-height: 40px !important;
+  padding: 8px 16px !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+  background: #ffffff !important;
+}
+
+/* أقسام الأكورديون */
+.section-accordion{
+  border-radius: 18px !important;
+  margin-bottom: 14px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+}
+
+.section-accordion summary,
+.accordion-header,
+.section-title{
+  min-height: 54px !important;
+  padding: 14px 18px !important;
+  border-radius: 18px !important;
+}
+
+/* الحقول والبطاقات داخل الأكورديون */
+.card{
+  border-radius: 20px !important;
+  padding: 22px !important;
+}
+
+/* أزرار الأدوات السفلية */
+.quick-links-row,
+.tools-links-row,
+.extra-tools-row{
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px !important;
+  margin-top: 18px !important;
+}
+
+.quick-links-row a,
+.tools-links-row a,
+.extra-tools-row a,
+.quick-links-row .btn,
+.tools-links-row .btn,
+.extra-tools-row .btn{
+  min-height: 46px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 14px !important;
+  padding: 10px 14px !important;
+  font-weight: 900 !important;
+  text-align: center !important;
+  box-shadow: 0 8px 20px rgba(198,167,74,.14) !important;
+}
+
+/* روابط الأزرار العامة داخل MyTodo */
+a.btn,
+.quick-links-row a,
+.tools-links-row a,
+.extra-tools-row a{
+  text-decoration: none !important;
+}
+
+/* تحسين العرض على الجوال */
+@media (max-width: 900px){
+  .quick-links-row,
+  .tools-links-row,
+  .extra-tools-row{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px){
+  .app{
+    margin: 20px auto 34px !important;
+    padding: 0 12px !important;
+  }
+
+  .app-header,
+  .mini-home{
+    border-radius: 20px !important;
+    padding: 22px 16px !important;
+  }
+
+  .main-title{
+    font-size: 1.65rem !important;
+  }
+
+  .stats{
+    gap: 8px !important;
+  }
+
+  .pill{
+    min-height: 38px !important;
+    padding: 7px 12px !important;
+    font-size: .88rem !important;
+  }
+
+  .quick-links-row,
+  .tools-links-row,
+  .extra-tools-row{
+    grid-template-columns: 1fr;
+  }
+
+  .quick-links-row a,
+  .tools-links-row a,
+  .extra-tools-row a,
+  .quick-links-row .btn,
+  .tools-links-row .btn,
+  .extra-tools-row .btn{
+    width: 100% !important;
+  }
+}
+

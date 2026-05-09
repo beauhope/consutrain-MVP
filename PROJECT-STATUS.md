@@ -486,3 +486,15 @@ Completed:
 Next:
 - Review the page visually on desktop and mobile.
 - Later, create Knowledge Library articles for the lessons one by one.
+
+
+## عناصر يجب الحفاظ عليها دائمًا
+
+- زر ابدأ من هنا في الهيدر
+- زر الدورات في الهيدر
+- رابط شاركنا رأيك تحت تواصل معنا
+- زر تواصل سريع عائم
+- زر الصعود للأعلى
+- روابط Tally/WhatsApp/Email
+- صفحة القوالب
+- صفحات الخدمات الأساسية

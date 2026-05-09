@@ -5,7 +5,7 @@
     =========================================================
     FILE: tools/mytodo/index.html
     PURPOSE:
-    دمج تطبيق MyTodo داخل منصة ConsuTrain مع الحفاظ على
+    دمج تطبيق منظّم مهامي داخل منصة ConsuTrain مع الحفاظ على
     وظائف التطبيق الأساسية وربطه بالهيدر والفوتر الموحدين.
 
     CURRENT FOLDER STRUCTURE ASSUMPTION:
@@ -28,10 +28,10 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MyTodo | ConsuTrain</title>
+  <title>منظّم مهامي | ConsuTrain</title>
 
   <!-- =====================================================
-       FAVICON — MyTodo
+       FAVICON — منظّم مهامي
        ===================================================== -->
   <link rel="icon" type="image/svg+xml"
     href='data:image/svg+xml,
@@ -67,30 +67,30 @@
        SITE CSS
        CSS العام للموقع من أجل الهيدر والفوتر والهوية العامة
        ===================================================== -->
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20260504_menu" />
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260509_mytodo_light_v3" />
 
   <!-- =====================================================
        APP CSS
-       CSS الخاص بتطبيق MyTodo
+       CSS الخاص بتطبيق منظّم مهامي
        ===================================================== -->
-  <link rel="stylesheet" href="css/style.css?v=20260218_2" />
+  <link rel="stylesheet" href="css/style.css?v=20260509_mytodo_light_v3" />
 
   <!--
     =========================================================
     LOCAL PAGE STYLES
     PURPOSE:
-    تنسيق الغلاف العام للأداة داخل المنصة، مع ترك واجهة MyTodo
+    تنسيق الغلاف العام للأداة داخل المنصة، مع ترك واجهة منظّم مهامي
     الداخلية تعتمد على ملفها الخاص.
     =========================================================
   -->
   <style>
   /*
     =========================================================
-    MyTodo داخل ConsuTrain
+    منظّم مهامي داخل ConsuTrain
     الهدف:
     - إظهار الهيدر الموحد أعلى الصفحة
     - إبقاء فوتر الموقع ظاهرًا أسفل الصفحة
-    - منع واجهة MyTodo من تغطية الصفحة كلها
+    - منع واجهة منظّم مهامي من تغطية الصفحة كلها
     =========================================================
   */
 
@@ -141,7 +141,7 @@
   }
 
   /*
-    إعطاء مساحة مناسبة لمحتوى MyTodo داخل الصفحة
+    إعطاء مساحة مناسبة لمحتوى منظّم مهامي داخل الصفحة
   */
   #lockScreen{
     padding: 20px 0 30px;
@@ -328,7 +328,7 @@
 <body
   data-root="../.."
   data-breadcrumb-section="الأدوات"
-  data-breadcrumb-title="MyTodo"
+  data-breadcrumb-title="منظّم مهامي"
 >
   <!-- =====================================================
        SHARED SITE HEADER
@@ -344,7 +344,7 @@
     <section class="page-hero mytodo-page-hero">
       <div class="container">
         <span class="eyebrow">أداة عملية</span>
-        <h1>MyTodo</h1>
+        <h1>منظّم مهامي</h1>
         <p>
           تطبيق لإدارة المهام والأفكار والأولويات والمتابعة اليومية، مع دعم
           تسجيل الدخول والمزامنة والتنبيهات والتخطيط الزمني.
@@ -358,7 +358,7 @@
     <div id="lockScreen" class="lock-screen">
       <div class="login-box">
         <form id="loginForm">
-          <h2>MyTodo Login</h2>
+          <h2>منظّم مهامي Login</h2>
 
           <input id="email"
             type="email"
@@ -387,12 +387,12 @@
 
       <!-- HEADER -->
       <div class="app-header mini-home">
-        <a class="mini-logo home-logo" href="index.html" title="MyTodo" aria-label="MyTodo">
-          <span class="mini-logo-icon">MT</span>
+        <a class="mini-logo home-logo" href="index.html" title="منظّم مهامي" aria-label="منظّم مهامي">
+          <span class="mini-logo-icon">م</span>
         </a>
 
         <div class="header-center">
-          <h1 class="main-title">لوحة إدارة مهامي</h1>
+          <h1 class="main-title">لوحة المهام اليومية</h1>
 
           <div class="connection-bar">
             <span id="connectionStatus" class="status-indicator online">
@@ -636,27 +636,27 @@
       <!-- QUICK LINKS -->
       <div class="quick-links-row">
         <button type="button" class="btn-primary small"
-                onclick="location.href='tools/templates.html'">
+                onclick="location.href='../tool-templates/index.html'">
           📄 قوالب جاهزة
         </button>
 
         <button type="button" class="btn-gold small"
-                onclick="location.href='tools/calculators.html'">
+                onclick="location.href='../calculators/index.html'">
           🧮 حاسبات سريعة
         </button>
 
         <button type="button" class="btn-primary small"
-                onclick="location.href='tools/timer.html'">
+                onclick="location.href='../timer/index.html'">
           📅 مؤقت/مواعيد سريعة
         </button>
 
         <button type="button" class="btn-gold small"
-                onclick="location.href='tools/crm.html'">
+                onclick="location.href='../crm/index.html'">
           📇 سجل العملاء
         </button>
 
         <button type="button" class="btn-gold small"
-                onclick="location.href='tools/invoice.html'">
+                onclick="location.href='../invoice/index.html'">
           🧾 عرض سعر/فاتورة
         </button>
       </div>

@@ -1,4 +1,4 @@
-/* cache-version: v20260505-header-courses-feedback */
+/* cache-version: v20260508-header-feedback-link */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260505-header-courses-feedback";
-const RUNTIME_CACHE = "consutrain-runtime-v20260505-header-courses-feedback";
+const STATIC_CACHE = "consutrain-static-v20260508-header-feedback-link";
+const RUNTIME_CACHE = "consutrain-runtime-v20260508-header-feedback-link";
 
 const PRECACHE_URLS = [
   "./",
@@ -22,6 +22,15 @@ const PRECACHE_URLS = [
   "./learn.html",
   "./services.html",
   "./tools.html",
+  "./start-here.html",
+  "./feedback.html",
+  "./courses/index.html",
+  "./courses/objectives-management.html",
+  "./templates/index.html",
+  "./templates/operational-plan-template.html",
+  "./templates/operational-plan-checklist.html",
+  "./templates/simple-risk-register.html",
+  "./services/book-consultation.html",
 
   "./learn/ai-prompts.html",
   "./learn/ai.html",

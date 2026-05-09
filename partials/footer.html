@@ -1,7 +1,20 @@
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div>
-      <h3>ConsuTrain</h3>
+    <div class="footer-brand">
+      <a href="__ROOT__/index.html" class="footer-brand-compact" aria-label="العودة إلى الصفحة الرئيسية">
+        <span class="footer-brand-mark" aria-hidden="true">
+          <img
+            src="__ROOT__/assets/images/consutrain-logo-mark.png"
+            alt=""
+            width="56"
+            height="56"
+          />
+        </span>
+        <span class="footer-brand-name">
+          <strong><span>Consu</span><em>Train</em></strong>
+          <small>تعلّم • طبّق • طوّر • أنجح</small>
+        </span>
+      </a>
       <p>
         منصة عملية تجمع بين التعلّم، الأدوات، والخدمات الإدارية،
         وتخدم المهتمين بالإدارة والأعمال والتطوير المهني.
@@ -22,8 +35,7 @@
     <div>
       <h4>تواصل</h4>
       <ul class="footer-links">
-        <li><a href="__ROOT__/contact.html">اتصل بنا</a>
-          <a href="__ROOT__/feedback.html">شاركنا رأيك</a></li>
+        <li><a href="__ROOT__/contact.html">اتصل بنا</a></li>
         <li><a href="__ROOT__/about.html">عن المنصة</a></li>
         <li><a href="__ROOT__/expert.html">Project:Expert</a></li>
       </ul>
@@ -35,46 +47,41 @@
   </div>
 </footer>
 
-<!--
-  =========================================================
-  GLOBAL FLOATING ACTIONS
-  - زر تواصل سريع
-  - زر العودة للأعلى
-  تظهر في جميع الصفحات عبر تحميل الفوتر المشترك
-  =========================================================
--->
-<div class="quick-contact-widget" aria-label="خيارات التواصل السريع">
+<div class="quick-contact-widget" dir="rtl" aria-live="polite">
   <button
     class="quick-contact-toggle"
-    id="quickContactToggle"
     type="button"
-    aria-expanded="false"
+    id="quickContactToggle"
     aria-controls="quickContactPanel"
+    aria-expanded="false"
   >
-    <span class="quick-contact-icon">☏</span>
-    <span class="quick-contact-label">تواصل سريع</span>
+    <span class="quick-contact-icon" aria-hidden="true">✉</span>
+    <span>تواصل سريع</span>
   </button>
 
   <div class="quick-contact-panel" id="quickContactPanel" hidden>
-    <div class="quick-contact-head">
-      <strong>تواصل سريع</strong>
-      <button class="quick-contact-close" type="button" aria-label="إغلاق">×</button>
+    <div class="quick-contact-panel__head">
+      <strong>اختر طريقة التواصل</strong>
+      <button type="button" class="quick-contact-close" aria-label="إغلاق نافذة التواصل">×</button>
     </div>
-
-    <a href="https://wa.me/212773275105" target="_blank" rel="noopener">
-      واتساب مباشر
-    </a>
-    <a href="__ROOT__/services/consultation-form.html">
-      طلب استشارة أو دورة
-    </a>
-    <a href="__ROOT__/contact.html">
-      صفحة التواصل
-    </a>
-    <a href="__ROOT__/feedback.html">
-      شاركنا رأيك
-    </a>
+    <p>للطلبات المنظمة استخدم النموذج، وللتواصل العاجل استخدم واتساب أو البريد.</p>
+    <div class="quick-contact-actions">
+      <a href="__ROOT__/services/consultation-form.html" class="quick-contact-action primary">
+        إرسال طلب منظم
+      </a>
+      <a href="https://wa.me/212773275105" target="_blank" rel="noopener" class="quick-contact-action whatsapp">
+        تواصل عبر واتساب
+      </a>
+      <a href="mailto:consutrain@gmail.com" class="quick-contact-action mail">
+        إرسال بريد إلكتروني
+      </a>
+      <a href="__ROOT__/feedback.html" class="quick-contact-action feedback">
+        شاركنا رأيك
+      </a>
+    </div>
   </div>
 </div>
+
 
 <button
   class="scroll-top-left"
@@ -85,4 +92,3 @@
 >
   ↑
 </button>
-

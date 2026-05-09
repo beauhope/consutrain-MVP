@@ -116,7 +116,7 @@ async function loadPartial(selector, filePath) {
   if (!target) return;
 
   try {
-    const version = "v=20260507_quick_contact";
+    const version = "v=20260509_header_courses_index_fix";
     const separator = filePath.includes("?") ? "&" : "?";
     const cacheSafePath = `${filePath}${separator}${version}`;
 
@@ -140,7 +140,6 @@ async function loadPartial(selector, filePath) {
 
     if (selector === "#footer-placeholder") {
       initQuickContact();
-      initBackToTop();
     }
 
   } catch (error) {
@@ -361,6 +360,8 @@ function setActiveNavLink() {
     activeHref = "start-here.html";
   } else if (path.includes("/learn/") || path.endsWith("/learn.html")) {
     activeHref = "learn.html";
+  } else if (path.includes("/courses/") || path.endsWith("/courses.html")) {
+    activeHref = "courses/index.html";
   } else if (path.includes("/services/") || path.endsWith("/services.html")) {
     activeHref = "services.html";
   } else if (path.includes("/tools/") || path.endsWith("/tools.html")) {
@@ -382,36 +383,6 @@ function setActiveNavLink() {
 }
 
 
-
-
-/*
-  ---------------------------------------------------------
-  FUNCTION: initBackToTop
-  PURPOSE:
-  تشغيل زر الصعود إلى أعلى الصفحة بعد تحميل الفوتر.
-  ---------------------------------------------------------
-*/
-function initBackToTop() {
-  const button = document.getElementById("backToTop");
-  if (!button) return;
-
-  function toggleButton() {
-    const shouldShow = window.scrollY > 280;
-    button.classList.toggle("show", shouldShow);
-  }
-
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-
-  window.addEventListener("scroll", toggleButton, { passive: true });
-  window.addEventListener("pageshow", toggleButton);
-  toggleButton();
-}
 
 /*
   ---------------------------------------------------------
@@ -518,6 +489,8 @@ function initBreadcrumbs() {
     sectionHref = `${root}/start-here.html`;
   } else if (section === "التعلّم") {
     sectionHref = `${root}/learn.html`;
+  } else if (section === "الدورات") {
+    sectionHref = `${root}/courses/index.html`;
   } else if (section === "الأدوات") {
     sectionHref = `${root}/tools.html`;
   } else if (section === "الخدمات") {

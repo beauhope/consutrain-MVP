@@ -368,6 +368,104 @@ img{
   font-weight:700;
 }
 
+
+
+/* =========================================================
+   HOME FREE RESOURCES SECTION
+   قسم الموارد المجانية في الصفحة الرئيسية
+   ========================================================= */
+.home-free-resources{
+  padding:18px 0 38px;
+}
+
+.home-free-resources-box{
+  display:grid;
+  grid-template-columns:1.5fr .9fr;
+  gap:24px;
+  align-items:center;
+  background:linear-gradient(135deg, rgba(15,39,71,.06), rgba(212,166,58,.13));
+  border:1px solid var(--border);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:30px;
+}
+
+.section-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:var(--gold-soft);
+  color:var(--primary);
+  font-weight:800;
+  font-size:.9rem;
+}
+
+.home-free-resources h2{
+  margin:14px 0 10px;
+  color:var(--primary);
+  font-size:clamp(1.45rem, 3vw, 2rem);
+}
+
+.home-free-resources p{
+  margin:0 0 12px;
+  color:var(--muted);
+  line-height:1.95;
+}
+
+.home-free-resources-note{
+  font-weight:700;
+  color:var(--primary) !important;
+}
+
+.home-free-resources-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
+
+.home-free-resources-list{
+  display:grid;
+  gap:12px;
+}
+
+.home-resource-item{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px 18px;
+  box-shadow:0 8px 24px rgba(15,39,71,.06);
+}
+
+.home-resource-item strong{
+  display:block;
+  color:var(--primary);
+  margin-bottom:4px;
+}
+
+.home-resource-item span{
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+@media (max-width: 900px){
+  .home-free-resources-box{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .home-free-resources-box{
+    padding:22px;
+  }
+
+  .home-free-resources-actions .btn{
+    width:100%;
+  }
+}
+
 /* =========================================================
    6) FOOTER
    تنسيقات الفوتر العام
@@ -2853,10 +2951,10 @@ z-index:1100;
   gap: 8px;
 }
 
-.breadcrumbs li:not(:last-child)::before{
+.breadcrumbs li + li::before{
   content: "←";
   color: var(--gold-2);
-  margin-left: 2px;
+  margin-inline: 2px;
 }
 
 .breadcrumbs a{
@@ -4162,751 +4260,4435 @@ z-index:1100;
   }
 }
 
+
 /* =========================================================
-   Free Resources Page
-   صفحة الموارد المجانية
+   MONETIZATION FIX - hide old textual close button
+   يمنع ظهور زر "× إغلاق" داخل القائمة.
    ========================================================= */
-.resources-page .resources-hero{
-  background:linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-}
-
-.resources-count{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 14px;
-  border-radius:999px;
-  background:var(--gold-soft);
-  color:var(--primary);
-  font-weight:900;
-  white-space:nowrap;
-}
-
-.resource-filters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:0 0 24px;
-}
-
-.resource-filter-btn{
-  border:1px solid rgba(15,39,71,.14);
-  background:#fff;
-  color:var(--primary);
-  border-radius:999px;
-  padding:10px 14px;
-  font-family:inherit;
-  font-weight:900;
-  cursor:pointer;
-  transition:.2s ease;
-}
-
-.resource-filter-btn:hover{
-  transform:translateY(-1px);
-  border-color:rgba(212,166,58,.55);
-  background:var(--gold-soft);
-}
-
-.resource-filter-btn.active{
-  background:linear-gradient(135deg, var(--primary), var(--primary-2));
-  color:#fff;
-  border-color:var(--primary);
-  box-shadow:0 10px 20px rgba(15,39,71,.16);
-}
-
-.resources-grid{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:18px;
-}
-
-.resource-card{
-  background:#fff;
-  border:1px solid rgba(15,39,71,.10);
-  border-radius:22px;
-  padding:20px;
-  box-shadow:0 12px 30px rgba(15,39,71,.07);
-  display:flex;
-  flex-direction:column;
-  min-height:245px;
-}
-
-.resource-card[hidden]{
+.mobile-nav-close{
   display:none !important;
 }
 
-.resource-card__meta{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:12px;
-}
-
-.resource-card__meta span,
-.resource-card__meta small{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:999px;
-  padding:6px 10px;
-  font-weight:900;
-  font-size:.82rem;
-}
-
-.resource-card__meta span{
-  background:rgba(15,39,71,.06);
-  color:var(--primary);
-}
-
-.resource-card__meta small{
-  background:var(--gold-soft);
-  color:var(--primary);
-}
-
-.resource-card h3{
-  margin:0 0 10px;
-  color:var(--primary);
-  font-size:1.08rem;
-  line-height:1.5;
-}
-
-.resource-card p{
-  margin:0 0 18px;
-  color:var(--muted);
-  line-height:1.85;
-  flex:1;
-}
-
-.resource-card__actions{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:auto;
-}
-
-.btn-small{
-  min-width:auto;
-  padding:9px 13px;
-  border-radius:12px;
-  font-size:.9rem;
-}
-
-@media (max-width: 1100px){
-  .resources-grid{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 700px){
-  .resources-grid{
-    grid-template-columns:1fr;
-  }
-
-  .resource-filter-btn,
-  .resources-count,
-  .resource-card__actions .btn,
-  .resource-card__actions .card-link{
-    width:100%;
-    justify-content:center;
-    text-align:center;
-  }
-}
-
 /* =========================================================
-   Templates Detail Pages
-   صفحات شرح القوالب والموارد المجانية
+   MONETIZATION / TEMPLATES
+   صفحة تحميل قالب الخطة التشغيلية المجاني
    ========================================================= */
-.template-detail-page .template-hero{
-  background:linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+.template-hero{
+  padding:64px 0 36px;
+  background:linear-gradient(135deg, rgba(15,39,71,.06), rgba(212,166,58,.10));
 }
 
-.template-list-grid,
-.template-detail-grid{
+.template-hero-grid{
   display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:18px;
-}
-
-.template-info-card{
-  background:#fff;
-  border:1px solid rgba(15,39,71,.10);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 12px 30px rgba(15,39,71,.07);
-}
-
-.template-info-card h2{
-  margin:0 0 12px;
-  color:var(--primary);
-  font-size:1.15rem;
-}
-
-.template-info-card p,
-.template-info-card li{
-  color:var(--muted);
-  line-height:1.9;
-}
-
-.clean-list{
-  margin:0;
-  padding-right:22px;
-}
-
-.clean-list li{
-  margin-bottom:8px;
-}
-
-.cta-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:flex-start;
-}
-
-@media (max-width: 1100px){
-  .template-list-grid,
-  .template-detail-grid{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 700px){
-  .template-list-grid,
-  .template-detail-grid{
-    grid-template-columns:1fr;
-  }
-
-  .cta-actions,
-  .cta-actions .btn{
-    width:100%;
-  }
-
-  .cta-actions .btn{
-    justify-content:center;
-  }
-}
-
-
-/* =========================================================
-   FIX: Template resource tables - prevent column overlap
-   Applies to all resource explanation pages
-   ========================================================= */
-
-.template-table-wrap {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.template-compare-table {
-  width: 100%;
-  min-width: 720px;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
-.template-compare-table th,
-.template-compare-table td {
-  vertical-align: top;
-  white-space: normal;
-  word-break: normal;
-  overflow-wrap: anywhere;
-  line-height: 1.9;
-}
-
-.template-compare-table th {
-  font-weight: 800;
-}
-
-.template-compare-table td {
-  font-size: 0.98rem;
-}
-
-/* Improve readability on mobile */
-@media (max-width: 768px) {
-  .template-compare-table {
-    min-width: 680px;
-  }
-
-  .template-compare-table th,
-  .template-compare-table td {
-    font-size: 0.92rem;
-    line-height: 1.8;
-  }
-}
-
-/* =========================================================
-   Template tables readability enhancement
-   ========================================================= */
-
-.template-compare-table thead th {
-  background: #edf3fb;
-  color: #0f2747;
-  border-bottom: 1px solid #d8e2ef;
-}
-
-.template-compare-table tbody tr:nth-child(odd) {
-  background: #ffffff;
-}
-
-.template-compare-table tbody tr:nth-child(even) {
-  background: #f7f9fc;
-}
-
-.template-compare-table td,
-.template-compare-table th {
-  border-bottom: 1px solid #e3e8f0;
-  padding: 16px 18px;
-}
-
-.template-compare-table tbody tr:hover {
-  background: #f1f5fb;
-}
-
-/* =========================================================
-   Template tables width control
-   ========================================================= */
-
-.template-table-wrap {
-  width: min(100%, 1100px);
-  margin-inline: auto;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border-radius: 18px;
-  border: 1px solid #e3e8f0;
-  background: #ffffff;
-}
-
-.template-compare-table {
-  width: 100%;
-  min-width: 720px;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
-.template-compare-table thead th {
-  background: #edf3fb;
-  color: #0f2747;
-  border-bottom: 1px solid #d8e2ef;
-}
-
-.template-compare-table tbody tr:nth-child(odd) {
-  background: #ffffff;
-}
-
-.template-compare-table tbody tr:nth-child(even) {
-  background: #f7f9fc;
-}
-
-.template-compare-table th,
-.template-compare-table td {
-  padding: 16px 18px;
-  vertical-align: top;
-  white-space: normal;
-  word-break: normal;
-  overflow-wrap: anywhere;
-  line-height: 1.9;
-  border-bottom: 1px solid #e3e8f0;
-}
-
-.template-compare-table tbody tr:hover {
-  background: #f1f5fb;
-}
-
-@media (max-width: 768px) {
-  .template-table-wrap {
-    width: 100%;
-    border-radius: 14px;
-  }
-
-  .template-compare-table {
-    min-width: 680px;
-  }
-
-  .template-compare-table th,
-  .template-compare-table td {
-    font-size: 0.92rem;
-    line-height: 1.8;
-    padding: 14px 12px;
-  }
-}
-
-/* =========================================================
-   Learn – Goal Management Path
-   ========================================================= */
-.goal-management-page .page-hero{
-  position:relative;
-  overflow:hidden;
-}
-
-.goal-management-hero{
-  background:
-    radial-gradient(circle at 15% 20%, rgba(212,166,58,.16), transparent 28%),
-    radial-gradient(circle at 85% 10%, rgba(15,39,71,.08), transparent 30%),
-    linear-gradient(135deg, #f7fbff 0%, #fffaf0 100%);
-}
-
-.goal-path-intro-card p{
-  color:var(--muted);
-  line-height:1.9;
-  margin-bottom:18px;
-}
-
-.goal-path-highlights{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.goal-path-highlights span{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:999px;
-  padding:8px 12px;
-  background:var(--gold-soft);
-  color:var(--primary);
-  font-weight:900;
-  border:1px solid rgba(212,166,58,.28);
-}
-
-.goal-lesson-card .lesson-code{
-  background:linear-gradient(135deg, var(--primary), #1f6a94);
-}
-
-.goal-management-page .management-next-card{
-  border-inline-start:5px solid var(--gold);
-}
-
-@media (max-width: 640px){
-  .goal-path-highlights span{
-    flex:1 1 auto;
-  }
-}
-
-
-/* =========================================================
-   Services – Related Learning and Resources
-   ========================================================= */
-.service-related-section{
-  background:linear-gradient(135deg, rgba(247,251,255,.9), rgba(255,250,240,.85));
-}
-
-.service-related-grid{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:18px;
+  grid-template-columns:minmax(0, 1.4fr) minmax(280px, .7fr);
+  gap:28px;
   align-items:stretch;
 }
 
-.service-related-card{
-  height:100%;
+.template-hero-copy p{
+  max-width:760px;
 }
 
-.service-related-card h3{
-  margin-bottom:10px;
+.template-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:22px;
+}
+
+.template-download-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:24px;
+}
+
+.template-file-icon{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:var(--gold-soft);
+  font-size:1.8rem;
+  margin-bottom:12px;
+}
+
+.template-download-card h2{
+  margin:0 0 12px;
+  color:var(--primary);
+  font-size:1.25rem;
+}
+
+.template-download-card ul{
+  margin:0;
+  padding-right:20px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.template-features-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+.template-feature-card h3{
   color:var(--primary);
 }
 
-.service-related-card p{
-  color:var(--muted);
-  line-height:1.9;
-  margin-bottom:14px;
+.template-use-box{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:20px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:26px;
 }
 
-.service-related-list{
-  list-style:none;
-  padding:0;
-  margin:0;
+.template-use-box h2{
+  margin:0 0 10px;
+  color:var(--primary);
+}
+
+.template-use-box p{
+  margin:0 0 16px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.template-note{
+  background:var(--light);
+  border:1px dashed var(--border);
+  border-radius:18px;
+  padding:18px 20px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.template-note strong{
+  color:var(--primary);
+}
+
+@media (max-width: 900px){
+  .template-hero-grid,
+  .template-use-box{
+    grid-template-columns:1fr;
+  }
+
+  .template-features-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px){
+  .template-features-grid{
+    grid-template-columns:1fr;
+  }
+
+  .template-actions .btn{
+    width:100%;
+  }
+}
+
+
+/* =========================================================
+   MONETIZATION / RECIPROCITY CONTENT
+   توظيف مبدأ المعاملة بالمثل: قيمة تعليمية قبل التحميل
+   ========================================================= */
+.template-value-box{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:28px;
+}
+
+.template-value-box h2{
+  margin:8px 0 14px;
+  color:var(--primary);
+}
+
+.template-value-box p{
+  color:var(--muted);
+  line-height:2;
+  margin:0 0 12px;
+}
+
+.template-mini-grid,
+.template-tricks-grid{
   display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:18px;
+}
+
+.template-mini-card h3,
+.template-trick-card h3{
+  color:var(--primary);
+  margin-top:0;
+}
+
+.template-mini-card p,
+.template-trick-card p{
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.template-trick-card span{
+  display:inline-flex;
+  width:42px;
+  height:42px;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:var(--gold-soft);
+  color:var(--primary);
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.template-table-wrap{
+  overflow-x:auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+}
+
+.template-compare-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:760px;
+  direction:rtl;
+}
+
+.template-compare-table th,
+.template-compare-table td{
+  padding:16px 18px;
+  text-align:right;
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+  line-height:1.8;
+}
+
+.template-compare-table th{
+  background:linear-gradient(135deg, rgba(15,39,71,.08), rgba(212,166,58,.12));
+  color:var(--primary);
+  font-weight:800;
+}
+
+.template-compare-table td{
+  color:var(--muted);
+}
+
+.template-compare-table tr:last-child td{
+  border-bottom:0;
+}
+
+@media (max-width: 1000px){
+  .template-mini-grid,
+  .template-tricks-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px){
+  .template-mini-grid,
+  .template-tricks-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* =========================================================
+   MONETIZATION / SERVICE CONVERSION BLOCKS
+   تحسين صفحات الخدمات وربطها بالموارد المجانية
+   ========================================================= */
+.service-problem-card{
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:24px;
+  align-items:stretch;
+  background:#fff;
+  border:1px solid rgba(14,44,84,.08);
+  border-radius:26px;
+  box-shadow:var(--shadow);
+  padding:28px;
+}
+
+.service-problem-card h2{
+  color:var(--primary);
+  margin:8px 0 14px;
+}
+
+.service-problem-card p{
+  color:var(--muted);
+  line-height:2;
+  margin:0;
+}
+
+.service-problem-points{
+  display:grid;
+  gap:14px;
+}
+
+.service-problem-points div{
+  background:linear-gradient(135deg, rgba(15,39,71,.06), rgba(212,166,58,.10));
+  border:1px solid rgba(14,44,84,.08);
+  border-radius:20px;
+  padding:18px;
+}
+
+.service-problem-points strong{
+  display:block;
+  color:var(--primary);
+  margin-bottom:8px;
+}
+
+.service-resource-grid{
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+
+.service-resource-card{
+  display:flex;
+  flex-direction:column;
   gap:10px;
 }
 
-.service-related-list li{
-  position:relative;
-  padding-inline-start:20px;
+.service-resource-card h3{
+  color:var(--primary);
+  margin:0;
 }
 
-.service-related-list li::before{
-  content:"";
-  position:absolute;
-  inset-inline-start:0;
-  top:.75em;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--gold);
+.service-resource-card p{
+  color:var(--muted);
+  line-height:1.9;
+  margin:0;
 }
 
-.service-related-list a{
+.resource-tag{
+  align-self:flex-start;
+  display:inline-flex;
+  border-radius:999px;
+  padding:6px 12px;
+  background:rgba(212,166,58,.14);
+  color:var(--primary);
+  font-weight:800;
+  font-size:.88rem;
+}
+
+.service-resource-link{
+  margin-top:auto;
   color:var(--primary);
   font-weight:800;
   text-decoration:none;
 }
 
-.service-related-list a:hover{
-  color:var(--gold-dark);
-  text-decoration:underline;
+.service-resource-link:hover{
+  color:var(--accent-dark);
 }
 
-.service-related-path-card{
-  margin-top:18px;
+.service-inline-links{
   display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+
+.service-inline-links a{
+  display:inline-flex;
   align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  border-inline-start:5px solid var(--gold);
-}
-
-.service-related-path-card h3{
+  justify-content:center;
+  padding:9px 14px;
+  border-radius:999px;
+  background:rgba(212,166,58,.12);
   color:var(--primary);
-  margin:8px 0;
+  text-decoration:none;
+  font-weight:800;
 }
 
-.service-related-path-card p{
-  color:var(--muted);
-  line-height:1.9;
-  margin:0;
+.service-inline-links a:hover{
+  background:rgba(212,166,58,.20);
 }
 
-@media (max-width: 980px){
-  .service-related-grid{
+@media (max-width:980px){
+  .service-problem-card,
+  .service-resource-grid{
     grid-template-columns:1fr;
   }
-
-  .service-related-path-card{
-    flex-direction:column;
-    align-items:flex-start;
-  }
 }
 
-@media (max-width: 640px){
-  .service-related-path-card .btn{
+@media (max-width:640px){
+  .service-problem-card{
+    padding:22px;
+  }
+
+  .service-inline-links a{
     width:100%;
   }
 }
 
 
 /* =========================================================
-   Global Floating Actions
-   Quick contact + scroll-to-top must remain visible site-wide.
+   FINAL MOBILE NAV STATE FIX - 20260505
+   إصلاح نهائي: لا تظهر قائمة الهاتف إلا عند وجود nav-is-open على body.
+   يعالج بقاء .main-nav.open عالقة في صفحات MyTodo أو بعد الكاش.
    ========================================================= */
-.quick-contact-widget{
-  position:fixed;
-  right:18px;
-  bottom:22px;
-  z-index:1250;
-  display:flex;
-  flex-direction:column-reverse;
-  align-items:flex-end;
-  gap:12px;
-}
-
-.quick-contact-btn{
-  border:0;
-  border-radius:999px;
-  background:linear-gradient(135deg, var(--gold), #f0c96a);
-  color:var(--primary);
-  min-height:48px;
-  padding:0 16px;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-weight:900;
-  cursor:pointer;
-  box-shadow:0 10px 24px rgba(0,0,0,.18);
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-
-.quick-contact-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 14px 28px rgba(0,0,0,.24);
-}
-
-.quick-contact-icon{
-  width:28px;
-  height:28px;
-  border-radius:50%;
-  background:rgba(255,255,255,.7);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.quick-contact-panel{
-  width:min(320px, calc(100vw - 32px));
-  background:#fff;
-  border:1px solid rgba(15,39,71,.12);
-  border-radius:22px;
-  box-shadow:0 18px 40px rgba(15,39,71,.18);
-  padding:16px;
-}
-
-.quick-contact-panel-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  color:var(--primary);
-}
-
-.quick-contact-panel-head button{
-  border:0;
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  background:var(--light);
-  color:var(--primary);
-  font-size:20px;
-  cursor:pointer;
-}
-
-.quick-contact-panel p{
-  margin:10px 0 14px;
-  color:var(--muted);
-  line-height:1.8;
-}
-
-.quick-contact-links{
-  display:grid;
-  gap:8px;
-}
-
-.quick-contact-links a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:42px;
-  padding:8px 12px;
-  border-radius:14px;
-  background:var(--light);
-  color:var(--primary);
-  text-decoration:none;
-  font-weight:900;
-  border:1px solid rgba(15,39,71,.08);
-}
-
-.quick-contact-links a:hover{
-  background:var(--gold-soft);
-  border-color:rgba(212,166,58,.4);
-}
-
-.scroll-top-left{
-  position:fixed;
-  left:18px;
-  bottom:22px;
-  width:48px;
-  height:48px;
-  border:0;
-  border-radius:999px;
-  background:linear-gradient(135deg, var(--primary), var(--primary-2, #274690));
-  color:#fff;
-  font-size:24px;
-  font-weight:700;
-  line-height:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  box-shadow:0 10px 24px rgba(0,0,0,.18);
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(10px);
-  transition:opacity .25s ease, transform .25s ease, visibility .25s ease, box-shadow .25s ease;
-  z-index:1240;
-}
-
-.scroll-top-left.show{
-  opacity:1;
-  visibility:visible;
-  transform:translateY(0);
-}
-
-.scroll-top-left:hover{
-  box-shadow:0 14px 28px rgba(0,0,0,.24);
-  transform:translateY(-2px);
-}
-
-@media (max-width:640px){
-  .quick-contact-widget{
-    right:14px;
-    bottom:16px;
+@media (max-width: 900px){
+  body:not(.nav-is-open) .main-nav,
+  body:not(.nav-is-open) .main-nav.open{
+    display:none !important;
+    visibility:hidden !important;
+    opacity:0 !important;
+    pointer-events:none !important;
   }
 
-  .quick-contact-btn{
-    min-height:44px;
-    padding:0 12px;
+  body.nav-is-open .main-nav.open{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    pointer-events:auto !important;
+    position:absolute;
+    top:76px;
+    right:16px;
+    left:16px;
+    z-index:1000;
+    max-height:calc(100vh - 96px);
+    overflow:auto;
   }
 
-  .quick-contact-text{
-    display:none;
+  .nav-backdrop[hidden]{
+    display:none !important;
   }
 
-  .scroll-top-left{
-    left:14px;
-    bottom:16px;
-    width:44px;
-    height:44px;
-    font-size:22px;
+  body.nav-is-open .nav-backdrop:not([hidden]){
+    display:block !important;
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.35);
+    z-index:900;
+  }
+
+  body.nav-is-open{
+    overflow:hidden;
   }
 }
 
+@media (min-width: 901px){
+  .nav-backdrop{
+    display:none !important;
+  }
+}
 
 
 /* =========================================================
-   Learn – Futures and Scenario Planning Path
+   UI/UX MOBILE POLISH - 20260505
+   تحسين الهوية البصرية وتجربة القراءة على الجوال
    ========================================================= */
-.futures-path-hero{
-  background:
-    radial-gradient(circle at 15% 20%, rgba(212,166,58,.16), transparent 28%),
-    radial-gradient(circle at 86% 12%, rgba(15,39,71,.10), transparent 32%),
-    linear-gradient(135deg, #f7fbff 0%, #fffaf0 100%);
+
+@media (max-width: 768px){
+  html{
+    font-size:15px;
+  }
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .container{
+    width:min(100% - 24px, 100%);
+    padding-inline:0;
+  }
+
+  .inner-page,
+  .home-section,
+  .page-hero,
+  .section-head,
+  .service-detail-page section{
+    overflow-x:hidden;
+  }
+
+  .page-hero{
+    padding:32px 0 20px;
+  }
+
+  .home-section{
+    padding:40px 0;
+  }
+
+  .section-head{
+    margin-bottom:18px;
+  }
+
+  h1,
+  .page-hero h1,
+  .service-detail-page h1{
+    font-size:clamp(1.55rem, 7vw, 2.05rem);
+    line-height:1.28;
+    letter-spacing:0;
+    margin-bottom:12px;
+    word-break:normal;
+    overflow-wrap:anywhere;
+  }
+
+  h2,
+  .service-detail-page h2,
+  .home-section h2{
+    font-size:clamp(1.2rem, 5.4vw, 1.55rem);
+    line-height:1.38;
+    margin-bottom:10px;
+  }
+
+  h3,
+  .service-detail-page h3{
+    font-size:clamp(1.05rem, 4.3vw, 1.28rem);
+    line-height:1.4;
+  }
+
+  p,
+  li{
+    font-size:.96rem;
+    line-height:1.85;
+  }
+
+  .service-detail-hero,
+  .page-hero.service-detail-hero{
+    text-align:right;
+  }
+
+  .service-detail-hero .container,
+  .page-hero .container{
+    display:grid;
+    grid-template-columns:1fr !important;
+    gap:14px;
+    align-items:start;
+  }
+
+  .service-detail-hero .eyebrow,
+  .page-hero .eyebrow,
+  .section-kicker{
+    display:inline-block;
+    margin-bottom:10px;
+    font-size:.82rem;
+    line-height:1.5;
+  }
+
+  .service-detail-hero h1,
+  .page-hero h1,
+  .service-detail-hero p,
+  .page-hero p{
+    max-width:100%;
+    width:100%;
+  }
+
+  .service-detail-hero p,
+  .page-hero p,
+  .section-head p{
+    margin-inline:0;
+  }
+
+  .service-hero-actions,
+  .hero-actions,
+  .cta-actions,
+  .button-group{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    width:100%;
+  }
+
+  .btn,
+  .button,
+  .cta-btn,
+  .service-hero-actions .btn,
+  .hero-actions .btn{
+    width:100%;
+    justify-content:center;
+    min-height:46px;
+    text-align:center;
+    white-space:normal;
+  }
+
+  .portal-grid,
+  .cards-grid,
+  .services-grid,
+  .topics-grid,
+  .tools-grid,
+  .features-grid,
+  .service-quick-grid,
+  .service-fit-grid,
+  .service-output-grid,
+  .service-resource-grid{
+    grid-template-columns:1fr !important;
+    gap:16px;
+  }
+
+  .card,
+  .section-card,
+  .service-card,
+  .topic-card,
+  .tool-card,
+  .feature-card,
+  .service-quick-card,
+  .service-fit-card,
+  .service-output-card,
+  .service-cta-card{
+    padding:18px;
+    border-radius:18px;
+  }
+
+  .card h3,
+  .section-card h3,
+  .service-card h3,
+  .topic-card h3,
+  .tool-card h3{
+    font-size:1.08rem;
+    line-height:1.42;
+  }
+
+  .service-problem-card,
+  .template-use-box,
+  .template-hero-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .breadcrumbs{
+    margin:10px 0 4px;
+    font-size:.84rem;
+    padding:8px 0;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:thin;
+  }
+
+  .breadcrumbs ol{
+    flex-wrap:nowrap;
+  }
+
+  table,
+  .table-wrap,
+  .planner-table-wrapper,
+  .template-table-wrap{
+    display:block;
+    width:100%;
+    overflow-x:auto;
+  }
 }
 
-.futures-intro-card p{
+@media (max-width: 480px){
+  .page-hero{
+    padding:26px 0 18px;
+  }
+
+  h1,
+  .page-hero h1,
+  .service-detail-page h1{
+    font-size:clamp(1.45rem, 7.5vw, 1.9rem);
+    line-height:1.3;
+  }
+
+  h2,
+  .service-detail-page h2,
+  .home-section h2{
+    font-size:clamp(1.15rem, 5.8vw, 1.42rem);
+  }
+
+  p,
+  li{
+    font-size:.95rem;
+    line-height:1.8;
+  }
+
+  .card,
+  .section-card,
+  .service-card,
+  .topic-card,
+  .tool-card,
+  .feature-card,
+  .service-quick-card,
+  .service-fit-card,
+  .service-output-card,
+  .service-cta-card{
+    padding:16px;
+  }
+}
+
+/* =========================================================
+   MOBILE FIX — SERVICE PROCESS SECTION
+   Fix heading hierarchy + step number position
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* عنوان قسم آلية العمل */
+  .service-detail-page .section-head,
+  .service-detail-page .section-header {
+    display: block !important;
+    text-align: right;
+  }
+
+  .service-detail-page .section-head .eyebrow,
+  .service-detail-page .section-header .eyebrow,
+  .service-detail-page .section-kicker {
+    display: block !important;
+    width: 100%;
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--gold-2, #b8860b);
+    text-align: right;
+  }
+
+  .service-detail-page .section-head h2,
+  .service-detail-page .section-header h2 {
+    display: block !important;
+    width: 100%;
+    font-size: clamp(1.45rem, 6vw, 2rem);
+    line-height: 1.35;
+    margin: 0 0 12px 0;
+    text-align: right;
+  }
+
+  .service-detail-page .section-head p,
+  .service-detail-page .section-header p {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.85;
+    text-align: right;
+    margin: 0;
+  }
+
+  /* بطاقات خطوات آلية العمل */
+  .service-detail-page .process-card,
+  .service-detail-page .step-card,
+  .service-detail-page .workflow-card {
+    position: relative;
+    padding: 22px 20px 20px 20px;
+    text-align: right;
+  }
+
+  /* الرقم في يمين الخطوة وليس أعلى/وسط البطاقة */
+  .service-detail-page .process-card .step-number,
+  .service-detail-page .step-card .step-number,
+  .service-detail-page .workflow-card .step-number,
+  .service-detail-page .process-card .number,
+  .service-detail-page .step-card .number {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  /* ترك مساحة للرقم داخل البطاقة */
+  .service-detail-page .process-card h3,
+  .service-detail-page .step-card h3,
+  .service-detail-page .workflow-card h3 {
+    padding-right: 62px;
+    margin-top: 4px;
+    font-size: clamp(1.15rem, 5vw, 1.45rem);
+    line-height: 1.4;
+    text-align: right;
+  }
+
+  .service-detail-page .process-card p,
+  .service-detail-page .step-card p,
+  .service-detail-page .workflow-card p {
+    padding-right: 62px;
+    font-size: 0.96rem;
+    line-height: 1.85;
+    text-align: right;
+  }
+}
+/* =========================================================
+   MOBILE FIX — STEP NUMBER INLINE WITH TITLE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* بطاقة الخطوة نفسها */
+  .service-detail-page .process-card,
+  .service-detail-page .step-card,
+  .service-detail-page .workflow-card {
+    display: grid !important;
+    grid-template-columns: 52px 1fr !important;
+    column-gap: 14px;
+    row-gap: 8px;
+    align-items: start;
+    text-align: right;
+    direction: rtl;
+    padding: 22px 18px !important;
+  }
+
+  /* الرقم */
+  .service-detail-page .process-card .step-number,
+  .service-detail-page .step-card .step-number,
+  .service-detail-page .workflow-card .step-number,
+  .service-detail-page .process-card .number,
+  .service-detail-page .step-card .number,
+  .service-detail-page .workflow-card .number {
+    position: static !important;
+    grid-column: 1;
+    grid-row: 1;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: grid !important;
+    place-items: center;
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 0 !important;
+  }
+
+  /* عنوان الخطوة */
+  .service-detail-page .process-card h3,
+  .service-detail-page .step-card h3,
+  .service-detail-page .workflow-card h3 {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    font-size: clamp(1.1rem, 4.8vw, 1.35rem);
+    line-height: 1.45;
+    text-align: right;
+  }
+
+  /* وصف الخطوة */
+  .service-detail-page .process-card p,
+  .service-detail-page .step-card p,
+  .service-detail-page .workflow-card p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-right: 0 !important;
+    margin: 8px 0 0 0 !important;
+    font-size: 0.96rem;
+    line-height: 1.85;
+    text-align: right;
+  }
+}
+
+/* =========================================================
+   UI/UX MOBILE FIX — FOOTER STABILIZATION
+   تحسين الفوتر على الجوال
+   - تحويل الفوتر إلى عمود واحد
+   - تحسين قابلية الضغط على الروابط
+   - تقليل الثقل البصري والمسافات الزائدة
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .site-footer{
+    margin-top: 28px;
+  }
+
+  .footer-grid{
+    grid-template-columns: 1fr !important;
+    gap: 22px;
+    padding: 30px 0 20px;
+    text-align: right;
+  }
+
+  .site-footer h3,
+  .site-footer h4{
+    margin: 0 0 10px;
+    font-size: 1.08rem;
+    line-height: 1.45;
+  }
+
+  .site-footer p{
+    margin: 0;
+    font-size: .94rem;
+    line-height: 1.85;
+  }
+
+  .footer-links{
+    display: grid;
+    gap: 8px;
+  }
+
+  .footer-links li{
+    margin: 0;
+  }
+
+  .footer-links a{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 40px;
+    padding: 8px 0;
+    font-size: .95rem;
+    line-height: 1.6;
+  }
+
+  .footer-links a:hover{
+    color: #fff;
+  }
+
+  .footer-bottom{
+    padding: 12px 10px;
+    font-size: .86rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px){
+
+  .footer-grid{
+    padding: 26px 0 18px;
+    gap: 20px;
+  }
+
+  .site-footer h3,
+  .site-footer h4{
+    font-size: 1rem;
+  }
+
+  .site-footer p,
+  .footer-links a{
+    font-size: .9rem;
+  }
+
+  .footer-bottom{
+    font-size: .82rem;
+  }
+}
+
+/* =========================================================
+   UI/UX MOBILE FIX — COMPACT FOOTER
+   تقليل طول الفوتر على الجوال وتحسين عرض الروابط
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .site-footer{
+    margin-top: 24px;
+  }
+
+  .footer-grid{
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 26px 0 18px !important;
+    text-align: right;
+  }
+
+  .footer-grid > div{
+    padding-bottom: 4px;
+  }
+
+  .site-footer h3,
+  .site-footer h4{
+    margin: 0 0 8px !important;
+    font-size: 1rem !important;
+    line-height: 1.4;
+  }
+
+  .site-footer p{
+    margin: 0;
+    font-size: .9rem !important;
+    line-height: 1.8 !important;
+  }
+
+  .footer-links{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 14px !important;
+    align-items: start;
+  }
+
+  .footer-links a{
+    min-height: auto !important;
+    padding: 5px 0 !important;
+    font-size: .9rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .footer-bottom{
+    margin-top: 6px;
+    padding: 10px 8px !important;
+    font-size: .82rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 420px){
+
+  .footer-grid{
+    gap: 16px !important;
+    padding: 24px 0 16px !important;
+  }
+
+  .footer-links{
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 12px !important;
+  }
+
+  .footer-links a{
+    font-size: .88rem !important;
+  }
+}
+
+/* =========================================================
+   UI/UX MOBILE FIX — GROUPED FOOTER LAYOUT
+   ضبط الفوتر بعد الاختبار:
+   - منع تباعد الروابط بشكل مبالغ فيه
+   - جعل روابط سريعة وتواصل في مجموعات أوضح
+   - عرض المجموعات بجانب بعض على الشاشات المتوسطة
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .site-footer{
+    margin-top: 22px;
+  }
+
+  .footer-grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 24px 0 16px !important;
+    text-align: right;
+  }
+
+  /* تعريف المنصة يبقى في الأعلى */
+  .footer-grid > div:first-child{
+    grid-column: 1 / -1;
+  }
+
+  /* تجميع أقسام الروابط والتواصل بصريًا */
+  .footer-grid > div:not(:first-child){
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+    padding: 12px 14px;
+  }
+
+  .site-footer h3,
+  .site-footer h4{
+    margin: 0 0 8px !important;
+    font-size: 1rem !important;
+    line-height: 1.35;
+  }
+
+  .site-footer p{
+    font-size: .9rem !important;
+    line-height: 1.75 !important;
+  }
+
+  .footer-links{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2px !important;
+    justify-items: start;
+  }
+
+  .footer-links a{
+    display: inline-flex !important;
+    width: auto !important;
+    min-height: auto !important;
+    padding: 4px 0 !important;
+    font-size: .9rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .footer-bottom{
+    margin-top: 4px;
+    padding: 10px 8px !important;
+    font-size: .82rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* في الهواتف العريضة أو العرض المتوسط: الروابط والتواصل بجانب بعض */
+@media (min-width: 560px) and (max-width: 768px){
+
+  .footer-grid{
+    grid-template-columns: 1fr 1fr !important;
+    align-items: start;
+  }
+
+  .footer-grid > div:first-child{
+    grid-column: 1 / -1;
+  }
+
+  .footer-grid > div:nth-child(2),
+  .footer-grid > div:nth-child(3){
+    min-height: 100%;
+  }
+}
+
+/* في الهواتف الصغيرة جدًا: كل شيء تحت بعض */
+@media (max-width: 420px){
+
+  .footer-grid{
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 22px 0 14px !important;
+  }
+
+  .footer-grid > div:not(:first-child){
+    padding: 11px 12px;
+  }
+
+  .site-footer h3,
+  .site-footer h4{
+    font-size: .96rem !important;
+  }
+
+  .site-footer p,
+  .footer-links a{
+    font-size: .88rem !important;
+  }
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — TYPOGRAPHY SYSTEM
+   توحيد أحجام العناوين بين صفحات ConsuTrain
+   Phase B / Step 5
+   ========================================================= */
+
+/* العناوين العامة */
+:root{
+  --fs-page-title: clamp(2rem, 4vw, 3rem);
+  --fs-section-title: clamp(1.45rem, 2.6vw, 2rem);
+  --fs-card-title: clamp(1.08rem, 1.8vw, 1.3rem);
+  --fs-body: 1rem;
+  --fs-small: .92rem;
+
+  --lh-title: 1.28;
+  --lh-section: 1.38;
+  --lh-body: 1.9;
+}
+
+/* عنوان الصفحة الرئيسي */
+.page-hero h1,
+.hero h1,
+.article-full-header h1,
+.ai-content .page-title,
+.section__title{
+  font-size: var(--fs-page-title);
+  line-height: var(--lh-title);
+  color: var(--primary);
+  letter-spacing: 0;
+}
+
+/* عناوين الأقسام */
+.section-head h2,
+.home-section h2,
+.service-detail-page h2,
+.services-page h2,
+.about-block .section-head h2,
+.contact-page h2,
+.template-value-box h2,
+.management-map-card h2,
+.management-next-card h2,
+.ai-portal-cta h2,
+.article-extra-card h2{
+  font-size: var(--fs-section-title);
+  line-height: var(--lh-section);
+  color: var(--primary);
+  letter-spacing: 0;
+}
+
+/* عناوين البطاقات */
+.section-card h3,
+.feature-card h3,
+.service-card h3,
+.service-quick-card h3,
+.service-fit-card h3,
+.service-output-card h3,
+.service-resource-card h3,
+.audience-card h3,
+.contact-card h3,
+.contact-info-card h3,
+.about-feature-card h3,
+.value-card h3,
+.article-card h3,
+.prompt-card h3,
+.tool-card h3,
+.topic-card h3{
+  font-size: var(--fs-card-title);
+  line-height: 1.45;
+  color: var(--primary);
+  letter-spacing: 0;
+}
+
+/* الفقرات العامة */
+.page-hero p,
+.hero p,
+.section-head p,
+.section__desc,
+.section-card p,
+.feature-card p,
+.service-detail-page p,
+.services-page p,
+.about-block p,
+.contact-page p,
+.article-card p,
+.article-full-content p,
+.ai-content p,
+.template-value-box p,
+.management-next-card p{
+  line-height: var(--lh-body);
+}
+
+/* منع تضخم العناوين داخل صفحات الخدمات */
+.service-detail-page .page-hero h1,
+.service-detail-page h1{
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  line-height: 1.3;
+}
+
+/* ضبط العنوان الفرعي الصغير مثل آلية العمل */
+.eyebrow,
+.section-kicker,
+.section-eyebrow,
+.ai-card-kicker,
+.resource-tag{
+  font-size: var(--fs-small);
+  line-height: 1.55;
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — MOBILE TYPOGRAPHY
+   ضبط العناوين على الجوال بشكل موحد
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  :root{
+    --fs-page-title: clamp(1.55rem, 7vw, 2.05rem);
+    --fs-section-title: clamp(1.25rem, 5.6vw, 1.6rem);
+    --fs-card-title: clamp(1.05rem, 4.5vw, 1.25rem);
+    --fs-body: .96rem;
+    --fs-small: .86rem;
+
+    --lh-title: 1.32;
+    --lh-section: 1.42;
+    --lh-body: 1.85;
+  }
+
+  .page-hero h1,
+  .hero h1,
+  .article-full-header h1,
+  .ai-content .page-title,
+  .section__title,
+  .service-detail-page .page-hero h1,
+  .service-detail-page h1{
+    font-size: var(--fs-page-title) !important;
+    line-height: var(--lh-title) !important;
+    margin-bottom: 12px;
+  }
+
+  .section-head h2,
+  .home-section h2,
+  .service-detail-page h2,
+  .services-page h2,
+  .about-block .section-head h2,
+  .contact-page h2,
+  .template-value-box h2,
+  .management-map-card h2,
+  .management-next-card h2,
+  .ai-portal-cta h2,
+  .article-extra-card h2{
+    font-size: var(--fs-section-title) !important;
+    line-height: var(--lh-section) !important;
+  }
+
+  .section-card h3,
+  .feature-card h3,
+  .service-card h3,
+  .service-quick-card h3,
+  .service-fit-card h3,
+  .service-output-card h3,
+  .service-resource-card h3,
+  .audience-card h3,
+  .contact-card h3,
+  .contact-info-card h3,
+  .about-feature-card h3,
+  .value-card h3,
+  .article-card h3,
+  .prompt-card h3,
+  .tool-card h3,
+  .topic-card h3{
+    font-size: var(--fs-card-title) !important;
+    line-height: 1.45 !important;
+  }
+
+  .page-hero p,
+  .hero p,
+  .section-head p,
+  .section__desc,
+  .section-card p,
+  .feature-card p,
+  .service-detail-page p,
+  .services-page p,
+  .about-block p,
+  .contact-page p,
+  .article-card p,
+  .article-full-content p,
+  .ai-content p,
+  .template-value-box p,
+  .management-next-card p,
+  li{
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+}
+
+@media (max-width: 480px){
+
+  :root{
+    --fs-page-title: clamp(1.42rem, 7.6vw, 1.85rem);
+    --fs-section-title: clamp(1.16rem, 6vw, 1.42rem);
+    --fs-card-title: clamp(1rem, 4.8vw, 1.18rem);
+  }
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — BUTTON SYSTEM
+   توحيد شكل الأزرار بين صفحات ConsuTrain
+   Phase B / Step 6
+   ========================================================= */
+
+:root{
+  --btn-radius: 14px;
+  --btn-min-height: 46px;
+  --btn-padding-y: 11px;
+  --btn-padding-x: 18px;
+  --btn-font-size: .95rem;
+  --btn-shadow: 0 10px 22px rgba(15,39,71,.12);
+  --btn-shadow-hover: 0 14px 28px rgba(15,39,71,.18);
+}
+
+/* القاعدة العامة لكل الأزرار والروابط التي تعمل كزر */
+.btn,
+.button,
+.cta-btn,
+.cta-primary,
+.cta-secondary,
+.glossary-action-btn,
+.prompt-copy-btn,
+.view-switch-btn,
+.phase-filter-btn,
+.tags-toggle-btn,
+.service-link-btn,
+.service-resource-link,
+.term-video-link,
+.article-table-actions a,
+.article-related-chip,
+.article-related-item,
+.pwa-install-btn{
+  font-family: inherit;
+  border-radius: var(--btn-radius);
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+/* الأزرار الرئيسية */
+.btn,
+.button,
+.cta-btn,
+.cta-primary,
+.cta-secondary,
+.glossary-action-btn,
+.prompt-copy-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--btn-min-height);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--btn-font-size);
+  line-height: 1.45;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: normal;
+}
+
+/* الزر الأساسي */
+.btn-primary,
+.cta-primary,
+.glossary-action-btn,
+.prompt-copy-btn{
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff;
+  box-shadow: var(--btn-shadow);
+}
+
+.btn-primary:hover,
+.cta-primary:hover,
+.glossary-action-btn:hover,
+.prompt-copy-btn:hover{
+  background: linear-gradient(135deg, var(--primary-2), var(--primary-3));
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+/* الزر الثانوي */
+.btn-secondary,
+.cta-secondary{
+  background: var(--gold-soft);
+  color: var(--primary);
+  border-color: rgba(212,166,58,.28);
+}
+
+.btn-secondary:hover,
+.cta-secondary:hover{
+  background: #ebddb9;
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(212,166,58,.14);
+}
+
+/* زر خفيف / رابط على شكل زر */
+.service-link-btn,
+.service-inline-links a,
+.article-table-actions a,
+.tags-toggle-btn,
+.phase-filter-btn,
+.view-switch-btn{
+  border: 1px solid rgba(15,39,71,.12);
+  background: #fff;
+  color: var(--primary);
+}
+
+.service-link-btn:hover,
+.service-inline-links a:hover,
+.article-table-actions a:hover,
+.tags-toggle-btn:hover,
+.phase-filter-btn:hover,
+.view-switch-btn:hover{
+  background: var(--gold-soft);
+  border-color: rgba(212,166,58,.45);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* الحالة النشطة */
+.phase-filter-btn.active,
+.view-switch-btn.active,
+.tag-chip.active{
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: var(--btn-shadow);
+}
+
+/* أزرار الفيديو أو الموارد */
+.term-video-link{
+  border-radius: 999px;
+  min-height: 42px;
+  padding: 9px 14px;
+  background: linear-gradient(135deg, var(--primary), var(--gold));
+  color: #fff;
+  box-shadow: var(--btn-shadow);
+}
+
+.term-video-link:hover{
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+/* أزرار صغيرة داخل البطاقات */
+.mini-btn{
+  min-height: 38px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-weight: 800;
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease;
+}
+
+.mini-btn:hover{
+  transform: translateY(-1px);
+}
+
+/* مجموعات الأزرار */
+.hero-actions,
+.service-hero-actions,
+.services-hero-actions,
+.contact-hero-actions,
+.contact-cta-actions,
+.template-actions,
+.home-free-resources-actions,
+.cta-buttons,
+.ai-portal-actions,
+.management-hero-actions,
+.management-next-actions,
+.lesson-actions,
+.acc__actions{
+  gap: 12px;
+}
+
+/* قابلية الوصول عند استخدام لوحة المفاتيح */
+.btn:focus-visible,
+.button:focus-visible,
+.cta-btn:focus-visible,
+.cta-primary:focus-visible,
+.cta-secondary:focus-visible,
+.glossary-action-btn:focus-visible,
+.prompt-copy-btn:focus-visible,
+.view-switch-btn:focus-visible,
+.phase-filter-btn:focus-visible,
+.tags-toggle-btn:focus-visible,
+.service-link-btn:focus-visible,
+.service-inline-links a:focus-visible,
+.article-table-actions a:focus-visible,
+.term-video-link:focus-visible,
+.mini-btn:focus-visible{
+  outline: 3px solid rgba(212,166,58,.35);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — MOBILE BUTTON SYSTEM
+   توحيد الأزرار على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  :root{
+    --btn-radius: 13px;
+    --btn-min-height: 46px;
+    --btn-padding-y: 11px;
+    --btn-padding-x: 16px;
+    --btn-font-size: .93rem;
+  }
+
+  .hero-actions,
+  .service-hero-actions,
+  .services-hero-actions,
+  .contact-hero-actions,
+  .contact-cta-actions,
+  .template-actions,
+  .home-free-resources-actions,
+  .cta-buttons,
+  .ai-portal-actions,
+  .management-hero-actions,
+  .management-next-actions{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .btn,
+  .button,
+  .cta-btn,
+  .cta-primary,
+  .cta-secondary,
+  .glossary-action-btn,
+  .prompt-copy-btn,
+  .service-hero-actions .btn,
+  .services-hero-actions .btn,
+  .contact-hero-actions .btn,
+  .contact-cta-actions .btn,
+  .template-actions .btn,
+  .home-free-resources-actions .btn,
+  .ai-portal-actions .btn,
+  .management-hero-actions .btn,
+  .management-next-actions .btn{
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .view-switch-btn,
+  .phase-filter-btn,
+  .tags-toggle-btn{
+    min-height: 42px;
+  }
+
+  .service-inline-links{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .service-inline-links a{
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .article-table-actions{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .article-table-actions a{
+    min-height: 42px;
+  }
+}
+
+@media (max-width: 480px){
+
+  :root{
+    --btn-font-size: .9rem;
+  }
+
+  .btn,
+  .button,
+  .cta-btn,
+  .cta-primary,
+  .cta-secondary,
+  .glossary-action-btn,
+  .prompt-copy-btn{
+    min-height: 44px;
+  }
+}
+
+/* =========================================================
+   UI/UX MOBILE FIX — NAV SUBMENU ACCORDION
+   إصلاح القوائم المنسدلة داخل قائمة الهاتف
+   - منع ظهور القائمة الفرعية كنافذة عائمة
+   - جعلها جزءًا من القائمة نفسها
+   - منع اختفاء الروابط الفرعية أو الحاجة لتحريك مزعج
+   ========================================================= */
+
+@media (max-width: 900px){
+
+  body.nav-is-open .main-nav.open{
+    position: fixed !important;
+    top: 84px !important;
+    right: 12px !important;
+    left: 12px !important;
+    max-height: calc(100dvh - 110px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 14px !important;
+    border-radius: 22px !important;
+    overscroll-behavior: contain;
+  }
+
+  .main-nav .nav-item{
+    width: 100%;
+    overflow: visible !important;
+  }
+
+  .main-nav .has-submenu{
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center;
+  }
+
+  /* القائمة الفرعية على الجوال تصبح داخلية وليست absolute */
+  .main-nav .submenu{
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    grid-column: 1 / -1;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 8px 0 4px !important;
+    padding: 8px !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+    background: #f8fafc !important;
+    border: 1px solid rgba(15,39,71,.08) !important;
+    display: none !important;
+    gap: 6px !important;
+  }
+
+  .main-nav .has-submenu.submenu-open > .submenu{
+    display: grid !important;
+  }
+
+  .main-nav .submenu a{
+    display: flex !important;
+    width: 100% !important;
+    min-height: 42px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    background: #fff;
+    color: var(--primary);
+    line-height: 1.6;
+  }
+
+  .main-nav .submenu a:hover,
+  .main-nav .submenu a:focus-visible,
+  .main-nav .submenu a.is-active-sub{
+    background: var(--gold-soft);
+    color: var(--primary);
+  }
+
+  .main-nav .submenu-toggle{
+    display: inline-grid !important;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .main-nav .has-submenu.submenu-open .submenu-toggle span{
+    transform: rotate(180deg);
+  }
+
+  /* منع زر CTA أسفل القائمة من تغطية عناصر القائمة */
+  body.nav-is-open{
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px){
+
+  body.nav-is-open .main-nav.open{
+    top: 78px !important;
+    right: 10px !important;
+    left: 10px !important;
+    max-height: calc(100dvh - 96px) !important;
+    padding: 12px !important;
+  }
+
+  .main-nav .submenu a{
+    min-height: 40px;
+    padding: 9px 10px !important;
+    font-size: .92rem;
+  }
+}
+
+/* =========================================================
+   UI/UX MOBILE FIX — BIGGER ACCORDION ARROW
+   تكبير سهم الأكورديون في قائمة الهاتف
+   ========================================================= */
+
+@media (max-width: 900px){
+
+  .main-nav .submenu-toggle{
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background: rgba(15,39,71,.04);
+  }
+
+  .main-nav .submenu-toggle span{
+    display: inline-grid;
+    place-items: center;
+    font-size: 1.15rem !important;
+    line-height: 1;
+    font-weight: 900;
+    color: var(--primary);
+  }
+
+  .main-nav .submenu-toggle:hover,
+  .main-nav .submenu-toggle:focus-visible{
+    background: var(--gold-soft);
+  }
+
+  .main-nav .has-submenu.submenu-open .submenu-toggle{
+    background: rgba(212,166,58,.16);
+  }
+
+  .main-nav .has-submenu.submenu-open .submenu-toggle span{
+    color: var(--gold-2);
+  }
+}
+
+@media (max-width: 480px){
+
+  .main-nav .submenu-toggle{
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .main-nav .submenu-toggle span{
+    font-size: 1.1rem !important;
+  }
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — CARD SYSTEM
+   توحيد شكل البطاقات بين صفحات ConsuTrain
+   Phase B / Step 7
+   ========================================================= */
+
+:root{
+  --card-bg: #ffffff;
+  --card-border: 1px solid rgba(15,39,71,.09);
+  --card-radius: 22px;
+  --card-padding: 24px;
+  --card-shadow: 0 12px 30px rgba(15,39,71,.06);
+  --card-shadow-hover: 0 18px 42px rgba(15,39,71,.10);
+}
+
+/* القاعدة العامة للبطاقات */
+.card,
+.section-card,
+.feature-card,
+.service-card,
+.service-quick-card,
+.service-fit-card,
+.service-output-card,
+.service-resource-card,
+.service-cta-card,
+.service-problem-card,
+.audience-card,
+.contact-card,
+.contact-info-card,
+.contact-cta,
+.about-feature-card,
+.value-card,
+.article-card,
+.article-extra-card,
+.glossary-item,
+.prompt-card,
+.prompt-card--pro,
+.tool-card,
+.topic-card,
+.home-resource-item,
+.template-download-card,
+.template-feature-card,
+.template-mini-card,
+.template-trick-card,
+.template-value-box,
+.management-overview-card,
+.management-map-card,
+.management-next-card,
+.management-module-pill,
+.management-lesson-card,
+.ai-portal-card,
+.ai-article-mini,
+.ai-learning-path-card,
+.ai-step,
+.service-acc-item,
+.journey-item,
+.objective-item,
+.learn-start-card,
+.learn-start-item,
+.learning-journey-card,
+.soft-group,
+.soft-skill-item,
+.pillar,
+.acc{
+  background: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+}
+
+/* المسافات الداخلية الموحدة */
+.card,
+.section-card,
+.feature-card,
+.service-card,
+.service-quick-card,
+.service-fit-card,
+.service-output-card,
+.service-resource-card,
+.service-cta-card,
+.audience-card,
+.contact-card,
+.contact-info-card,
+.about-feature-card,
+.value-card,
+.article-card,
+.article-extra-card,
+.glossary-item,
+.prompt-card,
+.prompt-card--pro,
+.tool-card,
+.topic-card,
+.home-resource-item,
+.template-feature-card,
+.template-mini-card,
+.template-trick-card,
+.management-overview-card,
+.management-map-card,
+.management-next-card,
+.management-module-pill,
+.ai-portal-card,
+.ai-article-mini,
+.ai-step,
+.soft-skill-item{
+  padding: var(--card-padding);
+}
+
+/* تأثير hover للبطاقات القابلة للنقر أو الاستكشاف */
+.section-card,
+.feature-card,
+.service-card,
+.service-resource-card,
+.article-card,
+.glossary-item,
+.prompt-card,
+.tool-card,
+.topic-card,
+.home-resource-item,
+.template-feature-card,
+.template-mini-card,
+.template-trick-card,
+.management-module-pill,
+.management-lesson-card,
+.ai-portal-card,
+.ai-article-mini,
+.ai-step,
+.learn-start-item,
+.soft-skill-item{
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+}
+
+.section-card:hover,
+.feature-card:hover,
+.service-card:hover,
+.service-resource-card:hover,
+.article-card:hover,
+.glossary-item:hover,
+.prompt-card:hover,
+.tool-card:hover,
+.topic-card:hover,
+.home-resource-item:hover,
+.template-feature-card:hover,
+.template-mini-card:hover,
+.template-trick-card:hover,
+.management-module-pill:hover,
+.management-lesson-card:hover,
+.ai-portal-card:hover,
+.ai-article-mini:hover,
+.ai-step:hover,
+.learn-start-item:hover,
+.soft-skill-item:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(212,166,58,.34);
+}
+
+/* توحيد عناوين البطاقات */
+.card h3,
+.section-card h3,
+.feature-card h3,
+.service-card h3,
+.service-quick-card h3,
+.service-fit-card h3,
+.service-output-card h3,
+.service-resource-card h3,
+.audience-card h3,
+.contact-card h3,
+.contact-info-card h3,
+.about-feature-card h3,
+.value-card h3,
+.article-card h3,
+.glossary-item h3,
+.prompt-card h3,
+.tool-card h3,
+.topic-card h3,
+.home-resource-item strong,
+.template-feature-card h3,
+.template-mini-card h3,
+.template-trick-card h3,
+.management-module-pill strong,
+.ai-portal-card h3,
+.ai-article-mini h3,
+.soft-skill-item h3{
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--primary);
+  line-height: 1.45;
+}
+
+/* توحيد نصوص البطاقات */
+.card p,
+.section-card p,
+.feature-card p,
+.service-card p,
+.service-quick-card p,
+.service-fit-card p,
+.service-output-card p,
+.service-resource-card p,
+.audience-card p,
+.contact-card p,
+.contact-info-card p,
+.about-feature-card p,
+.value-card p,
+.article-card p,
+.glossary-item p,
+.prompt-card p,
+.tool-card p,
+.topic-card p,
+.home-resource-item span,
+.template-feature-card p,
+.template-mini-card p,
+.template-trick-card p,
+.management-module-pill span,
+.ai-portal-card p,
+.ai-article-mini p,
+.soft-skill-item p{
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+/* بطاقات الخطوات: الحفاظ على وضوح الرقم والمحتوى */
+.journey-item,
+.objective-item,
+.management-lesson-card{
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+}
+
+.journey-number,
+.objective-num,
+.lesson-code,
+.management-card-icon{
+  box-shadow: 0 8px 18px rgba(15,39,71,.10);
+}
+
+/* بطاقات الأكورديون */
+.service-acc-item,
+.soft-group,
+.pillar,
+.acc{
+  overflow: hidden;
+}
+
+.service-acc-item summary,
+.soft-group summary,
+.pillar__sum,
+.acc__sum{
+  transition: background .22s ease, color .22s ease;
+}
+
+.service-acc-item:hover,
+.soft-group:hover,
+.pillar:hover,
+.acc:hover{
+  border-color: rgba(212,166,58,.30);
+}
+
+/* توحيد البطاقات ذات الخلفيات الخاصة بدون إلغاء التميز البصري */
+.service-problem-card,
+.template-value-box,
+.home-free-resources-box,
+.ai-portal-card--featured,
+.learn-path-card--featured,
+.ai-learning-path-card{
+  border-radius: 26px;
+  box-shadow: var(--card-shadow);
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — MOBILE CARD SYSTEM
+   توحيد البطاقات على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  :root{
+    --card-radius: 18px;
+    --card-padding: 18px;
+    --card-shadow: 0 8px 22px rgba(15,39,71,.055);
+    --card-shadow-hover: 0 10px 26px rgba(15,39,71,.08);
+  }
+
+  .card,
+  .section-card,
+  .feature-card,
+  .service-card,
+  .service-quick-card,
+  .service-fit-card,
+  .service-output-card,
+  .service-resource-card,
+  .service-cta-card,
+  .audience-card,
+  .contact-card,
+  .contact-info-card,
+  .about-feature-card,
+  .value-card,
+  .article-card,
+  .article-extra-card,
+  .glossary-item,
+  .prompt-card,
+  .prompt-card--pro,
+  .tool-card,
+  .topic-card,
+  .home-resource-item,
+  .template-download-card,
+  .template-feature-card,
+  .template-mini-card,
+  .template-trick-card,
+  .template-value-box,
+  .management-overview-card,
+  .management-map-card,
+  .management-next-card,
+  .management-module-pill,
+  .management-lesson-card,
+  .ai-portal-card,
+  .ai-article-mini,
+  .ai-learning-path-card,
+  .ai-step,
+  .service-acc-item,
+  .journey-item,
+  .objective-item,
+  .learn-start-card,
+  .learn-start-item,
+  .learning-journey-card,
+  .soft-group,
+  .soft-skill-item,
+  .pillar,
+  .acc{
+    border-radius: var(--card-radius) !important;
+  }
+
+  .card,
+  .section-card,
+  .feature-card,
+  .service-card,
+  .service-quick-card,
+  .service-fit-card,
+  .service-output-card,
+  .service-resource-card,
+  .service-cta-card,
+  .audience-card,
+  .contact-card,
+  .contact-info-card,
+  .about-feature-card,
+  .value-card,
+  .article-card,
+  .article-extra-card,
+  .glossary-item,
+  .prompt-card,
+  .prompt-card--pro,
+  .tool-card,
+  .topic-card,
+  .home-resource-item,
+  .template-feature-card,
+  .template-mini-card,
+  .template-trick-card,
+  .management-overview-card,
+  .management-map-card,
+  .management-next-card,
+  .management-module-pill,
+  .ai-portal-card,
+  .ai-article-mini,
+  .ai-step,
+  .soft-skill-item{
+    padding: var(--card-padding) !important;
+  }
+
+  /* على الجوال نقلل الحركة حتى لا يكون التأثير مزعجًا */
+  .section-card:hover,
+  .feature-card:hover,
+  .service-card:hover,
+  .service-resource-card:hover,
+  .article-card:hover,
+  .glossary-item:hover,
+  .prompt-card:hover,
+  .tool-card:hover,
+  .topic-card:hover,
+  .home-resource-item:hover,
+  .template-feature-card:hover,
+  .template-mini-card:hover,
+  .template-trick-card:hover,
+  .management-module-pill:hover,
+  .management-lesson-card:hover,
+  .ai-portal-card:hover,
+  .ai-article-mini:hover,
+  .ai-step:hover,
+  .learn-start-item:hover,
+  .soft-skill-item:hover{
+    transform: none;
+  }
+
+  .service-problem-card,
+  .template-value-box,
+  .home-free-resources-box,
+  .ai-portal-card--featured,
+  .learn-path-card--featured,
+  .ai-learning-path-card{
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px){
+
+  :root{
+    --card-radius: 16px;
+    --card-padding: 16px;
+  }
+}
+
+/* =========================================================
+   UI/UX FIX — KNOWLEDGE LIBRARY SEARCH INPUT
+   تصغير خانة البحث في صفحة مكتبة المعرفة
+   - عرض عريض
+   - ارتفاع طبيعي كسطر واحد
+   - مناسب للجوال
+   ========================================================= */
+
+.articles-toolbar .search-input,
+.articles-page .search-input,
+.knowledge-page .search-input{
+  min-height: 48px;
+  height: 48px;
+  padding: 0 16px;
+  line-height: 48px;
+  border-radius: 16px;
+}
+
+.articles-toolbar{
+  align-items: center;
+}
+
+@media (max-width: 768px){
+
+  .articles-toolbar .search-input,
+  .articles-page .search-input,
+  .knowledge-page .search-input{
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    padding: 0 14px !important;
+    line-height: 46px !important;
+    font-size: .95rem;
+    border-radius: 14px;
+  }
+
+  .articles-toolbar{
+    gap: 10px;
+  }
+
+  .articles-toolbar .glossary-action-btn,
+  .articles-toolbar .btn,
+  .articles-toolbar button{
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px){
+
+  .articles-toolbar .search-input,
+  .articles-page .search-input,
+  .knowledge-page .search-input{
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    line-height: 44px !important;
+    font-size: .92rem;
+  }
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — BACKGROUNDS & SPACING
+   تحسين الخلفيات والمسافات بين الأقسام
+   Phase B / Step 8
+   ========================================================= */
+
+:root{
+  --section-padding-y: 56px;
+  --section-padding-y-soft: 42px;
+  --section-gap: 22px;
+  --page-hero-padding-y: 58px;
+  --soft-section-bg: linear-gradient(180deg, #fbfdff 0%, #f6f9fd 100%);
+  --hero-soft-bg:
+    radial-gradient(circle at top right, rgba(212,166,58,.12), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+/* خلفية عامة أخف وأكثر اتساقًا */
+body{
+  background:
+    linear-gradient(180deg, #f6f8fc 0%, #f5f7fb 42%, #f8fafc 100%);
+}
+
+/* توحيد مسافات الأقسام */
+.home-section,
+.service-detail-page section,
+.services-page section,
+.contact-page section,
+.about-block,
+.template-value-section,
+.management-phase-section,
+.management-phase-filter-section,
+.ai-portal-page section{
+  padding-top: var(--section-padding-y-soft);
+  padding-bottom: var(--section-padding-y-soft);
+}
+
+/* Hero الصفحات الداخلية */
+.page-hero,
+.services-hero,
+.service-detail-hero,
+.contact-hero,
+.template-hero,
+.management-skills-hero,
+.topics-hero{
+  padding-top: var(--page-hero-padding-y);
+  padding-bottom: 34px;
+  background: var(--hero-soft-bg);
+}
+
+/* تقليل التصادم بين الـ breadcrumbs والـ hero */
+#breadcrumbs-placeholder + .inner-page .page-hero,
+#breadcrumbs-placeholder + main .page-hero{
+  padding-top: 46px;
+}
+
+/* توحيد المسافة بين عنوان القسم ومحتواه */
+.section-head,
+.section__head,
+.services-head,
+.contact-head,
+.management-section-head,
+.service-detail-head,
+.topics-head{
+  margin-bottom: var(--section-gap);
+}
+
+/* خلفيات الأقسام الناعمة */
+.service-detail-soft,
+.contact-section-soft,
+.alt-bg,
+.ai-portal-cta,
+.home-free-resources,
+.template-value-box,
+.learning-journey-card{
+  background: var(--soft-section-bg);
+}
+
+/* تحسين حواف الكتل الكبيرة */
+.home-free-resources-box,
+.service-problem-card,
+.template-use-box,
+.template-value-box,
+.contact-cta,
+.service-cta-card,
+.ai-portal-cta,
+.learning-journey-card{
+  border-radius: 28px;
+}
+
+/* ضبط شبكات البطاقات */
+.cards-grid,
+.services-intro-grid,
+.services-audience-grid,
+.service-quick-grid,
+.service-fit-grid,
+.service-output-grid,
+.service-resource-grid,
+.contact-top-grid,
+.contact-info-grid,
+.about-dual-grid,
+.about-values-grid,
+.management-overview-grid,
+.management-modules-grid,
+.ai-portal-cards,
+.ai-featured-articles,
+.prompts-list,
+.articles-list,
+.glossary-list{
+  gap: 20px;
+}
+
+/* توحيد المسافات داخل صفحات التفاصيل */
+.service-detail-page .home-section:first-of-type,
+.services-page .home-section:first-of-type,
+.contact-page .home-section:first-of-type{
+  padding-top: 34px;
+}
+
+/* تحسين انتقال الأقسام بصريًا */
+.home-section + .home-section,
+.service-detail-page section + section,
+.services-page section + section,
+.contact-page section + section{
+  margin-top: 0;
+}
+
+/* عدم تضخيم المساحة أسفل آخر قسم قبل الفوتر */
+.inner-page > section:last-child,
+.inner-page > .home-section:last-child{
+  padding-bottom: 46px;
+}
+
+/* =========================================================
+   DESIGN CONSISTENCY — MOBILE BACKGROUNDS & SPACING
+   تحسين الخلفيات والمسافات على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  :root{
+    --section-padding-y: 38px;
+    --section-padding-y-soft: 30px;
+    --section-gap: 16px;
+    --page-hero-padding-y: 34px;
+  }
+
+  .page-hero,
+  .services-hero,
+  .service-detail-hero,
+  .contact-hero,
+  .template-hero,
+  .management-skills-hero,
+  .topics-hero{
+    padding-top: var(--page-hero-padding-y) !important;
+    padding-bottom: 22px !important;
+  }
+
+  #breadcrumbs-placeholder + .inner-page .page-hero,
+  #breadcrumbs-placeholder + main .page-hero{
+    padding-top: 28px !important;
+  }
+
+  .home-section,
+  .service-detail-page section,
+  .services-page section,
+  .contact-page section,
+  .about-block,
+  .template-value-section,
+  .management-phase-section,
+  .management-phase-filter-section,
+  .ai-portal-page section{
+    padding-top: var(--section-padding-y-soft) !important;
+    padding-bottom: var(--section-padding-y-soft) !important;
+  }
+
+  .section-head,
+  .section__head,
+  .services-head,
+  .contact-head,
+  .management-section-head,
+  .service-detail-head,
+  .topics-head{
+    margin-bottom: var(--section-gap) !important;
+  }
+
+  .cards-grid,
+  .services-intro-grid,
+  .services-audience-grid,
+  .service-quick-grid,
+  .service-fit-grid,
+  .service-output-grid,
+  .service-resource-grid,
+  .contact-top-grid,
+  .contact-info-grid,
+  .about-dual-grid,
+  .about-values-grid,
+  .management-overview-grid,
+  .management-modules-grid,
+  .ai-portal-cards,
+  .ai-featured-articles,
+  .prompts-list,
+  .articles-list,
+  .glossary-list{
+    gap: 16px !important;
+  }
+
+  .home-free-resources-box,
+  .service-problem-card,
+  .template-use-box,
+  .template-value-box,
+  .contact-cta,
+  .service-cta-card,
+  .ai-portal-cta,
+  .learning-journey-card{
+    border-radius: 20px !important;
+  }
+
+  .inner-page > section:last-child,
+  .inner-page > .home-section:last-child{
+    padding-bottom: 34px !important;
+  }
+}
+
+@media (max-width: 480px){
+
+  :root{
+    --section-padding-y-soft: 26px;
+    --section-gap: 14px;
+  }
+
+  .page-hero,
+  .services-hero,
+  .service-detail-hero,
+  .contact-hero,
+  .template-hero,
+  .management-skills-hero,
+  .topics-hero{
+    padding-top: 28px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .home-section,
+  .service-detail-page section,
+  .services-page section,
+  .contact-page section,
+  .about-block,
+  .template-value-section,
+  .management-phase-section,
+  .management-phase-filter-section,
+  .ai-portal-page section{
+    padding-top: var(--section-padding-y-soft) !important;
+    padding-bottom: var(--section-padding-y-soft) !important;
+  }
+}
+
+/* =========================================================
+   POLISH — HOME PAGE ENHANCEMENT
+   تحسين الصفحة الرئيسية: Hero + Value Strip + Audience
+   Phase C / Step 9
+   ========================================================= */
+
+.home-polish-hero{
+  padding: 70px 0 34px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.18), transparent 28%),
+    radial-gradient(circle at 14% 78%, rgba(15,39,71,.10), transparent 32%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.home-hero-card{
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  padding: 42px;
+}
+
+.home-hero-card::after{
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  left: -70px;
+  bottom: -76px;
+  background: rgba(212,166,58,.13);
+  pointer-events: none;
+}
+
+.home-hero-card h1{
+  max-width: 780px;
+}
+
+.home-hero-card p{
+  max-width: 760px;
+}
+
+.home-hero-highlights{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 22px;
+}
+
+.home-hero-highlights span{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(15,39,71,.06);
+  border: 1px solid rgba(15,39,71,.08);
+  color: var(--primary);
+  font-weight: 800;
+  font-size: .9rem;
+}
+
+.home-hero-side{
+  align-self: stretch;
+}
+
+.home-feature-card{
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 14px;
+  align-items: start;
+  min-height: 150px;
+  color: inherit;
+}
+
+.home-feature-card h3,
+.home-feature-card p{
+  grid-column: 2;
+}
+
+.home-feature-card h3{
+  margin-bottom: 6px;
+}
+
+.home-card-icon{
+  grid-row: 1 / span 2;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--gold));
+  color: #fff;
+  font-weight: 900;
+  font-size: .95rem;
+  box-shadow: 0 10px 24px rgba(15,39,71,.12);
+}
+
+.home-value-strip{
+  padding: 0 0 18px;
+}
+
+.home-value-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.home-value-item{
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: 0 8px 22px rgba(15,39,71,.05);
+}
+
+.home-value-item strong{
+  display: block;
+  color: var(--primary);
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.home-value-item span{
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.7;
+}
+
+.home-audience-section{
+  background: linear-gradient(180deg, #ffffff 0%, #f7fafe 100%);
+}
+
+.home-audience-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.home-audience-card{
+  position: relative;
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.09);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(15,39,71,.06);
+  padding: 24px;
+  overflow: hidden;
+}
+
+.home-audience-card::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 4px;
+  height: 44px;
+  border-radius: 999px 0 0 999px;
+  background: var(--gold);
+}
+
+.home-audience-card h3{
+  margin: 0 0 10px;
+  color: var(--primary);
+}
+
+.home-audience-card p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+@media (max-width: 980px){
+  .home-polish-hero{
+    padding: 48px 0 28px;
+  }
+
+  .home-value-grid,
+  .home-audience-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px){
+  .home-polish-hero{
+    padding: 30px 0 22px;
+  }
+
+  .home-hero-card{
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .home-hero-highlights{
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .home-hero-highlights span{
+    flex: 1 1 auto;
+    font-size: .86rem;
+    min-height: 32px;
+  }
+
+  .home-feature-card{
+    grid-template-columns: 46px 1fr;
+    gap: 12px;
+    min-height: auto;
+  }
+
+  .home-card-icon{
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    font-size: .88rem;
+  }
+
+  .home-value-strip{
+    padding-bottom: 8px;
+  }
+
+  .home-value-item,
+  .home-audience-card{
+    padding: 18px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 480px){
+  .home-hero-card{
+    padding: 20px;
+  }
+
+  .home-hero-highlights{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   POLISH — LEARN PAGES ENHANCEMENT
+   تحسين صفحات Learn: التعلّم، المقالات، القاموس، AI، المهارات
+   Phase C / Step 10
+   ========================================================= */
+
+/* Hero صفحات Learn */
+.learn-hero,
+.topics-hero,
+.ai-portal-page .page-hero,
+.management-skills-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(15,39,71,.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.learn-hero .container,
+.topics-hero .container,
+.ai-portal-page .page-hero .container,
+.management-skills-hero .container{
+  position: relative;
+}
+
+/* جعل مقدمات Learn أكثر وضوحًا */
+.learn-hero h1,
+.topics-hero h1,
+.ai-portal-page .page-hero h1,
+.management-skills-hero h1{
+  max-width: 880px;
+}
+
+.learn-hero p,
+.topics-hero p,
+.ai-portal-page .page-hero p,
+.management-skills-hero p{
+  max-width: 900px;
+}
+
+/* بطاقات مسارات التعلم */
+.learn-path-card,
+.learn-start-card,
+.learning-journey-card,
+.management-overview-card,
+.management-map-card,
+.management-next-card{
+  border: 1px solid rgba(15,39,71,.09);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.learn-path-card{
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-path-card::after{
+  content: "";
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  left: -42px;
+  bottom: -48px;
+  background: rgba(212,166,58,.10);
+  pointer-events: none;
+}
+
+/* تحسين عناصر البداية */
+.learn-start-item{
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-start-item::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 18px;
+  width: 4px;
+  height: 38px;
+  border-radius: 999px 0 0 999px;
+  background: var(--gold);
+}
+
+/* مكتبة المعرفة */
+.articles-toolbar,
+.prompts-toolbar,
+.glossary-toolbar{
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 10px 24px rgba(15,39,71,.045);
+}
+
+.articles-topic-filter{
+  background: rgba(15,39,71,.025);
+  border: 1px solid rgba(15,39,71,.06);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.articles-tags-panel{
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(15,39,71,.04);
+}
+
+/* بطاقات المقالات */
+.article-card{
+  position: relative;
+  overflow: hidden;
+}
+
+.article-card::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 4px;
+  height: 44px;
+  border-radius: 999px 0 0 999px;
+  background: rgba(212,166,58,.85);
+}
+
+.article-card h3,
+.article-card p,
+.article-card .article-tags,
+.article-card .article-meta-row,
+.article-card .card-link{
+  position: relative;
+  z-index: 1;
+}
+
+/* القاموس */
+.glossary-item{
+  position: relative;
+}
+
+.glossary-category{
+  margin-bottom: 2px;
+}
+
+.glossary-definition,
+.glossary-example{
+  border-color: rgba(15,39,71,.08);
+}
+
+.glossary-definition{
+  background: #ffffff;
+}
+
+.glossary-example{
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+}
+
+/* صفحة AI */
+.ai-portal-card,
+.ai-article-mini,
+.ai-step{
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-step span,
+.ai-core{
+  box-shadow: 0 12px 26px rgba(15,39,71,.16);
+}
+
+.ai-guide-nav{
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 10px 24px rgba(15,39,71,.045);
+}
+
+/* مكتبة Prompts */
+.prompt-card--pro{
+  overflow: hidden;
+}
+
+.prompt-level-badge{
+  box-shadow: 0 8px 18px rgba(212,166,58,.10);
+}
+
+.prompt-box,
+.prompt-box--long{
+  background: #fbfdff;
+  border-color: rgba(15,39,71,.08);
+}
+
+/* المهارات الإدارية */
+.management-module-pill{
+  min-height: 150px;
+}
+
+.management-lesson-card{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.lesson-code{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212,166,58,.22), transparent 28%),
+    linear-gradient(135deg, rgba(15,39,71,.10), rgba(212,166,58,.20));
+}
+
+/* تحسين أزرار التبديل والفلاتر في Learn */
+.articles-view-switch,
+.management-phase-filter-card,
+.articles-results-head{
+  background: #fff;
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 10px 24px rgba(15,39,71,.04);
+}
+
+.articles-results-head{
+  margin-bottom: 16px;
+}
+
+/* ترتيب أفضل للكلمات المفتاحية */
+.articles-tags-bar{
+  gap: 8px;
+}
+
+.tag-chip{
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   POLISH — LEARN PAGES MOBILE
+   تحسين صفحات Learn على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .learn-hero,
+  .topics-hero,
+  .ai-portal-page .page-hero,
+  .management-skills-hero{
+    padding-top: 28px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .learn-hero-actions,
+  .ai-portal-actions,
+  .management-hero-actions{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .learn-hero-actions .btn,
+  .ai-portal-actions .btn,
+  .management-hero-actions .btn{
+    width: 100%;
+  }
+
+  .learn-start-grid,
+  .learn-paths-grid,
+  .learning-journey-steps,
+  .management-overview-grid,
+  .management-modules-grid,
+  .articles-list,
+  .prompts-list,
+  .glossary-list,
+  .ai-portal-cards,
+  .ai-featured-articles{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .articles-toolbar,
+  .prompts-toolbar,
+  .glossary-toolbar,
+  .articles-topic-filter,
+  .articles-tags-panel,
+  .ai-guide-nav,
+  .articles-view-switch,
+  .management-phase-filter-card,
+  .articles-results-head{
+    border-radius: 16px;
+    padding: 12px;
+  }
+
+  .articles-toolbar,
+  .prompts-toolbar,
+  .glossary-toolbar{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .articles-topic-filter{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .articles-tags-head{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .articles-tags-toggle-row{
+    justify-content: stretch;
+  }
+
+  .tags-toggle-btn{
+    width: 100%;
+  }
+
+  .articles-view-switch{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .view-switch-btn{
+    width: 100%;
+  }
+
+  .article-card::before,
+  .learn-start-item::before,
+  .home-audience-card::before{
+    height: 34px;
+    top: 18px;
+  }
+
+  .ai-portal-visual{
+    min-height: 230px;
+  }
+
+  .ai-orbit{
+    width: 82px;
+    height: 82px;
+    font-size: .82rem;
+  }
+
+  .ai-core{
+    width: 94px;
+    height: 94px;
+    font-size: 1.55rem;
+  }
+
+  .management-lesson-card{
+    gap: 12px;
+  }
+
+  .lesson-code{
+    min-height: 58px;
+  }
+}
+
+@media (max-width: 480px){
+
+  .tag-chip{
+    width: 100%;
+  }
+
+  .articles-tags-bar{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ai-portal-visual{
+    min-height: 210px;
+  }
+
+  .ai-orbit--one{
+    top: 24px;
+    right: 18px;
+  }
+
+  .ai-orbit--two{
+    bottom: 24px;
+    right: 24px;
+  }
+
+  .ai-orbit--three{
+    bottom: 34px;
+    left: 18px;
+    width: 92px;
+    height: 92px;
+  }
+}
+
+/* =========================================================
+   POLISH — TOOLS PAGES ENHANCEMENT
+   تحسين صفحات Tools: الأدوات، MyTodo، القوالب، دراسة الجدوى
+   Phase C / Step 11
+   ========================================================= */
+
+/* Hero صفحة الأدوات */
+.tools-page .page-hero,
+.tools-hero,
+.tools-page .tools-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(15,39,71,.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.tools-page .page-hero h1,
+.tools-page .page-hero p,
+.tools-hero h1,
+.tools-hero p{
+  max-width: 920px;
+}
+
+/* شبكات الأدوات */
+.tools-grid,
+.portal-grid,
+.tools-page .cards-grid{
+  gap: 20px;
+}
+
+/* بطاقات الأدوات */
+.tool-card,
+.tools-page .section-card,
+.tools-page .feature-card,
+.tools-page .service-card{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.tool-card::before,
+.tools-page .section-card::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 4px;
+  height: 44px;
+  border-radius: 999px 0 0 999px;
+  background: rgba(212,166,58,.85);
+}
+
+.tool-card h3,
+.tool-card p,
+.tool-card a,
+.tools-page .section-card h3,
+.tools-page .section-card p,
+.tools-page .section-card a{
+  position: relative;
+  z-index: 1;
+}
+
+/* إبراز الأدوات العملية */
+.tools-page .card-link,
+.tool-card .card-link,
+.tool-card a:not(.btn){
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--primary);
+  font-weight: 900;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+}
+
+.tools-page .card-link:hover,
+.tool-card .card-link:hover,
+.tool-card a:not(.btn):hover{
+  color: var(--gold-2);
+}
+
+/* صناديق الموارد والقوالب داخل Tools */
+.tools-page .home-free-resources-box,
+.tools-page .template-value-box,
+.tools-page .template-download-card,
+.tools-page .template-use-box,
+.tools-page .service-problem-card{
+  background:
+    radial-gradient(circle at 12% 20%, rgba(212,166,58,.10), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+/* تحسين أزرار Tools */
+.tools-page .hero-actions,
+.tools-page .template-actions,
+.tools-page .home-free-resources-actions,
+.tools-page .acc__actions{
+  gap: 12px;
+}
+
+/* MyTodo داخل ConsuTrain */
+.mytodo-page,
+.tools-mytodo-page{
+  background:
+    radial-gradient(circle at 90% 10%, rgba(212,166,58,.08), transparent 30%),
+    linear-gradient(180deg, #f7fafe 0%, #f5f7fb 100%);
+}
+
+.mytodo-page .page-hero,
+.tools-mytodo-page .page-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.15), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+/* بطاقات أو أقسام MyTodo العامة */
+.mytodo-page .section-card,
+.mytodo-page .feature-card,
+.mytodo-page .tool-card,
+.mytodo-page .card,
+.tools-mytodo-page .section-card,
+.tools-mytodo-page .feature-card,
+.tools-mytodo-page .tool-card,
+.tools-mytodo-page .card{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border-color: rgba(15,39,71,.09);
+}
+
+/* أدوات الحساب والفواتير والقوالب */
+.tools-page [class*="calculator"],
+.tools-page [class*="invoice"],
+.tools-page [class*="template"],
+.tools-page [class*="crm"],
+.tools-page [class*="timer"]{
+  scroll-margin-top: 96px;
+}
+
+/* جداول أو نماذج الأدوات */
+.tools-page form,
+.mytodo-page form,
+.tools-page .form-card,
+.mytodo-page .form-card,
+.tools-page .table-wrap,
+.mytodo-page .table-wrap,
+.tools-page .planner-table-wrapper,
+.mytodo-page .planner-table-wrapper{
+  border-radius: 20px;
+}
+
+/* حقول الإدخال داخل الأدوات */
+.tools-page input,
+.tools-page textarea,
+.tools-page select,
+.mytodo-page input,
+.mytodo-page textarea,
+.mytodo-page select,
+.tools-mytodo-page input,
+.tools-mytodo-page textarea,
+.tools-mytodo-page select{
+  border-radius: 14px;
+  border: 1px solid rgba(15,39,71,.12);
+  background: #fff;
+  min-height: 44px;
+}
+
+.tools-page input:focus,
+.tools-page textarea:focus,
+.tools-page select:focus,
+.mytodo-page input:focus,
+.mytodo-page textarea:focus,
+.mytodo-page select:focus,
+.tools-mytodo-page input:focus,
+.tools-mytodo-page textarea:focus,
+.tools-mytodo-page select:focus{
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212,166,58,.14);
+  outline: none;
+}
+
+/* أزرار الأدوات الداخلية */
+.tools-page button,
+.mytodo-page button,
+.tools-mytodo-page button{
+  font-family: inherit;
+}
+
+/* حالة الأدوات العملية */
+.tool-status,
+.tools-badge,
+.tool-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  color: var(--primary);
+  font-size: .84rem;
+  font-weight: 900;
+}
+
+/* =========================================================
+   POLISH — TOOLS PAGES MOBILE
+   تحسين صفحات Tools على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .tools-page .page-hero,
+  .tools-hero,
+  .tools-page .tools-hero,
+  .mytodo-page .page-hero,
+  .tools-mytodo-page .page-hero{
+    padding-top: 28px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .tools-grid,
+  .portal-grid,
+  .tools-page .cards-grid{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .tool-card,
+  .tools-page .section-card,
+  .tools-page .feature-card,
+  .tools-page .service-card{
+    border-radius: 18px !important;
+    padding: 18px !important;
+  }
+
+  .tool-card::before,
+  .tools-page .section-card::before{
+    top: 18px;
+    height: 34px;
+  }
+
+  .tools-page .hero-actions,
+  .tools-page .template-actions,
+  .tools-page .home-free-resources-actions,
+  .tools-page .acc__actions{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .tools-page .hero-actions .btn,
+  .tools-page .template-actions .btn,
+  .tools-page .home-free-resources-actions .btn,
+  .tools-page .acc__actions .btn{
+    width: 100%;
+  }
+
+  .tools-page input,
+  .tools-page textarea,
+  .tools-page select,
+  .mytodo-page input,
+  .mytodo-page textarea,
+  .mytodo-page select,
+  .tools-mytodo-page input,
+  .tools-mytodo-page textarea,
+  .tools-mytodo-page select{
+    width: 100%;
+    min-height: 44px;
+    font-size: .95rem;
+  }
+
+  .tools-page form,
+  .mytodo-page form,
+  .tools-mytodo-page form{
+    display: grid;
+    gap: 10px;
+  }
+
+  .tools-page table,
+  .mytodo-page table,
+  .tools-mytodo-page table{
+    font-size: .9rem;
+  }
+
+  .tools-page .table-wrap,
+  .mytodo-page .table-wrap,
+  .tools-page .planner-table-wrapper,
+  .mytodo-page .planner-table-wrapper{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px){
+
+  .tool-card,
+  .tools-page .section-card,
+  .tools-page .feature-card,
+  .tools-page .service-card{
+    padding: 16px !important;
+  }
+
+  .tools-page table,
+  .mytodo-page table,
+  .tools-mytodo-page table{
+    font-size: .86rem;
+  }
+}
+
+/* =========================================================
+   UI/UX FIX — TOOLS HERO CONTRAST
+   إصلاح تباين نص Hero في صفحة الأدوات
+   ========================================================= */
+
+.tools-page .page-hero,
+.tools-page .tools-hero,
+.tools-hero{
+  color: var(--primary);
+}
+
+.tools-page .page-hero h1,
+.tools-page .tools-hero h1,
+.tools-hero h1,
+.tools-page .page-hero h2,
+.tools-page .tools-hero h2,
+.tools-hero h2{
+  color: var(--primary) !important;
+  text-shadow: none !important;
+}
+
+.tools-page .page-hero p,
+.tools-page .tools-hero p,
+.tools-hero p{
+  color: var(--muted) !important;
+  text-shadow: none !important;
+}
+
+.tools-page .page-hero .eyebrow,
+.tools-page .tools-hero .eyebrow,
+.tools-hero .eyebrow,
+.tools-page .section-kicker,
+.tools-hero .section-kicker{
+  color: var(--gold-2) !important;
+  text-shadow: none !important;
+}
+
+/* إذا كان هناك overlay أبيض أو فاتح فوق الهيرو، نخففه */
+.tools-page .page-hero::before,
+.tools-page .tools-hero::before,
+.tools-hero::before{
+  opacity: .35;
+}
+
+/* تحسين القراءة على الجوال */
+@media (max-width: 768px){
+  .tools-page .page-hero,
+  .tools-page .tools-hero,
+  .tools-hero{
+    background:
+      radial-gradient(circle at 88% 18%, rgba(212,166,58,.12), transparent 28%),
+      linear-gradient(180deg, #f8fbff 0%, #ffffff 100%) !important;
+  }
+
+  .tools-page .page-hero h1,
+  .tools-page .tools-hero h1,
+  .tools-hero h1{
+    color: var(--primary) !important;
+  }
+
+  .tools-page .page-hero p,
+  .tools-page .tools-hero p,
+  .tools-hero p{
+    color: var(--muted) !important;
+  }
+}
+
+/* =========================================================
+   UI/UX FIX — BREADCRUMBS CONTRAST
+   جعل Breadcrumbs واضحة فوق الخلفيات الداكنة والفاتحة
+   ========================================================= */
+
+#breadcrumbs-placeholder{
+  background: #f8fbff;
+  border-bottom: 1px solid rgba(15,39,71,.08);
+}
+
+#breadcrumbs-placeholder .container{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#breadcrumbs-placeholder .breadcrumbs,
+.breadcrumbs{
+  margin: 0;
+  color: var(--muted);
+}
+
+#breadcrumbs-placeholder .breadcrumbs ol{
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 999px;
+  padding: 8px 14px;
+  width: fit-content;
+  max-width: 100%;
+  box-shadow: 0 8px 20px rgba(15,39,71,.045);
+}
+
+#breadcrumbs-placeholder .breadcrumbs a,
+.breadcrumbs a{
+  color: var(--primary) !important;
+  font-weight: 800;
+}
+
+#breadcrumbs-placeholder .breadcrumbs .current,
+.breadcrumbs .current{
+  color: var(--muted) !important;
+  font-weight: 800;
+}
+
+#breadcrumbs-placeholder .breadcrumbs li + li::before,
+.breadcrumbs li + li::before{
+  color: var(--gold-2) !important;
+  font-weight: 900;
+}
+
+/* صفحات الأدوات و MyTodo قد تحتوي خلفيات داكنة، لذلك نعزل الشريط بخلفية فاتحة */
+.tools-page #breadcrumbs-placeholder,
+.mytodo-page #breadcrumbs-placeholder,
+.tools-mytodo-page #breadcrumbs-placeholder{
+  background: #f8fbff !important;
+}
+
+/* تحسين على الجوال */
+@media (max-width: 768px){
+
+  #breadcrumbs-placeholder .container{
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs{
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs ol{
+    width: max-content;
+    min-width: auto;
+    max-width: 100%;
+    padding: 7px 12px;
+    border-radius: 999px;
+    flex-wrap: nowrap;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs a,
+  #breadcrumbs-placeholder .breadcrumbs .current{
+    font-size: .84rem;
+  }
+}
+
+/* =========================================================
+   POLISH — SERVICES PAGES ENHANCEMENT
+   تحسين صفحات Services بشكل موحد
+   Phase C / Step 12
+   ========================================================= */
+
+/* Hero صفحة الخدمات وصفحات الخدمات الفردية */
+.services-page .page-hero,
+.services-page .services-hero,
+.service-detail-page .page-hero,
+.service-detail-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(15,39,71,.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  color: var(--primary);
+}
+
+.services-page .page-hero h1,
+.services-page .services-hero h1,
+.service-detail-page .page-hero h1,
+.service-detail-hero h1{
+  max-width: 900px;
+  color: var(--primary) !important;
+  text-shadow: none !important;
+}
+
+.services-page .page-hero p,
+.services-page .services-hero p,
+.service-detail-page .page-hero p,
+.service-detail-hero p{
+  max-width: 920px;
+  color: var(--muted) !important;
+  text-shadow: none !important;
+}
+
+.services-page .page-hero .eyebrow,
+.services-page .services-hero .eyebrow,
+.service-detail-page .page-hero .eyebrow,
+.service-detail-hero .eyebrow,
+.services-page .section-kicker,
+.service-detail-page .section-kicker{
+  color: var(--gold-2) !important;
+  text-shadow: none !important;
+}
+
+/* تحسين صفحة الخدمات الرئيسية */
+.services-page .services-intro-grid,
+.services-page .services-audience-grid,
+.services-page .cards-grid,
+.services-page .service-resource-grid,
+.service-detail-page .service-quick-grid,
+.service-detail-page .service-fit-grid,
+.service-detail-page .service-output-grid,
+.service-detail-page .service-resource-grid{
+  gap: 20px;
+}
+
+/* بطاقات الخدمات الرئيسية والفردية */
+.services-page .section-card,
+.services-page .services-mini-card,
+.services-page .audience-card,
+.services-page .service-card,
+.service-detail-page .service-quick-card,
+.service-detail-page .service-fit-card,
+.service-detail-page .service-output-card,
+.service-detail-page .service-resource-card,
+.service-detail-page .service-cta-card{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border-color: rgba(15,39,71,.09);
+}
+
+/* خط جانبي ذهبي لتوحيد هوية بطاقات الخدمات */
+.services-page .section-card::before,
+.services-page .services-mini-card::before,
+.services-page .audience-card::before,
+.services-page .service-card::before,
+.service-detail-page .service-quick-card::before,
+.service-detail-page .service-fit-card::before,
+.service-detail-page .service-output-card::before,
+.service-detail-page .service-resource-card::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 4px;
+  height: 44px;
+  border-radius: 999px 0 0 999px;
+  background: rgba(212,166,58,.85);
+}
+
+.services-page .section-card h3,
+.services-page .section-card p,
+.services-page .section-card a,
+.services-page .services-mini-card h2,
+.services-page .services-mini-card p,
+.services-page .audience-card h3,
+.services-page .audience-card p,
+.service-detail-page .service-quick-card h3,
+.service-detail-page .service-quick-card p,
+.service-detail-page .service-fit-card h3,
+.service-detail-page .service-fit-card p,
+.service-detail-page .service-output-card h3,
+.service-detail-page .service-output-card p,
+.service-detail-page .service-resource-card h3,
+.service-detail-page .service-resource-card p,
+.service-detail-page .service-resource-card a{
+  position: relative;
+  z-index: 1;
+}
+
+/* تحسين أقسام المشكلة والقيمة */
+.service-problem-card{
+  background:
+    radial-gradient(circle at 12% 20%, rgba(212,166,58,.11), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border: 1px solid rgba(15,39,71,.09);
+  border-radius: 28px;
+}
+
+.service-problem-points div{
+  background:
+    linear-gradient(135deg, rgba(15,39,71,.045), rgba(212,166,58,.10));
+  border-color: rgba(15,39,71,.08);
+}
+
+/* تحسين بطاقات رحلة/خطوات الخدمة */
+.service-journey .journey-item,
+.service-detail-page .journey-item{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border: 1px solid rgba(15,39,71,.09);
+}
+
+.service-journey .journey-number,
+.service-detail-page .journey-number{
+  background:
+    radial-gradient(circle at 28% 22%, rgba(212,166,58,.35), transparent 34%),
+    linear-gradient(135deg, var(--primary), #355c9a);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(15,39,71,.14);
+}
+
+.service-journey .journey-content h3,
+.service-detail-page .journey-content h3{
+  color: var(--primary);
+}
+
+.service-journey .journey-content p,
+.service-detail-page .journey-content p{
+  color: var(--text);
+}
+
+/* تحسين الأكورديون في الخدمات */
+.service-acc-item{
+  border: 1px solid rgba(15,39,71,.09);
+  background: #fff;
+}
+
+.service-acc-item summary{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  color: var(--primary);
+  padding-left: 56px;
+}
+
+.service-acc-item summary::before{
+  left: 20px;
+  color: var(--gold-2);
+  background: rgba(212,166,58,.12);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+}
+
+.service-acc-item[open] summary::before{
+  background: var(--primary);
+  color: #fff;
+}
+
+.service-acc-body{
+  background: #fff;
+  border-top: 1px solid rgba(15,39,71,.08);
+}
+
+/* روابط الموارد داخل صفحات الخدمات */
+.service-inline-links{
+  gap: 10px;
+}
+
+.service-inline-links a,
+.service-resource-link,
+.service-link-btn{
+  border: 1px solid rgba(15,39,71,.12);
+  background: #fff;
+  color: var(--primary);
+}
+
+.service-inline-links a:hover,
+.service-resource-link:hover,
+.service-link-btn:hover{
+  background: var(--gold-soft);
+  border-color: rgba(212,166,58,.45);
+  color: var(--primary);
+}
+
+/* CTA نهاية صفحات الخدمات */
+.service-cta-card,
+.services-cta-card{
+  background:
+    radial-gradient(circle at 12% 20%, rgba(212,166,58,.14), transparent 28%),
+    linear-gradient(135deg, #ffffff, #fbf6e9);
+  border: 1px solid rgba(212,166,58,.24);
+  border-radius: 28px;
+}
+
+.service-cta-card h2,
+.services-cta-card h2{
+  color: var(--primary);
+}
+
+/* توحيد محاذاة وتباعد عناوين الخدمات */
+.services-page .section-head,
+.service-detail-page .section-head,
+.services-page .section__head,
+.service-detail-page .section__head,
+.services-head,
+.service-detail-head{
+  max-width: 980px;
+}
+
+/* =========================================================
+   POLISH — SERVICES PAGES MOBILE
+   تحسين صفحات Services على الجوال
+   ========================================================= */
+
+@media (max-width: 768px){
+
+  .services-page .page-hero,
+  .services-page .services-hero,
+  .service-detail-page .page-hero,
+  .service-detail-hero{
+    padding-top: 28px !important;
+    padding-bottom: 22px !important;
+    background:
+      radial-gradient(circle at 88% 18%, rgba(212,166,58,.12), transparent 28%),
+      linear-gradient(180deg, #f8fbff 0%, #ffffff 100%) !important;
+  }
+
+  .services-page .services-intro-grid,
+  .services-page .services-audience-grid,
+  .services-page .cards-grid,
+  .services-page .service-resource-grid,
+  .service-detail-page .service-quick-grid,
+  .service-detail-page .service-fit-grid,
+  .service-detail-page .service-output-grid,
+  .service-detail-page .service-resource-grid{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .services-page .section-card,
+  .services-page .services-mini-card,
+  .services-page .audience-card,
+  .services-page .service-card,
+  .service-detail-page .service-quick-card,
+  .service-detail-page .service-fit-card,
+  .service-detail-page .service-output-card,
+  .service-detail-page .service-resource-card,
+  .service-detail-page .service-cta-card{
+    border-radius: 18px !important;
+    padding: 18px !important;
+  }
+
+  .services-page .section-card::before,
+  .services-page .services-mini-card::before,
+  .services-page .audience-card::before,
+  .services-page .service-card::before,
+  .service-detail-page .service-quick-card::before,
+  .service-detail-page .service-fit-card::before,
+  .service-detail-page .service-output-card::before,
+  .service-detail-page .service-resource-card::before{
+    top: 18px;
+    height: 34px;
+  }
+
+  .service-problem-card{
+    border-radius: 20px !important;
+    padding: 18px !important;
+  }
+
+  .service-problem-points{
+    gap: 10px;
+  }
+
+  .service-problem-points div{
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .service-journey .journey-item,
+  .service-detail-page .journey-item{
+    gap: 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .service-journey .journey-number,
+  .service-detail-page .journey-number{
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    font-size: .95rem;
+  }
+
+  .service-acc-item summary{
+    padding: 16px 18px 16px 54px !important;
+    line-height: 1.6;
+  }
+
+  .service-acc-item summary::before{
+    left: 16px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .service-acc-body{
+    padding: 0 18px 18px !important;
+  }
+
+  .service-inline-links{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .service-inline-links a,
+  .service-link-btn{
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .service-hero-actions,
+  .services-hero-actions{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .service-hero-actions .btn,
+  .services-hero-actions .btn{
+    width: 100%;
+  }
+
+  .service-cta-card,
+  .services-cta-card{
+    border-radius: 20px !important;
+  }
+}
+
+@media (max-width: 480px){
+
+  .services-page .section-card,
+  .services-page .services-mini-card,
+  .services-page .audience-card,
+  .services-page .service-card,
+  .service-detail-page .service-quick-card,
+  .service-detail-page .service-fit-card,
+  .service-detail-page .service-output-card,
+  .service-detail-page .service-resource-card,
+  .service-detail-page .service-cta-card{
+    padding: 16px !important;
+  }
+
+  .service-acc-item summary{
+    font-size: .96rem;
+  }
+}
+
+/* =========================================================
+   FEEDBACK PAGE — شاركنا رأيك
+   صفحة استقبال المقترحات والمشاكل والانطباعات
+   ========================================================= */
+
+.feedback-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(15,39,71,.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.feedback-hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:22px;
+}
+
+.feedback-types-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+.feedback-type-card{
+  position:relative;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid rgba(15,39,71,.09);
+  border-radius:22px;
+  box-shadow:0 12px 30px rgba(15,39,71,.06);
+  padding:24px;
+}
+
+.feedback-type-card::before{
+  content:"";
+  position:absolute;
+  right:0;
+  top:22px;
+  width:4px;
+  height:44px;
+  border-radius:999px 0 0 999px;
+  background:rgba(212,166,58,.85);
+}
+
+.feedback-type-card h3{
+  margin:0 0 10px;
+  color:var(--primary);
+  position:relative;
+  z-index:1;
+}
+
+.feedback-type-card p{
+  margin:0;
   color:var(--muted);
   line-height:1.9;
-  margin-bottom:18px;
+  position:relative;
+  z-index:1;
 }
 
-.futures-highlights span{
-  background:rgba(15,39,71,.06);
-  border-color:rgba(15,39,71,.12);
-}
-
-.futures-lesson-card .lesson-code{
-  background:linear-gradient(135deg, var(--primary), #315f8f);
-}
-
-.futures-path-page .management-lessons-grid{
+.feedback-form-card{
+  display:grid;
+  grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);
+  gap:24px;
   align-items:stretch;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(212,166,58,.12), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border:1px solid rgba(15,39,71,.09);
+  border-radius:28px;
+  box-shadow:0 12px 30px rgba(15,39,71,.06);
+  padding:28px;
 }
 
-@media (max-width:640px){
-  .futures-highlights span{
-    flex:1 1 auto;
+.feedback-form-copy h2{
+  margin:12px 0 12px;
+  color:var(--primary);
+}
+
+.feedback-form-copy p{
+  color:var(--muted);
+  line-height:1.95;
+}
+
+.tally-placeholder{
+  display:grid;
+  align-content:center;
+  gap:12px;
+  min-height:320px;
+  background:#fff;
+  border:1px dashed rgba(212,166,58,.55);
+  border-radius:22px;
+  padding:24px;
+  text-align:right;
+}
+
+.tally-placeholder h3{
+  margin:0;
+  color:var(--primary);
+}
+
+.tally-placeholder p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.feedback-contact-cta{
+  background:
+    radial-gradient(circle at 12% 20%, rgba(212,166,58,.12), transparent 28%),
+    linear-gradient(135deg, #ffffff, #fbf6e9);
+  border:1px solid rgba(212,166,58,.24);
+}
+
+@media (max-width: 900px){
+  .feedback-types-grid,
+  .feedback-form-card{
+    grid-template-columns:1fr;
   }
 }
 
+@media (max-width: 768px){
+  .feedback-hero-actions,
+  .contact-cta-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .feedback-hero-actions .btn,
+  .contact-cta-actions .btn{
+    width:100%;
+  }
+
+  .feedback-type-card{
+    border-radius:18px;
+    padding:18px;
+  }
+
+  .feedback-type-card::before{
+    top:18px;
+    height:34px;
+  }
+
+  .feedback-form-card{
+    border-radius:20px;
+    padding:18px;
+  }
+
+  .tally-placeholder{
+    min-height:240px;
+    border-radius:18px;
+    padding:18px;
+  }
+}
 
 /* =========================================================
-   Header – Persistent Courses and Feedback Links
+   FEEDBACK PAGE — TALLY EMBED
+   ضبط تضمين نموذج Tally داخل صفحة شاركنا رأيك
    ========================================================= */
-.submenu a.submenu-highlight{
-  position:relative;
-  color:var(--primary);
-  font-weight:900;
+
+.tally-embed-wrapper{
+  width:100%;
+  min-height:420px;
+  background:#fff;
+  border:1px solid rgba(15,39,71,.09);
+  border-radius:22px;
+  padding:12px;
+  box-shadow:0 10px 24px rgba(15,39,71,.045);
+  overflow:hidden;
 }
 
-.submenu a.submenu-highlight::after{
-  content:"";
+.tally-embed-wrapper iframe{
   display:block;
-  width:36px;
-  height:3px;
-  border-radius:999px;
-  background:var(--gold);
-  margin:6px auto 0;
+  width:100%;
+  border:0;
+  border-radius:16px;
+  background:transparent;
 }
+
+@media (max-width: 768px){
+  .tally-embed-wrapper{
+    min-height:480px;
+    border-radius:18px;
+    padding:8px;
+  }
+
+  .tally-embed-wrapper iframe{
+    border-radius:14px;
+  }
+}
+
+/* =========================================================
+   FEEDBACK PAGE — CENTERED TALLY LAYOUT
+   جعل نص النموذج أعلى، والنموذج في وسط الصفحة
+   ========================================================= */
+
+.feedback-form-card{
+  display:block !important;
+  max-width:980px;
+  margin:0 auto;
+  text-align:right;
+}
+
+.feedback-form-copy{
+  max-width:760px;
+  margin:0 auto 22px;
+  text-align:center;
+}
+
+.feedback-form-copy .section-eyebrow{
+  justify-content:center;
+}
+
+.feedback-form-copy h2{
+  text-align:center;
+}
+
+.feedback-form-copy p{
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.tally-embed-wrapper{
+  max-width:760px;
+  margin:0 auto;
+}
+
+.tally-embed-wrapper iframe{
+  min-height:620px;
+}
+
+@media (max-width: 768px){
+  .feedback-form-card{
+    max-width:100%;
+  }
+
+  .feedback-form-copy{
+    max-width:100%;
+    margin-bottom:18px;
+    text-align:right;
+  }
+
+  .feedback-form-copy .section-eyebrow{
+    justify-content:flex-start;
+  }
+
+  .feedback-form-copy h2,
+  .feedback-form-copy p{
+    text-align:right;
+  }
+
+  .tally-embed-wrapper{
+    max-width:100%;
+  }
+
+  .tally-embed-wrapper iframe{
+    min-height:680px;
+  }
+}
+
+/* =========================================================
+   CONSULTATION FORM PAGE — نموذج طلب استشارة أو دورة
+   صفحة مستقلة لتضمين نموذج Tally
+   ========================================================= */
+
+.consultation-form-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(15,39,71,.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.consultation-types-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:18px;
+}
+
+.consultation-type-card{
+  position:relative;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid rgba(15,39,71,.09);
+  border-radius:22px;
+  box-shadow:0 12px 30px rgba(15,39,71,.06);
+  padding:24px;
+}
+
+.consultation-type-card::before{
+  content:"";
+  position:absolute;
+  right:0;
+  top:22px;
+  width:4px;
+  height:44px;
+  border-radius:999px 0 0 999px;
+  background:rgba(212,166,58,.85);
+}
+
+.consultation-type-card h3{
+  margin:0 0 10px;
+  color:var(--primary);
+  position:relative;
+  z-index:1;
+}
+
+.consultation-type-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.9;
+  position:relative;
+  z-index:1;
+}
+
+.consultation-form-card{
+  display:block !important;
+  max-width:980px;
+  margin:0 auto;
+  text-align:right;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(212,166,58,.12), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border:1px solid rgba(15,39,71,.09);
+  border-radius:28px;
+  box-shadow:0 12px 30px rgba(15,39,71,.06);
+  padding:28px;
+}
+
+.consultation-form-copy{
+  max-width:760px;
+  margin:0 auto 22px;
+  text-align:center;
+}
+
+.consultation-form-copy .section-eyebrow{
+  justify-content:center;
+}
+
+.consultation-form-copy h2{
+  color:var(--primary);
+  text-align:center;
+  margin:12px 0;
+}
+
+.consultation-form-copy p{
+  color:var(--muted);
+  line-height:1.95;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.consultation-tally-wrapper{
+  width:100%;
+  max-width:760px;
+  min-height:620px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid rgba(15,39,71,.09);
+  border-radius:22px;
+  padding:12px;
+  box-shadow:0 10px 24px rgba(15,39,71,.045);
+  overflow:hidden;
+}
+
+.consultation-tally-wrapper iframe{
+  display:block;
+  width:100%;
+  min-height:620px;
+  border:0;
+  border-radius:16px;
+  background:transparent;
+}
+
+@media (max-width: 1100px){
+  .consultation-types-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px){
+  .consultation-types-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .consultation-type-card{
+    border-radius:18px;
+    padding:18px;
+  }
+
+  .consultation-type-card::before{
+    top:18px;
+    height:34px;
+  }
+
+  .consultation-form-card{
+    max-width:100%;
+    border-radius:20px;
+    padding:18px;
+  }
+
+  .consultation-form-copy{
+    max-width:100%;
+    margin-bottom:18px;
+    text-align:right;
+  }
+
+  .consultation-form-copy .section-eyebrow{
+    justify-content:flex-start;
+  }
+
+  .consultation-form-copy h2,
+  .consultation-form-copy p{
+    text-align:right;
+  }
+
+  .consultation-tally-wrapper{
+    max-width:100%;
+    min-height:680px;
+    border-radius:18px;
+    padding:8px;
+  }
+
+  .consultation-tally-wrapper iframe{
+    min-height:680px;
+    border-radius:14px;
+  }
+}
+
+/* =========================================================
+   TOOLS MIGRATION — أدوات مستقلة
+   تنسيق بطاقات الأدوات التي تم فصلها عن منظّم مهامي
+   ========================================================= */
+
+.tools-independent-section{
+  background: linear-gradient(180deg, #ffffff 0%, #f7fafe 100%);
+}
+
+.tools-independent-section .tool-card{
+  position: relative;
+  overflow: hidden;
+}
+
+.tools-independent-section .tool-card::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 4px;
+  height: 44px;
+  border-radius: 999px 0 0 999px;
+  background: rgba(212,166,58,.85);
+}
+
+.tools-independent-section .tool-card h3,
+.tools-independent-section .tool-card p,
+.tools-independent-section .tool-card a{
+  position: relative;
+  z-index: 1;
+}
+
