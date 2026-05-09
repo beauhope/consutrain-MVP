@@ -1,4 +1,4 @@
-/* cache-version: v20260509-header-tools-cache-refresh */
+/* cache-version: v20260509-phase4-final-cache-refresh */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260509-header-tools-cache-refresh";
-const RUNTIME_CACHE = "consutrain-runtime-v20260509-header-tools-cache-refresh";
+const STATIC_CACHE = "consutrain-static-v20260509-phase4-final-cache-refresh";
+const RUNTIME_CACHE = "consutrain-runtime-v20260509-phase4-final-cache-refresh";
 
 const PRECACHE_URLS = [
   "./",
@@ -37,6 +37,7 @@ const PRECACHE_URLS = [
   "./learn/article.html",
   "./learn/articles.html",
   "./learn/glossary.html",
+  "./learn/learning-paths.html",
   "./learn/soft-skill.html",
   "./learn/soft-skills.html",
   "./learn/topics.html",
@@ -47,6 +48,9 @@ const PRECACHE_URLS = [
   "./services/strategic-planning.html",
 
   "./tools/feasibility/indexFeasibility.html",
+  "./tools/mytodo/index.html",
+  "./tools/mytodo/css/style.css",
+  "./resources/index.html",
 
   "./partials/header.html",
   "./partials/footer.html",
