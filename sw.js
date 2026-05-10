@@ -1,4 +1,4 @@
-/* cache-version: v20260509-feasibility-tool-refresh */
+/* cache-version: v20260510-services-directory-reorg */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260509-feasibility-tool-refresh";
-const RUNTIME_CACHE = "consutrain-runtime-v20260509-feasibility-tool-refresh";
+const STATIC_CACHE = "consutrain-static-v20260510-services-directory-reorg";
+const RUNTIME_CACHE = "consutrain-runtime-v20260510-services-directory-reorg";
 
 const PRECACHE_URLS = [
   "./",
@@ -43,8 +43,12 @@ const PRECACHE_URLS = [
   "./learn/topics.html",
 
   "./services/feasibility-studies.html",
+  "./services/integrated-management-system.html",
   "./services/iso-consulting.html",
+  "./services/organizational-structures.html",
   "./services/project-management.html",
+  "./services/risk-management.html",
+  "./services/sop-operational-manuals.html",
   "./services/strategic-planning.html",
 
   "./tools/feasibility/indexFeasibility.html",
