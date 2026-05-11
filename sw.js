@@ -1,4 +1,4 @@
-/* cache-version: v20260511-startup-building-course */
+/* cache-version: v20260511-integrated-management-system-ims-course */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260511-startup-building-course";
-const RUNTIME_CACHE = "consutrain-runtime-v20260511-startup-building-course";
+const STATIC_CACHE = "consutrain-static-v20260511-integrated-management-system-ims-course";
+const RUNTIME_CACHE = "consutrain-runtime-v20260511-integrated-management-system-ims-course";
 
 const PRECACHE_URLS = [
   "./",
@@ -33,6 +33,10 @@ const PRECACHE_URLS = [
   "./courses/agile-project-management/index.html",
   "./courses/startup-building/",
   "./courses/startup-building/index.html",
+  "./courses/iso-9001-internal-auditor/",
+  "./courses/iso-9001-internal-auditor/index.html",
+  "./courses/integrated-management-system-ims/",
+  "./courses/integrated-management-system-ims/index.html",
   "./templates/index.html",
   "./templates/operational-plan-template.html",
   "./templates/operational-plan-checklist.html",
