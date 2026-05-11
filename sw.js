@@ -1,4 +1,4 @@
-/* cache-version: v20260510-services-directory-reorg */
+/* cache-version: v20260511-mor-course */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260510-services-directory-reorg";
-const RUNTIME_CACHE = "consutrain-runtime-v20260510-services-directory-reorg";
+const STATIC_CACHE = "consutrain-static-v20260511-mor-course";
+const RUNTIME_CACHE = "consutrain-runtime-v20260511-mor-course";
 
 const PRECACHE_URLS = [
   "./",
@@ -26,6 +26,7 @@ const PRECACHE_URLS = [
   "./feedback.html",
   "./courses/index.html",
   "./courses/objectives-management.html",
+  "./courses/mor-foundation.html",
   "./templates/index.html",
   "./templates/operational-plan-template.html",
   "./templates/operational-plan-checklist.html",
