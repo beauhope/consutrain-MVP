@@ -1,4 +1,4 @@
-/* cache-version: v20260511-mor-course */
+/* cache-version: v20260511-mor-course-header */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260511-mor-course";
-const RUNTIME_CACHE = "consutrain-runtime-v20260511-mor-course";
+const STATIC_CACHE = "consutrain-static-v20260511-mor-course-header";
+const RUNTIME_CACHE = "consutrain-runtime-v20260511-mor-course-header";
 
 const PRECACHE_URLS = [
   "./",
