@@ -1,4 +1,4 @@
-/* cache-version: v20260511-integrated-management-system-ims-course */
+/* cache-version: v20260511-occupational-health-safety-course */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260511-integrated-management-system-ims-course";
-const RUNTIME_CACHE = "consutrain-runtime-v20260511-integrated-management-system-ims-course";
+const STATIC_CACHE = "consutrain-static-v20260511-occupational-health-safety-course";
+const RUNTIME_CACHE = "consutrain-runtime-v20260511-occupational-health-safety-course";
 
 const PRECACHE_URLS = [
   "./",
@@ -37,6 +37,12 @@ const PRECACHE_URLS = [
   "./courses/iso-9001-internal-auditor/index.html",
   "./courses/integrated-management-system-ims/",
   "./courses/integrated-management-system-ims/index.html",
+  "./courses/institutional-excellence/",
+  "./courses/institutional-excellence/index.html",
+  "./courses/corporate-governance/",
+  "./courses/corporate-governance/index.html",
+  "./courses/occupational-health-safety-management-system/",
+  "./courses/occupational-health-safety-management-system/index.html",
   "./templates/index.html",
   "./templates/operational-plan-template.html",
   "./templates/operational-plan-checklist.html",
