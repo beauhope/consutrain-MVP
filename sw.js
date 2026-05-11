@@ -1,4 +1,4 @@
-/* cache-version: v20260511-mor-course-header */
+/* cache-version: v20260511-strategic-planning-course */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260511-mor-course-header";
-const RUNTIME_CACHE = "consutrain-runtime-v20260511-mor-course-header";
+const STATIC_CACHE = "consutrain-static-v20260511-strategic-planning-course";
+const RUNTIME_CACHE = "consutrain-runtime-v20260511-strategic-planning-course";
 
 const PRECACHE_URLS = [
   "./",
@@ -27,6 +27,8 @@ const PRECACHE_URLS = [
   "./courses/index.html",
   "./courses/objectives-management.html",
   "./courses/mor-foundation.html",
+  "./courses/strategic-planning/",
+  "./courses/strategic-planning/index.html",
   "./templates/index.html",
   "./templates/operational-plan-template.html",
   "./templates/operational-plan-checklist.html",
