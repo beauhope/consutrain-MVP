@@ -24,6 +24,71 @@
   <link rel="manifest" href="../manifest.webmanifest">
   <meta name="theme-color" content="#0f2747">
   <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <style>
+    .resource-tools-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 18px 0;
+    }
+
+    .resource-tool-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .resource-tool-card h3 {
+      margin: 0 0 8px;
+      color: var(--primary);
+    }
+
+    .resource-tool-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .resource-jump-select,
+    .resource-search-input {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 15px;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .resource-suggestions-grid {
+      margin-top: 18px;
+    }
+
+    .resource-no-results {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .resource-card.resource-card--highlight {
+      outline: 3px solid rgba(212, 166, 58, .55);
+      box-shadow: 0 18px 40px rgba(15, 39, 71, .16);
+    }
+
+    @media (max-width: 760px) {
+      .resource-tools-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body data-root=".." data-breadcrumb-section="الموارد المجانية" data-breadcrumb-title="مكتبة الموارد المجانية">
 
@@ -75,6 +140,66 @@
             <p>استخدم التصنيفات التالية لتصفية الموارد حسب المجال.</p>
           </div>
           <strong class="resources-count">44 موردًا مجانيًا</strong>
+        </div>
+
+        <div class="section-card">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">بداية مقترحة</span>
+              <h2>موارد مقترحة للبدء</h2>
+              <p>نماذج عملية مناسبة كبداية قبل الانتقال إلى دورة، ورشة، أو خدمة مخصصة.</p>
+            </div>
+          </div>
+
+          <div class="cards-grid resource-suggestions-grid">
+            <article class="feature-card">
+              <h3>نموذج بطاقة مؤشر أداء KPI</h3>
+              <p>ابدأ بتوثيق تعريف المؤشر وطريقة القياس والمستهدفات.</p>
+              <a class="card-link" href="../templates/kpi-performance-card.html">شرح المورد</a>
+            </article>
+            <article class="feature-card">
+              <h3>سجل مخاطر مبسط</h3>
+              <p>ابدأ بتحديد المخاطر وتقييمها وخطة المعالجة.</p>
+              <a class="card-link" href="../templates/simple-risk-register.html">شرح المورد</a>
+            </article>
+            <article class="feature-card">
+              <h3>قالب خطة تشغيلية سنوية</h3>
+              <p>حوّل الأهداف إلى أنشطة ومسؤوليات ومواعيد.</p>
+              <a class="card-link" href="../templates/operational-plan-template.html">شرح المورد</a>
+            </article>
+            <article class="feature-card">
+              <h3>قائمة تحقق قبل دراسة الجدوى</h3>
+              <p>اختبر جاهزية فكرة المشروع قبل الدراسة التفصيلية.</p>
+              <a class="card-link" href="../templates/pre-feasibility-checklist.html">شرح المورد</a>
+            </article>
+            <article class="feature-card">
+              <h3>نموذج إجراء تشغيلي SOP</h3>
+              <p>وثّق خطوات العمل والمسؤوليات والسجلات المطلوبة.</p>
+              <a class="card-link" href="../templates/sop-template.html">شرح المورد</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="resource-tools-panel" aria-label="أدوات الوصول إلى الموارد">
+          <div class="resource-tool-card">
+            <h3>اذهب مباشرة إلى مورد</h3>
+            <p>اختر المورد الذي تحتاجه من القائمة، وسننتقل بك مباشرة إلى بطاقته داخل الصفحة.</p>
+            <select class="resource-jump-select" id="resourceJumpSelect">
+              <option value="">اختر موردًا...</option>
+            </select>
+          </div>
+
+          <div class="resource-tool-card">
+            <h3>ابحث في الموارد</h3>
+            <p>اكتب كلمة من عنوان المورد أو وصفه أو تصنيفه.</p>
+            <input
+              class="resource-search-input"
+              id="resourceSearchInput"
+              type="search"
+              placeholder="ابحث عن مورد مثل: KPI، SWOT، ISO، مخاطر، دراسة جدوى..."
+              autocomplete="off"
+            >
+          </div>
         </div>
 
         <div class="resource-filters" aria-label="تصنيف الموارد المجانية">
@@ -667,6 +792,27 @@
             </div>
           </article>
         </div>
+        <p class="resource-no-results" id="resourceNoResults">لا توجد موارد مطابقة لبحثك.</p>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">تطبيق مخصص</span>
+            <h2>هل تحتاج تطبيق هذه النماذج على حالة مؤسستك؟</h2>
+            <p>
+              يمكنك البدء بالموارد المجانية، ثم طلب ورشة تطبيقية أو خدمة استشارية
+              عندما تحتاج إلى تطبيق مخصص أو مراجعة مهنية.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../courses/practical-workshops/">استعرض الورش التطبيقية</a>
+            <a class="btn btn-secondary" href="../services.html">استعرض الخدمات</a>
+            <a class="btn btn-secondary" href="../contact.html">تواصل معنا</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -695,26 +841,83 @@
   <script src="../assets/js/pwa.js"></script>
   <script>
     /*
-      تصفية موارد الصفحة حسب التصنيف المختار.
-      السلوك بسيط ومناسب للصفحة الثابتة الحالية.
+      تصفية الموارد والبحث النصي والانتقال المباشر إلى بطاقة مورد.
+      يعتمد على البطاقات الموجودة في الصفحة دون تغيير روابطها.
     */
     document.addEventListener("DOMContentLoaded", () => {
       const buttons = document.querySelectorAll(".resource-filter-btn");
-      const cards = document.querySelectorAll(".resource-card");
+      const cards = Array.from(document.querySelectorAll(".resource-card"));
+      const searchInput = document.getElementById("resourceSearchInput");
+      const jumpSelect = document.getElementById("resourceJumpSelect");
+      const noResults = document.getElementById("resourceNoResults");
+      let activeFilter = "all";
+
+      const normalizeText = (value) => (value || "").toLowerCase().trim();
+
+      cards.forEach((card, index) => {
+        const title = card.querySelector("h3")?.textContent?.trim() || `مورد ${index + 1}`;
+        const category = card.querySelector(".resource-card__meta span")?.textContent?.trim() || "";
+        const option = document.createElement("option");
+        const cardId = `resource-card-${index + 1}`;
+
+        card.id = card.id || cardId;
+        card.dataset.searchText = normalizeText(`${title} ${category} ${card.textContent}`);
+        option.value = card.id;
+        option.textContent = title;
+        jumpSelect?.appendChild(option);
+      });
+
+      function applyResourceView() {
+        const query = normalizeText(searchInput?.value);
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
+          const matchesSearch = !query || card.dataset.searchText.includes(query);
+          const shouldShow = matchesFilter && matchesSearch;
+
+          card.toggleAttribute("hidden", !shouldShow);
+          if (shouldShow) visibleCount += 1;
+        });
+
+        if (noResults) {
+          noResults.style.display = visibleCount === 0 ? "block" : "none";
+        }
+      }
 
       buttons.forEach((button) => {
         button.addEventListener("click", () => {
-          const filter = button.dataset.filter;
-
+          activeFilter = button.dataset.filter || "all";
           buttons.forEach((item) => item.classList.remove("active"));
           button.classList.add("active");
-
-          cards.forEach((card) => {
-            const shouldShow = filter === "all" || card.dataset.category === filter;
-            card.toggleAttribute("hidden", !shouldShow);
-          });
+          applyResourceView();
         });
       });
+
+      searchInput?.addEventListener("input", applyResourceView);
+
+      jumpSelect?.addEventListener("change", () => {
+        const targetId = jumpSelect.value;
+        if (!targetId) return;
+
+        const target = document.getElementById(targetId);
+        const allButton = document.querySelector('.resource-filter-btn[data-filter="all"]');
+
+        activeFilter = "all";
+        searchInput.value = "";
+        buttons.forEach((item) => item.classList.remove("active"));
+        allButton?.classList.add("active");
+        applyResourceView();
+
+        target?.scrollIntoView({ behavior: "smooth", block: "center" });
+        target?.classList.add("resource-card--highlight");
+
+        window.setTimeout(() => {
+          target?.classList.remove("resource-card--highlight");
+        }, 1800);
+      });
+
+      applyResourceView();
     });
   </script>
 </body>
