@@ -1,4 +1,4 @@
-/* cache-version: v20260512-home-start-workshops */
+/* cache-version: v20260512-services-accordion */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260512-home-start-workshops";
-const RUNTIME_CACHE = "consutrain-runtime-v20260512-home-start-workshops";
+const STATIC_CACHE = "consutrain-static-v20260512-services-accordion";
+const RUNTIME_CACHE = "consutrain-runtime-v20260512-services-accordion";
 
 const PRECACHE_URLS = [
   "./",

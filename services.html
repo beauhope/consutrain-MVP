@@ -108,7 +108,7 @@
 
         <div class="pillars-acc services-acc">
 
-          <details class="pillar" id="strategic-operational-services" open>
+          <details class="pillar" id="strategic-operational-services">
             <summary class="pillar__sum">
               <div class="pillar__text">
                 <span class="pillar__title">التخطيط الاستراتيجي والتشغيلي</span>
@@ -495,13 +495,25 @@
     document.addEventListener("DOMContentLoaded", () => {
       const mainAccordions = document.querySelectorAll(".services-acc > .pillar");
 
+      function syncDetailsState(item) {
+        const summary = item.querySelector("summary");
+        if (summary) {
+          summary.setAttribute("aria-expanded", String(item.open));
+        }
+      }
+
       mainAccordions.forEach((item) => {
+        item.open = false;
+        syncDetailsState(item);
+
         item.addEventListener("toggle", () => {
           if (item.open) {
             mainAccordions.forEach((other) => {
               if (other !== item) other.open = false;
             });
           }
+
+          mainAccordions.forEach(syncDetailsState);
         });
       });
 
@@ -511,12 +523,17 @@
         const subAccordions = group.querySelectorAll(":scope > .acc");
 
         subAccordions.forEach((item) => {
+          item.open = false;
+          syncDetailsState(item);
+
           item.addEventListener("toggle", () => {
             if (item.open) {
               subAccordions.forEach((other) => {
                 if (other !== item) other.open = false;
               });
             }
+
+            subAccordions.forEach(syncDetailsState);
           });
         });
       });
