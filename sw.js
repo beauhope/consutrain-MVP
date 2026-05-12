@@ -1,4 +1,4 @@
-/* cache-version: v20260511-occupational-health-safety-course */
+/* cache-version: v20260512-home-start-workshops */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260511-occupational-health-safety-course";
-const RUNTIME_CACHE = "consutrain-runtime-v20260511-occupational-health-safety-course";
+const STATIC_CACHE = "consutrain-static-v20260512-home-start-workshops";
+const RUNTIME_CACHE = "consutrain-runtime-v20260512-home-start-workshops";
 
 const PRECACHE_URLS = [
   "./",
@@ -43,6 +43,8 @@ const PRECACHE_URLS = [
   "./courses/corporate-governance/index.html",
   "./courses/occupational-health-safety-management-system/",
   "./courses/occupational-health-safety-management-system/index.html",
+  "./courses/practical-workshops/",
+  "./courses/practical-workshops/index.html",
   "./templates/index.html",
   "./templates/operational-plan-template.html",
   "./templates/operational-plan-checklist.html",
