@@ -1,4 +1,4 @@
-/* cache-version: v20260512-contact-page */
+/* cache-version: v20260512-resources-search-jump */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260512-contact-page";
-const RUNTIME_CACHE = "consutrain-runtime-v20260512-contact-page";
+const STATIC_CACHE = "consutrain-static-v20260512-resources-search-jump";
+const RUNTIME_CACHE = "consutrain-runtime-v20260512-resources-search-jump";
 
 const PRECACHE_URLS = [
   "./",
