@@ -1,4 +1,4 @@
-/* cache-version: v20260512-resources-search-jump */
+/* cache-version: v20260512-header-learning-paths */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260512-resources-search-jump";
-const RUNTIME_CACHE = "consutrain-runtime-v20260512-resources-search-jump";
+const STATIC_CACHE = "consutrain-static-v20260512-header-learning-paths";
+const RUNTIME_CACHE = "consutrain-runtime-v20260512-header-learning-paths";
 
 const PRECACHE_URLS = [
   "./",
@@ -57,6 +57,7 @@ const PRECACHE_URLS = [
   "./learn/articles.html",
   "./learn/glossary.html",
   "./learn/learning-paths.html",
+  "./learn/business-economics/index.html",
   "./learn/soft-skill.html",
   "./learn/soft-skills.html",
   "./learn/topics.html",

@@ -3991,11 +3991,111 @@ z-index:1100;
   background:linear-gradient(180deg, #fff, #fffaf0);
 }
 
+/* Business Economics learning path */
+.business-economics-hero{
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212,166,58,.16), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(15,39,71,.10), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.business-economics-hero h1,
+.business-economics-hero p{
+  max-width: 900px;
+}
+
+.business-lessons-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.business-lesson-card{
+  display:grid;
+  grid-template-columns:104px 1fr;
+  gap:0;
+  align-items:stretch;
+  background:#fff;
+  border:1px solid rgba(15,39,71,.09);
+  border-radius:18px;
+  padding:0;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(15,39,71,.065);
+}
+
+.business-lesson-card .lesson-code{
+  min-height:116px;
+  border-radius:0;
+  background:linear-gradient(135deg, rgba(15,39,71,.10), rgba(212,166,58,.20));
+  border-inline-end:1px solid rgba(15,39,71,.08);
+  font-size:1.45rem;
+}
+
+.business-lesson-card .lesson-content{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:16px 20px;
+  align-items:center;
+  padding:22px;
+}
+
+.lesson-module{
+  display:inline-flex;
+  width:max-content;
+  max-width:100%;
+  margin-bottom:10px;
+  padding:6px 11px;
+  border-radius:999px;
+  background:var(--gold-soft);
+  color:var(--primary);
+  font-size:.84rem;
+  font-weight:800;
+}
+
+.business-lesson-card .lesson-content h3{
+  grid-column:1;
+  margin:0;
+  font-size:1.28rem;
+  line-height:1.55;
+}
+
+.business-lesson-card .lesson-content p{
+  font-size:.92rem;
+}
+
+.business-lesson-card .lesson-actions{
+  grid-column:2;
+  grid-row:1 / span 2;
+  justify-content:flex-end;
+  margin-top:0;
+}
+
+.business-lesson-card .lesson-actions .btn{
+  min-width:132px;
+  justify-content:center;
+}
+
+.business-article-placeholder{
+  max-width:920px;
+}
+
+.btn.disabled,
+.btn[aria-disabled="true"]{
+  cursor:not-allowed;
+  opacity:.68;
+  box-shadow:none;
+}
+
+.business-path-cta{
+  align-items:flex-start;
+}
+
 @media (max-width: 1000px){
   .management-overview-grid,
   .management-modules-grid{
     grid-template-columns:1fr 1fr;
   }
+
 }
 
 @media (max-width: 700px){
@@ -4006,6 +4106,35 @@ z-index:1100;
 
   .management-lesson-card{
     grid-template-columns:1fr;
+  }
+
+  .business-lesson-card{
+    grid-template-columns:1fr;
+  }
+
+  .business-lesson-card .lesson-code{
+    min-height:64px;
+    border-inline-end:0;
+    border-block-end:1px solid rgba(15,39,71,.08);
+  }
+
+  .business-lesson-card .lesson-content{
+    grid-template-columns:1fr;
+    padding:18px;
+  }
+
+  .business-lesson-card .lesson-content h3,
+  .business-lesson-card .lesson-actions{
+    grid-column:1;
+  }
+
+  .business-lesson-card .lesson-actions{
+    grid-row:auto;
+    justify-content:stretch;
+  }
+
+  .business-lesson-card .lesson-actions .btn{
+    flex:1 1 100%;
   }
 
   .lesson-code{
