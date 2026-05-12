@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مولد هدف SMART | ConsuTrain</title>
+  <meta name="description" content="أداة مجانية لتحويل الهدف العام إلى هدف SMART واضح وقابل للقياس والتنفيذ.">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260504_menu">
+  <style>
+    .smart-tool-page .page-hero{
+      background:linear-gradient(135deg,#0b1f3a 0%, #12345a 58%, #1e4f86 100%);
+      color:#fff;
+    }
+
+    .smart-tool-page .page-hero p,
+    .smart-tool-page .page-hero .section-eyebrow{
+      color:rgba(255,255,255,.86);
+    }
+
+    .smart-layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);
+      gap:24px;
+      align-items:start;
+    }
+
+    .smart-form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .smart-field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .smart-field.smart-field-wide{
+      grid-column:1 / -1;
+    }
+
+    .smart-field label{
+      color:#0b1f3a;
+      font-weight:800;
+    }
+
+    .smart-field input,
+    .smart-field textarea{
+      width:100%;
+      border:1px solid rgba(11,31,58,.16);
+      border-radius:14px;
+      padding:13px 14px;
+      font:inherit;
+      color:#12345a;
+      background:#fff;
+      box-shadow:0 8px 20px rgba(11,31,58,.04);
+    }
+
+    .smart-field textarea{
+      min-height:96px;
+      resize:vertical;
+    }
+
+    .smart-actions,
+    .smart-cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .smart-result-box{
+      min-height:120px;
+      border:1px solid rgba(30,79,134,.18);
+      border-radius:18px;
+      padding:18px;
+      background:#f7f9fc;
+      color:#0b1f3a;
+      font-size:1.05rem;
+      line-height:1.9;
+    }
+
+    .smart-analysis-grid{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .smart-status-card{
+      border:1px solid rgba(11,31,58,.1);
+      border-radius:16px;
+      padding:14px;
+      background:#fff;
+    }
+
+    .smart-status-card strong{
+      display:block;
+      color:#0b1f3a;
+      margin-bottom:8px;
+    }
+
+    .smart-status{
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:.86rem;
+      font-weight:800;
+      background:#fff4e5;
+      color:#9a6700;
+    }
+
+    .smart-status.is-complete{
+      background:#eaf8ef;
+      color:#166534;
+    }
+
+    .smart-notes{
+      margin:12px 0 0;
+      padding:0 20px 0 0;
+      color:#42526b;
+      line-height:1.9;
+    }
+
+    .smart-example-list{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px 18px;
+      margin:0;
+      color:#42526b;
+    }
+
+    .smart-example-list div{
+      border-bottom:1px solid rgba(11,31,58,.08);
+      padding-bottom:8px;
+    }
+
+    .smart-example-list dt{
+      font-weight:800;
+      color:#0b1f3a;
+    }
+
+    .smart-example-list dd{
+      margin:4px 0 0;
+    }
+
+    .smart-copy-note{
+      min-height:24px;
+      margin-top:10px;
+      color:#166534;
+      font-weight:700;
+    }
+
+    @media (max-width:900px){
+      .smart-layout,
+      .smart-form-grid,
+      .smart-analysis-grid,
+      .smart-example-list{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body
+  data-root="../.."
+  data-breadcrumb-section="الأدوات"
+  data-breadcrumb-title="مولد هدف SMART"
+>
+  <div id="header-placeholder"></div>
+  <div id="breadcrumbs-placeholder"></div>
+
+  <main class="inner-page smart-tool-page">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section-eyebrow">أداة تخطيط وأداء</p>
+        <h1>مولد هدف SMART</h1>
+        <p>حوّل الهدف العام إلى هدف واضح وقابل للقياس والتنفيذ.</p>
+        <p>اكتب هدفك بصيغته الحالية، ثم أجب عن أسئلة بسيطة حول القياس، النتيجة، المسؤولية، والمدة. ستساعدك الأداة على صياغة هدف SMART أكثر وضوحًا.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#smartGoalForm">ابدأ الصياغة</a>
+          <a class="btn btn-secondary" href="../../tools.html">استعرض الأدوات</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container smart-layout">
+        <article class="section-card">
+          <p class="section-eyebrow">بيانات الهدف</p>
+          <h2>اكتب عناصر الهدف</h2>
+          <form id="smartGoalForm" novalidate>
+            <div class="smart-form-grid">
+              <div class="smart-field smart-field-wide">
+                <label for="goalInput">الهدف العام</label>
+                <textarea id="goalInput" placeholder="مثال: تحسين خدمة العملاء"></textarea>
+              </div>
+              <div class="smart-field">
+                <label for="domainInput">المجال</label>
+                <input id="domainInput" type="text" placeholder="مثال: خدمة العملاء، الموارد البشرية، الجودة، المبيعات">
+              </div>
+              <div class="smart-field">
+                <label for="metricInput">المؤشر أو طريقة القياس</label>
+                <input id="metricInput" type="text" placeholder="مثال: نسبة رضا العملاء، عدد الشكاوى، زمن الإنجاز">
+              </div>
+              <div class="smart-field">
+                <label for="currentInput">الوضع الحالي</label>
+                <input id="currentInput" type="text" placeholder="مثال: 75% أو 120 شكوى شهريًا">
+              </div>
+              <div class="smart-field">
+                <label for="targetInput">المستهدف</label>
+                <input id="targetInput" type="text" placeholder="مثال: 85% أو أقل من 60 شكوى شهريًا">
+              </div>
+              <div class="smart-field">
+                <label for="timeInput">المدة الزمنية</label>
+                <input id="timeInput" type="text" placeholder="مثال: خلال 6 أشهر">
+              </div>
+              <div class="smart-field">
+                <label for="ownerInput">الجهة أو المسؤول</label>
+                <input id="ownerInput" type="text" placeholder="مثال: إدارة خدمة العملاء">
+              </div>
+              <div class="smart-field smart-field-wide">
+                <label for="actionInput">الإجراء الرئيسي</label>
+                <input id="actionInput" type="text" placeholder="مثال: تحسين سرعة الرد ومعالجة الشكاوى">
+              </div>
+            </div>
+
+            <div class="smart-actions">
+              <button class="btn btn-primary" type="button" id="generateGoalBtn">توليد الهدف</button>
+              <button class="btn btn-secondary" type="button" id="copyGoalBtn">نسخ الهدف</button>
+              <button class="btn btn-secondary" type="button" id="clearGoalBtn">مسح البيانات</button>
+            </div>
+            <div class="smart-copy-note" id="copyStatus" aria-live="polite"></div>
+          </form>
+        </article>
+
+        <aside class="section-card">
+          <p class="section-eyebrow">مثال سريع</p>
+          <h2>تحسين خدمة العملاء</h2>
+          <dl class="smart-example-list">
+            <div>
+              <dt>الهدف العام</dt>
+              <dd>تحسين خدمة العملاء</dd>
+            </div>
+            <div>
+              <dt>المؤشر</dt>
+              <dd>نسبة رضا العملاء</dd>
+            </div>
+            <div>
+              <dt>الوضع الحالي</dt>
+              <dd>75%</dd>
+            </div>
+            <div>
+              <dt>المستهدف</dt>
+              <dd>85%</dd>
+            </div>
+            <div>
+              <dt>المدة</dt>
+              <dd>خلال 6 أشهر</dd>
+            </div>
+            <div>
+              <dt>المسؤول</dt>
+              <dd>إدارة خدمة العملاء</dd>
+            </div>
+            <div>
+              <dt>الإجراء</dt>
+              <dd>تحسين سرعة الرد ومعالجة الشكاوى</dd>
+            </div>
+          </dl>
+          <div class="smart-result-box" style="margin-top:16px;">
+            رفع نسبة رضا العملاء من 75% إلى 85% خلال 6 أشهر، من خلال تحسين سرعة الرد ومعالجة الشكاوى، بإشراف إدارة خدمة العملاء.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <article class="section-card">
+          <p class="section-eyebrow">النتيجة</p>
+          <h2>الهدف المقترح</h2>
+          <div class="smart-result-box" id="goalResult" aria-live="polite">ستظهر صياغة الهدف هنا بعد الضغط على زر توليد الهدف.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <article class="section-card">
+          <p class="section-eyebrow">فحص سريع</p>
+          <h2>تحليل SMART</h2>
+          <div class="smart-analysis-grid" id="smartAnalysis">
+            <div class="smart-status-card">
+              <strong>محدد Specific</strong>
+              <span class="smart-status" data-smart-key="specific">يحتاج تحسين</span>
+            </div>
+            <div class="smart-status-card">
+              <strong>قابل للقياس Measurable</strong>
+              <span class="smart-status" data-smart-key="measurable">يحتاج تحسين</span>
+            </div>
+            <div class="smart-status-card">
+              <strong>قابل للتحقيق Achievable</strong>
+              <span class="smart-status" data-smart-key="achievable">يحتاج تحسين</span>
+            </div>
+            <div class="smart-status-card">
+              <strong>ذو صلة Relevant</strong>
+              <span class="smart-status" data-smart-key="relevant">يحتاج تحسين</span>
+            </div>
+            <div class="smart-status-card">
+              <strong>محدد بزمن Time-bound</strong>
+              <span class="smart-status" data-smart-key="timeBound">يحتاج تحسين</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <article class="section-card">
+          <p class="section-eyebrow">تحسين الصياغة</p>
+          <h2>ملاحظات لتحسين الهدف</h2>
+          <ul class="smart-notes" id="improvementNotes">
+            <li>أدخل بيانات الهدف ثم اضغط على زر توليد الهدف لعرض الملاحظات.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <article class="section-card">
+          <p class="section-eyebrow">تطبيق عملي</p>
+          <h2>هل تحتاج تطبيقًا على أهداف مؤسستك؟</h2>
+          <p>يمكنك استخدام الأداة لصياغة هدف أولي. وإذا كنت تحتاج إلى صياغة أهداف كاملة لإدارة أو خطة تشغيلية، يمكنك طلب ورشة تطبيقية أو خدمة استشارية.</p>
+          <div class="smart-cta-actions">
+            <a class="btn btn-primary" href="../../courses/practical-workshops/">استعرض الورش التطبيقية</a>
+            <a class="btn btn-secondary" href="../../services.html">استعرض الخدمات</a>
+            <a class="btn btn-secondary" href="../../contact.html">تواصل معنا</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../../assets/js/includes.js?v=20260504_menu"></script>
+  <script>
+    const fields = {
+      goal: document.getElementById("goalInput"),
+      domain: document.getElementById("domainInput"),
+      metric: document.getElementById("metricInput"),
+      current: document.getElementById("currentInput"),
+      target: document.getElementById("targetInput"),
+      time: document.getElementById("timeInput"),
+      owner: document.getElementById("ownerInput"),
+      action: document.getElementById("actionInput")
+    };
+
+    const goalResult = document.getElementById("goalResult");
+    const improvementNotes = document.getElementById("improvementNotes");
+    const copyStatus = document.getElementById("copyStatus");
+
+    function valueOf(field){
+      return fields[field].value.trim();
+    }
+
+    function getGoalData(){
+      return {
+        goal: valueOf("goal"),
+        domain: valueOf("domain"),
+        metric: valueOf("metric"),
+        current: valueOf("current"),
+        target: valueOf("target"),
+        time: valueOf("time"),
+        owner: valueOf("owner"),
+        action: valueOf("action")
+      };
+    }
+
+    function buildGoal(data){
+      if(data.current){
+        const focus = data.metric || data.domain || data.goal || "الهدف";
+        return `رفع/تحسين ${focus} من ${data.current} إلى ${data.target || "مستهدف واضح"} ${data.time || "خلال مدة زمنية محددة"}، من خلال ${data.action || "إجراء واضح"}، بإشراف ${data.owner || "جهة مسؤولة"}.`;
+      }
+
+      return `تحقيق ${data.target || "مستهدف واضح"} في مجال ${data.domain || data.metric || data.goal || "المجال المستهدف"} ${data.time || "خلال مدة زمنية محددة"}، من خلال ${data.action || "إجراء واضح"}، بإشراف ${data.owner || "جهة مسؤولة"}.`;
+    }
+
+    function setStatus(key, complete){
+      const status = document.querySelector(`[data-smart-key="${key}"]`);
+      status.textContent = complete ? "مكتمل" : "يحتاج تحسين";
+      status.classList.toggle("is-complete", complete);
+    }
+
+    function updateSmartAnalysis(data){
+      setStatus("specific", Boolean(data.goal || data.domain));
+      setStatus("measurable", Boolean(data.metric || data.target));
+      setStatus("achievable", Boolean(data.target));
+      setStatus("relevant", Boolean(data.domain));
+      setStatus("timeBound", Boolean(data.time));
+    }
+
+    function updateNotes(data){
+      const notes = [];
+
+      if(!data.metric){
+        notes.push("أضف مؤشرًا واضحًا للقياس.");
+      }
+
+      if(!data.time){
+        notes.push("أضف مدة زمنية.");
+      }
+
+      if(!data.owner){
+        notes.push("حدد الجهة المسؤولة.");
+      }
+
+      if(!data.target || !/\d/.test(data.target)){
+        notes.push("اجعل المستهدف رقميًا قدر الإمكان.");
+      }
+
+      if(!data.action){
+        notes.push("اربط الهدف بإجراء واضح.");
+      }
+
+      if(!notes.length){
+        notes.push("الصياغة جيدة كبداية. راجعها مع الفريق للتأكد من واقعية المستهدف والموارد المطلوبة.");
+      }
+
+      improvementNotes.innerHTML = notes.map(note => `<li>${note}</li>`).join("");
+    }
+
+    function generateGoal(){
+      const data = getGoalData();
+      const goalText = buildGoal(data);
+
+      goalResult.textContent = goalText;
+      copyStatus.textContent = "";
+      updateSmartAnalysis(data);
+      updateNotes(data);
+    }
+
+    async function copyGoal(){
+      const text = goalResult.textContent.trim();
+      if(!text || text.includes("ستظهر صياغة الهدف")){
+        copyStatus.textContent = "ولّد الهدف أولًا قبل النسخ.";
+        return;
+      }
+
+      try{
+        await navigator.clipboard.writeText(text);
+        copyStatus.textContent = "تم نسخ الهدف.";
+      }catch(error){
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+        copyStatus.textContent = "تم نسخ الهدف.";
+      }
+    }
+
+    function clearGoal(){
+      Object.values(fields).forEach(field => {
+        field.value = "";
+      });
+      goalResult.textContent = "ستظهر صياغة الهدف هنا بعد الضغط على زر توليد الهدف.";
+      improvementNotes.innerHTML = "<li>أدخل بيانات الهدف ثم اضغط على زر توليد الهدف لعرض الملاحظات.</li>";
+      copyStatus.textContent = "";
+      updateSmartAnalysis(getGoalData());
+    }
+
+    document.getElementById("generateGoalBtn").addEventListener("click", generateGoal);
+    document.getElementById("copyGoalBtn").addEventListener("click", copyGoal);
+    document.getElementById("clearGoalBtn").addEventListener("click", clearGoal);
+    updateSmartAnalysis(getGoalData());
+  </script>
+</body>
+</html>

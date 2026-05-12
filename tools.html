@@ -156,6 +156,42 @@
       color:var(--tools-chip-text);
       font-size:.88rem;
       text-decoration:none;
+      border:none;
+      cursor:pointer;
+      font-family:inherit;
+    }
+
+    .tools-filter.is-active{
+      background:#0b1f3a;
+      color:#fff;
+    }
+
+    .tools-active-category{
+      display:none;
+      margin-top:14px;
+      color:#0b1f3a;
+      font-weight:800;
+      line-height:1.8;
+    }
+
+    .tools-empty-state{
+      display:none;
+      margin-top:24px;
+      padding:18px;
+      border:1px dashed #cdd9e8;
+      border-radius:18px;
+      background:#fff;
+      color:#4f5d6d;
+      line-height:1.9;
+    }
+
+    .tools-list-anchor{
+      scroll-margin-top:110px;
+    }
+
+    .tools-filtered-section{
+      display:none;
+      margin-top:34px;
     }
 
     .tools-section{
@@ -351,18 +387,29 @@
            =================================================== -->
       <section class="tools-search-box">
         <div class="tools-search-wrap">
-          <input type="search" placeholder="ابحث عن أداة مثل: SWOT، KPIs، منظّم مهامي، دراسة الجدوى...">
-          <button type="button">بحث</button>
+          <input id="toolsSearchInput" type="search" placeholder="ابحث عن أداة مثل: SWOT، KPIs، منظّم مهامي، دراسة الجدوى...">
+          <button id="toolsSearchButton" type="button">بحث</button>
         </div>
 
-        <div class="tools-filters">
-          <span class="tools-filter" aria-disabled="true">الكل</span>
-          <span class="tools-filter" aria-disabled="true">أدواتي</span>
-          <span class="tools-filter" aria-disabled="true">التخطيط الاستراتيجي</span>
-          <span class="tools-filter" aria-disabled="true">إدارة المشاريع</span>
-          <span class="tools-filter" aria-disabled="true">الجودة والتميز</span>
-          <span class="tools-filter" aria-disabled="true">إدارة المخاطر</span>
+        <div class="tools-filters" aria-label="تصنيف الأدوات">
+          <a class="tools-filter" href="tools.html" data-filter-category="all">كل الأدوات</a>
+          <a class="tools-filter" href="tools.html?category=planning#tools-list" data-filter-category="planning">التخطيط والأداء</a>
+          <a class="tools-filter" href="tools.html?category=quality#tools-list" data-filter-category="quality">الجودة والآيزو</a>
+          <a class="tools-filter" href="tools.html?category=risk#tools-list" data-filter-category="risk">إدارة المخاطر</a>
+          <a class="tools-filter" href="tools.html?category=governance#tools-list" data-filter-category="governance">الحوكمة</a>
+          <a class="tools-filter" href="tools.html?category=feasibility#tools-list" data-filter-category="feasibility">دراسات الجدوى</a>
+          <a class="tools-filter" href="tools.html?category=productivity#tools-list" data-filter-category="productivity">الإنتاجية وتنظيم العمل</a>
         </div>
+        <div class="tools-active-category" id="toolsActiveCategory" aria-live="polite"></div>
+      </section>
+      <div id="tools-list" class="tools-list-anchor" aria-hidden="true"></div>
+      <div class="tools-empty-state" id="toolsEmptyState">لا توجد أدوات مطابقة لهذا التصنيف أو البحث حاليًا.</div>
+      <section class="tools-filtered-section" id="toolsFilteredSection" aria-labelledby="toolsFilteredTitle">
+        <div class="tools-section-head">
+          <h2 id="toolsFilteredTitle">الأدوات المعروضة</h2>
+          <p>نتائج الفئة المختارة بدون تكرار.</p>
+        </div>
+        <div class="tools-grid" id="toolsFilteredGrid"></div>
       </section>
 
       <!-- ===================================================
@@ -375,7 +422,7 @@
         </div>
 
         <div class="tools-grid">
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <div class="tool-icon">🗒️</div>
             <h3>منظّم مهامي</h3>
             <p>
@@ -389,7 +436,7 @@
             <a class="tool-link" href="tools/mytodo/index.html">فتح الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="feasibility">
             <div class="tool-icon">📘</div>
             <h3>مساعد دراسة الجدوى الأولية</h3>
             <p>
@@ -402,7 +449,7 @@
             <a class="tool-link" href="tools/feasibility/indexFeasibility.html">ابدأ استخدام الأداة</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="planning">
             <div class="tool-icon">CT</div>
             <h3>ومضة إدارية</h3>
             <p>
@@ -429,7 +476,7 @@
         </div>
 
         <div class="tools-grid">
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <div class="tool-icon">🧮</div>
             <h3>حاسبات سريعة</h3>
             <p>حساب نسبة الإنجاز، هامش الربح، والتحويلات البسيطة أثناء العمل.</p>
@@ -437,7 +484,7 @@
             <a class="tool-link" href="tools/calculators/index.html">فتح الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <div class="tool-icon">📇</div>
             <h3>سجل العملاء</h3>
             <p>تنظيم بيانات العملاء، حالات المتابعة، والملاحظات الأساسية.</p>
@@ -445,7 +492,7 @@
             <a class="tool-link" href="tools/crm/index.html">فتح الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <div class="tool-icon">🧾</div>
             <h3>فاتورة / عرض سعر</h3>
             <p>إنشاء فاتورة أو عرض سعر مبسط مع إمكانية الطباعة والحفظ المحلي.</p>
@@ -453,7 +500,7 @@
             <a class="tool-link" href="tools/invoice/index.html">فتح الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <div class="tool-icon">📄</div>
             <h3>قوالب جاهزة</h3>
             <p>رسائل ونصوص عملية جاهزة للنسخ والتخصيص حسب الحاجة.</p>
@@ -461,7 +508,7 @@
             <a class="tool-link" href="tools/tool-templates/index.html">فتح الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <div class="tool-icon">⏱️</div>
             <h3>مؤقت / مواعيد سريعة</h3>
             <p>مؤقت بسيط ومساعد للتذكير وتنظيم جلسات العمل القصيرة.</p>
@@ -481,7 +528,7 @@
         </div>
 
         <div class="tools-grid">
-          <article class="tool-card">
+          <article class="tool-card" data-category="planning">
             <div class="tool-icon">🎯</div>
             <h3>أداة تحليل SWOT</h3>
             <p>تنظيم نقاط القوة والضعف والفرص والتحديات بطريقة عملية تساعد على اتخاذ القرار.</p>
@@ -492,7 +539,7 @@
             <a class="tool-link" href="templates/swot-analysis-template.html">تفاصيل الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="planning">
             <div class="tool-icon">📊</div>
             <h3>أداة بناء KPIs</h3>
             <p>المساعدة في صياغة مؤشرات أداء واضحة وقابلة للقياس مرتبطة بالأهداف والنتائج.</p>
@@ -503,7 +550,18 @@
             <a class="tool-link" href="templates/kpi-performance-card.html">تفاصيل الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="planning">
+            <div class="tool-icon">✅</div>
+            <h3>مولد هدف SMART</h3>
+            <p>أداة مجانية لتحويل الهدف العام إلى هدف SMART واضح وقابل للقياس والتنفيذ.</p>
+            <div class="tool-meta">
+              <span class="tool-badge free">مجاني</span>
+              <span class="tool-badge ready">التخطيط والأداء</span>
+            </div>
+            <a class="tool-link" href="tools/smart-goal-generator/">فتح الأداة ←</a>
+          </article>
+
+          <article class="tool-card" data-category="planning">
             <div class="tool-icon">🧭</div>
             <h3>أداة صياغة الرؤية والرسالة</h3>
             <p>إطار مبسط يساعد الجهة على كتابة توجهاتها المؤسسية بصورة واضحة ومهنية.</p>
@@ -526,7 +584,7 @@
         </div>
 
         <div class="tools-grid">
-          <article class="tool-card">
+          <article class="tool-card" data-category="planning">
             <div class="tool-icon">📅</div>
             <h3>مخطط الخطة التشغيلية</h3>
             <p>هيكل يساعد على تحويل الأهداف إلى مبادرات وأنشطة ومؤشرات ومسؤوليات وجدول زمني.</p>
@@ -537,7 +595,7 @@
             <a class="tool-link" href="templates/operational-plan-template.html">تفاصيل الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="risk">
             <div class="tool-icon">⚠️</div>
             <h3>سجل المخاطر</h3>
             <p>نموذج مبسط لتحديد المخاطر، تقييمها، تحديد المسؤوليات، ووضع المعالجات المناسبة.</p>
@@ -548,7 +606,7 @@
             <a class="tool-link" href="templates/simple-risk-register.html">تفاصيل الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="governance">
             <div class="tool-icon">👥</div>
             <h3>مصفوفة RACI</h3>
             <p>توضيح الأدوار والمسؤوليات بين الفرق بطريقة مختصرة تساعد على تقليل التداخل والغموض.</p>
@@ -571,7 +629,7 @@
         </div>
 
         <div class="tools-grid">
-          <article class="tool-card">
+          <article class="tool-card" data-category="quality">
             <div class="tool-icon">✅</div>
             <h3>قائمة تحقق الجودة</h3>
             <p>قائمة مراجعة تساعد على ضبط المتطلبات الأساسية ومتابعة مدى الالتزام بها داخل الجهة.</p>
@@ -582,7 +640,7 @@
             <a class="tool-link" href="templates/iso9001-readiness-checklist.html">تفاصيل الأداة ←</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="quality">
             <div class="tool-icon">🏆</div>
             <h3>تقييم جاهزية التميز</h3>
             <p>أداة أولية لمراجعة مستوى الجاهزية المؤسسية في مجالات التميز والأداء والتحسين.</p>
@@ -593,7 +651,7 @@
             <span class="tool-link" aria-disabled="true">قريبًا</span>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="quality">
             <div class="tool-icon">🗂️</div>
             <h3>خريطة العمليات</h3>
             <p>إطار بصري مبسط لتحديد العمليات الرئيسية والمساندة وعلاقتها بالقيمة المقدمة للمستفيد.</p>
@@ -633,31 +691,31 @@
         </div>
 
         <div class="cards-grid tools-grid">
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <h3>الحاسبات الإدارية</h3>
             <p>أدوات حسابية مبسطة تساعد في المتابعة والتقدير واتخاذ القرار.</p>
             <a class="card-link" href="tools/calculators/index.html">فتح الأداة</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <h3>إدارة علاقات العملاء</h3>
             <p>أداة بسيطة لتنظيم بيانات العملاء والمتابعة الأولية.</p>
             <a class="card-link" href="tools/crm/index.html">فتح الأداة</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <h3>الفواتير</h3>
             <p>أداة لإعداد فواتير مبسطة وتنظيم بيانات الخدمة أو المنتج.</p>
             <a class="card-link" href="tools/invoice/index.html">فتح الأداة</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <h3>المؤقت</h3>
             <p>أداة مساعدة لتنظيم جلسات العمل والتركيز وإدارة الوقت.</p>
             <a class="card-link" href="tools/timer/index.html">فتح الأداة</a>
           </article>
 
-          <article class="tool-card">
+          <article class="tool-card" data-category="productivity">
             <h3>قوالب الأدوات</h3>
             <p>مجموعة قوالب عملية مرتبطة بالاستخدام اليومي للأدوات.</p>
             <a class="card-link" href="tools/tool-templates/index.html">فتح الأداة</a>
@@ -670,6 +728,149 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const scrollTopBtn = document.getElementById("scrollTopBtn");
+    const categoryLabels = {
+      all: "كل الأدوات",
+      planning: "التخطيط والأداء",
+      quality: "الجودة والآيزو",
+      risk: "إدارة المخاطر",
+      governance: "الحوكمة",
+      feasibility: "دراسات الجدوى",
+      productivity: "الإنتاجية وتنظيم العمل"
+    };
+    const params = new URLSearchParams(window.location.search);
+    const requestedCategory = params.get("category");
+    const activeCategory = Object.prototype.hasOwnProperty.call(categoryLabels, requestedCategory)
+      ? requestedCategory
+      : "all";
+    const searchInput = document.getElementById("toolsSearchInput");
+    const searchButton = document.getElementById("toolsSearchButton");
+    const activeCategoryLabel = document.getElementById("toolsActiveCategory");
+    const emptyState = document.getElementById("toolsEmptyState");
+    const toolsList = document.getElementById("tools-list");
+    const filteredSection = document.getElementById("toolsFilteredSection");
+    const filteredGrid = document.getElementById("toolsFilteredGrid");
+    const filteredTitle = document.getElementById("toolsFilteredTitle");
+    const toolCards = Array.from(document.querySelectorAll(".tool-card[data-category]"));
+    const toolSections = Array.from(document.querySelectorAll(".tools-section, .tools-independent-section"));
+    const filterLinks = Array.from(document.querySelectorAll("[data-filter-category]"));
+    const hasCategoryFilter = activeCategory !== "all";
+
+    const normalizeText = (value) => (value || "").trim().toLowerCase();
+
+    const getCardKey = (card) => {
+      const link = card.querySelector("a[href]");
+      return link ? link.getAttribute("href") : normalizeText(card.querySelector("h3")?.textContent || card.textContent);
+    };
+
+    const updateActiveFilter = () => {
+      filterLinks.forEach((link) => {
+        const isActive = link.dataset.filterCategory === activeCategory || (activeCategory === "all" && link.dataset.filterCategory === "all");
+        link.classList.toggle("is-active", isActive);
+        if (isActive) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+      if (activeCategoryLabel) {
+        activeCategoryLabel.style.display = activeCategory === "all" ? "none" : "block";
+        activeCategoryLabel.textContent = `الأدوات المعروضة: ${categoryLabels[activeCategory]}`;
+      }
+    };
+
+    const applyToolsFilter = () => {
+      const query = normalizeText(searchInput ? searchInput.value : "");
+      let visibleCount = 0;
+
+      if (hasCategoryFilter) {
+        const usedKeys = new Set();
+        const matchingCards = [];
+
+        toolCards.forEach((card) => {
+          const categoryMatch = card.dataset.category === activeCategory;
+          const searchMatch = !query || normalizeText(card.textContent).includes(query);
+          const key = getCardKey(card);
+
+          if (categoryMatch && searchMatch && !usedKeys.has(key)) {
+            usedKeys.add(key);
+            matchingCards.push(card);
+          }
+        });
+
+        toolSections.forEach((section) => {
+          section.style.display = "none";
+        });
+
+        if (filteredGrid) {
+          filteredGrid.innerHTML = "";
+          matchingCards.forEach((card) => {
+            const clone = card.cloneNode(true);
+            clone.style.display = "";
+            filteredGrid.appendChild(clone);
+          });
+        }
+
+        if (filteredTitle) {
+          filteredTitle.textContent = "نتائج الأدوات";
+        }
+
+        if (filteredSection) {
+          filteredSection.style.display = matchingCards.length ? "block" : "none";
+        }
+
+        visibleCount = matchingCards.length;
+
+        if (emptyState) {
+          emptyState.style.display = visibleCount ? "none" : "block";
+        }
+
+        return;
+      }
+
+      if (filteredSection) {
+        filteredSection.style.display = "none";
+      }
+
+      toolCards.forEach((card) => {
+        const isVisible = !query || normalizeText(card.textContent).includes(query);
+        card.style.display = isVisible ? "" : "none";
+        if (isVisible) visibleCount += 1;
+      });
+
+      toolSections.forEach((section) => {
+        const hasVisibleCards = Array.from(section.querySelectorAll(".tool-card[data-category]"))
+          .some((card) => card.style.display !== "none");
+        section.style.display = hasVisibleCards ? "" : "none";
+      });
+
+      if (emptyState) {
+        emptyState.style.display = visibleCount ? "none" : "block";
+      }
+    };
+
+    updateActiveFilter();
+    applyToolsFilter();
+
+    if (hasCategoryFilter && toolsList && window.location.hash !== "#tools-list") {
+      window.setTimeout(() => {
+        toolsList.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", applyToolsFilter);
+      searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          applyToolsFilter();
+        }
+      });
+    }
+
+    if (searchButton) {
+      searchButton.addEventListener("click", applyToolsFilter);
+    }
 
     if (scrollTopBtn) {
       const toggleScrollBtn = () => {

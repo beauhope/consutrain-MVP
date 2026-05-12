@@ -1,4 +1,4 @@
-/* cache-version: v20260512-header-learning-paths */
+/* cache-version: v20260513-tools-categories */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260512-header-learning-paths";
-const RUNTIME_CACHE = "consutrain-runtime-v20260512-header-learning-paths";
+const STATIC_CACHE = "consutrain-static-v20260513-tools-categories";
+const RUNTIME_CACHE = "consutrain-runtime-v20260513-tools-categories";
 
 const PRECACHE_URLS = [
   "./",
@@ -74,6 +74,7 @@ const PRECACHE_URLS = [
   "./tools/feasibility/indexFeasibility.html",
   "./tools/feasibility/feasibility.css",
   "./tools/feasibility/feasibility.js",
+  "./tools/smart-goal-generator/index.html",
   "./tools/mytodo/index.html",
   "./tools/mytodo/css/style.css",
   "./tools/mytodo/templates/page-shell.html",
