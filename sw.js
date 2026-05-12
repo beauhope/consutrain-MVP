@@ -1,4 +1,4 @@
-/* cache-version: v20260512-services-linked */
+/* cache-version: v20260512-contact-page */
 /*
   =========================================================
   FILE: sw.js
@@ -10,8 +10,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260512-services-linked";
-const RUNTIME_CACHE = "consutrain-runtime-v20260512-services-linked";
+const STATIC_CACHE = "consutrain-static-v20260512-contact-page";
+const RUNTIME_CACHE = "consutrain-runtime-v20260512-contact-page";
 
 const PRECACHE_URLS = [
   "./",
