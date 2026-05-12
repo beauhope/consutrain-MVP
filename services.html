@@ -4,40 +4,75 @@
   <!--
     =========================================================
     FILE: services.html
-    PURPOSE:
-    صفحة الخدمات داخل منصة ConsuTrain.
-
-    ROLE OF THIS PAGE:
-    - تقديم الخدمات كبوابة تحويل واضحة نحو الصفحات التفصيلية
-    - توجيه الزائر إلى الخدمة المناسبة أو إلى حجز استشارة
-    - ربط الخدمات بالموارد المجانية ودليل ConsuTrain
+    PURPOSE: صفحة الخدمات الاستشارية والتدريبية في ConsuTrain.
+    NOTES: تستخدم الهيدر والفوتر المشتركين عبر partials.
     =========================================================
   -->
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>الخدمات | ConsuTrain</title>
+  <title>الخدمات الاستشارية والتدريبية | ConsuTrain</title>
   <meta
     name="description"
-    content="استعرض خدمات ConsuTrain في التخطيط الاستراتيجي، الخطط التشغيلية، دراسات الجدوى، ISO، إدارة المشاريع، وبناء الأنظمة الإدارية، مع موارد مجانية ودليل تعريفي قابل للتحميل."
+    content="خدمات ConsuTrain الاستشارية والتدريبية تساعد المؤسسات والأفراد على إعداد الخطط، المؤشرات، أنظمة الجودة، الحوكمة، التميز المؤسسي، دراسات الجدوى، والعروض الفنية."
   >
 
-  <link rel="stylesheet" href="assets/css/style.css?v=20260504_menu">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260512_services_consulting">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
 
-  <link rel="icon" type="image/svg+xml"
-    href='data:image/svg+xml,
-    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
-      <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="%230f2747"/>
-          <stop offset="1" stop-color="%23d4a63a"/>
-        </linearGradient>
-      </defs>
-      <rect width="64" height="64" rx="14" fill="url(%23g)"/>
-      <text x="50%" y="54%" font-size="16" text-anchor="middle"
-            fill="white" font-family="Arial" font-weight="700">CT</text>
-    </svg>'>
+  <style>
+    .services-page .service-mini-list,
+    .services-page .service-support-list {
+      margin: 12px 0 0;
+      padding: 0 20px 0 0;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .services-page .service-support-list a {
+      color: var(--primary);
+      font-weight: 700;
+      border-bottom: 1px solid rgba(212, 166, 58, .35);
+    }
+
+    .services-page .service-support-list a:hover {
+      color: var(--gold-2);
+    }
+
+    .services-page .service-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .services-page .service-summary-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .services-page .service-summary-card strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .services-page .service-anchor {
+      display: block;
+      scroll-margin-top: 96px;
+    }
+
+    @media (max-width: 900px) {
+      .services-page .service-summary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body
@@ -46,53 +81,41 @@
   data-breadcrumb-title="الخدمات"
 >
   <div id="header-placeholder"></div>
-  <div id="breadcrumbs-placeholder"></div>
+  <div class="container"><div id="breadcrumbs-placeholder"></div></div>
 
   <main class="inner-page services-page">
-
     <section class="page-hero services-hero">
       <div class="container">
         <span class="eyebrow">خدمات ConsuTrain</span>
-        <h1>خدمات عملية تساعدك على تحويل الأفكار والخطط إلى مخرجات قابلة للتنفيذ</h1>
+        <h1>خدمات استشارية وتدريبية قابلة للتطبيق</h1>
         <p>
-          هذه الصفحة تساعدك على اختيار الخدمة الأقرب لاحتياجك. يمكنك البدء بتحميل الموارد المجانية،
-          أو قراءة الصفحة التفصيلية لكل خدمة، أو حجز استشارة قصيرة إذا لم تكن متأكدًا من المسار المناسب.
+          نساعدك على تحويل الأفكار والمتطلبات إلى خطط، أنظمة، مؤشرات، ملفات، ونماذج عملية قابلة للاستخدام داخل مؤسستك.
         </p>
-
         <div class="services-hero-actions">
-          <a class="btn btn-primary" href="services/consultation-form.html">احجز استشارة</a>
-          <a class="btn btn-secondary" href="resources/downloads/profile/ConsuTrain_Profile_and_Services_AR.pdf">تحميل دليل ConsuTrain</a>
-          <a class="btn btn-secondary" href="tools.html">استعرض الموارد المجانية</a>
+          <a class="btn btn-primary" href="services/consultation-form.html">اطلب عرض سعر</a>
+          <a class="btn btn-secondary" href="services/book-consultation.html">احجز استشارة</a>
+          <a class="btn btn-secondary" href="start-here.html">ابدأ من هنا</a>
         </div>
       </div>
     </section>
 
-    <section class="home-section services-intro-section">
+    <section class="home-section">
       <div class="container">
-        <div class="cards-grid services-intro-grid">
-          <article class="section-card services-mini-card">
-            <h2>ابدأ من المشكلة</h2>
-            <p>
-              لا نبدأ من اسم الخدمة فقط، بل من السؤال الأهم: ما المشكلة التي تريد حلها؟
-              هل تحتاج خطة، دراسة، نظام إداري، تنظيم مشروع، أم مراجعة مهنية قبل اتخاذ قرار؟
-            </p>
-          </article>
+        <div class="section-head">
+          <div>
+            <h2>متى تحتاج إلى خدمة استشارية؟</h2>
+            <p>تكون الخدمة مناسبة عندما لا يكفيك التعلم وحده، وتحتاج إلى مخرج جاهز أو مراجعة مهنية أو تطبيق خاص بمؤسستك.</p>
+          </div>
+        </div>
 
-          <article class="section-card services-mini-card">
-            <h2>مخرجات قابلة للاستخدام</h2>
-            <p>
-              الهدف من الخدمة أن تنتهي إلى مخرجات واضحة، مثل خطة، نموذج، تقرير تشخيص، سجل مخاطر،
-              دليل إجراءات، أو تصور تنفيذي يمكن تطبيقه ومراجعته.
-            </p>
-          </article>
-
-          <article class="section-card services-mini-card">
-            <h2>موارد مجانية قبل الحجز</h2>
-            <p>
-              يمكنك تحميل بعض القوالب المجانية أولًا لفهم طريقة العمل. هذه الموارد تساعدك على تقييم احتياجك
-              قبل طلب خدمة أوسع أو حجز استشارة.
-            </p>
-          </article>
+        <div class="cards-grid">
+          <article class="section-card"><h3>لديك فكرة وتحتاج تحويلها إلى خطة</h3><p><strong>الخدمة المناسبة:</strong> التخطيط الاستراتيجي والتشغيلي</p></article>
+          <article class="section-card"><h3>لديك نظام غير منظم</h3><p><strong>الخدمة المناسبة:</strong> بناء الأدلة والإجراءات</p></article>
+          <article class="section-card"><h3>لديك مؤشرات ضعيفة أو متفرقة</h3><p><strong>الخدمة المناسبة:</strong> إعداد مؤشرات الأداء</p></article>
+          <article class="section-card"><h3>تستعد لجائزة أو تقييم</h3><p><strong>الخدمة المناسبة:</strong> التميز المؤسسي</p></article>
+          <article class="section-card"><h3>تحتاج تنظيم الصلاحيات والرقابة</h3><p><strong>الخدمة المناسبة:</strong> الحوكمة</p></article>
+          <article class="section-card"><h3>لديك مشروع أو فرصة استثمارية</h3><p><strong>الخدمة المناسبة:</strong> دراسة جدوى</p></article>
+          <article class="section-card"><h3>لديك مناقصة أو عرض فني</h3><p><strong>الخدمة المناسبة:</strong> إعداد العروض الفنية</p></article>
         </div>
       </div>
     </section>
@@ -100,389 +123,231 @@
     <section class="section" id="services-accordion">
       <div class="container">
         <div class="section__head services-head">
-          <h2 class="section__title">اختر الخدمة الأقرب لاحتياجك</h2>
-          <p class="section__desc">
-            كل بطاقة تقودك إلى صفحة تفصيلية أو إلى موارد مساندة تساعدك على البدء بطريقة عملية.
-          </p>
+          <h2 class="section__title">الخدمات الرئيسية</h2>
+          <p class="section__desc">افتح الخدمة الأقرب لاحتياجك لمعرفة المخرجات والمواد التدريبية أو الورش التي تدعمها.</p>
         </div>
 
         <div class="pillars-acc services-acc">
-
           <details class="pillar" id="strategic-operational-services">
             <summary class="pillar__sum">
               <div class="pillar__text">
                 <span class="pillar__title">التخطيط الاستراتيجي والتشغيلي</span>
-                <span class="pillar__hint">خدمات تساعد على تحويل التوجهات إلى أهداف وخطط ومؤشرات قابلة للتنفيذ.</span>
+                <span class="pillar__hint">إعداد الخطط الاستراتيجية، الخطط التشغيلية، المبادرات، مؤشرات الأداء، وآليات المتابعة.</span>
               </div>
             </summary>
             <div class="pillar__body">
-              <div class="cards-grid service-output-grid">
-                <article class="section-card service-output-card">
-                  <h3>التخطيط الاستراتيجي الفعّال</h3>
-                  <p>بناء توجه واضح وأهداف عملية ومبادرات قابلة للمتابعة.</p>
-                  <a class="service-link-btn" href="services/strategic-planning.html">عرض الخدمة</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد الخطط التشغيلية</h3>
-                  <p>تحويل الأهداف إلى إجراءات ومسؤوليات ومؤشرات زمنية واضحة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>بطاقات الأهداف والمؤشرات والمبادرات</h3>
-                  <p>تنظيم الهدف والمؤشر والمبادرة والمالك ومصدر القياس في بطاقة عملية.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>متى تحتاج هذه الخدمة؟</strong><p>عندما تحتاج إلى خطة واضحة تربط الرؤية بالأهداف والمبادرات والمؤشرات.</p></div>
+                <div class="service-summary-card"><strong>ما الذي نقدمه؟</strong><ul class="service-mini-list"><li>تحليل الوضع الحالي.</li><li>صياغة التوجهات والأهداف.</li><li>إعداد الخطة التشغيلية.</li><li>بناء مؤشرات الأداء.</li><li>إعداد آلية المتابعة.</li></ul></div>
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>وثيقة خطة استراتيجية أو تشغيلية.</li><li>جدول أهداف ومؤشرات.</li><li>بطاقة مبادرات.</li><li>نموذج متابعة.</li></ul></div>
               </div>
+              <ul class="service-support-list">
+                <li><a href="courses/strategic-planning/">دورة التخطيط الاستراتيجي</a></li>
+                <li><a href="courses/balanced-scorecard-performance-management/">دورة بطاقة الأداء المتوازن</a></li>
+                <li><a href="courses/practical-workshops/#workshopsList">ورشة SMART</a></li>
+                <li><a href="courses/practical-workshops/#workshopsList">ورشة KPI</a></li>
+              </ul>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
             </div>
           </details>
 
-          <details class="pillar" id="operations-excellence-services">
+          <details class="pillar" id="performance-kpi-services">
             <summary class="pillar__sum">
               <div class="pillar__text">
-                <span class="pillar__title">العمليات والسياسات والتميز التشغيلي</span>
-                <span class="pillar__hint">تنظيم العمل اليومي عبر الإجراءات والسياسات وتحسين العمليات ومنهجيات التميز.</span>
+                <span class="pillar__title">إعداد مؤشرات الأداء وبطاقات KPI</span>
+                <span class="pillar__hint">بناء مؤشرات قابلة للقياس، بطاقات مؤشرات، مستهدفات، ولوحات متابعة.</span>
               </div>
             </summary>
             <div class="pillar__body">
-              <div class="cards-grid service-output-grid">
-                <article class="section-card service-output-card">
-                  <h3>بناء الأدلة التشغيلية وإجراءات العمل SOP</h3>
-                  <p>توثيق خطوات العمل والمسؤوليات والنماذج بطريقة قابلة للاستخدام.</p>
-                  <a class="service-link-btn" href="services/sop-operational-manuals.html">عرض الخدمة</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد السياسات التنظيمية</h3>
-                  <p>صياغة سياسات واضحة تضبط القرار والعمل وتقلل الاجتهاد غير المنظم.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>بناء منهجيات التميز</h3>
-                  <p>تطوير أطر عمل تساعد المؤسسة على تحسين الأداء ورفع النضج التشغيلي.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>رسم وتحسين العمليات</h3>
-                  <p>تحليل مسار العملية وتحديد نقاط التعثر والفرص العملية للتحسين.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>بطاقة مؤشر KPI.</li><li>مصفوفة مؤشرات.</li><li>مستهدفات أداء.</li><li>نموذج متابعة.</li></ul></div>
+                <div class="service-summary-card"><strong>يدعم هذه الخدمة</strong><ul class="service-support-list"><li><a href="courses/balanced-scorecard-performance-management/">دورة بطاقة الأداء المتوازن وإدارة الأداء</a></li><li><a href="courses/practical-workshops/#workshopsList">ورشة إعداد بطاقة مؤشر KPI</a></li><li><a href="courses/practical-workshops/#workshopsList">ورشة صياغة الأهداف SMART</a></li></ul></div>
               </div>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
             </div>
           </details>
 
+          <span class="service-anchor" id="operations-excellence-services"></span>
           <details class="pillar" id="iso-management-services">
             <summary class="pillar__sum">
               <div class="pillar__text">
-                <span class="pillar__title">أنظمة ISO والإدارة المتكاملة</span>
-                <span class="pillar__hint">تأهيل وتحسين أنظمة الإدارة وفق المتطلبات المناسبة دون فصلها عن واقع العمل.</span>
+                <span class="pillar__title">الجودة والآيزو وأنظمة الإدارة</span>
+                <span class="pillar__hint">تأهيل ISO 9001، التدقيق الداخلي، الإجراءات، الوثائق، وعدم المطابقة والإجراءات التصحيحية.</span>
               </div>
             </summary>
             <div class="pillar__body">
-              <div class="cards-grid service-output-grid">
-                <article class="section-card service-output-card">
-                  <h3>ISO Consulting</h3>
-                  <p>دعم التأهيل والتحسين وبناء الوثائق والاستعداد للتدقيق.</p>
-                  <a class="service-link-btn" href="services/iso-consulting.html">عرض الخدمة</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>نظام الإدارة المتكامل IMS</h3>
-                  <p>دمج متطلبات الجودة والبيئة والسلامة والمخاطر في نظام واحد.</p>
-                  <a class="service-link-btn" href="services/integrated-management-system.html">عرض الخدمة</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>ISO 9001 — نظام إدارة الجودة</h3>
-                  <p>بناء أو تحسين نظام الجودة وربطه بالعمليات ورضا العملاء والتحسين.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>ISO 14001 — نظام الإدارة البيئية</h3>
-                  <p>تنظيم الجوانب البيئية والالتزامات والضوابط التشغيلية والمتابعة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>ISO 45001 — نظام إدارة الصحة والسلامة المهنية</h3>
-                  <p>ضبط مخاطر السلامة والصحة المهنية والمسؤوليات وإجراءات التحكم.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>ISO 10002 — نظام التعامل مع الشكاوى ورضا العملاء</h3>
-                  <p>تنظيم استقبال الشكاوى ومعالجتها والتعلم منها وتحسين التجربة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>ISO 31000 — إدارة المخاطر</h3>
-                  <p>بناء منهجية مخاطر وسجل ومعالجة ومتابعة وفق مبادئ ISO 31000.</p>
-                  <a class="service-link-btn" href="services/risk-management.html">عرض الخدمة</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>ISO 22301 — استمرارية الأعمال</h3>
-                  <p>تأسيس إطار لاستمرارية الأعمال والاستعداد للانقطاعات الحرجة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>ISO 37001 — نظام إدارة مكافحة الرشوة</h3>
-                  <p>بناء ضوابط وسياسات وممارسات داعمة للنزاهة ومكافحة الرشوة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>إجراءات ونماذج.</li><li>خطة تدقيق داخلي.</li><li>قائمة تحقق.</li><li>نموذج عدم مطابقة وإجراء تصحيحي.</li></ul></div>
+                <div class="service-summary-card"><strong>يدعم هذه الخدمة</strong><ul class="service-support-list"><li><a href="courses/iso-9001-internal-auditor/">دورة مدقق داخلي ISO 9001</a></li><li><a href="courses/practical-workshops/#workshopsList">ورشة كتابة عدم المطابقة والإجراء التصحيحي</a></li></ul></div>
               </div>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
             </div>
           </details>
 
-          <details class="pillar" id="risk-emergency-bcp-services">
+          <details class="pillar" id="ims-services">
             <summary class="pillar__sum">
               <div class="pillar__text">
-                <span class="pillar__title">المخاطر والطوارئ واستمرارية الأعمال</span>
-                <span class="pillar__hint">خدمات تساعد على الاستعداد للمخاطر والطوارئ والانقطاعات والمتطلبات النظامية.</span>
+                <span class="pillar__title">نظام الإدارة المتكامل IMS</span>
+                <span class="pillar__hint">دمج الجودة والبيئة والصحة والسلامة في نظام إداري واحد يقلل التكرار ويوحد الوثائق والرقابة.</span>
               </div>
             </summary>
             <div class="pillar__body">
-              <div class="cards-grid service-output-grid">
-                <article class="section-card service-output-card">
-                  <h3>بناء نظام إدارة المخاطر</h3>
-                  <p>تأسيس منهجية وسجل وخطط معالجة ومتابعة للمخاطر الرئيسية.</p>
-                  <a class="service-link-btn" href="services/risk-management.html">عرض الخدمة</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>بناء نظام السلامة والطوارئ</h3>
-                  <p>تنظيم الاستجابة للطوارئ والمسؤوليات والإجراءات الأساسية للسلامة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد قائمة الامتثال للقوانين والمتطلبات النظامية</h3>
-                  <p>حصر المتطلبات ذات العلاقة وتحويلها إلى قائمة متابعة واضحة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد خطط استمرارية الأعمال</h3>
-                  <p>تحديد السيناريوهات الحرجة وإجراءات الاستمرارية والتعافي.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>سياسة IMS.</li><li>خريطة عمليات متكاملة.</li><li>مصفوفة تكامل.</li><li>سجل مخاطر وفرص.</li><li>برنامج تدقيق متكامل.</li></ul></div>
+                <div class="service-summary-card"><strong>يدعم هذه الخدمة</strong><ul class="service-support-list"><li><a href="courses/integrated-management-system-ims/">دورة نظام الإدارة المتكامل IMS</a></li><li><a href="courses/occupational-health-safety-management-system/">دورة الصحة والسلامة المهنية</a></li><li><a href="courses/practical-workshops/#workshopsList">ورشة سجل المخاطر</a></li></ul></div>
               </div>
-            </div>
-          </details>
-
-          <details class="pillar" id="entrepreneurship-projects-services">
-            <summary class="pillar__sum">
-              <div class="pillar__text">
-                <span class="pillar__title">المشاريع وريادة الأعمال</span>
-                <span class="pillar__hint">دعم الأفكار والمشاريع من الجدوى إلى نموذج العمل والعروض والخطط.</span>
-              </div>
-            </summary>
-            <div class="pillar__body">
-              <div class="cards-grid service-output-grid">
-                <article class="section-card service-output-card">
-                  <h3>إعداد دراسات الجدوى</h3>
-                  <p>تقييم الفكرة من جوانب السوق والتشغيل والمال والمخاطر قبل القرار.</p>
-                  <a class="service-link-btn" href="services/feasibility-studies.html">عرض الخدمة</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد العروض الفنية والمالية للمناقصات</h3>
-                  <p>تنظيم العرض ومحتواه الفني والمالي بما يدعم وضوح القيمة المقدمة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد خطط العمل Business Plan</h3>
-                  <p>بناء خطة عمل تشمل السوق والتشغيل والمال ومسار التنفيذ.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد نموذج العمل Business Model</h3>
-                  <p>توضيح شرائح العملاء والقيمة والقنوات والإيرادات والشركاء والتكاليف.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد الخطة التسويقية</h3>
-                  <p>تحديد السوق المستهدف والرسائل والقنوات والأنشطة ومؤشرات المتابعة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد Pitch Deck</h3>
-                  <p>صياغة عرض مختصر ومنظم للفكرة أو المشروع أو فرصة الاستثمار.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-              </div>
-            </div>
-          </details>
-
-          <details class="pillar" id="hr-organizational-development-services">
-            <summary class="pillar__sum">
-              <div class="pillar__text">
-                <span class="pillar__title">الموارد البشرية والتطوير التنظيمي</span>
-                <span class="pillar__hint">خدمات لتنظيم الأدوار والمهارات والأداء والتعاقب داخل المؤسسة.</span>
-              </div>
-            </summary>
-            <div class="pillar__body">
-              <div class="cards-grid service-output-grid">
-                <article class="section-card service-output-card">
-                  <h3>تصميم الهياكل التنظيمية</h3>
-                  <p>توضيح الإدارات والأدوار وخطوط الرفع وقرارات التشكيل.</p>
-                  <a class="service-link-btn" href="services/organizational-structures.html">عرض الخدمة</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>تحليل الوظائف وإعداد الأوصاف الوظيفية</h3>
-                  <p>تحديد المهام والمتطلبات والمؤهلات ومؤشرات الدور الوظيفي.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>خطة استقبال وتهيئة الموظفين الجدد Onboarding Plan</h3>
-                  <p>تنظيم تجربة الموظف الجديد من القبول إلى الاندماج في العمل.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد خطط القوى العاملة</h3>
-                  <p>تقدير الاحتياج من الوظائف والمهارات وفق أهداف المؤسسة وحجم العمل.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>التسيير التقديري للوظائف والمهارات GPEC</h3>
-                  <p>ربط الوظائف والمهارات الحالية بالاحتياج المستقبلي وخطط التطوير.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>بناء خطط التدريب وفقًا لتحليل المهارات</h3>
-                  <p>تحديد فجوات المهارات وتحويلها إلى مسارات تدريب ذات أولوية.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>بناء نظام تقييم الأداء الوظيفي</h3>
-                  <p>تصميم معايير ونماذج وآلية تقييم تربط الأداء بالأهداف والسلوكيات.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد خطة التعاقب الوظيفي</h3>
-                  <p>تحديد الوظائف الحرجة والبدلاء المحتملين وخطط تجهيزهم.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-              </div>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
             </div>
           </details>
 
           <details class="pillar" id="excellence-awards-services">
             <summary class="pillar__sum">
               <div class="pillar__text">
-                <span class="pillar__title">ملفات الترشح لجوائز التميز</span>
-                <span class="pillar__hint">تحضير ملفات الترشح وتحليل الفجوات وبناء الأدلة الداعمة.</span>
+                <span class="pillar__title">التميز المؤسسي والجوائز</span>
+                <span class="pillar__hint">تحليل المعايير، بناء الأدلة، صياغة الممارسات، إعداد ملفات الترشح، وربط النتائج بالمؤشرات.</span>
               </div>
             </summary>
             <div class="pillar__body">
-              <div class="cards-grid service-output-grid">
-                <article class="section-card service-output-card">
-                  <h3>إعداد تقارير الترشح لجوائز التميز الفردية</h3>
-                  <p>صياغة ملف فردي يبرز الإنجازات والأثر والأدلة الداعمة.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>إعداد تقارير الترشح لجوائز التميز المؤسسية</h3>
-                  <p>تنظيم التقرير المؤسسي وفق معايير الجائزة وربطه بالأدلة والنتائج.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>تحليل فجوات متطلبات الجائزة</h3>
-                  <p>مقارنة الوضع الحالي بالمعايير وتحديد ما يحتاج إلى استكمال.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
-                <article class="section-card service-output-card">
-                  <h3>استحداث الأدلة والنماذج الداعمة للترشح</h3>
-                  <p>إعداد نماذج وأدلة مساندة تعزز جاهزية ملف الترشح.</p>
-                  <a class="service-link-btn" href="services/consultation-form.html">إرسال طلب</a>
-                </article>
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>مصفوفة معايير.</li><li>سجل أدلة.</li><li>بطاقة ممارسة.</li><li>تقرير فجوات.</li><li>خطة تحسين.</li></ul></div>
+                <div class="service-summary-card"><strong>يدعم هذه الخدمة</strong><ul class="service-support-list"><li><a href="courses/institutional-excellence/">دورة التميز المؤسسي</a></li><li><a href="courses/balanced-scorecard-performance-management/">دورة بطاقة الأداء المتوازن</a></li><li><a href="courses/practical-workshops/#workshopsList">ورشة KPI</a></li></ul></div>
               </div>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
             </div>
           </details>
 
+          <details class="pillar" id="risk-emergency-bcp-services">
+            <summary class="pillar__sum">
+              <div class="pillar__text">
+                <span class="pillar__title">الحوكمة والمخاطر والامتثال</span>
+                <span class="pillar__hint">إعداد ملفات الحوكمة، مصفوفات الصلاحيات، سجلات المخاطر، السياسات، وآليات الرقابة.</span>
+              </div>
+            </summary>
+            <div class="pillar__body">
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>ملف حوكمة.</li><li>مصفوفة صلاحيات.</li><li>سجل مخاطر.</li><li>سياسة تضارب مصالح.</li><li>نموذج تقرير حوكمة.</li></ul></div>
+                <div class="service-summary-card"><strong>يدعم هذه الخدمة</strong><ul class="service-support-list"><li><a href="courses/corporate-governance/">دورة الحوكمة المؤسسية</a></li><li><a href="courses/practical-workshops/#workshopsList">ورشة مصفوفة الصلاحيات</a></li><li><a href="courses/practical-workshops/#workshopsList">ورشة سجل المخاطر</a></li></ul></div>
+              </div>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
+            </div>
+          </details>
+
+          <details class="pillar" id="ohs-services">
+            <summary class="pillar__sum">
+              <div class="pillar__text">
+                <span class="pillar__title">الصحة والسلامة المهنية</span>
+                <span class="pillar__hint">بناء نظام سلامة إداري، سجل مخاطر، خطط طوارئ، نماذج تفتيش، ومؤشرات سلامة.</span>
+              </div>
+            </summary>
+            <div class="pillar__body">
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>سياسة الصحة والسلامة.</li><li>سجل أخطار ومخاطر.</li><li>خطة طوارئ.</li><li>قائمة تفتيش.</li><li>مؤشرات أداء السلامة.</li></ul></div>
+                <div class="service-summary-card"><strong>يدعم هذه الخدمة</strong><ul class="service-support-list"><li><a href="courses/occupational-health-safety-management-system/">دورة الصحة والسلامة المهنية ISO 45001</a></li><li><a href="courses/integrated-management-system-ims/">دورة نظام الإدارة المتكامل IMS</a></li><li><a href="courses/practical-workshops/#workshopsList">ورشة سجل المخاطر</a></li></ul></div>
+              </div>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
+            </div>
+          </details>
+
+          <details class="pillar" id="entrepreneurship-projects-services">
+            <summary class="pillar__sum">
+              <div class="pillar__text">
+                <span class="pillar__title">دراسات الجدوى وتطوير المشاريع</span>
+                <span class="pillar__hint">إعداد دراسات جدوى، نماذج تشغيل، خطط تنفيذ، وتحليل فرص المشاريع.</span>
+              </div>
+            </summary>
+            <div class="pillar__body">
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>دراسة جدوى.</li><li>تحليل سوق.</li><li>نموذج تشغيلي.</li><li>خطة تنفيذ.</li><li>ملخص تنفيذي.</li></ul></div>
+                <div class="service-summary-card"><strong>يدعم هذه الخدمة</strong><ul class="service-support-list"><li><a href="courses/startup-building/">دورة الشركات الناشئة</a></li><li><a href="courses/agile-project-management/">دورة إدارة المشاريع الأجايل</a></li></ul></div>
+              </div>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
+            </div>
+          </details>
+
+          <details class="pillar" id="technical-proposals-documents-services">
+            <summary class="pillar__sum">
+              <div class="pillar__text">
+                <span class="pillar__title">العروض الفنية والمستندات المهنية</span>
+                <span class="pillar__hint">إعداد عروض فنية، تقارير، أدلة تشغيلية، ملفات مناقصات، وعروض تقديمية احترافية.</span>
+              </div>
+            </summary>
+            <div class="pillar__body">
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>عرض فني.</li><li>تقرير مهني.</li><li>دليل تشغيلي.</li><li>عرض تقديمي.</li><li>هيكلة ملف مناقصة.</li></ul></div>
+              </div>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
+            </div>
+          </details>
+
+          <span class="service-anchor" id="hr-organizational-development-services"></span>
+          <details class="pillar" id="custom-training-workshops-services">
+            <summary class="pillar__sum">
+              <div class="pillar__text">
+                <span class="pillar__title">الدورات والورش المخصصة</span>
+                <span class="pillar__hint">تصميم وتنفيذ دورات أو ورش خاصة حسب احتياج المؤسسة وفريق العمل.</span>
+              </div>
+            </summary>
+            <div class="pillar__body">
+              <div class="service-summary-grid">
+                <div class="service-summary-card"><strong>المخرجات المتوقعة</strong><ul class="service-mini-list"><li>خطة تدريب.</li><li>حقيبة تدريبية.</li><li>ورشة تطبيقية.</li><li>نماذج عمل.</li><li>تقييم قبلي وبعدي.</li></ul></div>
+                <div class="service-summary-card"><strong>يدعم هذه الخدمة</strong><ul class="service-support-list"><li><a href="courses/index.html">صفحة الدورات</a></li><li><a href="courses/practical-workshops/">صفحة الورش التطبيقية</a></li></ul></div>
+              </div>
+              <div class="acc__actions"><a class="btn btn-primary" href="services/consultation-form.html">اطلب هذه الخدمة</a></div>
+            </div>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="home-section services-audience-section">
+    <section class="home-section home-section--soft">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>غير متأكد من الخدمة المناسبة؟</h2>
-            <p>يمكنك تحديد احتياجك من خلال هذا التقسيم السريع قبل الحجز.</p>
+            <h2>اختر طريقة التعاون المناسبة</h2>
+            <p>يمكن أن تبدأ باستشارة قصيرة أو تنفيذ كامل حسب وضوح احتياجك وحجم المخرج المطلوب.</p>
           </div>
         </div>
-
-        <div class="cards-grid services-audience-grid">
-          <article class="section-card audience-card">
-            <h3>لديك هدف لكن التنفيذ غير واضح</h3>
-            <p>ابدأ بصفحة التخطيط الاستراتيجي والتشغيلي، وحمّل قالب الخطة التشغيلية.</p>
-            <a class="service-link-btn" href="services/strategic-planning.html">التخطيط والخطط التشغيلية</a>
-          </article>
-
-          <article class="section-card audience-card">
-            <h3>لديك فكرة مشروع وتريد تقييمها</h3>
-            <p>ابدأ بصفحة دراسات الجدوى لفهم ما تحتاجه قبل الاستثمار أو التوسع.</p>
-            <a class="service-link-btn" href="services/feasibility-studies.html">دراسات الجدوى</a>
-          </article>
-
-          <article class="section-card audience-card">
-            <h3>لديك مشروع قائم لكنه غير منظم</h3>
-            <p>ابدأ بخدمة إدارة المشاريع، أو حمّل نموذج سجل المخاطر لتقييم الوضع الأولي.</p>
-            <a class="service-link-btn" href="services/project-management.html">إدارة المشاريع</a>
-          </article>
+        <div class="cards-grid">
+          <article class="section-card"><h3>استشارة قصيرة</h3><p>عندما يكون لديك سؤال أو ملف تريد مراجعته.</p></article>
+          <article class="section-card"><h3>خدمة تنفيذ</h3><p>عندما تريد بناء خطة أو نظام أو ملف كامل.</p></article>
+          <article class="section-card"><h3>ورشة مخصصة</h3><p>عندما تريد تدريب فريقك على مخرج عملي.</p></article>
+          <article class="section-card"><h3>مرافقة شهرية</h3><p>عندما تحتاج متابعة وتطويرًا تدريجيًا.</p></article>
+        </div>
+        <div class="hero-actions" style="margin-top:18px;">
+          <a class="btn btn-primary" href="contact.html">تواصل لتحديد الأنسب</a>
         </div>
       </div>
     </section>
 
     <section class="home-section">
       <div class="container">
-        <div class="section-card services-process-card">
-          <h2>كيف نعمل معك؟</h2>
-          <p class="section-intro">
-            يبدأ العمل بفهم الاحتياج، ثم تحديد النطاق، ثم إعداد المخرجات المناسبة. لا يتم اقتراح خدمة كبيرة
-            عندما يكفي قالب أو مراجعة سريعة، ولا يتم الاكتفاء بملف بسيط عندما يكون الاحتياج أعمق.
-          </p>
-
-          <div class="services-process-steps">
-            <div class="journey-step">
-              <span class="journey-number">1</span>
-              <div>
-                <h3>فهم الطلب</h3>
-                <p>نبدأ بوصف مختصر للمشكلة أو الفكرة أو الهدف.</p>
-              </div>
-            </div>
-
-            <div class="journey-step">
-              <span class="journey-number">2</span>
-              <div>
-                <h3>تحديد المسار</h3>
-                <p>نحدد هل الأنسب قالب، مراجعة، استشارة، تدريب، أم خدمة تنفيذية.</p>
-              </div>
-            </div>
-
-            <div class="journey-step">
-              <span class="journey-number">3</span>
-              <div>
-                <h3>ضبط المخرجات</h3>
-                <p>يتم الاتفاق على ما سيتم تسليمه بشكل واضح قبل بدء العمل.</p>
-              </div>
-            </div>
-
-            <div class="journey-step">
-              <span class="journey-number">4</span>
-              <div>
-                <h3>التنفيذ والمراجعة</h3>
-                <p>يتم إعداد المخرجات ومراجعتها وتحسينها وفق طبيعة الخدمة.</p>
-              </div>
-            </div>
+        <div class="section-head">
+          <div>
+            <h2>لماذا ConsuTrain؟</h2>
+            <p>نربط بين التدريب والتطبيق والاستشارة حتى لا تبقى المخرجات نظرية.</p>
           </div>
+        </div>
+        <div class="cards-grid">
+          <article class="section-card"><h3>فهم الاحتياج أولًا</h3><p>نبدأ بفهم احتياجك قبل اقتراح الخدمة.</p></article>
+          <article class="section-card"><h3>مخرجات عملية</h3><p>نركز على مخرجات عملية قابلة للاستخدام.</p></article>
+          <article class="section-card"><h3>تدريب مرتبط بالتطبيق</h3><p>نربط التدريب بالتطبيق والاستشارة.</p></article>
+          <article class="section-card"><h3>توثيق منظم</h3><p>نوثق العمل بنماذج واضحة ومنظمة.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="home-section">
+    <section class="home-section home-section--soft">
       <div class="container">
-        <div class="section-card services-cta-card">
-          <h2>ابدأ بخطوة بسيطة</h2>
-          <p>
-            حمّل دليل ConsuTrain أو استعرض الموارد المجانية أولًا. وإذا كان احتياجك واضحًا، يمكنك حجز استشارة
-            لتحديد النطاق والمخرجات المناسبة.
-          </p>
-
-          <div class="services-hero-actions">
-            <a class="btn btn-primary" href="services/consultation-form.html">احجز استشارة</a>
-            <a class="btn btn-secondary" href="resources/downloads/profile/ConsuTrain_Profile_and_Services_AR.pdf">تحميل دليل ConsuTrain</a>
-            <a class="btn btn-secondary" href="tools.html">الموارد المجانية</a>
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">الخطوة التالية</span>
+            <h2>هل لديك ملف أو احتياج تريد تطويره؟</h2>
+            <p>أرسل لنا وصفًا مختصرًا لما تحتاجه، وسنقترح عليك المسار الأنسب: خدمة، ورشة، أو استشارة.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services/consultation-form.html">اطلب عرض سعر</a>
+            <a class="btn btn-secondary" href="contact.html">تواصل معنا</a>
+            <a class="btn btn-secondary" href="courses/practical-workshops/">استعرض الورش التطبيقية</a>
           </div>
         </div>
       </div>
@@ -516,31 +381,11 @@
           mainAccordions.forEach(syncDetailsState);
         });
       });
-
-      const subGroups = document.querySelectorAll(".pillar .sub-acc");
-
-      subGroups.forEach((group) => {
-        const subAccordions = group.querySelectorAll(":scope > .acc");
-
-        subAccordions.forEach((item) => {
-          item.open = false;
-          syncDetailsState(item);
-
-          item.addEventListener("toggle", () => {
-            if (item.open) {
-              subAccordions.forEach((other) => {
-                if (other !== item) other.open = false;
-              });
-            }
-
-            subAccordions.forEach(syncDetailsState);
-          });
-        });
-      });
     });
   </script>
 
-  <script src="assets/js/includes.js?v=20260504_menu"></script>
+  <script src="assets/js/includes.js?v=20260512_services_consulting"></script>
   <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">↑</button>
+  <script src="assets/js/pwa.js"></script>
 </body>
 </html>
