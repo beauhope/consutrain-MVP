@@ -4,326 +4,380 @@
   <!--
     =========================================================
     FILE: index.html
-    PURPOSE:
-    الصفحة الرئيسية لمنصة ConsuTrain-MVP.
-
-    NOTES:
-    - هذه الصفحة هي نقطة الدخول الرئيسية للمنصة.
-    - يتم تحميل الهيدر والفوتر من ملفات جزئية منفصلة.
-    - النصوص الظاهرة هنا موجهة للزائر مباشرة، لذلك يجب أن
-      تكون احترافية وواضحة وخالية من العبارات الداخلية.
+    PURPOSE: الصفحة الرئيسية المختصرة لمنصة ConsuTrain.
+    NOTES: تستخدم الهيدر والفوتر المشتركين عبر partials.
     =========================================================
   -->
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- عنوان الصفحة في المتصفح -->
-  <title>ConsuTrain | منصة للتعلّم والأدوات والخدمات الإدارية</title>
-
-  <!-- وصف مختصر يفيد محركات البحث والمتصفح -->
+  <title>ConsuTrain | دورات وورش وموارد وخدمات استشارية</title>
   <meta
     name="description"
-    content="ConsuTrain منصة تجمع بين التعلم، الأدوات، والخدمات الإدارية، وتقدم محتوى عمليًا وحلولًا مهنية للمهتمين بالإدارة والأعمال."
+    content="ConsuTrain منصة عملية تجمع بين الدورات، الورش، الأدوات، الموارد المجانية، والخدمات الاستشارية لمساعدة المؤسسات والأفراد على بناء خطط ومؤشرات وأنظمة جودة وحوكمة وتميز مؤسسي قابل للتطبيق."
   >
 
-  <!--
-    ربط ملف التنسيق العام للمشروع
-    هذا الملف سيستخدم في أكثر من صفحة، لذلك نحافظ على مركزية التنسيق
-  -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20260504_menu">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260512_home_services">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
 
-  <!--
-    FAVICON مؤقت للمنصة الرئيسية
-    لاحقًا يمكن تحويله إلى ملف أيقونة فعلي داخل assets/icons
-    الاختصار المعتمد للمنصة: CT-HUB
-  -->
-  <link rel="icon" type="image/svg+xml"
-    href='data:image/svg+xml,
-    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
-      <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="%230f2747"/>
-          <stop offset="1" stop-color="%23d4a63a"/>
-        </linearGradient>
-      </defs>
-      <rect width="64" height="64" rx="14" fill="url(%23g)"/>
-      <text x="50%" y="54%" font-size="16" text-anchor="middle"
-            fill="white" font-family="Arial" font-weight="700">CT</text>
-    </svg>'>
+  <style>
+    .home-page .hero-card p {
+      max-width: 840px;
+    }
 
-    <link rel="manifest" href="./manifest.webmanifest">
-<meta name="theme-color" content="#0f2747">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+    .home-kicker {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.8;
+    }
+
+    .home-chip-list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .home-chip-list li {
+      background: #f7f9fc;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 12px;
+      color: var(--primary);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .home-service-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .home-page .section-card .btn,
+    .home-page .section-card .card-link {
+      margin-top: 4px;
+    }
+
+    @media (max-width: 640px) {
+      .home-chip-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body data-root=".">
 
-  <!--
-    =========================================================
-    HEADER PLACEHOLDER
-    سيتم حقن الهيدر هنا من partials/header.html
-    =========================================================
-  -->
+<body class="home-page" data-root=".">
   <div id="header-placeholder"></div>
 
   <main>
-    <!--
-      =======================================================
-      HERO SECTION
-      هذا هو الجزء الأول الذي يراه الزائر.
-      الهدف منه:
-      - تعريف المنصة بسرعة
-      - توضيح القيمة الأساسية
-      - توجيه المستخدم إلى أهم مسارين
-      =======================================================
-    -->
     <section class="hero">
       <div class="container hero-grid">
-
-        <!-- البطاقة الرئيسية للنص -->
         <div class="hero-card">
-          <span class="eyebrow">بوابتك إلى المعرفة والأدوات والخدمات الإدارية</span>
-
-          <h1>ConsuTrain</h1>
-
+          <span class="eyebrow">تعلم وتطبيق وخدمات استشارية</span>
+          <h1>تعلّم. طبّق. طوّر أداء مؤسستك.</h1>
           <p>
-            منصة مهنية تجمع بين المحتوى العملي، الأدوات المفيدة، والخدمات الإدارية،
-            لتخدم المهتمين بالإدارة والأعمال والتطوير المهني في مكان واحد.
+            ConsuTrain منصة عملية تجمع بين الدورات، الورش، الأدوات، الموارد المجانية، والخدمات الاستشارية لمساعدة المؤسسات والأفراد على بناء خطط، مؤشرات، أنظمة جودة، حوكمة، وتميز مؤسسي قابل للتطبيق.
           </p>
-
-          <!-- أزرار التوجيه الرئيسية -->
           <div class="hero-actions">
             <a class="btn btn-primary" href="start-here.html">ابدأ من هنا</a>
-            <a class="btn btn-secondary" href="learn.html">ابدأ التعلّم</a>
-            <a class="btn btn-secondary" href="resources/index.html">الموارد المجانية</a>
+            <a class="btn btn-secondary" href="services.html">استعرض الخدمات</a>
+            <a class="btn btn-secondary" href="courses/index.html">استعرض الدورات والورش</a>
           </div>
+          <p class="home-kicker">ابدأ بمورد مجاني، أو اختر دورة وورشة، أو انتقل مباشرة إلى خدمة استشارية عندما تحتاج إلى تطبيق مخصص.</p>
         </div>
 
-        <!--
-          البطاقات الجانبية:
-          تعرض المسارات الأساسية بطريقة مبسطة وسريعة
-        -->
         <div class="hero-side">
           <article class="feature-card">
-            <h3>تعلّم</h3>
-            <p>
-              محتوى منظم يشمل المفاهيم الإدارية، الذكاء الاصطناعي في العمل،
-              والمهارات العملية التي يحتاجها المهتمون بالإدارة والأعمال.
-            </p>
+            <h3>دورات وورش</h3>
+            <p>تعلم منظم وتطبيق سريع بمخرجات واضحة.</p>
           </article>
-
-          <article class="feature-card">
-            <h3>أدوات</h3>
-            <p>
-              أدوات عملية تساعد على الإنجاز والمتابعة والتنظيم،
-              مثل إدارة المهام ودراسة الجدوى وغيرها من الأدوات المفيدة.
-            </p>
-          </article>
-
           <article class="feature-card">
             <h3>موارد مجانية</h3>
-            <p>
-              قوالب وقوائم تحقق ونماذج عملية تساعدك على البدء بسرعة
-              في التخطيط والجودة والمخاطر وإدارة المشاريع.
-            </p>
+            <p>قوالب وأدوات تساعدك على البداية قبل أي طلب مدفوع.</p>
           </article>
-
           <article class="feature-card">
-            <h3>خدمات</h3>
-            <p>
-              نافذة للوصول إلى خدمات مهنية في الاستشارات والتخطيط
-              والأنظمة الإدارية والتدريب.
-            </p>
+            <h3>خدمات استشارية</h3>
+            <p>بناء ومراجعة وتنفيذ مخصص للخطط والأنظمة والملفات المهنية.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="home-management-flash">
-      <div class="container">
-        <div class="home-management-flash-box">
-          <div>
-            <span class="eyebrow">أداة تفاعلية مجانية</span>
-            <h2>ومضة إدارية من ConsuTrain</h2>
-            <p>
-              خذ دقيقة واحدة للحصول على فكرة إدارية قصيرة تساعدك على تحسين التفكير، التخطيط، الأداء، أو إدارة المشاريع.
-            </p>
-          </div>
-          <a class="btn btn-primary" href="tools/management-flash.html">جرّب ومضة إدارية</a>
-        </div>
-      </div>
-    </section>
-
-    <!--
-      =======================================================
-      MAIN PATHS SECTION
-      هذا القسم يعطي الزائر مدخلًا سريعًا إلى الأقسام الرئيسية
-      =======================================================
-    -->
     <section class="home-section">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>الأقسام الرئيسية</h2>
-            <p>اختر المسار المناسب حسب ما تبحث عنه داخل المنصة.</p>
+            <h2>ماذا تريد أن تنجز اليوم؟</h2>
+            <p>اختر هدفك، وسنقودك إلى المسار المناسب داخل الموقع.</p>
           </div>
         </div>
 
         <div class="cards-grid">
           <article class="section-card">
-            <h3>التعلّم</h3>
-            <p>
-              قسم يضم القاموس الإداري، المقالات، الذكاء الاصطناعي،
-              والمهارات الناعمة ضمن مسار معرفي منظم.
-            </p>
-            <a class="card-link" href="learn.html">الانتقال إلى التعلّم</a>
+            <h3>بناء خطة ومؤشرات</h3>
+            <p>ابدأ من التخطيط الاستراتيجي، الأهداف SMART، بطاقة الأداء المتوازن، ومؤشرات KPI.</p>
+            <a class="btn btn-primary btn-small" href="start-here.html">ابدأ المسار</a>
           </article>
-
           <article class="section-card">
-            <h3>الأدوات</h3>
-            <p>
-              قسم عملي يضم أدوات تساعد على التنظيم والإنجاز،
-              مثل MyTodo وأداة دراسة الجدوى.
-            </p>
-            <a class="card-link" href="tools.html">الانتقال إلى الأدوات</a>
+            <h3>تطوير الجودة والآيزو</h3>
+            <p>تعلم التدقيق الداخلي، عدم المطابقة، نظام الإدارة المتكامل، وتحسين العمليات.</p>
+            <a class="btn btn-primary btn-small" href="courses/index.html">استعرض الدورات</a>
           </article>
-
           <article class="section-card">
-            <h3>الموارد المجانية</h3>
-            <p>
-              مكتبة تضم أكثر من 30 قالبًا ونموذجًا وقائمة تحقق قابلة للتحميل
-              في التخطيط والجودة والمخاطر ودراسات الجدوى وإدارة المشاريع.
-            </p>
-            <a class="card-link" href="resources/index.html">فتح الموارد المجانية</a>
+            <h3>تحسين التميز والحوكمة</h3>
+            <p>طوّر ممارسات التميز، مصفوفة الصلاحيات، الحوكمة، والأدلة المؤسسية.</p>
+            <a class="btn btn-primary btn-small" href="start-here.html">ابدأ من هنا</a>
           </article>
-
           <article class="section-card">
-            <h3>الخدمات</h3>
-            <p>
-              قسم يعرض الخدمات المهنية المتاحة عبر المنصة،
-              مثل الاستشارات والتخطيط وبناء الأنظمة والتدريب.
-            </p>
-            <a class="card-link" href="services.html">الانتقال إلى الخدمات</a>
+            <h3>إنجاز نموذج عملي</h3>
+            <p>اختر ورشة قصيرة واخرج بمخرج جاهز: بطاقة KPI، سجل مخاطر، مصفوفة صلاحيات أو هدف SMART.</p>
+            <a class="btn btn-primary btn-small" href="courses/practical-workshops/">استعرض الورش</a>
           </article>
+          <article class="section-card">
+            <h3>استخدام أدوات مجانية</h3>
+            <p>ابدأ بقوالب وموارد وأدوات تساعدك على الفهم والتطبيق قبل طلب أي خدمة.</p>
+            <a class="btn btn-primary btn-small" href="resources/index.html">افتح الموارد</a>
+          </article>
+          <article class="section-card">
+            <h3>طلب خدمة استشارية</h3>
+            <p>إذا كنت تحتاج إلى إعداد خطة، نظام، ملف تميز، دراسة جدوى، عرض فني، أو مراجعة متخصصة.</p>
+            <a class="btn btn-primary btn-small" href="services.html">استعرض الخدمات</a>
+          </article>
+          <article class="section-card">
+            <h3>طلب دعم مخصص</h3>
+            <p>عندما لا يكون احتياجك واضحًا بعد، تواصل معنا لنقترح عليك المسار الأنسب.</p>
+            <a class="btn btn-primary btn-small" href="contact.html">تواصل معنا</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>خدمات استشارية وتدريبية قابلة للتخصيص</h2>
+            <p>إذا كنت لا تبحث فقط عن التعلم، بل تحتاج إلى بناء ملف، خطة، نظام، نموذج، أو عرض فني كامل، يمكنك الاستفادة من خدمات ConsuTrain الاستشارية.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card home-service-card">
+            <h3>التخطيط الاستراتيجي والتشغيلي</h3>
+            <p>إعداد الخطط الاستراتيجية، الخطط التشغيلية، مؤشرات الأداء، المبادرات، وآليات المتابعة.</p>
+          </article>
+          <article class="section-card home-service-card">
+            <h3>الجودة والآيزو وأنظمة الإدارة</h3>
+            <p>بناء وتأهيل أنظمة ISO، نظام الإدارة المتكامل IMS، التدقيق الداخلي، وإعداد الوثائق والإجراءات.</p>
+          </article>
+          <article class="section-card home-service-card">
+            <h3>التميز المؤسسي والجوائز</h3>
+            <p>إعداد ملفات التميز، تحليل المعايير، بناء الأدلة، صياغة الممارسات، وربط النتائج بالمؤشرات.</p>
+          </article>
+          <article class="section-card home-service-card">
+            <h3>الحوكمة والمخاطر والامتثال</h3>
+            <p>بناء ملفات الحوكمة، مصفوفات الصلاحيات، سجلات المخاطر، السياسات، وآليات الرقابة والمتابعة.</p>
+          </article>
+          <article class="section-card home-service-card">
+            <h3>دراسات الجدوى وتطوير المشاريع</h3>
+            <p>إعداد دراسات الجدوى، النماذج التشغيلية، خطط التنفيذ، وتحليل فرص المشاريع.</p>
+          </article>
+          <article class="section-card home-service-card">
+            <h3>العروض الفنية والمستندات المهنية</h3>
+            <p>إعداد العروض الفنية، الأدلة التشغيلية، ملفات المناقصات، التقارير، والعروض التقديمية الاحترافية.</p>
+          </article>
+        </div>
+
+        <div class="cta-panel" style="margin-top:18px;">
+          <div>
+            <span class="eyebrow">خدمات مدفوعة ومخصصة</span>
+            <h2>اختر خدمة جاهزة أو اطلب عرضًا يناسب احتياجك</h2>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services.html">استعرض جميع الخدمات</a>
+            <a class="btn btn-secondary" href="services/consultation-form.html">اطلب عرض سعر</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>أحدث ما أضفناه لك</h2>
+            <p>محتوى وورش ودورات جديدة لمساعدتك على التطبيق بشكل أسرع.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card">
+            <h3>الورش التطبيقية القصيرة</h3>
+            <p>6 ورش مركزة لإنجاز مخرجات عملية مثل بطاقة KPI، سجل مخاطر، مصفوفة صلاحيات، وأهداف SMART.</p>
+            <a class="card-link" href="courses/practical-workshops/">استعرض الورش</a>
+          </article>
+          <article class="section-card">
+            <h3>دورة بطاقة الأداء المتوازن وإدارة الأداء</h3>
+            <p>تعلم كيف تحول الاستراتيجية إلى أهداف ومؤشرات ومبادرات، وتربط أداء المؤسسة بالإدارات والأفراد.</p>
+            <a class="card-link" href="courses/balanced-scorecard-performance-management/">عرض الدورة</a>
+          </article>
+          <article class="section-card">
+            <h3>فن التواصل الفعال</h3>
+            <p>طوّر مهارات التواصل، الإقناع، لغة الجسد، العرض المؤثر، والتواصل المهني بثقة ومرونة.</p>
+            <a class="card-link" href="learn/soft-skill.html?id=effective-communication">ابدأ مهارة التواصل</a>
+          </article>
+          <article class="section-card">
+            <h3>ومضة إدارية</h3>
+            <p>أداة مجانية تمنحك فكرة إدارية قصيرة تساعدك على التعلم السريع والتفكير العملي.</p>
+            <a class="card-link" href="tools/management-flash.html">جرّب ومضة إدارية</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>مسارات عملية حسب احتياجك</h2>
+            <p>لا تبدأ من كل شيء. اختر المسار الأقرب لعملك.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card">
+            <h3>مسار التخطيط والأداء</h3>
+            <p>يشمل: التخطيط الاستراتيجي، بطاقة الأداء المتوازن، الأهداف SMART، مؤشرات KPI.</p>
+            <a class="btn btn-primary btn-small" href="start-here.html">استعرض المسار</a>
+          </article>
+          <article class="section-card">
+            <h3>مسار الجودة والآيزو</h3>
+            <p>يشمل: مدقق داخلي ISO 9001، نظام الإدارة المتكامل IMS، عدم المطابقة والإجراء التصحيحي، الصحة والسلامة المهنية.</p>
+            <a class="btn btn-primary btn-small" href="courses/index.html">استعرض المسار</a>
+          </article>
+          <article class="section-card">
+            <h3>مسار التميز والحوكمة</h3>
+            <p>يشمل: التميز المؤسسي، الحوكمة المؤسسية، مصفوفة الصلاحيات، إعداد الأدلة والممارسات.</p>
+            <a class="btn btn-primary btn-small" href="start-here.html">استعرض المسار</a>
+          </article>
+          <article class="section-card">
+            <h3>مسار المهارات المهنية</h3>
+            <p>يشمل: فن التواصل الفعال، Pitch، لغة الجسد، التأثير والإقناع.</p>
+            <a class="btn btn-primary btn-small" href="learn/soft-skill.html?id=effective-communication">استعرض المسار</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>ورش قصيرة بمخرجات جاهزة</h2>
+            <p>3 إلى 4 ساعات فقط، مع نموذج عملي تطبقه أثناء الورشة.</p>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <ul class="home-chip-list">
+            <li>بطاقة KPI</li>
+            <li>بطاقة أداء متوازن</li>
+            <li>عدم المطابقة والإجراء التصحيحي</li>
+            <li>مصفوفة الصلاحيات</li>
+            <li>الأهداف SMART</li>
+            <li>سجل المخاطر</li>
+          </ul>
+          <div class="hero-actions" style="margin-top:18px;">
+            <a class="btn btn-primary" href="courses/practical-workshops/">استعرض الورش التطبيقية</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>ابدأ بقيمة مجانية</h2>
+            <p>قبل أن تطلب دورة أو استشارة، جرّب أداة أو نموذجًا يساعدك على توضيح احتياجك.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><h3>الموارد المجانية</h3><p>قوالب ونماذج وقوائم تحقق جاهزة.</p><a class="card-link" href="resources/index.html">فتح الموارد</a></article>
+          <article class="section-card"><h3>الأدوات</h3><p>أدوات عملية للتنظيم والحساب والمتابعة.</p><a class="card-link" href="tools.html">فتح الأدوات</a></article>
+          <article class="section-card"><h3>ومضة إدارية</h3><p>فكرة إدارية قصيرة للتعلم السريع.</p><a class="card-link" href="tools/management-flash.html">فتح ومضة</a></article>
+          <article class="section-card"><h3>مكتبة المحتوى التعليمي</h3><p>مقالات ومفاهيم ومسارات معرفية مبسطة.</p><a class="card-link" href="learn.html">فتح التعلم</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">خدمات استشارية مدفوعة</span>
+            <h2>هل تحتاج تنفيذًا فعليًا وليس مجرد تدريب؟</h2>
+            <p>
+              الدورات والورش تساعدك على الفهم والتطبيق الأولي. أما إذا كنت تحتاج إلى ملف كامل أو نظام متكامل أو مراجعة مهنية، فالخدمات الاستشارية هي الخيار الأنسب.
+            </p>
+            <p>عندما لا يكفي التعلم وحده، نساعدك على تحويل الفكرة إلى ملف أو نظام أو نموذج قابل للاستخدام.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services.html">استعرض الخدمات</a>
+            <a class="btn btn-secondary" href="services/consultation-form.html">اطلب عرض سعر</a>
+            <a class="btn btn-secondary" href="contact.html">تواصل معنا</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="share-benefit">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>منهجنا بسيط: قيمة مجانية أولًا، ثم تطبيق عملي</h2>
+            <p>لا نبدأ ببيع الخدمة. نبدأ بتوضيح الطريق، ثم نترك لك اختيار المستوى المناسب: مورد مجاني، دورة، ورشة، أو استشارة.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><h3>خبرة عملية</h3><p>محتوى مبني على خبرة عملية في التخطيط والجودة والتميز.</p></article>
+          <article class="section-card"><h3>نماذج وأدوات</h3><p>نماذج وأدوات تساعدك على التطبيق لا القراءة فقط.</p></article>
+          <article class="section-card"><h3>ورش واضحة</h3><p>ورش قصيرة لمخرجات واضحة.</p></article>
+          <article class="section-card"><h3>خدمات مخصصة</h3><p>خدمات مخصصة عندما تحتاج إلى تنفيذ أو مراجعة.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">ابدأ الآن</span>
+            <h2>ابدأ بخطوة صغيرة اليوم</h2>
+            <p>اختر مسارك، جرّب موردًا مجانيًا، أو تواصل معنا إذا أردت توجيهًا سريعًا.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="start-here.html">ابدأ من هنا</a>
+            <a class="btn btn-secondary" href="services.html">استعرض الخدمات</a>
+            <a class="btn btn-secondary" href="contact.html">تواصل معنا</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <section class="home-share-section" id="share-benefit" aria-label="مشاركة ConsuTrain">
-    <div class="container">
-      <div class="home-share-box">
-        <div>
-          <h2>شارك الفائدة</h2>
-          <h3>شارك ConsuTrain مع من قد يستفيد</h3>
-          <p>
-            إذا وجدت في ConsuTrain أدوات أو موارد مفيدة، يمكنك مشاركة المنصة مع زميل أو صديق مهتم بالإدارة، التخطيط، الجودة، أو تطوير الأعمال.
-          </p>
-        </div>
-        <div class="home-share-actions">
-          <button class="btn btn-secondary" id="homeShareWhatsapp" type="button">مشاركة عبر واتساب</button>
-          <button class="btn btn-secondary" id="homeShareLinkedin" type="button">مشاركة عبر LinkedIn</button>
-          <button class="btn btn-secondary" id="homeCopyLink" type="button">نسخ رابط الموقع</button>
-          <p class="home-share-status" id="homeShareStatus" aria-live="polite"></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--
-    =========================================================
-    FOOTER PLACEHOLDER
-    سيتم حقن الفوتر هنا من partials/footer.html
-    =========================================================
-  -->
   <div id="footer-placeholder"></div>
 
-  <!--
-    ملف includes.js مسؤول عن:
-    - تحميل الهيدر
-    - تحميل الفوتر
-    - تفعيل القائمة في الشاشات الصغيرة
-  -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-    if (scrollTopBtn) {
-      const toggleScrollBtn = () => {
-        if (window.scrollY > 300) {
-          scrollTopBtn.classList.add("show");
-        } else {
-          scrollTopBtn.classList.remove("show");
-        }
-      };
-
-      window.addEventListener("scroll", toggleScrollBtn);
-      toggleScrollBtn();
-
-      scrollTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      });
-    }
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const whatsappBtn = document.getElementById("homeShareWhatsapp");
-    const linkedinBtn = document.getElementById("homeShareLinkedin");
-    const copyBtn = document.getElementById("homeCopyLink");
-    const status = document.getElementById("homeShareStatus");
-
-    if (!whatsappBtn || !linkedinBtn || !copyBtn) return;
-
-    const getHomepageUrl = () => window.location.origin + window.location.pathname;
-    const getShareText = () => `منصة ConsuTrain تقدم أدوات وموارد مجانية في الإدارة، التخطيط، الجودة، دراسات الجدوى، وإدارة المشاريع.\n\nجرّب المنصة:\n${getHomepageUrl()}`;
-
-    whatsappBtn.addEventListener("click", () => {
-      window.open(`https://wa.me/?text=${encodeURIComponent(getShareText())}`, "_blank", "noopener,noreferrer");
-    });
-
-    linkedinBtn.addEventListener("click", () => {
-      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(getHomepageUrl())}`, "_blank", "noopener,noreferrer");
-    });
-
-    copyBtn.addEventListener("click", async () => {
-      status.textContent = "";
-      const shareText = getShareText();
-
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(shareText);
-        } else {
-          const textarea = document.createElement("textarea");
-          textarea.value = shareText;
-          textarea.setAttribute("readonly", "");
-          textarea.style.position = "fixed";
-          textarea.style.opacity = "0";
-          document.body.appendChild(textarea);
-          textarea.select();
-          document.execCommand("copy");
-          document.body.removeChild(textarea);
-        }
-
-        status.textContent = "تم نسخ رابط الموقع";
-      } catch (error) {
-        status.textContent = "تعذر النسخ، حاول مرة أخرى";
-      }
-    });
-  });
-</script>
-<!-- ملف تحميل الأجزاء المشتركة -->
-  <script src="assets/js/includes.js?v=20260504_menu"></script>
-   <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
-  ↑
-</button>
-  
- <script src="assets/js/pwa.js"></script> 
+  <script src="assets/js/includes.js?v=20260512_home_services"></script>
+  <script src="assets/js/pwa.js"></script>
 </body>
 </html>
