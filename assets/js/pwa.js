@@ -18,8 +18,11 @@
 
   window.addEventListener("load", async () => {
     try {
-      await navigator.serviceWorker.register("./sw.js");
-      console.log("Service Worker registered successfully.");
+      const pwaScriptUrl = document.currentScript ? document.currentScript.src : new URL("assets/js/pwa.js", window.location.origin + "/").href;
+      const swUrl = new URL("../../sw.js", pwaScriptUrl);
+      const swScope = new URL("../../", pwaScriptUrl);
+      await navigator.serviceWorker.register(swUrl, { scope: swScope.pathname });
+      console.log("Service Worker registered successfully from:", swUrl.pathname, "scope:", swScope.pathname);
     } catch (error) {
       console.error("Service Worker registration failed:", error);
     }

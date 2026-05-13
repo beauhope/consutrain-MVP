@@ -1,4 +1,3 @@
-/* cache-version: v20260513-tools-categories */
 /*
   =========================================================
   FILE: sw.js
@@ -10,80 +9,55 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260513-tools-categories";
-const RUNTIME_CACHE = "consutrain-runtime-v20260513-tools-categories";
+const STATIC_CACHE = "consutrain-static-v20260513-pwa-stability";
+const RUNTIME_CACHE = "consutrain-runtime-v20260513-pwa-stability";
 
 const PRECACHE_URLS = [
   "./",
   "./index.html",
+  "./start-here.html",
   "./about.html",
   "./contact.html",
   "./expert.html",
   "./learn.html",
   "./services.html",
   "./tools.html",
-  "./start-here.html",
-  "./feedback.html",
-  "./courses/index.html",
-  "./courses/objectives-management.html",
-  "./courses/mor-foundation.html",
-  "./courses/strategic-planning/",
-  "./courses/strategic-planning/index.html",
-  "./courses/agile-project-management/",
-  "./courses/agile-project-management/index.html",
-  "./courses/startup-building/",
-  "./courses/startup-building/index.html",
-  "./courses/iso-9001-internal-auditor/",
-  "./courses/iso-9001-internal-auditor/index.html",
-  "./courses/integrated-management-system-ims/",
-  "./courses/integrated-management-system-ims/index.html",
-  "./courses/institutional-excellence/",
-  "./courses/institutional-excellence/index.html",
-  "./courses/corporate-governance/",
-  "./courses/corporate-governance/index.html",
-  "./courses/occupational-health-safety-management-system/",
-  "./courses/occupational-health-safety-management-system/index.html",
-  "./courses/practical-workshops/",
-  "./courses/practical-workshops/index.html",
-  "./templates/index.html",
+
   "./templates/operational-plan-template.html",
+  "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
+  "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",
   "./templates/operational-plan-checklist.html",
   "./templates/simple-risk-register.html",
-  "./services/book-consultation.html",
+  "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.docx",
+  "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.pdf",
+  "./downloads/ConsuTrain_Simple_Risk_Register_AR.docx",
+  "./downloads/ConsuTrain_Simple_Risk_Register_AR.pdf",
 
   "./learn/ai-prompts.html",
   "./learn/ai.html",
   "./learn/article.html",
   "./learn/articles.html",
   "./learn/glossary.html",
-  "./learn/learning-paths.html",
-  "./learn/business-economics/index.html",
   "./learn/soft-skill.html",
   "./learn/soft-skills.html",
   "./learn/topics.html",
 
   "./services/feasibility-studies.html",
-  "./services/integrated-management-system.html",
   "./services/iso-consulting.html",
-  "./services/organizational-structures.html",
   "./services/project-management.html",
-  "./services/risk-management.html",
-  "./services/sop-operational-manuals.html",
   "./services/strategic-planning.html",
+  "./services/book-consultation.html",
 
   "./tools/feasibility/indexFeasibility.html",
-  "./tools/feasibility/feasibility.css",
-  "./tools/feasibility/feasibility.js",
-  "./tools/smart-goal-generator/index.html",
-  "./tools/mytodo/index.html",
-  "./tools/mytodo/css/style.css",
-  "./tools/mytodo/templates/page-shell.html",
-  "./resources/index.html",
 
   "./partials/header.html",
   "./partials/footer.html",
 
   "./assets/css/style.css",
+
+  "./assets/images/consutrain-logo-horizontal.png",
+  "./assets/images/consutrain-logo-mark.png",
+  "./assets/images/consutrain-banner.png",
 
   "./assets/js/includes.js",
   "./assets/js/main.js",
@@ -111,6 +85,20 @@ const PRECACHE_URLS = [
   "./assets/screenshots/screenshot-desktop-wide.png",
   "./assets/screenshots/screenshot-mobile.png",
 
+  "./resources/index.html",
+  "./courses/index.html",
+  "./courses/objectives-management.html",
+  "./courses/mor-foundation.html",
+  "./feedback.html",
+  "./services/consultation-form.html",
+  "./tools/calculators/index.html",
+  "./tools/crm/index.html",
+  "./tools/invoice/index.html",
+  "./tools/timer/index.html",
+  "./tools/tool-templates/index.html",
+  "./tools/mytodo/index.html",
+  "./tools/mytodo/templates/page-shell.html",
+
   "./manifest.webmanifest",
   "./offline.html"
 ];
@@ -118,7 +106,25 @@ const PRECACHE_URLS = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
-      .then((cache) => cache.addAll(PRECACHE_URLS))
+      .then((cache) =>
+        Promise.allSettled(
+          PRECACHE_URLS.map((url) =>
+            fetch(url, { cache: "reload" })
+              .then((response) => {
+                if (!response || !response.ok) {
+                  throw new Error(`Precache failed: ${url}`);
+                }
+                return cache.put(url, response);
+              })
+          )
+        )
+      )
+      .then((results) => {
+        const failed = results.filter((result) => result.status === "rejected");
+        if (failed.length) {
+          console.warn("Some precache files were skipped:", failed);
+        }
+      })
       .then(() => self.skipWaiting())
   );
 });
@@ -148,8 +154,39 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  if (shouldUseNetworkFirstForUiAsset(url)) {
+    event.respondWith(networkFirstAsset(request));
+    return;
+  }
+
   event.respondWith(cacheFirstAsset(request));
 });
+
+
+function shouldUseNetworkFirstForUiAsset(url) {
+  const path = url.pathname;
+
+  return (
+    path.includes("/partials/") ||
+    path.endsWith("/assets/js/includes.js") ||
+    path.endsWith("/assets/js/pwa.js") ||
+    path.endsWith("/assets/css/style.css") ||
+    path.endsWith("/manifest.webmanifest")
+  );
+}
+
+async function networkFirstAsset(request) {
+  try {
+    const networkResponse = await fetch(request, { cache: "no-store" });
+    const runtimeCache = await caches.open(RUNTIME_CACHE);
+    runtimeCache.put(request, networkResponse.clone());
+    return networkResponse;
+  } catch (error) {
+    const cachedResponse = await caches.match(request);
+    if (cachedResponse) return cachedResponse;
+    throw error;
+  }
+}
 
 async function networkFirstPage(request) {
   try {
