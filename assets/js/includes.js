@@ -558,7 +558,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadPartial("#header-placeholder", `${partialsBase}/header.html`);
   loadPartial("#footer-placeholder", `${partialsBase}/footer.html`);
   initBreadcrumbs();
-  initFriendlyBackButton();
+  initFriendlyNextSteps();
 });
 
 /*
@@ -630,61 +630,205 @@ function initBreadcrumbs() {
 
 /*
   ---------------------------------------------------------
-  FUNCTION: initFriendlyBackButton
+  FUNCTION: initFriendlyNextSteps
   PURPOSE:
-  إضافة زر واضح للعودة للصفحة السابقة في الصفحات الداخلية.
-  الهدف: تحسين Friendly Use للمستخدم غير الخبير دون تعديل الهيدر أو الفوتر.
+  إضافة قسم "ماذا أفعل الآن؟" تلقائيًا في الصفحات الداخلية.
+  الهدف: تسهيل حركة المستخدم غير الخبير دون تعديل كل صفحة يدويًا.
   ---------------------------------------------------------
 */
-function initFriendlyBackButton() {
-  const container = document.getElementById("breadcrumbs-placeholder");
-  if (!container) return;
-
+function initFriendlyNextSteps() {
   const title = document.body.dataset.breadcrumbTitle;
-  if (!title) return;
-
-  const path = window.location.pathname.toLowerCase();
-  const isHomePage =
-    path.endsWith("/") ||
-    path.endsWith("/index.html");
-
-  if (isHomePage) return;
-  if (!container.querySelector(".breadcrumbs")) return;
-  if (container.querySelector(".friendly-back-row")) return;
-
+  const section = document.body.dataset.breadcrumbSection;
   const root = getRootPath();
 
-  const row = document.createElement("div");
-  row.className = "friendly-back-row";
+  if (!title || !section) return;
+  if (document.getElementById("friendlyNextSteps")) return;
+  if (document.getElementById("resourcesNextStepsTitle")) return;
 
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "friendly-back-btn";
-  button.setAttribute("aria-label", "العودة للصفحة السابقة");
-  button.innerHTML = `
-    <span aria-hidden="true">↩</span>
-    <strong>العودة للصفحة السابقة</strong>
+  const path = window.location.pathname.toLowerCase();
+  const isHomePage = path.endsWith("/") || path.endsWith("/index.html");
+  if (isHomePage) return;
+
+  const main = document.querySelector("main");
+  if (!main) return;
+
+  const steps = getFriendlyNextStepsBySection(section, root);
+  if (!steps.length) return;
+
+  const sectionElement = document.createElement("section");
+  sectionElement.className = "home-section friendly-next-steps";
+  sectionElement.id = "friendlyNextSteps";
+  sectionElement.setAttribute("aria-labelledby", "friendlyNextStepsTitle");
+
+  sectionElement.innerHTML = `
+    <div class="container">
+      <div class="section-card friendly-next-steps-card">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">ماذا أفعل الآن؟</span>
+            <h2 id="friendlyNextStepsTitle">اختر خطوتك التالية بسهولة</h2>
+            <p>
+              يمكنك الانتقال مباشرة إلى الخطوة الأنسب دون الرجوع إلى أعلى الصفحة أو البحث في القوائم.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-grid friendly-next-steps-grid">
+          ${steps.map((step) => `
+            <article class="feature-card friendly-next-step-card">
+              <h3>${step.title}</h3>
+              <p>${step.description}</p>
+              <a class="card-link" href="${step.href}">${step.label}</a>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    </div>
   `;
 
-  button.addEventListener("click", () => {
-    const referrer = document.referrer;
+  main.appendChild(sectionElement);
+}
 
-    try {
-      const referrerUrl = referrer ? new URL(referrer) : null;
-      const sameOrigin = referrerUrl && referrerUrl.origin === window.location.origin;
-
-      if (sameOrigin && window.history.length > 1) {
-        window.history.back();
-        return;
+function getFriendlyNextStepsBySection(section, root) {
+  const commonSteps = {
+    learn: [
+      {
+        title: "أريد قراءة مقال آخر",
+        description: "ارجع إلى مكتبة المعرفة واختر موضوعًا آخر حسب المجال أو الكلمات المفتاحية.",
+        href: `${root}/learn/articles.html`,
+        label: "فتح مكتبة المعرفة"
+      },
+      {
+        title: "أريد تحميل مورد مجاني",
+        description: "انتقل إلى مكتبة الموارد لتحميل قوالب ونماذج عملية قابلة للاستخدام.",
+        href: `${root}/resources/index.html`,
+        label: "فتح الموارد المجانية"
+      },
+      {
+        title: "أريد استخدام أداة عملية",
+        description: "جرّب أدوات ConsuTrain لمساعدتك في التخطيط والتنظيم والمتابعة.",
+        href: `${root}/tools.html`,
+        label: "فتح الأدوات"
+      },
+      {
+        title: "أريد طلب استشارة أو دورة",
+        description: "إذا احتجت تطبيقًا عمليًا أو تدريبًا منظمًا، أرسل طلبك عبر النموذج.",
+        href: `${root}/services/consultation-form.html`,
+        label: "إرسال طلب"
       }
-    } catch (error) {
-      // في حال وجود referrer غير صالح نستخدم الصفحة الرئيسية كخيار آمن.
-    }
+    ],
+    tools: [
+      {
+        title: "أريد تجربة أداة أخرى",
+        description: "ارجع إلى صفحة الأدوات واختر الأداة الأنسب لاحتياجك الحالي.",
+        href: `${root}/tools.html`,
+        label: "فتح كل الأدوات"
+      },
+      {
+        title: "أريد تحميل قالب جاهز",
+        description: "استخدم الموارد المجانية للحصول على نماذج وقوالب قابلة للتعديل.",
+        href: `${root}/resources/index.html`,
+        label: "فتح الموارد"
+      },
+      {
+        title: "أريد فهم المفهوم أولًا",
+        description: "افتح مكتبة المعرفة لقراءة مقالات مبسطة قبل استخدام الأداة.",
+        href: `${root}/learn/articles.html`,
+        label: "فتح المقالات"
+      },
+      {
+        title: "أريد دعمًا في التطبيق",
+        description: "اطلب استشارة أو دورة إذا كنت تحتاج تطبيق الأداة على حالة واقعية.",
+        href: `${root}/services/consultation-form.html`,
+        label: "طلب دعم"
+      }
+    ],
+    services: [
+      {
+        title: "أريد مقارنة الخدمات",
+        description: "ارجع إلى صفحة الخدمات العامة لاختيار الخدمة الأقرب لاحتياجك.",
+        href: `${root}/services.html`,
+        label: "فتح الخدمات"
+      },
+      {
+        title: "أريد طلب استشارة أو دورة",
+        description: "أرسل طلبك عبر النموذج المنظم لتوضيح احتياجك وتسهيل المتابعة.",
+        href: `${root}/services/consultation-form.html`,
+        label: "إرسال طلب"
+      },
+      {
+        title: "أريد موردًا يساعدني على البدء",
+        description: "حمّل موردًا مجانيًا مرتبطًا بالتخطيط أو الجودة أو المخاطر أو الجدوى.",
+        href: `${root}/resources/index.html`,
+        label: "فتح الموارد"
+      },
+      {
+        title: "أريد التعلم قبل الطلب",
+        description: "اقرأ مقالات مبسطة تساعدك على فهم المجال قبل طلب الخدمة.",
+        href: `${root}/learn/articles.html`,
+        label: "فتح مكتبة المعرفة"
+      }
+    ],
+    courses: [
+      {
+        title: "أريد رؤية كل الدورات",
+        description: "ارجع إلى صفحة الدورات لاختيار المسار التدريبي المناسب.",
+        href: `${root}/courses/index.html`,
+        label: "فتح الدورات"
+      },
+      {
+        title: "أريد طلب دورة مخصصة",
+        description: "استخدم النموذج لتوضيح نوع الدورة والفئة المستهدفة وطريقة التنفيذ.",
+        href: `${root}/services/consultation-form.html`,
+        label: "طلب دورة"
+      },
+      {
+        title: "أريد موارد قبل الدورة",
+        description: "حمّل قوالب ونماذج تساعدك على التحضير العملي قبل التدريب.",
+        href: `${root}/resources/index.html`,
+        label: "فتح الموارد"
+      },
+      {
+        title: "أريد محتوى تعليمي مجاني",
+        description: "ابدأ بمقالات مبسطة قبل الانتقال إلى دورة كاملة أو ورشة تطبيقية.",
+        href: `${root}/learn/articles.html`,
+        label: "فتح المقالات"
+      }
+    ],
+    resources: [
+      {
+        title: "أريد تحميل مورد آخر",
+        description: "ارجع إلى مكتبة الموارد واختر التصنيف المناسب أو استخدم البحث.",
+        href: `${root}/resources/index.html#resourcesLibrary`,
+        label: "العودة إلى الموارد"
+      },
+      {
+        title: "أريد استخدام أداة عملية",
+        description: "انتقل إلى قسم الأدوات لاستخدام أدوات تساعدك في التخطيط والتنظيم والمتابعة.",
+        href: `${root}/tools.html`,
+        label: "فتح الأدوات"
+      },
+      {
+        title: "أريد قراءة محتوى تعليمي",
+        description: "استفد من المقالات والمسارات التعليمية لفهم المفاهيم قبل تطبيق النماذج.",
+        href: `${root}/learn/articles.html`,
+        label: "فتح مكتبة المعرفة"
+      },
+      {
+        title: "أريد طلب استشارة أو دورة",
+        description: "إذا احتجت تطبيقًا مخصصًا أو تدريبًا عمليًا، يمكنك إرسال طلبك عبر النموذج.",
+        href: `${root}/services/consultation-form.html`,
+        label: "إرسال طلب"
+      }
+    ]
+  };
 
-    window.location.href = `${root}/index.html`;
-  });
+  if (section === "التعلّم") return commonSteps.learn;
+  if (section === "الأدوات") return commonSteps.tools;
+  if (section === "الخدمات") return commonSteps.services;
+  if (section === "الدورات") return commonSteps.courses;
+  if (section === "الموارد المجانية") return commonSteps.resources;
 
-  row.appendChild(button);
-  container.appendChild(row);
+  return [];
 }
 
