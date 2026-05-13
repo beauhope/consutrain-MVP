@@ -558,6 +558,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadPartial("#header-placeholder", `${partialsBase}/header.html`);
   loadPartial("#footer-placeholder", `${partialsBase}/footer.html`);
   initBreadcrumbs();
+  initFriendlyBackButton();
 });
 
 /*
@@ -626,3 +627,64 @@ function initBreadcrumbs() {
   container.innerHTML = "";
   container.appendChild(nav);
 }
+
+/*
+  ---------------------------------------------------------
+  FUNCTION: initFriendlyBackButton
+  PURPOSE:
+  إضافة زر واضح للعودة للصفحة السابقة في الصفحات الداخلية.
+  الهدف: تحسين Friendly Use للمستخدم غير الخبير دون تعديل الهيدر أو الفوتر.
+  ---------------------------------------------------------
+*/
+function initFriendlyBackButton() {
+  const container = document.getElementById("breadcrumbs-placeholder");
+  if (!container) return;
+
+  const title = document.body.dataset.breadcrumbTitle;
+  if (!title) return;
+
+  const path = window.location.pathname.toLowerCase();
+  const isHomePage =
+    path.endsWith("/") ||
+    path.endsWith("/index.html");
+
+  if (isHomePage) return;
+  if (!container.querySelector(".breadcrumbs")) return;
+  if (container.querySelector(".friendly-back-row")) return;
+
+  const root = getRootPath();
+
+  const row = document.createElement("div");
+  row.className = "friendly-back-row";
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "friendly-back-btn";
+  button.setAttribute("aria-label", "العودة للصفحة السابقة");
+  button.innerHTML = `
+    <span aria-hidden="true">↩</span>
+    <strong>العودة للصفحة السابقة</strong>
+  `;
+
+  button.addEventListener("click", () => {
+    const referrer = document.referrer;
+
+    try {
+      const referrerUrl = referrer ? new URL(referrer) : null;
+      const sameOrigin = referrerUrl && referrerUrl.origin === window.location.origin;
+
+      if (sameOrigin && window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+    } catch (error) {
+      // في حال وجود referrer غير صالح نستخدم الصفحة الرئيسية كخيار آمن.
+    }
+
+    window.location.href = `${root}/index.html`;
+  });
+
+  row.appendChild(button);
+  container.appendChild(row);
+}
+
