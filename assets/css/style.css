@@ -6368,7 +6368,7 @@ z-index:1100;
   --sticky-header-offset: 92px;
 }
 
-.site-header{
+#header-placeholder{
   position: sticky;
   top: 0;
   z-index: 3000;
@@ -6376,12 +6376,20 @@ z-index:1100;
   box-shadow: 0 8px 22px rgba(15, 39, 71, .07);
 }
 
-.site-header .header-wrap{
+#header-placeholder .site-header{
+  position: relative;
+  top: auto;
+  z-index: auto;
+  background: transparent;
+  box-shadow: none;
+}
+
+#header-placeholder .header-wrap{
   position: relative;
   z-index: 3001;
 }
 
-.site-header .submenu{
+#header-placeholder .submenu{
   z-index: 3100;
 }
 
@@ -6396,7 +6404,7 @@ section[id],
   }
 
   body.nav-is-open .main-nav.open,
-  .site-header .main-nav.open{
+  #header-placeholder .main-nav.open{
     z-index: 3200;
   }
 
