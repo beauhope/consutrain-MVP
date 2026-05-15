@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260513-pwa-stability";
-const RUNTIME_CACHE = "consutrain-runtime-v20260513-pwa-stability";
+const STATIC_CACHE = "consutrain-v20260513-management-skills-articles";
+const RUNTIME_CACHE = "consutrain-runtime-v20260513-management-skills-articles";
 
 const PRECACHE_URLS = [
   "./",
@@ -35,6 +35,8 @@ const PRECACHE_URLS = [
 
   "./learn/ai-prompts.html",
   "./learn/ai.html",
+  "./learn/management-skills.html",
+  "./article.html",
   "./learn/article.html",
   "./learn/articles.html",
   "./learn/glossary.html",
@@ -58,6 +60,9 @@ const PRECACHE_URLS = [
   "./assets/images/consutrain-logo-horizontal.png",
   "./assets/images/consutrain-logo-mark.png",
   "./assets/images/consutrain-banner.png",
+  "./assets/images/articles/ai-introduction.svg",
+  "./assets/images/articles/ai-sense.svg",
+  "./assets/images/articles/ai-vuca.svg",
 
   "./assets/js/includes.js",
   "./assets/js/main.js",
