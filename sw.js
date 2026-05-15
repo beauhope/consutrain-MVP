@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260513-management-skills-articles";
-const RUNTIME_CACHE = "consutrain-runtime-v20260513-management-skills-articles";
+const STATIC_CACHE = "consutrain-v20260513-sticky-header-final";
+const RUNTIME_CACHE = "consutrain-runtime-v20260513-sticky-header-final";
 
 const PRECACHE_URLS = [
   "./",
@@ -36,6 +36,7 @@ const PRECACHE_URLS = [
   "./learn/ai-prompts.html",
   "./learn/ai.html",
   "./learn/management-skills.html",
+  "./learn/business-economics/index.html",
   "./article.html",
   "./learn/article.html",
   "./learn/articles.html",
