@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260513-sticky-header-final";
-const RUNTIME_CACHE = "consutrain-runtime-v20260513-sticky-header-final";
+const STATIC_CACHE = "consutrain-v20260513-porter-strategies-path";
+const RUNTIME_CACHE = "consutrain-runtime-v20260513-porter-strategies-path";
 
 const PRECACHE_URLS = [
   "./",
@@ -35,8 +35,15 @@ const PRECACHE_URLS = [
 
   "./learn/ai-prompts.html",
   "./learn/ai.html",
+  "./learn/learning-paths.html",
   "./learn/management-skills.html",
   "./learn/business-economics/index.html",
+  "./learn/porter-generic-strategies/index.html",
+  "./learn/porter-generic-strategies/articles/lesson-01.html",
+  "./learn/porter-generic-strategies/articles/lesson-02.html",
+  "./learn/porter-generic-strategies/articles/lesson-03.html",
+  "./learn/porter-generic-strategies/articles/lesson-04.html",
+  "./learn/porter-generic-strategies/articles/lesson-05.html",
   "./article.html",
   "./learn/article.html",
   "./learn/articles.html",
