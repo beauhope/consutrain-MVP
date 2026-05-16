@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260513-porter-strategies-path";
-const RUNTIME_CACHE = "consutrain-runtime-v20260513-porter-strategies-path";
+const STATIC_CACHE = "consutrain-v20260513-quote-request-page";
+const RUNTIME_CACHE = "consutrain-runtime-v20260513-quote-request-page";
 
 const PRECACHE_URLS = [
   "./",
@@ -18,6 +18,7 @@ const PRECACHE_URLS = [
   "./start-here.html",
   "./about.html",
   "./contact.html",
+  "./quote-request.html",
   "./expert.html",
   "./learn.html",
   "./services.html",
@@ -53,8 +54,12 @@ const PRECACHE_URLS = [
   "./learn/topics.html",
 
   "./services/feasibility-studies.html",
+  "./services/integrated-management-system.html",
   "./services/iso-consulting.html",
+  "./services/organizational-structures.html",
   "./services/project-management.html",
+  "./services/risk-management.html",
+  "./services/sop-operational-manuals.html",
   "./services/strategic-planning.html",
   "./services/book-consultation.html",
 
