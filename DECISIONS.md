@@ -675,3 +675,18 @@ Testing Required:
 تم اعتماد زر "العودة للصفحة السابقة" كعنصر ثابت ضمن تجربة الاستخدام الودية Friendly Use في الصفحات الداخلية.  
 يتم توليد الزر من خلال `assets/js/includes.js` بعد إنشاء Breadcrumbs، ويتم تنسيقه من خلال `assets/css/style.css`.  
 لا يتم إدراج الزر يدويًا داخل كل صفحة، حتى يبقى التحكم مركزيًا وسهل الصيانة.
+
+
+## Decision – Postpone User Registration
+
+User registration and login will not be implemented at the current stage. The platform will remain open for learning paths, articles, tools, and most free resources.
+
+Lead capture will be introduced gradually through selected high-value resources and Tally forms, without forcing registration before users understand the platform value.
+
+Full user accounts may be considered later when the platform includes saved tool results, paid courses, certificates, user dashboards, or client follow-up areas.
+
+## Decision – Start HR Free Resources Before Digital Transformation Service
+
+The next content development priority is the Human Resources free resources pack, because it can quickly strengthen the resources section and provide practical value to visitors.
+
+The digital transformation service will be developed after preparing supporting articles that explain digitization and the evolution from traditional to smart and AI-enabled services.

@@ -625,3 +625,28 @@ Purpose:
 
 الحالة:
 مخطط.
+
+## Planned – Human Resources Free Resources Pack
+
+Prepare and publish a new free resources category for Human Resources templates, including job descriptions, recruitment forms, interview evaluation, performance appraisal, training plan, leave request, onboarding, and related practical HR forms.
+
+Status: Planned
+Priority: High
+
+## Planned – Digital Transformation Content and Service
+
+Develop two educational articles:
+- كيف تتم رقمنة المؤسسات؟
+- من الحكومة التقليدية إلى الحكومة الذاتية
+
+Then create a new consulting service page for institutional digital transformation, including diagnosis, roadmap, tool selection, automation, AI integration, training, and performance measurement.
+
+Status: Planned
+Priority: High
+
+## Future – Multilingual Website
+
+Prepare the ConsuTrain platform for French and English versions after stabilizing the Arabic structure.
+
+Status: Future
+Priority: Medium
