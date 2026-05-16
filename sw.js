@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260513-unified-favicon";
-const RUNTIME_CACHE = "consutrain-runtime-v20260513-unified-favicon";
+const STATIC_CACHE = "consutrain-v20260516-digitization-guide";
+const RUNTIME_CACHE = "consutrain-runtime-v20260516-digitization-guide";
 
 const PRECACHE_URLS = [
   "./",
@@ -36,6 +36,7 @@ const PRECACHE_URLS = [
 
   "./learn/ai-prompts.html",
   "./learn/ai.html",
+  "./learn/digitization-guide.html",
   "./learn/learning-paths.html",
   "./learn/management-skills.html",
   "./learn/business-economics/index.html",
