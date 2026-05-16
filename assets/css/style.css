@@ -6440,6 +6440,33 @@ section[id],
 }
 
 /* =========================================================
+   MOBILE NAV LAYERING FIX
+   يحافظ على الخلفية الشفافة خلف قائمة الهاتف حتى تصل النقرات للروابط.
+   ========================================================= */
+@media (max-width: 900px){
+  body.nav-is-open .nav-backdrop:not([hidden]){
+    z-index: 2900 !important;
+    pointer-events: auto;
+  }
+
+  body.nav-is-open #header-placeholder{
+    z-index: 3000 !important;
+  }
+
+  body.nav-is-open #header-placeholder .main-nav.open{
+    z-index: 3300 !important;
+    pointer-events: auto !important;
+  }
+
+  body.nav-is-open #header-placeholder .main-nav.open a,
+  body.nav-is-open #header-placeholder .main-nav.open button{
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+  }
+}
+
+/* =========================================================
    DESIGN CONSISTENCY — CARD SYSTEM
    توحيد شكل البطاقات بين صفحات ConsuTrain
    Phase B / Step 7

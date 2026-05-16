@@ -177,7 +177,9 @@ function initHeaderNavigation() {
     backdrop = document.createElement("div");
     backdrop.className = "nav-backdrop";
     backdrop.setAttribute("hidden", "");
-    header.insertAdjacentElement("afterend", backdrop);
+    document.body.appendChild(backdrop);
+  } else if (backdrop.parentElement !== document.body) {
+    document.body.appendChild(backdrop);
   }
 
   // لا نضيف زر إغلاق نصي داخل القائمة حتى لا يظهر بجانب العناوين.
@@ -240,6 +242,19 @@ function initHeaderNavigation() {
 
   backdrop.addEventListener("click", closeMobileNav);
 
+  function toggleSubmenu(parentItem) {
+    const button = parentItem.querySelector(".submenu-toggle");
+    const willOpen = !parentItem.classList.contains("submenu-open");
+    closeSubmenus();
+
+    if (willOpen) {
+      parentItem.classList.add("submenu-open");
+      if (button) {
+        button.setAttribute("aria-expanded", "true");
+      }
+    }
+  }
+
   submenuToggles.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
@@ -248,20 +263,29 @@ function initHeaderNavigation() {
       const parentItem = event.currentTarget.closest(".has-submenu");
       if (!parentItem || !isMobileView()) return;
 
-      const willOpen = !parentItem.classList.contains("submenu-open");
-      closeSubmenus();
+      toggleSubmenu(parentItem);
+    });
+  });
 
-      if (willOpen) {
-        parentItem.classList.add("submenu-open");
-        button.setAttribute("aria-expanded", "true");
-      }
+  nav.querySelectorAll(".nav-link--parent").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (!isMobileView()) return;
+
+      const parentItem = event.currentTarget.closest(".has-submenu");
+      if (!parentItem) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      toggleSubmenu(parentItem);
     });
   });
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
+      if (link.classList.contains("nav-link--parent")) return;
+
       if (isMobileView()) {
-        closeMobileNav();
+        window.setTimeout(closeMobileNav, 0);
       }
     });
   });
@@ -831,4 +855,3 @@ function getFriendlyNextStepsBySection(section, root) {
 
   return [];
 }
-
