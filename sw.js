@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260516-digital-guides-articles";
-const RUNTIME_CACHE = "consutrain-runtime-v20260516-digital-guides-articles";
+const STATIC_CACHE = "consutrain-v20260516-digital-service-header-fix";
+const RUNTIME_CACHE = "consutrain-runtime-v20260516-digital-service-header-fix";
 
 const PRECACHE_URLS = [
   "./",
@@ -22,6 +22,7 @@ const PRECACHE_URLS = [
   "./expert.html",
   "./learn.html",
   "./services.html",
+  "./services/digital-transformation-roadmap.html",
   "./tools.html",
 
   "./templates/operational-plan-template.html",

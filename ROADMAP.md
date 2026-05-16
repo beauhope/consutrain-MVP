@@ -650,3 +650,25 @@ Prepare the ConsuTrain platform for French and English versions after stabilizin
 
 Status: Future
 Priority: Medium
+
+
+## Planned – Digital Transformation Roadmap Service
+
+Create a new consulting service page for preparing a digital transformation and digitization roadmap for institutions.
+
+The service will build on the two published learning guides:
+- كيف تتم رقمنة المؤسسات؟
+- من الخدمة الورقية إلى الخدمة الذاتية الذكية
+
+The service page should explain:
+- Current digital maturity diagnosis.
+- Process mapping and prioritization.
+- Digitization roadmap.
+- Tool selection.
+- Automation opportunities.
+- AI readiness.
+- Training and change management.
+- KPIs for digital transformation.
+
+Status: Planned
+Priority: High
