@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260513-quote-request-page";
-const RUNTIME_CACHE = "consutrain-runtime-v20260513-quote-request-page";
+const STATIC_CACHE = "consutrain-v20260513-unified-favicon";
+const RUNTIME_CACHE = "consutrain-runtime-v20260513-unified-favicon";
 
 const PRECACHE_URLS = [
   "./",
@@ -40,6 +40,8 @@ const PRECACHE_URLS = [
   "./learn/management-skills.html",
   "./learn/business-economics/index.html",
   "./learn/porter-generic-strategies/index.html",
+  "./learn/value-chain-analysis/index.html",
+  "./learn/environmental-strategic-analysis/index.html",
   "./learn/porter-generic-strategies/articles/lesson-01.html",
   "./learn/porter-generic-strategies/articles/lesson-02.html",
   "./learn/porter-generic-strategies/articles/lesson-03.html",
