@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260516-mobile-nav-final-fix";
-const RUNTIME_CACHE = "consutrain-runtime-v20260516-mobile-nav-final-fix";
+const STATIC_CACHE = "consutrain-static-v20260518-remove-prompts-v2";
+const RUNTIME_CACHE = "consutrain-runtime-v20260518-remove-prompts-v2";
 
 const PRECACHE_URLS = [
   "./",
@@ -34,9 +34,7 @@ const PRECACHE_URLS = [
   "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.pdf",
   "./downloads/ConsuTrain_Simple_Risk_Register_AR.docx",
   "./downloads/ConsuTrain_Simple_Risk_Register_AR.pdf",
-
-  "./learn/ai-prompts.html",
-  "./learn/ai.html",
+"./learn/ai.html",
   "./learn/digitization-guide.html",
   "./learn/digital-services-evolution.html",
   "./learn/learning-paths.html",
@@ -85,8 +83,7 @@ const PRECACHE_URLS = [
   "./assets/js/includes.js",
   "./assets/js/main.js",
   "./assets/js/ai-page.js",
-  "./assets/js/ai-prompts-page.js",
-  "./assets/js/article-page.js",
+"./assets/js/article-page.js",
   "./assets/js/articles-page.js",
   "./assets/js/glossary.js",
   "./assets/js/soft-skill-page.js",
