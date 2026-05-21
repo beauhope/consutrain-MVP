@@ -8883,18 +8883,19 @@ section[id],
 
 .tally-embed-wrapper{
   width:100%;
-  min-height:420px;
+  min-height:1200px;
   background:#fff;
   border:1px solid rgba(15,39,71,.09);
   border-radius:22px;
   padding:12px;
   box-shadow:0 10px 24px rgba(15,39,71,.045);
-  overflow:hidden;
+  overflow:visible;
 }
 
 .tally-embed-wrapper iframe{
   display:block;
   width:100%;
+  min-height:1200px;
   border:0;
   border-radius:16px;
   background:transparent;
@@ -8902,12 +8903,13 @@ section[id],
 
 @media (max-width: 768px){
   .tally-embed-wrapper{
-    min-height:480px;
+    min-height:1200px;
     border-radius:18px;
-    padding:8px;
+    padding:0;
   }
 
   .tally-embed-wrapper iframe{
+    min-height:1200px;
     border-radius:14px;
   }
 }
@@ -8950,7 +8952,7 @@ section[id],
 }
 
 .tally-embed-wrapper iframe{
-  min-height:620px;
+  min-height:1200px;
 }
 
 @media (max-width: 768px){
@@ -8978,7 +8980,7 @@ section[id],
   }
 
   .tally-embed-wrapper iframe{
-    min-height:680px;
+    min-height:1200px;
   }
 }
 
