@@ -136,6 +136,7 @@ async function loadPartial(selector, filePath) {
     if (selector === "#header-placeholder") {
       initHeaderNavigation();
       setActiveNavLink();
+      restoreHomeHashScroll();
     }
 
     if (selector === "#footer-placeholder") {
@@ -583,7 +584,26 @@ document.addEventListener("DOMContentLoaded", () => {
   loadPartial("#footer-placeholder", `${partialsBase}/footer.html`);
   initBreadcrumbs();
   initFriendlyNextSteps();
+  restoreHomeHashScroll();
 });
+
+window.addEventListener("load", () => {
+  restoreHomeHashScroll();
+  setTimeout(restoreHomeHashScroll, 120);
+});
+
+function restoreHomeHashScroll() {
+  if (window.location.hash !== "#share-benefit") return;
+
+  const path = window.location.pathname.toLowerCase();
+  const isHomePage = path.endsWith("/") || path.endsWith("/index.html");
+  if (!isHomePage) return;
+
+  const target = document.getElementById("share-benefit");
+  if (!target) return;
+
+  target.scrollIntoView({ block: "start" });
+}
 
 /*
   ---------------------------------------------------------
@@ -602,14 +622,14 @@ document.addEventListener("DOMContentLoaded", () => {
   ---------------------------------------------------------
 */
 function initBreadcrumbs() {
-  const container = document.getElementById("breadcrumbs-placeholder");
-  if (!container) return;
-
   const root = getRootPath();
   const section = document.body.dataset.breadcrumbSection;
   const title = document.body.dataset.breadcrumbTitle;
 
   if (!section || !title) return;
+
+  const container = ensureBreadcrumbsContainer();
+  if (!container) return;
 
   let sectionHref = null;
 
@@ -650,6 +670,33 @@ function initBreadcrumbs() {
   nav.appendChild(list);
   container.innerHTML = "";
   container.appendChild(nav);
+}
+
+/*
+  ---------------------------------------------------------
+  FUNCTION: ensureBreadcrumbsContainer
+  PURPOSE:
+  توحيد مكان Breadcrumbs مركزيًا بعد الهيدر مباشرة.
+  إذا كانت الصفحة لا تحتوي على الحاوية، يتم إنشاؤها تلقائيًا.
+  وإذا كانت داخل حاوية أخرى، يتم نقلها بعد #header-placeholder.
+  ---------------------------------------------------------
+*/
+function ensureBreadcrumbsContainer() {
+  const headerPlaceholder = document.getElementById("header-placeholder");
+  if (!headerPlaceholder) return null;
+
+  let container = document.getElementById("breadcrumbs-placeholder");
+
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "breadcrumbs-placeholder";
+  }
+
+  if (container.previousElementSibling !== headerPlaceholder) {
+    headerPlaceholder.insertAdjacentElement("afterend", container);
+  }
+
+  return container;
 }
 
 /*

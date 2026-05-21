@@ -6989,12 +6989,6 @@ body{
   background: var(--hero-soft-bg);
 }
 
-/* تقليل التصادم بين الـ breadcrumbs والـ hero */
-#breadcrumbs-placeholder + .inner-page .page-hero,
-#breadcrumbs-placeholder + main .page-hero{
-  padding-top: 46px;
-}
-
 /* توحيد المسافة بين عنوان القسم ومحتواه */
 .section-head,
 .section__head,
@@ -7095,11 +7089,6 @@ body{
   .topics-hero{
     padding-top: var(--page-hero-padding-y) !important;
     padding-bottom: 22px !important;
-  }
-
-  #breadcrumbs-placeholder + .inner-page .page-hero,
-  #breadcrumbs-placeholder + main .page-hero{
-    padding-top: 28px !important;
   }
 
   .home-section,
@@ -8204,18 +8193,26 @@ body{
 }
 
 /* =========================================================
-   UI/UX FIX — BREADCRUMBS CONTRAST
-   جعل Breadcrumbs واضحة فوق الخلفيات الداكنة والفاتحة
+   RELIABLE STICKY BREADCRUMBS
+   مسار تنقل موحد وثابت أسفل الهيدر
    ========================================================= */
 
-#breadcrumbs-placeholder{
-  background: #f8fbff;
-  border-bottom: 1px solid rgba(15,39,71,.08);
+:root{
+  --breadcrumbs-sticky-top: 76px;
+  --breadcrumbs-height: 44px;
 }
 
-#breadcrumbs-placeholder .container{
-  padding-top: 8px;
-  padding-bottom: 8px;
+#breadcrumbs-placeholder{
+  position: sticky;
+  top: var(--breadcrumbs-sticky-top);
+  z-index: 2400;
+  background: rgba(248, 251, 255, .98);
+  border-bottom: 1px solid rgba(15,39,71,.08);
+  box-shadow: 0 6px 16px rgba(15,39,71,.04);
+}
+
+#breadcrumbs-placeholder:empty{
+  display: none;
 }
 
 #breadcrumbs-placeholder .breadcrumbs,
@@ -8224,14 +8221,33 @@ body{
   color: var(--muted);
 }
 
+#breadcrumbs-placeholder .breadcrumbs{
+  width: min(100% - 32px, var(--max-width));
+  margin-inline: auto;
+  padding: 7px 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
 #breadcrumbs-placeholder .breadcrumbs ol{
-  background: rgba(255,255,255,.86);
-  border: 1px solid rgba(15,39,71,.08);
-  border-radius: 999px;
-  padding: 8px 14px;
+  list-style: none;
   width: fit-content;
   max-width: 100%;
-  box-shadow: 0 8px 20px rgba(15,39,71,.045);
+  margin: 0;
+  padding: 7px 13px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(15,39,71,.08);
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(15,39,71,.035);
+}
+
+#breadcrumbs-placeholder .breadcrumbs li{
+  flex-shrink: 0;
 }
 
 #breadcrumbs-placeholder .breadcrumbs a,
@@ -8252,39 +8268,72 @@ body{
   font-weight: 900;
 }
 
-/* صفحات الأدوات و MyTodo قد تحتوي خلفيات داكنة، لذلك نعزل الشريط بخلفية فاتحة */
-.tools-page #breadcrumbs-placeholder,
-.mytodo-page #breadcrumbs-placeholder,
-.tools-mytodo-page #breadcrumbs-placeholder{
-  background: #f8fbff !important;
+#header-placeholder{
+  z-index: 3000;
 }
 
-/* تحسين على الجوال */
-@media (max-width: 768px){
+#header-placeholder .submenu{
+  z-index: 3100;
+}
 
-  #breadcrumbs-placeholder .container{
-    padding-top: 7px;
-    padding-bottom: 7px;
+body.nav-is-open #header-placeholder,
+body.nav-is-open #header-placeholder .main-nav.open{
+  z-index: 3300;
+}
+
+body.nav-is-open #breadcrumbs-placeholder{
+  z-index: 2200;
+}
+
+section[id],
+[id]{
+  scroll-margin-top: calc(var(--breadcrumbs-sticky-top) + var(--breadcrumbs-height));
+}
+
+@media (max-width: 900px){
+  :root{
+    --breadcrumbs-sticky-top: 76px;
+    --breadcrumbs-height: 38px;
   }
 
   #breadcrumbs-placeholder .breadcrumbs{
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: thin;
+    width: min(100% - 24px, 100%);
+    padding: 5px 0;
   }
 
   #breadcrumbs-placeholder .breadcrumbs ol{
-    width: max-content;
-    min-width: auto;
-    max-width: 100%;
-    padding: 7px 12px;
-    border-radius: 999px;
-    flex-wrap: nowrap;
+    max-width: calc(100vw - 24px);
+    padding: 6px 10px;
+    gap: 6px;
   }
 
   #breadcrumbs-placeholder .breadcrumbs a,
   #breadcrumbs-placeholder .breadcrumbs .current{
-    font-size: .84rem;
+    font-size: .82rem;
+    line-height: 1.5;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs li{
+    gap: 6px;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs li + li::before{
+    margin-inline: 0;
+  }
+}
+
+@media (max-width: 480px){
+  :root{
+    --breadcrumbs-height: 36px;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs ol{
+    padding: 5px 9px;
+  }
+
+  #breadcrumbs-placeholder .breadcrumbs a,
+  #breadcrumbs-placeholder .breadcrumbs .current{
+    font-size: .78rem;
   }
 }
 
@@ -9476,6 +9525,10 @@ body{
 
 .home-share-section{
   padding:18px 0 42px;
+}
+
+#share-benefit{
+  scroll-margin-top: calc(var(--sticky-header-offset, 92px) + 24px);
 }
 
 .home-share-box{

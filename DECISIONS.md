@@ -690,3 +690,12 @@ Full user accounts may be considered later when the platform includes saved tool
 The next content development priority is the Human Resources free resources pack, because it can quickly strengthen the resources section and provide practical value to visitors.
 
 The digital transformation service will be developed after preparing supporting articles that explain digitization and the evolution from traditional to smart and AI-enabled services.
+
+
+## قرار — تبسيط الهيدر
+
+تم اعتماد الهيدر كمنطقة تنقل أساسية فقط، وعدم تحميله بروابط ثانوية أو وظائف متكررة.
+
+تم حذف رابط "شاركنا رأيك" من الهيدر لتقليل الازدحام وتحسين وضوح التنقل، مع الإبقاء على صفحة feedback.html متاحة من الفوتر وصفحة التواصل.
+
+كما يتم الإبقاء على زر "شارك الفائدة" كأيقونة عائمة مستقلة، لأنها تؤدي وظيفة المشاركة مباشرة ولا تحتاج إلى تكرار داخل الهيدر.
