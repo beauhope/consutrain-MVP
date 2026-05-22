@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260518-remove-prompts-v2";
-const RUNTIME_CACHE = "consutrain-runtime-v20260518-remove-prompts-v2";
+const STATIC_CACHE = "consutrain-static-v20260522-management-tech-radar-v1";
+const RUNTIME_CACHE = "consutrain-runtime-v20260522-management-tech-radar-v1";
 
 const PRECACHE_URLS = [
   "./",
@@ -34,9 +34,14 @@ const PRECACHE_URLS = [
   "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.pdf",
   "./downloads/ConsuTrain_Simple_Risk_Register_AR.docx",
   "./downloads/ConsuTrain_Simple_Risk_Register_AR.pdf",
-"./learn/ai.html",
+  "./learn/ai.html",
   "./learn/digitization-guide.html",
   "./learn/digital-services-evolution.html",
+  "./learn/management-tech-radar.html",
+  "./learn/radar/ai-workflow-integration.html",
+  "./learn/radar/ai-model-flexibility.html",
+  "./learn/radar/ai-governance.html",
+  "./learn/radar/process-automation.html",
   "./learn/learning-paths.html",
   "./learn/management-skills.html",
   "./learn/business-economics/index.html",
