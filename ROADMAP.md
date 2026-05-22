@@ -720,3 +720,40 @@ Priority: High
 
 Status: Current
 Priority: High
+
+## Planned – Free Training with Completion Certificates
+
+Develop a new learning section titled "تدريبات مجانية بشهادات إتمام".
+
+The section will provide short introductory training programs inside ConsuTrain. Each training will include structured lessons, short questions after each lesson, a final assessment, and a digital certificate of completion after passing the assessment.
+
+### First Pilot Training
+
+Title:
+مدخل إلى الرقمنة والتحول الرقمي
+
+### Proposed Structure
+
+- Training landing page.
+- 5 short lessons.
+- Short quiz after each lesson.
+- Final assessment.
+- Certificate data form.
+- Learner acknowledgment:
+  - The entered name and data are correct.
+  - The certificate is a digital certificate of completion from ConsuTrain.
+  - It is not a professional accreditation, official license, or certified professional qualification.
+- Optional consent to receive updates about future certificates and learning paths.
+
+### Future Enhancements
+
+- Automated certificate PDF generation.
+- Unique certificate ID.
+- QR code verification.
+- Public verification page.
+- LinkedIn and Facebook sharing options.
+- User accounts and learner dashboard, if needed later.
+
+### Status
+
+Planned – MVP first, without login or automated certificate generation.

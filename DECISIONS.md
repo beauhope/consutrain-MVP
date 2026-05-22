@@ -745,3 +745,12 @@ The digital transformation service will be developed after preparing supporting 
 
 تبقى أسماء الخدمات وتفاصيلها داخل `services.html` كبطاقات أو أقسام داخلية.  
 أي خدمة جديدة مستقبلًا تُضاف إلى صفحة الخدمات، ولا تُضاف مباشرة إلى القائمة المنسدلة في الهيدر إلا إذا وُجد سبب استراتيجي واضح.
+
+
+## Decision – Completion Certificates Terminology
+
+ConsuTrain will use the term "شهادة إتمام رقمية" for free introductory trainings.
+
+These certificates confirm that the learner completed the training and passed a short assessment inside the platform. They must not be described as accredited certificates, professional certifications, official licenses, or formal qualifications unless the platform obtains the relevant accreditation in the future.
+
+The first implementation will be an MVP without user login and without automated certificate generation. Certificate automation, QR verification, and user accounts may be added later if the pilot succeeds.
