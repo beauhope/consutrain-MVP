@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260516-free-training-header-link";
-const RUNTIME_CACHE = "consutrain-runtime-v20260516-free-training-header-link";
+const STATIC_CACHE = "consutrain-v20260523-public-certificate-webhook";
+const RUNTIME_CACHE = "consutrain-runtime-v20260523-public-certificate-webhook";
 
 const PRECACHE_URLS = [
   "./",
@@ -95,6 +95,7 @@ const PRECACHE_URLS = [
   "./assets/images/articles/ai-vuca.svg",
 
   "./assets/js/includes.js",
+  "./assets/js/free-certificate-training.js",
   "./assets/js/main.js",
   "./assets/js/ai-page.js",
 "./assets/js/article-page.js",

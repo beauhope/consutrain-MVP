@@ -5,7 +5,7 @@
     =========================================================
     FILE: learn/free-certificate-training/digital-transformation-intro/certificate-request.html
     PURPOSE:
-    صفحة نموذج الاختبار وطلب شهادة الإتمام لتدريب "مدخل إلى الرقمنة والتحول الرقمي".
+    صفحة الاختبار وطلب شهادة الإتمام لتدريب "مدخل إلى الرقمنة والتحول الرقمي".
     =========================================================
   -->
 
@@ -24,6 +24,176 @@
   <link rel="icon" type="image/png" sizes="192x192" href="../../../assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="../../../assets/icons/icon-192.png">
   <meta name="theme-color" content="#0f172a">
+
+  <style>
+    .certificate-form {
+      display: grid;
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .certificate-fieldset {
+      border: 1px solid rgba(15, 23, 42, .12);
+      border-radius: 12px;
+      padding: 22px;
+      background: #fff;
+    }
+
+    .certificate-fieldset legend {
+      padding: 0 8px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .certificate-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .certificate-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .certificate-field label,
+    .certificate-choice {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .certificate-field input {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid rgba(15, 23, 42, .18);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font: inherit;
+      background: #fff;
+      color: #0f172a;
+    }
+
+    .certificate-field input:focus {
+      border-color: #0f766e;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, .14);
+      outline: none;
+    }
+
+    .certificate-note {
+      color: #475569;
+      font-size: .95rem;
+      margin: 0;
+    }
+
+    .certificate-checks {
+      display: grid;
+      gap: 14px;
+    }
+
+    .certificate-checkbox,
+    .certificate-radio {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.8;
+    }
+
+    .certificate-checkbox input,
+    .certificate-radio input {
+      flex: 0 0 auto;
+      margin-top: 8px;
+      accent-color: #0f766e;
+    }
+
+    .certificate-questions {
+      display: grid;
+      gap: 18px;
+    }
+
+    .certificate-question {
+      border: 1px solid rgba(15, 23, 42, .10);
+      border-radius: 12px;
+      padding: 18px;
+      background: #f8fafc;
+    }
+
+    .certificate-question h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #0f172a;
+    }
+
+    .certificate-options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .certificate-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .certificate-status {
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .certificate-status[hidden],
+    .certificate-result-actions[hidden] {
+      display: none;
+    }
+
+    .certificate-status.success {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+    }
+
+    .certificate-status.fail {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+    }
+
+    .certificate-status.error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+
+    .certificate-status.info {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+    }
+
+    .certificate-result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .certificate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .certificate-fieldset {
+        padding: 18px;
+      }
+
+      .certificate-actions .btn,
+      .certificate-result-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body
@@ -43,8 +213,8 @@
         <span class="eyebrow">مدخل إلى الرقمنة والتحول الرقمي</span>
         <h1>طلب شهادة الإتمام</h1>
         <p>
-          بعد إكمال الدروس الخمسة، يمكنك تعبئة نموذج الاختبار النهائي وبيانات الشهادة.
-          درجة النجاح المطلوبة للحصول على شهادة الإتمام هي 75% أو أكثر.
+          بعد إكمال الدروس الخمسة، يمكنك تعبئة بيانات الشهادة والإجابة عن الاختبار النهائي.
+          درجة النجاح المطلوبة للحصول على شهادة الإتمام هي 9 إجابات صحيحة من أصل 12.
         </p>
 
         <div class="hero-actions">
@@ -61,14 +231,14 @@
 
           <p>
             يحتوي النموذج أدناه على بيانات المتدرب، الإقرار القانوني، وأسئلة الاختبار النهائي.
-            يجب إدخال الاسم الكامل بشكل صحيح، لأنه سيُستخدم لاحقًا في شهادة الإتمام الرقمية.
+            يجب إدخال الاسم الكامل بشكل صحيح، لأنه سيستخدم لاحقًا في شهادة الإتمام الرقمية.
           </p>
 
           <ul class="learn-feature-list">
             <li>عدد أسئلة الاختبار: 12 سؤالًا.</li>
-            <li>درجة النجاح المطلوبة: 75% أو أكثر.</li>
-            <li>يجب تحقيق 9 إجابات صحيحة على الأقل من أصل 12.</li>
+            <li>درجة النجاح المطلوبة: 9 إجابات صحيحة أو أكثر.</li>
             <li>الشهادة تصدر بعد اجتياز الاختبار ومراجعة البيانات.</li>
+            <li>سيتم إرسال نتيجة الاختبار إلى نظام ConsuTrain عبر n8n.</li>
           </ul>
 
           <div class="callout warning">
@@ -87,28 +257,79 @@
           <h2>نموذج الاختبار وطلب شهادة الإتمام</h2>
 
           <p>
-            أدخل بياناتك بشكل صحيح، ثم أجب عن أسئلة الاختبار. بعد إرسال النموذج سيتم تسجيل
-            إجاباتك ودرجتك داخل Tally، وفي حال تحقيق درجة النجاح يمكن إصدار شهادة الإتمام الرقمية.
+            أدخل بياناتك بدقة، ثم أجب عن جميع أسئلة الاختبار. ستظهر نتيجتك داخل الصفحة بعد الإرسال.
           </p>
 
-          <div class="tally-embed-wrap" style="margin-top: 24px;">
-            <iframe
-              src="https://tally.so/embed/0QDMWZ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-              width="100%"
-              height="3000"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              title="اختبار شهادة إتمام – مدخل إلى الرقمنة والتحول الرقمي">
-            </iframe>
-          </div>
+          <form class="certificate-form" id="certificateTrainingForm" novalidate>
+            <fieldset class="certificate-fieldset">
+              <legend>بيانات المتدرب</legend>
 
-          <p style="margin-top: 18px;">
-            إذا واجهت مشكلة في ظهور النموذج داخل الصفحة، يمكنك فتحه مباشرة من هنا:
-            <a href="https://tally.so/r/0QDMWZ" target="_blank" rel="noopener">
-             فتح نموذج الاختبار
-            </a>
-          </p>
+              <div class="certificate-grid">
+                <div class="certificate-field">
+                  <label for="fullName">الاسم الكامل كما سيظهر في الشهادة *</label>
+                  <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+                </div>
+
+                <div class="certificate-field">
+                  <label for="email">البريد الإلكتروني *</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+
+                <div class="certificate-field">
+                  <label for="country">البلد *</label>
+                  <input id="country" name="country" type="text" autocomplete="country-name" required>
+                </div>
+
+                <div class="certificate-field">
+                  <label for="organization">جهة العمل</label>
+                  <input id="organization" name="organization" type="text" autocomplete="organization">
+                </div>
+
+                <div class="certificate-field">
+                  <label for="jobTitle">المسمى الوظيفي</label>
+                  <input id="jobTitle" name="jobTitle" type="text" autocomplete="organization-title">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="certificate-fieldset">
+              <legend>الإقرارات</legend>
+
+              <div class="certificate-checks">
+                <label class="certificate-checkbox">
+                  <input id="legalAcknowledgment" name="legalAcknowledgment" type="checkbox" required>
+                  <span>
+                    أقر بأن البيانات التي أدخلتها صحيحة، وأفهم أن شهادة الإتمام الرقمية من ConsuTrain تثبت إكمال التدريب واجتياز الاختبار، ولا تُعد اعتمادًا مهنيًا أو ترخيصًا رسميًا أو مؤهلًا معتمدًا.
+                  </span>
+                </label>
+
+                <label class="certificate-checkbox">
+                  <input id="marketingConsent" name="marketingConsent" type="checkbox">
+                  <span>أرغب في استقبال تحديثات حول التدريبات والشهادات الجديدة في ConsuTrain.</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="certificate-fieldset">
+              <legend>أسئلة الاختبار</legend>
+              <p class="certificate-note">اختر إجابة واحدة لكل سؤال. كل إجابة صحيحة تساوي نقطة واحدة.</p>
+
+              <div class="certificate-questions" id="certificateQuestions"></div>
+            </fieldset>
+
+            <div class="certificate-actions">
+              <button class="btn btn-primary" id="certificateSubmitBtn" type="submit">إرسال الاختبار</button>
+              <button class="btn btn-secondary" id="certificateResetBtn" type="button">إعادة الاختبار</button>
+            </div>
+
+            <div class="certificate-status" id="certificateStatus" role="status" aria-live="polite" hidden></div>
+
+            <div class="certificate-result-actions" id="certificateResultActions" hidden>
+              <a class="btn btn-secondary" href="index.html">العودة إلى صفحة التدريب</a>
+              <button class="btn btn-secondary" type="button" data-certificate-reset>إعادة الاختبار</button>
+              <a class="btn btn-primary" href="../../../quote-request.html">طلب خارطة طريق الرقمنة</a>
+            </div>
+          </form>
         </article>
       </div>
     </section>
@@ -140,5 +361,6 @@
   <div id="footer-placeholder"></div>
 
   <script src="../../../assets/js/includes.js"></script>
+  <script src="../../../assets/js/free-certificate-training.js"></script>
 </body>
 </html>
