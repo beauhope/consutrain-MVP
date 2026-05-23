@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260523-public-certificate-webhook";
-const RUNTIME_CACHE = "consutrain-runtime-v20260523-public-certificate-webhook";
+const STATIC_CACHE = "consutrain-v20260523-certificate-retry-storage";
+const RUNTIME_CACHE = "consutrain-runtime-v20260523-certificate-retry-storage";
 
 const PRECACHE_URLS = [
   "./",

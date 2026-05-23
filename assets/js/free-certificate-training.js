@@ -6,6 +6,7 @@
   const TRAINING_TITLE = "مدخل إلى الرقمنة والتحول الرقمي";
   const TOTAL_QUESTIONS = 12;
   const PASSING_SCORE = 9;
+  const PENDING_SUBMISSIONS_KEY = "consutrain_pending_certificate_submissions";
 
   const questions = [
     {
@@ -196,6 +197,66 @@
     statusBox.hidden = true;
   }
 
+  function getPendingSubmissions() {
+    try {
+      const storedValue = window.localStorage.getItem(PENDING_SUBMISSIONS_KEY);
+      if (!storedValue) return [];
+
+      const parsedValue = JSON.parse(storedValue);
+      return Array.isArray(parsedValue) ? parsedValue : [];
+    } catch (error) {
+      console.error("Could not read pending certificate submissions:", error);
+      return [];
+    }
+  }
+
+  function savePendingSubmissions(submissions) {
+    try {
+      if (!submissions.length) {
+        window.localStorage.removeItem(PENDING_SUBMISSIONS_KEY);
+        return;
+      }
+
+      window.localStorage.setItem(PENDING_SUBMISSIONS_KEY, JSON.stringify(submissions));
+    } catch (error) {
+      console.error("Could not save pending certificate submissions:", error);
+    }
+  }
+
+  function queuePendingSubmission(payload) {
+    const pendingSubmissions = getPendingSubmissions();
+    pendingSubmissions.push({
+      queuedAt: new Date().toISOString(),
+      payload: payload
+    });
+    savePendingSubmissions(pendingSubmissions);
+  }
+
+  function ensureRetryButton() {
+    let retryButton = resultActions.querySelector("[data-certificate-retry-save]");
+
+    if (retryButton) {
+      return retryButton;
+    }
+
+    retryButton = document.createElement("button");
+    retryButton.className = "btn btn-secondary";
+    retryButton.type = "button";
+    retryButton.dataset.certificateRetrySave = "true";
+    retryButton.textContent = "إعادة محاولة الحفظ";
+    resultActions.appendChild(retryButton);
+
+    return retryButton;
+  }
+
+  function showPendingSubmissionsNotice() {
+    if (getPendingSubmissions().length) {
+      ensureRetryButton();
+      setStatus("توجد نتائج لم تُرسل بعد. يمكنك إعادة محاولة الحفظ.", "info");
+      resultActions.hidden = false;
+    }
+  }
+
   function getRequiredTextValue(name) {
     const field = form.elements[name];
     return field ? field.value.trim() : "";
@@ -292,6 +353,43 @@
     }
   }
 
+  async function retryPendingSubmissions() {
+    const retryButton = ensureRetryButton();
+    const pendingSubmissions = getPendingSubmissions();
+
+    if (!pendingSubmissions.length) {
+      setStatus("لا توجد نتائج معلقة للحفظ.", "info");
+      return;
+    }
+
+    retryButton.disabled = true;
+    retryButton.textContent = "جاري إعادة محاولة الحفظ...";
+
+    const failedSubmissions = [];
+
+    for (const submission of pendingSubmissions) {
+      try {
+        await sendToWebhook(submission.payload || submission);
+      } catch (error) {
+        failedSubmissions.push(submission);
+        console.error("Pending certificate submission retry failed:", error);
+      }
+    }
+
+    savePendingSubmissions(failedSubmissions);
+
+    if (failedSubmissions.length) {
+      setStatus("تعذر حفظ بعض النتائج المعلقة الآن. تم الإبقاء عليها مؤقتًا على هذا الجهاز لإعادة المحاولة لاحقًا.", "error");
+      resultActions.hidden = false;
+    } else {
+      setStatus("تم حفظ جميع النتائج المعلقة بنجاح.", "success");
+      resultActions.hidden = false;
+    }
+
+    retryButton.disabled = false;
+    retryButton.textContent = "إعادة محاولة الحفظ";
+  }
+
   function showResult(score, passed) {
     const resultMessage = passed
       ? "تهانينا، لقد اجتزت الاختبار. سيتم استخدام البيانات التي أدخلتها لإعداد شهادة الإتمام الرقمية من ConsuTrain بعد مراجعة البيانات، ثم إرسالها إلى بريدك الإلكتروني."
@@ -325,16 +423,16 @@
     const passed = score >= PASSING_SCORE;
     const payload = buildPayload(score, percentage, passed, answers);
 
+    showResult(score, passed);
+    ensureRetryButton();
     submitButton.disabled = true;
     submitButton.textContent = "جاري إرسال النتيجة...";
-    setStatus("جاري إرسال النتيجة...", "info");
-    resultActions.hidden = true;
 
     try {
       await sendToWebhook(payload);
-      showResult(score, passed);
     } catch (error) {
-      setStatus("تم احتساب نتيجتك، لكن تعذر حفظها الآن. يرجى التأكد من تشغيل n8n ثم إعادة المحاولة.", "error");
+      queuePendingSubmission(payload);
+      setStatus("تم احتساب نتيجتك، لكن تعذر حفظها الآن. تم حفظ الطلب مؤقتًا على هذا الجهاز، وسيتم إعادة محاولة الإرسال عند توفر الاتصال.", "error");
       resultActions.hidden = false;
       console.error("Certificate submission failed:", error);
     } finally {
@@ -348,7 +446,13 @@
     if (event.target.matches("[data-certificate-reset]")) {
       resetForm();
     }
+
+    if (event.target.matches("[data-certificate-retry-save]")) {
+      retryPendingSubmissions();
+    }
   });
 
   renderQuestions();
+  ensureRetryButton();
+  showPendingSubmissionsNotice();
 })();
