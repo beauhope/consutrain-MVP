@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>شهادة إتمام تدريب | ConsuTrain</title>
+
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    :root {
+      --navy: #0f172a;
+      --navy-soft: #172554;
+      --gold: #c99a2e;
+      --gold-light: #f8e7b0;
+      --ink: #1f2937;
+      --muted: #64748b;
+      --paper: #fffdf7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e5e7eb;
+      color: var(--ink);
+      font-family: "Cairo", "Tahoma", "Arial", sans-serif;
+      direction: rtl;
+    }
+
+    .certificate-page {
+      width: 297mm;
+      height: 210mm;
+      margin: 0 auto;
+      padding: 12mm;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, .08), transparent 34%),
+        linear-gradient(315deg, rgba(201, 154, 46, .12), transparent 32%),
+        var(--paper);
+    }
+
+    .certificate {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 3px solid var(--navy);
+      outline: 2px solid var(--gold);
+      outline-offset: -9mm;
+      background: rgba(255, 255, 255, .72);
+      text-align: center;
+    }
+
+    .certificate::before,
+    .certificate::after {
+      content: "";
+      position: absolute;
+      width: 72mm;
+      height: 72mm;
+      border: 2px solid rgba(201, 154, 46, .42);
+      transform: rotate(45deg);
+    }
+
+    .certificate::before {
+      top: -38mm;
+      right: -34mm;
+    }
+
+    .certificate::after {
+      bottom: -38mm;
+      left: -34mm;
+    }
+
+    .certificate-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 8mm;
+      width: min(235mm, 86%);
+      padding: 10mm 8mm;
+    }
+
+    .brand {
+      display: grid;
+      gap: 2mm;
+      justify-items: center;
+    }
+
+    .brand-logo {
+      display: block;
+      width: min(260px, 70mm);
+      max-width: 260px;
+      height: auto;
+    }
+
+    .certificate-watermark {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      width: 92mm;
+      height: auto;
+      opacity: .05;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .certificate-title {
+      margin: 0;
+      color: var(--gold);
+      font-size: 15mm;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .certificate-copy {
+      display: grid;
+      gap: 5mm;
+      justify-items: center;
+    }
+
+    .intro,
+    .completion-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 5.2mm;
+      line-height: 1.8;
+    }
+
+    .learner-name {
+      width: 82%;
+      margin: 0;
+      padding: 3mm 4mm 4mm;
+      border-bottom: 1.6mm solid var(--gold);
+      color: var(--navy);
+      font-size: 13mm;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .training-title {
+      margin: 0;
+      color: var(--navy-soft);
+      font-size: 8mm;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .certificate-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
+      margin-top: 4mm;
+      text-align: right;
+    }
+
+    .meta-item {
+      min-height: 18mm;
+      padding: 4mm;
+      border: 1px solid rgba(15, 23, 42, .16);
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .meta-label {
+      display: block;
+      margin-bottom: 2mm;
+      color: var(--gold);
+      font-size: 3.5mm;
+      font-weight: 800;
+    }
+
+    .meta-value {
+      display: block;
+      color: var(--navy);
+      font-size: 4mm;
+      font-weight: 700;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 10mm;
+      margin-top: 2mm;
+      color: var(--muted);
+      font-size: 3.5mm;
+      line-height: 1.7;
+    }
+
+    .signature {
+      min-width: 48mm;
+      padding-top: 4mm;
+      border-top: 1px solid var(--navy);
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    @media screen {
+      body {
+        padding: 20px;
+      }
+
+      .certificate-page {
+        box-shadow: 0 20px 50px rgba(15, 23, 42, .18);
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .certificate-page {
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="certificate-page" aria-label="شهادة إتمام تدريب ConsuTrain">
+    <section class="certificate">
+      <img class="certificate-watermark" src="../../assets/images/consutrain-logo-mark.png" alt="" aria-hidden="true">
+      <div class="certificate-content">
+        <header class="brand">
+          <img class="brand-logo" src="../../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
+        </header>
+
+        <h1 class="certificate-title">شهادة إتمام تدريب</h1>
+
+        <div class="certificate-copy">
+          <p class="intro">تشهد ConsuTrain بأن</p>
+          <p class="learner-name">{{fullName}}</p>
+          <p class="completion-text">قد أكمل بنجاح متطلبات التدريب التالي:</p>
+          <p class="training-title">{{trainingTitle}}</p>
+        </div>
+
+        <div class="certificate-meta" aria-label="بيانات الشهادة">
+          <div class="meta-item">
+            <span class="meta-label">تاريخ الإصدار</span>
+            <span class="meta-value">{{issueDate}}</span>
+          </div>
+
+          <div class="meta-item">
+            <span class="meta-label">رقم الشهادة</span>
+            <span class="meta-value">{{certificateId}}</span>
+          </div>
+
+          <div class="meta-item">
+            <span class="meta-label">رابط التحقق</span>
+            <span class="meta-value">{{verificationUrl}}</span>
+          </div>
+        </div>
+
+        <footer class="footer-line">
+          <p>
+            تثبت هذه الشهادة إتمام التدريب داخل منصة ConsuTrain، ولا تعد اعتمادًا مهنيًا أو ترخيصًا رسميًا.
+          </p>
+          <div class="signature">إدارة ConsuTrain</div>
+        </footer>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
