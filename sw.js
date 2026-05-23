@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-static-v20260522-management-tech-radar-v1";
-const RUNTIME_CACHE = "consutrain-runtime-v20260522-management-tech-radar-v1";
+const STATIC_CACHE = "consutrain-v20260516-free-training-header-link";
+const RUNTIME_CACHE = "consutrain-runtime-v20260516-free-training-header-link";
 
 const PRECACHE_URLS = [
   "./",
@@ -37,6 +37,15 @@ const PRECACHE_URLS = [
   "./learn/ai.html",
   "./learn/digitization-guide.html",
   "./learn/digital-services-evolution.html",
+  "./learn/free-certificate-training.html",
+  "./learn/free-certificate-training/digital-transformation-intro/index.html",
+  "./learn/free-certificate-training/digital-transformation-intro/lesson-01.html",
+  "./learn/free-certificate-training/digital-transformation-intro/lesson-02.html",
+  "./learn/free-certificate-training/digital-transformation-intro/lesson-03.html",
+  "./learn/free-certificate-training/digital-transformation-intro/lesson-04.html",
+  "./learn/free-certificate-training/digital-transformation-intro/lesson-05.html",
+  "./learn/free-certificate-training/digital-transformation-intro/final-assessment.html",
+  "./learn/free-certificate-training/digital-transformation-intro/certificate-request.html",
   "./learn/management-tech-radar.html",
   "./learn/radar/ai-workflow-integration.html",
   "./learn/radar/ai-model-flexibility.html",
