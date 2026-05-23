@@ -154,6 +154,8 @@
     return;
   }
 
+  let isRetryingPendingSubmissions = false;
+
   function escapeHtml(value) {
     return String(value)
       .replace(/&/g, "&amp;")
@@ -257,6 +259,12 @@
     }
   }
 
+  function retryPendingSubmissionsAutomatically() {
+    if (getPendingSubmissions().length) {
+      retryPendingSubmissions({ automatic: true });
+    }
+  }
+
   function getRequiredTextValue(name) {
     const field = form.elements[name];
     return field ? field.value.trim() : "";
@@ -353,17 +361,30 @@
     }
   }
 
-  async function retryPendingSubmissions() {
+  async function retryPendingSubmissions(options) {
+    const retryOptions = options || {};
+    const isAutomaticRetry = retryOptions.automatic === true;
+
+    if (isRetryingPendingSubmissions) {
+      return;
+    }
+
     const retryButton = ensureRetryButton();
     const pendingSubmissions = getPendingSubmissions();
 
     if (!pendingSubmissions.length) {
-      setStatus("لا توجد نتائج معلقة للحفظ.", "info");
+      if (!isAutomaticRetry) {
+        setStatus("لا توجد نتائج معلقة للحفظ.", "info");
+      }
       return;
     }
 
-    retryButton.disabled = true;
-    retryButton.textContent = "جاري إعادة محاولة الحفظ...";
+    isRetryingPendingSubmissions = true;
+
+    if (!isAutomaticRetry) {
+      retryButton.disabled = true;
+      retryButton.textContent = "جاري إعادة محاولة الحفظ...";
+    }
 
     const failedSubmissions = [];
 
@@ -379,15 +400,21 @@
     savePendingSubmissions(failedSubmissions);
 
     if (failedSubmissions.length) {
-      setStatus("تعذر حفظ بعض النتائج المعلقة الآن. تم الإبقاء عليها مؤقتًا على هذا الجهاز لإعادة المحاولة لاحقًا.", "error");
-      resultActions.hidden = false;
+      if (!isAutomaticRetry) {
+        setStatus("تعذر حفظ بعض النتائج المعلقة الآن. تم الإبقاء عليها مؤقتًا على هذا الجهاز لإعادة المحاولة لاحقًا.", "error");
+        resultActions.hidden = false;
+      }
     } else {
-      setStatus("تم حفظ جميع النتائج المعلقة بنجاح.", "success");
+      setStatus(isAutomaticRetry ? "تم حفظ النتائج المعلقة بنجاح." : "تم حفظ جميع النتائج المعلقة بنجاح.", "success");
       resultActions.hidden = false;
     }
 
-    retryButton.disabled = false;
-    retryButton.textContent = "إعادة محاولة الحفظ";
+    if (!isAutomaticRetry) {
+      retryButton.disabled = false;
+      retryButton.textContent = "إعادة محاولة الحفظ";
+    }
+
+    isRetryingPendingSubmissions = false;
   }
 
   function showResult(score, passed) {
@@ -455,4 +482,7 @@
   renderQuestions();
   ensureRetryButton();
   showPendingSubmissionsNotice();
+  retryPendingSubmissionsAutomatically();
+  window.addEventListener("online", retryPendingSubmissionsAutomatically);
+  window.setInterval(retryPendingSubmissionsAutomatically, 60000);
 })();
