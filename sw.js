@@ -9,8 +9,8 @@
   =========================================================
 */
 
-const STATIC_CACHE = "consutrain-v20260523-certificate-retry-storage";
-const RUNTIME_CACHE = "consutrain-runtime-v20260523-certificate-retry-storage";
+const STATIC_CACHE = "consutrain-v20260523-certificate-auto-retry";
+const RUNTIME_CACHE = "consutrain-runtime-v20260523-certificate-auto-retry";
 
 const PRECACHE_URLS = [
   "./",
