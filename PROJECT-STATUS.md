@@ -920,3 +920,18 @@ Next:
 الملفات المتأثرة:
 - partials/header.html
 - services.html
+
+
+## Branding — Favicon and App Icons
+
+تم اعتماد شعار ConsuTrain الصغير `consutrain-logo-mark.png` كمصدر لأيقونات الموقع.
+
+تم إنشاء وتحديث الأيقونات التالية:
+- assets/icons/favicon-16x16.png
+- assets/icons/favicon-32x32.png
+- assets/icons/apple-touch-icon.png
+- assets/icons/icon-192.png
+- assets/icons/icon-512.png
+
+تم تحديث روابط favicon في صفحات HTML التي كانت تشير إلى `icon-192.png`، مع الإبقاء على `manifest.webmanifest` كما هو لأنه يستخدم المسارات الصحيحة للأيقونات.  
+تم تحديث `sw.js` لتغيير نسخة الكاش فقط حتى تظهر الأيقونات الجديدة بدل النسخ القديمة.
