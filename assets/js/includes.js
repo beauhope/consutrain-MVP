@@ -100,6 +100,17 @@ function applyRootPath(htmlText) {
   return htmlText.replaceAll("__ROOT__", root);
 }
 
+function initCloudflareAnalytics() {
+  if (document.getElementById("cloudflare-web-analytics")) return;
+
+  const script = document.createElement("script");
+  script.id = "cloudflare-web-analytics";
+  script.defer = true;
+  script.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  script.setAttribute("data-cf-beacon", '{"token":"f26620d1e6a1405da300ec65f33439dc"}');
+  document.body.appendChild(script);
+}
+
 /*
   ---------------------------------------------------------
   FUNCTION: loadPartial
@@ -143,6 +154,7 @@ async function loadPartial(selector, filePath) {
       initQuickContact();
       initBackToTop();
       initGlobalShareButton();
+      initCloudflareAnalytics();
     }
 
   } catch (error) {

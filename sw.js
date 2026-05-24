@@ -12,8 +12,8 @@
 HEAD
 
 
-const STATIC_CACHE = "consutrain-v20260524-cloudflare-analytics";
-const RUNTIME_CACHE = "consutrain-runtime-v20260524-cloudflare-analytics";
+const STATIC_CACHE = "consutrain-v20260524-cloudflare-analytics-loader";
+const RUNTIME_CACHE = "consutrain-runtime-v20260524-cloudflare-analytics-loader";
  f12659416c1d563e0e01293a605e44a54dac6a69
 
 const PRECACHE_URLS = [
