@@ -82,8 +82,8 @@
       position: relative;
       z-index: 1;
       display: grid;
-      gap: 8mm;
-      width: min(235mm, 86%);
+      gap: 7mm;
+      width: min(246mm, 88%);
       padding: 10mm 8mm;
     }
 
@@ -154,15 +154,15 @@
 
     .certificate-meta {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5mm;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 3mm;
       margin-top: 4mm;
       text-align: right;
     }
 
     .meta-item {
-      min-height: 18mm;
-      padding: 4mm;
+      min-height: 24mm;
+      padding: 3.4mm;
       border: 1px solid rgba(15, 23, 42, .16);
       background: rgba(255, 255, 255, .72);
     }
@@ -196,11 +196,34 @@
     }
 
     .signature {
-      min-width: 48mm;
-      padding-top: 4mm;
-      border-top: 1px solid var(--navy);
+      display: grid;
+      gap: 1mm;
+      justify-items: center;
       color: var(--navy);
+      text-align: center;
       font-weight: 800;
+    }
+
+    .signature-line {
+      width: 34mm;
+      padding-top: 2.6mm;
+      border-top: 1px solid var(--navy);
+      color: var(--muted);
+      font-size: 3mm;
+      font-weight: 700;
+    }
+
+    .signature-name {
+      color: var(--navy);
+      font-size: 4mm;
+      line-height: 1.4;
+    }
+
+    .signature-title,
+    .signature-title-en {
+      color: var(--muted);
+      font-size: 3mm;
+      line-height: 1.35;
     }
 
     @media screen {
@@ -259,13 +282,19 @@
             <span class="meta-label">رابط التحقق</span>
             <span class="meta-value">{{verificationUrl}}</span>
           </div>
+
+          <div class="meta-item signature" aria-label="توقيع مدير منصة ConsuTrain">
+            <div class="signature-line">التوقيع</div>
+            <div class="signature-name">يوسف جول</div>
+            <div class="signature-title">مدير منصة ConsuTrain</div>
+            <div class="signature-title-en">ConsuTrain Platform Manager</div>
+          </div>
         </div>
 
         <footer class="footer-line">
           <p>
             تثبت هذه الشهادة إتمام التدريب داخل منصة ConsuTrain، ولا تعد اعتمادًا مهنيًا أو ترخيصًا رسميًا.
           </p>
-          <div class="signature">إدارة ConsuTrain</div>
         </footer>
       </div>
     </section>
