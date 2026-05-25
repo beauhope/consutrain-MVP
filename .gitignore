@@ -1,3 +1,7 @@
 _private-reviews/
 _private-publishing/
 _private-certificates/
+
+# Local n8n startup files for ConsuTrain certificate workflow
+start-n8n-consutrain.bat
+start-n8n-consutrain.ps1
