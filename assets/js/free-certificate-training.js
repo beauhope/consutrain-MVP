@@ -324,10 +324,13 @@
 
     return true;
   }
-
+    function createSubmissionId() {
+  return `${TRAINING_ID}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  }
   function buildPayload(score, percentage, passed, answers) {
     return {
       timestamp: new Date().toISOString(),
+      submissionId: createSubmissionId(),
       trainingId: TRAINING_ID,
       trainingTitle: TRAINING_TITLE,
       fullName: getRequiredTextValue("fullName"),
@@ -348,18 +351,23 @@
   }
 
   async function sendToWebhook(payload) {
-    const response = await fetch(WEBHOOK_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
+  const payloadToSend = {
+    ...payload,
+    submissionId: payload.submissionId || createSubmissionId()
+  };
 
-    if (!response.ok) {
-      throw new Error(`Webhook returned ${response.status}`);
-    }
+  const response = await fetch(WEBHOOK_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payloadToSend)
+  });
+
+  if (!response.ok) {
+    throw new Error(`Webhook returned ${response.status}`);
   }
+}
 
   async function retryPendingSubmissions(options) {
     const retryOptions = options || {};
