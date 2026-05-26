@@ -771,3 +771,35 @@ The first implementation will be an MVP without user login and without automated
 - `ConsuTrain – Certificate Generator and Email Sender`
 
 كما تم اعتماد تشغيل n8n محليًا باستخدام ملف تشغيل خاص يفعّل السماح لعقدة Code باستخدام `fs` و `child_process` لتوليد PDF عبر Chrome Headless.
+
+
+## اعتماد مسار موحد لإصدار الشهادات الرقمية في ConsuTrain
+
+تم اعتماد مسار موحد لإصدار الشهادات الرقمية في منصة ConsuTrain، بحيث لا يتم إنشاء Workflow مستقل لكل اختبار أو تدريب، بل يتم استخدام Webhook موحد يستقبل بيانات الاختبار والمتدرب، ثم يحفظها في Google Sheets، ويستدعي Workflow فرعيًا لتوليد الشهادة وإرسالها بالبريد.
+
+يعتمد المسار الحالي على Workflowين رئيسيين:
+
+- `ConsuTrain – Certificate Submission Collector`
+- `ConsuTrain – Certificate Generator and Email Sender`
+
+يعتمد منع التكرار على حقل:
+
+`certificateKey`
+
+ويتم تكوينه وفق القاعدة التالية:
+
+`trainingId + "-" + email`
+
+وبذلك يحصل المتدرب على شهادة واحدة فقط لكل تدريب، مع السماح له بالحصول على شهادات أخرى في تدريبات مختلفة.
+
+تم اعتماد `submissionId` كمعرّف فريد لكل محاولة اختبار، ويُستخدم لتتبع الطلب وربط السجل داخل Google Sheets.
+
+تم اعتماد تشغيل n8n محليًا في المرحلة الحالية، مع ملف تشغيل خاص يفعّل السماح لعقدة Code باستخدام:
+
+- `fs`
+- `child_process`
+- `path`
+
+وذلك لتوليد ملفات PDF محليًا عبر Chrome Headless.
+
+تم استبعاد ملفات التشغيل المحلية من Git عبر `.gitignore` لأنها مرتبطة ببيئة Windows المحلية ولا تمثل جزءًا من ملفات الموقع المنشورة.
