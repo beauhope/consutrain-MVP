@@ -327,10 +327,15 @@
     function createSubmissionId() {
   return `${TRAINING_ID}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   }
+  function createCertificateKey() {
+  const email = getRequiredTextValue("email").toLowerCase().trim();
+  return `${TRAINING_ID}-${email}`;
+}
   function buildPayload(score, percentage, passed, answers) {
     return {
       timestamp: new Date().toISOString(),
       submissionId: createSubmissionId(),
+      certificateKey: createCertificateKey(),
       trainingId: TRAINING_ID,
       trainingTitle: TRAINING_TITLE,
       fullName: getRequiredTextValue("fullName"),

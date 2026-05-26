@@ -754,3 +754,20 @@ ConsuTrain will use the term "شهادة إتمام رقمية" for free introdu
 These certificates confirm that the learner completed the training and passed a short assessment inside the platform. They must not be described as accredited certificates, professional certifications, official licenses, or formal qualifications unless the platform obtains the relevant accreditation in the future.
 
 The first implementation will be an MVP without user login and without automated certificate generation. Certificate automation, QR verification, and user accounts may be added later if the pilot succeeds.
+
+### اعتماد مسار موحد لإصدار شهادات ConsuTrain
+
+تم اعتماد مسار موحد لإصدار الشهادات الرقمية في منصة ConsuTrain، بحيث لا يتم إنشاء Workflow مستقل لكل اختبار أو تدريب. يعتمد النظام على Webhook موحد يستقبل بيانات الاختبار والمتدرب، ثم يحفظها في Google Sheets، ويستدعي Workflow مستقلًا لتوليد الشهادة وإرسالها بالبريد.
+
+يعتمد منع التكرار على حقل `certificateKey`، ويتم تكوينه من:
+
+`trainingId + "-" + email`
+
+وبذلك يحصل المتدرب على شهادة واحدة فقط لكل تدريب، مع السماح له بالحصول على شهادات أخرى في تدريبات مختلفة.
+
+تم اعتماد Workflowين رئيسيين:
+
+- `ConsuTrain – Certificate Submission Collector`
+- `ConsuTrain – Certificate Generator and Email Sender`
+
+كما تم اعتماد تشغيل n8n محليًا باستخدام ملف تشغيل خاص يفعّل السماح لعقدة Code باستخدام `fs` و `child_process` لتوليد PDF عبر Chrome Headless.

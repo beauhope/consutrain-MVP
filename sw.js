@@ -12,8 +12,8 @@
 HEAD
 
 
-const STATIC_CACHE = "consutrain-v20260524-consutrain-favicon";
-const RUNTIME_CACHE = "consutrain-runtime-v20260524-consutrain-favicon";
+const STATIC_CACHE = "consutrain-v20260526-pwa-icons-v2";
+const RUNTIME_CACHE = "consutrain-runtime-v20260526-pwa-icons-v2";
  f12659416c1d563e0e01293a605e44a54dac6a69
 
 const PRECACHE_URLS = [
@@ -116,8 +116,8 @@ const PRECACHE_URLS = [
   "./assets/fonts/Cairo-Regular.ttf",
   "./assets/fonts/Cairo-VariableFont_slnt,wght.woff2",
 
-  "./assets/icons/icon-192.png",
-  "./assets/icons/icon-512.png",
+  "./assets/icons/icon-192-v2.png",
+  "./assets/icons/icon-512-v2.png",
   "./assets/icons/icon-192-maskable.png",
   "./assets/icons/icon-512-maskable.png",
 
@@ -257,6 +257,6 @@ async function cacheFirstAsset(request) {
     runtimeCache.put(request, networkResponse.clone());
     return networkResponse;
   } catch (error) {
-    return caches.match("./assets/icons/icon-192.png");
+    return caches.match("./assets/icons/icon-192-v2.png");
   }
 }
