@@ -412,8 +412,10 @@
 
     .certificate-detail-section h3 {
       margin: 0 0 14px;
+      padding-bottom: 10px;
       color: var(--primary);
       font-size: 1rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .certificate-detail-grid {
@@ -641,15 +643,16 @@
             <table class="cert-table">
               <thead>
                 <tr>
+                  <th>رقم الشهادة</th>
                   <th>اسم المتدرب</th>
-                  <th>البريد الإلكتروني</th>
-                  <th>نوع الشهادة</th>
-                  <th>اسم البرنامج</th>
-                  <th>اسم الاختبار</th>
-                  <th>كود الاختبار</th>
+                  <th>البريد</th>
+                  <th>اسم التدريب</th>
+                  <th>نوع التعلم</th>
+                  <th>التصنيف</th>
+                  <th>النسبة</th>
                   <th>حالة الشهادة</th>
-                  <th>حالة الإرسال</th>
-                  <th>تاريخ الإصدار</th>
+                  <th>حالة البريد</th>
+                  <th>تاريخ الإرسال</th>
                   <th>الإجراءات</th>
                 </tr>
               </thead>
@@ -867,9 +870,29 @@
         allLearningTypes: "كل أنماط التعلم",
         allCategories: "كل تصنيفات التدريب",
         loading: "جاري تحميل بيانات الشهادات من n8n...",
-        noResults: "لا توجد شهادات مطابقة للبحث أو الفلاتر الحالية.",
+        noResults: "لا توجد شهادات مطابقة لمعايير البحث أو التصفية.",
         loadError: "تعذر تحميل بيانات الشهادات من API. تأكد من تشغيل n8n وأن رابط الـ webhook متاح.",
         readOnly: "للقراءة فقط"
+      };
+
+      const certificateTypeLabels = {
+        free_test: "اختبار مجاني",
+        paid_course: "دورة مدفوعة",
+        workshop: "ورشة",
+        program: "برنامج تدريبي"
+      };
+
+      const taxonomyLabels = {
+        free_test: "اختبار مجاني",
+        paid_course: "دورة مدفوعة",
+        workshop: "ورشة",
+        program: "برنامج تدريبي",
+        online: "تعلم إلكتروني",
+        onsite: "حضوري",
+        in_person: "حضوري",
+        live: "مباشر",
+        self_paced: "ذاتي",
+        blended: "مدمج"
       };
 
       const selectors = {
@@ -923,20 +946,54 @@
         tableBody.innerHTML = "";
         const row = document.createElement("tr");
         const cell = document.createElement("td");
-        cell.colSpan = 10;
+        cell.colSpan = 11;
         cell.className = isError ? "status-error" : "muted";
         cell.textContent = message;
         row.appendChild(cell);
         tableBody.appendChild(row);
       }
 
-      function statusClass(value) {
+      function statusState(value, hasError = false) {
         const text = normalize(value);
-        if (text.includes("fail") || text.includes("error") || text.includes("فشل")) return "status-error";
-        if (text.includes("sent") || text.includes("مرسل")) return "status-sent";
-        if (text.includes("pending") || text.includes("processing") || text.includes("قيد")) return "status-processing";
-        if (text.includes("duplicate") || text.includes("مكرر")) return "status-duplicate";
+        if (hasError || text.includes("fail") || text.includes("failed") || text.includes("error") || text.includes("فشل")) return "failed";
+        if (text.includes("pending") || text.includes("processing") || text.includes("قيد") || text.includes("انتظار")) return "pending";
+        if (text.includes("sent") || text.includes("issued") || text.includes("success") || text.includes("مرسل") || text.includes("صادر")) return "sent";
+        if (!text || text.includes("غير محدد")) return "empty";
+        return "other";
+      }
+
+      function statusClass(value, hasError = false) {
+        const state = statusState(value, hasError);
+        if (state === "failed") return "status-error";
+        if (state === "pending") return "status-processing";
+        if (state === "empty") return "status-duplicate";
         return "status-issued";
+      }
+
+      function formatStatus(value, hasError = false) {
+        const state = statusState(value, hasError);
+        if (state === "failed") return "فشل";
+        if (state === "pending") return "قيد الانتظار";
+        if (state === "sent") return "مرسل";
+        if (state === "empty") return "غير محدد";
+        return display(value);
+      }
+
+      function formatCertificateType(value) {
+        const key = normalize(value);
+        return certificateTypeLabels[key] || display(value);
+      }
+
+      function formatTaxonomyValue(value) {
+        const key = normalize(value);
+        if (!key) return labels.empty;
+        return taxonomyLabels[key] || String(value).replace(/_/g, " ");
+      }
+
+      function formatPercentage(value) {
+        if (value === undefined || value === null || value === "") return labels.empty;
+        const text = String(value);
+        return text.includes("%") ? text : `${text}%`;
       }
 
       function makeCell(text, className) {
@@ -955,11 +1012,11 @@
         return cell;
       }
 
-      function makeStatusCell(text) {
+      function makeStatusCell(text, hasError = false) {
         const cell = document.createElement("td");
         const pill = document.createElement("span");
-        pill.className = `status-pill ${statusClass(text)}`;
-        pill.textContent = display(text);
+        pill.className = `status-pill ${statusClass(text, hasError)}`;
+        pill.textContent = formatStatus(text, hasError);
         cell.appendChild(pill);
         return cell;
       }
@@ -1008,15 +1065,16 @@
 
         items.forEach((item) => {
           const row = document.createElement("tr");
+          row.appendChild(makeCodeCell(item.certificateId || item.certificateKey || item.submissionId));
           row.appendChild(makeCell(item.fullName));
           row.appendChild(makeCell(item.email, "muted"));
-          row.appendChild(makeCell(item.certificateType));
           row.appendChild(makeCell(item.trainingTitle));
-          row.appendChild(makeCell(item.trainingId));
-          row.appendChild(makeCodeCell(item.certificateId || item.certificateKey || item.submissionId));
-          row.appendChild(makeStatusCell(item.certificateStatus));
+          row.appendChild(makeCell(formatTaxonomyValue(item.learningType)));
+          row.appendChild(makeCell(formatTaxonomyValue(item.trainingCategory)));
+          row.appendChild(makeCell(formatPercentage(item.percentage)));
+          row.appendChild(makeStatusCell(item.certificateStatus, Boolean(item.errorMessage)));
           row.appendChild(makeStatusCell(item.emailStatus));
-          row.appendChild(makeCell(formatDate(item.certificateIssuedAt || item.timestamp)));
+          row.appendChild(makeCell(formatDate(item.emailSentAt)));
           row.appendChild(makeActionsCell(item));
           row.addEventListener("click", () => {
             state.selectedItem = item;
@@ -1056,7 +1114,7 @@
         });
       }
 
-      function setSelectOptions(select, values, allLabel) {
+      function setSelectOptions(select, values, allLabel, formatter = display) {
         if (!select) return;
         const current = select.value;
         select.innerHTML = "";
@@ -1069,7 +1127,7 @@
         values.forEach((value) => {
           const option = document.createElement("option");
           option.value = value;
-          option.textContent = value;
+          option.textContent = formatter(value);
           select.appendChild(option);
         });
 
@@ -1105,17 +1163,19 @@
       function populateFilters(items) {
         const unique = (key) => [...new Set(items.map((item) => valueOf(item, key)).filter(Boolean))].sort();
 
-        setSelectOptions(bySelector(selectors.certificateStatus), unique("certificateStatus"), labels.allStatuses);
-        setSelectOptions(bySelector(selectors.certificateType), unique("certificateType"), labels.allTypes);
+        setSelectOptions(bySelector(selectors.certificateStatus), unique("certificateStatus"), labels.allStatuses, formatStatus);
+        setSelectOptions(bySelector(selectors.certificateType), unique("certificateType"), labels.allTypes, formatCertificateType);
         setSelectOptions(
           ensureSelectFilter("filter-learning-type", "learningType", "نمط التعلم", "#filter-send-status"),
           unique("learningType"),
-          labels.allLearningTypes
+          labels.allLearningTypes,
+          formatTaxonomyValue
         );
         setSelectOptions(
           ensureSelectFilter("filter-training-category", "trainingCategory", "تصنيف التدريب", "#filter-learning-type"),
           unique("trainingCategory"),
-          labels.allCategories
+          labels.allCategories,
+          formatTaxonomyValue
         );
       }
 
@@ -1182,16 +1242,16 @@
         const rows = [
           ["اسم المتدرب", item.fullName],
           ["البريد الإلكتروني", item.email],
-          ["نوع الشهادة", item.certificateType],
-          ["نمط التعلم", item.learningType],
-          ["تصنيف التدريب", item.trainingCategory],
+          ["نوع الشهادة", formatCertificateType(item.certificateType)],
+          ["نمط التعلم", formatTaxonomyValue(item.learningType)],
+          ["تصنيف التدريب", formatTaxonomyValue(item.trainingCategory)],
           ["اسم التدريب", item.trainingTitle],
           ["trainingId", item.trainingId],
-          ["النتيجة", item.percentage ? `${item.percentage}%` : ""],
+          ["النتيجة", formatPercentage(item.percentage)],
           ["certificateId", item.certificateId],
           ["certificateKey", item.certificateKey],
-          ["حالة الشهادة", item.certificateStatus],
-          ["حالة الإرسال", item.emailStatus],
+          ["حالة الشهادة", formatStatus(item.certificateStatus, Boolean(item.errorMessage))],
+          ["حالة الإرسال", formatStatus(item.emailStatus)],
           ["تاريخ الإصدار", formatDate(item.certificateIssuedAt)],
           ["رابط ملف الشهادة", item.certificateFileUrl],
           ["رسالة الخطأ", item.errorMessage]
@@ -1305,7 +1365,7 @@
           return;
         }
 
-        addDetailSection(body, "بيانات المتدرب", [
+        addDetailSection(body, "بيانات المتدرب الأساسية", [
           ["الاسم", item.fullName],
           ["البريد الإلكتروني", item.email],
           ["الدولة", item.country],
@@ -1313,36 +1373,36 @@
           ["المسمى الوظيفي", item.jobTitle]
         ]);
 
-        addDetailSection(body, "بيانات التدريب", [
+        addDetailSection(body, "بيانات التدريب والتصنيف", [
           ["trainingId", item.trainingId],
           ["اسم التدريب", item.trainingTitle],
-          ["نوع الشهادة", item.certificateType],
-          ["نمط التعلم", item.learningType],
-          ["تصنيف التدريب", item.trainingCategory]
+          ["نوع الشهادة", formatCertificateType(item.certificateType)],
+          ["نمط التعلم", formatTaxonomyValue(item.learningType)],
+          ["تصنيف التدريب", formatTaxonomyValue(item.trainingCategory)]
         ]);
 
-        addDetailSection(body, "بيانات النتيجة", [
+        addDetailSection(body, "بيانات النتيجة والاجتياز", [
           ["الدرجة", item.score],
           ["إجمالي الأسئلة", item.totalQuestions],
-          ["النسبة", item.percentage ? `${item.percentage}%` : ""],
+          ["النسبة", formatPercentage(item.percentage)],
           ["اجتاز", item.passed === true ? "نعم" : item.passed === false ? "لا" : item.passed]
         ]);
 
-        addDetailSection(body, "بيانات الشهادة", [
+        addDetailSection(body, "بيانات الشهادة الرقمية", [
           ["certificateId", item.certificateId],
           ["certificateKey", item.certificateKey],
-          ["حالة الشهادة", item.certificateStatus],
+          ["حالة الشهادة", formatStatus(item.certificateStatus, Boolean(item.errorMessage))],
           ["تاريخ الإصدار", formatDate(item.certificateIssuedAt)],
           ["certificateFileUrl", item.certificateFileUrl],
           ["رسالة الخطأ", item.errorMessage]
         ]);
 
-        addDetailSection(body, "بيانات البريد", [
-          ["حالة البريد", item.emailStatus],
+        addDetailSection(body, "بيانات البريد الإلكتروني", [
+          ["حالة البريد", formatStatus(item.emailStatus)],
           ["تاريخ الإرسال", formatDate(item.emailSentAt)]
         ]);
 
-        addDetailSection(body, "بيانات التتبع", [
+        addDetailSection(body, "بيانات التتبع والمصدر", [
           ["rowNumber", item.rowNumber],
           ["submissionId", item.submissionId],
           ["timestamp", formatDate(item.timestamp)]
