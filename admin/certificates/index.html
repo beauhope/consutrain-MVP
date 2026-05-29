@@ -544,7 +544,7 @@
                   <th>الإجراءات</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="certificates-table-body">
                 <tr>
                   <td>سارة المالكي</td>
                   <td class="muted">sarah.m@example.com</td>
@@ -728,6 +728,419 @@
     </div>
   </main>
 
+  <script>
+    const CERTIFICATES_API_URL = "http://localhost:5678/webhook/consutrain-admin-certificates-list";
+
+    (() => {
+      const state = {
+        items: [],
+        filteredItems: [],
+        selectedItem: null
+      };
+
+      const labels = {
+        empty: "غير متوفر",
+        allStatuses: "كل حالات الشهادة",
+        allTypes: "كل أنواع الشهادات",
+        allLearningTypes: "كل أنماط التعلم",
+        allCategories: "كل تصنيفات التدريب",
+        loading: "جاري تحميل بيانات الشهادات من n8n...",
+        noResults: "لا توجد شهادات مطابقة للبحث أو الفلاتر الحالية.",
+        loadError: "تعذر تحميل بيانات الشهادات من API. تأكد من تشغيل n8n وأن رابط الـ webhook متاح.",
+        readOnly: "للقراءة فقط"
+      };
+
+      const selectors = {
+        tableBody: "#certificates-table-body",
+        email: "#filter-email",
+        trainee: "#filter-trainee",
+        training: "#filter-program",
+        assessment: "#filter-assessment",
+        certificateNo: "#filter-code",
+        certificateType: "#filter-type",
+        certificateStatus: "#filter-cert-status",
+        detailsList: ".details-list"
+      };
+
+      function bySelector(selector) {
+        return document.querySelector(selector);
+      }
+
+      function valueOf(item, key) {
+        const value = item && item[key];
+        return value === undefined || value === null || value === "" ? "" : String(value);
+      }
+
+      function display(value) {
+        return value === undefined || value === null || value === "" ? labels.empty : String(value);
+      }
+
+      function numberValue(value) {
+        const number = Number(value);
+        return Number.isFinite(number) ? number : 0;
+      }
+
+      function formatDate(value) {
+        if (!value) return labels.empty;
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return String(value);
+        return date.toISOString().slice(0, 10);
+      }
+
+      function normalize(value) {
+        return String(value || "").trim().toLowerCase();
+      }
+
+      function setTableMessage(message, isError = false) {
+        const tableBody = bySelector(selectors.tableBody);
+        if (!tableBody) return;
+        tableBody.innerHTML = "";
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+        cell.colSpan = 10;
+        cell.className = isError ? "status-error" : "muted";
+        cell.textContent = message;
+        row.appendChild(cell);
+        tableBody.appendChild(row);
+      }
+
+      function statusClass(value) {
+        const text = normalize(value);
+        if (text.includes("fail") || text.includes("error") || text.includes("فشل")) return "status-error";
+        if (text.includes("sent") || text.includes("مرسل")) return "status-sent";
+        if (text.includes("pending") || text.includes("processing") || text.includes("قيد")) return "status-processing";
+        if (text.includes("duplicate") || text.includes("مكرر")) return "status-duplicate";
+        return "status-issued";
+      }
+
+      function makeCell(text, className) {
+        const cell = document.createElement("td");
+        if (className) cell.className = className;
+        cell.textContent = display(text);
+        return cell;
+      }
+
+      function makeCodeCell(text) {
+        const cell = document.createElement("td");
+        const code = document.createElement("span");
+        code.className = "code-text";
+        code.textContent = display(text);
+        cell.appendChild(code);
+        return cell;
+      }
+
+      function makeStatusCell(text) {
+        const cell = document.createElement("td");
+        const pill = document.createElement("span");
+        pill.className = `status-pill ${statusClass(text)}`;
+        pill.textContent = display(text);
+        cell.appendChild(pill);
+        return cell;
+      }
+
+      function makeActionsCell(item) {
+        const cell = document.createElement("td");
+        const actions = document.createElement("div");
+        actions.className = "table-actions";
+
+        ["عرض التفاصيل", "فتح PDF", "إعادة إرسال"].forEach((text) => {
+          const button = document.createElement("button");
+          button.className = `btn ${text === "إعادة إرسال" ? "btn-primary" : "btn-secondary"} action-btn`;
+          button.type = "button";
+          button.disabled = true;
+          button.setAttribute("aria-disabled", "true");
+          button.title = labels.readOnly;
+          button.textContent = text;
+          actions.appendChild(button);
+        });
+
+        cell.appendChild(actions);
+        return cell;
+      }
+
+      function renderTable(items) {
+        const tableBody = bySelector(selectors.tableBody);
+        if (!tableBody) return;
+        tableBody.innerHTML = "";
+
+        if (!items.length) {
+          setTableMessage(labels.noResults);
+          return;
+        }
+
+        items.forEach((item) => {
+          const row = document.createElement("tr");
+          row.appendChild(makeCell(item.fullName));
+          row.appendChild(makeCell(item.email, "muted"));
+          row.appendChild(makeCell(item.certificateType));
+          row.appendChild(makeCell(item.trainingTitle));
+          row.appendChild(makeCell(item.trainingId));
+          row.appendChild(makeCodeCell(item.certificateId || item.certificateKey || item.submissionId));
+          row.appendChild(makeStatusCell(item.certificateStatus));
+          row.appendChild(makeStatusCell(item.emailStatus));
+          row.appendChild(makeCell(formatDate(item.certificateIssuedAt || item.timestamp)));
+          row.appendChild(makeActionsCell(item));
+          row.addEventListener("click", () => {
+            state.selectedItem = item;
+            renderDetails(item);
+          });
+          tableBody.appendChild(row);
+        });
+      }
+
+      function statText(summary, key) {
+        return String(numberValue(summary && summary[key]));
+      }
+
+      function renderSummary(summary = {}) {
+        const cards = document.querySelectorAll(".stat-card");
+        const data = [
+          ["إجمالي طلبات الشهادات", statText(summary, "total"), "كل السجلات الراجعة من Google Sheets."],
+          ["الشهادات المرسلة", statText(summary, "sent"), "سجلات تم إرسالها بالبريد الإلكتروني."],
+          ["قيد الانتظار", statText(summary, "pending"), "سجلات لم تكتمل بعد أو بانتظار المعالجة."],
+          ["طلبات فاشلة", statText(summary, "failed"), "سجلات تحتاج مراجعة بسبب فشل الإصدار أو الإرسال."],
+          [
+            "توزيع نوع التدريب",
+            String(numberValue(summary.freeTests) + numberValue(summary.paidCourses) + numberValue(summary.workshops) + numberValue(summary.programs)),
+            `اختبارات مجانية: ${statText(summary, "freeTests")} | دورات مدفوعة: ${statText(summary, "paidCourses")} | ورش: ${statText(summary, "workshops")} | برامج: ${statText(summary, "programs")}`
+          ]
+        ];
+
+        cards.forEach((card, index) => {
+          const content = data[index];
+          if (!content) return;
+          const title = card.querySelector("span");
+          const value = card.querySelector("strong");
+          const note = card.querySelector("small");
+          if (title) title.textContent = content[0];
+          if (value) value.textContent = content[1];
+          if (note) note.textContent = content[2];
+        });
+      }
+
+      function setSelectOptions(select, values, allLabel) {
+        if (!select) return;
+        const current = select.value;
+        select.innerHTML = "";
+
+        const all = document.createElement("option");
+        all.value = "";
+        all.textContent = allLabel;
+        select.appendChild(all);
+
+        values.forEach((value) => {
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = value;
+          select.appendChild(option);
+        });
+
+        if ([...select.options].some((option) => option.value === current)) {
+          select.value = current;
+        }
+      }
+
+      function ensureSelectFilter(id, name, labelText, afterSelector) {
+        let select = document.getElementById(id);
+        if (select) return select;
+
+        const anchor = bySelector(afterSelector);
+        const field = document.createElement("div");
+        field.className = "field";
+
+        const label = document.createElement("label");
+        label.htmlFor = id;
+        label.textContent = labelText;
+
+        select = document.createElement("select");
+        select.id = id;
+        select.name = name;
+
+        field.append(label, select);
+        if (anchor && anchor.parentElement) {
+          anchor.parentElement.insertAdjacentElement("afterend", field);
+        }
+
+        return select;
+      }
+
+      function populateFilters(items) {
+        const unique = (key) => [...new Set(items.map((item) => valueOf(item, key)).filter(Boolean))].sort();
+
+        setSelectOptions(bySelector(selectors.certificateStatus), unique("certificateStatus"), labels.allStatuses);
+        setSelectOptions(bySelector(selectors.certificateType), unique("certificateType"), labels.allTypes);
+        setSelectOptions(
+          ensureSelectFilter("filter-learning-type", "learningType", "نمط التعلم", "#filter-send-status"),
+          unique("learningType"),
+          labels.allLearningTypes
+        );
+        setSelectOptions(
+          ensureSelectFilter("filter-training-category", "trainingCategory", "تصنيف التدريب", "#filter-learning-type"),
+          unique("trainingCategory"),
+          labels.allCategories
+        );
+      }
+
+      function currentSearchTerm() {
+        return [
+          bySelector(selectors.email),
+          bySelector(selectors.trainee),
+          bySelector(selectors.training),
+          bySelector(selectors.assessment),
+          bySelector(selectors.certificateNo)
+        ].map((input) => normalize(input && input.value)).filter(Boolean).join(" ");
+      }
+
+      function matchesSearch(item, term) {
+        if (!term) return true;
+        const haystack = [
+          item.fullName,
+          item.email,
+          item.certificateId,
+          item.certificateKey,
+          item.submissionId,
+          item.trainingId,
+          item.trainingTitle
+        ].map(normalize).join(" ");
+        return term.split(/\s+/).every((part) => haystack.includes(part));
+      }
+
+      function matchesSelect(item, selector, key) {
+        const select = bySelector(selector);
+        if (!select || !select.value) return true;
+        return valueOf(item, key) === select.value;
+      }
+
+      function applyFilters() {
+        const searchTerm = currentSearchTerm();
+        state.filteredItems = state.items.filter((item) => {
+          return matchesSearch(item, searchTerm)
+            && matchesSelect(item, selectors.certificateStatus, "certificateStatus")
+            && matchesSelect(item, selectors.certificateType, "certificateType")
+            && matchesSelect(item, "#filter-learning-type", "learningType")
+            && matchesSelect(item, "#filter-training-category", "trainingCategory");
+        });
+        renderTable(state.filteredItems);
+        renderDetails(state.filteredItems[0] || null);
+      }
+
+      function renderDetails(item) {
+        const detailsList = bySelector(selectors.detailsList);
+        if (!detailsList) return;
+        detailsList.innerHTML = "";
+
+        if (!item) {
+          const row = document.createElement("div");
+          row.className = "details-row";
+          const term = document.createElement("dt");
+          term.textContent = "الحالة";
+          const desc = document.createElement("dd");
+          desc.textContent = labels.noResults;
+          row.append(term, desc);
+          detailsList.appendChild(row);
+          return;
+        }
+
+        const rows = [
+          ["اسم المتدرب", item.fullName],
+          ["البريد الإلكتروني", item.email],
+          ["نوع الشهادة", item.certificateType],
+          ["نمط التعلم", item.learningType],
+          ["تصنيف التدريب", item.trainingCategory],
+          ["اسم التدريب", item.trainingTitle],
+          ["trainingId", item.trainingId],
+          ["النتيجة", item.percentage ? `${item.percentage}%` : ""],
+          ["certificateId", item.certificateId],
+          ["certificateKey", item.certificateKey],
+          ["حالة الشهادة", item.certificateStatus],
+          ["حالة الإرسال", item.emailStatus],
+          ["تاريخ الإصدار", formatDate(item.certificateIssuedAt)],
+          ["رابط ملف الشهادة", item.certificateFileUrl],
+          ["رسالة الخطأ", item.errorMessage]
+        ];
+
+        rows.forEach(([termText, descText]) => {
+          const row = document.createElement("div");
+          row.className = "details-row";
+          const term = document.createElement("dt");
+          term.textContent = termText;
+          const desc = document.createElement("dd");
+          if (["certificateId", "certificateKey", "trainingId", "رابط ملف الشهادة"].includes(termText)) {
+            const code = document.createElement("span");
+            code.className = "code-text";
+            code.textContent = display(descText);
+            desc.appendChild(code);
+          } else if (["حالة الشهادة", "حالة الإرسال"].includes(termText)) {
+            const pill = document.createElement("span");
+            pill.className = `status-pill ${statusClass(descText)}`;
+            pill.textContent = display(descText);
+            desc.appendChild(pill);
+          } else {
+            desc.textContent = display(descText);
+          }
+          row.append(term, desc);
+          detailsList.appendChild(row);
+        });
+      }
+
+      function bindFilters() {
+        const filterInputs = [
+          selectors.email,
+          selectors.trainee,
+          selectors.training,
+          selectors.assessment,
+          selectors.certificateNo,
+          selectors.certificateType,
+          selectors.certificateStatus,
+          "#filter-learning-type",
+          "#filter-training-category"
+        ];
+
+        filterInputs.forEach((selector) => {
+          const element = bySelector(selector);
+          if (element) element.addEventListener("input", applyFilters);
+          if (element) element.addEventListener("change", applyFilters);
+        });
+
+        const applyButton = document.querySelector(".filter-actions .btn-primary");
+        if (applyButton) applyButton.addEventListener("click", applyFilters);
+
+        const form = document.querySelector("form[aria-label]");
+        if (form) {
+          form.addEventListener("reset", () => {
+            window.setTimeout(applyFilters, 0);
+          });
+        }
+      }
+
+      async function loadCertificates() {
+        setTableMessage(labels.loading);
+
+        try {
+          const response = await fetch(CERTIFICATES_API_URL, { headers: { Accept: "application/json" } });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+          const data = await response.json();
+          if (!data || data.ok === false || !Array.isArray(data.items)) {
+            throw new Error("Invalid certificates API response");
+          }
+
+          state.items = data.items;
+          renderSummary(data.summary || {});
+          populateFilters(state.items);
+          bindFilters();
+          applyFilters();
+        } catch (error) {
+          console.error("Certificates API load failed:", error);
+          renderSummary({});
+          setTableMessage(labels.loadError, true);
+          renderDetails(null);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadCertificates);
+    })();
+  </script>
   <script src="../../assets/js/includes.js?v=20260504_menu"></script>
 </body>
 </html>
