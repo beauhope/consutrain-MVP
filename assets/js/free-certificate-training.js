@@ -487,6 +487,9 @@
   setStatus("تم احتساب نتيجتك، لكن تعذر حفظها الآن. تم حفظ الطلب مؤقتًا على هذا الجهاز، وسيتم إعادة محاولة الإرسال عند توفر الاتصال.", "error");
   resultActions.hidden = false;
   console.error("Certificate submission failed:", error);
+} finally {
+  submitButton.disabled = false;
+  submitButton.textContent = "إرسال الاختبار";
 }
   });
 
