@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260507_courses">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+  <title>إدارة طلبات الاستشارة والدورات | ConsuTrain</title>
+  <meta name="description" content="واجهة إدارية تجريبية لمتابعة طلبات الاستشارة والدورات الواردة إلى ConsuTrain.">
+  <style>
+    .requests-admin-page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(212, 166, 58, .12), transparent 30%),
+        linear-gradient(180deg, #f5f7fb 0%, #eef3f8 100%);
+    }
+
+    .admin-shell {
+      padding: 22px 0 58px;
+    }
+
+    .admin-topbar,
+    .requests-hero,
+    .section-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .admin-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      padding: 14px 18px;
+      background: #fff;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .admin-brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      font-weight: 800;
+    }
+
+    .requests-hero {
+      margin-bottom: 20px;
+      padding: 28px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), #183f6d);
+    }
+
+    .requests-hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.25;
+    }
+
+    .requests-hero p {
+      max-width: 900px;
+      margin: 0;
+      color: rgba(255, 255, 255, .84);
+      line-height: 1.9;
+      font-size: 1.02rem;
+    }
+
+    .admin-badges,
+    .filter-checks,
+    .filter-actions,
+    .table-actions,
+    .status-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .admin-badges {
+      margin-top: 18px;
+    }
+
+    .badge,
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: .86rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .badge {
+      color: var(--primary);
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, .52);
+    }
+
+    .badge-muted {
+      color: #fff;
+      background: rgba(255, 255, 255, .16);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      min-height: 118px;
+      padding: 18px;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .stat-card strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--primary);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .stat-card small {
+      display: block;
+      margin-top: 9px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .section-card {
+      background: #fff;
+      padding: 22px;
+    }
+
+    .section-head {
+      margin-bottom: 16px;
+    }
+
+    .section-head h2,
+    .section-card h2,
+    .section-card h3 {
+      margin: 0 0 8px;
+      color: var(--primary);
+    }
+
+    .section-head p,
+    .section-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--primary);
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 44px;
+      padding: 9px 12px;
+      color: var(--text);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--primary-3);
+      box-shadow: 0 0 0 3px rgba(29, 77, 130, .12);
+    }
+
+    .filter-checks,
+    .filter-actions {
+      margin-top: 16px;
+    }
+
+    .check-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      color: var(--primary);
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(320px, .8fr);
+      gap: 18px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .requests-table {
+      width: 100%;
+      min-width: 1080px;
+      border-collapse: collapse;
+      text-align: right;
+    }
+
+    .requests-table th,
+    .requests-table td {
+      padding: 13px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+      font-size: .92rem;
+    }
+
+    .requests-table th {
+      color: var(--primary);
+      background: #f8fafc;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .requests-table tbody tr:hover {
+      background: #fbfcfe;
+    }
+
+    .requests-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .status-new {
+      color: #155e3b;
+      background: #dcfce7;
+    }
+
+    .status-waiting,
+    .priority-medium {
+      color: #854d0e;
+      background: #fef3c7;
+    }
+
+    .status-contacted {
+      color: #164e63;
+      background: #cffafe;
+    }
+
+    .status-quote,
+    .priority-high {
+      color: #991b1b;
+      background: #fee2e2;
+    }
+
+    .status-closed,
+    .priority-low {
+      color: #475569;
+      background: #e2e8f0;
+    }
+
+    .status-unfit {
+      color: #7c2d12;
+      background: #ffedd5;
+    }
+
+    .action-btn {
+      min-width: auto;
+      padding: 8px 11px;
+      border: 0;
+      border-radius: 10px;
+      font-size: .84rem;
+      cursor: not-allowed;
+    }
+
+    .details-list {
+      display: grid;
+      gap: 11px;
+      margin: 0;
+    }
+
+    .details-row {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .details-row:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .details-row dt {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .details-row dd {
+      margin: 0;
+      color: var(--text);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .future-list {
+      margin: 14px 0 0;
+      padding: 0 20px 0 0;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .future-list li::marker {
+      color: var(--gold-2);
+    }
+
+    @media (max-width: 1120px) {
+      .stats-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .filters-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .admin-grid,
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .admin-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .requests-hero,
+      .section-card {
+        border-radius: 14px;
+      }
+
+      .stats-grid,
+      .filters-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="requests-admin-page">
+  <main class="admin-shell">
+    <div class="container">
+      <div class="admin-topbar" aria-label="شريط لوحة الإدارة">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">CT</span>
+          <span>ConsuTrain Admin</span>
+        </div>
+        <a class="btn btn-secondary action-btn" href="../index.html">العودة إلى لوحة الإدارة</a>
+      </div>
+
+      <section class="requests-hero" aria-labelledby="requests-title">
+        <span class="eyebrow">طلبات الاستشارة والدورات</span>
+        <h1 id="requests-title">إدارة طلبات الاستشارة والدورات</h1>
+        <p>
+          متابعة الطلبات الواردة من نموذج طلب الاستشارة أو الدورة التدريبية، وتصنيفها حسب النوع والحالة والأولوية.
+          هذه الواجهة تعرض بيانات تجريبية فقط ولا تتصل حاليًا بأي مصدر خارجي.
+        </p>
+        <div class="admin-badges">
+          <span class="badge badge-muted">واجهة تجريبية — غير مرتبطة بعد بنموذج Tally أو Google Sheets</span>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="ملخص طلبات الاستشارة والدورات">
+        <article class="section-card stat-card">
+          <span>إجمالي الطلبات</span>
+          <strong>37</strong>
+          <small>طلبات واردة من نماذج تجريبية مختلفة.</small>
+        </article>
+        <article class="section-card stat-card">
+          <span>طلبات الاستشارة</span>
+          <strong>16</strong>
+          <small>استشارات إدارية وتشغيلية ومؤسسية.</small>
+        </article>
+        <article class="section-card stat-card">
+          <span>طلبات الدورات</span>
+          <strong>11</strong>
+          <small>دورات تدريبية وورش عمل مخصصة.</small>
+        </article>
+        <article class="section-card stat-card">
+          <span>طلبات بانتظار المتابعة</span>
+          <strong>8</strong>
+          <small>تحتاج تواصلًا أو تصنيفًا إضافيًا.</small>
+        </article>
+        <article class="section-card stat-card">
+          <span>طلبات تم التواصل معها</span>
+          <strong>12</strong>
+          <small>تم تسجيل متابعة أولية عليها.</small>
+        </article>
+      </section>
+
+      <section class="section-card" aria-labelledby="filters-title">
+        <div class="section-head">
+          <h2 id="filters-title">البحث والتصفية</h2>
+          <p>فلاتر شكلية فقط لتوضيح تجربة الإدارة، ولا تنفذ بحثًا أو اتصالًا حقيقيًا الآن.</p>
+        </div>
+
+        <form action="#" method="get" aria-label="فلاتر طلبات الاستشارة والدورات" onsubmit="return false;">
+          <div class="filters-grid">
+            <div class="field">
+              <label for="filter-name">البحث بالاسم</label>
+              <input id="filter-name" name="name" type="text" placeholder="مثال: أحمد العلي">
+            </div>
+            <div class="field">
+              <label for="filter-email">البريد الإلكتروني</label>
+              <input id="filter-email" name="email" type="email" placeholder="name@example.com">
+            </div>
+            <div class="field">
+              <label for="filter-type">نوع الطلب</label>
+              <select id="filter-type" name="requestType">
+                <option>كل أنواع الطلبات</option>
+                <option>استشارة</option>
+                <option>دورة تدريبية</option>
+                <option>طلب عرض سعر</option>
+                <option>استفسار عام</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filter-service">الخدمة أو الدورة المطلوبة</label>
+              <input id="filter-service" name="service" type="text" placeholder="مثال: التخطيط الاستراتيجي">
+            </div>
+            <div class="field">
+              <label for="filter-status">حالة الطلب</label>
+              <select id="filter-status" name="status">
+                <option>كل الحالات</option>
+                <option>جديد</option>
+                <option>بانتظار التواصل</option>
+                <option>تم التواصل</option>
+                <option>يحتاج عرض سعر</option>
+                <option>مغلق</option>
+                <option>غير مناسب</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filter-priority">الأولوية</label>
+              <select id="filter-priority" name="priority">
+                <option>كل الأولويات</option>
+                <option>عالية</option>
+                <option>متوسطة</option>
+                <option>منخفضة</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filter-date-from">تاريخ الطلب من</label>
+              <input id="filter-date-from" name="dateFrom" type="date">
+            </div>
+            <div class="field">
+              <label for="filter-date-to">تاريخ الطلب إلى</label>
+              <input id="filter-date-to" name="dateTo" type="date">
+            </div>
+          </div>
+
+          <div class="filter-checks">
+            <label class="check-pill">
+              <input type="checkbox" name="newOnly">
+              عرض الطلبات الجديدة فقط
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="highPriorityOnly">
+              عرض الطلبات عالية الأولوية فقط
+            </label>
+          </div>
+
+          <div class="filter-actions">
+            <button class="btn btn-primary" type="button">تطبيق الفلاتر</button>
+            <button class="btn btn-secondary" type="reset">إعادة ضبط</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="admin-grid">
+        <section class="section-card" aria-labelledby="table-title">
+          <div class="section-head">
+            <h2 id="table-title">جدول الطلبات</h2>
+            <p>بيانات تجريبية ثابتة لعرض حالات مختلفة من طلبات الاستشارة والدورات وطلبات عروض الأسعار.</p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="requests-table">
+              <thead>
+                <tr>
+                  <th>اسم مقدم الطلب</th>
+                  <th>البريد الإلكتروني</th>
+                  <th>نوع الطلب</th>
+                  <th>الخدمة أو الدورة المطلوبة</th>
+                  <th>الجهة / الشركة</th>
+                  <th>الحالة</th>
+                  <th>الأولوية</th>
+                  <th>تاريخ الطلب</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>سارة المالكي</td>
+                  <td class="muted">sarah.m@example.com</td>
+                  <td>استشارة</td>
+                  <td>تطوير نظام إدارة الجودة</td>
+                  <td>شركة نمو للاستشارات</td>
+                  <td><span class="status-pill status-new">جديد</span></td>
+                  <td><span class="status-pill priority-high">عالية</span></td>
+                  <td>2026-05-28</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>نسخ البريد</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>فتح الطلب</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>خالد الحربي</td>
+                  <td class="muted">khaled.h@example.com</td>
+                  <td>دورة تدريبية</td>
+                  <td>M_o_R Foundation</td>
+                  <td>إدارة المخاطر المؤسسية</td>
+                  <td><span class="status-pill status-waiting">بانتظار التواصل</span></td>
+                  <td><span class="status-pill priority-medium">متوسطة</span></td>
+                  <td>2026-05-27</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>نسخ البريد</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>فتح الطلب</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ريم القحطاني</td>
+                  <td class="muted">reem.q@example.com</td>
+                  <td>طلب عرض سعر</td>
+                  <td>ورشة التخطيط الاستراتيجي</td>
+                  <td>مركز الريادة للتدريب</td>
+                  <td><span class="status-pill status-quote">يحتاج عرض سعر</span></td>
+                  <td><span class="status-pill priority-high">عالية</span></td>
+                  <td>2026-05-26</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>نسخ البريد</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>فتح الطلب</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>عبدالله السالم</td>
+                  <td class="muted">abdullah.s@example.com</td>
+                  <td>استشارة</td>
+                  <td>بناء مؤشرات الأداء</td>
+                  <td>مؤسسة الأفق</td>
+                  <td><span class="status-pill status-contacted">تم التواصل</span></td>
+                  <td><span class="status-pill priority-medium">متوسطة</span></td>
+                  <td>2026-05-25</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>نسخ البريد</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>فتح الطلب</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>نورة الدوسري</td>
+                  <td class="muted">nora.d@example.com</td>
+                  <td>استفسار عام</td>
+                  <td>موارد مجانية وقوالب</td>
+                  <td>فرد</td>
+                  <td><span class="status-pill status-closed">مغلق</span></td>
+                  <td><span class="status-pill priority-low">منخفضة</span></td>
+                  <td>2026-05-24</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>نسخ البريد</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>فتح الطلب</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ماجد العنزي</td>
+                  <td class="muted">majed.a@example.com</td>
+                  <td>دورة تدريبية</td>
+                  <td>تدريب خارج نطاق المنصة</td>
+                  <td>شركة تجريبية</td>
+                  <td><span class="status-pill status-unfit">غير مناسب</span></td>
+                  <td><span class="status-pill priority-low">منخفضة</span></td>
+                  <td>2026-05-23</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>نسخ البريد</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>فتح الطلب</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="section-card" aria-labelledby="details-title">
+          <h2 id="details-title">تفاصيل الطلب</h2>
+          <p>لوحة ثابتة تعرض مثالًا لطلب واحد، ويمكن ربطها لاحقًا عند اختيار سجل من الجدول.</p>
+
+          <dl class="details-list" style="margin-top: 16px;">
+            <div class="details-row">
+              <dt>اسم مقدم الطلب</dt>
+              <dd>ريم القحطاني</dd>
+            </div>
+            <div class="details-row">
+              <dt>البريد الإلكتروني</dt>
+              <dd>reem.q@example.com</dd>
+            </div>
+            <div class="details-row">
+              <dt>رقم الهاتف</dt>
+              <dd>+966 55 000 0000</dd>
+            </div>
+            <div class="details-row">
+              <dt>نوع الطلب</dt>
+              <dd>طلب عرض سعر</dd>
+            </div>
+            <div class="details-row">
+              <dt>الخدمة المطلوبة</dt>
+              <dd>ورشة التخطيط الاستراتيجي</dd>
+            </div>
+            <div class="details-row">
+              <dt>الجهة / الشركة</dt>
+              <dd>مركز الريادة للتدريب</dd>
+            </div>
+            <div class="details-row">
+              <dt>نص الرسالة</dt>
+              <dd>نرغب في عرض سعر لورشة تطبيقية لفريق من 18 مشاركًا حول التخطيط الاستراتيجي ومؤشرات الأداء.</dd>
+            </div>
+            <div class="details-row">
+              <dt>تاريخ الطلب</dt>
+              <dd>2026-05-26</dd>
+            </div>
+            <div class="details-row">
+              <dt>الحالة</dt>
+              <dd><span class="status-pill status-quote">يحتاج عرض سعر</span></dd>
+            </div>
+            <div class="details-row">
+              <dt>الأولوية</dt>
+              <dd><span class="status-pill priority-high">عالية</span></dd>
+            </div>
+            <div class="details-row">
+              <dt>مصدر الطلب</dt>
+              <dd>Tally</dd>
+            </div>
+            <div class="details-row">
+              <dt>ملاحظات المتابعة</dt>
+              <dd>تجهيز رد أولي وطلب عدد المشاركين والمدينة والموعد المتوقع قبل إعداد العرض.</dd>
+            </div>
+            <div class="details-row">
+              <dt>آخر تحديث</dt>
+              <dd>2026-05-26 16:20</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+
+      <section class="notes-grid" aria-label="ملاحظات الربط والخصوصية">
+        <article class="section-card">
+          <h3>ملاحظات الربط المستقبلي</h3>
+          <p>يمكن لاحقًا تحويل البيانات التجريبية إلى بيانات فعلية من نموذج الطلب ومصادر المتابعة.</p>
+          <ul class="future-list">
+            <li>Tally submissions لقراءة الطلبات الواردة من النموذج.</li>
+            <li>Google Sheets كمرحلة أولى للتجميع والمراجعة.</li>
+            <li>n8n Webhook لتحديث الحالة أو إطلاق إجراءات متابعة.</li>
+            <li>Gmail للردود والمتابعة.</li>
+            <li>حالة المتابعة داخل قاعدة بيانات.</li>
+            <li>تنبيهات بريدية أو واتساب لاحقًا عند الطلبات عالية الأولوية.</li>
+          </ul>
+        </article>
+
+        <article class="section-card">
+          <h3>اعتبارات الخصوصية</h3>
+          <p>
+            قبل عرض بيانات حقيقية، يجب إضافة تسجيل دخول إداري وصلاحيات، لأن الصفحة ستتعامل مع أسماء وبريد ورسائل زوار.
+          </p>
+          <div class="status-list" style="margin-top: 16px;">
+            <span class="status-pill status-quote">بيانات شخصية</span>
+            <span class="status-pill status-waiting">رسائل زوار</span>
+            <span class="status-pill status-contacted">صلاحيات إدارية</span>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
