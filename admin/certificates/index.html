@@ -300,6 +300,10 @@
       cursor: default;
     }
 
+    .action-btn:not(:disabled) {
+      cursor: pointer;
+    }
+
     .action-btn[aria-disabled="true"] {
       opacity: .72;
     }
@@ -346,6 +350,103 @@
       line-height: 1.9;
     }
 
+    .certificate-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: stretch;
+      justify-content: flex-start;
+      background: rgba(15, 39, 71, .42);
+    }
+
+    .certificate-modal.is-open {
+      display: flex;
+    }
+
+    .certificate-modal-panel {
+      width: min(720px, 100%);
+      max-height: 100vh;
+      margin-inline-start: auto;
+      overflow-y: auto;
+      background: #fff;
+      box-shadow: -18px 0 40px rgba(15, 39, 71, .2);
+    }
+
+    .certificate-modal-header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 24px;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .certificate-modal-header h2 {
+      margin: 0 0 6px;
+      color: var(--primary);
+    }
+
+    .certificate-modal-header p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .certificate-modal-body {
+      display: grid;
+      gap: 16px;
+      padding: 20px 24px 28px;
+    }
+
+    .certificate-detail-section {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .certificate-detail-section h3 {
+      margin: 0 0 14px;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    .certificate-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .certificate-detail-field {
+      min-width: 0;
+    }
+
+    .certificate-detail-field dt {
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .certificate-detail-field dd {
+      margin: 0;
+      color: var(--text);
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .certificate-file-disabled {
+      width: 100%;
+      justify-content: flex-start;
+      opacity: .72;
+      cursor: not-allowed;
+    }
+
     @media (max-width: 1100px) {
       .stats-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -375,6 +476,14 @@
       .details-row {
         grid-template-columns: 1fr;
         gap: 4px;
+      }
+
+      .certificate-modal-panel {
+        width: 100%;
+      }
+
+      .certificate-detail-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -728,6 +837,19 @@
     </div>
   </main>
 
+  <div class="certificate-modal" id="certificate-details-modal" role="dialog" aria-modal="true" aria-labelledby="certificate-details-modal-title" hidden>
+    <section class="certificate-modal-panel" aria-label="تفاصيل الشهادة">
+      <div class="certificate-modal-header">
+        <div>
+          <h2 id="certificate-details-modal-title">تفاصيل الشهادة</h2>
+          <p id="certificate-details-modal-subtitle">عرض قراءة فقط من بيانات API</p>
+        </div>
+        <button class="btn btn-secondary action-btn" id="certificate-details-close" type="button">إغلاق</button>
+      </div>
+      <div class="certificate-modal-body" id="certificate-details-modal-body"></div>
+    </section>
+  </div>
+
   <script>
     const CERTIFICATES_API_URL = "http://localhost:5678/webhook/consutrain-admin-certificates-list";
 
@@ -759,7 +881,11 @@
         certificateNo: "#filter-code",
         certificateType: "#filter-type",
         certificateStatus: "#filter-cert-status",
-        detailsList: ".details-list"
+        detailsList: ".details-list",
+        detailsModal: "#certificate-details-modal",
+        detailsModalBody: "#certificate-details-modal-body",
+        detailsModalSubtitle: "#certificate-details-modal-subtitle",
+        detailsModalClose: "#certificate-details-close"
       };
 
       function bySelector(selector) {
@@ -843,7 +969,19 @@
         const actions = document.createElement("div");
         actions.className = "table-actions";
 
-        ["عرض التفاصيل", "فتح PDF", "إعادة إرسال"].forEach((text) => {
+        const detailsButton = document.createElement("button");
+        detailsButton.className = "btn btn-secondary action-btn";
+        detailsButton.type = "button";
+        detailsButton.textContent = "عرض التفاصيل";
+        detailsButton.addEventListener("click", (event) => {
+          event.stopPropagation();
+          state.selectedItem = item;
+          renderDetails(item);
+          openDetailsModal(item);
+        });
+        actions.appendChild(detailsButton);
+
+        ["فتح PDF", "إعادة إرسال"].forEach((text) => {
           const button = document.createElement("button");
           button.className = `btn ${text === "إعادة إرسال" ? "btn-primary" : "btn-secondary"} action-btn`;
           button.type = "button";
@@ -1083,6 +1221,151 @@
         });
       }
 
+      function makeDetailValue(termText, descText) {
+        const value = document.createElement("dd");
+
+        if (["submissionId", "trainingId", "certificateId", "certificateKey", "rowNumber"].includes(termText)) {
+          const code = document.createElement("span");
+          code.className = "code-text";
+          code.textContent = display(descText);
+          value.appendChild(code);
+          return value;
+        }
+
+        if (["حالة الشهادة", "حالة البريد"].includes(termText)) {
+          const pill = document.createElement("span");
+          pill.className = `status-pill ${statusClass(descText)}`;
+          pill.textContent = display(descText);
+          value.appendChild(pill);
+          return value;
+        }
+
+        if (termText === "certificateFileUrl") {
+          if (descText) {
+            const button = document.createElement("button");
+            button.className = "btn btn-secondary action-btn certificate-file-disabled";
+            button.type = "button";
+            button.disabled = true;
+            button.setAttribute("aria-disabled", "true");
+            button.title = "رابط ملف الشهادة معطل مؤقتًا في وضع القراءة فقط";
+            button.textContent = String(descText);
+            value.appendChild(button);
+          } else {
+            value.textContent = labels.empty;
+          }
+          return value;
+        }
+
+        value.textContent = display(descText);
+        return value;
+      }
+
+      function addDetailSection(container, title, rows) {
+        const section = document.createElement("section");
+        section.className = "certificate-detail-section";
+
+        const heading = document.createElement("h3");
+        heading.textContent = title;
+
+        const list = document.createElement("dl");
+        list.className = "certificate-detail-grid";
+
+        rows.forEach(([termText, descText]) => {
+          const field = document.createElement("div");
+          field.className = "certificate-detail-field";
+
+          const term = document.createElement("dt");
+          term.textContent = termText;
+
+          field.append(term, makeDetailValue(termText, descText));
+          list.appendChild(field);
+        });
+
+        section.append(heading, list);
+        container.appendChild(section);
+      }
+
+      function renderDetailsModal(item) {
+        const body = bySelector(selectors.detailsModalBody);
+        const subtitle = bySelector(selectors.detailsModalSubtitle);
+        if (!body) return;
+
+        body.innerHTML = "";
+        if (subtitle) {
+          subtitle.textContent = item
+            ? `${display(item.fullName)} | ${display(item.certificateId || item.certificateKey || item.submissionId)}`
+            : "عرض قراءة فقط من بيانات API";
+        }
+
+        if (!item) {
+          const section = document.createElement("section");
+          section.className = "certificate-detail-section";
+          section.textContent = labels.noResults;
+          body.appendChild(section);
+          return;
+        }
+
+        addDetailSection(body, "بيانات المتدرب", [
+          ["الاسم", item.fullName],
+          ["البريد الإلكتروني", item.email],
+          ["الدولة", item.country],
+          ["المنظمة", item.organization],
+          ["المسمى الوظيفي", item.jobTitle]
+        ]);
+
+        addDetailSection(body, "بيانات التدريب", [
+          ["trainingId", item.trainingId],
+          ["اسم التدريب", item.trainingTitle],
+          ["نوع الشهادة", item.certificateType],
+          ["نمط التعلم", item.learningType],
+          ["تصنيف التدريب", item.trainingCategory]
+        ]);
+
+        addDetailSection(body, "بيانات النتيجة", [
+          ["الدرجة", item.score],
+          ["إجمالي الأسئلة", item.totalQuestions],
+          ["النسبة", item.percentage ? `${item.percentage}%` : ""],
+          ["اجتاز", item.passed === true ? "نعم" : item.passed === false ? "لا" : item.passed]
+        ]);
+
+        addDetailSection(body, "بيانات الشهادة", [
+          ["certificateId", item.certificateId],
+          ["certificateKey", item.certificateKey],
+          ["حالة الشهادة", item.certificateStatus],
+          ["تاريخ الإصدار", formatDate(item.certificateIssuedAt)],
+          ["certificateFileUrl", item.certificateFileUrl],
+          ["رسالة الخطأ", item.errorMessage]
+        ]);
+
+        addDetailSection(body, "بيانات البريد", [
+          ["حالة البريد", item.emailStatus],
+          ["تاريخ الإرسال", formatDate(item.emailSentAt)]
+        ]);
+
+        addDetailSection(body, "بيانات التتبع", [
+          ["rowNumber", item.rowNumber],
+          ["submissionId", item.submissionId],
+          ["timestamp", formatDate(item.timestamp)]
+        ]);
+      }
+
+      function openDetailsModal(item) {
+        renderDetailsModal(item);
+        const modal = bySelector(selectors.detailsModal);
+        const closeButton = bySelector(selectors.detailsModalClose);
+        if (!modal) return;
+        modal.hidden = false;
+        modal.classList.add("is-open");
+        if (closeButton) closeButton.focus();
+      }
+
+      function closeDetailsModal() {
+        const modal = bySelector(selectors.detailsModal);
+        if (!modal) return;
+        modal.classList.remove("is-open");
+        modal.hidden = true;
+      }
+
       function bindFilters() {
         const filterInputs = [
           selectors.email,
@@ -1113,6 +1396,21 @@
         }
       }
 
+      function bindDetailsModal() {
+        const closeButton = bySelector(selectors.detailsModalClose);
+        const modal = bySelector(selectors.detailsModal);
+
+        if (closeButton) closeButton.addEventListener("click", closeDetailsModal);
+        if (modal) {
+          modal.addEventListener("click", (event) => {
+            if (event.target === modal) closeDetailsModal();
+          });
+        }
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeDetailsModal();
+        });
+      }
+
       async function loadCertificates() {
         setTableMessage(labels.loading);
 
@@ -1138,7 +1436,10 @@
         }
       }
 
-      document.addEventListener("DOMContentLoaded", loadCertificates);
+      document.addEventListener("DOMContentLoaded", () => {
+        bindDetailsModal();
+        loadCertificates();
+      });
     })();
   </script>
   <script src="../../assets/js/includes.js?v=20260504_menu"></script>
