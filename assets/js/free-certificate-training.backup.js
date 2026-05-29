@@ -372,8 +372,6 @@
   if (!response.ok) {
     throw new Error(`Webhook returned ${response.status}`);
   }
-
-  return response.json();
 }
 
   async function retryPendingSubmissions(options) {
@@ -465,29 +463,22 @@
     const passed = score >= PASSING_SCORE;
     const payload = buildPayload(score, percentage, passed, answers);
 
+    showResult(score, passed);
     ensureRetryButton();
     submitButton.disabled = true;
     submitButton.textContent = "جاري إرسال النتيجة...";
 
     try {
-  const webhookResult = await sendToWebhook(payload);
-
-  if (webhookResult && webhookResult.status === "duplicate") {
-    setStatus(
-      webhookResult.message || "تم إصدار شهادة لهذا البريد في هذا التدريب سابقًا. يرجى مراجعة بريدك الإلكتروني.",
-      "info"
-    );
-  } else {
-    showResult(score, passed);
-  }
-
-  resultActions.hidden = false;
-} catch (error) {
-  queuePendingSubmission(payload);
-  setStatus("تم احتساب نتيجتك، لكن تعذر حفظها الآن. تم حفظ الطلب مؤقتًا على هذا الجهاز، وسيتم إعادة محاولة الإرسال عند توفر الاتصال.", "error");
-  resultActions.hidden = false;
-  console.error("Certificate submission failed:", error);
-}
+      await sendToWebhook(payload);
+    } catch (error) {
+      queuePendingSubmission(payload);
+      setStatus("تم احتساب نتيجتك، لكن تعذر حفظها الآن. تم حفظ الطلب مؤقتًا على هذا الجهاز، وسيتم إعادة محاولة الإرسال عند توفر الاتصال.", "error");
+      resultActions.hidden = false;
+      console.error("Certificate submission failed:", error);
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "إرسال الاختبار";
+    }
   });
 
   resetButton.addEventListener("click", resetForm);
