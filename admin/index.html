@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260507_courses">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+  <title>لوحة إدارة ConsuTrain | ConsuTrain</title>
+  <meta name="description" content="مدخل إداري تجريبي داخلي لمتابعة عمليات منصة ConsuTrain وصفحات الإدارة المستقبلية.">
+  <style>
+    .admin-home-page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(212, 166, 58, .13), transparent 30%),
+        linear-gradient(180deg, #f5f7fb 0%, #eef3f8 100%);
+    }
+
+    .admin-shell {
+      padding: 22px 0 58px;
+    }
+
+    .admin-topbar,
+    .admin-hero,
+    .admin-card,
+    .summary-card,
+    .notice-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .admin-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+      padding: 14px 18px;
+      background: #fff;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .admin-brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      font-weight: 800;
+    }
+
+    .admin-scope {
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .manual-breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .manual-breadcrumbs strong {
+      color: var(--primary);
+    }
+
+    .admin-hero {
+      margin-bottom: 20px;
+      padding: 30px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), #183f6d);
+    }
+
+    .admin-hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      line-height: 1.25;
+    }
+
+    .admin-hero p {
+      max-width: 900px;
+      margin: 0;
+      color: rgba(255, 255, 255, .84);
+      line-height: 1.9;
+      font-size: 1.03rem;
+    }
+
+    .admin-badges,
+    .status-list,
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .admin-badges {
+      margin-top: 18px;
+    }
+
+    .badge,
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: .86rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .badge {
+      color: var(--primary);
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, .52);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .summary-card {
+      min-height: 118px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .summary-card span {
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .summary-card strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--primary);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .summary-card small {
+      display: block;
+      margin-top: 9px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .section-block {
+      margin-top: 20px;
+    }
+
+    .section-head {
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .admin-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .admin-card,
+    .notice-card {
+      background: #fff;
+      padding: 20px;
+    }
+
+    .admin-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 240px;
+    }
+
+    .admin-card h3,
+    .notice-card h3 {
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-size: 1.12rem;
+    }
+
+    .admin-card p,
+    .notice-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .admin-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .status-available {
+      color: #155e3b;
+      background: #dcfce7;
+    }
+
+    .status-later {
+      color: #854d0e;
+      background: #fef3c7;
+    }
+
+    .status-system {
+      color: #164e63;
+      background: #cffafe;
+    }
+
+    .status-warning {
+      color: #991b1b;
+      background: #fee2e2;
+    }
+
+    .btn-disabled {
+      min-width: 120px;
+      border: 0;
+      opacity: .72;
+      cursor: not-allowed;
+    }
+
+    .systems-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .security-list {
+      margin: 14px 0 0;
+      padding: 0 20px 0 0;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .security-list li::marker {
+      color: var(--gold-2);
+    }
+
+    @media (max-width: 1050px) {
+      .summary-grid,
+      .admin-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .systems-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .admin-topbar,
+      .admin-card-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .summary-grid,
+      .admin-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .admin-hero,
+      .admin-card,
+      .summary-card,
+      .notice-card {
+        border-radius: 14px;
+      }
+
+      .btn,
+      .btn-disabled {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="admin-home-page">
+  <main class="admin-shell">
+    <div class="container">
+      <div class="admin-topbar" aria-label="شريط لوحة الإدارة">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">CT</span>
+          <span>ConsuTrain Admin</span>
+        </div>
+        <span class="admin-scope">مدخل داخلي تجريبي قابل للحماية لاحقًا</span>
+      </div>
+
+      <nav class="manual-breadcrumbs" aria-label="مسار الصفحة">
+        <span>إدارة المنصة</span>
+        <span>/</span>
+        <strong>لوحة الإدارة</strong>
+      </nav>
+
+      <section class="admin-hero" aria-labelledby="admin-title">
+        <span class="eyebrow">إدارة المنصة</span>
+        <h1 id="admin-title">لوحة إدارة ConsuTrain</h1>
+        <p>
+          مدخل داخلي لمتابعة عمليات المنصة، مثل الشهادات الرقمية، طلبات الاستشارة والدورات،
+          ملاحظات الزوار، والموارد. هذه الصفحة مخصصة كبداية منظمة لصفحات الإدارة المستقبلية.
+        </p>
+        <div class="admin-badges">
+          <span class="badge">واجهة إدارية تجريبية — غير مرتبطة بعد بنظام تسجيل دخول</span>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="ملخص إداري تجريبي">
+        <article class="summary-card">
+          <span>الشهادات الرقمية</span>
+          <strong>128</strong>
+          <small>شهادة وطلب إصدار ضمن بيانات تجريبية.</small>
+        </article>
+        <article class="summary-card">
+          <span>طلبات الاستشارة والدورات</span>
+          <strong>14</strong>
+          <small>طلبًا واردًا يحتاج متابعة مستقبلية.</small>
+        </article>
+        <article class="summary-card">
+          <span>ملاحظات الزوار</span>
+          <strong>9</strong>
+          <small>ملاحظات ومقترحات قابلة للتصنيف لاحقًا.</small>
+        </article>
+        <article class="summary-card">
+          <span>الموارد والقوالب</span>
+          <strong>41</strong>
+          <small>موردًا وقالبًا ضمن مكتبة المنصة.</small>
+        </article>
+      </section>
+
+      <section class="section-block" aria-labelledby="sections-title">
+        <div class="section-head">
+          <h2 id="sections-title">أقسام الإدارة</h2>
+          <p>بطاقات ثابتة الآن لتوضيح خريطة الإدارة المقترحة، مع تفعيل صفحة الشهادات الرقمية فقط في هذه المرحلة.</p>
+        </div>
+
+        <div class="admin-cards-grid">
+          <article class="admin-card">
+            <h3>إدارة الشهادات الرقمية</h3>
+            <p>متابعة الشهادات الصادرة عن اختبارات وبرامج ConsuTrain، ومراجعة حالة الإصدار والإرسال.</p>
+            <div class="admin-card-footer">
+              <span class="status-pill status-available">متاح — واجهة تجريبية</span>
+              <a class="btn btn-primary" href="certificates/index.html">فتح الإدارة</a>
+            </div>
+          </article>
+
+          <article class="admin-card">
+            <h3>إدارة طلبات الاستشارة والدورات</h3>
+            <p>متابعة الطلبات الواردة من نموذج "طلب استشارة أو دورة تدريبية".</p>
+            <div class="admin-card-footer">
+              <span class="status-pill status-later">قادم لاحقًا</span>
+              <button class="btn btn-secondary btn-disabled" type="button" disabled>غير متاح الآن</button>
+            </div>
+          </article>
+
+          <article class="admin-card">
+            <h3>إدارة ملاحظات الزوار</h3>
+            <p>مراجعة المقترحات والمشاكل والانطباعات الواردة من صفحة "شاركنا رأيك".</p>
+            <div class="admin-card-footer">
+              <span class="status-pill status-later">قادم لاحقًا</span>
+              <button class="btn btn-secondary btn-disabled" type="button" disabled>غير متاح الآن</button>
+            </div>
+          </article>
+
+          <article class="admin-card">
+            <h3>إدارة الموارد والقوالب</h3>
+            <p>متابعة الموارد المجانية، القوالب، وعدد الملفات المتاحة.</p>
+            <div class="admin-card-footer">
+              <span class="status-pill status-later">قادم لاحقًا</span>
+              <button class="btn btn-secondary btn-disabled" type="button" disabled>غير متاح الآن</button>
+            </div>
+          </article>
+
+          <article class="admin-card">
+            <h3>إدارة الدورات</h3>
+            <p>متابعة الدورات المتاحة، الدورات المستقبلية، وروابط التسجيل أو الطلب.</p>
+            <div class="admin-card-footer">
+              <span class="status-pill status-later">قادم لاحقًا</span>
+              <button class="btn btn-secondary btn-disabled" type="button" disabled>غير متاح الآن</button>
+            </div>
+          </article>
+
+          <article class="admin-card">
+            <h3>إعدادات الربط والأتمتة</h3>
+            <p>ملاحظات مستقبلية حول الربط مع n8n، Google Sheets، Gmail، وقواعد البيانات.</p>
+            <div class="admin-card-footer">
+              <span class="status-pill status-later">قادم لاحقًا</span>
+              <button class="btn btn-secondary btn-disabled" type="button" disabled>غير متاح الآن</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block systems-grid" aria-label="حالة الربط والملاحظات الأمنية">
+        <article class="notice-card">
+          <h3>حالة الربط الحالية</h3>
+          <p>
+            الأنظمة التالية مستخدمة أو مخطط لها ضمن عمليات المنصة، لكن هذه الصفحة الحالية لا تتصل بها مباشرة بعد.
+          </p>
+          <div class="status-list" style="margin-top: 16px;">
+            <span class="status-pill status-system">n8n</span>
+            <span class="status-pill status-system">Google Sheets</span>
+            <span class="status-pill status-system">Gmail</span>
+            <span class="status-pill status-system">Tally</span>
+            <span class="status-pill status-system">GitHub Pages</span>
+            <span class="status-pill status-system">Cloudflare</span>
+          </div>
+        </article>
+
+        <article class="notice-card">
+          <h3>ملاحظات أمنية مستقبلية</h3>
+          <p>قبل تفعيل أي بيانات حقيقية داخل لوحة الإدارة، يجب إضافة ضوابط حماية واضحة.</p>
+          <ul class="security-list">
+            <li>تسجيل دخول إداري.</li>
+            <li>صلاحيات وصول.</li>
+            <li>حماية روابط الإدارة.</li>
+            <li>عدم عرض بيانات شخصية للزوار.</li>
+            <li>سياسة واضحة للتعامل مع البريد والنتائج وروابط الشهادات.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
