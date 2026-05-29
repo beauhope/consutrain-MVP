@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260507_courses">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+  <title>لوحة إدارة الشهادات الرقمية | ConsuTrain</title>
+  <meta name="description" content="واجهة إدارية تجريبية لمتابعة الشهادات الرقمية الصادرة عن اختبارات وبرامج ConsuTrain.">
+  <style>
+    .cert-admin-page {
+      background:
+        radial-gradient(circle at top right, rgba(212, 166, 58, .12), transparent 30%),
+        linear-gradient(180deg, #f5f7fb 0%, #eef3f8 100%);
+      min-height: 100vh;
+    }
+
+    .admin-shell {
+      padding: 22px 0 58px;
+    }
+
+    .admin-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      padding: 14px 18px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .admin-brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      font-weight: 800;
+    }
+
+    .admin-scope {
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .cert-hero {
+      padding: 28px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary), #183f6d);
+      color: #fff;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .cert-hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.25;
+    }
+
+    .cert-hero p {
+      max-width: 900px;
+      margin: 0;
+      color: rgba(255, 255, 255, .84);
+      line-height: 1.9;
+      font-size: 1.02rem;
+    }
+
+    .admin-badges,
+    .filter-checks,
+    .table-actions,
+    .panel-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .admin-badges {
+      margin-top: 18px;
+    }
+
+    .badge,
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: .86rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .badge {
+      color: var(--primary);
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, .52);
+    }
+
+    .badge-muted {
+      color: #fff;
+      background: rgba(255, 255, 255, .16);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      padding: 18px;
+      min-height: 118px;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .stat-card strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--primary);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .stat-card small {
+      display: block;
+      margin-top: 9px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(320px, .8fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--primary);
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 44px;
+      padding: 9px 12px;
+      color: var(--text);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--primary-3);
+      box-shadow: 0 0 0 3px rgba(29, 77, 130, .12);
+    }
+
+    .filter-checks {
+      margin-top: 16px;
+    }
+
+    .check-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .filter-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .cert-table {
+      width: 100%;
+      min-width: 1120px;
+      border-collapse: collapse;
+      text-align: right;
+    }
+
+    .cert-table th,
+    .cert-table td {
+      padding: 13px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+      font-size: .92rem;
+    }
+
+    .cert-table th {
+      color: var(--primary);
+      background: #f8fafc;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .cert-table tbody tr:hover {
+      background: #fbfcfe;
+    }
+
+    .cert-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .code-text {
+      direction: ltr;
+      display: inline-block;
+      font-family: Consolas, "Courier New", monospace;
+      color: var(--primary);
+      background: #f3f6f9;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px 7px;
+    }
+
+    .status-issued {
+      color: #155e3b;
+      background: #dcfce7;
+    }
+
+    .status-sent {
+      color: #164e63;
+      background: #cffafe;
+    }
+
+    .status-duplicate {
+      color: #7c2d12;
+      background: #ffedd5;
+    }
+
+    .status-processing {
+      color: #854d0e;
+      background: #fef3c7;
+    }
+
+    .status-error {
+      color: #991b1b;
+      background: #fee2e2;
+    }
+
+    .action-btn {
+      min-width: auto;
+      padding: 8px 11px;
+      border: 0;
+      border-radius: 10px;
+      font-size: .84rem;
+      cursor: default;
+    }
+
+    .action-btn[aria-disabled="true"] {
+      opacity: .72;
+    }
+
+    .details-list {
+      display: grid;
+      gap: 11px;
+      margin: 0;
+    }
+
+    .details-row {
+      display: grid;
+      grid-template-columns: 140px minmax(0, 1fr);
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .details-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .details-row dt {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .details-row dd {
+      margin: 0;
+      color: var(--text);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .panel-tags {
+      margin-top: 16px;
+    }
+
+    .future-list {
+      margin: 0;
+      padding: 0 20px 0 0;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    @media (max-width: 1100px) {
+      .stats-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .admin-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .admin-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .cert-hero,
+      .section-card {
+        border-radius: 14px;
+      }
+
+      .stats-grid,
+      .filters-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body class="cert-admin-page" data-root="../.." data-breadcrumb-section="إدارة المنصة" data-breadcrumb-title="إدارة الشهادات الرقمية">
+  <main class="admin-shell">
+    <div class="container">
+      <div class="admin-topbar" aria-label="شريط لوحة الإدارة">
+        <div class="admin-brand">
+          <span class="admin-brand-mark">CT</span>
+          <span>ConsuTrain Admin</span>
+        </div>
+        <span class="admin-scope">صفحة داخلية تجريبية قابلة للحماية لاحقًا</span>
+      </div>
+
+      <div id="breadcrumbs-placeholder"></div>
+
+      <section class="cert-hero" aria-labelledby="certificates-title">
+        <span class="eyebrow">إدارة الشهادات الرقمية</span>
+        <h1 id="certificates-title">لوحة إدارة الشهادات الرقمية</h1>
+        <p>
+          متابعة الشهادات الصادرة عن اختبارات وبرامج ConsuTrain، ومراجعة حالة الإصدار والإرسال ومنع التكرار.
+          صُممت اللوحة لتدعم مستقبلًا اختبارات متعددة، برامج متعددة، أنواع شهادات مختلفة، ونسخًا مختلفة من الاختبارات.
+        </p>
+        <div class="admin-badges" aria-label="حالة مصدر البيانات">
+          <span class="badge">مصدر البيانات الحالي: Google Sheets</span>
+          <span class="badge badge-muted">الحالة: واجهة تجريبية غير مرتبطة بعد</span>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="ملخص الشهادات">
+        <article class="section-card stat-card">
+          <span>إجمالي طلبات الشهادات</span>
+          <strong>128</strong>
+          <small>تشمل الاختبارات والبرامج المسجلة تجريبيًا.</small>
+        </article>
+        <article class="section-card stat-card">
+          <span>الشهادات الصادرة</span>
+          <strong>104</strong>
+          <small>تم إنشاء ملف PDF أو اعتماده للإرسال.</small>
+        </article>
+        <article class="section-card stat-card">
+          <span>الشهادات المرسلة</span>
+          <strong>96</strong>
+          <small>تم إرسالها عبر البريد الإلكتروني.</small>
+        </article>
+        <article class="section-card stat-card">
+          <span>الطلبات المكررة</span>
+          <strong>17</strong>
+          <small>نفس البريد ونفس التدريب أو الاختبار.</small>
+        </article>
+        <article class="section-card stat-card">
+          <span>طلبات بها خطأ</span>
+          <strong>7</strong>
+          <small>تحتاج مراجعة في الإصدار أو الإرسال.</small>
+        </article>
+      </section>
+
+      <section class="section-card" aria-labelledby="filters-title">
+        <div class="section-head">
+          <div>
+            <h2 id="filters-title">البحث والتصفية</h2>
+            <p>فلاتر شكلية الآن، ويمكن ربطها لاحقًا بمصدر بيانات الشهادات أو Webhook داخلي.</p>
+          </div>
+        </div>
+
+        <form action="#" method="get" aria-label="فلاتر إدارة الشهادات" onsubmit="return false;">
+          <div class="filters-grid">
+            <div class="field">
+              <label for="filter-email">البحث بالبريد الإلكتروني</label>
+              <input id="filter-email" name="email" type="email" placeholder="name@example.com">
+            </div>
+            <div class="field">
+              <label for="filter-trainee">اسم المتدرب</label>
+              <input id="filter-trainee" name="trainee" type="text" placeholder="مثال: أحمد العلي">
+            </div>
+            <div class="field">
+              <label for="filter-type">نوع الشهادة</label>
+              <select id="filter-type" name="certificateType">
+                <option>كل أنواع الشهادات</option>
+                <option>شهادة اختبار</option>
+                <option>شهادة إتمام برنامج</option>
+                <option>شهادة عميل أو جهة</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filter-program">اسم البرنامج</label>
+              <input id="filter-program" name="programName" type="text" placeholder="مثال: إدارة الأهداف">
+            </div>
+            <div class="field">
+              <label for="filter-assessment">اسم الاختبار</label>
+              <input id="filter-assessment" name="assessmentName" type="text" placeholder="مثال: اختبار إدارة المخاطر">
+            </div>
+            <div class="field">
+              <label for="filter-code">كود الاختبار assessmentCode</label>
+              <input id="filter-code" name="assessmentCode" type="text" placeholder="MOR-FND-01">
+            </div>
+            <div class="field">
+              <label for="filter-cert-status">حالة الشهادة</label>
+              <select id="filter-cert-status" name="certificateStatus">
+                <option>كل الحالات</option>
+                <option>صادرة</option>
+                <option>مكررة</option>
+                <option>قيد المعالجة</option>
+                <option>فشل الإصدار</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filter-send-status">حالة الإرسال</label>
+              <select id="filter-send-status" name="sendStatus">
+                <option>كل الحالات</option>
+                <option>مرسلة</option>
+                <option>لم تُرسل بعد</option>
+                <option>فشل الإرسال</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filter-date-from">تاريخ الإصدار من</label>
+              <input id="filter-date-from" name="issuedFrom" type="date">
+            </div>
+            <div class="field">
+              <label for="filter-date-to">تاريخ الإصدار إلى</label>
+              <input id="filter-date-to" name="issuedTo" type="date">
+            </div>
+          </div>
+
+          <div class="filter-checks">
+            <label class="check-pill">
+              <input type="checkbox" name="duplicatesOnly">
+              عرض الطلبات المكررة فقط
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="errorsOnly">
+              عرض الأخطاء فقط
+            </label>
+          </div>
+
+          <div class="filter-actions">
+            <button class="btn btn-primary" type="button">تطبيق الفلاتر</button>
+            <button class="btn btn-secondary" type="reset">إعادة ضبط</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="admin-grid" style="margin-top: 18px;">
+        <section class="section-card" aria-labelledby="table-title">
+          <div class="section-head">
+            <div>
+              <h2 id="table-title">جدول الشهادات</h2>
+              <p>بيانات تجريبية ثابتة لعرض حالات الإصدار والإرسال ومنع التكرار عبر برامج واختبارات مختلفة.</p>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="cert-table">
+              <thead>
+                <tr>
+                  <th>اسم المتدرب</th>
+                  <th>البريد الإلكتروني</th>
+                  <th>نوع الشهادة</th>
+                  <th>اسم البرنامج</th>
+                  <th>اسم الاختبار</th>
+                  <th>كود الاختبار</th>
+                  <th>حالة الشهادة</th>
+                  <th>حالة الإرسال</th>
+                  <th>تاريخ الإصدار</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>سارة المالكي</td>
+                  <td class="muted">sarah.m@example.com</td>
+                  <td>شهادة اختبار</td>
+                  <td>إدارة الأهداف</td>
+                  <td>شهادة اختبار إدارة الأهداف</td>
+                  <td><span class="code-text">OBJ-MGT-01</span></td>
+                  <td><span class="status-pill status-issued">صادرة</span></td>
+                  <td><span class="status-pill status-sent">مرسلة</span></td>
+                  <td>2026-05-28</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>فتح PDF</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>إعادة إرسال</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>خالد الحربي</td>
+                  <td class="muted">khaled.h@example.com</td>
+                  <td>شهادة اختبار</td>
+                  <td>إدارة المخاطر المؤسسية</td>
+                  <td>شهادة اختبار M_o_R Foundation</td>
+                  <td><span class="code-text">MOR-FND-01</span></td>
+                  <td><span class="status-pill status-duplicate">مكررة</span></td>
+                  <td><span class="status-pill status-processing">لم تُرسل بعد</span></td>
+                  <td>2026-05-27</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>فتح PDF</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>إعادة إرسال</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ريم القحطاني</td>
+                  <td class="muted">reem.q@example.com</td>
+                  <td>شهادة اختبار</td>
+                  <td>نظام إدارة الجودة</td>
+                  <td>شهادة اختبار ISO 9001</td>
+                  <td><span class="code-text">ISO9001-QMS-02</span></td>
+                  <td><span class="status-pill status-issued">صادرة</span></td>
+                  <td><span class="status-pill status-error">فشل الإرسال</span></td>
+                  <td>2026-05-26</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>فتح PDF</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>إعادة إرسال</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>عبدالله السالم</td>
+                  <td class="muted">abdullah.s@example.com</td>
+                  <td>شهادة إتمام برنامج</td>
+                  <td>التخطيط الاستراتيجي</td>
+                  <td>شهادة اختبار التخطيط الاستراتيجي</td>
+                  <td><span class="code-text">STR-PLAN-03</span></td>
+                  <td><span class="status-pill status-processing">قيد المعالجة</span></td>
+                  <td><span class="status-pill status-processing">لم تُرسل بعد</span></td>
+                  <td>2026-05-25</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>فتح PDF</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>إعادة إرسال</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>نورة الدوسري</td>
+                  <td class="muted">nora.d@example.com</td>
+                  <td>شهادة اختبار</td>
+                  <td>إدارة المخاطر</td>
+                  <td>شهادة اختبار إدارة المخاطر</td>
+                  <td><span class="code-text">RISK-MGT-04</span></td>
+                  <td><span class="status-pill status-error">فشل الإصدار</span></td>
+                  <td><span class="status-pill status-processing">لم تُرسل بعد</span></td>
+                  <td>2026-05-24</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn btn-secondary action-btn" type="button" disabled>عرض التفاصيل</button>
+                      <button class="btn btn-secondary action-btn" type="button" disabled>فتح PDF</button>
+                      <button class="btn btn-primary action-btn" type="button" disabled>إعادة إرسال</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="section-card" aria-labelledby="details-title">
+          <h2 id="details-title">تفاصيل الشهادة</h2>
+          <p>لوحة ثابتة تعرض مثالًا لبيانات شهادة واحدة، ويمكن تحويلها لاحقًا إلى تفاصيل ديناميكية عند اختيار سجل من الجدول.</p>
+
+          <dl class="details-list">
+            <div class="details-row">
+              <dt>اسم المتدرب</dt>
+              <dd>ريم القحطاني</dd>
+            </div>
+            <div class="details-row">
+              <dt>البريد الإلكتروني</dt>
+              <dd>reem.q@example.com</dd>
+            </div>
+            <div class="details-row">
+              <dt>نوع الشهادة</dt>
+              <dd>شهادة اختبار</dd>
+            </div>
+            <div class="details-row">
+              <dt>اسم البرنامج</dt>
+              <dd>نظام إدارة الجودة</dd>
+            </div>
+            <div class="details-row">
+              <dt>اسم الاختبار</dt>
+              <dd>شهادة اختبار ISO 9001</dd>
+            </div>
+            <div class="details-row">
+              <dt>assessmentCode</dt>
+              <dd><span class="code-text">ISO9001-QMS-02</span></dd>
+            </div>
+            <div class="details-row">
+              <dt>assessmentVersion</dt>
+              <dd><span class="code-text">v1.3</span></dd>
+            </div>
+            <div class="details-row">
+              <dt>النتيجة</dt>
+              <dd>88%</dd>
+            </div>
+            <div class="details-row">
+              <dt>certificateKey</dt>
+              <dd><span class="code-text">reem.q@example.com|ISO9001-QMS-02|v1.3</span></dd>
+            </div>
+            <div class="details-row">
+              <dt>رابط ملف PDF</dt>
+              <dd><span class="code-text">/pdf/certificates/demo-iso9001-reem.pdf</span></dd>
+            </div>
+            <div class="details-row">
+              <dt>حالة الإصدار</dt>
+              <dd><span class="status-pill status-issued">صادرة</span></dd>
+            </div>
+            <div class="details-row">
+              <dt>حالة الإرسال</dt>
+              <dd><span class="status-pill status-error">فشل الإرسال</span></dd>
+            </div>
+            <div class="details-row">
+              <dt>آخر تحديث</dt>
+              <dd>2026-05-26 14:35</dd>
+            </div>
+            <div class="details-row">
+              <dt>رسالة الخطأ</dt>
+              <dd>تعذر إرسال Gmail بسبب عنوان مرفق غير متاح في التشغيل التجريبي.</dd>
+            </div>
+          </dl>
+
+          <div class="panel-tags" aria-label="قابلية التوسع">
+            <span class="status-pill status-sent">اختبارات متعددة</span>
+            <span class="status-pill status-issued">برامج متعددة</span>
+            <span class="status-pill status-processing">نسخ اختبار مختلفة</span>
+            <span class="status-pill status-duplicate">شهادات خاصة بجهة</span>
+          </div>
+        </aside>
+      </div>
+
+      <section class="section-card" style="margin-top: 18px;" aria-labelledby="future-title">
+        <h2 id="future-title">ملاحظات مستقبلية للربط</h2>
+        <p>
+          هذه الصفحة ثابتة الآن ولا تستدعي أي API. عند الانتقال إلى الربط الفعلي يمكن تحويل البيانات التجريبية إلى مصدر مركزي يدعم التصفية والمراجعة والصلاحيات.
+        </p>
+        <ul class="future-list">
+          <li>Google Sheets كمصدر أولي لقراءة الطلبات وتحديث حالة الشهادة.</li>
+          <li>n8n Webhook لإعادة الإرسال أو إعادة محاولة الإصدار من زر إداري واضح.</li>
+          <li>Firebase أو قاعدة بيانات لاحقًا لتخزين الشهادات، نسخ الاختبارات، وسجل الأخطاء.</li>
+          <li>تسجيل دخول إداري قبل الوصول للصفحة، مع صلاحيات للمشاهدة، إعادة الإرسال، وإدارة البرامج.</li>
+          <li>إضافة حقول للعميل أو الجهة عندما تصبح الشهادات مرتبطة بعقود أو برامج مؤسسية.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="../../assets/js/includes.js?v=20260504_menu"></script>
+</body>
+</html>
