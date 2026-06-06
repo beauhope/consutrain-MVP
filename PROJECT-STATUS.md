@@ -1253,4 +1253,16 @@ Next:
     <a class="nav-link nav-link--single" href="__ROOT__/fr/index.html" lang="fr" dir="ltr">Français</a>
 
   لم أعدّل أي ملفات أخرى، ولم أعمل commit.
-  
+
+
+  ## French Version — Language Badge
+
+تم تحسين زر تغيير اللغة ليظهر كشارة صغيرة بجانب شعار ConsuTrain.
+
+تم تعديل:
+- partials/header.html
+- assets/css/style.css
+- fr/index.html
+- fr/services.html
+
+أصبحت النسخة العربية تعرض شارة `FR`، بينما تعرض الصفحات الفرنسية شارة `AR` للرجوع إلى النسخة العربية.
