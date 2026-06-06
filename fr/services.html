@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Services | ConsuTrain</title>
+  <meta
+    name="description"
+    content="Services de conseil et d’accompagnement en planification stratégique, performance organisationnelle, systèmes ISO, gestion des risques, études de faisabilité, gestion de projet et transformation opérationnelle."
+  >
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260512_fr_services">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" type="image/png" href="../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-services-page {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .fr-services-page * {
+      direction: ltr;
+    }
+
+    body.fr-services-page,
+    .fr-services-page,
+    .fr-services-page section,
+    .fr-services-page header,
+    .fr-services-page main,
+    .fr-services-page footer,
+    .fr-services-page .container,
+    .fr-services-page .hero,
+    .fr-services-page .hero-grid,
+    .fr-services-page .hero-card,
+    .fr-services-page .hero-side,
+    .fr-services-page .feature-card,
+    .fr-services-page .section-card,
+    .fr-services-page .section-head,
+    .fr-services-page .cards-grid,
+    .fr-services-page .cta-panel,
+    .fr-services-page h1,
+    .fr-services-page h2,
+    .fr-services-page h3,
+    .fr-services-page p,
+    .fr-services-page span,
+    .fr-services-page a,
+    .fr-services-page li {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .fr-header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(15, 39, 71, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+    }
+
+    .fr-header-inner {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      min-height: 76px;
+      padding: 12px 0;
+    }
+
+    .fr-brand img {
+      display: block;
+      height: auto;
+      width: 178px;
+    }
+
+    .fr-nav {
+      align-items: center;
+      direction: ltr;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+      text-align: left;
+    }
+
+    .fr-nav a,
+    .fr-footer a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .fr-nav a:hover,
+    .fr-footer a:hover {
+      color: var(--gold);
+    }
+
+    .fr-nav .btn-primary,
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.35);
+      box-shadow: none;
+      color: var(--primary);
+    }
+
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-language-link {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 13px;
+    }
+
+    .fr-services-page .hero-card p {
+      max-width: 860px;
+    }
+
+    .fr-service-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .fr-step-number {
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      border-radius: 50%;
+      color: #ffffff;
+      display: inline-flex;
+      font-weight: 800;
+      height: 38px;
+      justify-content: center;
+      margin-bottom: 12px;
+      width: 38px;
+    }
+
+    .fr-footer {
+      background: #0f2747;
+      color: #ffffff;
+      padding: 34px 0;
+    }
+
+    .fr-footer-inner {
+      align-items: start;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+    }
+
+    .fr-footer h2 {
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+
+    .fr-footer p {
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0;
+    }
+
+    .fr-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      justify-content: flex-end;
+    }
+
+    .fr-footer a {
+      color: #ffffff;
+    }
+
+    @media (max-width: 980px) {
+      .fr-header-inner,
+      .fr-footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fr-header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .fr-nav,
+      .fr-footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fr-nav {
+        gap: 10px;
+      }
+
+      .fr-nav .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="services-page fr-services-page">
+  <header class="fr-header">
+    <div class="container fr-header-inner">
+      <a class="fr-brand" href="index.html" aria-label="ConsuTrain - Accueil">
+        <img src="../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
+      </a>
+      <nav class="fr-nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="tools.html">Outils gratuits</a>
+        <a href="resources/index.html">Ressources gratuites</a>
+        <a href="courses/index.html">Formations</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-primary btn-small" href="services/consultation-form.html">Demander une consultation</a>
+        <a class="fr-language-link" href="../services.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Conseil et accompagnement opérationnel</span>
+          <h1>Des services pour structurer, piloter et améliorer votre organisation</h1>
+          <p>
+            ConsuTrain accompagne les organisations, équipes et consultants dans la transformation des idées en
+            plans d’action, systèmes de management, outils de pilotage et livrables opérationnels.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services/consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="resources/index.html">Explorer les ressources gratuites</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Structurer</h3>
+            <p>Clarifier le besoin, les priorités, les responsabilités et les résultats attendus.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Documenter</h3>
+            <p>Produire des plans, procédures, tableaux de bord, registres et supports professionnels.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Mettre en œuvre</h3>
+            <p>Accompagner l’application terrain avec une logique pragmatique, mesurable et durable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Nos domaines d’intervention</h2>
+            <p>
+              Les services ConsuTrain s’appuient sur une approche structurée de la planification, de la qualité,
+              de l’excellence, des risques, des projets et des procédures opérationnelles.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-service-card">
+            <h3>Planification stratégique</h3>
+            <p>Formuler les orientations, analyser la situation, définir les objectifs, initiatives, indicateurs de performance et plans d’exécution.</p>
+          </article>
+          <article class="section-card fr-service-card">
+            <h3>Plans opérationnels</h3>
+            <p>Transformer les objectifs en activités, responsabilités, ressources, indicateurs et mécanismes de suivi de l’exécution.</p>
+          </article>
+          <article class="section-card fr-service-card">
+            <h3>Gestion de la performance organisationnelle</h3>
+            <p>Construire les indicateurs de performance, tableaux de bord, suivis des résultats et démarches d’amélioration continue.</p>
+          </article>
+          <article class="section-card fr-service-card">
+            <h3>Systèmes ISO et management intégré</h3>
+            <p>Préparer et structurer les systèmes ISO 9001, ISO 14001, ISO 45001, ISO 31000 et autres référentiels selon le besoin.</p>
+          </article>
+          <article class="section-card fr-service-card">
+            <h3>Gestion des risques et continuité d’activité</h3>
+            <p>Identifier et évaluer les risques, construire les plans de traitement, les dispositifs d’urgence et la continuité d’activité.</p>
+          </article>
+          <article class="section-card fr-service-card">
+            <h3>Études de faisabilité</h3>
+            <p>Analyser l’idée, le marché, les coûts, les revenus, les risques et les premières conditions de décision d’investissement.</p>
+          </article>
+          <article class="section-card fr-service-card">
+            <h3>Gestion de projet</h3>
+            <p>Structurer le projet, le WBS, la planification, les rôles RACI, le suivi, les rapports et les approches Agile si nécessaire.</p>
+          </article>
+          <article class="section-card fr-service-card">
+            <h3>Manuels opérationnels et procédures</h3>
+            <p>Élaborer les manuels, politiques, procédures, fiches de processus, formulaires et règles de responsabilité.</p>
+          </article>
+          <article class="section-card fr-service-card">
+            <h3>Transformation numérique</h3>
+            <p>Construire une feuille de route numérique pratique, choisir les outils, améliorer les flux de travail et relier la technologie au besoin de gestion.</p>
+          </article>
+          <article class="section-card fr-service-card">
+            <h3>Dossiers de candidature aux prix d’excellence</h3>
+            <p>Organiser les preuves, relier les réalisations aux critères et rédiger des dossiers de candidature professionnels.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Une démarche structurée et pragmatique</h2>
+            <p>Chaque accompagnement est adapté au contexte, mais suit une logique claire pour produire des livrables utilisables.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card">
+            <span class="fr-step-number">1</span>
+            <h3>Comprendre le besoin</h3>
+            <p>Identifier le problème, les objectifs, les parties prenantes, les contraintes et le résultat attendu.</p>
+          </article>
+          <article class="section-card">
+            <span class="fr-step-number">2</span>
+            <h3>Analyser la situation</h3>
+            <p>Examiner les pratiques existantes, les documents, les données, les risques et les écarts prioritaires.</p>
+          </article>
+          <article class="section-card">
+            <span class="fr-step-number">3</span>
+            <h3>Construire les livrables</h3>
+            <p>Produire les plans, modèles, procédures, tableaux de bord ou dossiers nécessaires à l’action.</p>
+          </article>
+          <article class="section-card">
+            <span class="fr-step-number">4</span>
+            <h3>Accompagner la mise en œuvre</h3>
+            <p>Soutenir l’application, ajuster les outils, clarifier les rôles et préparer le suivi des résultats.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pour quelles organisations ?</h2>
+            <p>Les services sont conçus pour des structures qui veulent passer d’une intention à un dispositif concret et maîtrisable.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card">
+            <h3>PME et porteurs de projets</h3>
+            <p>Pour cadrer une idée, préparer un projet, organiser la croissance ou formaliser les premières méthodes de gestion.</p>
+          </article>
+          <article class="section-card">
+            <h3>Organisations publiques</h3>
+            <p>Pour structurer les plans, procédures, indicateurs, risques, dossiers et mécanismes de pilotage.</p>
+          </article>
+          <article class="section-card">
+            <h3>Équipes qualité et performance</h3>
+            <p>Pour améliorer les systèmes de management, tableaux de bord, audits internes et plans d’amélioration.</p>
+          </article>
+          <article class="section-card">
+            <h3>Consultants et formateurs</h3>
+            <p>Pour renforcer les supports, méthodes, ateliers, diagnostics et livrables professionnels.</p>
+          </article>
+          <article class="section-card">
+            <h3>Directions et managers</h3>
+            <p>Pour transformer les priorités en objectifs, responsabilités, indicateurs et routines de suivi.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Demande personnalisée</span>
+            <h2>Vous avez besoin d’un accompagnement adapté à votre contexte ?</h2>
+            <p>
+              Envoyez votre demande en précisant le domaine, la situation actuelle et le résultat attendu.
+              Nous vous répondrons avec une première orientation.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services/consultation-form.html">Demander un service ou une consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fr-footer">
+    <div class="container fr-footer-inner">
+      <div>
+        <h2>ConsuTrain</h2>
+        <p>Services de conseil, formation et accompagnement pour structurer l’action et améliorer la performance.</p>
+      </div>
+      <nav class="fr-footer-links" aria-label="Navigation de pied de page">
+        <a href="services.html">Services</a>
+        <a href="tools.html">Outils gratuits</a>
+        <a href="resources/index.html">Ressources gratuites</a>
+        <a href="courses/index.html">Formations</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Vos avis et suggestions</a>
+        <a href="../services.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
