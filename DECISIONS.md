@@ -946,7 +946,7 @@ The first implementation will be an MVP without user login and without automated
 
 ## قرار — اعتماد قاموس مصطلحات النسخة الفرنسية
 
-تم اعتماد ملف `FR-GLOSSARY.md` كمرجع لغوي للنسخة الفرنسية من موقع ConsuTrain.
+تم اعتماد ملف `fr-glossary.md` كمرجع لغوي للنسخة الفرنسية من موقع ConsuTrain.
 
 يُستخدم هذا الملف لتوحيد ترجمة المصطلحات الأساسية في الصفحات الفرنسية، مثل:
 - Services
