@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ConsuTrain | Conseil, formation et outils pour la performance organisationnelle</title>
+  <meta
+    name="description"
+    content="ConsuTrain accompagne les organisations, consultants et équipes dans la planification stratégique, la performance, la qualité, la gestion des risques et la transformation des idées en actions concrètes."
+  >
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260512_fr_home">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" type="image/png" href="../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-home-page {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .fr-home-page * {
+      direction: ltr;
+    }
+
+    .fr-header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(15, 39, 71, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+    }
+
+    .fr-header-inner {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      min-height: 76px;
+      padding: 12px 0;
+    }
+
+    .fr-brand img {
+      display: block;
+      height: auto;
+      width: 178px;
+    }
+
+    .fr-nav {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+    }
+
+    .fr-nav a,
+    .fr-footer a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .fr-nav a:hover,
+    .fr-footer a:hover {
+      color: var(--gold);
+    }
+
+    .fr-nav .btn-primary,
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.35);
+      box-shadow: none;
+      color: var(--primary);
+    }
+
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-language-link {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 13px;
+    }
+
+    .fr-page .hero-card p {
+      max-width: 860px;
+    }
+
+    .fr-value-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .fr-card-kicker {
+      color: var(--gold);
+      display: inline-block;
+      font-size: 0.86rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .fr-list {
+      display: grid;
+      gap: 12px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .fr-list li {
+      background: #f7f9fc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 12px 14px;
+    }
+
+    .fr-footer {
+      background: #0f2747;
+      color: #ffffff;
+      padding: 34px 0;
+    }
+
+    .fr-footer-inner {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+      align-items: start;
+    }
+
+    .fr-footer h2 {
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+
+    .fr-footer p {
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0;
+    }
+
+    .fr-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      justify-content: flex-end;
+    }
+
+    .fr-footer a {
+      color: #ffffff;
+    }
+
+    @media (max-width: 980px) {
+      .fr-header-inner,
+      .fr-footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fr-header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .fr-nav,
+      .fr-footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fr-nav {
+        gap: 10px;
+      }
+
+      .fr-nav .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="home-page fr-home-page fr-page">
+  <header class="fr-header">
+    <div class="container fr-header-inner">
+      <a class="fr-brand" href="index.html" aria-label="ConsuTrain - Accueil">
+        <img src="../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
+      </a>
+      <nav class="fr-nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="tools.html">Outils gratuits</a>
+        <a href="resources/index.html">Ressources gratuites</a>
+        <a href="courses/index.html">Formations</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-primary btn-small" href="services/consultation-form.html">Demander une consultation</a>
+        <a class="fr-language-link" href="../index.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Conseil, formation et ressources opérationnelles</span>
+          <h1>Transformez vos idées en plans d’action, outils et résultats mesurables</h1>
+          <p>
+            ConsuTrain accompagne les organisations, équipes et consultants dans la planification stratégique,
+            la performance, la qualité, la gestion des risques, les études de faisabilité et la gestion de projet.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services.html">Découvrir les services</a>
+            <a class="btn btn-secondary" href="resources/index.html">Explorer les ressources gratuites</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Conseil structuré</h3>
+            <p>Des démarches claires pour transformer une intention stratégique en plan, système, document ou tableau de suivi.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Formations pratiques</h3>
+            <p>Des parcours et ateliers orientés application, avec des exemples, exercices et livrables exploitables.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Outils et ressources gratuits</h3>
+            <p>Des modèles, checklists, fiches et guides pour avancer rapidement avant un accompagnement plus spécifique.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Domaines d’intervention</h2>
+            <p>ConsuTrain intervient sur les sujets qui relient la stratégie, l’organisation, la qualité et l’exécution terrain.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-value-card">
+            <h3>Planification stratégique</h3>
+            <p>Structurer la vision, les objectifs, les priorités, les initiatives et les plans opérationnels.</p>
+          </article>
+          <article class="section-card fr-value-card">
+            <h3>Gestion de la performance organisationnelle</h3>
+            <p>Construire des objectifs, indicateurs de performance, tableaux de bord et mécanismes de suivi.</p>
+          </article>
+          <article class="section-card fr-value-card">
+            <h3>Systèmes ISO et management intégré</h3>
+            <p>Préparer, documenter et améliorer les systèmes de management de la qualité, sécurité, environnement et IMS.</p>
+          </article>
+          <article class="section-card fr-value-card">
+            <h3>Gestion des risques</h3>
+            <p>Identifier les risques, clarifier les responsabilités, suivre les actions et améliorer la maîtrise opérationnelle.</p>
+          </article>
+          <article class="section-card fr-value-card">
+            <h3>Études de faisabilité</h3>
+            <p>Évaluer les idées, projets et opportunités avec une lecture structurée du marché, des coûts et des risques.</p>
+          </article>
+          <article class="section-card fr-value-card">
+            <h3>Gestion de projet</h3>
+            <p>Organiser les livrables, responsabilités, délais, indicateurs et rituels de pilotage.</p>
+          </article>
+          <article class="section-card fr-value-card">
+            <h3>Manuels opérationnels et procédures</h3>
+            <p>Formaliser les méthodes de travail, procédures opérationnelles, fiches de poste et supports internes.</p>
+          </article>
+          <article class="section-card fr-value-card">
+            <h3>Transformation numérique</h3>
+            <p>Clarifier les besoins, cartographier les processus et transformer les usages numériques en gains concrets.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>À qui s’adresse ConsuTrain ?</h2>
+            <p>La plateforme est pensée pour les professionnels qui doivent organiser, expliquer, piloter ou améliorer un système de travail.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card">
+            <span class="fr-card-kicker">Pilotage</span>
+            <h3>Dirigeants et managers</h3>
+            <p>Pour transformer les priorités en plans suivis, indicateurs et décisions plus lisibles.</p>
+          </article>
+          <article class="section-card">
+            <span class="fr-card-kicker">Expertise</span>
+            <h3>Consultants et formateurs</h3>
+            <p>Pour structurer des supports, méthodes, ateliers et livrables professionnels.</p>
+          </article>
+          <article class="section-card">
+            <span class="fr-card-kicker">Développement</span>
+            <h3>PME et porteurs de projets</h3>
+            <p>Pour cadrer une idée, tester sa faisabilité et préparer une mise en œuvre réaliste.</p>
+          </article>
+          <article class="section-card">
+            <span class="fr-card-kicker">Organisation</span>
+            <h3>Organisations publiques et privées</h3>
+            <p>Pour améliorer les processus, documents, risques, responsabilités et mécanismes de suivi.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Des ressources pour passer à l’action</h2>
+            <p>ConsuTrain propose des ressources concrètes pour préparer un diagnostic, structurer une décision ou démarrer un travail d’amélioration.</p>
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          <article class="section-card">
+            <h3>Ce que vous pouvez exploiter</h3>
+            <ul class="fr-list">
+              <li>Outils gratuits</li>
+              <li>Ressources gratuites</li>
+              <li>Modèles et checklists</li>
+              <li>Formations pratiques</li>
+            </ul>
+          </article>
+          <article class="section-card">
+            <h3>Une logique simple</h3>
+            <p>
+              Chaque ressource doit aider à produire quelque chose d’utile : un plan, une grille, une fiche,
+              un registre, un tableau de bord ou une première version de document professionnel.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary btn-small" href="tools.html">Voir les outils</a>
+              <a class="btn btn-secondary btn-small" href="resources/index.html">Voir les ressources</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Formations et ateliers pratiques</span>
+            <h2>Des contenus pédagogiques adaptés au terrain</h2>
+            <p>
+              Certains contenus pédagogiques sont actuellement disponibles en arabe. Des sessions en français
+              peuvent être proposées selon le besoin de l’organisation ou du groupe.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services/consultation-form.html">Demander une formation sur mesure</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Demande personnalisée</span>
+            <h2>Vous souhaitez structurer un projet, une stratégie ou un système de management ?</h2>
+            <p>
+              Envoyez votre demande et nous vous répondrons avec une première orientation adaptée à votre besoin.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services/consultation-form.html">Demander une consultation ou une formation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fr-footer">
+    <div class="container fr-footer-inner">
+      <div>
+        <h2>ConsuTrain</h2>
+        <p>Conseil, formation et outils pour la performance organisationnelle.</p>
+      </div>
+      <nav class="fr-footer-links" aria-label="Navigation de pied de page">
+        <a href="services.html">Services</a>
+        <a href="tools.html">Outils gratuits</a>
+        <a href="resources/index.html">Ressources gratuites</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Vos avis et suggestions</a>
+        <a href="../index.html" lang="ar" dir="rtl">العربية</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
