@@ -958,3 +958,18 @@ The first implementation will be an MVP without user login and without automated
 - Études de faisabilité
 
 أي ترجمة جديدة للنسخة الفرنسية يجب أن تراجع هذا القاموس لتجنب اختلاف المصطلحات بين الصفحات.
+
+تم التنفيذ.
+
+  - الملف المعدل:
+      - partials/header.html
+
+  - أين أضفت زر Français؟
+      - في نهاية قائمة التنقل الرئيسية داخل <nav class="main-nav">، بعد قسم تواصل معنا.
+
+  - هل الرابط يشير إلى __ROOT__/fr/index.html؟
+    نعم:
+
+    <a class="nav-link nav-link--single" href="__ROOT__/fr/index.html" lang="fr" dir="ltr">Français</a>
+
+  لم أعدّل أي ملفات أخرى، ولم أعمل commit.

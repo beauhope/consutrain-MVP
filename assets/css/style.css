@@ -2897,6 +2897,38 @@ top: 0 !important;
   flex-shrink:0;
 }
 
+.brand-cluster{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+
+.language-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:36px;
+  height:36px;
+  padding:0 9px;
+  border:1px solid rgba(15,39,71,.22);
+  border-radius:999px;
+  background:#fff;
+  color:var(--primary);
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1;
+  text-decoration:none;
+  box-shadow:0 8px 18px rgba(15,39,71,.07);
+}
+
+.language-badge:hover,
+.language-badge:focus-visible{
+  border-color:var(--gold);
+  background:rgba(212,166,58,.12);
+  color:var(--primary);
+}
+
 .brand-mark{
   width:42px;
   height:42px;

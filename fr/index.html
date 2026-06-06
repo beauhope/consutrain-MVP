@@ -53,6 +53,13 @@
       width: 178px;
     }
 
+    .fr-brand-cluster {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      gap: 10px;
+    }
+
     .fr-nav {
       align-items: center;
       display: flex;
@@ -90,9 +97,27 @@
     }
 
     .fr-language-link {
+      align-items: center;
+      background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 999px;
+      color: var(--primary);
+      display: inline-flex;
+      font-size: 0.82rem;
+      font-weight: 800;
+      height: 36px;
+      justify-content: center;
+      line-height: 1;
+      min-width: 36px;
       padding: 9px 13px;
+      text-decoration: none;
+    }
+
+    .fr-language-link:hover,
+    .fr-language-link:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
     }
 
     .fr-page .hero-card p {
@@ -195,9 +220,12 @@
 <body class="home-page fr-home-page fr-page">
   <header class="fr-header">
     <div class="container fr-header-inner">
-      <a class="fr-brand" href="index.html" aria-label="ConsuTrain - Accueil">
-        <img src="../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
-      </a>
+      <div class="fr-brand-cluster">
+        <a class="fr-brand" href="index.html" aria-label="ConsuTrain - Accueil">
+          <img src="../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
+        </a>
+        <a class="fr-language-link" href="../index.html" lang="ar" dir="rtl" title="الانتقال إلى العربية" aria-label="الانتقال إلى العربية">AR</a>
+      </div>
       <nav class="fr-nav" aria-label="Navigation principale">
         <a href="index.html">Accueil</a>
         <a href="services.html">Services</a>
@@ -206,7 +234,6 @@
         <a href="courses/index.html">Formations</a>
         <a href="contact.html">Contact</a>
         <a class="btn btn-primary btn-small" href="services/consultation-form.html">Demander une consultation</a>
-        <a class="fr-language-link" href="../index.html" lang="ar" dir="rtl">العربية</a>
       </nav>
     </div>
   </header>
