@@ -516,19 +516,79 @@
       </nav>
     </div>
   </footer>
-  <!-- Future integration: replace temporary submit handler with n8n webhook submission. -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      var WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-consultation-request";
       var form = document.getElementById("frInternalConsultationForm");
       var status = document.getElementById("frConsultationFormStatus");
+      var submitButton = form ? form.querySelector('button[type="submit"]') : null;
 
-      if (!form || !status) return;
+      if (!form || !status || !submitButton) return;
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        status.textContent = "Merci. Votre demande a été préparée. L’envoi automatique sera activé prochainement. Vous pouvez aussi nous contacter via la page Contact.";
+      function fieldValue(name) {
+        var field = form.elements[name];
+        return field && typeof field.value === "string" ? field.value.trim() : "";
+      }
+
+      function setStatus(message) {
+        status.textContent = message;
         status.classList.add("show");
         status.focus();
+      }
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var originalButtonText = submitButton.textContent;
+        var payload = {
+          language: "fr",
+          source_page: "fr/services/consultation-form.html",
+          full_name: fieldValue("fullName"),
+          email: fieldValue("email"),
+          phone: fieldValue("phone"),
+          country_city: fieldValue("location"),
+          request_type: fieldValue("requestType"),
+          organization: fieldValue("organization"),
+          subject: fieldValue("subject"),
+          description: fieldValue("needDescription"),
+          timeline: fieldValue("timeline"),
+          preferred_contact: fieldValue("preferredContact"),
+          consent: Boolean(form.elements.consent && form.elements.consent.checked)
+        };
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Envoi en cours...";
+        setStatus("Envoi de votre demande de consultation...");
+
+        try {
+          var response = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+          var result = await response.json().catch(function () {
+            return {};
+          });
+
+          if (!response.ok || result.ok !== true) {
+            throw new Error("Consultation request failed");
+          }
+
+          setStatus("Votre demande de consultation a bien été reçue. Nous vous contacterons prochainement.");
+          form.reset();
+        } catch (error) {
+          setStatus("Impossible d’envoyer la demande pour le moment. Veuillez réessayer plus tard.");
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
       });
     });
   </script>

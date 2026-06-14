@@ -299,19 +299,79 @@
 
   <script src="../assets/js/includes.js?v=20260508_consultation_form"></script>
   <script src="../assets/js/pwa.js"></script>
-  <!-- Future integration: replace temporary submit handler with n8n webhook submission. -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      var WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-consultation-request";
       var form = document.getElementById("internalConsultationForm");
       var status = document.getElementById("consultationFormStatus");
+      var submitButton = form ? form.querySelector('button[type="submit"]') : null;
 
-      if (!form || !status) return;
+      if (!form || !status || !submitButton) return;
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        status.textContent = "شكرًا لك. تم تجهيز طلبك مبدئيًا. سيتم تفعيل الإرسال الآلي قريبًا، ويمكنك حاليًا التواصل معنا عبر صفحة التواصل.";
+      function fieldValue(name) {
+        var field = form.elements[name];
+        return field && typeof field.value === "string" ? field.value.trim() : "";
+      }
+
+      function setStatus(message) {
+        status.textContent = message;
         status.classList.add("show");
         status.focus();
+      }
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var originalButtonText = submitButton.textContent;
+        var payload = {
+          language: "ar",
+          source_page: "services/consultation-form.html",
+          full_name: fieldValue("fullName"),
+          email: fieldValue("email"),
+          phone: fieldValue("phone"),
+          country_city: fieldValue("location"),
+          request_type: fieldValue("requestType"),
+          organization: fieldValue("organization"),
+          subject: fieldValue("subject"),
+          description: fieldValue("needDescription"),
+          timeline: fieldValue("timeline"),
+          preferred_contact: fieldValue("preferredContact"),
+          consent: Boolean(form.elements.consent && form.elements.consent.checked)
+        };
+
+        submitButton.disabled = true;
+        submitButton.textContent = "جاري إرسال الطلب...";
+        setStatus("جاري إرسال طلب الاستشارة...");
+
+        try {
+          var response = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+          var result = await response.json().catch(function () {
+            return {};
+          });
+
+          if (!response.ok || result.ok !== true) {
+            throw new Error("Consultation request failed");
+          }
+
+          setStatus("تم استلام طلب الاستشارة بنجاح. سنقوم بالتواصل معكم قريبًا.");
+          form.reset();
+        } catch (error) {
+          setStatus("تعذر إرسال الطلب حاليًا. يرجى المحاولة مرة أخرى لاحقًا.");
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
       });
     });
   </script>
