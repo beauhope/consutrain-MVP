@@ -869,3 +869,10 @@ Next suggested French pages:
 - `fr/about.html`
 - `fr/tools.html`
 - `fr/resources/index.html`
+
+### 2026-06-14 - Consultation forms automation next step
+
+Next:
+- Connect `services/consultation-form.html` and `fr/services/consultation-form.html` to an n8n webhook.
+- Store consultation requests in Google Sheets after the webhook workflow is designed and tested.
+- Keep the current temporary submit messages until the automation path is ready.

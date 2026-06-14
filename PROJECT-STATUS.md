@@ -1295,3 +1295,12 @@ Status: Completed
 - Created `fr/contact.html` as the French contact page.
 - Updated existing French pages so their Contact navigation now points to the French contact page.
 - Updated `sw.js` cache names and precache list for the new French contact page.
+
+## 2026-06-14 - Internal consultation forms
+
+Status: Completed
+
+- Removed Tally embeds from `services/consultation-form.html` and `fr/services/consultation-form.html`.
+- Replaced them with internal temporary ConsuTrain consultation request forms.
+- Added temporary submit messages while future automatic submission is prepared.
+- Updated `sw.js` cache names for the changed consultation form pages.

@@ -1013,3 +1013,15 @@ Reason:
 This avoids broken links while allowing the French version to expand in controlled steps without translating the whole website at once.
 
 Status: Approved
+
+## Decision - Internal ConsuTrain consultation forms
+
+Date: 2026-06-14
+
+Decision:
+Consultation request pages should use internal ConsuTrain forms instead of third-party iframe form embeds. The forms should remain static for now, with temporary submit handling, and be prepared for future n8n webhook integration.
+
+Reason:
+This reduces dependency on external form tools, improves visual consistency, and keeps the path open for controlled automation through n8n and Google Sheets later.
+
+Status: Approved

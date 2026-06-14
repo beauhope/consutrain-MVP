@@ -157,15 +157,89 @@
       border: 1px solid var(--border);
       border-radius: 22px;
       box-shadow: 0 18px 42px rgba(15, 39, 71, 0.08);
-      min-height: 1200px;
-      padding: 18px;
+      padding: 24px;
     }
 
-    .fr-form-shell iframe {
-      border: 0;
-      display: block;
-      min-height: 1200px;
+    .fr-internal-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .fr-form-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fr-form-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .fr-form-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .fr-form-field label,
+    .fr-consent-field {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .fr-form-field input,
+    .fr-form-field select,
+    .fr-form-field textarea {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--primary);
+      font: inherit;
+      line-height: 1.6;
+      padding: 12px 14px;
       width: 100%;
+    }
+
+    .fr-form-field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .fr-consent-field {
+      align-items: flex-start;
+      background: #f7f9fc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      gap: 10px;
+      line-height: 1.8;
+      padding: 12px 14px;
+    }
+
+    .fr-consent-field input {
+      margin-top: 8px;
+      width: auto;
+    }
+
+    .fr-form-status {
+      background: rgba(212, 166, 58, 0.14);
+      border: 1px solid rgba(212, 166, 58, 0.38);
+      border-radius: 14px;
+      color: var(--primary);
+      display: none;
+      font-weight: 800;
+      line-height: 1.8;
+      padding: 14px 16px;
+    }
+
+    .fr-form-status.show {
+      display: block;
+    }
+
+    .fr-form-actions {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .fr-privacy-note {
@@ -237,7 +311,11 @@
 
       .fr-form-shell {
         border-radius: 16px;
-        padding: 10px;
+        padding: 18px;
+      }
+
+      .fr-form-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -331,17 +409,90 @@
         </div>
 
         <div class="fr-form-shell">
-          <iframe
-            src="https://tally.so/embed/ja5Dlx?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
-            width="100%"
-            height="1200"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="Demande de consultation ou de formation ConsuTrain"
-          ></iframe>
+          <form class="fr-internal-form" id="frInternalConsultationForm" action="#" method="post">
+            <div class="fr-form-grid">
+              <div class="fr-form-field">
+                <label for="frFullName">Nom complet</label>
+                <input id="frFullName" name="fullName" type="text" autocomplete="name" required>
+              </div>
+
+              <div class="fr-form-field">
+                <label for="frEmail">Email</label>
+                <input id="frEmail" name="email" type="email" autocomplete="email" required>
+              </div>
+
+              <div class="fr-form-field">
+                <label for="frPhone">Téléphone / WhatsApp</label>
+                <input id="frPhone" name="phone" type="tel" autocomplete="tel" required>
+              </div>
+
+              <div class="fr-form-field">
+                <label for="frLocation">Pays / Ville</label>
+                <input id="frLocation" name="location" type="text" autocomplete="address-level2">
+              </div>
+
+              <div class="fr-form-field">
+                <label for="frRequestType">Type de demande</label>
+                <select id="frRequestType" name="requestType" required>
+                  <option value="">Sélectionner un type de demande</option>
+                  <option>Consultation en management</option>
+                  <option>Planification stratégique</option>
+                  <option>Étude de faisabilité</option>
+                  <option>ISO, qualité et systèmes de management</option>
+                  <option>Gestion des risques</option>
+                  <option>SOP et manuels opérationnels</option>
+                  <option>Gestion de projet</option>
+                  <option>Formation</option>
+                  <option>Demande institutionnelle ou partenariat</option>
+                  <option>Autre demande</option>
+                </select>
+              </div>
+
+              <div class="fr-form-field">
+                <label for="frOrganization">Organisation / Entreprise, le cas échéant</label>
+                <input id="frOrganization" name="organization" type="text" autocomplete="organization">
+              </div>
+
+              <div class="fr-form-field">
+                <label for="frSubject">Sujet principal</label>
+                <input id="frSubject" name="subject" type="text" required>
+              </div>
+
+              <div class="fr-form-field">
+                <label for="frTimeline">Délai souhaité</label>
+                <input id="frTimeline" name="timeline" type="text">
+              </div>
+
+              <div class="fr-form-field">
+                <label for="frPreferredContact">Mode de contact préféré</label>
+                <select id="frPreferredContact" name="preferredContact" required>
+                  <option value="">Sélectionner un mode de contact</option>
+                  <option>Email</option>
+                  <option>Téléphone</option>
+                  <option>WhatsApp</option>
+                </select>
+              </div>
+
+              <div class="fr-form-field fr-form-field--full">
+                <label for="frNeedDescription">Description du besoin</label>
+                <textarea id="frNeedDescription" name="needDescription" required></textarea>
+              </div>
+
+              <label class="fr-consent-field fr-form-field--full">
+                <input name="consent" type="checkbox" required>
+                <span>J'accepte d'être contacté et que ma demande soit traitée afin de recevoir une réponse adaptée.</span>
+              </label>
+            </div>
+
+            <p class="fr-form-status" id="frConsultationFormStatus" role="status" aria-live="polite" tabindex="-1"></p>
+
+            <div class="fr-form-actions">
+              <button class="btn btn-primary" type="submit">Préparer la demande</button>
+              <a class="btn btn-secondary" href="../contact.html">Aller à la page Contact</a>
+            </div>
+          </form>
         </div>
-        <p class="fr-privacy-note">Les informations envoyées seront utilisées uniquement pour analyser votre demande et vous répondre.</p>
+        <p class="fr-privacy-note">Les informations saisies seront utilisées uniquement pour analyser votre demande et vous répondre lorsque l'envoi automatique sera activé.</p>
       </div>
     </section>
   </main>
@@ -363,5 +514,21 @@
       </nav>
     </div>
   </footer>
+  <!-- Future integration: replace temporary submit handler with n8n webhook submission. -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var form = document.getElementById("frInternalConsultationForm");
+      var status = document.getElementById("frConsultationFormStatus");
+
+      if (!form || !status) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        status.textContent = "Merci. Votre demande a été préparée. L’envoi automatique sera activé prochainement. Vous pouvez aussi nous contacter via la page Contact.";
+        status.classList.add("show");
+        status.focus();
+      });
+    });
+  </script>
 </body>
 </html>
