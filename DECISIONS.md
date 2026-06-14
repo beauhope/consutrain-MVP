@@ -60,6 +60,18 @@ This keeps translation and maintenance controlled while giving French-speaking v
 
 Status: Approved
 
+## Decision - Introduce French tools through landing pages first
+
+Date: 2026-06-14
+
+Decision:
+French tools pages should be introduced progressively through a French landing page first. Individual tool interfaces can remain in their current original version until each tool is prioritized for translation or redesign.
+
+Reason:
+This gives French-speaking visitors a coherent entry point to available tools without creating a large translation and maintenance burden across all internal tool pages at once.
+
+Status: Approved
+
 ---
 
 ### 2. إزالة الملفات المحلية المغربية من MyTodo

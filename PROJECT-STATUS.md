@@ -1312,3 +1312,12 @@ Status: Completed
 - Created `fr/about.html` as the French About page.
 - Linked `fr/about.html` from the current French pages: `fr/index.html`, `fr/services.html`, `fr/contact.html`, and `fr/services/consultation-form.html`.
 - Updated `sw.js` cache names and precache list for the new French About page.
+
+## 2026-06-14 - French tools landing page
+
+Status: Completed
+
+- Created `fr/tools.html` as the French tools landing page.
+- Linked the current French pages to `fr/tools.html`.
+- The page introduces the tools area progressively and links to existing tool pages without translating each internal tool yet.
+- Updated `sw.js` cache names and precache list for the new French tools page.

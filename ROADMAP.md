@@ -887,3 +887,13 @@ Next suggested French pages:
 - `fr/tools.html`
 - `fr/resources/index.html`
 - `fr/courses/index.html`
+
+### 2026-06-14 - French tools landing page completed
+
+Completed:
+- `fr/tools.html` has been created as the French tools landing page.
+- Current French pages now link to the French Tools page.
+
+Next suggested French pages:
+- `fr/resources/index.html`
+- `fr/courses/index.html`
