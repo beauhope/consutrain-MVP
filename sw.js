@@ -9,12 +9,10 @@
   =========================================================
 */
 
-HEAD
 
 
-const STATIC_CACHE = "consutrain-v20260526-pwa-icons-v2";
-const RUNTIME_CACHE = "consutrain-runtime-v20260526-pwa-icons-v2";
- f12659416c1d563e0e01293a605e44a54dac6a69
+const STATIC_CACHE = "consutrain-v20260614-fr-contact";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-contact";
 
 const PRECACHE_URLS = [
   "./",
@@ -129,6 +127,7 @@ const PRECACHE_URLS = [
   "./courses/objectives-management.html",
   "./courses/mor-foundation.html",
   "./feedback.html",
+  "./fr/contact.html",
   "./services/consultation-form.html",
   "./tools/calculators/index.html",
   "./tools/crm/index.html",

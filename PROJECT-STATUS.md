@@ -1266,3 +1266,32 @@ Next:
 - fr/services.html
 
 أصبحت النسخة العربية تعرض شارة `FR`، بينما تعرض الصفحات الفرنسية شارة `AR` للرجوع إلى النسخة العربية.
+
+## تحديث – تثبيت الروابط الفرنسية وتنظيف صفحة الأدوات
+
+تم تنفيذ دفعة تنظيف آمنة للنسخة الحالية قبل التوسع في الترجمة الفرنسية.
+
+الملفات المعدلة في هذه الدفعة:
+- `tools.html`
+- `fr/index.html`
+- `fr/services.html`
+- `fr/services/consultation-form.html`
+- `sw.js`
+
+ما تم إنجازه:
+- إزالة الإشارة إلى SWOT من خانة البحث في صفحة الأدوات حتى لا يظهر كأداة مستقلة.
+- إزالة قسم الأدوات المستقلة المكرر من صفحة الأدوات، مع الإبقاء على نفس الأدوات ضمن قسم الأدوات العملية المجانية.
+- إصلاح روابط الصفحات الفرنسية الحالية بحيث تشير مؤقتًا إلى الصفحات العربية المقابلة عند عدم وجود نسخة فرنسية مستقلة.
+- تنظيف `sw.js` من أسطر غير لازمة كانت قبل تعريفات cache.
+- تحديث نسخة cache في Service Worker لضمان تحميل النسخ الجديدة بعد النشر.
+
+الحالة الحالية:
+النسخة الفرنسية الأساسية موجودة، والروابط أصبحت أوضح مؤقتًا إلى حين إنشاء صفحات فرنسية مستقلة مثل `fr/contact.html` و `fr/tools.html`.
+
+## 2026-06-14 - French contact page
+
+Status: Completed
+
+- Created `fr/contact.html` as the French contact page.
+- Updated existing French pages so their Contact navigation now points to the French contact page.
+- Updated `sw.js` cache names and precache list for the new French contact page.

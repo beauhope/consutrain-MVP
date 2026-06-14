@@ -991,3 +991,25 @@ The first implementation will be an MVP without user login and without automated
 وتربط إلى الصفحة العربية المقابلة عند توفرها.
 
 هذا الأسلوب يحافظ على بساطة الهيدر ويجعل تغيير اللغة واضحًا دون مزاحمة روابط التنقل الأساسية.
+
+## قرار — الترجمة الفرنسية التدريجية مع روابط مؤقتة آمنة
+
+تم اعتماد أن النسخة الفرنسية لا تُستكمل دفعة واحدة، بل تُبنى تدريجيًا حسب أولوية الزائر.
+
+عند عدم توفر صفحة فرنسية مقابلة، يتم توجيه الرابط مؤقتًا إلى الصفحة العربية الأصلية بدل إنشاء رابط مكسور داخل مجلد `/fr/`.
+
+هذا القرار يشمل حاليًا روابط الأدوات، الموارد، الدورات، التواصل، وآراء الزوار في الصفحات الفرنسية الأساسية.
+
+يبقى مبدأ عدم تكرار SWOT كأداة مستقلة قائمًا؛ يظهر SWOT فقط ضمن الموارد والقوالب أو كفكرة مستقبلية متقدمة لتحويل SWOT إلى TOWS.
+
+## Decision - Progressive French page creation and internal linking
+
+Date: 2026-06-14
+
+Decision:
+French pages will continue to be created progressively. When a French page exists, French navigation should link to the French page internally. When a French equivalent does not exist yet, links may temporarily point back to the Arabic page using the correct relative path.
+
+Reason:
+This avoids broken links while allowing the French version to expand in controlled steps without translating the whole website at once.
+
+Status: Approved

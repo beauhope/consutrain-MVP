@@ -846,3 +846,26 @@ Planned – MVP first, without login or automated certificate generation.
 - أتمتة عبر n8n Cloud أو VPS.
 - الفيديوهات تبقى مستضافة على YouTube.
 - الشهادات والملفات تحفظ لاحقًا في تخزين سحابي منظم.
+
+## مسار قريب — استكمال النسخة الفرنسية الأساسية
+
+بعد تثبيت الروابط الفرنسية الحالية وتنظيف صفحة الأدوات، تكون الأولوية القادمة للنسخة الفرنسية كما يلي:
+
+1. إنشاء `fr/contact.html` كصفحة تواصل فرنسية بسيطة وواضحة.
+2. مراجعة وتحسين `fr/index.html` و `fr/services.html` من ناحية الرسائل التسويقية والروابط.
+3. إنشاء `fr/tools.html` فقط بعد استقرار صفحة الأدوات العربية.
+4. إنشاء `fr/resources/index.html` للموارد الأكثر ملاءمة للزائر الناطق بالفرنسية.
+5. ترجمة صفحات خدمات مختارة تدريجيًا، خصوصًا: التخطيط الاستراتيجي، ISO/qualité، إدارة المخاطر، دراسات الجدوى، SOP، وإدارة المشاريع.
+
+لا يتم ترجمة كل صفحات الموقع دفعة واحدة حتى لا تتوسع الصيانة قبل تثبيت الصفحات الأساسية.
+
+### 2026-06-14 - French contact page completed
+
+Completed:
+- `fr/contact.html` has been created.
+- Existing French pages now link internally to the French contact page.
+
+Next suggested French pages:
+- `fr/about.html`
+- `fr/tools.html`
+- `fr/resources/index.html`
