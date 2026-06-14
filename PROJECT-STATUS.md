@@ -1321,3 +1321,13 @@ Status: Completed
 - Linked the current French pages to `fr/tools.html`.
 - The page introduces the tools area progressively and links to existing tool pages without translating each internal tool yet.
 - Updated `sw.js` cache names and precache list for the new French tools page.
+
+## PWA Icons — Mobile Installation Fix
+
+تم إصلاح أيقونات تثبيت تطبيق ConsuTrain على الهاتف.
+
+تم إنشاء أيقونات maskable جديدة من شعار ConsuTrain الحالي:
+- assets/icons/icon-192-maskable-v2.png
+- assets/icons/icon-512-maskable-v2.png
+
+كما تم تحديث manifest.webmanifest و sw.js لاستخدام الأيقونات الجديدة بدل الأيقونة القديمة التي كانت تظهر كمربع بداخله حرف C.
