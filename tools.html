@@ -377,7 +377,7 @@
            =================================================== -->
       <section class="tools-search-box">
         <div class="tools-search-wrap">
-          <input id="toolsSearchInput" type="search" placeholder="ابحث عن أداة مثل: SWOT، KPIs، منظّم مهامي، دراسة الجدوى...">
+          <input id="toolsSearchInput" type="search" placeholder="ابحث عن أداة مثل: KPIs، هدف SMART، منظّم مهامي، دراسة الجدوى...">
           <button id="toolsSearchButton" type="button">بحث</button>
         </div>
 
@@ -651,59 +651,7 @@
 
   <!-- الفوتر المشترك -->
   
-    <!--
-      =======================================================
-      INDEPENDENT TOOLS SECTION
-      أدوات مستقلة تم فصلها عن منظّم مهامي
-      =======================================================
-    -->
-    <section class="home-section tools-independent-section" aria-labelledby="independent-tools-title">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="section-eyebrow">أدوات مستقلة</span>
-            <h2 id="independent-tools-title">أدوات عملية إضافية</h2>
-            <p>
-              مجموعة أدوات مجانية مساعدة للاستخدام اليومي في الإدارة والمتابعة.
-            </p>
-          </div>
-        </div>
-
-        <div class="cards-grid tools-grid">
-          <article class="tool-card" data-category="productivity">
-            <h3>الحاسبات الإدارية</h3>
-            <p>أدوات حسابية مبسطة تساعد في المتابعة والتقدير واتخاذ القرار.</p>
-            <a class="card-link" href="tools/calculators/index.html">فتح الأداة</a>
-          </article>
-
-          <article class="tool-card" data-category="productivity">
-            <h3>إدارة علاقات العملاء</h3>
-            <p>أداة بسيطة لتنظيم بيانات العملاء والمتابعة الأولية.</p>
-            <a class="card-link" href="tools/crm/index.html">فتح الأداة</a>
-          </article>
-
-          <article class="tool-card" data-category="productivity">
-            <h3>الفواتير</h3>
-            <p>أداة لإعداد فواتير مبسطة وتنظيم بيانات الخدمة أو المنتج.</p>
-            <a class="card-link" href="tools/invoice/index.html">فتح الأداة</a>
-          </article>
-
-          <article class="tool-card" data-category="productivity">
-            <h3>المؤقت</h3>
-            <p>أداة مساعدة لتنظيم جلسات العمل والتركيز وإدارة الوقت.</p>
-            <a class="card-link" href="tools/timer/index.html">فتح الأداة</a>
-          </article>
-
-          <article class="tool-card" data-category="productivity">
-            <h3>قوالب الأدوات</h3>
-            <p>مجموعة قوالب عملية مرتبطة بالاستخدام اليومي للأدوات.</p>
-            <a class="card-link" href="tools/tool-templates/index.html">فتح الأداة</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-  <div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const scrollTopBtn = document.getElementById("scrollTopBtn");
@@ -730,7 +678,7 @@
     const filteredGrid = document.getElementById("toolsFilteredGrid");
     const filteredTitle = document.getElementById("toolsFilteredTitle");
     const toolCards = Array.from(document.querySelectorAll(".tool-card[data-category]"));
-    const toolSections = Array.from(document.querySelectorAll(".tools-section, .tools-independent-section"));
+    const toolSections = Array.from(document.querySelectorAll(".tools-section"));
     const filterLinks = Array.from(document.querySelectorAll("[data-filter-category]"));
     const hasCategoryFilter = activeCategory !== "all";
 
