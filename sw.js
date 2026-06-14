@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-tools";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-tools";
+const STATIC_CACHE = "consutrain-v20260526-pwa-icons-maskable-v2";
+const RUNTIME_CACHE = "consutrain-runtime-v20260526-pwa-icons-maskable-v2";
 
 const PRECACHE_URLS = [
   "./",
@@ -116,8 +116,8 @@ const PRECACHE_URLS = [
 
   "./assets/icons/icon-192-v2.png",
   "./assets/icons/icon-512-v2.png",
-  "./assets/icons/icon-192-maskable.png",
-  "./assets/icons/icon-512-maskable.png",
+  "./assets/icons/icon-192-maskable-v2.png",
+  "./assets/icons/icon-512-maskable-v2.png",
 
   "./assets/screenshots/screenshot-desktop-wide.png",
   "./assets/screenshots/screenshot-mobile.png",
