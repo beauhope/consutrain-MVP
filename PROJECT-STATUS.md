@@ -1304,3 +1304,11 @@ Status: Completed
 - Replaced them with internal temporary ConsuTrain consultation request forms.
 - Added temporary submit messages while future automatic submission is prepared.
 - Updated `sw.js` cache names for the changed consultation form pages.
+
+## 2026-06-14 - French about page
+
+Status: Completed
+
+- Created `fr/about.html` as the French About page.
+- Linked `fr/about.html` from the current French pages: `fr/index.html`, `fr/services.html`, `fr/contact.html`, and `fr/services/consultation-form.html`.
+- Updated `sw.js` cache names and precache list for the new French About page.

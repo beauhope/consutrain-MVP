@@ -876,3 +876,14 @@ Next:
 - Connect `services/consultation-form.html` and `fr/services/consultation-form.html` to an n8n webhook.
 - Store consultation requests in Google Sheets after the webhook workflow is designed and tested.
 - Keep the current temporary submit messages until the automation path is ready.
+
+### 2026-06-14 - French about page completed
+
+Completed:
+- `fr/about.html` has been created.
+- Current French pages now link to the French About page.
+
+Next suggested French pages:
+- `fr/tools.html`
+- `fr/resources/index.html`
+- `fr/courses/index.html`

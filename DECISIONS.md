@@ -48,6 +48,18 @@ ConsuTrain – Project Management – إدارة المشروع والمتابع
 
 Status: Approved
 
+## Decision - Build the French version through high-value pages first
+
+Date: 2026-06-14
+
+Decision:
+The French version should continue to be built progressively through high-value pages first, such as Home, Services, About, Contact, and consultation request pages. Broader sections like tools, resources, courses, and service detail pages should be added gradually after the core French visitor path is stable.
+
+Reason:
+This keeps translation and maintenance controlled while giving French-speaking visitors a coherent path to understand ConsuTrain and submit a request.
+
+Status: Approved
+
 ---
 
 ### 2. إزالة الملفات المحلية المغربية من MyTodo
