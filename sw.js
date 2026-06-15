@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-services-accordion-detail-links";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-services-accordion-detail-links";
+const STATIC_CACHE = "consutrain-v20260614-fr-service-floating-controls";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-floating-controls";
 
 const PRECACHE_URLS = [
   "./",
@@ -97,6 +97,7 @@ const PRECACHE_URLS = [
   "./assets/images/articles/ai-vuca.svg",
 
   "./assets/js/includes.js",
+  "./assets/js/fr-floating-controls.js?v=20260614_fr_service_floating_controls",
   "./assets/js/free-certificate-training.js",
   "./assets/js/main.js",
   "./assets/js/ai-page.js",
@@ -224,6 +225,7 @@ function shouldUseNetworkFirstForUiAsset(url) {
   return (
     path.includes("/partials/") ||
     path.endsWith("/assets/js/includes.js") ||
+    path.endsWith("/assets/js/fr-floating-controls.js") ||
     path.endsWith("/assets/js/pwa.js") ||
     path.endsWith("/assets/css/style.css") ||
     path.endsWith("/manifest.webmanifest")

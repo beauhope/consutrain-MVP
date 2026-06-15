@@ -48,6 +48,9 @@ The website already has:
 
 The focus now is to make sure the current version is stable, clear, and ready for gradual expansion.
 
+Completed in this phase:
+- French service detail pages now include the floating controls used on the Arabic service pages.
+
 ---
 
 # 4. Roadmap phases
@@ -67,6 +70,7 @@ Stabilize the current version of the website and confirm that the basic structur
 - Confirm `data-root` rules across pages.
 - Confirm relative paths for CSS and JavaScript.
 - Confirm Breadcrumb behavior.
+- Confirm French service floating controls match the Arabic service page behavior.
 - Confirm GitHub Pages functionality.
 - Confirm mobile display.
 - Confirm PWA installation behavior.

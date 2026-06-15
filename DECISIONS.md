@@ -72,6 +72,18 @@ This gives French-speaking visitors a coherent entry point to available tools wi
 
 Status: Approved
 
+## Decision - Keep floating controls consistent on standalone French service pages
+
+Date: 2026-06-15
+
+Decision:
+Standalone French service detail pages should include the same floating controls used on Arabic service pages: scroll-to-top, share, and quick contact.
+
+Reason:
+This keeps the French service experience consistent on mobile and desktop without changing the French header or breadcrumb layout.
+
+Status: Approved
+
 ---
 
 ### 2. إزالة الملفات المحلية المغربية من MyTodo

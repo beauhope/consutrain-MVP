@@ -101,6 +101,14 @@ The following project management file exists:
 
 - `PROJECT-RULES.md`
 
+### 3.8 French service UI consistency
+
+The selected French service detail pages now include the floating controls used on the Arabic service pages:
+
+- scroll-to-top button
+- share button
+- quick contact widget
+
 ---
 
 ## 4. Items currently in progress
