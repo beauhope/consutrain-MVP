@@ -1357,6 +1357,15 @@ Status: Completed
 - Normalized the new Resources and Courses landing pages so their navigation includes the current section link at the correct relative depth.
 - Updated `sw.js` cache names for the navigation audit fixes.
 
+## 2026-06-15 - French learning landing page
+
+Status: Completed
+
+- Created `fr/learn.html` as the French learning landing page.
+- Linked the current French pages to the new French learning page.
+- The page introduces ConsuTrain learning categories in French while linking to existing learning pages.
+- No individual French learning articles, guides, or learning paths were created in this step.
+
 ## 2026-06-14 - French about page
 
 Status: Completed
