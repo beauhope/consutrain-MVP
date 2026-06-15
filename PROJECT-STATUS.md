@@ -109,6 +109,10 @@ The selected French service detail pages now include the floating controls used 
 - share button
 - quick contact widget
 
+### 3.9 French shared UI pilot
+
+The French shared UI pilot is implemented on `fr/services/digital-transformation-roadmap.html` using French-specific shared partials.
+
 ---
 
 ## 4. Items currently in progress

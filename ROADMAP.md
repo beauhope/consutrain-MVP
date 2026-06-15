@@ -50,6 +50,7 @@ The focus now is to make sure the current version is stable, clear, and ready fo
 
 Completed in this phase:
 - French service detail pages now include the floating controls used on the Arabic service pages.
+- French shared UI pilot implemented for `fr/services/digital-transformation-roadmap.html`.
 
 ---
 
@@ -71,6 +72,7 @@ Stabilize the current version of the website and confirm that the basic structur
 - Confirm relative paths for CSS and JavaScript.
 - Confirm Breadcrumb behavior.
 - Confirm French service floating controls match the Arabic service page behavior.
+- Confirm the French shared UI pilot renders correctly on mobile.
 - Confirm GitHub Pages functionality.
 - Confirm mobile display.
 - Confirm PWA installation behavior.
@@ -91,6 +93,17 @@ In progress
 ### Priority
 
 High
+
+### French shared UI pilot
+
+Status: In progress
+
+Pilot page: `fr/services/digital-transformation-roadmap.html`
+
+Next steps:
+- test the pilot page on mobile
+- migrate remaining French service pages if the pilot is approved
+- remove `fr-floating-controls.js` only after migrated pages no longer need it
 
 ---
 

@@ -84,6 +84,18 @@ This keeps the French service experience consistent on mobile and desktop withou
 
 Status: Approved
 
+## Decision - Move French service pages toward French-specific shared partials
+
+Date: 2026-06-16
+
+Decision:
+The French version should move toward French-specific shared partials for header and footer while continuing to reuse the shared CSS and JavaScript mechanics.
+
+Reason:
+This gives the French pages a shared UI path without forcing Arabic labels or Arabic-only navigation into the French experience.
+
+Status: Approved
+
 ---
 
 ### 2. إزالة الملفات المحلية المغربية من MyTodo

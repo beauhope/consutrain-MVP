@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-service-floating-controls";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-floating-controls";
+const STATIC_CACHE = "consutrain-v20260614-fr-shared-ui-pilot";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-shared-ui-pilot";
 
 const PRECACHE_URLS = [
   "./",
@@ -86,6 +86,8 @@ const PRECACHE_URLS = [
 
   "./partials/header.html",
   "./partials/footer.html",
+  "./partials/fr-header.html",
+  "./partials/fr-footer.html",
 
   "./assets/css/style.css",
 

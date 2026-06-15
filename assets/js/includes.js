@@ -87,6 +87,35 @@ function getPartialsBasePath() {
   return `${root}/partials`;
 }
 
+function isFrenchPage() {
+  const lang = (document.documentElement.lang || "").toLowerCase();
+  const path = window.location.pathname.toLowerCase();
+  return lang === "fr" || path.includes("/fr/");
+}
+
+function getLocalizedPartialFileName(baseName) {
+  return isFrenchPage() ? `fr-${baseName}` : baseName;
+}
+
+function getLocalizedHomeHref(root) {
+  return isFrenchPage() ? `${root}/fr/index.html` : `${root}/index.html`;
+}
+
+function getLocalizedServiceHref(root) {
+  return isFrenchPage() ? `${root}/fr/services.html` : `${root}/services.html`;
+}
+
+function syncLocalizedLanguageLink() {
+  if (!isFrenchPage()) return;
+
+  const targetHref = document.body.dataset.arLink || document.body.dataset.languageSwitchAr;
+  if (!targetHref) return;
+
+  document.querySelectorAll(".fr-language-link, .language-badge, a[lang=\"ar\"], a[hreflang=\"ar\"]").forEach((languageLink) => {
+    languageLink.setAttribute("href", targetHref);
+  });
+}
+
 /*
   ---------------------------------------------------------
   FUNCTION: applyRootPath
@@ -145,6 +174,7 @@ async function loadPartial(selector, filePath) {
     target.innerHTML = html;
 
     if (selector === "#header-placeholder") {
+      syncLocalizedLanguageLink();
       initHeaderNavigation();
       setActiveNavLink();
       restoreHomeHashScroll();
@@ -184,6 +214,9 @@ function initHeaderNavigation() {
   const submenuToggles = document.querySelectorAll(".submenu-toggle");
   const submenuParents = document.querySelectorAll(".has-submenu");
   const navLinks = nav.querySelectorAll("a");
+  const menuLabels = isFrenchPage()
+    ? { open: "Ouvrir le menu", close: "Fermer le menu" }
+    : { open: "فتح القائمة", close: "إغلاق القائمة" };
 
   let backdrop = document.querySelector(".nav-backdrop");
   if (!backdrop) {
@@ -218,7 +251,7 @@ function initHeaderNavigation() {
     nav.classList.remove("open");
     document.body.classList.remove("nav-is-open");
     toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", "فتح القائمة");
+    toggle.setAttribute("aria-label", menuLabels.open);
     toggle.textContent = "☰";
     backdrop.setAttribute("hidden", "");
     closeSubmenus();
@@ -228,7 +261,7 @@ function initHeaderNavigation() {
     nav.classList.add("open");
     document.body.classList.add("nav-is-open");
     toggle.setAttribute("aria-expanded", "true");
-    toggle.setAttribute("aria-label", "إغلاق القائمة");
+    toggle.setAttribute("aria-label", menuLabels.close);
     toggle.textContent = "×";
     backdrop.removeAttribute("hidden");
   }
@@ -511,10 +544,15 @@ function initBackToTop() {
 
 function getConsuTrainHomepageUrl() {
   const root = getRootPath();
-  return new URL(`${root}/index.html`, window.location.href).href;
+  const homePath = isFrenchPage() ? `${root}/fr/index.html` : `${root}/index.html`;
+  return new URL(homePath, window.location.href).href;
 }
 
 function getConsuTrainShareText() {
+  if (isFrenchPage()) {
+    return `ConsuTrain propose des outils, ressources et services pratiques pour l'administration, la stratégie, la qualité, les études de faisabilité et la gestion de projet.\n\nDécouvrir la plateforme :\n${getConsuTrainHomepageUrl()}`;
+  }
+
   return `منصة ConsuTrain تقدم أدوات وموارد مجانية في الإدارة، التخطيط، الجودة، دراسات الجدوى، وإدارة المشاريع.\n\nجرّب المنصة:\n${getConsuTrainHomepageUrl()}`;
 }
 
@@ -572,9 +610,9 @@ function initGlobalShareButton() {
 
     try {
       await copyTextToClipboard(shareText);
-      showGlobalShareStatus("تم نسخ رابط الموقع");
+      showGlobalShareStatus(isFrenchPage() ? "Lien copié" : "تم نسخ رابط الموقع");
     } catch (error) {
-      showGlobalShareStatus("تعذر النسخ، حاول مرة أخرى");
+      showGlobalShareStatus(isFrenchPage() ? "Impossible de copier le lien" : "تعذر النسخ، حاول مرة أخرى");
     }
   });
 }
@@ -592,8 +630,8 @@ function initGlobalShareButton() {
 document.addEventListener("DOMContentLoaded", () => {
   const partialsBase = getPartialsBasePath();
 
-  loadPartial("#header-placeholder", `${partialsBase}/header.html`);
-  loadPartial("#footer-placeholder", `${partialsBase}/footer.html`);
+  loadPartial("#header-placeholder", `${partialsBase}/${getLocalizedPartialFileName("header.html")}`);
+  loadPartial("#footer-placeholder", `${partialsBase}/${getLocalizedPartialFileName("footer.html")}`);
   initBreadcrumbs();
   initFriendlyNextSteps();
   restoreHomeHashScroll();
@@ -645,6 +683,24 @@ function initBreadcrumbs() {
 
   let sectionHref = null;
 
+  if (isFrenchPage()) {
+    if (section === "Services") {
+      sectionHref = `${root}/fr/services.html`;
+    } else if (section === "Apprendre") {
+      sectionHref = `${root}/fr/learn.html`;
+    } else if (section === "Outils") {
+      sectionHref = `${root}/fr/tools.html`;
+    } else if (section === "Ressources") {
+      sectionHref = `${root}/fr/resources/index.html`;
+    } else if (section === "Formations") {
+      sectionHref = `${root}/fr/courses/index.html`;
+    } else if (section === "À propos" || section === "A propos") {
+      sectionHref = `${root}/fr/about.html`;
+    } else if (section === "Contact") {
+      sectionHref = `${root}/fr/contact.html`;
+    }
+  }
+
   if (section === "البداية") {
     sectionHref = `${root}/start-here.html`;
   } else if (section === "التعلّم") {
@@ -661,12 +717,14 @@ function initBreadcrumbs() {
 
   const nav = document.createElement("nav");
   nav.className = "breadcrumbs";
-  nav.setAttribute("aria-label", "مسار التنقل");
+  nav.setAttribute("aria-label", isFrenchPage() ? "Fil d'Ariane" : "مسار التنقل");
 
   const list = document.createElement("ol");
 
   const homeItem = document.createElement("li");
-  homeItem.innerHTML = `<a href="${root}/index.html">الرئيسية</a>`;
+  homeItem.innerHTML = isFrenchPage()
+    ? `<a href="${root}/fr/index.html">Accueil</a>`
+    : `<a href="${root}/index.html">الرئيسية</a>`;
   list.appendChild(homeItem);
 
   if (section && sectionHref && section !== title) {
