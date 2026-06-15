@@ -983,3 +983,15 @@ Next selected French service detail pages:
 - `fr/services/risk-management.html`
 - `fr/services/project-management.html`
 - `fr/services/sop-operational-manuals.html`
+
+### 2026-06-15 - French feasibility studies service detail page completed
+
+Completed:
+- `fr/services/feasibility-studies.html` has been created.
+- The page includes breadcrumbs, a "Dans cette page" internal summary, clear CTA links, and correct AR/FR language switching.
+
+Next selected French service detail pages:
+- `fr/services/iso-consulting.html`
+- `fr/services/risk-management.html`
+- `fr/services/project-management.html`
+- `fr/services/sop-operational-manuals.html`
