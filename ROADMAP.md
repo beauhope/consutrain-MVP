@@ -970,3 +970,16 @@ Next suggested French priorities:
 - Selected French templates/resources
 - Selected French course detail pages
 - Selected French learning articles
+
+### 2026-06-15 - French strategic planning service detail page completed
+
+Completed:
+- `fr/services/strategic-planning.html` has been created.
+- Strategic planning is the first selected French service detail page.
+
+Next selected French service detail pages:
+- `fr/services/feasibility-studies.html`
+- `fr/services/iso-consulting.html`
+- `fr/services/risk-management.html`
+- `fr/services/project-management.html`
+- `fr/services/sop-operational-manuals.html`

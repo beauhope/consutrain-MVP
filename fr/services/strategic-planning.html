@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Conseil en planification stratégique | ConsuTrain</title>
+  <meta
+    name="description"
+    content="Conseil en planification stratégique pour clarifier l'orientation, définir les priorités et transformer les objectifs en plans d'action mesurables."
+  >
+
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260614_fr_strategic_planning">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-service-detail-page,
+    .fr-service-detail-page * {
+      direction: ltr;
+    }
+
+    .fr-service-detail-page,
+    .fr-service-detail-page section,
+    .fr-service-detail-page header,
+    .fr-service-detail-page main,
+    .fr-service-detail-page footer,
+    .fr-service-detail-page .container,
+    .fr-service-detail-page .hero-card,
+    .fr-service-detail-page .feature-card,
+    .fr-service-detail-page .section-card,
+    .fr-service-detail-page .section-head,
+    .fr-service-detail-page .cta-panel,
+    .fr-service-detail-page h1,
+    .fr-service-detail-page h2,
+    .fr-service-detail-page h3,
+    .fr-service-detail-page p,
+    .fr-service-detail-page span,
+    .fr-service-detail-page a,
+    .fr-service-detail-page li {
+      text-align: left;
+    }
+
+    .fr-header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(15, 39, 71, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+    }
+
+    .fr-header-inner {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      min-height: 76px;
+      padding: 12px 0;
+    }
+
+    .fr-brand-cluster {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      gap: 10px;
+    }
+
+    .fr-brand img {
+      display: block;
+      height: auto;
+      width: 178px;
+    }
+
+    .fr-language-link {
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--primary);
+      display: inline-flex;
+      font-size: 0.82rem;
+      font-weight: 800;
+      height: 36px;
+      justify-content: center;
+      line-height: 1;
+      min-width: 36px;
+      padding: 9px 13px;
+      text-decoration: none;
+    }
+
+    .fr-language-link:hover,
+    .fr-language-link:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-nav {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+    }
+
+    .fr-nav a,
+    .fr-footer a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .fr-nav a:hover,
+    .fr-footer a:hover {
+      color: var(--gold);
+    }
+
+    .fr-nav .btn-primary,
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.35);
+      box-shadow: none;
+      color: var(--primary);
+    }
+
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-service-detail-page .hero-card p {
+      max-width: 900px;
+    }
+
+    .fr-service-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .fr-step-number {
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      border-radius: 50%;
+      color: #ffffff;
+      display: inline-flex;
+      font-weight: 800;
+      height: 38px;
+      justify-content: center;
+      margin-bottom: 12px;
+      width: 38px;
+    }
+
+    .fr-list-card ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .fr-list-card li {
+      line-height: 1.8;
+    }
+
+    .fr-footer {
+      background: #0f2747;
+      color: #ffffff;
+      padding: 34px 0;
+    }
+
+    .fr-footer-inner {
+      align-items: start;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+    }
+
+    .fr-footer h2 {
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+
+    .fr-footer p {
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0;
+    }
+
+    .fr-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      justify-content: flex-end;
+    }
+
+    .fr-footer a {
+      color: #ffffff;
+    }
+
+    @media (max-width: 980px) {
+      .fr-header-inner,
+      .fr-footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fr-header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .fr-nav,
+      .fr-footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fr-nav {
+        gap: 10px;
+      }
+
+      .fr-nav .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="fr-service-detail-page">
+  <header class="fr-header">
+    <div class="container fr-header-inner">
+      <div class="fr-brand-cluster">
+        <a class="fr-brand" href="../index.html" aria-label="ConsuTrain - Accueil">
+          <img src="../../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
+        </a>
+        <a class="fr-language-link" href="../../services/strategic-planning.html" lang="ar" dir="rtl" title="Passer à la version arabe" aria-label="Passer à la version arabe">AR</a>
+      </div>
+      <nav class="fr-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../about.html">À propos</a>
+        <a href="../services.html">Services</a>
+        <a href="../learn.html">Apprendre</a>
+        <a href="../tools.html">Outils</a>
+        <a href="../resources/index.html">Ressources gratuites</a>
+        <a href="../courses/index.html">Formations</a>
+        <a href="../contact.html">Contact</a>
+        <a class="btn btn-primary btn-small" href="consultation-form.html">Demander une consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Service de conseil</span>
+          <h1>Conseil en planification stratégique</h1>
+          <p>
+            Accompagner les organisations, projets et équipes dans la clarification de leur orientation,
+            la définition de leurs priorités et la transformation de leurs objectifs en plans d'action.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../services.html">Retour aux services</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Clarifier</h3>
+            <p>Donner une direction lisible aux décisions, priorités et ressources.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Aligner</h3>
+            <p>Relier vision, objectifs, indicateurs, initiatives et plans opérationnels.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Suivre</h3>
+            <p>Mettre en place un suivi simple pour piloter les progrès et ajuster l'action.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pourquoi la planification stratégique ?</h2>
+            <p>
+              La planification stratégique aide une organisation à clarifier sa direction, analyser son environnement,
+              aligner ses priorités, organiser ses ressources, définir des objectifs mesurables et améliorer la qualité
+              de ses décisions. Elle transforme les intentions générales en choix structurés, puis en actions suivies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Ce que ConsuTrain peut vous apporter</h2>
+            <p>Un accompagnement pratique pour passer du diagnostic aux priorités, puis au plan d'action.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-service-card"><h3>Diagnostic stratégique initial</h3><p>Comprendre la situation actuelle et les points de décision prioritaires.</p></article>
+          <article class="section-card fr-service-card"><h3>Analyse interne et externe</h3><p>Identifier les forces, faiblesses, opportunités, contraintes et tendances utiles.</p></article>
+          <article class="section-card fr-service-card"><h3>Vision, mission et orientations</h3><p>Clarifier la direction générale et les choix structurants.</p></article>
+          <article class="section-card fr-service-card"><h3>Objectifs stratégiques</h3><p>Formuler des objectifs cohérents, mesurables et orientés résultats.</p></article>
+          <article class="section-card fr-service-card"><h3>Indicateurs et cibles</h3><p>Définir des repères de suivi pour mesurer l'avancement et l'impact.</p></article>
+          <article class="section-card fr-service-card"><h3>Initiatives stratégiques</h3><p>Construire les projets et actions nécessaires pour atteindre les objectifs.</p></article>
+          <article class="section-card fr-service-card"><h3>Plans opérationnels</h3><p>Traduire la stratégie en activités, responsabilités, échéances et ressources.</p></article>
+          <article class="section-card fr-service-card"><h3>Suivi périodique</h3><p>Mettre en place un rythme simple de revue, ajustement et amélioration.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="cards-grid">
+          <article class="section-card fr-list-card">
+            <h2>Méthodes et outils utilisés</h2>
+            <ul>
+              <li>SWOT</li>
+              <li>PESTEL</li>
+              <li>TOWS</li>
+              <li>Balanced Scorecard</li>
+              <li>OKR lorsque cela est pertinent</li>
+              <li>Analyse des parties prenantes</li>
+              <li>Cartes d'objectifs et plans d'action</li>
+              <li>Tableaux de suivi des indicateurs</li>
+            </ul>
+          </article>
+
+          <article class="section-card fr-list-card">
+            <h2>Livrables possibles</h2>
+            <ul>
+              <li>Rapport de diagnostic stratégique</li>
+              <li>Carte stratégique</li>
+              <li>Objectifs stratégiques</li>
+              <li>Registre des initiatives</li>
+              <li>Plan opérationnel annuel</li>
+              <li>Tableau de bord de suivi</li>
+              <li>Recommandations d'amélioration</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pour qui ?</h2>
+            <p>Ce service peut être adapté à différents contextes institutionnels, entrepreneuriaux ou projets.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><h3>Institutions et organisations</h3><p>Clarifier les orientations et les priorités de développement.</p></article>
+          <article class="section-card"><h3>PME et entrepreneurs</h3><p>Structurer la croissance, les offres, les marchés et les priorités.</p></article>
+          <article class="section-card"><h3>Équipes de direction</h3><p>Aligner les décisions, objectifs et mécanismes de pilotage.</p></article>
+          <article class="section-card"><h3>Responsables qualité et performance</h3><p>Relier stratégie, indicateurs, amélioration et systèmes de management.</p></article>
+          <article class="section-card"><h3>Porteurs de projets</h3><p>Transformer une ambition en plan clair, priorisé et suivable.</p></article>
+          <article class="section-card"><h3>Consultants et formateurs</h3><p>Structurer les démarches, supports et livrables d'accompagnement.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Notre approche</h2>
+            <p>Une démarche progressive, orientée compréhension, choix, action et suivi utile.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><span class="fr-step-number">1</span><h3>Comprendre le contexte</h3><p>Identifier l'organisation, les attentes, les contraintes et les enjeux.</p></article>
+          <article class="section-card"><span class="fr-step-number">2</span><h3>Diagnostiquer la situation</h3><p>Analyser les données, l'environnement, les parties prenantes et les capacités.</p></article>
+          <article class="section-card"><span class="fr-step-number">3</span><h3>Structurer les choix</h3><p>Clarifier les orientations, objectifs, priorités et arbitrages.</p></article>
+          <article class="section-card"><span class="fr-step-number">4</span><h3>Transformer en actions</h3><p>Décliner les objectifs en initiatives, plans opérationnels et responsabilités.</p></article>
+          <article class="section-card"><span class="fr-step-number">5</span><h3>Mettre en place le suivi</h3><p>Définir des indicateurs, revues périodiques et tableaux de bord simples.</p></article>
+          <article class="section-card"><span class="fr-step-number">6</span><h3>Améliorer progressivement</h3><p>Ajuster les priorités et les actions selon les résultats et les apprentissages.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Besoin d'un cadrage stratégique ?</span>
+            <h2>Transformez votre orientation en priorités, plans et indicateurs suivis.</h2>
+            <p>Présentez votre contexte et ConsuTrain vous aidera à cadrer l'accompagnement le plus adapté.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../contact.html">Contact</a>
+            <a class="btn btn-secondary" href="../services.html">Voir tous les services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fr-footer">
+    <div class="container fr-footer-inner">
+      <div>
+        <h2>ConsuTrain</h2>
+        <p>Conseil, formation et outils pour structurer la stratégie et améliorer la performance.</p>
+      </div>
+      <nav class="fr-footer-links" aria-label="Navigation de pied de page">
+        <a href="../index.html">Accueil</a>
+        <a href="../about.html">À propos</a>
+        <a href="../services.html">Services</a>
+        <a href="../learn.html">Apprendre</a>
+        <a href="../tools.html">Outils</a>
+        <a href="../resources/index.html">Ressources gratuites</a>
+        <a href="../courses/index.html">Formations</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../../services/strategic-planning.html" lang="ar" dir="rtl">AR</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-final-lang-switch-audit";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-final-lang-switch-audit";
+const STATIC_CACHE = "consutrain-v20260614-fr-service-strategic-planning";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-strategic-planning";
 
 const PRECACHE_URLS = [
   "./",
@@ -133,6 +133,7 @@ const PRECACHE_URLS = [
   "./fr/learn.html",
   "./fr/resources/index.html",
   "./fr/courses/index.html",
+  "./fr/services/strategic-planning.html",
   "./services/consultation-form.html",
   "./tools/calculators/index.html",
   "./tools/crm/index.html",

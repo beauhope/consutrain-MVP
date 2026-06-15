@@ -1047,6 +1047,18 @@ Pages that have a French counterpart should use page-specific FR/AR language lin
 
 Status: Approved
 
+## Decision - Translate French service detail pages selectively
+
+Date: 2026-06-15
+
+Decision:
+French service detail pages should be translated selectively, starting with high-value services rather than translating every service page at once.
+
+Reason:
+This keeps the French version focused and maintainable while giving French-speaking visitors deeper information for priority services. Strategic planning is the first selected French service detail page.
+
+Status: Approved
+
 ## Decision - Introduce French resources through a landing page first
 
 Date: 2026-06-15

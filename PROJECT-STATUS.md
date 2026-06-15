@@ -1375,6 +1375,14 @@ Status: Completed
 - Added page-level FR link overrides where the shared Arabic header would otherwise point to the French homepage.
 - Confirmed French AR links point to their matching Arabic/original pages.
 
+## 2026-06-15 - French strategic planning service detail page
+
+Status: Completed
+
+- Created `fr/services/strategic-planning.html` as the first selected French service detail page.
+- Linked the French Services page and French homepage strategic planning cards to the new detail page.
+- Added a page-level FR language override on the Arabic strategic planning page.
+
 ## 2026-06-14 - French about page
 
 Status: Completed
