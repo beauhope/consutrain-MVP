@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-service-org-structures";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-org-structures";
+const STATIC_CACHE = "consutrain-v20260614-fr-services-audit";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-services-audit";
 
 const PRECACHE_URLS = [
   "./",

@@ -1472,6 +1472,15 @@ Status: Completed
 - The page introduces the tools area progressively and links to existing tool pages without translating each internal tool yet.
 - Updated `sw.js` cache names and precache list for the new French tools page.
 
+## 2026-06-15 - French selected service pages light audit
+
+Status: Completed
+
+- Audited the selected French service detail pages and the French services listing for consistency.
+- Added the missing breadcrumb/TOC pattern to `fr/services/strategic-planning.html`.
+- Restored the ISO consulting card link in `fr/services.html`.
+- Updated `sw.js` cache names for the audit changes.
+
 ## PWA Icons — Mobile Installation Fix
 
 تم إصلاح أيقونات تثبيت تطبيق ConsuTrain على الهاتف.

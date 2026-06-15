@@ -1077,3 +1077,15 @@ Next selected French priorities:
 - Selected French templates/resources
 - Selected French course detail pages
 - n8n consultation forms integration
+
+### 2026-06-15 - French selected service pages light audit completed
+
+Completed:
+- Audited the selected French service detail pages and `fr/services.html` for consistency.
+- Added the missing breadcrumb and `Dans cette page` structure to `fr/services/strategic-planning.html`.
+- Restored the ISO consulting service link in `fr/services.html`.
+
+Next selected French priorities:
+- Selected French templates/resources
+- Selected French course detail pages
+- Later n8n consultation form integration
