@@ -79,39 +79,10 @@
   </style>
 </head>
 
-<body class="fr-service-detail-page">
-  <header class="fr-header">
-    <div class="container fr-header-inner">
-      <div class="fr-brand-cluster">
-        <a class="fr-brand" href="../index.html" aria-label="ConsuTrain - Accueil">
-          <img src="../../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
-        </a>
-        <a class="fr-language-link" href="../../services.html#strategic-operational-services" lang="ar" dir="rtl" title="Passer à la version arabe" aria-label="Passer à la version arabe">AR</a>
-      </div>
-      <nav class="fr-nav" aria-label="Navigation principale">
-        <a href="../index.html">Accueil</a>
-        <a href="../about.html">À propos</a>
-        <a href="../services.html">Services</a>
-        <a href="../learn.html">Apprendre</a>
-        <a href="../tools.html">Outils</a>
-        <a href="../resources/index.html">Ressources gratuites</a>
-        <a href="../courses/index.html">Formations</a>
-        <a href="../contact.html">Contact</a>
-        <a class="btn btn-primary btn-small" href="consultation-form.html">Demander une consultation</a>
-      </nav>
-    </div>
-  </header>
-
+<body class="fr-service-detail-page" data-root="../.." data-breadcrumb-section="Services" data-breadcrumb-title="Plans opérationnels" data-ar-link="../../services.html#strategic-operational-services">
+  <div id="header-placeholder"></div>
+  <div id="breadcrumbs-placeholder"></div>
   <main>
-    <div class="container">
-      <nav class="fr-breadcrumbs" aria-label="Fil d'Ariane">
-        <a href="../index.html">Accueil</a>
-        <span aria-hidden="true"> ← </span>
-        <a href="../services.html">Services</a>
-        <span aria-hidden="true"> ← </span>
-        <span>Plans opérationnels</span>
-      </nav>
-    </div>
 
     <section class="hero">
       <div class="container hero-grid">
@@ -270,16 +241,6 @@
 
   <div id="footer-placeholder"></div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const langLink = document.querySelector(".fr-language-link");
-      if (langLink) {
-        langLink.setAttribute("href", "../../services.html#strategic-operational-services");
-      }
-    });
-  </script>
-
-  <script src="../../assets/js/includes.js?v=20260614_fr_operational_plans"></script>
-  <script src="../../assets/js/fr-floating-controls.js?v=20260614_fr_service_floating_controls"></script>
+  <script src="../../assets/js/includes.js?v=20260614_fr_shared_ui_services"></script>
 </body>
 </html>

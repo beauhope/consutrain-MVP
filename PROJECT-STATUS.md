@@ -1502,6 +1502,14 @@ Status: Completed
 - Used section-level Arabic fallbacks because these services do not have standalone Arabic detail pages.
 - Updated `sw.js` cache names and precache list for the new French service pages.
 
+## 2026-06-16 - French shared UI service migration
+
+Status: Completed
+
+- Migrated the remaining French service detail pages to the shared French UI system.
+- Standardized French breadcrumbs through `#breadcrumbs-placeholder` and the shared breadcrumb generator.
+- Removed the temporary French floating-controls path from the migrated service pages.
+
 ## 2026-06-15 - Services accordion detail links audit
 
 Status: Completed

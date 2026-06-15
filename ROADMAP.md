@@ -94,16 +94,30 @@ In progress
 
 High
 
-### French shared UI pilot
+### French shared UI migration
 
-Status: In progress
+Status: Completed
 
 Pilot page: `fr/services/digital-transformation-roadmap.html`
 
-Next steps:
-- test the pilot page on mobile
-- migrate remaining French service pages if the pilot is approved
-- remove `fr-floating-controls.js` only after migrated pages no longer need it
+Migrated pages:
+- `fr/services/strategic-planning.html`
+- `fr/services/feasibility-studies.html`
+- `fr/services/iso-consulting.html`
+- `fr/services/risk-management.html`
+- `fr/services/project-management.html`
+- `fr/services/sop-operational-manuals.html`
+- `fr/services/integrated-management-system.html`
+- `fr/services/organizational-structures.html`
+- `fr/services/operational-plans.html`
+- `fr/services/organizational-performance-management.html`
+- `fr/services/excellence-awards.html`
+
+Next phase:
+- mobile visual QA for French services
+- migrate selected French resources/templates
+- migrate selected French course pages
+- later n8n consultation form integration
 
 ---
 

@@ -1199,3 +1199,12 @@ Status: Approved
 5. الإبقاء على أزرار “فتح PDF” و“إعادة إرسال الشهادة” داخل لوحة الإدارة معطّلة إلى أن يكتمل هذا المسار بشكل آمن.
 
 سبب التعليق المؤقت هو أن مسار نماذج الاستشارة أكثر جاهزية للتنفيذ حاليًا، ويمكن إنجازه دون التأثير على نظام الشهادات أو فتح إجراءات إدارية حساسة قبل اكتمال تخزين ملفات الشهادات بطريقة مستقرة.
+
+
+## Decision — French service pages use shared French partials and shared breadcrumbs
+
+French standalone service detail pages now load the French shared header and footer partials through `assets/js/includes.js`, and they render breadcrumbs through `#breadcrumbs-placeholder` using `data-breadcrumb-section` and `data-breadcrumb-title`.
+
+This replaces custom page-level French headers, footers, and breadcrumb blocks on the migrated service pages while keeping the Arabic pages unchanged.
+
+The temporary French floating-controls helper is no longer needed on the migrated service pages once the shared French footer is loaded.
