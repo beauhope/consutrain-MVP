@@ -1365,6 +1365,7 @@ Status: Completed
 - Linked the current French pages to the new French learning page.
 - The page introduces ConsuTrain learning categories in French while linking to existing learning pages.
 - No individual French learning articles, guides, or learning paths were created in this step.
+- Confirmed the `fr/learn.html` AR link points to `../learn.html` and refreshed the service worker cache names.
 
 ## 2026-06-14 - French about page
 
