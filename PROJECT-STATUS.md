@@ -1329,6 +1329,15 @@ Status: Completed
 - Normalized AR language-switch labels on the audited French pages so no Arabic interface text remains in those pages.
 - Updated `sw.js` cache names for the audited French page fixes.
 
+## 2026-06-15 - French resources landing page
+
+Status: Completed
+
+- Created `fr/resources/index.html` as the French resources landing page.
+- Linked the current French pages to the new French resources page.
+- The page introduces resource categories in French while linking to existing resource/download folders.
+- No individual French templates or resource pages were created in this step.
+
 ## 2026-06-14 - French about page
 
 Status: Completed

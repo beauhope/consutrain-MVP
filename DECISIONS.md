@@ -1041,6 +1041,18 @@ Before creating additional French pages, the current French pages should be audi
 
 Status: Approved
 
+## Decision - Introduce French resources through a landing page first
+
+Date: 2026-06-15
+
+Decision:
+French resource pages should be introduced progressively through a French resources landing page before translating every individual template, guide, or downloadable resource.
+
+Reason:
+This gives French-speaking visitors a coherent entry point to ConsuTrain resources while keeping translation and maintenance controlled. Existing resources and download folders may remain in the original Arabic version until selected high-value resources are prioritized for French adaptation.
+
+Status: Approved
+
 ## Decision - Internal ConsuTrain consultation forms
 
 Date: 2026-06-14

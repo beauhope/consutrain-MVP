@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ressources pratiques | ConsuTrain</title>
+  <meta
+    name="description"
+    content="Ressources pratiques ConsuTrain en français: modèles, checklists et supports pour structurer les projets, systèmes de management et actions d'amélioration."
+  >
+
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260614_fr_resources">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-resources-page,
+    .fr-resources-page * {
+      direction: ltr;
+    }
+
+    .fr-resources-page,
+    .fr-resources-page section,
+    .fr-resources-page header,
+    .fr-resources-page main,
+    .fr-resources-page footer,
+    .fr-resources-page .container,
+    .fr-resources-page .hero-card,
+    .fr-resources-page .feature-card,
+    .fr-resources-page .section-card,
+    .fr-resources-page .section-head,
+    .fr-resources-page .cta-panel,
+    .fr-resources-page h1,
+    .fr-resources-page h2,
+    .fr-resources-page h3,
+    .fr-resources-page p,
+    .fr-resources-page span,
+    .fr-resources-page a,
+    .fr-resources-page li {
+      text-align: left;
+    }
+
+    .fr-header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(15, 39, 71, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+    }
+
+    .fr-header-inner {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      min-height: 76px;
+      padding: 12px 0;
+    }
+
+    .fr-brand-cluster {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      gap: 10px;
+    }
+
+    .fr-brand img {
+      display: block;
+      height: auto;
+      width: 178px;
+    }
+
+    .fr-language-link {
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--primary);
+      display: inline-flex;
+      font-size: 0.82rem;
+      font-weight: 800;
+      height: 36px;
+      justify-content: center;
+      line-height: 1;
+      min-width: 36px;
+      padding: 9px 13px;
+      text-decoration: none;
+    }
+
+    .fr-language-link:hover,
+    .fr-language-link:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-nav {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+    }
+
+    .fr-nav a,
+    .fr-footer a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .fr-nav a:hover,
+    .fr-footer a:hover {
+      color: var(--gold);
+    }
+
+    .fr-nav .btn-primary,
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.35);
+      box-shadow: none;
+      color: var(--primary);
+    }
+
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-resources-page .hero-card p {
+      max-width: 880px;
+    }
+
+    .fr-resource-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .fr-resource-card .btn {
+      margin-top: 10px;
+    }
+
+    .fr-note {
+      background: rgba(212, 166, 58, 0.12);
+      border: 1px solid rgba(212, 166, 58, 0.35);
+      border-radius: 16px;
+      color: var(--primary);
+      font-weight: 700;
+      line-height: 1.8;
+      padding: 14px 16px;
+    }
+
+    .fr-step-number {
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      border-radius: 50%;
+      color: #ffffff;
+      display: inline-flex;
+      font-weight: 800;
+      height: 38px;
+      justify-content: center;
+      margin-bottom: 12px;
+      width: 38px;
+    }
+
+    .fr-footer {
+      background: #0f2747;
+      color: #ffffff;
+      padding: 34px 0;
+    }
+
+    .fr-footer-inner {
+      align-items: start;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+    }
+
+    .fr-footer h2 {
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+
+    .fr-footer p {
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0;
+    }
+
+    .fr-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      justify-content: flex-end;
+    }
+
+    .fr-footer a {
+      color: #ffffff;
+    }
+
+    @media (max-width: 980px) {
+      .fr-header-inner,
+      .fr-footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fr-header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .fr-nav,
+      .fr-footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fr-nav {
+        gap: 10px;
+      }
+
+      .fr-nav .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="fr-resources-page">
+  <header class="fr-header">
+    <div class="container fr-header-inner">
+      <div class="fr-brand-cluster">
+        <a class="fr-brand" href="../index.html" aria-label="ConsuTrain - Accueil">
+          <img src="../../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
+        </a>
+        <a class="fr-language-link" href="../../resources/index.html" lang="ar" dir="rtl" title="Passer à la version arabe" aria-label="Passer à la version arabe">AR</a>
+      </div>
+      <nav class="fr-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../about.html">À propos</a>
+        <a href="../services.html">Services</a>
+        <a href="../tools.html">Outils</a>
+        <a href="../contact.html">Contact</a>
+        <a class="btn btn-primary btn-small" href="../services/consultation-form.html">Demander une consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Ressources et modèles pratiques</span>
+          <h1>Ressources pratiques ConsuTrain</h1>
+          <p>
+            Des modèles, checklists et supports pour structurer vos projets, vos systèmes de management
+            et vos actions d'amélioration.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#resources-list">Explorer les ressources</a>
+            <a class="btn btn-secondary" href="../services/consultation-form.html">Demander une consultation</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Structurer</h3>
+            <p>Utiliser des supports simples pour clarifier vos projets, plans et systèmes de travail.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Adapter</h3>
+            <p>Transformer les modèles disponibles en documents utiles pour votre organisation.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Avancer</h3>
+            <p>Passer plus vite d'une idée générale à un support de gestion exploitable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <p class="fr-note">
+          L'espace ressources en français est construit progressivement. Certaines ressources peuvent encore
+          s'ouvrir dans leur version originale en arabe, le temps de traduire ou d'adapter les supports les plus utiles.
+        </p>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="resources-list">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Catégories de ressources</h2>
+            <p>Choisissez la famille de ressources la plus proche de votre besoin actuel.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-resource-card">
+            <h3>Planification stratégique</h3>
+            <p>Supports pour analyser, cadrer et suivre les orientations stratégiques.</p>
+            <a class="btn btn-secondary btn-small" href="../../resources/downloads/strategic-planning/">Voir les ressources</a>
+          </article>
+
+          <article class="section-card fr-resource-card">
+            <h3>Management de la qualité et ISO</h3>
+            <p>Modèles liés aux systèmes qualité, audits, non-conformités et amélioration continue.</p>
+            <a class="btn btn-secondary btn-small" href="../../resources/downloads/iso-quality/">Voir les ressources</a>
+          </article>
+
+          <article class="section-card fr-resource-card">
+            <h3>Gestion des risques</h3>
+            <p>Supports pour identifier, évaluer et suivre les risques opérationnels ou projet.</p>
+            <a class="btn btn-secondary btn-small" href="../../resources/downloads/risk-management/">Voir les ressources</a>
+          </article>
+
+          <article class="section-card fr-resource-card">
+            <h3>Gestion de projet</h3>
+            <p>Documents pratiques pour cadrer, communiquer, suivre et piloter les projets.</p>
+            <a class="btn btn-secondary btn-small" href="../../resources/downloads/project-management/">Voir les ressources</a>
+          </article>
+
+          <article class="section-card fr-resource-card">
+            <h3>Études de faisabilité</h3>
+            <p>Ressources pour analyser une idée, une opportunité ou un projet avant décision.</p>
+            <a class="btn btn-secondary btn-small" href="../../resources/downloads/feasibility-studies/">Voir les ressources</a>
+          </article>
+
+          <article class="section-card fr-resource-card">
+            <h3>SOP, procédures et processus</h3>
+            <p>Supports pour formaliser les procédures, responsabilités et étapes de travail.</p>
+            <a class="btn btn-secondary btn-small" href="../../resources/downloads/sop-procedures/">Voir les ressources</a>
+          </article>
+
+          <article class="section-card fr-resource-card">
+            <h3>Plans opérationnels</h3>
+            <p>Modèles pour organiser l'action, le suivi, les responsabilités et les indicateurs.</p>
+            <a class="btn btn-secondary btn-small" href="../../resources/downloads/operational-plans/">Voir les ressources</a>
+          </article>
+
+          <article class="section-card fr-resource-card">
+            <h3>Prompts IA pour le management</h3>
+            <p>Prompts et supports pour utiliser l'IA dans l'analyse, la préparation et la structuration.</p>
+            <a class="btn btn-secondary btn-small" href="../../resources/downloads/ai-management/">Voir les ressources</a>
+          </article>
+
+          <article class="section-card fr-resource-card">
+            <h3>Profil et services ConsuTrain</h3>
+            <p>Documents de présentation pour comprendre l'offre, les domaines et les services ConsuTrain.</p>
+            <a class="btn btn-secondary btn-small" href="../../resources/downloads/profile/">Voir les ressources</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Comment utiliser ces ressources ?</h2>
+            <p>Commencez simplement, puis adaptez chaque support à votre contexte réel.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card">
+            <span class="fr-step-number">1</span>
+            <h3>Sélectionnez la catégorie</h3>
+            <p>Choisissez la catégorie qui correspond à votre besoin, votre projet ou votre système de management.</p>
+          </article>
+          <article class="section-card">
+            <span class="fr-step-number">2</span>
+            <h3>Consultez le modèle</h3>
+            <p>Téléchargez ou consultez le modèle disponible, même si certains supports restent encore dans la version originale.</p>
+          </article>
+          <article class="section-card">
+            <span class="fr-step-number">3</span>
+            <h3>Adaptez le contenu</h3>
+            <p>Ajustez les champs, exemples, responsabilités et indicateurs à votre organisation ou à votre projet.</p>
+          </article>
+          <article class="section-card">
+            <span class="fr-step-number">4</span>
+            <h3>Demandez un accompagnement</h3>
+            <p>Contactez ConsuTrain si vous souhaitez transformer le modèle en méthode, plan ou livrable complet.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Prochainement en français</h2>
+            <p>
+              Les modèles, guides et pages de ressources les plus utiles seront traduits ou adaptés progressivement
+              en français, en priorité selon leur valeur pour les visiteurs et les projets accompagnés.
+            </p>
+          </div>
+        </div>
+
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Besoin d'un support adapté ?</span>
+            <h2>Une ressource peut servir de point de départ, l'accompagnement permet de l'adapter.</h2>
+            <p>
+              ConsuTrain peut vous aider à transformer un modèle général en support opérationnel adapté
+              à votre organisation, votre projet ou votre système de management.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../services.html">Voir les services</a>
+            <a class="btn btn-secondary" href="../services/consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fr-footer">
+    <div class="container fr-footer-inner">
+      <div>
+        <h2>ConsuTrain</h2>
+        <p>Ressources, conseil et formation pour structurer l'action et améliorer la performance.</p>
+      </div>
+      <nav class="fr-footer-links" aria-label="Navigation de pied de page">
+        <a href="../index.html">Accueil</a>
+        <a href="../about.html">À propos</a>
+        <a href="../services.html">Services</a>
+        <a href="../tools.html">Outils</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../../resources/index.html" lang="ar" dir="rtl">AR</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

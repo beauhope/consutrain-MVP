@@ -906,8 +906,20 @@ Completed:
 - Applied only safe language-switch UI fixes.
 
 Recommended next French pages, in priority order:
-1. `fr/resources/index.html`
-2. `fr/courses/index.html`
-3. `fr/learn.html`
-4. French versions of selected service detail pages
-5. French versions of selected templates/resources
+1. `fr/courses/index.html`
+2. `fr/learn.html`
+3. French versions of selected service detail pages
+4. French versions of selected templates/resources
+
+### 2026-06-15 - French resources landing page completed
+
+Completed:
+- `fr/resources/index.html` has been created.
+- Existing French pages now link to the French resources landing page.
+- The page introduces the main resource categories without translating every individual template or resource.
+
+Next suggested French pages:
+- `fr/courses/index.html`
+- `fr/learn.html`
+- Selected French service detail pages
+- Selected French templates/resources
