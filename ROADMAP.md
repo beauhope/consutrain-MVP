@@ -897,3 +897,17 @@ Completed:
 Next suggested French pages:
 - `fr/resources/index.html`
 - `fr/courses/index.html`
+
+### 2026-06-15 - French version audit before expansion
+
+Completed:
+- Audited the existing French pages before creating more French pages.
+- Kept current fallback links to Arabic/original pages where French equivalents do not exist yet.
+- Applied only safe language-switch UI fixes.
+
+Recommended next French pages, in priority order:
+1. `fr/resources/index.html`
+2. `fr/courses/index.html`
+3. `fr/learn.html`
+4. French versions of selected service detail pages
+5. French versions of selected templates/resources

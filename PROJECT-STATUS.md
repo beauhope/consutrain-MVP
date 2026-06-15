@@ -1319,6 +1319,16 @@ Operational note:
 - Local n8n remains available for development and advanced/manual automation.
 - Certificate automation through Google Sheets plus a manual n8n trigger remains a future option and is not completed yet.
 
+## 2026-06-15 - French version audit and stabilization
+
+Status: Completed
+
+- Audited the current French pages before expanding the French version.
+- Confirmed the existing French pages use `lang="fr"` and `dir="ltr"`.
+- Confirmed local links point to existing pages or intentional Arabic/original fallbacks.
+- Normalized AR language-switch labels on the audited French pages so no Arabic interface text remains in those pages.
+- Updated `sw.js` cache names for the audited French page fixes.
+
 ## 2026-06-14 - French about page
 
 Status: Completed

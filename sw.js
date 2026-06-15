@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260526-pwa-icons-maskable-v2";
-const RUNTIME_CACHE = "consutrain-runtime-v20260526-pwa-icons-maskable-v2";
+const STATIC_CACHE = "consutrain-v20260614-fr-audit-fixes";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-audit-fixes";
 
 const PRECACHE_URLS = [
   "./",

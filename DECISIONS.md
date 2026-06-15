@@ -1036,6 +1036,9 @@ French pages will continue to be created progressively. When a French page exist
 Reason:
 This avoids broken links while allowing the French version to expand in controlled steps without translating the whole website at once.
 
+Operational rule:
+Before creating additional French pages, the current French pages should be audited and stabilized. Missing French pages should be prioritized in the roadmap, but new translation work should start only after the existing French visitor path remains consistent.
+
 Status: Approved
 
 ## Decision - Internal ConsuTrain consultation forms
