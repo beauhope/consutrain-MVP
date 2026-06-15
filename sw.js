@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-courses";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-courses";
+const STATIC_CACHE = "consutrain-v20260614-fr-navigation-audit";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-navigation-audit";
 
 const PRECACHE_URLS = [
   "./",

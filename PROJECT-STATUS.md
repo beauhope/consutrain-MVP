@@ -1347,6 +1347,16 @@ Status: Completed
 - The page introduces ConsuTrain training categories in French while linking to existing course directories.
 - No individual French course detail pages were created in this step.
 
+## 2026-06-15 - French navigation consistency audit after Resources and Courses
+
+Status: Completed
+
+- Audited French navigation after adding `fr/resources/index.html` and `fr/courses/index.html`.
+- Confirmed AR language links point to the correct Arabic/original equivalents.
+- Confirmed local links in the audited French pages resolve to existing pages or intentional original fallbacks.
+- Normalized the new Resources and Courses landing pages so their navigation includes the current section link at the correct relative depth.
+- Updated `sw.js` cache names for the navigation audit fixes.
+
 ## 2026-06-14 - French about page
 
 Status: Completed

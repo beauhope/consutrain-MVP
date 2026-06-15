@@ -1039,6 +1039,9 @@ This avoids broken links while allowing the French version to expand in controll
 Operational rule:
 Before creating additional French pages, the current French pages should be audited and stabilized. Missing French pages should be prioritized in the roadmap, but new translation work should start only after the existing French visitor path remains consistent.
 
+Navigation rule:
+After adding new French landing pages, shared French navigation should be checked for consistent relative links by directory depth before expanding to additional French pages.
+
 Status: Approved
 
 ## Decision - Introduce French resources through a landing page first

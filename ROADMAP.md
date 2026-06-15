@@ -935,3 +935,16 @@ Next suggested French priorities:
 - Selected French service detail pages
 - Selected French templates/resources
 - Selected French course detail pages
+
+### 2026-06-15 - French navigation audit after Resources and Courses completed
+
+Completed:
+- Audited the French navigation after adding Resources and Courses landing pages.
+- Confirmed relative links and AR links across the current French page set.
+- Applied small navigation consistency fixes before continuing French expansion.
+
+Next suggested French priorities:
+- `fr/learn.html`
+- Selected French service detail pages
+- Selected French templates/resources
+- Selected French course detail pages
