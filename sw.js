@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-service-digital-roadmap";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-digital-roadmap";
+const STATIC_CACHE = "consutrain-v20260614-fr-service-org-structures";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-org-structures";
 
 const PRECACHE_URLS = [
   "./",
@@ -141,6 +141,7 @@ const PRECACHE_URLS = [
   "./fr/services/sop-operational-manuals.html",
   "./fr/services/integrated-management-system.html",
   "./fr/services/digital-transformation-roadmap.html",
+  "./fr/services/organizational-structures.html",
   "./services/consultation-form.html",
   "./tools/calculators/index.html",
   "./tools/crm/index.html",

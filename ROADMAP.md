@@ -1065,3 +1065,15 @@ Next selected French service detail pages:
 - `fr/services/occupational-health-safety.html` if it exists and fits the selection plan, otherwise keep it as a future option
 - Selected French templates/resources
 - Selected French course detail pages
+
+### 2026-06-15 - French organizational structures service detail page completed
+
+Completed:
+- `fr/services/organizational-structures.html` has been created.
+- The page includes breadcrumbs, a "Dans cette page" internal summary, clear CTA links, and correct AR/FR language switching.
+
+Next selected French priorities:
+- Final audit of selected French service pages
+- Selected French templates/resources
+- Selected French course detail pages
+- n8n consultation forms integration
