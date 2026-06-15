@@ -1367,6 +1367,14 @@ Status: Completed
 - No individual French learning articles, guides, or learning paths were created in this step.
 - Confirmed the `fr/learn.html` AR link points to `../learn.html` and refreshed the service worker cache names.
 
+## 2026-06-15 - Final FR/AR language-switch audit
+
+Status: Completed
+
+- Audited language-switch links for Arabic and French core pages with counterparts.
+- Added page-level FR link overrides where the shared Arabic header would otherwise point to the French homepage.
+- Confirmed French AR links point to their matching Arabic/original pages.
+
 ## 2026-06-14 - French about page
 
 Status: Completed

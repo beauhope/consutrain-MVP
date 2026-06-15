@@ -1042,6 +1042,9 @@ Before creating additional French pages, the current French pages should be audi
 Navigation rule:
 After adding new French landing pages, shared French navigation should be checked for consistent relative links by directory depth before expanding to additional French pages.
 
+Language-switch rule:
+Pages that have a French counterpart should use page-specific FR/AR language links. When the shared Arabic header defaults to the French homepage, the page should override the FR badge locally rather than sending visitors to `fr/index.html`.
+
 Status: Approved
 
 ## Decision - Introduce French resources through a landing page first

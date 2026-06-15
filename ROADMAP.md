@@ -958,3 +958,15 @@ Next suggested French priorities:
 - Selected French templates/resources
 - Selected French course detail pages
 - Selected French learning articles
+
+### 2026-06-15 - Language-switch stabilization completed
+
+Completed:
+- Final FR/AR language-switch audit completed for core Arabic and French pages with counterparts.
+- Page-specific FR/AR links were stabilized before translating selected service pages.
+
+Next suggested French priorities:
+- Selected French service detail pages
+- Selected French templates/resources
+- Selected French course detail pages
+- Selected French learning articles
