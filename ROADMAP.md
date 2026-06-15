@@ -1103,3 +1103,16 @@ Next selected French priorities:
 - Selected French templates/resources
 - Selected French course pages
 - Later n8n consultation form integration
+
+### 2026-06-15 - Services accordion detail links audit completed
+
+Completed:
+- Added detail CTAs inside the services accordion for entries that have standalone detail pages.
+- Kept Arabic accordion detail CTAs limited to services that already have standalone Arabic detail pages.
+- Normalized the French service listing CTAs to a clear "En savoir plus" label.
+
+Next selected French priorities:
+- Final French services listing audit
+- Selected French templates/resources
+- Selected French course pages
+- Later n8n consultation form integration

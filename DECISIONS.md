@@ -1068,6 +1068,14 @@ For the remaining French service detail pages that do not have standalone Arabic
 
 This keeps the language switch usable while the Arabic site remains section-based for those services.
 
+## Decision - Keep visible detail CTAs inside service accordion content
+
+Date: 2026-06-15
+
+When a service card or accordion item has a standalone detail page, the expanded content should include a visible detail CTA so visitors can move from the overview into the full service page without hunting for it elsewhere.
+
+This applies to both French and Arabic service listings, but only for services that actually have standalone detail pages.
+
 Status: Approved
 
 ## Decision - Introduce French resources through a landing page first

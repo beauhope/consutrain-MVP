@@ -1490,6 +1490,14 @@ Status: Completed
 - Used section-level Arabic fallbacks because these services do not have standalone Arabic detail pages.
 - Updated `sw.js` cache names and precache list for the new French service pages.
 
+## 2026-06-15 - Services accordion detail links audit
+
+Status: Completed
+
+- Audited the services accordion content and added detail CTAs inside accordion items where standalone detail pages already exist.
+- Updated `fr/services.html` to keep the French service cards pointing to their detail pages with clear "En savoir plus" links.
+- Updated `services.html` to add Arabic detail CTAs only for services that have standalone Arabic detail pages.
+
 ## PWA Icons — Mobile Installation Fix
 
 تم إصلاح أيقونات تثبيت تطبيق ConsuTrain على الهاتف.

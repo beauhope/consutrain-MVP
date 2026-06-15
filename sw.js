@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-services-remaining-three";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-services-remaining-three";
+const STATIC_CACHE = "consutrain-v20260614-services-accordion-detail-links";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-services-accordion-detail-links";
 
 const PRECACHE_URLS = [
   "./",
