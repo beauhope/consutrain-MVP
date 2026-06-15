@@ -242,7 +242,7 @@
         <a class="fr-brand" href="index.html" aria-label="ConsuTrain - Accueil">
           <img src="../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
         </a>
-        <a class="fr-language-link" href="../learn.html" lang="ar" dir="rtl" title="Passer à la version arabe" aria-label="Passer à la version arabe">AR</a>
+        <a class="fr-language-link" href="/learn.html" lang="ar" dir="rtl" title="Passer à la version arabe" aria-label="Passer à la version arabe">AR</a>
       </div>
       <nav class="fr-nav" aria-label="Navigation principale">
         <a href="index.html">Accueil</a>
@@ -455,16 +455,27 @@
         <a href="resources/index.html">Ressources gratuites</a>
         <a href="courses/index.html">Formations</a>
         <a href="contact.html">Contact</a>
-        <a href="../learn.html" lang="ar" dir="rtl">AR</a>
+        <a href="/learn.html" lang="ar" dir="rtl">AR</a>
       </nav>
     </div>
   </footer>
   <script>
-    document.querySelectorAll('a[lang="ar"]').forEach(function (link) {
-      link.setAttribute("href", "../learn.html");
+    Array.prototype.slice.call(document.querySelectorAll("a")).filter(function (link) {
+      var text = (link.textContent || "").trim().toLowerCase();
+      var ariaLabel = (link.getAttribute("aria-label") || "").toLowerCase();
+      return link.getAttribute("lang") === "ar" ||
+        link.getAttribute("hreflang") === "ar" ||
+        text === "ar" ||
+        text === "العربية" ||
+        ariaLabel.indexOf("arabic") !== -1 ||
+        ariaLabel.indexOf("arabe") !== -1 ||
+        ariaLabel.indexOf("ar") !== -1 ||
+        ariaLabel.indexOf("العربية") !== -1;
+    }).forEach(function (link) {
+      link.setAttribute("href", "/learn.html");
       link.addEventListener("click", function (event) {
         event.preventDefault();
-        window.location.href = "../learn.html";
+        window.location.href = "/learn.html";
       });
     });
   </script>
