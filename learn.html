@@ -362,6 +362,35 @@
    <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
   ↑
 </button>
+  <script>
+    (function () {
+      function fixFrenchLearnLink() {
+        document.querySelectorAll('a[lang="fr"], a[hreflang="fr"], .language-badge').forEach(function (link) {
+          var text = (link.textContent || "").trim().toLowerCase();
+          var label = (link.getAttribute("aria-label") || "").toLowerCase();
+          if (text === "fr" || label.indexOf("français") !== -1 || link.getAttribute("lang") === "fr" || link.getAttribute("hreflang") === "fr") {
+            link.setAttribute("href", "fr/learn.html");
+            link.addEventListener("click", function (event) {
+              event.preventDefault();
+              window.location.href = "fr/learn.html";
+            });
+          }
+        });
+      }
+
+      fixFrenchLearnLink();
+      document.addEventListener("DOMContentLoaded", fixFrenchLearnLink);
+      window.addEventListener("load", fixFrenchLearnLink);
+      setTimeout(fixFrenchLearnLink, 150);
+      setTimeout(fixFrenchLearnLink, 500);
+      if ("MutationObserver" in window) {
+        new MutationObserver(fixFrenchLearnLink).observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+      }
+    })();
+  </script>
   
   
 </body>
