@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Système de management intégré | ConsuTrain</title>
+  <meta
+    name="description"
+    content="Système de management intégré pour relier qualité, environnement, santé et sécurité au travail, risques et amélioration continue."
+  >
+
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260614_fr_ims">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-service-detail-page,
+    .fr-service-detail-page * {
+      direction: ltr;
+    }
+
+    .fr-service-detail-page,
+    .fr-service-detail-page section,
+    .fr-service-detail-page header,
+    .fr-service-detail-page main,
+    .fr-service-detail-page footer,
+    .fr-service-detail-page .container,
+    .fr-service-detail-page .hero-card,
+    .fr-service-detail-page .feature-card,
+    .fr-service-detail-page .section-card,
+    .fr-service-detail-page .section-head,
+    .fr-service-detail-page .cta-panel,
+    .fr-service-detail-page h1,
+    .fr-service-detail-page h2,
+    .fr-service-detail-page h3,
+    .fr-service-detail-page p,
+    .fr-service-detail-page span,
+    .fr-service-detail-page a,
+    .fr-service-detail-page li {
+      text-align: left;
+    }
+
+    .fr-header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(15, 39, 71, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+    }
+
+    .fr-header-inner {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      min-height: 76px;
+      padding: 12px 0;
+    }
+
+    .fr-brand-cluster {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      gap: 10px;
+    }
+
+    .fr-brand img {
+      display: block;
+      height: auto;
+      width: 178px;
+    }
+
+    .fr-language-link {
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--primary);
+      display: inline-flex;
+      font-size: 0.82rem;
+      font-weight: 800;
+      height: 36px;
+      justify-content: center;
+      line-height: 1;
+      min-width: 36px;
+      padding: 9px 13px;
+      text-decoration: none;
+    }
+
+    .fr-language-link:hover,
+    .fr-language-link:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-nav {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+    }
+
+    .fr-nav a,
+    .fr-footer a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .fr-nav a:hover,
+    .fr-footer a:hover {
+      color: var(--gold);
+    }
+
+    .fr-nav .btn-primary,
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.35);
+      box-shadow: none;
+      color: var(--primary);
+    }
+
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-breadcrumbs {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 22px 0 0;
+    }
+
+    .fr-breadcrumbs a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .fr-breadcrumbs a:hover,
+    .fr-breadcrumbs a:focus {
+      color: var(--gold);
+    }
+
+    .fr-service-detail-page .hero-card p {
+      max-width: 900px;
+    }
+
+    .fr-service-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .fr-toc {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .fr-toc a {
+      background: #f7f9fc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--primary);
+      display: block;
+      font-weight: 800;
+      padding: 12px 14px;
+      text-decoration: none;
+    }
+
+    .fr-toc a:hover,
+    .fr-toc a:focus {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .fr-step-number {
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      border-radius: 50%;
+      color: #ffffff;
+      display: inline-flex;
+      font-weight: 800;
+      height: 38px;
+      justify-content: center;
+      margin-bottom: 12px;
+      width: 38px;
+    }
+
+    .fr-list-card ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .fr-list-card li {
+      line-height: 1.8;
+    }
+
+    .fr-footer {
+      background: #0f2747;
+      color: #ffffff;
+      padding: 34px 0;
+    }
+
+    .fr-footer-inner {
+      align-items: start;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+    }
+
+    .fr-footer h2 {
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+
+    .fr-footer p {
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0;
+    }
+
+    .fr-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      justify-content: flex-end;
+    }
+
+    .fr-footer a {
+      color: #ffffff;
+    }
+
+    @media (max-width: 980px) {
+      .fr-header-inner,
+      .fr-footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fr-header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .fr-nav,
+      .fr-footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fr-nav {
+        gap: 10px;
+      }
+
+      .fr-nav .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="fr-service-detail-page">
+  <header class="fr-header">
+    <div class="container fr-header-inner">
+      <div class="fr-brand-cluster">
+        <a class="fr-brand" href="../index.html" aria-label="ConsuTrain - Accueil">
+          <img src="../../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
+        </a>
+        <a class="fr-language-link" href="../../services/integrated-management-system.html" lang="ar" dir="rtl" title="Passer à la version arabe" aria-label="Passer à la version arabe">AR</a>
+      </div>
+      <nav class="fr-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../about.html">À propos</a>
+        <a href="../services.html">Services</a>
+        <a href="../learn.html">Apprendre</a>
+        <a href="../tools.html">Outils</a>
+        <a href="../resources/index.html">Ressources gratuites</a>
+        <a href="../courses/index.html">Formations</a>
+        <a href="../contact.html">Contact</a>
+        <a class="btn btn-primary btn-small" href="consultation-form.html">Demander une consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="fr-breadcrumbs" aria-label="Fil d'Ariane">
+        <a href="../index.html">Accueil</a>
+        <span aria-hidden="true"> ← </span>
+        <a href="../services.html">Services</a>
+        <span aria-hidden="true"> ← </span>
+        <span>Système de management intégré</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Service de conseil</span>
+          <h1>Système de management intégré</h1>
+          <p>
+            Construire un système cohérent qui relie qualité, environnement, santé et sécurité au travail,
+            risques et amélioration continue.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#consultation">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../services.html">Retour aux services</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Relier</h3>
+            <p>Unifier les exigences pour éviter les doublons et les incohérences.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Structurer</h3>
+            <p>Clarifier l'architecture documentaire, les processus et les responsabilités.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Améliorer</h3>
+            <p>Mettre en place un système plus lisible, plus suivi et plus facile à piloter.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" aria-labelledby="toc-title">
+      <div class="container">
+        <article class="section-card">
+          <h2 id="toc-title">Dans cette page</h2>
+          <ul class="fr-toc">
+            <li><a href="#pourquoi">Pourquoi un système de management intégré ?</a></li>
+            <li><a href="#apport">Ce que ConsuTrain peut vous apporter</a></li>
+            <li><a href="#referentiels">Référentiels concernés</a></li>
+            <li><a href="#axes">Axes d'intégration</a></li>
+            <li><a href="#livrables">Livrables possibles</a></li>
+            <li><a href="#pour-qui">Pour qui ?</a></li>
+            <li><a href="#approche">Notre approche</a></li>
+            <li><a href="#consultation">Demander une consultation</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section" id="pourquoi">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pourquoi un système de management intégré ?</h2>
+            <p>
+              Un système de management intégré permet d'éviter les procédures dupliquées, d'aligner les exigences,
+              de clarifier les responsabilités, d'améliorer la documentation, de gérer les risques et opportunités
+              et de soutenir les audits et l'amélioration continue.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="apport">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Ce que ConsuTrain peut vous apporter</h2>
+            <p>Un accompagnement pratique pour faire converger vos référentiels vers un système unifié et utile.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-service-card"><h3>Diagnostic du système existant</h3><p>Comprendre l'état actuel et les interfaces à harmoniser.</p></article>
+          <article class="section-card fr-service-card"><h3>Exigences communes</h3><p>Identifier ce qui peut être mutualisé entre les référentiels.</p></article>
+          <article class="section-card fr-service-card"><h3>Architecture documentaire intégrée</h3><p>Structurer une documentation cohérente et simplifiée.</p></article>
+          <article class="section-card fr-service-card"><h3>Harmonisation des processus</h3><p>Réduire les doublons et clarifier les flux communs.</p></article>
+          <article class="section-card fr-service-card"><h3>Responsabilités</h3><p>Clarifier les rôles, contributions et points de pilotage.</p></article>
+          <article class="section-card fr-service-card"><h3>Risques et opportunités</h3><p>Intégrer le risque dans le pilotage du système.</p></article>
+          <article class="section-card fr-service-card"><h3>Audits internes</h3><p>Préparer des audits internes intégrés et exploitables.</p></article>
+          <article class="section-card fr-service-card"><h3>Actions d'amélioration</h3><p>Mettre en place un suivi clair des améliorations et décisions.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section" id="referentiels">
+      <div class="container">
+        <article class="section-card fr-list-card">
+          <h2>Référentiels concernés</h2>
+          <ul>
+            <li>ISO 9001 - Management de la qualité</li>
+            <li>ISO 14001 - Management environnemental</li>
+            <li>ISO 45001 - Santé et sécurité au travail</li>
+            <li>ISO 31000 - Management des risques, lorsque pertinent</li>
+            <li>Exigences internes de l'organisation</li>
+            <li>Bonnes pratiques de gouvernance et de pilotage</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="axes">
+      <div class="container">
+        <article class="section-card fr-list-card">
+          <h2>Axes d'intégration</h2>
+          <ul>
+            <li>Politique intégrée</li>
+            <li>Objectifs et indicateurs</li>
+            <li>Cartographie des processus</li>
+            <li>Gestion documentaire</li>
+            <li>Maîtrise opérationnelle</li>
+            <li>Analyse des risques et opportunités</li>
+            <li>Audits internes intégrés</li>
+            <li>Revue de direction intégrée</li>
+            <li>Actions correctives et amélioration continue</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section" id="livrables">
+      <div class="container">
+        <article class="section-card fr-list-card">
+          <h2>Livrables possibles</h2>
+          <ul>
+            <li>Rapport de diagnostic IMS</li>
+            <li>Plan de mise en place du système intégré</li>
+            <li>Cartographie des processus</li>
+            <li>Politique intégrée</li>
+            <li>Manuel ou architecture documentaire</li>
+            <li>Procédures communes</li>
+            <li>Plan d'audit interne intégré</li>
+            <li>Tableau de suivi des objectifs</li>
+            <li>Registre des actions correctives et d'amélioration</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="pour-qui">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pour qui ?</h2>
+            <p>Ce service est adapté aux organisations qui veulent simplifier leur documentation et aligner plusieurs référentiels.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><h3>Organisations publiques ou privées</h3><p>Unifier les exigences dans un cadre cohérent.</p></article>
+          <article class="section-card"><h3>PME en croissance</h3><p>Structurer un système proportionné à la taille et aux besoins.</p></article>
+          <article class="section-card"><h3>Responsables qualité, HSE et performance</h3><p>Renforcer le pilotage des systèmes de management.</p></article>
+          <article class="section-card"><h3>Équipes processus</h3><p>Harmoniser les pratiques et les interfaces de travail.</p></article>
+          <article class="section-card"><h3>Structures préparant plusieurs référentiels ISO</h3><p>Éviter les doublons et les incohérences documentaires.</p></article>
+          <article class="section-card"><h3>Consultants et formateurs</h3><p>Créer des supports et méthodes d'accompagnement robustes.</p></article>
+          <article class="section-card"><h3>Organisations en transformation</h3><p>Réduire la dispersion documentaire et clarifier le pilotage.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section" id="approche">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Notre approche</h2>
+            <p>Une démarche progressive pour passer d'organisations séparées à un système cohérent et suivi.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><span class="fr-step-number">1</span><h3>Comprendre le contexte et les référentiels visés</h3><p>Identifier les objectifs, contraintes et priorités.</p></article>
+          <article class="section-card"><span class="fr-step-number">2</span><h3>Diagnostiquer l'existant</h3><p>Examiner les systèmes, documents, pratiques et écarts.</p></article>
+          <article class="section-card"><span class="fr-step-number">3</span><h3>Identifier les exigences communes et spécifiques</h3><p>Repérer ce qui peut être intégré et ce qui doit rester spécifique.</p></article>
+          <article class="section-card"><span class="fr-step-number">4</span><h3>Structurer les processus et la documentation</h3><p>Produire une architecture simple, claire et applicable.</p></article>
+          <article class="section-card"><span class="fr-step-number">5</span><h3>Préparer l'application avec les équipes</h3><p>Faciliter l'appropriation et la mise en œuvre terrain.</p></article>
+          <article class="section-card"><span class="fr-step-number">6</span><h3>Mettre en place le suivi, l'audit et l'amélioration continue</h3><p>Assurer une boucle de pilotage durable et utile.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="consultation">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Besoin d'un système plus cohérent ?</span>
+            <h2>Construisez un système intégré plus simple à piloter et plus facile à maintenir.</h2>
+            <p>Présentez votre contexte et ConsuTrain vous aidera à choisir l'accompagnement le plus utile.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../contact.html">Contact</a>
+            <a class="btn btn-secondary" href="../services.html">Voir tous les services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fr-footer">
+    <div class="container fr-footer-inner">
+      <div>
+        <h2>ConsuTrain</h2>
+        <p>Conseil, formation et outils pour structurer les systèmes de management et améliorer la performance.</p>
+      </div>
+      <nav class="fr-footer-links" aria-label="Navigation de pied de page">
+        <a href="../index.html">Accueil</a>
+        <a href="../about.html">À propos</a>
+        <a href="../services.html">Services</a>
+        <a href="../learn.html">Apprendre</a>
+        <a href="../tools.html">Outils</a>
+        <a href="../resources/index.html">Ressources gratuites</a>
+        <a href="../courses/index.html">Formations</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../../services/integrated-management-system.html" lang="ar" dir="rtl">AR</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
