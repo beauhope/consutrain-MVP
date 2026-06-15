@@ -1089,3 +1089,17 @@ Next selected French priorities:
 - Selected French templates/resources
 - Selected French course detail pages
 - Later n8n consultation form integration
+
+### 2026-06-15 - Remaining French service cards completed
+
+Completed:
+- `fr/services/operational-plans.html` has been created.
+- `fr/services/organizational-performance-management.html` has been created.
+- `fr/services/excellence-awards.html` has been created.
+- The three remaining French service cards in `fr/services.html` now link to their detail pages.
+
+Next selected French priorities:
+- Final French services listing audit
+- Selected French templates/resources
+- Selected French course pages
+- Later n8n consultation form integration

@@ -1060,6 +1060,14 @@ This keeps the French version focused and maintainable while giving French-speak
 Service detail page rule:
 Selected French service detail pages should include breadcrumbs, a short "Dans cette page" internal summary, clear CTA links, and page-specific AR/FR language links.
 
+## Decision - Use section-level Arabic fallbacks when no standalone Arabic service page exists
+
+Date: 2026-06-15
+
+For the remaining French service detail pages that do not have standalone Arabic counterparts, the AR language link should point to the relevant section on `services.html` rather than a missing Arabic page.
+
+This keeps the language switch usable while the Arabic site remains section-based for those services.
+
 Status: Approved
 
 ## Decision - Introduce French resources through a landing page first

@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-services-audit";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-services-audit";
+const STATIC_CACHE = "consutrain-v20260614-fr-services-remaining-three";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-services-remaining-three";
 
 const PRECACHE_URLS = [
   "./",
@@ -142,6 +142,9 @@ const PRECACHE_URLS = [
   "./fr/services/integrated-management-system.html",
   "./fr/services/digital-transformation-roadmap.html",
   "./fr/services/organizational-structures.html",
+  "./fr/services/operational-plans.html",
+  "./fr/services/organizational-performance-management.html",
+  "./fr/services/excellence-awards.html",
   "./services/consultation-form.html",
   "./tools/calculators/index.html",
   "./tools/crm/index.html",

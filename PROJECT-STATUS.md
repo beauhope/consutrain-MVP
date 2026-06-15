@@ -1481,6 +1481,15 @@ Status: Completed
 - Restored the ISO consulting card link in `fr/services.html`.
 - Updated `sw.js` cache names for the audit changes.
 
+## 2026-06-15 - Remaining French service cards completed
+
+Status: Completed
+
+- Created `fr/services/operational-plans.html`, `fr/services/organizational-performance-management.html`, and `fr/services/excellence-awards.html`.
+- Linked the three remaining French service cards from `fr/services.html`.
+- Used section-level Arabic fallbacks because these services do not have standalone Arabic detail pages.
+- Updated `sw.js` cache names and precache list for the new French service pages.
+
 ## PWA Icons — Mobile Installation Fix
 
 تم إصلاح أيقونات تثبيت تطبيق ConsuTrain على الهاتف.
