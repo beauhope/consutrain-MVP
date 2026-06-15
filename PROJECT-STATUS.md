@@ -1437,6 +1437,15 @@ Status: Completed
 - Linked the French Services page and French homepage IMS cards to the new detail page.
 - Added a page-level FR language override on the Arabic IMS page.
 
+## 2026-06-15 - French digital transformation roadmap service detail page
+
+Status: Completed
+
+- Created `fr/services/digital-transformation-roadmap.html` as a selected French service detail page.
+- Added breadcrumbs, a "Dans cette page" internal summary, clear CTA links, and the correct AR language link.
+- Linked the French Services page to the new digital roadmap detail page.
+- Added a page-level FR language override on the Arabic digital roadmap page.
+
 ## 2026-06-14 - French about page
 
 Status: Completed

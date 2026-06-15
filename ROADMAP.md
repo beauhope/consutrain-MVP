@@ -1053,3 +1053,15 @@ Next selected French service detail pages:
 - `fr/services/digital-transformation-roadmap.html`
 - `fr/services/organizational-structures.html`
 - `fr/services/occupational-health-safety.html` if it exists and fits the selection plan, otherwise keep it as a future option
+
+### 2026-06-15 - French digital transformation roadmap service detail page completed
+
+Completed:
+- `fr/services/digital-transformation-roadmap.html` has been created.
+- The page includes breadcrumbs, a "Dans cette page" internal summary, clear CTA links, and correct AR/FR language switching.
+
+Next selected French service detail pages:
+- `fr/services/organizational-structures.html`
+- `fr/services/occupational-health-safety.html` if it exists and fits the selection plan, otherwise keep it as a future option
+- Selected French templates/resources
+- Selected French course detail pages
