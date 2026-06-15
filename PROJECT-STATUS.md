@@ -1410,6 +1410,15 @@ Status: Completed
 - Linked the French Services page and French homepage risk management cards to the new detail page.
 - Added a page-level FR language override on the Arabic risk management page.
 
+## 2026-06-15 - French project management service detail page
+
+Status: Completed
+
+- Created `fr/services/project-management.html` as a selected French service detail page.
+- Added breadcrumbs, a "Dans cette page" internal summary, clear CTA links, and the correct AR language link.
+- Linked the French Services page and French homepage project management cards to the new detail page.
+- Added a page-level FR language override on the Arabic project management page.
+
 ## 2026-06-14 - French about page
 
 Status: Completed

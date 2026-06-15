@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Accompagnement en gestion de projet | ConsuTrain</title>
+  <meta
+    name="description"
+    content="Accompagnement en gestion de projet pour structurer, planifier, suivre et améliorer les projets afin de transformer les idées en résultats concrets."
+  >
+
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260614_fr_project_management">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-service-detail-page,
+    .fr-service-detail-page * {
+      direction: ltr;
+    }
+
+    .fr-service-detail-page,
+    .fr-service-detail-page section,
+    .fr-service-detail-page header,
+    .fr-service-detail-page main,
+    .fr-service-detail-page footer,
+    .fr-service-detail-page .container,
+    .fr-service-detail-page .hero-card,
+    .fr-service-detail-page .feature-card,
+    .fr-service-detail-page .section-card,
+    .fr-service-detail-page .section-head,
+    .fr-service-detail-page .cta-panel,
+    .fr-service-detail-page h1,
+    .fr-service-detail-page h2,
+    .fr-service-detail-page h3,
+    .fr-service-detail-page p,
+    .fr-service-detail-page span,
+    .fr-service-detail-page a,
+    .fr-service-detail-page li {
+      text-align: left;
+    }
+
+    .fr-header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(15, 39, 71, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+    }
+
+    .fr-header-inner {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      min-height: 76px;
+      padding: 12px 0;
+    }
+
+    .fr-brand-cluster {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      gap: 10px;
+    }
+
+    .fr-brand img {
+      display: block;
+      height: auto;
+      width: 178px;
+    }
+
+    .fr-language-link {
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--primary);
+      display: inline-flex;
+      font-size: 0.82rem;
+      font-weight: 800;
+      height: 36px;
+      justify-content: center;
+      line-height: 1;
+      min-width: 36px;
+      padding: 9px 13px;
+      text-decoration: none;
+    }
+
+    .fr-language-link:hover,
+    .fr-language-link:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-nav {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+    }
+
+    .fr-nav a,
+    .fr-footer a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .fr-nav a:hover,
+    .fr-footer a:hover {
+      color: var(--gold);
+    }
+
+    .fr-nav .btn-primary,
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.35);
+      box-shadow: none;
+      color: var(--primary);
+    }
+
+    .fr-nav .btn-primary:hover,
+    .fr-nav .btn-primary:focus {
+      background: rgba(212, 166, 58, 0.12);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .fr-breadcrumbs {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 22px 0 0;
+    }
+
+    .fr-breadcrumbs a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .fr-breadcrumbs a:hover,
+    .fr-breadcrumbs a:focus {
+      color: var(--gold);
+    }
+
+    .fr-service-detail-page .hero-card p {
+      max-width: 900px;
+    }
+
+    .fr-service-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .fr-toc {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .fr-toc a {
+      background: #f7f9fc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--primary);
+      display: block;
+      font-weight: 800;
+      padding: 12px 14px;
+      text-decoration: none;
+    }
+
+    .fr-toc a:hover,
+    .fr-toc a:focus {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .fr-step-number {
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      border-radius: 50%;
+      color: #ffffff;
+      display: inline-flex;
+      font-weight: 800;
+      height: 38px;
+      justify-content: center;
+      margin-bottom: 12px;
+      width: 38px;
+    }
+
+    .fr-list-card ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .fr-list-card li {
+      line-height: 1.8;
+    }
+
+    .fr-footer {
+      background: #0f2747;
+      color: #ffffff;
+      padding: 34px 0;
+    }
+
+    .fr-footer-inner {
+      align-items: start;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+    }
+
+    .fr-footer h2 {
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+
+    .fr-footer p {
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0;
+    }
+
+    .fr-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      justify-content: flex-end;
+    }
+
+    .fr-footer a {
+      color: #ffffff;
+    }
+
+    @media (max-width: 980px) {
+      .fr-header-inner,
+      .fr-footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fr-header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .fr-nav,
+      .fr-footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fr-nav {
+        gap: 10px;
+      }
+
+      .fr-nav .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="fr-service-detail-page">
+  <header class="fr-header">
+    <div class="container fr-header-inner">
+      <div class="fr-brand-cluster">
+        <a class="fr-brand" href="../index.html" aria-label="ConsuTrain - Accueil">
+          <img src="../../assets/images/consutrain-logo-horizontal.png" alt="ConsuTrain">
+        </a>
+        <a class="fr-language-link" href="../../services/project-management.html" lang="ar" dir="rtl" title="Passer à la version arabe" aria-label="Passer à la version arabe">AR</a>
+      </div>
+      <nav class="fr-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../about.html">À propos</a>
+        <a href="../services.html">Services</a>
+        <a href="../learn.html">Apprendre</a>
+        <a href="../tools.html">Outils</a>
+        <a href="../resources/index.html">Ressources gratuites</a>
+        <a href="../courses/index.html">Formations</a>
+        <a href="../contact.html">Contact</a>
+        <a class="btn btn-primary btn-small" href="consultation-form.html">Demander une consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="fr-breadcrumbs" aria-label="Fil d'Ariane">
+        <a href="../index.html">Accueil</a>
+        <span aria-hidden="true"> ← </span>
+        <a href="../services.html">Services</a>
+        <span aria-hidden="true"> ← </span>
+        <span>Gestion de projet</span>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Service de conseil</span>
+          <h1>Accompagnement en gestion de projet</h1>
+          <p>
+            Structurer, planifier, suivre et améliorer les projets afin de transformer les idées en résultats
+            concrets, maîtrisables et mesurables.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#consultation">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../services.html">Retour aux services</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Structurer</h3>
+            <p>Clarifier le besoin, le périmètre, les livrables et les jalons du projet.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Planifier</h3>
+            <p>Organiser les tâches, les dépendances, les rôles et les délais utiles.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Suivre</h3>
+            <p>Mettre en place un pilotage simple pour suivre l'avancement et les risques.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" aria-labelledby="toc-title">
+      <div class="container">
+        <article class="section-card">
+          <h2 id="toc-title">Dans cette page</h2>
+          <ul class="fr-toc">
+            <li><a href="#pourquoi">Pourquoi structurer la gestion de projet ?</a></li>
+            <li><a href="#apport">Ce que ConsuTrain peut vous apporter</a></li>
+            <li><a href="#axes">Axes d'accompagnement</a></li>
+            <li><a href="#outils">Outils et méthodes</a></li>
+            <li><a href="#livrables">Livrables possibles</a></li>
+            <li><a href="#pour-qui">Pour qui ?</a></li>
+            <li><a href="#approche">Notre approche</a></li>
+            <li><a href="#consultation">Demander une consultation</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section" id="pourquoi">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pourquoi structurer la gestion de projet ?</h2>
+            <p>
+              La gestion de projet aide à clarifier les besoins, définir le périmètre, planifier les activités,
+              gérer les délais et les ressources, suivre l'avancement, contrôler les risques et améliorer la
+              communication avec les parties prenantes. Elle réduit l'improvisation et rend l'exécution plus lisible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="apport">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Ce que ConsuTrain peut vous apporter</h2>
+            <p>Un accompagnement concret pour structurer le projet et faciliter son suivi jusqu'à la clôture.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-service-card"><h3>Clarification du besoin et du périmètre</h3><p>Définir ce qui entre dans le projet et ce qui en est exclu.</p></article>
+          <article class="section-card fr-service-card"><h3>Charte projet</h3><p>Structurer la base de lancement et les éléments de cadrage.</p></article>
+          <article class="section-card fr-service-card"><h3>Objectifs, livrables et jalons</h3><p>Préciser les résultats attendus, les étapes clés et les échéances.</p></article>
+          <article class="section-card fr-service-card"><h3>Planning initial</h3><p>Élaborer une planification de départ réaliste et exploitable.</p></article>
+          <article class="section-card fr-service-card"><h3>Rôles et responsabilités</h3><p>Organiser les acteurs, contributions et décisions nécessaires.</p></article>
+          <article class="section-card fr-service-card"><h3>Suivi de l'avancement et des risques</h3><p>Mettre en place un pilotage simple et régulier des points critiques.</p></article>
+          <article class="section-card fr-service-card"><h3>Outils de reporting</h3><p>Créer des supports clairs pour les réunions, revues et arbitrages.</p></article>
+          <article class="section-card fr-service-card"><h3>Clôture et retour d'expérience</h3><p>Capitaliser les acquis pour améliorer les projets suivants.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section" id="axes">
+      <div class="container">
+        <article class="section-card fr-list-card">
+          <h2>Axes d'accompagnement</h2>
+          <ul>
+            <li>Cadrage du projet</li>
+            <li>Planification opérationnelle</li>
+            <li>Suivi des tâches et responsabilités</li>
+            <li>Gestion des parties prenantes</li>
+            <li>Gestion des risques projet</li>
+            <li>Reporting et tableaux de bord</li>
+            <li>Coordination des réunions</li>
+            <li>Capitalisation et amélioration continue</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="outils">
+      <div class="container">
+        <article class="section-card fr-list-card">
+          <h2>Outils et méthodes</h2>
+          <ul>
+            <li>Charte projet</li>
+            <li>WBS / découpage des livrables</li>
+            <li>Planning et jalons</li>
+            <li>Tableau de suivi des tâches</li>
+            <li>Registre des risques projet</li>
+            <li>Kanban</li>
+            <li>Scrum lorsque pertinent</li>
+            <li>Microsoft Project ou outils équivalents</li>
+            <li>Jira lorsque pertinent</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section" id="livrables">
+      <div class="container">
+        <article class="section-card fr-list-card">
+          <h2>Livrables possibles</h2>
+          <ul>
+            <li>Charte projet</li>
+            <li>Plan de projet</li>
+            <li>Planning initial</li>
+            <li>Registre des parties prenantes</li>
+            <li>Tableau de suivi des tâches</li>
+            <li>Registre des risques projet</li>
+            <li>Rapport d'avancement</li>
+            <li>Compte rendu de réunion</li>
+            <li>Rapport de clôture ou retour d'expérience</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="pour-qui">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pour qui ?</h2>
+            <p>Ce service s'adresse aux équipes et organisations qui veulent des projets mieux cadrés et plus lisibles.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><h3>Entrepreneurs et porteurs de projets</h3><p>Transformer une idée en projet structuré.</p></article>
+          <article class="section-card"><h3>PME</h3><p>Organiser des projets avec des moyens adaptés et maîtrisés.</p></article>
+          <article class="section-card"><h3>Équipes projet</h3><p>Aligner les acteurs autour d'un même plan d'action.</p></article>
+          <article class="section-card"><h3>Chefs de projet débutants ou confirmés</h3><p>Renforcer les pratiques de pilotage et de suivi.</p></article>
+          <article class="section-card"><h3>Responsables opérationnels</h3><p>Suivre les projets avec des outils simples et utiles.</p></article>
+          <article class="section-card"><h3>Consultants et formateurs</h3><p>Créer des supports et méthodes d'accompagnement robustes.</p></article>
+          <article class="section-card"><h3>Organisations</h3><p>Mieux structurer leurs projets et capitaliser les apprentissages.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section" id="approche">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Notre approche</h2>
+            <p>Une démarche progressive, pratique et adaptée au niveau de maturité du projet.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><span class="fr-step-number">1</span><h3>Comprendre le besoin et le contexte</h3><p>Clarifier l'objectif, les contraintes, les acteurs et les attentes.</p></article>
+          <article class="section-card"><span class="fr-step-number">2</span><h3>Clarifier le périmètre et les livrables</h3><p>Définir ce qui doit être produit et ce qui est hors périmètre.</p></article>
+          <article class="section-card"><span class="fr-step-number">3</span><h3>Structurer le planning et les responsabilités</h3><p>Organiser les tâches, jalons et rôles de manière lisible.</p></article>
+          <article class="section-card"><span class="fr-step-number">4</span><h3>Suivre l'avancement avec des outils simples</h3><p>Mettre en place un suivi régulier et facilement utilisable.</p></article>
+          <article class="section-card"><span class="fr-step-number">5</span><h3>Gérer les risques et les changements</h3><p>Réagir aux écarts sans perdre la maîtrise du projet.</p></article>
+          <article class="section-card"><span class="fr-step-number">6</span><h3>Capitaliser les enseignements du projet</h3><p>Conserver les apprentissages pour les actions futures.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="consultation">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Besoin d'un cadrage projet ?</span>
+            <h2>Transformez votre idée en projet structuré, suivi et maîtrisé.</h2>
+            <p>Présentez votre besoin et ConsuTrain vous aidera à choisir l'accompagnement le plus utile.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../contact.html">Contact</a>
+            <a class="btn btn-secondary" href="../services.html">Voir tous les services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fr-footer">
+    <div class="container fr-footer-inner">
+      <div>
+        <h2>ConsuTrain</h2>
+        <p>Conseil, formation et outils pour structurer les projets et améliorer la performance.</p>
+      </div>
+      <nav class="fr-footer-links" aria-label="Navigation de pied de page">
+        <a href="../index.html">Accueil</a>
+        <a href="../about.html">À propos</a>
+        <a href="../services.html">Services</a>
+        <a href="../learn.html">Apprendre</a>
+        <a href="../tools.html">Outils</a>
+        <a href="../resources/index.html">Ressources gratuites</a>
+        <a href="../courses/index.html">Formations</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../../services/project-management.html" lang="ar" dir="rtl">AR</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
