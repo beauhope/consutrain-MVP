@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-learn-ar-link-fix";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-learn-ar-link-fix";
+const STATIC_CACHE = "consutrain-v20260614-fr-learn-ar-debug";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-learn-ar-debug";
 
 const PRECACHE_URLS = [
   "./",

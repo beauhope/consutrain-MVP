@@ -459,5 +459,14 @@
       </nav>
     </div>
   </footer>
+  <script>
+    document.querySelectorAll('a[lang="ar"]').forEach(function (link) {
+      link.setAttribute("href", "../learn.html");
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "../learn.html";
+      });
+    });
+  </script>
 </body>
 </html>
