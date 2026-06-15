@@ -1053,6 +1053,18 @@ This gives French-speaking visitors a coherent entry point to ConsuTrain resourc
 
 Status: Approved
 
+## Decision - Introduce French courses through a landing page first
+
+Date: 2026-06-15
+
+Decision:
+French course pages should be introduced progressively through a French courses landing page before translating every course detail page.
+
+Reason:
+This gives French-speaking visitors a coherent entry point to ConsuTrain training programs while keeping course translation and maintenance controlled. Existing course detail pages may remain in their original version until selected high-value programs are prioritized for French adaptation.
+
+Status: Approved
+
 ## Decision - Internal ConsuTrain consultation forms
 
 Date: 2026-06-14

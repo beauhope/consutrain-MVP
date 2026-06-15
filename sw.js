@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-resources";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-resources";
+const STATIC_CACHE = "consutrain-v20260614-fr-courses";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-courses";
 
 const PRECACHE_URLS = [
   "./",
@@ -131,6 +131,7 @@ const PRECACHE_URLS = [
   "./fr/contact.html",
   "./fr/tools.html",
   "./fr/resources/index.html",
+  "./fr/courses/index.html",
   "./services/consultation-form.html",
   "./tools/calculators/index.html",
   "./tools/crm/index.html",

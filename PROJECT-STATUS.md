@@ -1338,6 +1338,15 @@ Status: Completed
 - The page introduces resource categories in French while linking to existing resource/download folders.
 - No individual French templates or resource pages were created in this step.
 
+## 2026-06-15 - French courses landing page
+
+Status: Completed
+
+- Created `fr/courses/index.html` as the French courses landing page.
+- Linked the current French pages to the new French courses page.
+- The page introduces ConsuTrain training categories in French while linking to existing course directories.
+- No individual French course detail pages were created in this step.
+
 ## 2026-06-14 - French about page
 
 Status: Completed
