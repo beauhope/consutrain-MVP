@@ -1305,6 +1305,20 @@ Status: Completed
 - Added temporary submit messages while future automatic submission is prepared.
 - Updated `sw.js` cache names for the changed consultation form pages.
 
+## 2026-06-15 - Consultation forms connected to Google Apps Script
+
+Status: Completed
+
+- Arabic and French consultation forms are connected to Google Apps Script and tested successfully.
+- The tested flow is: consultation form -> Google Apps Script Web App -> Google Sheet: ConsuTrain Consultation Requests / requests -> Gmail notification -> user success message.
+- Submissions are saved in Google Sheets and email notifications are sent via Gmail.
+- This flow works without requiring the local n8n instance to be running.
+
+Operational note:
+- Google Apps Script is now the preferred solution for simple public form workflows.
+- Local n8n remains available for development and advanced/manual automation.
+- Certificate automation through Google Sheets plus a manual n8n trigger remains a future option and is not completed yet.
+
 ## 2026-06-14 - French about page
 
 Status: Completed

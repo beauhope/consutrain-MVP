@@ -1050,6 +1050,25 @@ This reduces dependency on external form tools, improves visual consistency, and
 
 Status: Approved
 
+## Decision - Adopt Google Apps Script for simple public form workflows
+
+Date: 2026-06-15
+
+Decision:
+After testing the Arabic and French consultation forms, Google Apps Script was adopted as the preferred operational solution for public forms that require only data collection, Google Sheets storage, and Gmail notification.
+
+This decision avoids relying on locally hosted n8n for public form submissions, because local n8n stops when the developer machine is offline. Google Apps Script provides a free and always-available flow suitable for ConsuTrain's current stage.
+
+The consultation form flow is now:
+
+Form submission -> Google Apps Script Web App -> Google Sheet: ConsuTrain Consultation Requests / requests -> Gmail notification -> user success message.
+
+n8n remains part of the project, but its role is shifted toward advanced automation, development experiments, manual triggers, and future workflows that require richer processing.
+
+For course certificates, a future approach may use Google Sheets as the intake/storage layer, then trigger n8n manually to generate certificates and send them to participants. This future certificate workflow is not considered completed yet.
+
+Status: Approved
+
 
 ## قرار — توحيد أيقونات PWA مع شعار ConsuTrain
 
