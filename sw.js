@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-service-feasibility-studies";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-feasibility-studies";
+const STATIC_CACHE = "consutrain-v20260614-fr-service-iso-consulting";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-iso-consulting";
 
 const PRECACHE_URLS = [
   "./",
@@ -135,6 +135,7 @@ const PRECACHE_URLS = [
   "./fr/courses/index.html",
   "./fr/services/strategic-planning.html",
   "./fr/services/feasibility-studies.html",
+  "./fr/services/iso-consulting.html",
   "./services/consultation-form.html",
   "./tools/calculators/index.html",
   "./tools/crm/index.html",
