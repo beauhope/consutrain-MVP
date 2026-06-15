@@ -1030,3 +1030,15 @@ Next selected French service detail pages:
 - `fr/services/integrated-management-system.html`
 - `fr/services/digital-transformation-roadmap.html`
 - `fr/services/organizational-structures.html`
+
+### 2026-06-15 - French SOP and operational manuals service detail page completed
+
+Completed:
+- `fr/services/sop-operational-manuals.html` has been created.
+- The page includes breadcrumbs, a "Dans cette page" internal summary, clear CTA links, and correct AR/FR language switching.
+
+Next selected French service detail pages:
+- `fr/services/integrated-management-system.html`
+- `fr/services/digital-transformation-roadmap.html`
+- `fr/services/organizational-structures.html`
+- `fr/services/iso-consulting.html`

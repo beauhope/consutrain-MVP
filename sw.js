@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-service-project-management";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-project-management";
+const STATIC_CACHE = "consutrain-v20260614-fr-service-sop-operational-manuals";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-service-sop-operational-manuals";
 
 const PRECACHE_URLS = [
   "./",
@@ -138,6 +138,7 @@ const PRECACHE_URLS = [
   "./fr/services/iso-consulting.html",
   "./fr/services/risk-management.html",
   "./fr/services/project-management.html",
+  "./fr/services/sop-operational-manuals.html",
   "./services/consultation-form.html",
   "./tools/calculators/index.html",
   "./tools/crm/index.html",
