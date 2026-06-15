@@ -1055,7 +1055,7 @@ Decision:
 French service detail pages should be translated selectively, starting with high-value services rather than translating every service page at once.
 
 Reason:
-This keeps the French version focused and maintainable while giving French-speaking visitors deeper information for priority services. Strategic planning is the first selected French service detail page, followed by feasibility studies and ISO consulting.
+This keeps the French version focused and maintainable while giving French-speaking visitors deeper information for priority services. Strategic planning is the first selected French service detail page, followed by feasibility studies, ISO consulting, and risk management.
 
 Service detail page rule:
 Selected French service detail pages should include breadcrumbs, a short "Dans cette page" internal summary, clear CTA links, and page-specific AR/FR language links.

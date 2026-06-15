@@ -1007,3 +1007,14 @@ Next selected French service detail pages:
 - `fr/services/project-management.html`
 - `fr/services/sop-operational-manuals.html`
 - `fr/services/integrated-management-system.html`
+
+### 2026-06-15 - French risk management service detail page completed
+
+Completed:
+- `fr/services/risk-management.html` has been created.
+- The page includes breadcrumbs, a "Dans cette page" internal summary, clear CTA links, and correct AR/FR language switching.
+
+Next selected French service detail pages:
+- `fr/services/project-management.html`
+- `fr/services/sop-operational-manuals.html`
+- `fr/services/integrated-management-system.html`
