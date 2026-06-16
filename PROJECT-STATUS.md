@@ -1510,6 +1510,14 @@ Status: Completed
 - Standardized French breadcrumbs through `#breadcrumbs-placeholder` and the shared breadcrumb generator.
 - Removed the temporary French floating-controls path from the migrated service pages.
 
+## 2026-06-16 - French shared UI audit for all pages
+
+Status: Completed
+
+- Audited the full French section under `/fr/` and applied the shared French UI system where appropriate.
+- French pages now use the shared French header, footer, floating controls, and shared breadcrumbs on pages where breadcrumbs are appropriate.
+- The French homepage intentionally remains without breadcrumbs to match the site pattern.
+
 ## 2026-06-15 - Services accordion detail links audit
 
 Status: Completed

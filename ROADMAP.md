@@ -94,13 +94,22 @@ In progress
 
 High
 
-### French shared UI migration
+### French shared UI audit and migration
 
 Status: Completed
 
 Pilot page: `fr/services/digital-transformation-roadmap.html`
 
 Migrated pages:
+- `fr/index.html`
+- `fr/services.html`
+- `fr/about.html`
+- `fr/contact.html`
+- `fr/tools.html`
+- `fr/resources/index.html`
+- `fr/courses/index.html`
+- `fr/learn.html`
+- `fr/services/consultation-form.html`
 - `fr/services/strategic-planning.html`
 - `fr/services/feasibility-studies.html`
 - `fr/services/iso-consulting.html`

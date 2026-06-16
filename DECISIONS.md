@@ -1208,3 +1208,10 @@ French standalone service detail pages now load the French shared header and foo
 This replaces custom page-level French headers, footers, and breadcrumb blocks on the migrated service pages while keeping the Arabic pages unchanged.
 
 The temporary French floating-controls helper is no longer needed on the migrated service pages once the shared French footer is loaded.
+
+
+## Decision — French pages should use the shared French UI system where appropriate
+
+French pages under `/fr/` now use the shared French header and footer partials, the shared floating controls, and the shared breadcrumb placeholder system on pages where breadcrumbs make sense.
+
+The French homepage intentionally omits breadcrumbs to match the site pattern. Other French pages use breadcrumbs when they provide navigation value, such as section landing pages and detail pages.

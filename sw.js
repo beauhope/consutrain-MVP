@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-shared-ui-services";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-shared-ui-services";
+const STATIC_CACHE = "consutrain-v20260614-fr-all-shared-ui";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-all-shared-ui";
 
 const PRECACHE_URLS = [
   "./",
@@ -27,6 +27,9 @@ const PRECACHE_URLS = [
   "./services/digital-transformation-roadmap.html",
   "./tools.html",
 
+  "./fr/index.html",
+  "./fr/services.html",
+  "./fr/services/consultation-form.html",
   "./templates/operational-plan-template.html",
   "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
   "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",
