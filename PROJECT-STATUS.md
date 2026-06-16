@@ -1656,3 +1656,10 @@ Status: Completed
 - Corrected the visible French copy in `fr/tools.html`.
 - Kept the current French tools linking structure unchanged.
 - Updated `sw.js` cache names for this text cleanup pass.
+
+## 2026-06-16 - French priority QA fixes
+
+Status: Completed
+
+- Cleaned the remaining visible mojibake in the key French pages and shared French partials.
+- Corrected `fr/learn.html` so the normal learning cards point to the French learning pages under `fr/learn/`.

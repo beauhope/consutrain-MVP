@@ -1335,3 +1335,13 @@ Completed:
 Next phase:
 - Continue reducing Arabic fallback links in the remaining French tools area
 - Review other French landing pages for any remaining encoding cleanup
+
+### 2026-06-16 - French priority QA cleanup completed
+
+Completed:
+- Cleaned the visible mojibake in the key French pages and shared French partials.
+- Corrected `fr/learn.html` so the normal learning cards point to the French learning pages under `fr/learn/`.
+
+Remaining Priority 2 items:
+- `fr/resources/index.html` category-folder fallback links
+- Remaining lower-priority `fr/tools.html` fallback links
