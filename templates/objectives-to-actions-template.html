@@ -123,5 +123,26 @@
   <div id="footer-placeholder"></div>
   <script src="../assets/js/includes.js?v=20260506_force_top" defer></script>
   <script src="../assets/js/main.js" defer></script>
+  <script>
+    (function () {
+      function fixFrenchPageLink() {
+        document.querySelectorAll('a[lang="fr"], a[hreflang="fr"], .language-badge').forEach(function (link) {
+          var text = (link.textContent || "").trim().toLowerCase();
+          var label = (link.getAttribute("aria-label") || "").toLowerCase();
+          if (text === "fr" || label.indexOf("fran") !== -1 || link.getAttribute("lang") === "fr" || link.getAttribute("hreflang") === "fr") {
+            link.setAttribute("href", "/fr/templates/objectives-to-actions-template.html");
+          }
+        });
+      }
+      fixFrenchPageLink();
+      document.addEventListener("DOMContentLoaded", fixFrenchPageLink);
+      window.addEventListener("load", fixFrenchPageLink);
+      setTimeout(fixFrenchPageLink, 150);
+      setTimeout(fixFrenchPageLink, 500);
+      if ("MutationObserver" in window) {
+        new MutationObserver(fixFrenchPageLink).observe(document.body, { childList: true, subtree: true });
+      }
+    })();
+  </script>
 </body>
 </html>

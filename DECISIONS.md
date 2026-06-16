@@ -1251,3 +1251,14 @@ Reason:
 - Dedicated French domain folders and `_FR` suffixes keep Arabic/original and French assets clearly separated while matching the Arabic download organization.
 
 Status: Approved
+
+## Decision - French DOCX linking and duplicate handling
+
+Date: 2026-06-16
+
+Decision:
+- Prepared French DOCX files should be linked from French HTML resource/template pages, not directly from a long unstructured resources list.
+- Duplicate prepared files, including filenames containing `(1)`, should not be linked.
+- French PDF preview buttons remain blocked until real French PDF files exist.
+
+Status: Approved

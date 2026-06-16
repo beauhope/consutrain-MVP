@@ -1236,3 +1236,14 @@ Next selected French priorities:
 - Selected French templates/resources
 - Selected French course pages
 - Later n8n consultation form integration
+
+### 2026-06-16 - Prepared French DOCX links completed
+
+Completed:
+- All prepared French DOCX files are reachable through French HTML resource/template pages.
+- French resources remain organized by domain under `resources/downloads/fr/`.
+
+Next phase:
+- Manual DOCX visual review
+- French PDF preview generation after review
+- Duplicate download cleanup only after explicit approval

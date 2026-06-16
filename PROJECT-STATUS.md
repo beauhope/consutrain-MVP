@@ -1583,3 +1583,11 @@ Status: Completed
 - assets/icons/icon-512-maskable-v2.png
 
 كما تم تحديث manifest.webmanifest و sw.js لاستخدام الأيقونات الجديدة بدل الأيقونة القديمة التي كانت تظهر كمربع بداخله حرف C.
+
+## 2026-06-16 - French DOCX resource links completed
+
+Status: Completed
+
+- Linked all prepared French DOCX resources from French template/resource pages.
+- Created missing French explanation pages under `fr/templates/` using the shared French UI system.
+- Kept duplicate DOCX files and Arabic downloads unlinked from French pages.
