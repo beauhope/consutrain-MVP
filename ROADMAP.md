@@ -1300,3 +1300,14 @@ Completed:
 Next phase:
 - Continue reducing Arabic fallback links in the remaining French tools area
 - Review the French tools landing page for any remaining content or encoding cleanup
+
+### 2026-06-16 - French tools copy fix completed
+
+Completed:
+- Corrected the visible French copy in `fr/tools.html`.
+- Kept the existing French tools link structure unchanged.
+- Updated `sw.js` cache names for the text cleanup pass.
+
+Next phase:
+- Continue reducing Arabic fallback links in the remaining French tools area
+- Review other French landing pages for any remaining encoding cleanup

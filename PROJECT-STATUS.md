@@ -1630,3 +1630,11 @@ Status: Completed
 - Created the first French tools pages under `fr/tools/` for SMART goals, feasibility guidance, tool templates, and management flash.
 - Updated `fr/tools.html` so the four most visible tool cards now point to French pages.
 - Updated `sw.js` cache names and precache entries for the first French tools batch.
+
+## 2026-06-16 - French tools copy fix
+
+Status: Completed
+
+- Corrected the visible French copy in `fr/tools.html`.
+- Kept the current French tools linking structure unchanged.
+- Updated `sw.js` cache names for this text cleanup pass.

@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-tools-batch-one";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-tools-batch-one";
+const STATIC_CACHE = "consutrain-v20260614-fr-tools-copy-fix";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-tools-copy-fix";
 
 const PRECACHE_URLS = [
   "./",
