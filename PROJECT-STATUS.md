@@ -1534,6 +1534,15 @@ Status: Completed
 - Linked the five French templates from `fr/resources/index.html` in a new "Modèles pratiques en français" section.
 - Updated `sw.js` cache names and precache list for the new French template pages.
 
+## 2026-06-16 - Second French templates batch
+
+Status: Completed
+
+- Created the second individual French template/resource explanation pages under `fr/templates/`.
+- Added French pages for ISO 9001 readiness, pre-feasibility, project charter, process card, and SOP template.
+- Linked the five additional French templates from `fr/resources/index.html`.
+- Updated `sw.js` cache names and precache list for the second French template batch.
+
 ## 2026-06-15 - Services accordion detail links audit
 
 Status: Completed

@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-template-batch-one";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-template-batch-one";
+const STATIC_CACHE = "consutrain-v20260614-fr-template-batch-two";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-template-batch-two";
 
 const PRECACHE_URLS = [
   "./",
@@ -142,6 +142,11 @@ const PRECACHE_URLS = [
   "./fr/templates/operational-plan-template.html",
   "./fr/templates/kpi-performance-card.html",
   "./fr/templates/simple-risk-register.html",
+  "./fr/templates/iso9001-readiness-checklist.html",
+  "./fr/templates/pre-feasibility-checklist.html",
+  "./fr/templates/project-charter.html",
+  "./fr/templates/process-card.html",
+  "./fr/templates/sop-template.html",
   "./fr/courses/index.html",
   "./fr/services/strategic-planning.html",
   "./fr/services/feasibility-studies.html",

@@ -1176,6 +1176,22 @@ Next suggested French template batch:
 - `fr/templates/process-card.html`
 - `fr/templates/sop-template.html`
 
+### 2026-06-16 - Second French template batch completed
+
+Completed:
+- `fr/templates/iso9001-readiness-checklist.html` has been created.
+- `fr/templates/pre-feasibility-checklist.html` has been created.
+- `fr/templates/project-charter.html` has been created.
+- `fr/templates/process-card.html` has been created.
+- `fr/templates/sop-template.html` has been created.
+- `fr/resources/index.html` now links to all ten French template pages in the practical templates section.
+
+Next selected French priorities:
+- Final audit of the French resources index
+- Selected French learning pages
+- Selected French course pages
+- Later n8n consultation form integration
+
 ### 2026-06-15 - Services accordion detail links audit completed
 
 Completed:
