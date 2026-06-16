@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-all-shared-ui";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-all-shared-ui";
+const STATIC_CACHE = "consutrain-v20260614-fr-header-breadcrumb-alignment";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-header-breadcrumb-alignment";
 
 const PRECACHE_URLS = [
   "./",

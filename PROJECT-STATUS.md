@@ -1518,6 +1518,13 @@ Status: Completed
 - French pages now use the shared French header, footer, floating controls, and shared breadcrumbs on pages where breadcrumbs are appropriate.
 - The French homepage intentionally remains without breadcrumbs to match the site pattern.
 
+## 2026-06-16 - French header and breadcrumb visual alignment
+
+Status: Completed
+
+- Aligned the French shared header structure with the Arabic mobile layout so the hamburger, language badge, and logo stay on one row more consistently.
+- Kept French breadcrumbs on the shared placeholder system and visually matched the Arabic pill-style behavior more closely.
+
 ## 2026-06-15 - Services accordion detail links audit
 
 Status: Completed

@@ -51,6 +51,7 @@ The focus now is to make sure the current version is stable, clear, and ready fo
 Completed in this phase:
 - French service detail pages now include the floating controls used on the Arabic service pages.
 - French shared UI pilot implemented for `fr/services/digital-transformation-roadmap.html`.
+- French shared header and breadcrumb layout visually aligned more closely with the Arabic mobile layout.
 
 ---
 
@@ -121,6 +122,20 @@ Migrated pages:
 - `fr/services/operational-plans.html`
 - `fr/services/organizational-performance-management.html`
 - `fr/services/excellence-awards.html`
+
+Next phase:
+- mobile visual QA for French services
+- migrate selected French resources/templates
+- migrate selected French course pages
+- later n8n consultation form integration
+
+### French header and breadcrumb visual alignment
+
+Status: Completed
+
+Completed:
+- Adjusted the French shared header partial to use the shared Arabic-style header structure and classes.
+- Kept French breadcrumbs on the shared placeholder system and aligned their mobile presentation with the Arabic pill-style behavior.
 
 Next phase:
 - mobile visual QA for French services
