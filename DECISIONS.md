@@ -1241,9 +1241,13 @@ Date: 2026-06-16
 Decision:
 - French download buttons should only be added when a real French downloadable file exists.
 - Existing Arabic/original downloadable resources may remain reachable through category gateway links, but should not be presented as French downloads unless clearly labeled as original Arabic resources.
+- French downloadable resources should live under domain-specific folders inside `resources/downloads/fr/`, such as `strategic-planning`, `operational-plans`, `performance-management`, and `risk-management`.
+- French downloadable files should use ASCII filenames with an `_FR` language suffix.
+- French PDF preview links should only be added when real French PDF files exist.
 
 Reason:
 - This avoids implying that Arabic-only Word/PDF/Markdown resources are localized French files.
 - It keeps the French resources page useful while French downloadable files are prepared in a later phase.
+- Dedicated French domain folders and `_FR` suffixes keep Arabic/original and French assets clearly separated while matching the Arabic download organization.
 
 Status: Approved

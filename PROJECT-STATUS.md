@@ -1550,6 +1550,22 @@ Status: Completed
 - Grouped the ten French template explanation links in `fr/resources/index.html` into strategy/performance, quality/process/SOP, and project/risk/feasibility sections.
 - Audited existing downloadable resources and kept French download buttons out until real French downloadable files exist.
 
+## 2026-06-16 - First French DOCX downloadable resource batch
+
+Status: Completed
+
+- Created the first five French DOCX downloadable resources under `resources/downloads/fr/templates/`.
+- Added French Word downloads for SWOT, PESTEL, operational plan, KPI performance card, and simple risk register.
+- Linked each DOCX file from its matching French template explanation page.
+
+## 2026-06-16 - French downloads aligned with Arabic folder structure
+
+Status: Completed
+
+- Moved the first five French DOCX downloads into domain-specific folders under `resources/downloads/fr/`.
+- Updated the matching French template pages and `sw.js` precache entries to use the domain-specific French download paths.
+- Kept PDF preview links out until reviewed French PDFs exist.
+
 ## 2026-06-15 - Services accordion detail links audit
 
 Status: Completed

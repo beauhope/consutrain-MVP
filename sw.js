@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-resources-index-audit";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-resources-index-audit";
+const STATIC_CACHE = "consutrain-v20260614-fr-downloads-align-arabic";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-downloads-align-arabic";
 
 const PRECACHE_URLS = [
   "./",
@@ -142,6 +142,11 @@ const PRECACHE_URLS = [
   "./fr/templates/operational-plan-template.html",
   "./fr/templates/kpi-performance-card.html",
   "./fr/templates/simple-risk-register.html",
+  "./resources/downloads/fr/strategic-planning/ConsuTrain_SWOT_Analysis_Template_FR.docx",
+  "./resources/downloads/fr/strategic-planning/ConsuTrain_PESTEL_Analysis_Template_FR.docx",
+  "./resources/downloads/fr/operational-plans/ConsuTrain_Free_Operational_Plan_Template_FR.docx",
+  "./resources/downloads/fr/performance-management/ConsuTrain_KPI_Performance_Card_FR.docx",
+  "./resources/downloads/fr/risk-management/ConsuTrain_Simple_Risk_Register_FR.docx",
   "./fr/templates/iso9001-readiness-checklist.html",
   "./fr/templates/pre-feasibility-checklist.html",
   "./fr/templates/project-charter.html",

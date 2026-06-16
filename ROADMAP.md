@@ -1202,6 +1202,28 @@ Future phase:
 - Create selected French downloadable resources before adding French download buttons.
 - Continue with selected French learning pages, selected French course pages, and later n8n consultation form integration.
 
+### 2026-06-16 - First French DOCX downloadable resource batch completed
+
+Completed:
+- Created five French DOCX resources under `resources/downloads/fr/templates/`.
+- Linked the DOCX files from the matching French template explanation pages.
+
+Next phase:
+- Manual visual review of the DOCX files
+- Optional PDF generation after review
+- Second French download batch later
+
+### 2026-06-16 - French download structure alignment completed
+
+Completed:
+- French DOCX downloads now use domain-specific folders under `resources/downloads/fr/`, matching the Arabic/original organization pattern.
+- The five matching French template pages link to the new domain-specific DOCX paths.
+
+Next phase:
+- Manual visual review of DOCX files
+- French PDF previews after DOCX review
+- Second French download batch later
+
 ### 2026-06-15 - Services accordion detail links audit completed
 
 Completed:
