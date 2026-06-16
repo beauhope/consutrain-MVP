@@ -1614,3 +1614,11 @@ Status: Completed
 - Created the first French learning pages under `fr/learn/` for articles, learning paths, glossary, management tech radar, and free certificate training.
 - Updated `fr/learn.html` to point the matching cards to the new French pages.
 - Updated `sw.js` cache names and precache entries for the new French learning batch.
+
+## 2026-06-16 - Second French learning batch
+
+Status: Completed
+
+- Created the second French learning pages under `fr/learn/` for management skills, AI, AI prompts, digitization, and futures/scenarios.
+- Updated `fr/learn.html` so the remaining major learning cards now point to French pages instead of Arabic/original fallbacks.
+- Updated `sw.js` cache names and precache entries for the second French learning batch.

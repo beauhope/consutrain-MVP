@@ -1278,3 +1278,14 @@ Completed:
 Next phase:
 - Remaining French learning pages and deeper learning-path expansion
 - Continue reducing Arabic fallback links in the French experience
+
+### 2026-06-16 - Second French learning batch completed
+
+Completed:
+- Created the remaining French learning pages needed to cover the main fallback topics from `fr/learn.html`.
+- Updated `fr/learn.html` so the main learning cards now point to French pages.
+- Updated `sw.js` cache names and precache entries for the second French learning batch.
+
+Next phase:
+- Final audit of the French learning section for any remaining fallback links or content gaps
+- Continue with other French sections if any residual Arabic links remain
