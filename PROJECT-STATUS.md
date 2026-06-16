@@ -1359,6 +1359,15 @@ Status: Completed
 - The page introduces ConsuTrain training categories in French while linking to existing course directories.
 - No individual French course detail pages were created in this step.
 
+## 2026-06-16 - First French courses batch
+
+Status: Completed
+
+- Created a first batch of French course pages under `fr/courses/`.
+- Updated `fr/courses/index.html` so the selected visible course cards now link to French pages.
+- Kept the remaining course cards on their original Arabic/original targets for later batches.
+- Updated `sw.js` cache names and precache entries for the new French course pages.
+
 ## 2026-06-15 - French navigation consistency audit after Resources and Courses
 
 Status: Completed

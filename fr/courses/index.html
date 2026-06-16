@@ -7,10 +7,10 @@
   <title>Formations | ConsuTrain</title>
   <meta
     name="description"
-    content="Formations ConsuTrain en français: parcours et ateliers pratiques en management, stratégie, qualité, projet et excellence institutionnelle."
+    content="Formations ConsuTrain en français : parcours et ateliers pratiques en management, stratégie, qualité, projet et excellence institutionnelle."
   >
 
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20260614_fr_courses">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260616_fr_courses_batch_one">
   <link rel="manifest" href="../../manifest.webmanifest">
   <meta name="theme-color" content="#0f2747">
   <meta name="mobile-web-app-capable" content="yes">
@@ -21,15 +21,9 @@
 
   <style>
     .fr-courses-page,
-    .fr-courses-page * {
-      direction: ltr;
-    }
-
+    .fr-courses-page * { direction: ltr; }
     .fr-courses-page,
     .fr-courses-page section,
-    .fr-courses-page header,
-    .fr-courses-page main,
-    .fr-courses-page footer,
     .fr-courses-page .container,
     .fr-courses-page .hero-card,
     .fr-courses-page .feature-card,
@@ -40,115 +34,12 @@
     .fr-courses-page h2,
     .fr-courses-page h3,
     .fr-courses-page p,
-    .fr-courses-page span,
+    .fr-courses-page li,
     .fr-courses-page a,
-    .fr-courses-page li {
-      text-align: left;
-    }
-
-    .fr-header {
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid rgba(15, 39, 71, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-    }
-
-    .fr-header-inner {
-      align-items: center;
-      display: flex;
-      gap: 18px;
-      justify-content: space-between;
-      min-height: 76px;
-      padding: 12px 0;
-    }
-
-    .fr-brand-cluster {
-      align-items: center;
-      display: flex;
-      flex-shrink: 0;
-      gap: 10px;
-    }
-
-    .fr-brand img {
-      display: block;
-      height: auto;
-      width: 178px;
-    }
-
-    .fr-language-link {
-      align-items: center;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--primary);
-      display: inline-flex;
-      font-size: 0.82rem;
-      font-weight: 800;
-      height: 36px;
-      justify-content: center;
-      line-height: 1;
-      min-width: 36px;
-      padding: 9px 13px;
-      text-decoration: none;
-    }
-
-    .fr-language-link:hover,
-    .fr-language-link:focus {
-      background: rgba(212, 166, 58, 0.12);
-      border-color: var(--gold);
-      color: var(--primary);
-    }
-
-    .fr-nav {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: flex-end;
-    }
-
-    .fr-nav a,
-    .fr-footer a {
-      color: var(--primary);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .fr-nav a:hover,
-    .fr-footer a:hover {
-      color: var(--gold);
-    }
-
-    .fr-nav .btn-primary,
-    .fr-nav .btn-primary:hover,
-    .fr-nav .btn-primary:focus {
-      background: #ffffff;
-      border: 1px solid rgba(15, 39, 71, 0.35);
-      box-shadow: none;
-      color: var(--primary);
-    }
-
-    .fr-nav .btn-primary:hover,
-    .fr-nav .btn-primary:focus {
-      background: rgba(212, 166, 58, 0.12);
-      border-color: var(--gold);
-      color: var(--primary);
-    }
-
-    .fr-courses-page .hero-card p {
-      max-width: 880px;
-    }
-
-    .fr-course-card {
-      border-top: 4px solid var(--gold);
-    }
-
-    .fr-course-card .btn {
-      margin-top: 10px;
-    }
-
+    .fr-courses-page span { text-align: left; }
+    .fr-courses-page .hero-card p { max-width: 900px; }
+    .fr-course-card { border-top: 4px solid var(--gold); }
+    .fr-course-card .btn { margin-top: 10px; }
     .fr-note {
       background: rgba(212, 166, 58, 0.12);
       border: 1px solid rgba(212, 166, 58, 0.35);
@@ -158,7 +49,6 @@
       line-height: 1.8;
       padding: 14px 16px;
     }
-
     .fr-step-number {
       align-items: center;
       background: linear-gradient(135deg, var(--primary), var(--gold));
@@ -171,83 +61,21 @@
       margin-bottom: 12px;
       width: 38px;
     }
-
-    .fr-footer {
-      background: #0f2747;
-      color: #ffffff;
-      padding: 34px 0;
-    }
-
-    .fr-footer-inner {
-      align-items: start;
-      display: grid;
-      gap: 18px;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
-    }
-
-    .fr-footer h2 {
-      color: #ffffff;
-      margin: 0 0 8px;
-    }
-
-    .fr-footer p {
-      color: rgba(255, 255, 255, 0.78);
-      margin: 0;
-    }
-
-    .fr-footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 18px;
-      justify-content: flex-end;
-    }
-
-    .fr-footer a {
-      color: #ffffff;
-    }
-
-    @media (max-width: 980px) {
-      .fr-header-inner,
-      .fr-footer-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .fr-header-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .fr-nav,
-      .fr-footer-links {
-        justify-content: flex-start;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .fr-nav {
-        gap: 10px;
-      }
-
-      .fr-nav .btn {
-        width: 100%;
-      }
-    }
+    .fr-courses-page .cta-panel { align-items: start; }
   </style>
 </head>
 
 <body class="fr-courses-page" data-root="../.." data-ar-link="../../courses/index.html" data-breadcrumb-section="Formations" data-breadcrumb-title="Formations">
-    <div id="header-placeholder"></div>
+  <div id="header-placeholder"></div>
   <div id="breadcrumbs-placeholder"></div>
-<main>
+
+  <main>
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-card">
           <span class="eyebrow">Formations et ateliers pratiques</span>
           <h1>Formations ConsuTrain</h1>
-          <p>
-            Des parcours et ateliers pratiques pour développer les compétences en management, stratégie,
-            qualité, projet et excellence institutionnelle.
-          </p>
+          <p>Des parcours et ateliers pratiques pour développer les compétences en management, stratégie, qualité, projet et excellence institutionnelle.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#courses-list">Explorer les formations</a>
             <a class="btn btn-secondary" href="../services/consultation-form.html">Demander une formation sur mesure</a>
@@ -274,8 +102,7 @@
     <section class="home-section">
       <div class="container">
         <p class="fr-note">
-          L'espace formations en français est construit progressivement. Certaines pages de formation peuvent
-          encore s'ouvrir dans leur version originale jusqu'à leur adaptation complète en français.
+          L'espace formations en français est construit progressivement. Certaines pages de formation peuvent encore s'ouvrir dans leur version originale jusqu'à leur adaptation complète en français.
         </p>
       </div>
     </section>
@@ -293,7 +120,7 @@
           <article class="section-card fr-course-card">
             <h3>Planification stratégique</h3>
             <p>Parcours pour comprendre, construire et suivre une démarche stratégique.</p>
-            <a class="btn btn-secondary btn-small" href="../../courses/strategic-planning/">Voir le programme</a>
+            <a class="btn btn-secondary btn-small" href="strategic-planning.html">Voir le programme</a>
           </article>
 
           <article class="section-card fr-course-card">
@@ -305,13 +132,13 @@
           <article class="section-card fr-course-card">
             <h3>Systèmes de management intégrés</h3>
             <p>Comprendre les systèmes intégrés et leur articulation dans une organisation.</p>
-            <a class="btn btn-secondary btn-small" href="../../courses/integrated-management-system-ims/">Voir le programme</a>
+            <a class="btn btn-secondary btn-small" href="integrated-management-system-ims.html">Voir le programme</a>
           </article>
 
           <article class="section-card fr-course-card">
             <h3>Audit interne ISO 9001</h3>
             <p>Préparer et conduire des audits internes utiles dans une logique qualité.</p>
-            <a class="btn btn-secondary btn-small" href="../../courses/iso-9001-internal-auditor/">Voir le programme</a>
+            <a class="btn btn-secondary btn-small" href="iso-9001-internal-auditor.html">Voir le programme</a>
           </article>
 
           <article class="section-card fr-course-card">
@@ -323,13 +150,13 @@
           <article class="section-card fr-course-card">
             <h3>Gestion de projet agile</h3>
             <p>Développer une approche agile pour gérer les projets, priorités et livrables.</p>
-            <a class="btn btn-secondary btn-small" href="../../courses/agile-project-management/">Voir le programme</a>
+            <a class="btn btn-secondary btn-small" href="agile-project-management.html">Voir le programme</a>
           </article>
 
           <article class="section-card fr-course-card">
             <h3>Balanced Scorecard et performance</h3>
             <p>Relier objectifs, indicateurs, initiatives et suivi de la performance.</p>
-            <a class="btn btn-secondary btn-small" href="../../courses/balanced-scorecard-performance-management/">Voir le programme</a>
+            <a class="btn btn-secondary btn-small" href="balanced-scorecard-performance-management.html">Voir le programme</a>
           </article>
 
           <article class="section-card fr-course-card">
@@ -424,7 +251,7 @@
     </section>
   </main>
 
-    <div id="footer-placeholder"></div>
-  <script src="../../assets/js/includes.js?v=20260614_fr_all_shared_ui"></script>
+  <div id="footer-placeholder"></div>
+  <script src="../../assets/js/includes.js?v=20260616_fr_courses_batch_one"></script>
 </body>
 </html>

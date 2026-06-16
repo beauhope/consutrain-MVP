@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-tools-copy-fix";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-tools-copy-fix";
+const STATIC_CACHE = "consutrain-v20260614-fr-courses-batch-one";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-courses-batch-one";
 
 const PRECACHE_URLS = [
   "./",
@@ -30,6 +30,11 @@ const PRECACHE_URLS = [
   "./fr/index.html",
   "./fr/services.html",
   "./fr/services/consultation-form.html",
+  "./fr/courses/strategic-planning.html",
+  "./fr/courses/agile-project-management.html",
+  "./fr/courses/balanced-scorecard-performance-management.html",
+  "./fr/courses/integrated-management-system-ims.html",
+  "./fr/courses/iso-9001-internal-auditor.html",
   "./templates/operational-plan-template.html",
   "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
   "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",
