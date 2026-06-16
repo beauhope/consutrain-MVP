@@ -1599,3 +1599,10 @@ Status: Completed
 - Corrected the remaining corrupted French text on `fr/resources/index.html`.
 - Aligned the French header dropdown structure with the shared Arabic-style navigation pattern through `partials/fr-header.html`.
 - Updated `sw.js` cache names for this stabilization pass.
+
+## 2026-06-16 - French dropdown order alignment
+
+Status: Completed
+
+- Reordered the French header dropdown menus to better match the Arabic navigation logic while keeping French labels and links localized.
+- Kept the shared dropdown classes and behavior intact so the French header still uses the same navigation mechanics.

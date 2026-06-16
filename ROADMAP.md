@@ -1258,3 +1258,12 @@ Completed:
 Next phase:
 - Continue with French page QA only where new content is added.
 - Keep French PDF previews blocked until real French PDFs exist.
+
+### 2026-06-16 - French dropdown order alignment completed
+
+Completed:
+- Reordered the French dropdown menus to follow the same logical grouping as the Arabic header as closely as possible.
+- Kept the French dropdown links limited to pages and anchors that already exist.
+
+Next phase:
+- Continue with French shared UI QA only if additional header changes are needed.

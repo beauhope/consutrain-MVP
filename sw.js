@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-header-dropdown-encoding";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-header-dropdown-encoding";
+const STATIC_CACHE = "consutrain-v20260614-fr-dropdown-order";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-dropdown-order";
 
 const PRECACHE_URLS = [
   "./",
