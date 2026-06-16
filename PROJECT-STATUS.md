@@ -1543,6 +1543,13 @@ Status: Completed
 - Linked the five additional French templates from `fr/resources/index.html`.
 - Updated `sw.js` cache names and precache list for the second French template batch.
 
+## 2026-06-16 - French resources index final organization
+
+Status: Completed
+
+- Grouped the ten French template explanation links in `fr/resources/index.html` into strategy/performance, quality/process/SOP, and project/risk/feasibility sections.
+- Audited existing downloadable resources and kept French download buttons out until real French downloadable files exist.
+
 ## 2026-06-15 - Services accordion detail links audit
 
 Status: Completed

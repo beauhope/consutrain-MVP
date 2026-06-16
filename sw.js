@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-template-batch-two";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-template-batch-two";
+const STATIC_CACHE = "consutrain-v20260614-fr-resources-index-audit";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-resources-index-audit";
 
 const PRECACHE_URLS = [
   "./",

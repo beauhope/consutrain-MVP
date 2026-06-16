@@ -1192,6 +1192,16 @@ Next selected French priorities:
 - Selected French course pages
 - Later n8n consultation form integration
 
+### 2026-06-16 - French resources index final organization completed
+
+Completed:
+- `fr/resources/index.html` now groups the ten French template explanation pages by topic.
+- Existing downloadable resources were audited and remain Arabic/original assets for now.
+
+Future phase:
+- Create selected French downloadable resources before adding French download buttons.
+- Continue with selected French learning pages, selected French course pages, and later n8n consultation form integration.
+
 ### 2026-06-15 - Services accordion detail links audit completed
 
 Completed:

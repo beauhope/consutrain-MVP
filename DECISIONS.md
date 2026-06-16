@@ -1233,3 +1233,17 @@ The temporary French floating-controls helper is no longer needed on the migrate
 French pages under `/fr/` now use the shared French header and footer partials, the shared floating controls, and the shared breadcrumb placeholder system on pages where breadcrumbs make sense.
 
 The French homepage intentionally omits breadcrumbs to match the site pattern. Other French pages use breadcrumbs when they provide navigation value, such as section landing pages and detail pages.
+
+## Decision - French downloadable resource links require real French files
+
+Date: 2026-06-16
+
+Decision:
+- French download buttons should only be added when a real French downloadable file exists.
+- Existing Arabic/original downloadable resources may remain reachable through category gateway links, but should not be presented as French downloads unless clearly labeled as original Arabic resources.
+
+Reason:
+- This avoids implying that Arabic-only Word/PDF/Markdown resources are localized French files.
+- It keeps the French resources page useful while French downloadable files are prepared in a later phase.
+
+Status: Approved
