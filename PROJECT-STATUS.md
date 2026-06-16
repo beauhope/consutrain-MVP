@@ -1606,3 +1606,11 @@ Status: Completed
 
 - Reordered the French header dropdown menus to better match the Arabic navigation logic while keeping French labels and links localized.
 - Kept the shared dropdown classes and behavior intact so the French header still uses the same navigation mechanics.
+
+## 2026-06-16 - First French learning batch
+
+Status: Completed
+
+- Created the first French learning pages under `fr/learn/` for articles, learning paths, glossary, management tech radar, and free certificate training.
+- Updated `fr/learn.html` to point the matching cards to the new French pages.
+- Updated `sw.js` cache names and precache entries for the new French learning batch.

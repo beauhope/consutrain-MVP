@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-dropdown-order";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-dropdown-order";
+const STATIC_CACHE = "consutrain-v20260614-fr-learn-batch-one";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-learn-batch-one";
 
 const PRECACHE_URLS = [
   "./",
@@ -136,6 +136,11 @@ const PRECACHE_URLS = [
   "./fr/contact.html",
   "./fr/tools.html",
   "./fr/learn.html",
+  "./fr/learn/articles.html",
+  "./fr/learn/learning-paths.html",
+  "./fr/learn/glossary.html",
+  "./fr/learn/management-tech-radar.html",
+  "./fr/learn/free-certificate-training.html",
   "./fr/resources/index.html",
   "./fr/templates/swot-analysis-template.html",
   "./fr/templates/pestel-analysis-template.html",

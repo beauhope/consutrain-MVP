@@ -1267,3 +1267,14 @@ Completed:
 
 Next phase:
 - Continue with French shared UI QA only if additional header changes are needed.
+
+### 2026-06-16 - First French learning batch completed
+
+Completed:
+- Created the first French learning pages under `fr/learn/`.
+- Updated `fr/learn.html` to link the five matching cards to the new French learning pages.
+- Updated `sw.js` cache names and precache entries for the new French learning batch.
+
+Next phase:
+- Remaining French learning pages and deeper learning-path expansion
+- Continue reducing Arabic fallback links in the French experience
