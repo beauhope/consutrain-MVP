@@ -1352,4 +1352,13 @@ Completed:
 - Removed the remaining normal-visitor links from `fr/resources/index.html` that pointed into the original download tree.
 
 Remaining Priority 2 items:
-- Remaining lower-priority `fr/tools.html` fallback links
+- None in the main French navigation surfaces
+
+### 2026-06-16 - French tools fallback cleanup completed
+
+Completed:
+- Replaced the remaining `fr/tools.html` fallback links with French landing pages for calculators, MyTodo, CRM, invoice, and timer.
+- Kept the first French tools batch intact.
+
+Future enhancement:
+- Build full French interactive versions for the new landing pages when the product scope is ready.

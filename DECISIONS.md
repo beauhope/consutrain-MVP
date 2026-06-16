@@ -1277,3 +1277,13 @@ Decision:
 - French PDF preview buttons remain blocked until real French PDF files exist.
 
 Status: Approved
+
+## Decision - French tool fallback handling
+
+Date: 2026-06-16
+
+Decision:
+- French tool cards should not send normal visitors to Arabic/original tool folders when a safe French landing page or preparation state is possible.
+- When a full French interactive tool is not yet ready, a concise French landing page may be used to explain the purpose and status of the tool.
+
+Status: Approved

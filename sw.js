@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-resources-fallback-cleanup";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-resources-fallback-cleanup";
+const STATIC_CACHE = "consutrain-v20260614-fr-tools-fallback-cleanup";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-tools-fallback-cleanup";
 
 const PRECACHE_URLS = [
   "./",
@@ -150,6 +150,11 @@ const PRECACHE_URLS = [
   "./fr/tools/feasibility/indexFeasibility.html",
   "./fr/tools/tool-templates.html",
   "./fr/tools/management-flash.html",
+  "./fr/tools/calculators.html",
+  "./fr/tools/mytodo.html",
+  "./fr/tools/crm.html",
+  "./fr/tools/invoice.html",
+  "./fr/tools/timer.html",
   "./fr/learn.html",
   "./fr/learn/articles.html",
   "./fr/learn/learning-paths.html",

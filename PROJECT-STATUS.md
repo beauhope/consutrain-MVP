@@ -1670,3 +1670,10 @@ Status: Completed
 
 - Replaced the French resources category fallback links with French pages and sections where possible.
 - Removed the remaining normal-visitor links from `fr/resources/index.html` that pointed into the original download tree.
+
+## 2026-06-16 - French tools fallback cleanup
+
+Status: Completed
+
+- Replaced the remaining French tools fallback links with French landing pages.
+- Kept the French tools page on the shared French navigation pattern without sending visitors to the original tool folders.
