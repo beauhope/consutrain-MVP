@@ -1525,6 +1525,15 @@ Status: Completed
 - Aligned the French shared header structure with the Arabic mobile layout so the hamburger, language badge, and logo stay on one row more consistently.
 - Kept French breadcrumbs on the shared placeholder system and visually matched the Arabic pill-style behavior more closely.
 
+## 2026-06-16 - First French templates batch
+
+Status: Completed
+
+- Created the first individual French template/resource explanation pages under `fr/templates/`.
+- Added French pages for SWOT, PESTEL, operational plan, KPI performance card, and simple risk register.
+- Linked the five French templates from `fr/resources/index.html` in a new "Modèles pratiques en français" section.
+- Updated `sw.js` cache names and precache list for the new French template pages.
+
 ## 2026-06-15 - Services accordion detail links audit
 
 Status: Completed

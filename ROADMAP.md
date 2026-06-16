@@ -1159,6 +1159,23 @@ Next selected French priorities:
 - Selected French course pages
 - Later n8n consultation form integration
 
+### 2026-06-16 - First French template batch completed
+
+Completed:
+- `fr/templates/swot-analysis-template.html` has been created.
+- `fr/templates/pestel-analysis-template.html` has been created.
+- `fr/templates/operational-plan-template.html` has been created.
+- `fr/templates/kpi-performance-card.html` has been created.
+- `fr/templates/simple-risk-register.html` has been created.
+- `fr/resources/index.html` now links to the five French template pages in a dedicated practical templates section.
+
+Next suggested French template batch:
+- `fr/templates/iso9001-readiness-checklist.html`
+- `fr/templates/pre-feasibility-checklist.html`
+- `fr/templates/project-charter.html`
+- `fr/templates/process-card.html`
+- `fr/templates/sop-template.html`
+
 ### 2026-06-15 - Services accordion detail links audit completed
 
 Completed:

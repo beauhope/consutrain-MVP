@@ -1114,6 +1114,24 @@ This gives French-speaking visitors a coherent entry point to ConsuTrain resourc
 
 Status: Approved
 
+## Decision - French template pages use matching ASCII slugs
+
+Date: 2026-06-16
+
+Decision:
+Individual French template/resource explanation pages should live under `fr/templates/` and use the same ASCII slug filename as their Arabic/original counterpart under `templates/`.
+
+Implementation rule:
+- French template pages use the shared French UI system through `#header-placeholder`, `#breadcrumbs-placeholder`, `#footer-placeholder`, and `assets/js/includes.js`.
+- French template pages use `data-root="../.."`, `data-breadcrumb-section="Ressources"`, and a page-specific `data-breadcrumb-title`.
+- When a direct Arabic/original counterpart exists, `data-ar-link` should point directly to that counterpart, for example `../../templates/swot-analysis-template.html`.
+- French pages should not create downloadable Word/PDF files unless that specific resource batch explicitly includes downloadable-file work.
+
+Reason:
+Matching slugs keep AR/FR mapping simple, reduce broken-link risk, and allow the French resources section to expand gradually without translating the full Arabic template library at once.
+
+Status: Approved
+
 ## Decision - Introduce French courses through a landing page first
 
 Date: 2026-06-15

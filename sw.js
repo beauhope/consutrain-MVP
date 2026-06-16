@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-header-breadcrumb-alignment";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-header-breadcrumb-alignment";
+const STATIC_CACHE = "consutrain-v20260614-fr-template-batch-one";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-template-batch-one";
 
 const PRECACHE_URLS = [
   "./",
@@ -137,6 +137,11 @@ const PRECACHE_URLS = [
   "./fr/tools.html",
   "./fr/learn.html",
   "./fr/resources/index.html",
+  "./fr/templates/swot-analysis-template.html",
+  "./fr/templates/pestel-analysis-template.html",
+  "./fr/templates/operational-plan-template.html",
+  "./fr/templates/kpi-performance-card.html",
+  "./fr/templates/simple-risk-register.html",
   "./fr/courses/index.html",
   "./fr/services/strategic-planning.html",
   "./fr/services/feasibility-studies.html",
