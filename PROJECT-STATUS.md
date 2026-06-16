@@ -1591,3 +1591,11 @@ Status: Completed
 - Linked all prepared French DOCX resources from French template/resource pages.
 - Created missing French explanation pages under `fr/templates/` using the shared French UI system.
 - Kept duplicate DOCX files and Arabic downloads unlinked from French pages.
+
+## 2026-06-16 - French encoding and dropdown alignment
+
+Status: Completed
+
+- Corrected the remaining corrupted French text on `fr/resources/index.html`.
+- Aligned the French header dropdown structure with the shared Arabic-style navigation pattern through `partials/fr-header.html`.
+- Updated `sw.js` cache names for this stabilization pass.

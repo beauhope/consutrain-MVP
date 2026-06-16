@@ -1234,6 +1234,21 @@ French pages under `/fr/` now use the shared French header and footer partials, 
 
 The French homepage intentionally omits breadcrumbs to match the site pattern. Other French pages use breadcrumbs when they provide navigation value, such as section landing pages and detail pages.
 
+## Decision - French shared header reuses the Arabic dropdown structure
+
+Date: 2026-06-16
+
+Decision:
+- The French shared header should reuse the same dropdown structure, classes, and shared JavaScript behavior as the Arabic header.
+- French labels should be localized, but the navigation pattern itself should stay shared so hover, focus, and mobile behavior remain consistent across languages.
+- The French header should not maintain a separate custom dropdown system unless a future accessibility issue requires a targeted exception.
+
+Reason:
+- Reusing the shared navigation pattern reduces maintenance cost and avoids divergence between Arabic and French header behavior.
+- It keeps dropdown behavior predictable for visitors switching between languages.
+
+Status: Approved
+
 ## Decision - French downloadable resource links require real French files
 
 Date: 2026-06-16

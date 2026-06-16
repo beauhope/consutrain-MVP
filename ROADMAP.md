@@ -1247,3 +1247,14 @@ Next phase:
 - Manual DOCX visual review
 - French PDF preview generation after review
 - Duplicate download cleanup only after explicit approval
+
+### 2026-06-16 - French encoding and header dropdown alignment completed
+
+Completed:
+- Corrected the remaining French mojibake on `fr/resources/index.html`.
+- Reused the shared Arabic-style dropdown structure and classes in `partials/fr-header.html` for the French header.
+- Updated `sw.js` cache names for this header and encoding stabilization pass.
+
+Next phase:
+- Continue with French page QA only where new content is added.
+- Keep French PDF previews blocked until real French PDFs exist.

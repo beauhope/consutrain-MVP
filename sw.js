@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-download-links-all";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-download-links-all";
+const STATIC_CACHE = "consutrain-v20260614-fr-header-dropdown-encoding";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-header-dropdown-encoding";
 
 const PRECACHE_URLS = [
   "./",
