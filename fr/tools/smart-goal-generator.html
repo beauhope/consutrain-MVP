@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Générateur d’objectifs SMART | ConsuTrain</title>
+  <meta name="description" content="Outil ConsuTrain en français pour transformer un objectif général en objectif SMART clair, mesurable et suivi.">
+
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260616_fr_tools_batch_one">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-smart-page,
+    .fr-smart-page * {
+      direction: ltr;
+    }
+
+    .fr-smart-page,
+    .fr-smart-page section,
+    .fr-smart-page .container,
+    .fr-smart-page .hero-card,
+    .fr-smart-page .feature-card,
+    .fr-smart-page .section-card,
+    .fr-smart-page .section-head,
+    .fr-smart-page .cta-panel,
+    .fr-smart-page h1,
+    .fr-smart-page h2,
+    .fr-smart-page h3,
+    .fr-smart-page p,
+    .fr-smart-page li,
+    .fr-smart-page a,
+    .fr-smart-page span {
+      text-align: left;
+    }
+
+    .smart-layout {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      align-items: start;
+    }
+
+    .smart-form-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .smart-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .smart-field-wide {
+      grid-column: 1 / -1;
+    }
+
+    .smart-field label {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .smart-field input,
+    .smart-field textarea {
+      border: 1px solid rgba(15, 39, 71, 0.14);
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(15, 39, 71, 0.04);
+      color: var(--primary);
+      font: inherit;
+      padding: 13px 14px;
+      width: 100%;
+    }
+
+    .smart-field textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .smart-actions,
+    .smart-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .smart-result-box {
+      background: #f7f9fc;
+      border: 1px solid rgba(15, 39, 71, 0.14);
+      border-radius: 18px;
+      color: #12345a;
+      line-height: 1.9;
+      min-height: 120px;
+      padding: 18px;
+    }
+
+    .smart-check-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 14px;
+    }
+
+    .smart-check-card {
+      background: #fff;
+      border: 1px solid rgba(15, 39, 71, 0.1);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .smart-check-card strong {
+      color: var(--primary);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .smart-status {
+      background: #fff4e5;
+      border-radius: 999px;
+      color: #9a6700;
+      display: inline-flex;
+      font-size: 0.86rem;
+      font-weight: 800;
+      padding: 6px 10px;
+    }
+
+    .smart-status.is-complete {
+      background: #eaf8ef;
+      color: #166534;
+    }
+
+    .smart-notes {
+      margin: 12px 0 0;
+      padding: 0 20px;
+      color: #42526b;
+      line-height: 1.9;
+    }
+
+    .smart-side-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #42526b;
+      line-height: 1.9;
+    }
+
+    .smart-copy-note {
+      color: #166534;
+      font-weight: 700;
+      margin-top: 10px;
+      min-height: 24px;
+    }
+
+    @media (max-width: 920px) {
+      .smart-layout,
+      .smart-form-grid,
+      .smart-check-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body
+  class="fr-smart-page"
+  data-root="../.."
+  data-breadcrumb-section="Outils"
+  data-breadcrumb-title="Générateur d’objectifs SMART"
+  data-ar-link="../../tools/smart-goal-generator/index.html"
+>
+  <div id="header-placeholder"></div>
+  <div id="breadcrumbs-placeholder"></div>
+
+  <main class="inner-page">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Outil de planification et d’exécution</span>
+          <h1>Générateur d’objectifs SMART</h1>
+          <p>Transformez un objectif général en formulation plus claire, mesurable, réaliste et suivie dans le temps.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#smartGoalForm">Commencer la génération</a>
+            <a class="btn btn-secondary" href="../resources/index.html">Voir les ressources</a>
+            <a class="btn btn-secondary" href="../services/consultation-form.html">Demander une consultation</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Clarifier</h3>
+            <p>Écrire un objectif trop vague devient un point de départ exploitable.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Mesurer</h3>
+            <p>Ajouter un indicateur, une cible et une échéance évite les formulations floues.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Suivre</h3>
+            <p>Relier l’objectif à un responsable et à une action concrète facilite le pilotage.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container smart-layout">
+        <article class="section-card">
+          <p class="section-eyebrow">Génération rapide</p>
+          <h2>Renseignez les éléments clés de votre objectif</h2>
+          <form id="smartGoalForm" novalidate>
+            <div class="smart-form-grid">
+              <div class="smart-field smart-field-wide">
+                <label for="goalInput">Objectif initial</label>
+                <textarea id="goalInput" placeholder="Exemple : améliorer le service client"></textarea>
+              </div>
+              <div class="smart-field">
+                <label for="domainInput">Domaine</label>
+                <input id="domainInput" type="text" placeholder="Exemple : service client, qualité, ventes">
+              </div>
+              <div class="smart-field">
+                <label for="metricInput">Indicateur</label>
+                <input id="metricInput" type="text" placeholder="Exemple : délai de réponse, taux de satisfaction">
+              </div>
+              <div class="smart-field">
+                <label for="currentInput">Situation actuelle</label>
+                <input id="currentInput" type="text" placeholder="Exemple : 72 % ou 48 heures">
+              </div>
+              <div class="smart-field">
+                <label for="targetInput">Cible</label>
+                <input id="targetInput" type="text" placeholder="Exemple : 85 % ou 24 heures">
+              </div>
+              <div class="smart-field">
+                <label for="timeInput">Échéance</label>
+                <input id="timeInput" type="text" placeholder="Exemple : d’ici 6 mois">
+              </div>
+              <div class="smart-field">
+                <label for="ownerInput">Responsable</label>
+                <input id="ownerInput" type="text" placeholder="Exemple : équipe relation client">
+              </div>
+              <div class="smart-field smart-field-wide">
+                <label for="actionInput">Action clé</label>
+                <input id="actionInput" type="text" placeholder="Exemple : renforcer les scripts de réponse et le suivi">
+              </div>
+            </div>
+
+            <div class="smart-actions">
+              <button class="btn btn-primary" type="button" id="generateGoalBtn">Générer l’objectif</button>
+              <button class="btn btn-secondary" type="button" id="copyGoalBtn">Copier</button>
+              <button class="btn btn-secondary" type="button" id="clearGoalBtn">Réinitialiser</button>
+            </div>
+            <div class="smart-copy-note" id="copyStatus" aria-live="polite"></div>
+          </form>
+        </article>
+
+        <aside class="section-card">
+          <p class="section-eyebrow">Exemple rapide</p>
+          <h2>Améliorer le service client</h2>
+          <dl class="smart-side-list">
+            <div>
+              <dt><strong>Objectif</strong></dt>
+              <dd>Réduire le délai de réponse aux demandes client.</dd>
+            </div>
+            <div>
+              <dt><strong>Indicateur</strong></dt>
+              <dd>Délai moyen de réponse.</dd>
+            </div>
+            <div>
+              <dt><strong>Situation actuelle</strong></dt>
+              <dd>48 heures.</dd>
+            </div>
+            <div>
+              <dt><strong>Cible</strong></dt>
+              <dd>24 heures.</dd>
+            </div>
+            <div>
+              <dt><strong>Échéance</strong></dt>
+              <dd>D’ici 6 mois.</dd>
+            </div>
+            <div>
+              <dt><strong>Responsable</strong></dt>
+              <dd>Responsable du support.</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Analyse SMART</h2>
+            <p>Le résultat est plus utile quand chaque lettre renvoie à une information concrète, vérifiable et suivie.</p>
+          </div>
+        </div>
+
+        <div class="smart-check-grid">
+          <article class="smart-check-card">
+            <strong>Specific</strong>
+            <span class="smart-status" data-smart-key="specific">À compléter</span>
+          </article>
+          <article class="smart-check-card">
+            <strong>Measurable</strong>
+            <span class="smart-status" data-smart-key="measurable">À compléter</span>
+          </article>
+          <article class="smart-check-card">
+            <strong>Achievable</strong>
+            <span class="smart-status" data-smart-key="achievable">À compléter</span>
+          </article>
+          <article class="smart-check-card">
+            <strong>Relevant</strong>
+            <span class="smart-status" data-smart-key="relevant">À compléter</span>
+          </article>
+          <article class="smart-check-card">
+            <strong>Time-bound</strong>
+            <span class="smart-status" data-smart-key="timeBound">À compléter</span>
+          </article>
+        </div>
+
+        <article class="section-card" style="margin-top:16px;">
+          <p class="section-eyebrow">Résultat généré</p>
+          <div class="smart-result-box" id="goalResult" aria-live="polite">Votre objectif SMART apparaîtra ici après génération.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="cards-grid">
+          <article class="section-card">
+            <h2>À quoi sert cet outil ?</h2>
+            <p>Il aide à transformer une intention générale en objectif plus précis, plus lisible et plus simple à piloter.</p>
+          </article>
+          <article class="section-card">
+            <h2>Quand l’utiliser ?</h2>
+            <p>Avant un plan d’action, un projet, une revue de performance ou toute décision qui demande un cap clair.</p>
+          </article>
+          <article class="section-card">
+            <h2>Conseils pratiques</h2>
+            <ul class="smart-notes">
+              <li>Ajoutez un indicateur concret avant de fixer la cible.</li>
+              <li>Définissez une échéance réaliste, pas seulement souhaitée.</li>
+              <li>Attribuez un responsable unique lorsque c’est possible.</li>
+              <li>Vérifiez que l’objectif reste utile pour le travail réel, pas seulement pour la formulation.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Aller plus loin</span>
+            <h2>Un objectif SMART peut ouvrir la voie à un plan d’action plus solide.</h2>
+            <p>Si vous devez transformer plusieurs objectifs en actions, indicateurs et suivi, ConsuTrain peut vous aider à structurer la suite.</p>
+          </div>
+          <div class="smart-cta-actions">
+            <a class="btn btn-primary" href="../resources/index.html">Voir les ressources</a>
+            <a class="btn btn-secondary" href="../services/consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../../assets/js/includes.js?v=20260616_fr_tools_batch_one"></script>
+  <script>
+    const fields = {
+      goal: document.getElementById("goalInput"),
+      domain: document.getElementById("domainInput"),
+      metric: document.getElementById("metricInput"),
+      current: document.getElementById("currentInput"),
+      target: document.getElementById("targetInput"),
+      time: document.getElementById("timeInput"),
+      owner: document.getElementById("ownerInput"),
+      action: document.getElementById("actionInput")
+    };
+
+    const goalResult = document.getElementById("goalResult");
+    const copyStatus = document.getElementById("copyStatus");
+
+    function valueOf(name) {
+      return fields[name].value.trim();
+    }
+
+    function getData() {
+      return {
+        goal: valueOf("goal"),
+        domain: valueOf("domain"),
+        metric: valueOf("metric"),
+        current: valueOf("current"),
+        target: valueOf("target"),
+        time: valueOf("time"),
+        owner: valueOf("owner"),
+        action: valueOf("action")
+      };
+    }
+
+    function buildGoal(data) {
+      const focus = data.metric || data.domain || data.goal || "l’objectif visé";
+      const resultTarget = data.target || "un niveau de performance défini";
+      const deadline = data.time || "une échéance fixée";
+      const owner = data.owner || "une équipe responsable";
+      const action = data.action || "une action concrète";
+      const current = data.current ? `, en partant de ${data.current}` : "";
+
+      return `Atteindre ${resultTarget} pour ${focus}${current} d’ici ${deadline}, grâce à ${action}, sous la responsabilité de ${owner}.`;
+    }
+
+    function toggleStatus(key, complete) {
+      const node = document.querySelector(`[data-smart-key="${key}"]`);
+      node.textContent = complete ? "Complet" : "À compléter";
+      node.classList.toggle("is-complete", complete);
+    }
+
+    function updateChecklist(data) {
+      toggleStatus("specific", Boolean(data.goal || data.domain));
+      toggleStatus("measurable", Boolean(data.metric || data.target));
+      toggleStatus("achievable", Boolean(data.target));
+      toggleStatus("relevant", Boolean(data.domain || data.goal));
+      toggleStatus("timeBound", Boolean(data.time));
+    }
+
+    function generateGoal() {
+      const data = getData();
+      const goal = buildGoal(data);
+      goalResult.textContent = goal;
+      copyStatus.textContent = "";
+      updateChecklist(data);
+    }
+
+    async function copyGoal() {
+      const text = goalResult.textContent.trim();
+      if (!text || text.includes("apparaîtra ici")) {
+        copyStatus.textContent = "Générez d’abord un objectif.";
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(text);
+        copyStatus.textContent = "Objectif copié.";
+      } catch (error) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+        copyStatus.textContent = "Objectif copié.";
+      }
+    }
+
+    function clearGoal() {
+      Object.values(fields).forEach((field) => {
+        field.value = "";
+      });
+      goalResult.textContent = "Votre objectif SMART apparaîtra ici après génération.";
+      copyStatus.textContent = "";
+      updateChecklist(getData());
+    }
+
+    document.getElementById("generateGoalBtn").addEventListener("click", generateGoal);
+    document.getElementById("copyGoalBtn").addEventListener("click", copyGoal);
+    document.getElementById("clearGoalBtn").addEventListener("click", clearGoal);
+    updateChecklist(getData());
+  </script>
+</body>
+</html>

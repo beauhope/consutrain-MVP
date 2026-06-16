@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-learn-batch-two";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-learn-batch-two";
+const STATIC_CACHE = "consutrain-v20260614-fr-tools-batch-one";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-tools-batch-one";
 
 const PRECACHE_URLS = [
   "./",
@@ -135,6 +135,10 @@ const PRECACHE_URLS = [
   "./fr/about.html",
   "./fr/contact.html",
   "./fr/tools.html",
+  "./fr/tools/smart-goal-generator.html",
+  "./fr/tools/feasibility/indexFeasibility.html",
+  "./fr/tools/tool-templates.html",
+  "./fr/tools/management-flash.html",
   "./fr/learn.html",
   "./fr/learn/articles.html",
   "./fr/learn/learning-paths.html",

@@ -1622,3 +1622,11 @@ Status: Completed
 - Created the second French learning pages under `fr/learn/` for management skills, AI, AI prompts, digitization, and futures/scenarios.
 - Updated `fr/learn.html` so the remaining major learning cards now point to French pages instead of Arabic/original fallbacks.
 - Updated `sw.js` cache names and precache entries for the second French learning batch.
+
+## 2026-06-16 - First French tools batch
+
+Status: Completed
+
+- Created the first French tools pages under `fr/tools/` for SMART goals, feasibility guidance, tool templates, and management flash.
+- Updated `fr/tools.html` so the four most visible tool cards now point to French pages.
+- Updated `sw.js` cache names and precache entries for the first French tools batch.

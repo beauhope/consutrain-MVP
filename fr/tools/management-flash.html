@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flash management | ConsuTrain</title>
+  <meta name="description" content="Rappels courts et micro-exercices en français pour renforcer les réflexes de management, de pilotage et d’amélioration continue.">
+
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260616_fr_tools_batch_one">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-flash-page,
+    .fr-flash-page * {
+      direction: ltr;
+    }
+
+    .fr-flash-page,
+    .fr-flash-page section,
+    .fr-flash-page .container,
+    .fr-flash-page .hero-card,
+    .fr-flash-page .feature-card,
+    .fr-flash-page .section-card,
+    .fr-flash-page .section-head,
+    .fr-flash-page .cta-panel,
+    .fr-flash-page h1,
+    .fr-flash-page h2,
+    .fr-flash-page h3,
+    .fr-flash-page p,
+    .fr-flash-page li,
+    .fr-flash-page a,
+    .fr-flash-page span,
+    .fr-flash-page label {
+      text-align: left;
+    }
+
+    .flash-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+      align-items: start;
+    }
+
+    .flash-controls {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .flash-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .flash-field-wide {
+      grid-column: 1 / -1;
+    }
+
+    .flash-field label {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .flash-field select {
+      border: 1px solid rgba(15, 39, 71, 0.14);
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(15, 39, 71, 0.04);
+      color: var(--primary);
+      font: inherit;
+      padding: 13px 14px;
+      width: 100%;
+    }
+
+    .flash-output {
+      background: #f7f9fc;
+      border: 1px solid rgba(15, 39, 71, 0.14);
+      border-radius: 18px;
+      color: #12345a;
+      line-height: 1.9;
+      min-height: 128px;
+      padding: 18px;
+    }
+
+    .flash-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .flash-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #42526b;
+      line-height: 1.9;
+    }
+
+    .flash-note {
+      background: rgba(212, 166, 58, 0.12);
+      border: 1px solid rgba(212, 166, 58, 0.35);
+      border-radius: 16px;
+      color: var(--primary);
+      font-weight: 700;
+      line-height: 1.8;
+      padding: 14px 16px;
+    }
+
+    .flash-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .flash-status {
+      color: #166534;
+      font-weight: 700;
+      min-height: 24px;
+    }
+
+    @media (max-width: 920px) {
+      .flash-grid,
+      .flash-controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body
+  class="fr-flash-page"
+  data-root="../.."
+  data-breadcrumb-section="Outils"
+  data-breadcrumb-title="Flash management"
+  data-ar-link="../../tools/management-flash.html"
+>
+  <div id="header-placeholder"></div>
+  <div id="breadcrumbs-placeholder"></div>
+
+  <main class="inner-page">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Rappels courts pour managers</span>
+          <h1>Flash management</h1>
+          <p>Consultez un rappel court, une micro-pratique ou une question de réflexion pour renforcer vos réflexes de management au quotidien.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#flashPanel">Générer un flash</a>
+            <a class="btn btn-secondary" href="../resources/index.html">Voir les ressources</a>
+            <a class="btn btn-secondary" href="../services/consultation-form.html">Demander une consultation</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Comprendre</h3>
+            <p>Reliez le rappel à une situation concrète et observable.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Agir</h3>
+            <p>Transformez une idée courte en une pratique simple à tester aujourd’hui.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Progresser</h3>
+            <p>Revenez régulièrement sur les mêmes thèmes pour installer des habitudes solides.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <p class="flash-note">
+          Cette version française est volontairement légère. Elle donne un flash rapide et pratique sans charger l’utilisateur avec une interface lourde.
+        </p>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="flashPanel">
+      <div class="container flash-grid">
+        <article class="section-card">
+          <p class="section-eyebrow">Choix du flash</p>
+          <h2>Sélectionnez un niveau et un thème</h2>
+          <div class="flash-controls">
+            <div class="flash-field">
+              <label for="flashLevel">Niveau</label>
+              <select id="flashLevel">
+                <option value="Tous">Tous</option>
+                <option value="Débutant">Débutant</option>
+                <option value="Intermédiaire">Intermédiaire</option>
+                <option value="Avancé">Avancé</option>
+              </select>
+            </div>
+            <div class="flash-field">
+              <label for="flashTheme">Thème</label>
+              <select id="flashTheme">
+                <option value="Tous">Tous</option>
+                <option value="Priorités">Priorités</option>
+                <option value="Réunions">Réunions</option>
+                <option value="Communication">Communication</option>
+                <option value="Pilotage">Pilotage</option>
+                <option value="Qualité">Qualité</option>
+                <option value="Risques">Risques</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flash-actions">
+            <button class="btn btn-primary" type="button" id="generateFlashBtn">Générer un flash</button>
+            <button class="btn btn-secondary" type="button" id="copyFlashBtn">Copier</button>
+            <button class="btn btn-secondary" type="button" id="newFlashBtn">Nouveau flash</button>
+          </div>
+          <p class="flash-status" id="flashCopyStatus" aria-live="polite"></p>
+        </article>
+
+        <article class="section-card">
+          <p class="section-eyebrow">Flash du moment</p>
+          <h2 id="flashTitle">Prêt à générer</h2>
+          <div class="flash-output" id="flashOutput" aria-live="polite">
+            Cliquez sur le bouton pour afficher un rappel court ou une micro-pratique de management.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Micro-exercices recommandés</h2>
+            <p>Les petits exercices répétés aident souvent plus qu’un rappel trop long ou trop théorique.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card flash-card">
+            <h3>Priorités</h3>
+            <p>Choisissez une seule priorité pour la journée et écrivez l’action la plus importante qui la soutient.</p>
+          </article>
+          <article class="section-card flash-card">
+            <h3>Réunions</h3>
+            <p>Demandez toujours: quel résultat concret doit sortir de la réunion avant d’ajouter un point à l’ordre du jour ?</p>
+          </article>
+          <article class="section-card flash-card">
+            <h3>Communication</h3>
+            <p>Réduisez un message long en trois idées: contexte, décision attendue, prochaine étape.</p>
+          </article>
+          <article class="section-card flash-card">
+            <h3>Pilotage</h3>
+            <p>Vérifiez si un indicateur décrit vraiment une décision utile ou seulement une activité facile à mesurer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="cards-grid">
+          <article class="section-card">
+            <h2>À quoi sert cette page ?</h2>
+            <p>Elle propose des rappels très courts pour soutenir la réflexion managériale, les habitudes de pilotage et les micro-actions utiles.</p>
+          </article>
+          <article class="section-card">
+            <h2>Quand l’utiliser ?</h2>
+            <p>Quand vous avez besoin d’un repère rapide avant une réunion, une décision, un suivi ou un échange avec l’équipe.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Aller plus loin</span>
+            <h2>Un flash management est utile, mais il fonctionne mieux quand il est relié à une pratique réelle.</h2>
+            <p>Si vous souhaitez transformer ces rappels en méthode, en checklist ou en support de travail plus structuré, ConsuTrain peut vous accompagner.</p>
+          </div>
+          <div class="flash-actions">
+            <a class="btn btn-primary" href="../resources/index.html">Voir les ressources</a>
+            <a class="btn btn-secondary" href="../services/consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../../assets/js/includes.js?v=20260616_fr_tools_batch_one"></script>
+  <script>
+    const flashBank = [
+      {
+        level: "Débutant",
+        theme: "Priorités",
+        title: "Choisir une priorité",
+        text: "Ne gardez qu’une priorité principale pour aujourd’hui. Une seule action bien faite vaut mieux qu’une liste longue et floue.",
+        action: "Écrivez la priorité, puis ajoutez une action observable."
+      },
+      {
+        level: "Débutant",
+        theme: "Réunions",
+        title: "Réunion utile",
+        text: "Avant d’ajouter une réunion, demandez-vous quel résultat concret doit en sortir. Sans résultat attendu, la réunion devient un échange sans direction.",
+        action: "Définissez le résultat attendu en une phrase."
+      },
+      {
+        level: "Débutant",
+        theme: "Communication",
+        title: "Message clair",
+        text: "Un message managérial utile tient souvent en trois points: contexte, décision attendue, prochaine étape.",
+        action: "Réécrivez un message long en trois phrases."
+      },
+      {
+        level: "Intermédiaire",
+        theme: "Pilotage",
+        title: "Indicateur utile",
+        text: "Un bon indicateur aide à décider. S’il n’influence aucune action, il mérite souvent d’être simplifié ou remplacé.",
+        action: "Vérifiez la décision que l’indicateur doit éclairer."
+      },
+      {
+        level: "Intermédiaire",
+        theme: "Qualité",
+        title: "Amélioration continue",
+        text: "Une petite amélioration régulière vaut mieux qu’une refonte lourde et rare. Cherchez d’abord le point de friction le plus simple à corriger.",
+        action: "Identifiez une friction et une correction simple."
+      },
+      {
+        level: "Intermédiaire",
+        theme: "Risques",
+        title: "Risque prioritaire",
+        text: "Un risque prioritaire est un risque qui peut vraiment modifier le résultat, le délai ou la qualité attendue.",
+        action: "Classez le risque selon son impact réel."
+      },
+      {
+        level: "Avancé",
+        theme: "Priorités",
+        title: "Arbitrage",
+        text: "Le management consiste souvent à choisir ce qu’il faut faire maintenant, ce qu’il faut reporter et ce qu’il faut arrêter.",
+        action: "Notez une action à lancer, une à reporter et une à arrêter."
+      },
+      {
+        level: "Avancé",
+        theme: "Réunions",
+        title: "Décision de réunion",
+        text: "Une réunion efficace produit une décision, un responsable, un délai ou une prochaine étape très claire.",
+        action: "Ajoutez systématiquement un point d’issue à la fin de chaque réunion."
+      },
+      {
+        level: "Avancé",
+        theme: "Pilotage",
+        title: "Lecture du résultat",
+        text: "Lorsque les chiffres varient, cherchez d’abord l’explication opérationnelle avant de modifier l’objectif ou le tableau de bord.",
+        action: "Reliez le chiffre à un fait concret du terrain."
+      }
+    ];
+
+    const flashLevel = document.getElementById("flashLevel");
+    const flashTheme = document.getElementById("flashTheme");
+    const flashTitle = document.getElementById("flashTitle");
+    const flashOutput = document.getElementById("flashOutput");
+    const flashCopyStatus = document.getElementById("flashCopyStatus");
+
+    function pickFlash() {
+      const level = flashLevel.value;
+      const theme = flashTheme.value;
+      const candidates = flashBank.filter((item) => {
+        const levelMatch = level === "Tous" || item.level === level;
+        const themeMatch = theme === "Tous" || item.theme === theme;
+        return levelMatch && themeMatch;
+      });
+
+      return candidates.length ? candidates[Math.floor(Math.random() * candidates.length)] : flashBank[0];
+    }
+
+    function renderFlash() {
+      const item = pickFlash();
+      flashTitle.textContent = `${item.title} — ${item.level} / ${item.theme}`;
+      flashOutput.textContent = `${item.text} ${item.action}`;
+      flashCopyStatus.textContent = "";
+    }
+
+    async function copyFlash() {
+      const text = `${flashTitle.textContent}\n${flashOutput.textContent}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        flashCopyStatus.textContent = "Flash copié.";
+      } catch (error) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+        flashCopyStatus.textContent = "Flash copié.";
+      }
+    }
+
+    document.getElementById("generateFlashBtn").addEventListener("click", renderFlash);
+    document.getElementById("newFlashBtn").addEventListener("click", renderFlash);
+    document.getElementById("copyFlashBtn").addEventListener("click", copyFlash);
+    renderFlash();
+  </script>
+</body>
+</html>
