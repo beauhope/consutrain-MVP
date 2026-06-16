@@ -1663,3 +1663,10 @@ Status: Completed
 
 - Cleaned the remaining visible mojibake in the key French pages and shared French partials.
 - Corrected `fr/learn.html` so the normal learning cards point to the French learning pages under `fr/learn/`.
+
+## 2026-06-16 - French resources fallback cleanup
+
+Status: Completed
+
+- Replaced the French resources category fallback links with French pages and sections where possible.
+- Removed the remaining normal-visitor links from `fr/resources/index.html` that pointed into the original download tree.

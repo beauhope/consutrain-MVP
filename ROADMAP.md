@@ -1343,5 +1343,13 @@ Completed:
 - Corrected `fr/learn.html` so the normal learning cards point to the French learning pages under `fr/learn/`.
 
 Remaining Priority 2 items:
-- `fr/resources/index.html` category-folder fallback links
+- Remaining lower-priority `fr/tools.html` fallback links
+
+### 2026-06-16 - French resources fallback cleanup completed
+
+Completed:
+- Replaced the French resources category fallback links with French pages and sections where possible.
+- Removed the remaining normal-visitor links from `fr/resources/index.html` that pointed into the original download tree.
+
+Remaining Priority 2 items:
 - Remaining lower-priority `fr/tools.html` fallback links

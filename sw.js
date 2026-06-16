@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-priority-qa-fixes";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-priority-qa-fixes";
+const STATIC_CACHE = "consutrain-v20260614-fr-resources-fallback-cleanup";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-resources-fallback-cleanup";
 
 const PRECACHE_URLS = [
   "./",
