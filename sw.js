@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-courses-batch-one";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-courses-batch-one";
+const STATIC_CACHE = "consutrain-v20260614-fr-courses-batch-two";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-courses-batch-two";
 
 const PRECACHE_URLS = [
   "./",
@@ -35,6 +35,12 @@ const PRECACHE_URLS = [
   "./fr/courses/balanced-scorecard-performance-management.html",
   "./fr/courses/integrated-management-system-ims.html",
   "./fr/courses/iso-9001-internal-auditor.html",
+  "./fr/courses/institutional-excellence.html",
+  "./fr/courses/health-safety-environment.html",
+  "./fr/courses/corporate-governance.html",
+  "./fr/courses/startup-creation-structuring.html",
+  "./fr/courses/practical-workshops.html",
+  "./fr/courses/professional-internal-communication.html",
   "./templates/operational-plan-template.html",
   "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
   "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",

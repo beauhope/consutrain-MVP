@@ -1001,6 +1001,18 @@ Next suggested French priorities:
 - French service detail pages that still fall back to Arabic/original pages
 - Remaining French resource and tool fallbacks
 
+### 2026-06-16 - Second French courses batch completed
+
+Completed:
+- Created the second batch of French course landing pages under `fr/courses/`.
+- Updated `fr/courses/index.html` so the remaining course cards now point to French pages.
+- Kept the Arabic/original course content unchanged.
+
+Next suggested French priorities:
+- Remaining French service detail pages that still fall back to Arabic/original pages
+- Remaining French resource and tool fallbacks
+- Final French courses index audit after link verification
+
 ### 2026-06-15 - French navigation audit after Resources and Courses completed
 
 Completed:

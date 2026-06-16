@@ -1368,6 +1368,15 @@ Status: Completed
 - Kept the remaining course cards on their original Arabic/original targets for later batches.
 - Updated `sw.js` cache names and precache entries for the new French course pages.
 
+## 2026-06-16 - Second French courses batch
+
+Status: Completed
+
+- Created the second batch of French course landing pages under `fr/courses/`.
+- Updated `fr/courses/index.html` so the remaining course cards now link to French pages.
+- Kept the Arabic/original course content unchanged.
+- Updated `sw.js` cache names and precache entries for the new French course pages.
+
 ## 2026-06-15 - French navigation consistency audit after Resources and Courses
 
 Status: Completed
