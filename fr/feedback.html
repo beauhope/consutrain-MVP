@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Vos suggestions | ConsuTrain</title>
+  <meta
+    name="description"
+    content="Partagez vos suggestions pour améliorer ConsuTrain, proposer un outil, un modèle, une ressource, signaler un problème ou envoyer une idée générale."
+  >
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260617_fr_feedback">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" type="image/png" href="../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-feedback-page,
+    .fr-feedback-page * {
+      direction: ltr;
+    }
+
+    .fr-feedback-page,
+    .fr-feedback-page section,
+    .fr-feedback-page header,
+    .fr-feedback-page main,
+    .fr-feedback-page footer,
+    .fr-feedback-page .container,
+    .fr-feedback-page .hero-card,
+    .fr-feedback-page .feature-card,
+    .fr-feedback-page .section-card,
+    .fr-feedback-page .section-head,
+    .fr-feedback-page .cta-panel,
+    .fr-feedback-page h1,
+    .fr-feedback-page h2,
+    .fr-feedback-page h3,
+    .fr-feedback-page p,
+    .fr-feedback-page span,
+    .fr-feedback-page a,
+    .fr-feedback-page li {
+      text-align: left;
+    }
+
+    .fr-feedback-page .hero-card p {
+      max-width: 860px;
+    }
+
+    .fr-feedback-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .feedback-form-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+    }
+
+    .internal-feedback-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .feedback-form-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feedback-form-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .feedback-form-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .feedback-form-field label {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .feedback-form-field input,
+    .feedback-form-field select,
+    .feedback-form-field textarea {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--primary);
+      font: inherit;
+      line-height: 1.6;
+      padding: 12px 14px;
+      width: 100%;
+    }
+
+    .feedback-form-field textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    .feedback-form-status {
+      background: rgba(212, 166, 58, 0.14);
+      border: 1px solid rgba(212, 166, 58, 0.38);
+      border-radius: 14px;
+      color: var(--primary);
+      display: none;
+      font-weight: 800;
+      line-height: 1.8;
+      padding: 14px 16px;
+    }
+
+    .feedback-form-status.show {
+      display: block;
+    }
+
+    .feedback-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .feedback-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="fr-feedback-page" data-root=".." data-ar-link="../feedback.html" data-breadcrumb-section="Contact" data-breadcrumb-title="Vos suggestions">
+  <div id="header-placeholder"></div>
+  <div id="breadcrumbs-placeholder"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Suggestions et amélioration continue</span>
+          <h1>Partagez vos idées pour améliorer ConsuTrain</h1>
+          <p>
+            Vos retours aident à améliorer la plateforme, enrichir les outils, identifier les problèmes
+            et prioriser les ressources utiles pour les visiteurs francophones.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#feedback-form">Envoyer une suggestion</a>
+            <a class="btn btn-secondary" href="contact.html">Aller à la page Contact</a>
+            <a class="btn btn-secondary" href="index.html">Retour à l'accueil</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Améliorer</h3>
+            <p>Signaler ce qui pourrait être plus clair, plus utile ou plus facile à utiliser.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Proposer</h3>
+            <p>Suggérer un outil, un modèle, une ressource ou un sujet à développer.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Corriger</h3>
+            <p>Indiquer un problème de lien, d'affichage, de navigation ou de contenu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Quels types de retours envoyer ?</h2>
+            <p>Un message court suffit si l'idée est claire. Vous pouvez aussi préciser la page concernée.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-feedback-card">
+            <h3>Amélioration du site</h3>
+            <p>Une idée pour rendre une page plus claire, simplifier un parcours ou améliorer l'expérience de navigation.</p>
+          </article>
+          <article class="section-card fr-feedback-card">
+            <h3>Nouvel outil</h3>
+            <p>Une proposition d'outil pratique pour aider à structurer un objectif, un projet, une décision ou un suivi.</p>
+          </article>
+          <article class="section-card fr-feedback-card">
+            <h3>Modèle ou ressource</h3>
+            <p>Un modèle, une checklist, un document ou une ressource que vous aimeriez voir ajouté à ConsuTrain.</p>
+          </article>
+          <article class="section-card fr-feedback-card">
+            <h3>Problème à signaler</h3>
+            <p>Un lien qui ne fonctionne pas, un problème d'affichage, une erreur de contenu ou une difficulté d'utilisation.</p>
+          </article>
+          <article class="section-card fr-feedback-card">
+            <h3>Idée générale</h3>
+            <p>Une suggestion plus large pour enrichir les services, les contenus, les formations ou les parcours utilisateurs.</p>
+          </article>
+          <article class="section-card fr-feedback-card">
+            <h3>Orientation utile</h3>
+            <p>Si votre message concerne un besoin concret, vous pouvez aussi consulter les services ou envoyer une demande.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Avant d'envoyer</span>
+            <h2>Quelques liens utiles si votre besoin est déjà précis.</h2>
+            <p>
+              Les suggestions sont utiles pour améliorer la plateforme. Pour une demande de service ou de consultation,
+              utilisez plutôt le formulaire dédié.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services/consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="tools.html">Voir les outils</a>
+            <a class="btn btn-secondary" href="resources/index.html">Voir les ressources</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section" id="feedback-form">
+      <div class="container">
+        <div class="feedback-form-card">
+          <div>
+            <span class="eyebrow">Formulaire</span>
+            <h2>Envoyer une suggestion ou signaler un problème</h2>
+            <p>
+              Utilisez ce formulaire pour envoyer votre contribution directement à ConsuTrain. Les champs demandés
+              nous aident à comprendre la suggestion et à identifier le suivi approprié.
+            </p>
+          </div>
+
+          <form class="internal-feedback-form" id="frInternalFeedbackForm" action="#" method="post">
+            <div class="feedback-form-grid">
+              <div class="feedback-form-field">
+                <label for="frFeedbackFullName">Nom complet</label>
+                <input id="frFeedbackFullName" name="fullName" type="text" autocomplete="name" required>
+              </div>
+
+              <div class="feedback-form-field">
+                <label for="frFeedbackEmail">Adresse e-mail</label>
+                <input id="frFeedbackEmail" name="email" type="email" autocomplete="email" required>
+              </div>
+
+              <div class="feedback-form-field">
+                <label for="frFeedbackType">Type de contribution</label>
+                <select id="frFeedbackType" name="feedbackType" required>
+                  <option value="">Sélectionner un type de contribution</option>
+                  <option value="improvement">Proposition d’amélioration</option>
+                  <option value="tool">Nouvel outil</option>
+                  <option value="template">Nouveau modèle ou ressource</option>
+                  <option value="issue">Signaler un problème</option>
+                  <option value="general">Idée générale</option>
+                </select>
+              </div>
+
+              <div class="feedback-form-field">
+                <label for="frFeedbackSubject">Sujet</label>
+                <input id="frFeedbackSubject" name="subject" type="text" required>
+              </div>
+
+              <div class="feedback-form-field feedback-form-field--full">
+                <label for="frFeedbackMessage">Message ou suggestion</label>
+                <textarea id="frFeedbackMessage" name="message" required></textarea>
+              </div>
+            </div>
+
+            <p class="feedback-form-status" id="frFeedbackFormStatus" role="status" aria-live="polite" tabindex="-1"></p>
+
+            <div class="feedback-form-actions">
+              <button class="btn btn-primary" type="submit">Envoyer la contribution</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Merci pour votre contribution</span>
+            <h2>Chaque retour aide ConsuTrain à évoluer de manière plus utile.</h2>
+            <p>
+              Vous pouvez aussi revenir à l'accueil, consulter les outils disponibles ou contacter ConsuTrain
+              pour une demande plus directe.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="index.html">Accueil</a>
+            <a class="btn btn-secondary" href="contact.html">Contact</a>
+            <a class="btn btn-secondary" href="tools.html">Outils</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../assets/js/includes.js?v=20260617_fr_feedback"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzHz6rqEG_xnyRYuwowvHH_j4HXMpN9Fqh6xI9FhhJdDHdsEw-4MWcbH8qXe8eNwaTM/exec";
+      var form = document.getElementById("frInternalFeedbackForm");
+      var status = document.getElementById("frFeedbackFormStatus");
+      var submitButton = form ? form.querySelector('button[type="submit"]') : null;
+
+      if (!form || !status || !submitButton) return;
+
+      function fieldValue(name) {
+        var field = form.elements[name];
+        return field && typeof field.value === "string" ? field.value.trim() : "";
+      }
+
+      function setStatus(message) {
+        status.textContent = message;
+        status.classList.add("show");
+        status.focus();
+      }
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var originalButtonText = submitButton.textContent;
+        var payload = {
+          form_type: "feedback",
+          language: "fr",
+          source_page: "fr/feedback.html",
+          full_name: fieldValue("fullName"),
+          email: fieldValue("email"),
+          feedback_type: fieldValue("feedbackType"),
+          subject: fieldValue("subject"),
+          message: fieldValue("message")
+        };
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Envoi en cours...";
+        setStatus("Envoi de votre contribution...");
+
+        try {
+          await fetch(WEBHOOK_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          setStatus("Votre contribution a bien été reçue. Merci de contribuer à l’amélioration de ConsuTrain.");
+          form.reset();
+        } catch (error) {
+          setStatus("Impossible d’envoyer votre contribution pour le moment. Veuillez réessayer plus tard.");
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

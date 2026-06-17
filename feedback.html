@@ -23,10 +23,76 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+  <style>
+    .internal-feedback-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .feedback-form-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feedback-form-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .feedback-form-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .feedback-form-field label {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .feedback-form-field input,
+    .feedback-form-field select,
+    .feedback-form-field textarea {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--primary);
+      font: inherit;
+      line-height: 1.6;
+      padding: 12px 14px;
+      width: 100%;
+    }
+
+    .feedback-form-field textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    .feedback-form-status {
+      background: rgba(212, 166, 58, 0.14);
+      border: 1px solid rgba(212, 166, 58, 0.38);
+      border-radius: 14px;
+      color: var(--primary);
+      display: none;
+      font-weight: 800;
+      line-height: 1.8;
+      padding: 14px 16px;
+    }
+
+    .feedback-form-status.show {
+      display: block;
+    }
+
+    @media (max-width: 760px) {
+      .feedback-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body
   data-root="."
+  data-fr-link="fr/feedback.html"
   data-breadcrumb-section="تواصل"
   data-breadcrumb-title="شاركنا رأيك"
 >
@@ -109,55 +175,47 @@
             </p>
           </div>
 
-          <!--
-            =========================================================
-            TALLY PLACEHOLDER
-            بعد إنشاء نموذج Tally، استبدل هذا الصندوق بكود التضمين.
-            العنوان المقترح للنموذج:
-            ملاحظات ومقترحات زوار ConsuTrain
+          <form class="internal-feedback-form" id="internalFeedbackForm" action="#" method="post">
+            <div class="feedback-form-grid">
+              <div class="feedback-form-field">
+                <label for="feedbackFullName">الاسم الكامل</label>
+                <input id="feedbackFullName" name="fullName" type="text" autocomplete="name" required>
+              </div>
 
-            الحقول المقترحة:
-            - نوع الرسالة
-            - الصفحة التي تخصها الملاحظة
-            - نص الملاحظة
-            - الاسم، اختياري
-            - البريد، اختياري
-            =========================================================
-          -->
-          <div class="tally-embed-wrapper" dir="rtl">
-            <iframe
-              data-tally-src="https://tally.so/embed/44A4dr?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-              loading="lazy"
-              width="100%"
-              height="1200"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              title="ملاحظات ومقترحات زوار ConsuTrain"
-            ></iframe>
-            <script>
-              var d = document;
-              var w = "https://tally.so/widgets/embed.js";
-              var v = function () {
-                if (typeof Tally !== "undefined") {
-                  Tally.loadEmbeds();
-                } else {
-                  d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
-                    e.src = e.dataset.tallySrc;
-                  });
-                }
-              };
-              if (typeof Tally !== "undefined") {
-                v();
-              } else if (d.querySelector('script[src="' + w + '"]') == null) {
-                var s = d.createElement("script");
-                s.src = w;
-                s.onload = v;
-                s.onerror = v;
-                d.body.appendChild(s);
-              }
-            </script>
-          </div>
+              <div class="feedback-form-field">
+                <label for="feedbackEmail">البريد الإلكتروني</label>
+                <input id="feedbackEmail" name="email" type="email" autocomplete="email" required>
+              </div>
+
+              <div class="feedback-form-field">
+                <label for="feedbackType">نوع المشاركة</label>
+                <select id="feedbackType" name="feedbackType" required>
+                  <option value="">اختر نوع المشاركة</option>
+                  <option value="improvement">اقتراح تطوير</option>
+                  <option value="tool">أداة جديدة</option>
+                  <option value="template">قالب أو مورد جديد</option>
+                  <option value="issue">الإبلاغ عن مشكلة</option>
+                  <option value="general">فكرة عامة</option>
+                </select>
+              </div>
+
+              <div class="feedback-form-field">
+                <label for="feedbackSubject">الموضوع</label>
+                <input id="feedbackSubject" name="subject" type="text" required>
+              </div>
+
+              <div class="feedback-form-field feedback-form-field--full">
+                <label for="feedbackMessage">الرسالة أو الاقتراح</label>
+                <textarea id="feedbackMessage" name="message" required></textarea>
+              </div>
+            </div>
+
+            <p class="feedback-form-status" id="feedbackFormStatus" role="status" aria-live="polite" tabindex="-1"></p>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">إرسال المشاركة</button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -167,6 +225,71 @@
 
   <script src="assets/js/includes.js?v=20260508_feedback_page"></script>
   <script src="assets/js/pwa.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzHz6rqEG_xnyRYuwowvHH_j4HXMpN9Fqh6xI9FhhJdDHdsEw-4MWcbH8qXe8eNwaTM/exec";
+      var form = document.getElementById("internalFeedbackForm");
+      var status = document.getElementById("feedbackFormStatus");
+      var submitButton = form ? form.querySelector('button[type="submit"]') : null;
+
+      if (!form || !status || !submitButton) return;
+
+      function fieldValue(name) {
+        var field = form.elements[name];
+        return field && typeof field.value === "string" ? field.value.trim() : "";
+      }
+
+      function setStatus(message) {
+        status.textContent = message;
+        status.classList.add("show");
+        status.focus();
+      }
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var originalButtonText = submitButton.textContent;
+        var payload = {
+          form_type: "feedback",
+          language: "ar",
+          source_page: "feedback.html",
+          full_name: fieldValue("fullName"),
+          email: fieldValue("email"),
+          feedback_type: fieldValue("feedbackType"),
+          subject: fieldValue("subject"),
+          message: fieldValue("message")
+        };
+
+        submitButton.disabled = true;
+        submitButton.textContent = "جاري الإرسال...";
+        setStatus("جاري إرسال المشاركة...");
+
+        try {
+          await fetch(WEBHOOK_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          setStatus("تم استلام مشاركتك بنجاح. شكرًا لمساهمتك في تطوير ConsuTrain.");
+          form.reset();
+        } catch (error) {
+          setStatus("تعذر إرسال المشاركة حاليًا. يرجى المحاولة مرة أخرى لاحقًا.");
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      });
+    });
+  </script>
 
   <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
     ↑
