@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-tools-fallback-cleanup";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-tools-fallback-cleanup";
+const STATIC_CACHE = "consutrain-v20260614-fr-tools-questionmark-fix";
+const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-tools-questionmark-fix";
 
 const PRECACHE_URLS = [
   "./",

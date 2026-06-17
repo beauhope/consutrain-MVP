@@ -1359,6 +1359,7 @@ Remaining Priority 2 items:
 Completed:
 - Replaced the remaining `fr/tools.html` fallback links with French landing pages for calculators, MyTodo, CRM, invoice, and timer.
 - Kept the first French tools batch intact.
+- Completed the French tools visible accent cleanup for literal question-mark corruption.
 
 Future enhancement:
 - Build full French interactive versions for the new landing pages when the product scope is ready.

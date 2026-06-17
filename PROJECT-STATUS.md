@@ -1677,3 +1677,10 @@ Status: Completed
 
 - Replaced the remaining French tools fallback links with French landing pages.
 - Kept the French tools page on the shared French navigation pattern without sending visitors to the original tool folders.
+
+## 2026-06-17 - French tools visible accent cleanup
+
+Status: Completed
+
+- Corrected visible literal question-mark accent corruption in `fr/tools.html` and the related French tool landing pages.
+- Updated `sw.js` cache names for the French tools question-mark fix.
