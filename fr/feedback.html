@@ -69,6 +69,21 @@
       gap: 18px;
     }
 
+    .fr-feedback-page main,
+    .fr-feedback-page .feedback-form-card,
+    .fr-feedback-page .internal-feedback-form,
+    .fr-feedback-page .feedback-form-field,
+    .fr-feedback-page .feedback-form-field label,
+    .fr-feedback-page .feedback-form-field input,
+    .fr-feedback-page .feedback-form-field select,
+    .fr-feedback-page .feedback-form-field textarea,
+    .fr-feedback-page .feedback-form-status,
+    .fr-feedback-page .feedback-form-actions,
+    .fr-feedback-page .feedback-form-actions button {
+      direction: ltr;
+      text-align: left;
+    }
+
     .feedback-form-grid {
       display: grid;
       gap: 16px;
@@ -126,6 +141,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      justify-content: flex-start;
     }
 
     @media (max-width: 760px) {
