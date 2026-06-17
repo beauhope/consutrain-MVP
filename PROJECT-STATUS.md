@@ -1694,3 +1694,12 @@ Status: Completed
 - Tested the complete submission flow successfully in Arabic and French and confirmed that data arrived in the Google Sheet.
 - Updated the French Contact navigation to expose `Contactez-nous` and `Partagez votre avis`.
 - Pushed the completed feedback flow to GitHub.
+
+## 2026-06-18 - French consultation request link audit
+
+Status: Completed
+
+- Audited the relevant French pages, shared French header and footer, and all 12 French service detail pages.
+- Confirmed that all consultation, service, and training request CTAs point to `fr/services/consultation-form.html`.
+- Found no obsolete request links, duplicate French request pages, or missing local targets.
+- Confirmed that a separate `fr/services/book-consultation.html` page is not required.

@@ -1304,3 +1304,20 @@ Reason:
 - A central Google Sheet with separate tabs keeps form data organized while allowing email notifications and future automation.
 
 Status: Approved
+
+## Decision - Unify French consultation request flow
+
+Date: 2026-06-18
+
+Decision:
+- `fr/services/consultation-form.html` is the sole official French endpoint for consultation, service, training, and initial request flows.
+- French CTAs for these request types should continue to point to this page.
+- Do not create `fr/services/book-consultation.html` unless a clearly different future use case requires a separate workflow.
+- The Arabic page `services/book-consultation.html` remains outside the French request flow and should not be used as a reason to create a duplicate French page.
+
+Reason:
+- The French request-link audit confirmed that all relevant French pages and service-detail CTAs already resolve to `fr/services/consultation-form.html`.
+- No obsolete request links, duplicate French request pages, or missing local targets were found.
+- Maintaining one endpoint avoids duplicated forms, inconsistent processing, and unnecessary maintenance.
+
+Status: Approved
