@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>À propos | ConsuTrain</title>
+  <title>Qui sommes-nous | ConsuTrain</title>
   <meta
     name="description"
-    content="À propos de ConsuTrain, plateforme dédiée au conseil, à la formation et aux outils pratiques en management, qualité, risques, projets et performance organisationnelle."
+    content="Découvrez ConsuTrain, une plateforme professionnelle qui réunit conseil, formation, outils pratiques et ressources pour le management, la qualité, les risques, les projets et la performance organisationnelle."
   >
 
-  <link rel="stylesheet" href="../assets/css/style.css?v=20260614_fr_about">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260617_fr_about">
   <link rel="manifest" href="../manifest.webmanifest">
   <meta name="theme-color" content="#0f2747">
   <meta name="mobile-web-app-capable" content="yes">
@@ -46,97 +46,6 @@
       text-align: left;
     }
 
-    .fr-header {
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid rgba(15, 39, 71, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-    }
-
-    .fr-header-inner {
-      align-items: center;
-      display: flex;
-      gap: 18px;
-      justify-content: space-between;
-      min-height: 76px;
-      padding: 12px 0;
-    }
-
-    .fr-brand-cluster {
-      align-items: center;
-      display: flex;
-      flex-shrink: 0;
-      gap: 10px;
-    }
-
-    .fr-brand img {
-      display: block;
-      height: auto;
-      width: 178px;
-    }
-
-    .fr-language-link {
-      align-items: center;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--primary);
-      display: inline-flex;
-      font-size: 0.82rem;
-      font-weight: 800;
-      height: 36px;
-      justify-content: center;
-      line-height: 1;
-      min-width: 36px;
-      padding: 9px 13px;
-      text-decoration: none;
-    }
-
-    .fr-language-link:hover,
-    .fr-language-link:focus {
-      background: rgba(212, 166, 58, 0.12);
-      border-color: var(--gold);
-      color: var(--primary);
-    }
-
-    .fr-nav {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: flex-end;
-    }
-
-    .fr-nav a,
-    .fr-footer a {
-      color: var(--primary);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .fr-nav a:hover,
-    .fr-footer a:hover {
-      color: var(--gold);
-    }
-
-    .fr-nav .btn-primary,
-    .fr-nav .btn-primary:hover,
-    .fr-nav .btn-primary:focus {
-      background: #ffffff;
-      border: 1px solid rgba(15, 39, 71, 0.35);
-      box-shadow: none;
-      color: var(--primary);
-    }
-
-    .fr-nav .btn-primary:hover,
-    .fr-nav .btn-primary:focus {
-      background: rgba(212, 166, 58, 0.12);
-      border-color: var(--gold);
-      color: var(--primary);
-    }
-
     .fr-about-page .hero-card p {
       max-width: 860px;
     }
@@ -162,99 +71,76 @@
       padding: 12px 14px;
     }
 
-    .fr-footer {
-      background: #0f2747;
-      color: #ffffff;
-      padding: 34px 0;
-    }
-
-    .fr-footer-inner {
-      align-items: start;
+    .about-objectives {
       display: grid;
-      gap: 18px;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+      gap: 14px;
     }
 
-    .fr-footer h2 {
+    .objective-item {
+      align-items: start;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: auto minmax(0, 1fr);
+      padding: 18px;
+    }
+
+    .objective-num {
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      border-radius: 50%;
       color: #ffffff;
-      margin: 0 0 8px;
-    }
-
-    .fr-footer p {
-      color: rgba(255, 255, 255, 0.78);
-      margin: 0;
-    }
-
-    .fr-footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 18px;
-      justify-content: flex-end;
-    }
-
-    .fr-footer a {
-      color: #ffffff;
-    }
-
-    @media (max-width: 980px) {
-      .fr-header-inner,
-      .fr-footer-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .fr-header-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .fr-nav,
-      .fr-footer-links {
-        justify-content: flex-start;
-      }
+      display: inline-flex;
+      font-weight: 800;
+      height: 42px;
+      justify-content: center;
+      width: 42px;
     }
 
     @media (max-width: 640px) {
-      .fr-nav {
-        gap: 10px;
-      }
-
-      .fr-nav .btn {
-        width: 100%;
+      .objective-item {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
-<body class="fr-about-page" data-root=".." data-ar-link="../about.html" data-breadcrumb-section="À propos" data-breadcrumb-title="À propos">
-    <div id="header-placeholder"></div>
+<body class="fr-about-page" data-root=".." data-ar-link="../about.html" data-breadcrumb-section="À propos" data-breadcrumb-title="Qui sommes-nous">
+  <div id="header-placeholder"></div>
   <div id="breadcrumbs-placeholder"></div>
-<main>
+
+  <main>
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-card">
-          <span class="eyebrow">Conseil, formation et outils pratiques</span>
-          <h1>À propos de ConsuTrain</h1>
+          <span class="eyebrow">Qui sommes-nous</span>
+          <h1>Une plateforme professionnelle pour structurer, apprendre et agir</h1>
           <p>
-            Une plateforme dédiée au conseil, à la formation et aux outils pratiques en management.
+            ConsuTrain réunit conseil, formation, outils pratiques et ressources opérationnelles pour aider
+            les organisations, entrepreneurs, formateurs et professionnels à mieux organiser leurs idées,
+            leurs projets, leurs systèmes de travail et leurs décisions.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="services.html">Découvrir les services</a>
+            <a class="btn btn-secondary" href="tools.html">Explorer les outils</a>
             <a class="btn btn-secondary" href="contact.html">Contacter ConsuTrain</a>
           </div>
         </div>
 
         <div class="hero-side">
           <article class="feature-card">
-            <h3>Structurer</h3>
-            <p>Transformer les besoins en plans, méthodes et livrables exploitables.</p>
+            <h3>Conseiller</h3>
+            <p>Transformer un besoin professionnel en diagnostic, feuille de route ou livrable exploitable.</p>
           </article>
           <article class="feature-card">
             <h3>Former</h3>
-            <p>Rendre les concepts de management plus clairs, pratiques et applicables.</p>
+            <p>Rendre les concepts de management plus clairs, concrets et applicables sur le terrain.</p>
           </article>
           <article class="feature-card">
-            <h3>Améliorer</h3>
-            <p>Aider les organisations à progresser par étapes, avec des outils simples et mesurables.</p>
+            <h3>Outiller</h3>
+            <p>Fournir des supports simples pour clarifier les objectifs, suivre les actions et améliorer les pratiques.</p>
           </article>
         </div>
       </div>
@@ -264,13 +150,29 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Qui sommes-nous ?</h2>
+            <h2>Ce qu'est ConsuTrain</h2>
             <p>
-              ConsuTrain est une plateforme professionnelle orientée vers le conseil en management, la formation,
-              l'excellence institutionnelle, la planification stratégique, la qualité, la gestion des risques,
-              la gestion de projet et les systèmes opérationnels.
+              ConsuTrain est une plateforme orientée management, excellence organisationnelle et développement
+              professionnel. Elle propose un espace clair pour comprendre, structurer et appliquer des méthodes
+              utiles dans les domaines de la stratégie, de la qualité, des risques, des projets, des processus
+              et de la performance.
             </p>
           </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-about-card">
+            <h3>Contenus professionnels</h3>
+            <p>Des pages, guides et explications pour rendre les notions de management plus accessibles et mieux organisées.</p>
+          </article>
+          <article class="section-card fr-about-card">
+            <h3>Outils pratiques</h3>
+            <p>Des supports concrets pour passer d'une idée à une structure de travail, un objectif, un suivi ou une décision.</p>
+          </article>
+          <article class="section-card fr-about-card">
+            <h3>Services et accompagnement</h3>
+            <p>Des services de conseil et de formation pour adapter les méthodes aux besoins réels d'une organisation.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -279,13 +181,30 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Notre mission</h2>
+            <h2>Notre finalité</h2>
             <p>
-              Notre mission est de simplifier les concepts de management et d'aider les organisations, entrepreneurs,
-              formateurs et professionnels à transformer les idées en outils pratiques, plans, procédures et actions
-              d'amélioration.
+              L'objectif n'est pas seulement de présenter de l'information. ConsuTrain cherche à aider l'utilisateur
+              à obtenir un résultat utile : mieux comprendre, mieux décider, mieux documenter et mieux piloter.
+              La plateforme privilégie la clarté, la méthode, l'utilité pratique et la crédibilité professionnelle.
             </p>
           </div>
+        </div>
+
+        <div class="hero-grid">
+          <article class="section-card">
+            <h3>Vision</h3>
+            <p>
+              Devenir un repère professionnel fiable pour les personnes et organisations qui veulent progresser
+              en management, structurer leurs pratiques et renforcer leur performance.
+            </p>
+          </article>
+          <article class="section-card">
+            <h3>Mission</h3>
+            <p>
+              Proposer des contenus clairs, des outils utiles et des services de conseil ou de formation qui
+              facilitent l'amélioration, l'organisation, l'exécution et la prise de décision.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -294,20 +213,20 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Nos domaines d'expertise</h2>
-            <p>Les contenus et services ConsuTrain couvrent les domaines clés de la performance organisationnelle.</p>
+            <h2>Domaines d'intervention</h2>
+            <p>Les contenus, outils et services ConsuTrain couvrent les principaux besoins de structuration et de performance.</p>
           </div>
         </div>
 
         <div class="cards-grid">
           <article class="section-card fr-about-card"><h3>Planification stratégique</h3><p>Clarifier la vision, les objectifs, les priorités et les plans d'action.</p></article>
-          <article class="section-card fr-about-card"><h3>Excellence institutionnelle</h3><p>Structurer les pratiques, preuves, indicateurs et démarches d'amélioration.</p></article>
-          <article class="section-card fr-about-card"><h3>Qualité, ISO et systèmes de management</h3><p>Préparer et améliorer les systèmes de management et leurs documents clés.</p></article>
-          <article class="section-card fr-about-card"><h3>Gestion des risques</h3><p>Identifier, évaluer et suivre les risques avec des actions concrètes.</p></article>
+          <article class="section-card fr-about-card"><h3>Excellence organisationnelle</h3><p>Structurer les pratiques, les preuves, les indicateurs et les démarches d'amélioration.</p></article>
+          <article class="section-card fr-about-card"><h3>Qualité, ISO et systèmes de management</h3><p>Préparer, documenter et améliorer les systèmes de management.</p></article>
+          <article class="section-card fr-about-card"><h3>Gestion des risques</h3><p>Identifier, évaluer, suivre et traiter les risques avec une logique opérationnelle.</p></article>
           <article class="section-card fr-about-card"><h3>Gestion de projet</h3><p>Organiser les livrables, responsabilités, délais, indicateurs et routines de pilotage.</p></article>
-          <article class="section-card fr-about-card"><h3>SOP, procédures et manuels opérationnels</h3><p>Formaliser les méthodes de travail et rendre les opérations plus lisibles.</p></article>
+          <article class="section-card fr-about-card"><h3>Procédures et manuels opérationnels</h3><p>Formaliser les méthodes de travail et rendre les opérations plus lisibles.</p></article>
           <article class="section-card fr-about-card"><h3>Études de faisabilité</h3><p>Analyser les idées, marchés, coûts, risques et conditions de décision.</p></article>
-          <article class="section-card fr-about-card"><h3>Formation et développement des compétences</h3><p>Concevoir des contenus pratiques pour renforcer les compétences de terrain.</p></article>
+          <article class="section-card fr-about-card"><h3>Formation et compétences</h3><p>Concevoir des contenus pratiques pour renforcer les compétences de terrain.</p></article>
         </div>
       </div>
     </section>
@@ -316,23 +235,11 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Notre approche</h2>
+            <h2>À qui s'adresse la plateforme ?</h2>
             <p>
-              L'approche ConsuTrain est pratique et progressive : diagnostic, clarification des besoins,
-              planification structurée, livrables utiles, amélioration continue et appui numérique graduel lorsque
-              cela apporte une vraie valeur.
+              ConsuTrain s'adresse aux personnes et structures qui veulent organiser, piloter, documenter
+              ou améliorer leur travail avec une approche simple, professionnelle et progressive.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Pour qui ?</h2>
-            <p>ConsuTrain s'adresse aux personnes et structures qui veulent organiser, piloter, documenter ou améliorer leur travail.</p>
           </div>
         </div>
 
@@ -341,18 +248,51 @@
             <h3>Publics concernés</h3>
             <ul class="fr-about-list">
               <li>Institutions et organisations</li>
-              <li>PME et entrepreneurs</li>
-              <li>Formateurs et consultants</li>
+              <li>PME, entrepreneurs et porteurs de projets</li>
+              <li>Responsables qualité, performance, risques ou projets</li>
+              <li>Formateurs, consultants et équipes de développement professionnel</li>
               <li>Étudiants et professionnels en management</li>
-              <li>Équipes projet et responsables qualité</li>
             </ul>
           </article>
           <article class="section-card">
-            <h3>Une logique orientée action</h3>
+            <h3>Valeur ajoutée</h3>
             <p>
-              L'objectif est de produire des outils, documents et décisions utilisables : plans, tableaux de bord,
-              procédures, registres, modèles, supports de formation et actions d'amélioration.
+              La plateforme aide à passer d'une intention générale à un support utilisable : plan, tableau de bord,
+              procédure, registre, modèle, support de formation, feuille de route ou demande de service mieux cadrée.
             </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary btn-small" href="expert.html">Découvrir Project:Expert</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Nos principes de travail</h2>
+            <p>ConsuTrain privilégie une approche professionnelle, structurée et utile à l'action.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card">
+            <h3>Clarté</h3>
+            <p>Des contenus et services formulés simplement, avec des étapes compréhensibles et des objectifs explicites.</p>
+          </article>
+          <article class="section-card">
+            <h3>Professionnalisme</h3>
+            <p>Une logique de travail organisée, cohérente et orientée vers des livrables sérieux.</p>
+          </article>
+          <article class="section-card">
+            <h3>Utilité pratique</h3>
+            <p>Des ressources pensées pour aider à décider, structurer, suivre, documenter ou améliorer.</p>
+          </article>
+          <article class="section-card">
+            <h3>Amélioration continue</h3>
+            <p>Une plateforme qui évolue progressivement selon les besoins réels des utilisateurs et des organisations.</p>
           </article>
         </div>
       </div>
@@ -360,16 +300,66 @@
 
     <section class="home-section home-section--soft">
       <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Objectifs de développement</h2>
+            <p>La croissance de ConsuTrain s'appuie sur des objectifs cohérents avec sa vocation professionnelle.</p>
+          </div>
+        </div>
+
+        <div class="about-objectives">
+          <article class="objective-item">
+            <div class="objective-num">01</div>
+            <div class="objective-content">
+              <h3>Produire un contenu fiable et utile</h3>
+              <p>Développer des contenus de management et d'excellence qui aident réellement à comprendre et à appliquer.</p>
+            </div>
+          </article>
+          <article class="objective-item">
+            <div class="objective-num">02</div>
+            <div class="objective-content">
+              <h3>Créer des outils pratiques</h3>
+              <p>Mettre à disposition des supports simples pour organiser le travail, clarifier les objectifs et suivre les actions.</p>
+            </div>
+          </article>
+          <article class="objective-item">
+            <div class="objective-num">03</div>
+            <div class="objective-content">
+              <h3>Renforcer les services professionnels</h3>
+              <p>Proposer des services de conseil, formation et structuration avec une valeur claire pour les clients.</p>
+            </div>
+          </article>
+          <article class="objective-item">
+            <div class="objective-num">04</div>
+            <div class="objective-content">
+              <h3>Améliorer l'expérience utilisateur</h3>
+              <p>Organiser les pages, liens et parcours pour aider le visiteur à trouver rapidement ce dont il a besoin.</p>
+            </div>
+          </article>
+          <article class="objective-item">
+            <div class="objective-num">05</div>
+            <div class="objective-content">
+              <h3>Construire une identité crédible</h3>
+              <p>Développer une présence professionnelle cohérente, centrée sur la qualité, la clarté et la confiance.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
         <div class="cta-panel">
           <div>
             <span class="eyebrow">Passer à l'action</span>
             <h2>Vous souhaitez structurer un besoin, un projet ou un système de travail ?</h2>
             <p>
-              Explorez les services, envoyez une demande de consultation ou contactez ConsuTrain pour une première orientation.
+              Explorez les services, utilisez les outils pratiques ou contactez ConsuTrain pour une première orientation.
             </p>
           </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="services.html">Voir les services</a>
+            <a class="btn btn-secondary" href="tools.html">Voir les outils</a>
             <a class="btn btn-secondary" href="services/consultation-form.html">Demander une consultation</a>
             <a class="btn btn-secondary" href="contact.html">Contact</a>
           </div>
@@ -378,7 +368,7 @@
     </section>
   </main>
 
-    <div id="footer-placeholder"></div>
-  <script src="../assets/js/includes.js?v=20260614_fr_all_shared_ui"></script>
+  <div id="footer-placeholder"></div>
+  <script src="../assets/js/includes.js?v=20260617_fr_about"></script>
 </body>
 </html>
