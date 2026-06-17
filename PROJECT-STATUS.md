@@ -1684,3 +1684,13 @@ Status: Completed
 
 - Corrected visible literal question-mark accent corruption in `fr/tools.html` and the related French tool landing pages.
 - Updated `sw.js` cache names for the French tools question-mark fix.
+
+## 2026-06-17 - Arabic and French feedback form migration
+
+Status: Completed
+
+- Migrated `feedback.html` and `fr/feedback.html` from Tally embeds to internal Google Apps Script forms.
+- Submissions are stored in the `feedback` tab of the central Google Sheet, `ConsuTrain Consultation Requests`, and Gmail notifications are sent.
+- Tested the complete submission flow successfully in Arabic and French and confirmed that data arrived in the Google Sheet.
+- Updated the French Contact navigation to expose `Contactez-nous` and `Partagez votre avis`.
+- Pushed the completed feedback flow to GitHub.

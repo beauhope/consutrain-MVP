@@ -1287,3 +1287,20 @@ Decision:
 - When a full French interactive tool is not yet ready, a concise French landing page may be used to explain the purpose and status of the tool.
 
 Status: Approved
+
+## Decision - Use Google Apps Script for simple public form intake
+
+Date: 2026-06-17
+
+Decision:
+- Google Apps Script is the preferred operational pattern for simple public intake forms on ConsuTrain when it fits the workflow.
+- Consultation requests and feedback/suggestions now follow this pattern.
+- Each form type should write to a separate tab in the central Google Sheet, including `requests`, `feedback`, and future certificate- or course-related intake tabs.
+- Tally is no longer used for the feedback/suggestions pages.
+- n8n remains appropriate for advanced processing, manual triggers, certificate generation, and richer automation.
+
+Reason:
+- This pattern reduces dependency on external form embeds and local n8n availability for straightforward public submissions.
+- A central Google Sheet with separate tabs keeps form data organized while allowing email notifications and future automation.
+
+Status: Approved
