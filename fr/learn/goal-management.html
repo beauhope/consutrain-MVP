@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gestion des objectifs | ConsuTrain</title>
+  <meta
+    name="description"
+    content="Un guide pratique pour transformer les intentions stratégiques en objectifs mesurables, relier les indicateurs aux actions et organiser un suivi utile."
+  >
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+
+  <style>
+    .fr-goal-page,
+    .fr-goal-page * {
+      direction: ltr;
+    }
+
+    .fr-goal-page,
+    .fr-goal-page section,
+    .fr-goal-page .container,
+    .fr-goal-page .hero-card,
+    .fr-goal-page .feature-card,
+    .fr-goal-page .section-card,
+    .fr-goal-page .section-head,
+    .fr-goal-page .cta-panel,
+    .fr-goal-page h1,
+    .fr-goal-page h2,
+    .fr-goal-page h3,
+    .fr-goal-page p,
+    .fr-goal-page a,
+    .fr-goal-page li,
+    .fr-goal-page span {
+      text-align: left;
+    }
+
+    .fr-goal-page .hero-card p {
+      max-width: 900px;
+    }
+
+    .fr-goal-card {
+      border-top: 4px solid var(--gold);
+    }
+
+    .fr-goal-card ul,
+    .fr-goal-method {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .fr-goal-card li,
+    .fr-goal-method li {
+      line-height: 1.8;
+    }
+
+    .fr-goal-method {
+      display: grid;
+      gap: 14px;
+    }
+
+    .fr-goal-method strong {
+      color: var(--primary);
+    }
+
+    .fr-goal-table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .fr-goal-table th,
+    .fr-goal-table td {
+      border-bottom: 1px solid var(--border);
+      padding: 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .fr-goal-table th {
+      color: var(--primary);
+    }
+
+    @media (max-width: 760px) {
+      .fr-goal-table,
+      .fr-goal-table tbody,
+      .fr-goal-table tr,
+      .fr-goal-table th,
+      .fr-goal-table td {
+        display: block;
+      }
+
+      .fr-goal-table thead {
+        display: none;
+      }
+
+      .fr-goal-table tr {
+        border-bottom: 1px solid var(--border);
+        padding: 8px 0;
+      }
+
+      .fr-goal-table td {
+        border: 0;
+        padding: 7px 0;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="fr-goal-page"
+  data-root="../.."
+  data-ar-link="../../learn/goal-management.html"
+  data-breadcrumb-section="Apprendre"
+  data-breadcrumb-title="Gestion des objectifs"
+>
+  <div id="header-placeholder"></div>
+  <div id="breadcrumbs-placeholder"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Pilotage et performance</span>
+          <h1>Gestion des objectifs</h1>
+          <p>
+            Transformer les intentions stratégiques en résultats mesurables exige plus qu'une liste de priorités.
+            Il faut formuler des objectifs clairs, choisir les bons indicateurs, organiser les initiatives et
+            installer un rythme de suivi qui aide réellement à décider.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#methode">Voir la méthode pratique</a>
+            <a class="btn btn-secondary" href="../learn.html">Centre d'apprentissage</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="feature-card">
+            <h3>Clarifier</h3>
+            <p>Définir ce qui doit changer, pour qui et dans quel délai.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Mesurer</h3>
+            <p>Choisir des indicateurs capables de montrer la progression et le résultat.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Exécuter</h3>
+            <p>Relier chaque objectif à des responsables, des initiatives et des revues régulières.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Comprendre l'essentiel</span>
+            <h2>Qu'est-ce que la gestion des objectifs ?</h2>
+            <p>
+              C'est un processus continu qui relie la stratégie au travail quotidien. Il permet de choisir les
+              résultats prioritaires, de répartir les responsabilités, de suivre les progrès et d'ajuster les
+              actions lorsque les hypothèses ou les contraintes évoluent.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-goal-card">
+            <h3>Pourquoi les objectifs échouent</h3>
+            <p>
+              Un objectif reste une intention lorsqu'il n'est pas relié à l'exécution. Sans responsable, mesure,
+              moyens, échéance et rythme de revue, les équipes peuvent être actives sans progresser vers le
+              résultat attendu.
+            </p>
+          </article>
+          <article class="section-card fr-goal-card">
+            <h3>Le rôle du manager</h3>
+            <p>
+              Le manager traduit les priorités stratégiques en attentes compréhensibles, vérifie leur cohérence,
+              arbitre les ressources et crée les conditions d'un suivi factuel plutôt qu'un simple contrôle
+              administratif.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Vocabulaire de pilotage</span>
+            <h2>Distinguer objectif, indicateur, initiative et résultat</h2>
+            <p>Ces éléments sont complémentaires, mais ils ne répondent pas à la même question.</p>
+          </div>
+        </div>
+
+        <article class="section-card">
+          <table class="fr-goal-table">
+            <thead>
+              <tr>
+                <th>Élément</th>
+                <th>Question</th>
+                <th>Exemple</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Objectif</strong></td>
+                <td>Quel changement voulons-nous obtenir ?</td>
+                <td>Améliorer la satisfaction des clients prioritaires.</td>
+              </tr>
+              <tr>
+                <td><strong>Indicateur</strong></td>
+                <td>Comment saurons-nous que nous progressons ?</td>
+                <td>Taux de satisfaction, délai de réponse ou taux de réclamation.</td>
+              </tr>
+              <tr>
+                <td><strong>Initiative</strong></td>
+                <td>Que devons-nous entreprendre ?</td>
+                <td>Revoir le parcours client et former l'équipe d'assistance.</td>
+              </tr>
+              <tr>
+                <td><strong>Résultat</strong></td>
+                <td>Qu'avons-nous réellement obtenu ?</td>
+                <td>Le taux de satisfaction passe de 72 % à 85 %.</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Méthodes utiles</span>
+            <h2>SMART, KPI et OKR : trois rôles différents</h2>
+            <p>Aucune méthode ne remplace le jugement managérial. Chacune apporte un cadre précis.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-goal-card">
+            <h3>Objectifs SMART</h3>
+            <p>
+              SMART aide à vérifier qu'un objectif est spécifique, mesurable, atteignable, pertinent et défini
+              dans le temps. Le cadre améliore la formulation, mais ne garantit pas que l'objectif soit stratégique.
+            </p>
+          </article>
+          <article class="section-card fr-goal-card">
+            <h3>KPI</h3>
+            <p>
+              Un indicateur clé de performance suit un aspect important et durable de l'activité. Il sert à
+              observer une tendance, détecter un écart et soutenir une décision.
+            </p>
+          </article>
+          <article class="section-card fr-goal-card">
+            <h3>OKR</h3>
+            <p>
+              Un OKR associe un objectif qualitatif mobilisateur à quelques résultats clés mesurables. Il est
+              particulièrement utile pour concentrer l'effort sur un changement prioritaire pendant une période.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">De la stratégie à l'action</span>
+            <h2>Traduire une orientation stratégique en objectifs mesurables</h2>
+            <p>
+              Commencez par le changement attendu, pas par les tâches disponibles. Déclinez ensuite l'intention
+              au niveau de l'organisation, des équipes et des responsables, tout en vérifiant que les objectifs
+              restent cohérents entre eux.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-goal-card">
+            <h3>Exemple de chaîne logique</h3>
+            <ul>
+              <li><strong>Orientation :</strong> renforcer la fidélité des clients.</li>
+              <li><strong>Objectif :</strong> améliorer la qualité de l'expérience après-vente.</li>
+              <li><strong>Indicateurs :</strong> satisfaction, réachat et délai de résolution.</li>
+              <li><strong>Initiatives :</strong> simplifier le traitement et former les équipes.</li>
+              <li><strong>Revue :</strong> analyser les résultats chaque mois et corriger les écarts.</li>
+            </ul>
+          </article>
+          <article class="section-card fr-goal-card">
+            <h3>Questions de cohérence</h3>
+            <ul>
+              <li>L'objectif contribue-t-il clairement à une priorité stratégique ?</li>
+              <li>Le responsable peut-il influencer le résultat ?</li>
+              <li>Les données nécessaires sont-elles disponibles et fiables ?</li>
+              <li>Les initiatives disposent-elles de ressources suffisantes ?</li>
+              <li>Les objectifs des équipes se renforcent-ils au lieu de se contredire ?</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Points de vigilance</span>
+            <h2>Erreurs fréquentes dans la définition des objectifs</h2>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card fr-goal-card">
+            <h3>Trop d'objectifs</h3>
+            <p>Une longue liste disperse l'attention et rend les arbitrages presque impossibles.</p>
+          </article>
+          <article class="section-card fr-goal-card">
+            <h3>Une formulation vague</h3>
+            <p>Des verbes comme « améliorer » ou « développer » doivent être associés à un résultat observable.</p>
+          </article>
+          <article class="section-card fr-goal-card">
+            <h3>Aucun responsable</h3>
+            <p>La responsabilité collective ne remplace pas un pilote clairement identifié.</p>
+          </article>
+          <article class="section-card fr-goal-card">
+            <h3>Pas de mesure</h3>
+            <p>Sans référence initiale, cible ou source de données, le progrès reste une impression.</p>
+          </article>
+          <article class="section-card fr-goal-card">
+            <h3>Pas de rythme de revue</h3>
+            <p>Attendre la fin de l'année empêche de corriger les écarts suffisamment tôt.</p>
+          </article>
+          <article class="section-card fr-goal-card">
+            <h3>Confondre activité et résultat</h3>
+            <p>Terminer une action ne signifie pas automatiquement que la performance attendue est obtenue.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft" id="methode">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Méthode pratique</span>
+            <h2>Définir et suivre les objectifs en six étapes</h2>
+            <p>Un processus simple et répétable vaut mieux qu'un dispositif complexe rarement utilisé.</p>
+          </div>
+        </div>
+
+        <article class="section-card">
+          <ol class="fr-goal-method">
+            <li><strong>Clarifier l'intention stratégique.</strong> Définissez le changement recherché, les bénéficiaires et les contraintes principales.</li>
+            <li><strong>Choisir les objectifs prioritaires.</strong> Limitez leur nombre et vérifiez leur contribution directe à la stratégie.</li>
+            <li><strong>Sélectionner des indicateurs mesurables.</strong> Fixez une référence, une cible, une fréquence et une source de données.</li>
+            <li><strong>Attribuer les responsabilités.</strong> Désignez un pilote et précisez les contributions attendues des autres acteurs.</li>
+            <li><strong>Suivre régulièrement les progrès.</strong> Organisez des revues courtes centrées sur les écarts, les causes et les décisions.</li>
+            <li><strong>Apprendre et ajuster.</strong> Modifiez les initiatives ou les hypothèses lorsque les faits montrent qu'une autre approche est nécessaire.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Pour qui ?</span>
+            <h2>Une discipline utile à plusieurs profils</h2>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><h3>Managers et responsables d'équipe</h3><p>Pour aligner les priorités, répartir les responsabilités et piloter les progrès.</p></article>
+          <article class="section-card"><h3>Consultants et formateurs</h3><p>Pour structurer les diagnostics, ateliers, plans d'action et dispositifs de suivi.</p></article>
+          <article class="section-card"><h3>Étudiants</h3><p>Pour comprendre le lien entre stratégie, performance, indicateurs et exécution.</p></article>
+          <article class="section-card"><h3>Entrepreneurs</h3><p>Pour concentrer les ressources sur quelques résultats essentiels à la croissance.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Passer à l'application</span>
+            <h2>Structurez vos objectifs, vos indicateurs et votre rythme de pilotage.</h2>
+            <p>
+              ConsuTrain peut vous accompagner par le conseil, la formation, des outils pratiques et des modèles
+              adaptés à votre organisation ou à votre projet.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../services/consultation-form.html">Demander une consultation</a>
+            <a class="btn btn-secondary" href="../tools.html">Explorer les outils</a>
+            <a class="btn btn-secondary" href="../resources/index.html">Voir les ressources</a>
+            <a class="btn btn-secondary" href="../courses/index.html">Découvrir les formations</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../../assets/js/includes.js"></script>
+</body>
+</html>
