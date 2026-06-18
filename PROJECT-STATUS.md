@@ -1718,11 +1718,17 @@ Status: Completed / Continuing Expansion
   - `fr/learn/soft-skills.html`
   - `fr/learn/ai-guide.html`
 - Created `fr/courses/objectives-management.html` and linked it from `fr/courses/index.html`.
+- Created `fr/courses/mor-foundation.html` and linked it from `fr/courses/index.html`.
+- The French course catalogue now covers the previously missing M_o_R Foundation course page.
 - The completed French entry, trust, contact, feedback, learning, and course updates were pushed to GitHub.
 
 Current priorities:
 - Continue translating high-value learning pages.
-- Review French course and service pages for content, navigation, and visual consistency.
+- The remaining French course work is review and improvement rather than a missing-page gap:
+  - Clarify the ISO 45001/OHSMS coverage in `fr/courses/health-safety-environment.html`.
+  - Expand `fr/courses/practical-workshops.html` later with more detailed workshop coverage.
+  - Review the internal communication course duplication later.
+- Review French service pages for content, navigation, and visual consistency.
 - Keep French request flows unified through `fr/services/consultation-form.html`.
 - Avoid duplicate French request pages unless a clearly distinct future use case requires one.
 
