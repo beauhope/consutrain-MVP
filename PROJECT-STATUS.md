@@ -1703,3 +1703,25 @@ Status: Completed
 - Confirmed that all consultation, service, and training request CTAs point to `fr/services/consultation-form.html`.
 - Found no obsolete request links, duplicate French request pages, or missing local targets.
 - Confirmed that a separate `fr/services/book-consultation.html` page is not required.
+
+## 2026-06-18 - French version progress update
+
+Status: Completed / Continuing Expansion
+
+- Created `fr/start-here.html` and exposed it in the French header as `Commencer ici`.
+- Improved `fr/about.html` as the `Qui sommes-nous` page and created `fr/expert.html`; both are available under the French `À propos` dropdown.
+- Created `fr/feedback.html` and updated the French `Contact` dropdown with `Contactez-nous` and `Partagez votre avis`.
+- Migrated the Arabic and French feedback pages from Tally to internal Google Apps Script forms. Feedback is stored in the `feedback` tab of the central Google Sheet and Gmail notifications are sent.
+- Kept `fr/services/consultation-form.html` as the sole official French endpoint for consultation, service, training, and initial request flows.
+- Created and linked the French learning guides for goal management, soft skills, and practical AI use:
+  - `fr/learn/goal-management.html`
+  - `fr/learn/soft-skills.html`
+  - `fr/learn/ai-guide.html`
+- Created `fr/courses/objectives-management.html` and linked it from `fr/courses/index.html`.
+- The completed French entry, trust, contact, feedback, learning, and course updates were pushed to GitHub.
+
+Current priorities:
+- Continue translating high-value learning pages.
+- Review French course and service pages for content, navigation, and visual consistency.
+- Keep French request flows unified through `fr/services/consultation-form.html`.
+- Avoid duplicate French request pages unless a clearly distinct future use case requires one.
