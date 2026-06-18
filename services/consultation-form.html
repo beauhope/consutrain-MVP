@@ -243,6 +243,8 @@
                   <option>إدارة المشاريع</option>
                   <option>تدريب أو دورة</option>
                   <option>طلب مؤسسي أو شراكة</option>
+                  <option>طلب عرض سعر</option>
+                  <option>استفسار عام</option>
                   <option>طلب آخر</option>
                 </select>
               </div>
@@ -317,6 +319,26 @@
         status.textContent = message;
         status.classList.add("show");
         status.focus();
+      }
+
+      var requestTypeOptions = {
+        consultation: "استشارة إدارية",
+        training: "تدريب أو دورة",
+        "strategic-planning": "تخطيط استراتيجي",
+        feasibility: "دراسة جدوى",
+        "iso-quality": "ISO والجودة وأنظمة الإدارة",
+        risk: "إدارة المخاطر",
+        sop: "الأدلة التشغيلية والإجراءات",
+        "project-management": "إدارة المشاريع",
+        partnership: "طلب مؤسسي أو شراكة",
+        quote: "طلب عرض سعر",
+        general: "استفسار عام",
+        other: "طلب آخر"
+      };
+      var requestedType = new URLSearchParams(window.location.search).get("request_type");
+
+      if (requestedType && Object.prototype.hasOwnProperty.call(requestTypeOptions, requestedType)) {
+        form.elements.requestType.value = requestTypeOptions[requestedType];
       }
 
       form.addEventListener("submit", async function (event) {
