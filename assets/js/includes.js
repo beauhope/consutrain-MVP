@@ -106,14 +106,25 @@ function getLocalizedServiceHref(root) {
 }
 
 function syncLocalizedLanguageLink() {
-  if (!isFrenchPage()) return;
+  if (isFrenchPage()) {
+    const targetHref = document.body.dataset.arLink || document.body.dataset.languageSwitchAr;
+    if (!targetHref) return;
 
-  const targetHref = document.body.dataset.arLink || document.body.dataset.languageSwitchAr;
-  if (!targetHref) return;
+    document.querySelectorAll(".fr-language-link, .language-badge, a[lang=\"ar\"], a[hreflang=\"ar\"]").forEach((languageLink) => {
+      languageLink.setAttribute("href", targetHref);
+    });
+    return;
+  }
 
-  document.querySelectorAll(".fr-language-link, .language-badge, a[lang=\"ar\"], a[hreflang=\"ar\"]").forEach((languageLink) => {
+  // Arabic pages may declare an exact French equivalent; otherwise the header fallback remains unchanged.
+  const documentTargetHref = document.documentElement.dataset.frLink;
+  const targetHref = documentTargetHref?.trim() ? documentTargetHref : document.body.dataset.frLink;
+  if (!targetHref?.trim()) return;
+
+  const languageLink = document.querySelector("#header-placeholder a.language-badge[lang=\"fr\"]");
+  if (languageLink) {
     languageLink.setAttribute("href", targetHref);
-  });
+  }
 }
 
 /*
