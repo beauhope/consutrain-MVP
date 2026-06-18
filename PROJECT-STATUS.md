@@ -1725,3 +1725,23 @@ Current priorities:
 - Review French course and service pages for content, navigation, and visual consistency.
 - Keep French request flows unified through `fr/services/consultation-form.html`.
 - Avoid duplicate French request pages unless a clearly distinct future use case requires one.
+
+## 2026-06-18 - French learning section expansion
+
+Status: Completed / Continuing Expansion
+
+- Created `fr/learn/digital-services-evolution.html` and linked it from `fr/learn.html` as `Évolution des services numériques`.
+- Created `fr/learn/topics.html` and linked it from `fr/learn.html` as `Thèmes d'apprentissage`.
+- The French learning section now provides clearer navigation across:
+  - `Thèmes d'apprentissage`
+  - `Gestion des objectifs`
+  - `Compétences comportementales`
+  - `Guide pratique de l'intelligence artificielle`
+  - `Évolution des services numériques`
+- The structured topics hub helps visitors choose learning paths across management, soft skills, AI, digital services, tools, resources, and training.
+- The new pages were linked, tested, committed, and pushed to GitHub.
+
+Current priorities:
+- Review whether `learn/soft-skill.html` serves a distinct purpose or duplicates `learn/soft-skills.html` before creating any French equivalent.
+- Continue translating high-value learning pages selectively.
+- Avoid creating duplicate French pages when an existing page already covers the same purpose.
