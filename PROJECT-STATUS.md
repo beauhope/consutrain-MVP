@@ -1793,3 +1793,10 @@ Next priorities:
 - Created four original, scalable SVG illustrations in `assets/images/visuals/` for growth, service structure, practical tools, and knowledge resources.
 - Added the shared visuals to the Arabic home, services, tools, and resources pages.
 - Reused the same language-neutral home and services visuals in the available French pages without embedding Arabic or French text inside the SVG files.
+
+## 2026-06-19 - Expanded shared visuals across public hubs
+
+- Added five original language-neutral SVG illustrations: `about-collaboration.svg`, `contact-guidance.svg`, `courses-learning.svg`, `templates-productivity.svg`, and `start-here-roadmap.svg`.
+- Added them to the Arabic about, contact, expert, start-here, courses, objectives-management course, templates, and learning hub pages.
+- Reused the same illustrations in the existing French about, contact, expert, start-here, courses, objectives-management, and learning pages.
+- Reused the existing shared tools and resources illustrations in `fr/tools.html` and `fr/resources/index.html`.

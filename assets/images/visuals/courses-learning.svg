@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="courses-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+    <linearGradient id="courses-gold" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#c88912"/><stop offset="1" stop-color="#efbd4f"/></linearGradient>
+    <filter id="courses-shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f2747" flood-opacity=".12"/></filter>
+  </defs>
+  <rect x="62" y="58" width="596" height="356" rx="34" fill="url(#courses-bg)" stroke="#d8e1eb" stroke-width="3" filter="url(#courses-shadow)"/>
+  <path d="M110 161c61-22 120-13 175 29v150c-55-42-114-51-175-29z" fill="#fff" stroke="#0f2747" stroke-width="8"/>
+  <path d="M285 190c55-42 114-51 175-29v150c-61-22-120-13-175 29z" fill="#fff" stroke="#0f2747" stroke-width="8"/>
+  <path d="M285 190v150" stroke="#d89a20" stroke-width="8" stroke-linecap="round"/>
+  <path d="M140 215c35-7 69-2 101 13M140 249c35-7 69-2 101 13M325 225c31-15 64-20 99-13M325 259c31-15 64-20 99-13" fill="none" stroke="#0f2747" stroke-width="9" stroke-linecap="round" opacity=".72"/>
+  <rect x="490" y="112" width="124" height="151" rx="22" fill="#0f2747"/>
+  <rect x="510" y="134" width="84" height="72" rx="12" fill="#fff"/>
+  <path d="M526 190v-20M552 190v-38M578 190v-55" fill="none" stroke="url(#courses-gold)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M517 231h70" stroke="#efbd4f" stroke-width="9" stroke-linecap="round"/>
+  <path d="M486 318h132l-14 62H500z" fill="#fff" stroke="#d8e1eb" stroke-width="3"/>
+  <circle cx="552" cy="318" r="35" fill="url(#courses-gold)" stroke="#fff" stroke-width="8"/>
+  <path d="M538 319l10 10 20-23" fill="none" stroke="#0f2747" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="88" cy="386" r="16" fill="#efbd4f" opacity=".34"/><circle cx="635" cy="84" r="13" fill="#0f2747" opacity=".18"/>
+</svg>

@@ -9746,6 +9746,27 @@ section[id],
   background:rgba(255,255,255,.08);
 }
 
+.page-hero .container > .hero-visual,
+.learn-hero .container > .hero-visual{
+  width:min(100%, 370px);
+  margin:26px auto 0;
+  padding:12px;
+  border:1px solid rgba(15,39,71,.12);
+  border-radius:22px;
+  background:rgba(255,255,255,.76);
+}
+
+.templates-side-card > .hero-visual{
+  margin:0 auto 18px;
+  padding:8px;
+  border-radius:18px;
+  background:#f7f9fc;
+}
+
+.templates-side-card > .hero-visual img{
+  max-width:300px;
+}
+
 @media (max-width:900px){
   .page-visual img{
     max-width:360px;
@@ -9764,7 +9785,9 @@ section[id],
 
   .hero-side > .hero-visual,
   .services-hero .section-visual,
-  .tools-hero .hero-visual{
+  .tools-hero .hero-visual,
+  .page-hero .container > .hero-visual,
+  .learn-hero .container > .hero-visual{
     padding:10px;
     border-radius:18px;
   }

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="templates-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+    <linearGradient id="templates-gold" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#c88912"/><stop offset="1" stop-color="#efbd4f"/></linearGradient>
+    <filter id="templates-shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f2747" flood-opacity=".12"/></filter>
+  </defs>
+  <rect x="64" y="58" width="592" height="356" rx="34" fill="url(#templates-bg)" stroke="#d8e1eb" stroke-width="3" filter="url(#templates-shadow)"/>
+  <path d="M126 118h212l48 48v194H126z" fill="#fff" stroke="#0f2747" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M338 118v48h48" fill="#edf3f8" stroke="#0f2747" stroke-width="8" stroke-linejoin="round"/>
+  <circle cx="165" cy="210" r="11" fill="#efbd4f"/><circle cx="165" cy="257" r="11" fill="#efbd4f"/><circle cx="165" cy="304" r="11" fill="#efbd4f"/>
+  <path d="M190 210h145M190 257h112M190 304h134" fill="none" stroke="#0f2747" stroke-width="10" stroke-linecap="round"/>
+  <rect x="425" y="116" width="160" height="114" rx="22" fill="#0f2747"/>
+  <path d="M456 196v-28M505 196v-48M554 196v-67" fill="none" stroke="url(#templates-gold)" stroke-width="18" stroke-linecap="round"/>
+  <rect x="425" y="254" width="160" height="108" rx="22" fill="#fff" stroke="#d8e1eb" stroke-width="3"/>
+  <path d="M449 288h112M449 321h78" fill="none" stroke="#0f2747" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="552" cy="321" r="15" fill="#efbd4f"/>
+  <path d="M545 321l5 5 10-12" fill="none" stroke="#0f2747" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="88" cy="386" r="16" fill="#efbd4f" opacity=".34"/><circle cx="635" cy="84" r="13" fill="#0f2747" opacity=".18"/>
+</svg>
