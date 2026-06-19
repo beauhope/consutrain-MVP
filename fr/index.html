@@ -410,5 +410,25 @@
 
     <div id="footer-placeholder"></div>
   <script src="../assets/js/includes.js?v=20260614_fr_all_shared_ui"></script>
+  <script>
+    (function () {
+      var header = document.getElementById("header-placeholder");
+      var frenchLogoPath = "../assets/images/consutrain-logo-horizontal-fr.png";
+
+      function applyFrenchLogo() {
+        var logo = header && header.querySelector(".brand-logo");
+        if (!logo) return false;
+        logo.src = frenchLogoPath;
+        return true;
+      }
+
+      if (!applyFrenchLogo() && header) {
+        var observer = new MutationObserver(function () {
+          if (applyFrenchLogo()) observer.disconnect();
+        });
+        observer.observe(header, { childList: true, subtree: true });
+      }
+    }());
+  </script>
 </body>
 </html>

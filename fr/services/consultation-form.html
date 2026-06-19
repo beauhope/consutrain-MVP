@@ -557,5 +557,25 @@
       });
     });
   </script>
+  <script>
+    (function () {
+      var header = document.getElementById("header-placeholder");
+      var frenchLogoPath = "../../assets/images/consutrain-logo-horizontal-fr.png";
+
+      function applyFrenchLogo() {
+        var logo = header && header.querySelector(".brand-logo");
+        if (!logo) return false;
+        logo.src = frenchLogoPath;
+        return true;
+      }
+
+      if (!applyFrenchLogo() && header) {
+        var observer = new MutationObserver(function () {
+          if (applyFrenchLogo()) observer.disconnect();
+        });
+        observer.observe(header, { childList: true, subtree: true });
+      }
+    }());
+  </script>
 </body>
 </html>
