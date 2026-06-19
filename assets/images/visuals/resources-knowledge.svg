@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="resources-panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#edf3f8"/>
+    </linearGradient>
+    <linearGradient id="resources-gold" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#c88912"/>
+      <stop offset="1" stop-color="#efbd4f"/>
+    </linearGradient>
+    <filter id="resources-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f2747" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect x="62" y="58" width="596" height="356" rx="34" fill="url(#resources-panel)" stroke="#d8e1eb" stroke-width="3" filter="url(#resources-shadow)"/>
+  <path d="M116 157c66-24 129-14 188 31v154c-59-45-122-55-188-31z" fill="#ffffff" stroke="#0f2747" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M304 188c59-45 122-55 188-31v154c-66-24-129-14-188 31z" fill="#ffffff" stroke="#0f2747" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M304 188v154" fill="none" stroke="#d89a20" stroke-width="8" stroke-linecap="round"/>
+  <path d="M147 208c42-8 81-2 118 17M147 242c42-8 81-2 118 17M147 276c34-6 66-3 97 8M344 225c36-19 74-25 113-17M344 259c36-19 74-25 113-17M344 293c30-14 60-19 91-14" fill="none" stroke="#0f2747" stroke-width="9" stroke-linecap="round" opacity=".72"/>
+  <circle cx="524" cy="153" r="59" fill="#ffffff" stroke="#0f2747" stroke-width="11"/>
+  <circle cx="524" cy="153" r="31" fill="none" stroke="#efbd4f" stroke-width="12"/>
+  <path d="M566 195l42 42" fill="none" stroke="#0f2747" stroke-width="15" stroke-linecap="round"/>
+  <path d="M544 325c0-35 24-52 24-79 0-31-24-54-55-54s-55 23-55 54c0 27 24 44 24 79" fill="#0f2747"/>
+  <path d="M484 325h58M491 346h44" fill="none" stroke="#d89a20" stroke-width="11" stroke-linecap="round"/>
+  <path d="M513 177v-25M452 197l-18-18M574 197l18-18M431 246h-25M595 246h25" fill="none" stroke="#d89a20" stroke-width="8" stroke-linecap="round"/>
+  <rect x="97" y="112" width="98" height="29" rx="10" fill="url(#resources-gold)"/>
+  <circle cx="87" cy="386" r="16" fill="#efbd4f" opacity=".35"/>
+  <circle cx="634" cy="84" r="13" fill="#0f2747" opacity=".18"/>
+</svg>

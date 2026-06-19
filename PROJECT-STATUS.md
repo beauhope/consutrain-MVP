@@ -1769,3 +1769,27 @@ Next priorities:
 - Periodically review whether `quote-request.html` and its Tally workflow are still needed before considering later retirement or forwarding treatment.
 - Continue French-version parity work, prioritizing the French article catalogue, free training/certificate equivalence, and selected functional tools.
 - Later review remaining French-resource coverage and navigation consistency.
+
+
+## French Version — Localized Logo
+
+تم إنشاء نسخة فرنسية من شعار ConsuTrain:
+
+`assets/images/consutrain-logo-horizontal-fr.png`
+
+تستخدم النسخة الفرنسية نفس الرمز والألوان والهوية البصرية، مع الشعار النصي:
+
+`Apprendre • Appliquer • Développer • Réussir`
+
+تم اعتمادها في:
+- fr/index.html
+- fr/services.html
+- fr/services/consultation-form.html
+
+بقي الشعار العربي دون تغيير ويُستخدم في الصفحات العربية فقط.
+
+## 2026-06-19 - Shared language-neutral visuals
+
+- Created four original, scalable SVG illustrations in `assets/images/visuals/` for growth, service structure, practical tools, and knowledge resources.
+- Added the shared visuals to the Arabic home, services, tools, and resources pages.
+- Reused the same language-neutral home and services visuals in the available French pages without embedding Arabic or French text inside the SVG files.
