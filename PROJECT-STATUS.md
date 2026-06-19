@@ -1751,3 +1751,21 @@ Current priorities:
 - Review whether `learn/soft-skill.html` serves a distinct purpose or duplicates `learn/soft-skills.html` before creating any French equivalent.
 - Continue translating high-value learning pages selectively.
 - Avoid creating duplicate French pages when an existing page already covers the same purpose.
+
+## 2026-06-19 - Phase 3 Arabic request-flow consolidation
+
+Status: Completed
+
+- Established `services/consultation-form.html` as the canonical Arabic endpoint for public structured requests.
+- The canonical form safely supports `request_type=<allowed value>` with `#consultation-request-form`.
+- Public CTA classifications currently use: `consultation`, `training`, `strategic-planning`, `feasibility`, `iso-quality`, `risk`, `sop`, `project-management`, `partnership`, `quote`, `general`, and `other`.
+- Updated public Arabic structured CTAs across core pages, services, courses and workshops, learning and radar pages, and public templates and resources to use the canonical form with a specific `request_type` where intent is clear.
+- Kept `services/book-consultation.html` publicly available as an informational and forwarding page for existing links, bookmarks, and search indexing. Its two “طلب عرض سعر أو خدمة مهنية” CTAs now use `consultation-form.html?request_type=quote#consultation-request-form`; no automatic redirect was added.
+- Kept `quote-request.html` temporarily because it contains the existing Tally workflow and may still be reached through saved or indexed links. It is no longer the preferred destination for newly updated public Arabic structured CTAs.
+- The Google Apps Script endpoint and canonical-form payload were not changed during this phase.
+- The free-certificate request, submission, and certificate-generation workflow remains unchanged. Only the two “طلب خارطة طريق الرقمنة” CTAs were moved to the canonical consultation form; certificate forms, scripts, and logic were untouched.
+
+Next priorities:
+- Periodically review whether `quote-request.html` and its Tally workflow are still needed before considering later retirement or forwarding treatment.
+- Continue French-version parity work, prioritizing the French article catalogue, free training/certificate equivalence, and selected functional tools.
+- Later review remaining French-resource coverage and navigation consistency.
