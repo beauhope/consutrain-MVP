@@ -100,7 +100,7 @@
         <h1>Évaluation et informations du participant</h1>
         <p>
           Complétez tous les champs obligatoires et les 12 questions pour obtenir un résultat
-          provisoire. Aucune demande d'attestation n'est envoyée pendant cette phase pilote.
+          provisoire. Après validation de ce résultat, vous pourrez enregistrer votre demande pour traitement.
         </p>
         <div class="hero-actions">
           <a class="btn btn-secondary" href="final-assessment.html">Retour aux instructions</a>
@@ -186,12 +186,24 @@
 
           <div class="pilot-disabled-note">
             <p>
-              La connexion sécurisée à l'envoi de l'attestation sera activée après la finalisation du traitement.
-              Aucun courriel et aucune demande ne sont envoyés actuellement.
+              Après validation de votre réussite, votre demande sera enregistrée pour traitement.
             </p>
-            <button class="btn btn-primary" type="button" disabled aria-disabled="true">
+            <button
+              class="btn btn-primary"
+              id="frenchCertificateSubmitButton"
+              type="button"
+              disabled
+              aria-disabled="true"
+            >
               Envoyer la demande d'attestation
             </button>
+            <div
+              class="certificate-status"
+              id="frenchCertificateSubmissionStatus"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></div>
           </div>
         </form>
       </div>

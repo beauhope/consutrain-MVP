@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzHz6rqEG_xnyRYuwowvHH_j4HXMpN9Fqh6xI9FhhJdDHdsEw-4MWcbH8qXe8eNwaTM/exec";
+  const FORM_TYPE = "certificate_submission";
   const TRAINING_ID = "digital-transformation-intro-fr";
   const LANGUAGE = "fr";
   const TRAINING_TITLE = "Introduction à la digitalisation et à la transformation numérique";
@@ -148,11 +150,19 @@
   const form = document.getElementById("certificateTrainingFormFr");
   const questionsContainer = document.getElementById("certificateQuestionsFr");
   const statusBox = document.getElementById("certificateStatusFr");
+  const calculateResultButton = document.getElementById("calculateResultBtnFr");
   const resetButton = document.getElementById("resetAssessmentBtnFr");
+  const finalSubmitButton = document.getElementById("frenchCertificateSubmitButton");
+  const submissionStatusBox = document.getElementById("frenchCertificateSubmissionStatus");
 
-  if (!form || !questionsContainer || !statusBox || !resetButton) {
+  if (!form || !questionsContainer || !statusBox || !calculateResultButton || !resetButton || !finalSubmitButton || !submissionStatusBox) {
     return;
   }
+
+  let provisionalPassIsCurrent = false;
+  let provisionalPassSignature = "";
+  let isSending = false;
+  let submissionFinished = false;
 
   function escapeHtml(value) {
     return String(value)
@@ -197,6 +207,29 @@
     statusBox.hidden = true;
   }
 
+  function setSubmissionStatus(message, type) {
+    submissionStatusBox.textContent = message;
+    submissionStatusBox.className = `certificate-status ${type}`;
+    submissionStatusBox.hidden = false;
+  }
+
+  function clearSubmissionStatus() {
+    submissionStatusBox.textContent = "";
+    submissionStatusBox.className = "certificate-status";
+    submissionStatusBox.hidden = true;
+  }
+
+  function setFinalSubmitEnabled(enabled) {
+    const shouldEnable = enabled && !isSending && !submissionFinished;
+    finalSubmitButton.disabled = !shouldEnable;
+    finalSubmitButton.setAttribute("aria-disabled", String(!shouldEnable));
+  }
+
+  function getTextValue(name) {
+    const field = form.elements[name];
+    return field && typeof field.value === "string" ? field.value.trim() : "";
+  }
+
   function getAnswers() {
     return questions.reduce(function (answers, question) {
       const selected = form.querySelector(`input[name="${question.id}"]:checked`);
@@ -217,16 +250,15 @@
     }, 0);
   }
 
-  function validateRequiredFields() {
+  function validateIdentityFields() {
     const requiredNames = ["fullName", "email", "country"];
     const missingField = requiredNames.find(function (name) {
-      const field = form.elements[name];
-      return !field || !field.value.trim();
+      return !getTextValue(name);
     });
 
     if (missingField) {
       form.elements[missingField].focus();
-      setStatus("Veuillez compléter le nom, l'adresse e-mail et le pays avant de calculer votre résultat.", "error");
+      setStatus("Veuillez compléter les informations d'identité obligatoires.", "error");
       return false;
     }
 
@@ -236,33 +268,114 @@
       return false;
     }
 
-    if (!form.elements.legalAcknowledgment.checked) {
-      form.elements.legalAcknowledgment.focus();
-      setStatus("Vous devez accepter la déclaration obligatoire avant de calculer votre résultat.", "error");
-      return false;
+    return true;
+  }
+
+  function validateLegalAcknowledgment() {
+    if (form.elements.legalAcknowledgment.checked) {
+      return true;
     }
 
-    return true;
+    form.elements.legalAcknowledgment.focus();
+    setStatus("Veuillez accepter la déclaration obligatoire.", "error");
+    return false;
+  }
+
+  function validateAnswers(answers) {
+    const missingQuestionIndex = findMissingQuestion(answers);
+
+    if (missingQuestionIndex === -1) {
+      return true;
+    }
+
+    const questionId = questions[missingQuestionIndex].id;
+    const firstOption = form.querySelector(`input[name="${questionId}"]`);
+    if (firstOption) {
+      firstOption.focus();
+    }
+    setStatus(`Veuillez répondre à la question ${missingQuestionIndex + 1}.`, "error");
+    return false;
+  }
+
+  function createProvisionalSignature(answers) {
+    return JSON.stringify({
+      fullName: getTextValue("fullName"),
+      email: getTextValue("email").toLowerCase(),
+      country: getTextValue("country"),
+      legalAcknowledgment: Boolean(form.elements.legalAcknowledgment.checked),
+      answers: answers
+    });
+  }
+
+  function invalidateProvisionalPass() {
+    if (!provisionalPassIsCurrent || submissionFinished) {
+      return;
+    }
+
+    provisionalPassIsCurrent = false;
+    provisionalPassSignature = "";
+    delete form.dataset.provisionalScore;
+    delete form.dataset.totalQuestions;
+    delete form.dataset.provisionalPercentage;
+    delete form.dataset.provisionalPassed;
+    setFinalSubmitEnabled(false);
+    clearSubmissionStatus();
+    setStatus("Vos réponses ou informations obligatoires ont changé. Veuillez valider à nouveau l'évaluation.", "fail");
+  }
+
+  function buildSubmissionPayload(answers) {
+    return {
+      form_type: FORM_TYPE,
+      trainingId: TRAINING_ID,
+      name: getTextValue("fullName"),
+      email: getTextValue("email"),
+      country: getTextValue("country"),
+      organization: getTextValue("organization"),
+      jobTitle: getTextValue("jobTitle"),
+      answersJson: JSON.stringify(answers),
+      legalAcknowledgment: Boolean(form.elements.legalAcknowledgment.checked),
+      marketingConsent: Boolean(form.elements.marketingConsent.checked)
+    };
+  }
+
+  async function sendCertificateSubmission(payload) {
+    const response = await fetch(APPS_SCRIPT_ENDPOINT, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    });
+
+    let result;
+    try {
+      result = await response.json();
+    } catch (error) {
+      throw new Error("Malformed Apps Script response");
+    }
+
+    if (!response.ok || !result || result.ok !== true) {
+      throw new Error(result && result.message ? result.message : "Certificate submission failed");
+    }
+
+    return result;
   }
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     clearStatus();
+    clearSubmissionStatus();
+    provisionalPassIsCurrent = false;
+    provisionalPassSignature = "";
+    delete form.dataset.provisionalScore;
+    delete form.dataset.totalQuestions;
+    delete form.dataset.provisionalPercentage;
+    delete form.dataset.provisionalPassed;
+    setFinalSubmitEnabled(false);
 
-    if (!validateRequiredFields()) {
+    if (!validateIdentityFields() || !validateLegalAcknowledgment()) {
       return;
     }
 
     const answers = getAnswers();
-    const missingQuestionIndex = findMissingQuestion(answers);
-
-    if (missingQuestionIndex !== -1) {
-      const questionId = questions[missingQuestionIndex].id;
-      const firstOption = form.querySelector(`input[name="${questionId}"]`);
-      if (firstOption) {
-        firstOption.focus();
-      }
-      setStatus(`Veuillez répondre à la question ${missingQuestionIndex + 1} avant de calculer votre résultat.`, "error");
+    if (!validateAnswers(answers)) {
       return;
     }
 
@@ -276,31 +389,145 @@
     form.dataset.provisionalPassed = String(passed);
 
     if (passed) {
+      provisionalPassIsCurrent = true;
+      provisionalPassSignature = createProvisionalSignature(answers);
+      setFinalSubmitEnabled(true);
       setStatus(
         `Résultat provisoire : ${score}/${TOTAL_QUESTIONS} (${percentage} %). Vous atteignez le seuil de réussite. ` +
-        "Ce résultat doit encore être validé avant tout traitement d'attestation ; aucune demande n'a été envoyée.",
+        "Vous pouvez maintenant envoyer votre demande pour vérification.",
         "success"
       );
     } else {
+      setFinalSubmitEnabled(false);
       setStatus(
         `Résultat provisoire : ${score}/${TOTAL_QUESTIONS} (${percentage} %). Le seuil requis est de 9/12, soit 75 %. ` +
-        "Revoyez les ressources puis recommencez l'évaluation. Aucune demande n'a été envoyée.",
+        "Votre score est inférieur à 9/12. Revoyez les ressources puis recommencez l'évaluation.",
         "fail"
       );
     }
   });
 
+  finalSubmitButton.addEventListener("click", async function () {
+    if (isSending || submissionFinished) {
+      return;
+    }
+
+    clearStatus();
+    clearSubmissionStatus();
+
+    if (!validateIdentityFields()) {
+      setFinalSubmitEnabled(false);
+      return;
+    }
+
+    const answers = getAnswers();
+    if (!validateAnswers(answers)) {
+      setFinalSubmitEnabled(false);
+      return;
+    }
+
+    if (!validateLegalAcknowledgment()) {
+      setFinalSubmitEnabled(false);
+      return;
+    }
+
+    const score = calculateScore(answers);
+    if (score < PASSING_SCORE) {
+      provisionalPassIsCurrent = false;
+      provisionalPassSignature = "";
+      setFinalSubmitEnabled(false);
+      setStatus("Votre score est inférieur à 9/12. Veuillez revoir les ressources puis valider à nouveau l'évaluation.", "fail");
+      return;
+    }
+
+    const currentSignature = createProvisionalSignature(answers);
+    if (!provisionalPassIsCurrent || currentSignature !== provisionalPassSignature) {
+      setFinalSubmitEnabled(false);
+      setStatus("Veuillez valider à nouveau l'évaluation avant d'envoyer votre demande.", "fail");
+      return;
+    }
+
+    const payload = buildSubmissionPayload(answers);
+    const originalButtonText = finalSubmitButton.textContent;
+    isSending = true;
+    setFinalSubmitEnabled(false);
+    calculateResultButton.disabled = true;
+    resetButton.disabled = true;
+    finalSubmitButton.textContent = "Envoi en cours...";
+    setSubmissionStatus("Enregistrement de votre demande en cours...", "success");
+
+    try {
+      const result = await sendCertificateSubmission(payload);
+
+      if (result.status === "accepted") {
+        submissionFinished = true;
+        setSubmissionStatus(
+          "Votre demande a été enregistrée. L’attestation sera traitée après vérification de votre réussite.",
+          "success"
+        );
+      } else if (result.status === "pending") {
+        submissionFinished = true;
+        setSubmissionStatus(
+          "Votre demande est déjà en cours de traitement. Veuillez consulter votre boîte e-mail ultérieurement.",
+          "success"
+        );
+      } else if (result.status === "duplicate") {
+        submissionFinished = true;
+        setSubmissionStatus(
+          "Une demande d’attestation existe déjà pour cette formation et cette adresse e-mail.",
+          "success"
+        );
+      } else {
+        throw new Error("Unexpected Apps Script status");
+      }
+    } catch (error) {
+      setSubmissionStatus(
+        "Une difficulté technique empêche l’enregistrement de votre demande. Vérifiez votre connexion puis réessayez.",
+        "error"
+      );
+    } finally {
+      isSending = false;
+      calculateResultButton.disabled = false;
+      resetButton.disabled = false;
+      finalSubmitButton.textContent = originalButtonText;
+      setFinalSubmitEnabled(provisionalPassIsCurrent);
+    }
+  });
+
+  form.addEventListener("input", function (event) {
+    if (event.target.matches('input[name="fullName"], input[name="email"], input[name="country"], input[name^="q"]')) {
+      invalidateProvisionalPass();
+    }
+  });
+
+  form.addEventListener("change", function (event) {
+    if (event.target.matches('input[name="legalAcknowledgment"], input[name^="q"]')) {
+      invalidateProvisionalPass();
+    }
+  });
+
   resetButton.addEventListener("click", function () {
+    if (isSending) {
+      return;
+    }
+
     form.reset();
+    provisionalPassIsCurrent = false;
+    provisionalPassSignature = "";
+    submissionFinished = false;
     delete form.dataset.provisionalScore;
     delete form.dataset.totalQuestions;
     delete form.dataset.provisionalPercentage;
     delete form.dataset.provisionalPassed;
     clearStatus();
+    clearSubmissionStatus();
+    finalSubmitButton.textContent = "Envoyer la demande d'attestation";
+    setFinalSubmitEnabled(false);
     form.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   renderQuestions();
+  setFinalSubmitEnabled(false);
 
   void TRAINING_ID;
   void LANGUAGE;
