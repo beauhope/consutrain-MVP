@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Évaluation et demande d'attestation | ConsuTrain</title>
+  <meta
+    name="description"
+    content="Formulaire pilote et évaluation finale de la formation Introduction à la digitalisation et à la transformation numérique."
+  >
+  <link rel="stylesheet" href="../../../../assets/css/style.css?v=20260620_fr_training_pilot">
+  <link rel="manifest" href="../../../../manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <link rel="icon" type="image/png" href="../../../../assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../../../assets/icons/apple-touch-icon.png">
+  <style>
+    .fr-assessment-page,
+    .fr-assessment-page * { direction: ltr; }
+    .fr-assessment-page h1,
+    .fr-assessment-page h2,
+    .fr-assessment-page h3,
+    .fr-assessment-page p,
+    .fr-assessment-page label,
+    .fr-assessment-page a { text-align: left; }
+    .certificate-form { display: grid; gap: 22px; }
+    .certificate-fieldset {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin: 0;
+      padding: 22px;
+    }
+    .certificate-fieldset legend { color: var(--primary); font-size: 1.2rem; font-weight: 800; padding: 0 8px; }
+    .certificate-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+    .certificate-field { display: grid; gap: 7px; }
+    .certificate-field label { font-weight: 700; }
+    .certificate-field input {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font: inherit;
+      padding: 11px 12px;
+      width: 100%;
+    }
+    .certificate-checks,
+    .certificate-questions,
+    .certificate-options { display: grid; gap: 12px; }
+    .certificate-checkbox,
+    .certificate-radio {
+      align-items: flex-start;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      line-height: 1.6;
+    }
+    .certificate-checkbox input,
+    .certificate-radio input { margin-top: 5px; }
+    .certificate-question {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .certificate-question h3 { margin-top: 0; }
+    .certificate-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .certificate-status {
+      border: 1px solid;
+      border-radius: 10px;
+      line-height: 1.7;
+      padding: 16px;
+    }
+    .certificate-status[hidden] { display: none; }
+    .certificate-status.success { background: #ecfdf3; border-color: #86efac; color: #166534; }
+    .certificate-status.fail { background: #fff7ed; border-color: #fdba74; color: #9a3412; }
+    .certificate-status.error { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+    .pilot-disabled-note {
+      background: rgba(212, 166, 58, 0.12);
+      border: 1px solid rgba(212, 166, 58, 0.35);
+      border-radius: 10px;
+      line-height: 1.7;
+      padding: 16px;
+    }
+    button[disabled] { cursor: not-allowed; opacity: .6; }
+  </style>
+</head>
+
+<body
+  class="fr-assessment-page"
+  data-root="../../../.."
+  data-breadcrumb-section="Formation gratuite"
+  data-breadcrumb-title="Évaluation et attestation"
+>
+  <div id="header-placeholder"></div>
+  <div id="breadcrumbs-placeholder"></div>
+
+  <main class="inner-page">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Introduction à la digitalisation et à la transformation numérique</span>
+        <h1>Évaluation et informations du participant</h1>
+        <p>
+          Complétez tous les champs obligatoires et les 12 questions pour obtenir un résultat
+          provisoire. Aucune demande d'attestation n'est envoyée pendant cette phase pilote.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-secondary" href="final-assessment.html">Retour aux instructions</a>
+          <a class="btn btn-secondary" href="index.html">Retour à la formation</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
+        <form
+          class="certificate-form"
+          id="certificateTrainingFormFr"
+          data-training-id="digital-transformation-intro-fr"
+          data-language="fr"
+          data-training-title="Introduction à la digitalisation et à la transformation numérique"
+          data-certificate-type="free_test"
+          data-learning-type="free_training"
+          data-training-category="transformation_numerique"
+          novalidate
+        >
+          <fieldset class="certificate-fieldset">
+            <legend>Informations du participant</legend>
+            <div class="certificate-grid">
+              <div class="certificate-field">
+                <label for="fullName">Nom complet *</label>
+                <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+              </div>
+              <div class="certificate-field">
+                <label for="email">Adresse e-mail *</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="certificate-field">
+                <label for="country">Pays *</label>
+                <input id="country" name="country" type="text" autocomplete="country-name" required>
+              </div>
+              <div class="certificate-field">
+                <label for="organization">Organisation — facultatif</label>
+                <input id="organization" name="organization" type="text" autocomplete="organization">
+              </div>
+              <div class="certificate-field">
+                <label for="jobTitle">Fonction — facultatif</label>
+                <input id="jobTitle" name="jobTitle" type="text" autocomplete="organization-title">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="certificate-fieldset">
+            <legend>Déclarations</legend>
+            <div class="certificate-checks">
+              <label class="certificate-checkbox">
+                <input id="legalAcknowledgment" name="legalAcknowledgment" type="checkbox" required>
+                <span>
+                  Je confirme que les informations saisies sont exactes et je comprends qu'une
+                  éventuelle attestation ConsuTrain confirme uniquement l'achèvement de cette formation
+                  et la validation de l'évaluation. Elle ne constitue pas une accréditation, une licence
+                  officielle ou une qualification professionnelle reconnue. *
+                </span>
+              </label>
+              <label class="certificate-checkbox">
+                <input id="marketingConsent" name="marketingConsent" type="checkbox">
+                <span>J'accepte de recevoir des informations sur les futures formations ConsuTrain — facultatif.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="certificate-fieldset">
+            <legend>Questions de l'évaluation</legend>
+            <p>Choisissez une réponse par question. Chaque réponse correcte vaut un point.</p>
+            <div class="certificate-questions" id="certificateQuestionsFr"></div>
+          </fieldset>
+
+          <div class="certificate-actions">
+            <button class="btn btn-primary" id="calculateResultBtnFr" type="submit">
+              Calculer mon résultat provisoire
+            </button>
+            <button class="btn btn-secondary" id="resetAssessmentBtnFr" type="button">
+              Réinitialiser
+            </button>
+          </div>
+
+          <div class="certificate-status" id="certificateStatusFr" role="status" aria-live="polite" hidden></div>
+
+          <div class="pilot-disabled-note">
+            <p>
+              La connexion sécurisée à l'envoi de l'attestation sera activée après la finalisation du traitement.
+              Aucun courriel et aucune demande ne sont envoyés actuellement.
+            </p>
+            <button class="btn btn-primary" type="button" disabled aria-disabled="true">
+              Envoyer la demande d'attestation
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../../../../assets/js/includes.js?v=20260620_fr_training_pilot"></script>
+  <script src="../../../../assets/js/free-certificate-training-fr.js?v=20260620_fr_training_pilot"></script>
+</body>
+</html>

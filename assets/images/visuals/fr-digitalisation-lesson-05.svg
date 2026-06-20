@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="title desc">
+  <title id="title">Des données structurées aux décisions améliorées</title>
+  <desc id="desc">Des fiches de données alimentent un tableau de bord, puis une automatisation utile et enfin une décision mieux informée. L'intelligence artificielle apparaît comme option avancée.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#c88912"/><stop offset="1" stop-color="#efbd4f"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="9" flood-color="#0f2747" flood-opacity=".12"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#d89a20"/></marker>
+  </defs>
+  <rect x="24" y="24" width="912" height="492" rx="30" fill="url(#bg)" stroke="#d8e1eb" stroke-width="3"/>
+  <text x="480" y="68" text-anchor="middle" fill="#0f2747" font-family="Arial, sans-serif" font-size="28" font-weight="700">Des données structurées aux décisions améliorées</text>
+  <path d="M235 267h61M462 267h61M689 267h61" stroke="#d89a20" stroke-width="7" marker-end="url(#arrow)"/>
+
+  <g font-family="Arial, sans-serif" filter="url(#shadow)">
+    <g transform="translate(55 126)">
+      <rect width="180" height="282" rx="24" fill="#fff" stroke="#d8e1eb" stroke-width="3"/>
+      <text x="90" y="34" text-anchor="middle" fill="#0f2747" font-size="20" font-weight="700">Données</text>
+      <text x="90" y="56" text-anchor="middle" fill="#0f2747" font-size="20" font-weight="700">structurées</text>
+      <rect x="31" y="70" width="118" height="48" rx="10" fill="#edf3f8" stroke="#0f2747" stroke-width="3"/>
+      <circle cx="49" cy="94" r="8" fill="#d89a20"/><path d="M67 87h64M67 101h48" stroke="#0f2747" stroke-width="4" stroke-linecap="round"/>
+      <rect x="31" y="132" width="118" height="48" rx="10" fill="#edf3f8" stroke="#0f2747" stroke-width="3"/>
+      <circle cx="49" cy="156" r="8" fill="#1f6f78"/><path d="M67 149h64M67 163h48" stroke="#0f2747" stroke-width="4" stroke-linecap="round"/>
+      <rect x="31" y="194" width="118" height="48" rx="10" fill="#edf3f8" stroke="#0f2747" stroke-width="3"/>
+      <circle cx="49" cy="218" r="8" fill="#0f2747"/><path d="M67 211h64M67 225h48" stroke="#0f2747" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(296 126)">
+      <rect width="166" height="282" rx="24" fill="#fff" stroke="#d8e1eb" stroke-width="3"/>
+      <text x="83" y="42" text-anchor="middle" fill="#0f2747" font-size="21" font-weight="700">Indicateurs</text>
+      <rect x="27" y="72" width="112" height="123" rx="14" fill="#f8fafc" stroke="#d8e1eb" stroke-width="2"/>
+      <path d="M49 169v-36M81 169v-66M113 169v-92" stroke="url(#gold)" stroke-width="16" stroke-linecap="round"/>
+      <path d="M45 218h76M45 239h58" stroke="#0f2747" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(523 126)">
+      <rect width="166" height="282" rx="24" fill="#fff" stroke="#d8e1eb" stroke-width="3"/>
+      <text x="83" y="34" text-anchor="middle" fill="#0f2747" font-size="20" font-weight="700">Automatisation</text>
+      <text x="83" y="56" text-anchor="middle" fill="#0f2747" font-size="20" font-weight="700">utile</text>
+      <circle cx="83" cy="135" r="48" fill="#edf3f8" stroke="#0f2747" stroke-width="5"/>
+      <circle cx="83" cy="135" r="18" fill="#fff" stroke="#d89a20" stroke-width="6"/>
+      <path d="M83 75v18M83 177v18M23 135h18M125 135h18M40 92l13 13M113 165l13 13M40 178l13-13M113 105l13-13" stroke="#0f2747" stroke-width="8" stroke-linecap="round"/>
+      <rect x="37" y="217" width="92" height="30" rx="15" fill="#fff0c7"/>
+      <text x="83" y="238" text-anchor="middle" fill="#815b08" font-size="15" font-weight="700">Règles stables</text>
+    </g>
+    <g transform="translate(750 126)">
+      <rect width="155" height="282" rx="24" fill="#fff" stroke="#1f6f78" stroke-width="4"/>
+      <text x="77.5" y="42" text-anchor="middle" fill="#0f2747" font-size="21" font-weight="700">Décision</text>
+      <path d="M42 83h71v78H42z" fill="#edf3f8" stroke="#0f2747" stroke-width="3"/>
+      <path d="M53 103h49M53 119h49M53 135h31" stroke="#0f2747" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="78" cy="207" r="31" fill="#1f6f78"/>
+      <path d="M63 207l10 10 21-25" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="77.5" y="258" text-anchor="middle" fill="#52677d" font-size="16">Action mieux</text>
+      <text x="77.5" y="278" text-anchor="middle" fill="#52677d" font-size="16">informée</text>
+    </g>
+  </g>
+
+  <g transform="translate(606 438)">
+    <rect width="250" height="52" rx="26" fill="#fff" stroke="#d8e1eb" stroke-width="3"/>
+    <circle cx="29" cy="26" r="18" fill="#0f2747"/>
+    <text x="29" y="32" text-anchor="middle" fill="#efbd4f" font-family="Arial, sans-serif" font-size="15" font-weight="700">IA</text>
+    <text x="57" y="23" fill="#0f2747" font-family="Arial, sans-serif" font-size="16" font-weight="700">Option avancée</text>
+    <text x="57" y="42" fill="#52677d" font-family="Arial, sans-serif" font-size="14">après données et processus fiables</text>
+  </g>
+</svg>

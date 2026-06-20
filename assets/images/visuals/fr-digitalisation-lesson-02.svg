@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="title desc">
+  <title id="title">Digitalisation et transformation numérique</title>
+  <desc id="desc">Deux colonnes comparent un formulaire devenu numérique à un processus intégré comportant suivi, alertes, tableau de bord et rapports.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#edf3f8"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#c88912"/><stop offset="1" stop-color="#efbd4f"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#0f2747" flood-opacity=".13"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#d89a20"/></marker>
+  </defs>
+  <rect x="24" y="24" width="912" height="492" rx="30" fill="url(#bg)" stroke="#d8e1eb" stroke-width="3"/>
+  <rect x="56" y="60" width="386" height="420" rx="26" fill="#fff" stroke="#d8e1eb" stroke-width="3" filter="url(#shadow)"/>
+  <rect x="518" y="60" width="386" height="420" rx="26" fill="#fff" stroke="#d8e1eb" stroke-width="3" filter="url(#shadow)"/>
+  <rect x="56" y="60" width="386" height="62" rx="24" fill="#0f2747"/>
+  <rect x="518" y="60" width="386" height="62" rx="24" fill="#1f6f78"/>
+  <text x="249" y="99" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="25" font-weight="700">Digitalisation</text>
+  <text x="711" y="99" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="25" font-weight="700">Transformation numérique</text>
+
+  <g>
+    <path d="M99 168h92v116H99z" fill="#fff8e6" stroke="#d89a20" stroke-width="4"/>
+    <path d="M116 194h57M116 214h57M116 234h42" stroke="#0f2747" stroke-width="5" stroke-linecap="round"/>
+    <text x="145" y="315" text-anchor="middle" fill="#52677d" font-family="Arial, sans-serif" font-size="18">Document</text>
+    <path d="M209 225h62" stroke="#d89a20" stroke-width="6" marker-end="url(#arrow)"/>
+    <rect x="292" y="155" width="105" height="144" rx="16" fill="#edf3f8" stroke="#0f2747" stroke-width="4"/>
+    <rect x="309" y="179" width="71" height="13" rx="5" fill="#d8e1eb"/>
+    <rect x="309" y="207" width="71" height="13" rx="5" fill="#d8e1eb"/>
+    <rect x="309" y="235" width="50" height="13" rx="5" fill="#d8e1eb"/>
+    <rect x="324" y="266" width="42" height="13" rx="7" fill="url(#gold)"/>
+    <text x="344" y="329" text-anchor="middle" fill="#52677d" font-family="Arial, sans-serif" font-size="18">Formulaire en ligne</text>
+    <rect x="94" y="368" width="310" height="64" rx="16" fill="#f8fafc" stroke="#d8e1eb" stroke-width="2"/>
+    <text x="249" y="395" text-anchor="middle" fill="#0f2747" font-family="Arial, sans-serif" font-size="18" font-weight="700">Le support devient numérique</text>
+    <text x="249" y="419" text-anchor="middle" fill="#52677d" font-family="Arial, sans-serif" font-size="16">Le processus peut rester identique</text>
+  </g>
+
+  <g>
+    <rect x="548" y="156" width="104" height="100" rx="16" fill="#edf3f8" stroke="#0f2747" stroke-width="3"/>
+    <path d="M570 182h60M570 202h60M570 222h40" stroke="#0f2747" stroke-width="5" stroke-linecap="round"/>
+    <text x="600" y="281" text-anchor="middle" fill="#52677d" font-family="Arial, sans-serif" font-size="17">Formulaire</text>
+    <path d="M666 207h50" stroke="#d89a20" stroke-width="6" marker-end="url(#arrow)"/>
+    <rect x="733" y="145" width="140" height="124" rx="18" fill="#fff" stroke="#1f6f78" stroke-width="4"/>
+    <rect x="748" y="165" width="110" height="22" rx="11" fill="#fff0c7"/>
+    <text x="803" y="181" text-anchor="middle" fill="#815b08" font-family="Arial, sans-serif" font-size="14" font-weight="700">Suivi intégré</text>
+    <path d="M754 215h82M754 237h58" stroke="#0f2747" stroke-width="5" stroke-linecap="round"/>
+
+    <rect x="548" y="318" width="88" height="82" rx="16" fill="#fff" stroke="#d8e1eb" stroke-width="3"/>
+    <path d="M568 371v-18M591 371v-35M614 371v-50" stroke="url(#gold)" stroke-width="11" stroke-linecap="round"/>
+    <text x="592" y="425" text-anchor="middle" fill="#52677d" font-family="Arial, sans-serif" font-size="16">Tableau de bord</text>
+
+    <rect x="675" y="318" width="88" height="82" rx="16" fill="#fff" stroke="#d8e1eb" stroke-width="3"/>
+    <path d="M719 337c16 0 25 12 25 26h-50c0-14 9-26 25-26z" fill="#0f2747"/>
+    <circle cx="719" cy="373" r="6" fill="#efbd4f"/>
+    <text x="719" y="425" text-anchor="middle" fill="#52677d" font-family="Arial, sans-serif" font-size="16">Alertes</text>
+
+    <rect x="802" y="318" width="72" height="82" rx="16" fill="#fff" stroke="#d8e1eb" stroke-width="3"/>
+    <path d="M820 340h36v42h-36z" fill="#edf3f8" stroke="#0f2747" stroke-width="3"/>
+    <path d="M827 352h22M827 362h22M827 372h15" stroke="#d89a20" stroke-width="3" stroke-linecap="round"/>
+    <text x="838" y="425" text-anchor="middle" fill="#52677d" font-family="Arial, sans-serif" font-size="16">Rapports</text>
+    <path d="M803 282v25M592 307h246" fill="none" stroke="#1f6f78" stroke-width="4" stroke-linecap="round"/>
+    <path d="M592 307v11M719 307v11M838 307v11" stroke="#1f6f78" stroke-width="4"/>
+  </g>
+</svg>
