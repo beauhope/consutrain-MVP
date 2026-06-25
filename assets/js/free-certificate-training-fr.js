@@ -3,7 +3,7 @@
 
   const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzHz6rqEG_xnyRYuwowvHH_j4HXMpN9Fqh6xI9FhhJdDHdsEw-4MWcbH8qXe8eNwaTM/exec";
   const FORM_TYPE = "certificate_submission";
-  const TRAINING_ID = "digital-transformation-intro-fr";
+  const TRAINING_ID = "digital-transformation-intro";
   const LANGUAGE = "fr";
   const TRAINING_TITLE = "Introduction à la digitalisation et à la transformation numérique";
   const CERTIFICATE_TYPE = "free_test";
