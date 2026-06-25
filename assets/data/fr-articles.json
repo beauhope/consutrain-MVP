@@ -1,0 +1,27 @@
+{
+  "articles": [
+    {
+      "id": "management-tech-radar-ai-work-systems",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "Radar technologique du management : des outils d’IA aux systèmes de travail intelligents",
+      "excerpt": "Comment les organisations passent d’outils d’intelligence artificielle isolés à des systèmes de travail connectés qui soutiennent l’automatisation, les ressources humaines, la gestion de projet et la production de contenu.",
+      "date": "2026-06-24",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "tech-radar",
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Intelligence artificielle",
+        "Automatisation",
+        "Ressources humaines",
+        "Gestion de projet",
+        "Systèmes de travail intelligents"
+      ],
+      "url": "management-tech-radar-ai-work-systems.html",
+      "image_url": "../../assets/images/articles/ai-introduction.svg",
+      "image_alt": "Illustration de l’intelligence artificielle appliquée au management"
+    }
+  ]
+}

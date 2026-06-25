@@ -125,6 +125,37 @@
 
     <section class="home-section">
       <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Veille technologique</span>
+            <h2>Derniers articles du radar technologique</h2>
+            <p>Cette page rassemble des analyses pratiques autour des outils numériques, de l’intelligence artificielle, de l’automatisation et des usages managériaux.</p>
+          </div>
+        </div>
+
+        <div
+          data-tech-radar-archive
+          data-articles-source="../../assets/data/fr-articles.json"
+          data-locale="fr"
+          data-read-label="Lire l’article"
+          data-loading-label="Chargement des articles du radar technologique..."
+          data-error-label="Impossible de charger les articles du radar technologique."
+        >
+          <div class="articles-list" data-tech-radar-list></div>
+          <div class="section-card glossary-empty" data-tech-radar-empty hidden>
+            <h3>Aucun article du radar n’est disponible pour le moment</h3>
+            <p>Les articles classés comme radar technologique apparaîtront ici après leur ajout au fichier de données.</p>
+          </div>
+        </div>
+
+        <div class="hero-actions" style="margin-top: 18px;">
+          <a class="btn btn-secondary" href="articles.html">Voir tous les articles</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="container">
         <div class="cta-panel">
           <div>
             <span class="eyebrow">Choisir avec méthode</span>
@@ -144,5 +175,6 @@
 
   <div id="footer-placeholder"></div>
   <script src="../../assets/js/includes.js?v=20260616_fr_learn_batch_one"></script>
+  <script src="../../assets/js/tech-radar-archive.js?v=20260625_tech_radar_archive"></script>
 </body>
 </html>
