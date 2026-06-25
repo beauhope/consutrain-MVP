@@ -373,7 +373,17 @@
     throw new Error(`Webhook returned ${response.status}`);
   }
 
-  return response.json();
+  const responseText = await response.text();
+  if (!responseText.trim()) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(responseText);
+  } catch (error) {
+    console.warn("Webhook returned a non-JSON success response:", error);
+    return null;
+  }
 }
 
   async function retryPendingSubmissions(options) {
