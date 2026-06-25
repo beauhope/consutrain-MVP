@@ -100,6 +100,11 @@ function getArticleReadLink(article) {
   return `article.html?id=${encodeURIComponent(article.id || "")}`;
 }
 
+function getArticleTime(article) {
+  const time = new Date(article.date || "").getTime();
+  return Number.isNaN(time) ? 0 : time;
+}
+
 function getTagFrequencyMap() {
   const freq = new Map();
 
@@ -417,7 +422,8 @@ async function loadArticlesData() {
         video_url: article.video_url || article.videoUrl || "",
         related_terms: Array.isArray(article.related_terms) ? article.related_terms : [],
         url: article.url || article.link || ""
-      }));
+      }))
+      .sort((a, b) => getArticleTime(b) - getArticleTime(a));
 
     filteredArticles = [...articlesData];
 
