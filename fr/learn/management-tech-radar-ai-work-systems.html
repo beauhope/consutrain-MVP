@@ -26,11 +26,6 @@
     .fr-learn-page,
     .fr-learn-page section,
     .fr-learn-page .container,
-    .fr-learn-page .hero-card,
-    .fr-learn-page .feature-card,
-    .fr-learn-page .section-card,
-    .fr-learn-page .section-head,
-    .fr-learn-page .cta-panel,
     .fr-learn-page h1,
     .fr-learn-page h2,
     .fr-learn-page h3,
@@ -38,11 +33,78 @@
     .fr-learn-page a,
     .fr-learn-page li,
     .fr-learn-page span { text-align: left; }
-    .fr-learn-page .hero-card p { max-width: 900px; }
-    .fr-learn-card { border-top: 4px solid var(--gold); }
-    .fr-learn-card ul,
-    .fr-learn-card ol { margin: 0; padding-left: 20px; }
-    .fr-learn-card li { line-height: 1.8; }
+    .fr-learn-page .ai-sidebar { text-align: left; }
+    .fr-learn-page .ai-content ul,
+    .fr-learn-page .ai-content ol { padding-left: 22px; padding-right: 0; }
+    .fr-learn-page .callout.insight,
+    .fr-learn-page .callout.strategy { border-right: 0; border-left-width: 4px; border-left-style: solid; }
+    .fr-learn-page .callout.insight { border-left-color: var(--primary); }
+    .fr-learn-page .callout.strategy { border-left-color: var(--gold); }
+    .fr-learn-page .ai-layout,
+    .fr-learn-page .ai-content,
+    .fr-learn-page .ai-sidebar { min-width: 0; }
+    .fr-learn-page .page-title,
+    .fr-learn-page .ai-toc-list a,
+    .fr-learn-page .ai-content p,
+    .fr-learn-page .ai-content li { overflow-wrap: anywhere; }
+    .fr-learn-page .article-visual { overflow: hidden; }
+    .fr-learn-page .article-visual img { max-width: 100%; height: auto; }
+    .fr-learn-page .ai-layout,
+    .fr-learn-page .ai-content,
+    .fr-learn-page .ai-sidebar,
+    .fr-learn-page .ai-content section,
+    .fr-learn-page .article-visual,
+    .fr-learn-page .ai-guide-nav { box-sizing: border-box; max-width: 100%; }
+    @media (max-width: 700px) {
+      html,
+      body.fr-learn-page { overflow-x: hidden; }
+      .fr-learn-page .ai-layout {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .fr-learn-page .ai-content,
+      .fr-learn-page .ai-sidebar {
+        width: 100%;
+        max-width: calc(100vw - 24px);
+      }
+      .fr-learn-page .ai-content .page-title {
+        font-size: 1.45rem;
+        word-break: break-word;
+        hyphens: auto;
+      }
+      .fr-learn-page .ai-content p,
+      .fr-learn-page .ai-content li,
+      .fr-learn-page .reading-meta {
+        word-break: break-word;
+        hyphens: auto;
+      }
+      .fr-learn-page .ai-guide-nav,
+      .fr-learn-page .cta-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .fr-learn-page .ai-guide-nav a,
+      .fr-learn-page .cta-buttons a {
+        width: 100%;
+        min-width: 0;
+      }
+      .fr-learn-page .quick-contact-widget {
+        right: 12px;
+        bottom: 18px;
+      }
+      .fr-learn-page .quick-contact-toggle {
+        width: 48px;
+        min-width: 48px;
+        padding: 0;
+      }
+      .fr-learn-page .quick-contact-toggle span {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -54,57 +116,53 @@
   data-ar-link="../../learn/management-tech-radar-ai-work-systems.html"
 >
   <div id="header-placeholder"></div>
-  <div id="breadcrumbs-placeholder"></div>
+  <div id="readingProgress" class="reading-progress"></div>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-card">
-          <span class="eyebrow">Intelligence artificielle et management</span>
-          <h1>Radar technologique du management : des outils d'IA aux systèmes de travail intelligents</h1>
-          <p>
-            Comment les organisations passent d'outils d'intelligence artificielle isolés à des systèmes de travail connectés qui soutiennent l'automatisation, les ressources humaines, la gestion de projet et la production de contenu.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="articles.html">Retour aux articles</a>
-            <a class="btn btn-secondary" href="management-tech-radar.html">Radar des outils</a>
-          </div>
-        </div>
+  <main class="container ai-layout">
+    <aside class="ai-sidebar">
+      <h3>Sommaire</h3>
+      <ul class="ai-toc-list">
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#orchestration-agents-ia">1. Orchestration des agents IA</a></li>
+        <li><a href="#integration-collaborateurs">2. Intégration des collaborateurs</a></li>
+        <li><a href="#outils-internes">3. Outils internes</a></li>
+        <li><a href="#notes-plans-action">4. Notes et plans d'action</a></li>
+        <li><a href="#ia-presentations-contenu">5. Présentations et contenu</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ul>
+    </aside>
 
-        <div class="hero-side">
-          <article class="feature-card">
-            <h3>Automatiser</h3>
-            <p>Relier les demandes, les données et les actions répétitives avec un contrôle humain.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Structurer</h3>
-            <p>Transformer les notes, les processus et les besoins internes en parcours clairs.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Mesurer</h3>
-            <p>Commencer petit, tester les résultats et élargir progressivement le dispositif.</p>
-          </article>
-        </div>
+    <div class="ai-content">
+      <h1 class="page-title">Radar technologique du management : des outils d'IA aux systèmes de travail intelligents</h1>
+
+      <div class="ai-guide-nav">
+        <a href="articles.html">← Retour aux articles</a>
+        <a href="management-tech-radar.html">Radar technologique</a>
       </div>
-    </section>
 
-    <section class="home-section">
-      <div class="container">
-        <article class="section-card fr-learn-card">
-          <span class="eyebrow">24 juin 2026</span>
+      <div class="reading-meta">
+        24 juin 2026 · Intelligence artificielle et management · Temps de lecture estimé : <span id="readingTime">...</span>
+      </div>
+
+      <p class="page-subtitle">
+        Comment les organisations passent d'outils d'intelligence artificielle isolés à des systèmes de travail connectés qui soutiennent l'automatisation, les ressources humaines, la gestion de projet et la production de contenu.
+      </p>
+
+      <figure class="article-visual">
+        <img src="../../assets/images/articles/ai-introduction.svg" alt="Illustration de l’intelligence artificielle appliquée au management" loading="lazy">
+      </figure>
+
+      <section id="introduction">
           <p>
             L'utilisation de l'intelligence artificielle dans les organisations ne se limite plus à rédiger un texte, créer une image ou résumer une réunion. La tendance la plus marquante consiste désormais à intégrer l'IA dans les processus de travail quotidiens, afin d'aider les équipes à planifier, organiser les données, produire du contenu, suivre les tâches et automatiser les activités répétitives.
           </p>
           <p>
             Cette semaine, plusieurs évolutions méritent l'attention des dirigeants, des responsables RH, des équipes de formation et des chefs de projet.
           </p>
-        </article>
-      </div>
-    </section>
+      </section>
 
-    <section class="home-section home-section--soft">
-      <div class="container">
-        <article class="section-card fr-learn-card">
+      <section id="orchestration-agents-ia">
           <h2>1. Coordonner plusieurs agents IA au lieu d'utiliser un seul outil</h2>
           <p>
             Le concept d'orchestration des agents IA prend de l'importance. Il consiste à répartir les tâches entre plusieurs assistants spécialisés plutôt que de demander à un seul outil de tout traiter.
@@ -119,16 +177,13 @@
           <p>
             Cette approche est particulièrement utile pour les organisations qui gèrent un grand volume de demandes ou de processus répétitifs, notamment dans le service client, les ressources humaines, le suivi de projets, la formation ou la gestion des connaissances.
           </p>
-          <p>
-            <strong>Recommandation managériale :</strong> Il est préférable de commencer par automatiser un seul processus clair et répétitif, comme la réception des demandes de formation ou le suivi des questions clients, puis de mesurer les résultats avant d'élargir le dispositif.
-          </p>
-        </article>
-      </div>
-    </section>
+          <div class="callout strategy">
+            <strong>Recommandation managériale :</strong><br>
+            Il est préférable de commencer par automatiser un seul processus clair et répétitif, comme la réception des demandes de formation ou le suivi des questions clients, puis de mesurer les résultats avant d'élargir le dispositif.
+          </div>
+      </section>
 
-    <section class="home-section">
-      <div class="container">
-        <article class="section-card fr-learn-card">
+      <section id="integration-collaborateurs">
           <h2>2. Automatiser l'intégration des nouveaux collaborateurs</h2>
           <p>
             L'un des usages les plus concrets de l'IA et de l'automatisation concerne l'intégration des nouveaux collaborateurs.
@@ -147,16 +202,13 @@
           <p>
             Cette automatisation ne remplace pas le rôle humain du manager ou de l'équipe RH. Elle permet surtout de réduire les oublis, les retards et les tâches administratives répétitives.
           </p>
-          <p>
-            <strong>Application possible :</strong> Une organisation peut utiliser un formulaire numérique relié à Google Sheets et n8n afin de déclencher automatiquement un parcours d'intégration simple et traçable.
-          </p>
-        </article>
-      </div>
-    </section>
+          <div class="callout insight">
+            <strong>Application possible :</strong><br>
+            Une organisation peut utiliser un formulaire numérique relié à Google Sheets et n8n afin de déclencher automatiquement un parcours d'intégration simple et traçable.
+          </div>
+      </section>
 
-    <section class="home-section home-section--soft">
-      <div class="container">
-        <article class="section-card fr-learn-card">
+      <section id="outils-internes">
           <h2>3. Créer des outils internes sans développement complexe</h2>
           <p>
             Les outils de création d'applications assistés par l'IA progressent rapidement. Ils permettent aux organisations de concevoir des prototypes ou des outils internes à partir d'une description claire du besoin.
@@ -173,16 +225,13 @@
           <p>
             La réussite ne dépend toutefois pas uniquement de l'outil. Il faut commencer par clarifier le processus, les utilisateurs concernés, les données à gérer et les indicateurs de succès.
           </p>
-          <p>
-            <strong>Recommandation managériale :</strong> Commencez par un outil interne limité qui résout un problème réel, au lieu de chercher à construire immédiatement un système complet.
-          </p>
-        </article>
-      </div>
-    </section>
+          <div class="callout strategy">
+            <strong>Recommandation managériale :</strong><br>
+            Commencez par un outil interne limité qui résout un problème réel, au lieu de chercher à construire immédiatement un système complet.
+          </div>
+      </section>
 
-    <section class="home-section">
-      <div class="container">
-        <article class="section-card fr-learn-card">
+      <section id="notes-plans-action">
           <h2>4. Transformer les notes en plans d'action</h2>
           <p>
             De nouveaux outils permettent de transformer les notes quotidiennes ou les mémos vocaux en tâches organisées et plans d'action.
@@ -201,13 +250,9 @@
           <p>
             Une validation humaine reste nécessaire, en particulier lorsque les actions concernent des décisions financières, administratives ou des communications officielles avec des parties externes.
           </p>
-        </article>
-      </div>
-    </section>
+      </section>
 
-    <section class="home-section home-section--soft">
-      <div class="container">
-        <article class="section-card fr-learn-card">
+      <section id="ia-presentations-contenu">
           <h2>5. L'IA pour les présentations et le contenu institutionnel</h2>
           <p>
             Les outils de conception et de présentation assistés par l'IA deviennent capables de produire des premières versions de présentations, publications et visuels tout en respectant l'identité visuelle d'une organisation.
@@ -224,13 +269,9 @@
           <p>
             Cependant, le message managérial, l'exactitude des données et les validations finales doivent rester sous responsabilité humaine.
           </p>
-        </article>
-      </div>
-    </section>
+      </section>
 
-    <section class="home-section">
-      <div class="container">
-        <article class="section-card fr-learn-card">
+      <section id="conclusion">
           <h2>Conclusion</h2>
           <p>
             Le changement le plus important ne consiste pas à utiliser un nouvel outil d'IA chaque semaine. Il consiste à repenser certains processus administratifs afin de les rendre plus clairs, plus rapides et plus mesurables.
@@ -246,44 +287,46 @@
           <p>
             Commencez par un processus limité, testez-le, mesurez son impact, puis développez-le progressivement.
           </p>
-        </article>
-      </div>
-    </section>
+      </section>
 
-    <section class="home-section home-section--soft">
-      <div class="container">
-        <article class="section-card fr-learn-card">
+      <section id="sources">
           <h2>Sources pour aller plus loin</h2>
           <ul>
-            <li><a href="https://zapier.com/blog/ai-agent-orchestration/" target="_blank" rel="noopener">Zapier: AI Agent Orchestration</a></li>
-            <li><a href="https://zapier.com/blog/automate-employee-onboarding/" target="_blank" rel="noopener">Zapier: Employee Onboarding Automation</a></li>
-            <li><a href="https://zapier.com/blog/best-ai-app-builders/" target="_blank" rel="noopener">Zapier: AI App Builders</a></li>
-            <li><a href="https://www.producthunt.com/posts/jotform-ai-app-builder" target="_blank" rel="noopener">Product Hunt: Jotform AI App Builder</a></li>
-            <li><a href="https://www.producthunt.com/posts/buddy-ai-note" target="_blank" rel="noopener">Product Hunt: Buddy AI Note</a></li>
+            <li><a class="inline-link" href="https://zapier.com/blog/ai-agent-orchestration/" target="_blank" rel="noopener">Zapier: AI Agent Orchestration</a></li>
+            <li><a class="inline-link" href="https://zapier.com/blog/automate-employee-onboarding/" target="_blank" rel="noopener">Zapier: Employee Onboarding Automation</a></li>
+            <li><a class="inline-link" href="https://zapier.com/blog/best-ai-app-builders/" target="_blank" rel="noopener">Zapier: AI App Builders</a></li>
+            <li><a class="inline-link" href="https://www.producthunt.com/posts/jotform-ai-app-builder" target="_blank" rel="noopener">Product Hunt: Jotform AI App Builder</a></li>
+            <li><a class="inline-link" href="https://www.producthunt.com/posts/buddy-ai-note" target="_blank" rel="noopener">Product Hunt: Buddy AI Note</a></li>
           </ul>
-        </article>
-      </div>
-    </section>
+      </section>
 
-    <section class="home-section">
-      <div class="container">
-        <div class="cta-panel">
-          <div>
-            <span class="eyebrow">Passer à l'action</span>
-            <h2>Transformez un processus répétitif en parcours clair, mesurable et contrôlé.</h2>
-            <p>ConsuTrain peut vous aider à cadrer un premier cas d'usage, choisir les bons outils et définir les validations humaines nécessaires.</p>
-          </div>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="../services/consultation-form.html">Demander une consultation</a>
-            <a class="btn btn-secondary" href="articles.html">Retour aux articles</a>
-            <a class="btn btn-secondary" href="../learn.html">Centre d'apprentissage</a>
-          </div>
+      <section class="ai-cta">
+        <h2>Transformez un processus répétitif en parcours clair, mesurable et contrôlé.</h2>
+        <p>
+          ConsuTrain peut vous aider à cadrer un premier cas d'usage, choisir les bons outils et définir les validations humaines nécessaires.
+        </p>
+        <div class="cta-buttons">
+          <a href="../services/consultation-form.html" class="cta-primary">Demander une consultation</a>
+          <a href="articles.html" class="cta-secondary">Retour aux articles</a>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
+  <button id="aiScrollTopBtn" aria-label="Retour en haut" class="back-to-top" type="button">↑</button>
   <div id="footer-placeholder"></div>
   <script src="../../assets/js/includes.js"></script>
+  <script src="../../assets/js/ai-page.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const readingTimeEl = document.getElementById("readingTime");
+      const content = document.querySelector(".ai-content");
+      if (!readingTimeEl || !content) return;
+
+      const words = (content.innerText || "").trim().split(/\s+/).filter(Boolean).length;
+      const minutes = Math.max(1, Math.ceil(words / 180));
+      readingTimeEl.textContent = `${minutes} min`;
+    });
+  </script>
 </body>
 </html>
