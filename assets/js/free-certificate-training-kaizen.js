@@ -333,6 +333,7 @@
       learningType: LEARNING_TYPE,
       trainingCategory: TRAINING_CATEGORY,
       language: LANGUAGE,
+      name: getTextValue("fullName"),
       fullName: getTextValue("fullName"),
       email: getTextValue("email"),
       country: getTextValue("country"),

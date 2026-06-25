@@ -1,8 +1,7 @@
 (function () {
   "use strict";
 
-  const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzHz6rqEG_xnyRYuwowvHH_j4HXMpN9Fqh6xI9FhhJdDHdsEw-4MWcbH8qXe8eNwaTM/exec";
-  const FORM_TYPE = "certificate_submission";
+  const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
   const TRAINING_ID = "kaizen-continuous-improvement";
   const LANGUAGE = "fr";
   const TRAINING_TITLE = "Kaizen : l’amélioration continue au travail";
@@ -338,7 +337,6 @@
   function buildSubmissionPayload(score, answers) {
     const percentage = Math.round((score / TOTAL_QUESTIONS) * 100);
     return {
-      form_type: FORM_TYPE,
       trainingId: TRAINING_ID,
       trainingTitle: TRAINING_TITLE,
       certificateType: CERTIFICATE_TYPE,
@@ -346,6 +344,7 @@
       trainingCategory: TRAINING_CATEGORY,
       language: LANGUAGE,
       name: getTextValue("fullName"),
+      fullName: getTextValue("fullName"),
       email: getTextValue("email"),
       country: getTextValue("country"),
       organization: getTextValue("organization"),
@@ -419,12 +418,12 @@
     finalSubmitButton.textContent = "Envoi en cours...";
 
     try {
-      await fetch(APPS_SCRIPT_ENDPOINT, {
+      const response = await fetch(WEBHOOK_URL, {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(buildSubmissionPayload(score, answers))
       });
+      if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
 
       submissionFinished = true;
       setSubmissionStatus("Votre demande d’attestation a été envoyée. Vérifiez votre boîte mail après traitement.", "success");
