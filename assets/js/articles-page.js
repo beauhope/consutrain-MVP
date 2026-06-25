@@ -96,6 +96,7 @@ function getArticleCategory(article) {
 }
 
 function getArticleReadLink(article) {
+  if (article.url) return article.url;
   return `article.html?id=${encodeURIComponent(article.id || "")}`;
 }
 
@@ -414,7 +415,8 @@ async function loadArticlesData() {
         content: Array.isArray(article.content) ? article.content : [],
         video_title: article.video_title || article.videoTitle || "",
         video_url: article.video_url || article.videoUrl || "",
-        related_terms: Array.isArray(article.related_terms) ? article.related_terms : []
+        related_terms: Array.isArray(article.related_terms) ? article.related_terms : [],
+        url: article.url || article.link || ""
       }));
 
     filteredArticles = [...articlesData];
