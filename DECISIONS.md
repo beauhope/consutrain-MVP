@@ -48,6 +48,22 @@ ConsuTrain – Project Management – إدارة المشروع والمتابع
 
 Status: Approved
 
+## Decision - Free training assessments share one answer key per trainingId
+
+Date: 2026-06-25
+
+Decision:
+- In all future ConsuTrain free trainings, Arabic and French assessment versions must match in question count, question order, difficulty level, correct answer, and passing percentage.
+- The wording may differ only to sound natural and appropriate in each language, but the correct answer and scoring logic must not differ between Arabic and French.
+- Therefore, the Google Sheets answer-key system uses one row per `trainingId` in the `training-answer-keys` tab and does not require two separate rows by language as long as the assessments remain equivalent.
+- If a future French assessment is intentionally different from the Arabic assessment, this decision must be revised and `language` support must be added to the answer-key table before publishing the training.
+
+Reason:
+- A single authoritative answer key per `trainingId` reduces duplication and prevents Arabic/French scoring drift when the two assessment versions are designed to be educationally equivalent.
+- Requiring an explicit decision change before language-specific answer keys protects future trainings from silent divergence.
+
+Status: Approved
+
 ## Decision - Build the French version through high-value pages first
 
 Date: 2026-06-14
