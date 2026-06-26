@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demande d’attestation | Marque et expérience client | ConsuTrain</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css?v=20260626_brand_cx_training">
+  <style>
+    body { background:#f7f9fc; }
+    .fr-training-page,.fr-training-page * { direction:ltr; }
+    .fr-training-page h1,.fr-training-page h2,.fr-training-page h3,.fr-training-page p,.fr-training-page li,.fr-training-page a,.fr-training-page label { text-align:left; }
+    .certificate-form { display:grid; gap:18px; }
+    .form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+    .form-field { display:grid; gap:6px; }
+    .form-field input { border:1px solid var(--border); border-radius:8px; padding:12px; font:inherit; }
+    .certificate-question { background:#fff; border:1px solid var(--border); border-radius:10px; margin-bottom:14px; padding:16px; }
+    .certificate-options { display:grid; gap:10px; }
+    .certificate-radio { align-items:flex-start; background:#f7f9fc; border:1px solid var(--border); border-radius:8px; cursor:pointer; display:flex; gap:10px; padding:10px; }
+    .certificate-status { border-radius:10px; font-weight:800; line-height:1.8; padding:14px 16px; }
+    .certificate-status.success { background:#e8f7ee; color:#14532d; }
+    .certificate-status.error { background:#fee2e2; color:#7f1d1d; }
+    .certificate-status.warning { background:#fff7ed; color:#7c2d12; }
+    .training-actions { display:flex; flex-wrap:wrap; gap:12px; }
+  </style>
+</head>
+<body class="fr-training-page" data-root="../../../.." data-ar-link="../../../../learn/free-certificate-training/brand-customer-experience-basics/certificate-request.html" data-breadcrumb-section="Formation gratuite" data-breadcrumb-title="Demande d’attestation">
+<div id="header-placeholder"></div><div id="breadcrumbs-placeholder"></div>
+<main class="inner-page">
+<section class="page-hero"><div class="container"><span class="eyebrow">Attestation gratuite</span><h1>Évaluation et demande d’attestation</h1><p>Répondez aux 20 questions. Avec 14 bonnes réponses ou plus, la demande d’attestation est envoyée via le flux actuel.</p></div></section>
+<section class="home-section"><div class="container">
+<form id="certificateTrainingFormFr" class="certificate-form" data-training-id="brand-customer-experience-basics" data-language="fr" data-training-title="Les fondamentaux de la marque et de l’expérience client pour les petites entreprises" data-certificate-type="free_test" data-learning-type="free_training" data-training-category="branding_customer_experience">
+<article class="section-card"><h2>Informations du participant</h2><div class="form-grid">
+<label class="form-field">Nom complet<input type="text" name="fullName" required autocomplete="name"></label>
+<label class="form-field">E-mail<input type="email" name="email" required autocomplete="email"></label>
+<label class="form-field">Pays<input type="text" name="country" required autocomplete="country-name"></label>
+<label class="form-field">Organisation<input type="text" name="organization" autocomplete="organization"></label>
+<label class="form-field">Fonction<input type="text" name="jobTitle" autocomplete="organization-title"></label>
+</div></article>
+<section id="certificateQuestionsFr" aria-label="Questions d’évaluation"></section>
+<article class="section-card">
+<label class="certificate-radio"><input type="checkbox" name="legalAcknowledgment" required><span>Je confirme que les informations fournies sont exactes et que l’attestation confirme l’achèvement d’un parcours ConsuTrain sans constituer une certification professionnelle officielle.</span></label>
+<label class="certificate-radio"><input type="checkbox" name="marketingConsent"><span>J’accepte de recevoir des informations de formation de ConsuTrain.</span></label>
+<div id="certificateStatusFr" class="certificate-status" hidden></div>
+<div class="training-actions">
+<button id="certificateSubmitBtnFr" class="btn btn-primary" type="submit">Envoyer la demande d’attestation</button>
+<button id="certificateResetBtnFr" class="btn btn-secondary" type="button">Recommencer</button>
+<a class="btn btn-secondary" href="index.html">Retour à la formation</a>
+</div>
+<div id="certificateResultActionsFr" class="training-actions" hidden><a class="btn btn-primary" href="../../free-certificate-training.html">Autres formations gratuites</a></div>
+</article>
+</form>
+</div></section></main>
+<div id="footer-placeholder"></div>
+<script src="../../../../assets/js/includes.js?v=20260620_fr_training_pilot"></script>
+<script src="../../../../assets/js/free-certificate-training-brand-cx-fr.js?v=20260626_brand_cx_training"></script>
+</body></html>

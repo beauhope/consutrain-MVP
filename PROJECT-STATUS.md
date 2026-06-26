@@ -1800,3 +1800,9 @@ Next priorities:
 - Added them to the Arabic about, contact, expert, start-here, courses, objectives-management course, templates, and learning hub pages.
 - Reused the same illustrations in the existing French about, contact, expert, start-here, courses, objectives-management, and learning pages.
 - Reused the existing shared tools and resources illustrations in `fr/tools.html` and `fr/resources/index.html`.
+
+## 2026-06-26 - Implementation note: brand and customer experience free training
+
+- New free training planned/implemented with unified `trainingId`: `brand-customer-experience-basics`.
+- Reminder: add one row to Google Sheets tab `training-answer-keys` for `brand-customer-experience-basics` before production certificate scoring is used.
+- Proposed answer key JSON: `{"q1":"B","q2":"A","q3":"B","q4":"C","q5":"B","q6":"A","q7":"B","q8":"B","q9":"B","q10":"B","q11":"B","q12":"B","q13":"A","q14":"B","q15":"B","q16":"B","q17":"B","q18":"A","q19":"B","q20":"B"}`.
