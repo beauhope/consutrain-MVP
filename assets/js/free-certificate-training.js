@@ -4,6 +4,10 @@
   const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
   const TRAINING_ID = "digital-transformation-intro";
   const TRAINING_TITLE = "مدخل إلى الرقمنة والتحول الرقمي";
+  const LANGUAGE = "ar";
+  const CERTIFICATE_TYPE = "free_test";
+  const LEARNING_TYPE = "free_training";
+  const TRAINING_CATEGORY = "transformation_numerique";
   const TOTAL_QUESTIONS = 12;
   const PASSING_SCORE = 9;
   const PENDING_SUBMISSIONS_KEY = "consutrain_pending_certificate_submissions";
@@ -338,16 +342,22 @@
       certificateKey: createCertificateKey(),
       trainingId: TRAINING_ID,
       trainingTitle: TRAINING_TITLE,
+      name: getRequiredTextValue("fullName"),
       fullName: getRequiredTextValue("fullName"),
       email: getRequiredTextValue("email"),
       country: getRequiredTextValue("country"),
       organization: getRequiredTextValue("organization"),
       jobTitle: getRequiredTextValue("jobTitle"),
+      language: LANGUAGE,
       score: score,
       totalQuestions: TOTAL_QUESTIONS,
       percentage: percentage,
+      result: passed ? "passed" : "failed",
       passed: passed,
       answersJson: JSON.stringify(answers),
+      certificateType: CERTIFICATE_TYPE,
+      learningType: LEARNING_TYPE,
+      trainingCategory: TRAINING_CATEGORY,
       legalAcknowledgment: form.elements.legalAcknowledgment.checked,
       marketingConsent: form.elements.marketingConsent.checked,
       certificateStatus: "Pending",
@@ -456,7 +466,7 @@
     clearStatus();
     resultActions.hidden = true;
     submitButton.disabled = false;
-    submitButton.textContent = "إرسال الاختبار";
+    submitButton.textContent = "إرسال طلب الشهادة";
     form.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -473,11 +483,17 @@
     const score = calculateScore(answers);
     const percentage = Number(((score / TOTAL_QUESTIONS) * 100).toFixed(2));
     const passed = score >= PASSING_SCORE;
+
+    if (!passed) {
+      showResult(score, passed);
+      return;
+    }
+
     const payload = buildPayload(score, percentage, passed, answers);
 
     ensureRetryButton();
     submitButton.disabled = true;
-    submitButton.textContent = "جاري إرسال النتيجة...";
+    submitButton.textContent = "جاري إرسال طلب الشهادة...";
 
     try {
   const webhookResult = await sendToWebhook(payload);
@@ -494,12 +510,12 @@
   resultActions.hidden = false;
 } catch (error) {
   queuePendingSubmission(payload);
-  setStatus("تم احتساب نتيجتك، لكن تعذر حفظها الآن. تم حفظ الطلب مؤقتًا على هذا الجهاز، وسيتم إعادة محاولة الإرسال عند توفر الاتصال.", "error");
+  setStatus("تم احتساب نتيجتك، لكن تعذر إرسال طلب الشهادة الآن. تم حفظ الطلب مؤقتًا على هذا الجهاز، ويمكنك إعادة المحاولة عند توفر الاتصال.", "error");
   resultActions.hidden = false;
   console.error("Certificate submission failed:", error);
 } finally {
   submitButton.disabled = false;
-  submitButton.textContent = "إرسال الاختبار";
+  submitButton.textContent = "إرسال طلب الشهادة";
 }
   });
 

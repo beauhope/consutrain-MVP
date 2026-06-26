@@ -1,8 +1,7 @@
 (function () {
   "use strict";
 
-  const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzHz6rqEG_xnyRYuwowvHH_j4HXMpN9Fqh6xI9FhhJdDHdsEw-4MWcbH8qXe8eNwaTM/exec";
-  const FORM_TYPE = "certificate_submission";
+  const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
   const TRAINING_ID = "digital-transformation-intro";
   const LANGUAGE = "fr";
   const TRAINING_TITLE = "Introduction à la digitalisation et à la transformation numérique";
@@ -323,39 +322,55 @@
     setStatus("Vos réponses ou informations obligatoires ont changé. Veuillez valider à nouveau l'évaluation.", "fail");
   }
 
-  function buildSubmissionPayload(answers) {
+  function buildSubmissionPayload(score, percentage, passed, answers) {
     return {
-      form_type: FORM_TYPE,
       trainingId: TRAINING_ID,
+      language: LANGUAGE,
+      trainingTitle: TRAINING_TITLE,
       name: getTextValue("fullName"),
+      fullName: getTextValue("fullName"),
       email: getTextValue("email"),
       country: getTextValue("country"),
       organization: getTextValue("organization"),
       jobTitle: getTextValue("jobTitle"),
       answersJson: JSON.stringify(answers),
+      score: score,
+      totalQuestions: TOTAL_QUESTIONS,
+      percentage: percentage,
+      result: passed ? "passed" : "failed",
+      passed: passed,
+      certificateType: CERTIFICATE_TYPE,
+      learningType: LEARNING_TYPE,
+      trainingCategory: TRAINING_CATEGORY,
       legalAcknowledgment: Boolean(form.elements.legalAcknowledgment.checked),
       marketingConsent: Boolean(form.elements.marketingConsent.checked)
     };
   }
 
   async function sendCertificateSubmission(payload) {
-    const response = await fetch(APPS_SCRIPT_ENDPOINT, {
+    const response = await fetch(WEBHOOK_URL, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(payload)
     });
 
-    let result;
+    if (!response.ok) {
+      throw new Error(`Webhook returned ${response.status}`);
+    }
+
+    const responseText = await response.text();
+    if (!responseText.trim()) {
+      return null;
+    }
+
     try {
-      result = await response.json();
+      return JSON.parse(responseText);
     } catch (error) {
-      throw new Error("Malformed Apps Script response");
+      console.warn("Webhook returned a non-JSON success response:", error);
+      return null;
     }
-
-    if (!response.ok || !result || result.ok !== true) {
-      throw new Error(result && result.message ? result.message : "Certificate submission failed");
-    }
-
-    return result;
   }
 
   form.addEventListener("submit", function (event) {
@@ -447,7 +462,8 @@
       return;
     }
 
-    const payload = buildSubmissionPayload(answers);
+    const percentage = Number(((score / TOTAL_QUESTIONS) * 100).toFixed(2));
+    const payload = buildSubmissionPayload(score, percentage, true, answers);
     const originalButtonText = finalSubmitButton.textContent;
     isSending = true;
     setFinalSubmitEnabled(false);
@@ -459,26 +475,24 @@
     try {
       const result = await sendCertificateSubmission(payload);
 
-      if (result.status === "accepted") {
+      if (result && result.status === "duplicate") {
         submissionFinished = true;
         setSubmissionStatus(
-          "Votre demande a été enregistrée. L’attestation sera traitée après vérification de votre réussite.",
+          result.message || "Une demande d’attestation existe déjà pour cette formation et cette adresse e-mail.",
           "success"
         );
-      } else if (result.status === "pending") {
+      } else if (result && result.status === "pending") {
         submissionFinished = true;
         setSubmissionStatus(
           "Votre demande est déjà en cours de traitement. Veuillez consulter votre boîte e-mail ultérieurement.",
           "success"
         );
-      } else if (result.status === "duplicate") {
+      } else {
         submissionFinished = true;
         setSubmissionStatus(
-          "Une demande d’attestation existe déjà pour cette formation et cette adresse e-mail.",
+          "Votre demande a été enregistrée. L’attestation sera traitée après vérification de votre réussite.",
           "success"
         );
-      } else {
-        throw new Error("Unexpected Apps Script status");
       }
     } catch (error) {
       setSubmissionStatus(
