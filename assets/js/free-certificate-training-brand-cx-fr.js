@@ -4,10 +4,6 @@
   const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
   const TRAINING_ID = "brand-customer-experience-basics";
   const TRAINING_TITLE = "Les fondamentaux de la marque et de l’expérience client pour les petites entreprises";
-  const LANGUAGE = "fr";
-  const CERTIFICATE_TYPE = "free_test";
-  const LEARNING_TYPE = "free_training";
-  const TRAINING_CATEGORY = "branding_customer_experience";
   const TOTAL_QUESTIONS = 20;
   const PASSING_SCORE = 14;
   const PENDING_SUBMISSIONS_KEY = "consutrain_pending_certificate_submissions";
@@ -107,12 +103,12 @@
       timestamp: new Date().toISOString(),
       submissionId: `${TRAINING_ID}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       certificateKey: `${TRAINING_ID}-${email}`,
-      trainingId: TRAINING_ID,
+      trainingId: "brand-customer-experience-basics",
       trainingTitle: TRAINING_TITLE,
-      certificateType: CERTIFICATE_TYPE,
-      learningType: LEARNING_TYPE,
-      trainingCategory: TRAINING_CATEGORY,
-      language: LANGUAGE,
+      certificateType: "free_test",
+      learningType: "free_training",
+      trainingCategory: "branding_customer_experience",
+      language: "fr",
       name: getTextValue("fullName"),
       fullName: getTextValue("fullName"),
       email: getTextValue("email"),
