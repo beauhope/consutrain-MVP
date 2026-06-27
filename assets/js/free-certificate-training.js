@@ -4,10 +4,6 @@
   const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
   const TRAINING_ID = "digital-transformation-intro";
   const TRAINING_TITLE = "مدخل إلى الرقمنة والتحول الرقمي";
-  const LANGUAGE = "ar";
-  const CERTIFICATE_TYPE = "free_test";
-  const LEARNING_TYPE = "free_training";
-  const TRAINING_CATEGORY = "transformation_numerique";
   const TOTAL_QUESTIONS = 12;
   const PASSING_SCORE = 9;
   const PENDING_SUBMISSIONS_KEY = "consutrain_pending_certificate_submissions";
@@ -340,24 +336,24 @@
       timestamp: new Date().toISOString(),
       submissionId: createSubmissionId(),
       certificateKey: createCertificateKey(),
-      trainingId: TRAINING_ID,
+      trainingId: "digital-transformation-intro",
       trainingTitle: TRAINING_TITLE,
+      certificateType: "free_test",
+      learningType: "free_training",
+      trainingCategory: "digital_transformation",
+      language: "ar",
       name: getRequiredTextValue("fullName"),
       fullName: getRequiredTextValue("fullName"),
       email: getRequiredTextValue("email"),
       country: getRequiredTextValue("country"),
       organization: getRequiredTextValue("organization"),
       jobTitle: getRequiredTextValue("jobTitle"),
-      language: LANGUAGE,
       score: score,
       totalQuestions: TOTAL_QUESTIONS,
       percentage: percentage,
       result: passed ? "passed" : "failed",
       passed: passed,
       answersJson: JSON.stringify(answers),
-      certificateType: CERTIFICATE_TYPE,
-      learningType: LEARNING_TYPE,
-      trainingCategory: TRAINING_CATEGORY,
       legalAcknowledgment: form.elements.legalAcknowledgment.checked,
       marketingConsent: form.elements.marketingConsent.checked,
       certificateStatus: "Pending",

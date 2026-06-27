@@ -3,11 +3,7 @@
 
   const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
   const TRAINING_ID = "digital-transformation-intro";
-  const LANGUAGE = "fr";
   const TRAINING_TITLE = "Introduction à la digitalisation et à la transformation numérique";
-  const CERTIFICATE_TYPE = "free_test";
-  const LEARNING_TYPE = "free_training";
-  const TRAINING_CATEGORY = "transformation_numerique";
   const TOTAL_QUESTIONS = 12;
   const PASSING_SCORE = 9;
 
@@ -306,6 +302,11 @@
     });
   }
 
+  function createCertificateKey() {
+    const email = getTextValue("email").toLowerCase();
+    return `${TRAINING_ID}-${email}`;
+  }
+
   function invalidateProvisionalPass() {
     if (!provisionalPassIsCurrent || submissionFinished) {
       return;
@@ -324,9 +325,13 @@
 
   function buildSubmissionPayload(score, percentage, passed, answers) {
     return {
-      trainingId: TRAINING_ID,
-      language: LANGUAGE,
+      certificateKey: createCertificateKey(),
+      trainingId: "digital-transformation-intro",
       trainingTitle: TRAINING_TITLE,
+      certificateType: "free_test",
+      learningType: "free_training",
+      trainingCategory: "digital_transformation",
+      language: "fr",
       name: getTextValue("fullName"),
       fullName: getTextValue("fullName"),
       email: getTextValue("email"),
@@ -339,9 +344,6 @@
       percentage: percentage,
       result: passed ? "passed" : "failed",
       passed: passed,
-      certificateType: CERTIFICATE_TYPE,
-      learningType: LEARNING_TYPE,
-      trainingCategory: TRAINING_CATEGORY,
       legalAcknowledgment: Boolean(form.elements.legalAcknowledgment.checked),
       marketingConsent: Boolean(form.elements.marketingConsent.checked)
     };
@@ -544,9 +546,5 @@
   setFinalSubmitEnabled(false);
 
   void TRAINING_ID;
-  void LANGUAGE;
   void TRAINING_TITLE;
-  void CERTIFICATE_TYPE;
-  void LEARNING_TYPE;
-  void TRAINING_CATEGORY;
 })();
