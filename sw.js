@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260614-fr-tools-questionmark-fix";
-const RUNTIME_CACHE = "consutrain-runtime-v20260614-fr-tools-questionmark-fix";
+const STATIC_CACHE = "consutrain-v20260627-digital-payload-fix";
+const RUNTIME_CACHE = "consutrain-runtime-v20260627-digital-payload-fix";
 
 const PRECACHE_URLS = [
   "./",
@@ -332,6 +332,7 @@ function shouldUseNetworkFirstForUiAsset(url) {
   return (
     path.includes("/partials/") ||
     path.endsWith("/assets/js/includes.js") ||
+    path.endsWith("/assets/js/free-certificate-training.js") ||
     path.endsWith("/assets/js/pwa.js") ||
     path.endsWith("/assets/css/style.css") ||
     path.endsWith("/manifest.webmanifest")
