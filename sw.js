@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260627-digital-payload-fix";
-const RUNTIME_CACHE = "consutrain-runtime-v20260627-digital-payload-fix";
+const STATIC_CACHE = "consutrain-v20260629-blue-ocean-training";
+const RUNTIME_CACHE = "consutrain-runtime-v20260629-blue-ocean-training";
 
 const PRECACHE_URLS = [
   "./",
@@ -62,6 +62,9 @@ const PRECACHE_URLS = [
   "./learn/free-certificate-training/digital-transformation-intro/lesson-05.html",
   "./learn/free-certificate-training/digital-transformation-intro/final-assessment.html",
   "./learn/free-certificate-training/digital-transformation-intro/certificate-request.html",
+  "./learn/free-certificate-training/blue-ocean-strategy-fundamentals/index.html",
+  "./learn/free-certificate-training/blue-ocean-strategy-fundamentals/final-assessment.html",
+  "./learn/free-certificate-training/blue-ocean-strategy-fundamentals/certificate-request.html",
   "./learn/management-tech-radar.html",
   "./learn/radar/ai-workflow-integration.html",
   "./learn/radar/ai-model-flexibility.html",
@@ -114,6 +117,8 @@ const PRECACHE_URLS = [
 
   "./assets/js/includes.js",
   "./assets/js/free-certificate-training.js",
+  "./assets/js/free-certificate-training-blue-ocean.js",
+  "./assets/js/free-certificate-training-blue-ocean-fr.js",
   "./assets/js/main.js",
   "./assets/js/ai-page.js",
 "./assets/js/article-page.js",
@@ -161,6 +166,9 @@ const PRECACHE_URLS = [
   "./fr/learn/glossary.html",
   "./fr/learn/management-tech-radar.html",
   "./fr/learn/free-certificate-training.html",
+  "./fr/learn/free-certificate-training/blue-ocean-strategy-fundamentals/index.html",
+  "./fr/learn/free-certificate-training/blue-ocean-strategy-fundamentals/final-assessment.html",
+  "./fr/learn/free-certificate-training/blue-ocean-strategy-fundamentals/certificate-request.html",
   "./fr/learn/management-skills.html",
   "./fr/learn/ai.html",
   "./fr/learn/ai-prompts.html",
@@ -333,6 +341,8 @@ function shouldUseNetworkFirstForUiAsset(url) {
     path.includes("/partials/") ||
     path.endsWith("/assets/js/includes.js") ||
     path.endsWith("/assets/js/free-certificate-training.js") ||
+    path.endsWith("/assets/js/free-certificate-training-blue-ocean.js") ||
+    path.endsWith("/assets/js/free-certificate-training-blue-ocean-fr.js") ||
     path.endsWith("/assets/js/pwa.js") ||
     path.endsWith("/assets/css/style.css") ||
     path.endsWith("/manifest.webmanifest")

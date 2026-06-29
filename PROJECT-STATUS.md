@@ -1806,3 +1806,30 @@ Next priorities:
 - New free training planned/implemented with unified `trainingId`: `brand-customer-experience-basics`.
 - Reminder: add one row to Google Sheets tab `training-answer-keys` for `brand-customer-experience-basics` before production certificate scoring is used.
 - Proposed answer key JSON: `{"q1":"B","q2":"A","q3":"B","q4":"C","q5":"B","q6":"A","q7":"B","q8":"B","q9":"B","q10":"B","q11":"B","q12":"B","q13":"A","q14":"B","q15":"B","q16":"B","q17":"B","q18":"A","q19":"B","q20":"B"}`.
+
+## 2026-06-29 - Blue Ocean Strategy free training with certificates
+
+Status: Implemented locally / pending live webhook and n8n mail-template verification
+
+| Course | trainingId | Language | Category | Certificate type | Course page | Assessment | Submission test | Approval date | Certificate integration notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| استراتيجية المحيط الأزرق: ابتكار القيمة وخلق أسواق جديدة | `blue-ocean-strategy-fundamentals-ar` | `ar` | `strategic_management_and_innovation` | `free_test` | Created | 20-question test created | Local payload validation pending live webhook access | 2026-06-29 | Uses existing certificate webhook and sends `learningType=free_training`, `certificateType=free_test`, `totalQuestions=20`. |
+| Stratégie Océan Bleu : innover par la valeur et créer de nouveaux marchés | `blue-ocean-strategy-fundamentals-fr` | `fr` | `strategic_management_and_innovation` | `free_test` | Created | 20-question test created | Local payload validation pending live webhook access | 2026-06-29 | Separate French `trainingId` prevents duplicate-key collision with Arabic certificate requests. |
+
+Created/updated:
+- Arabic course pages under `learn/free-certificate-training/blue-ocean-strategy-fundamentals/`.
+- French course pages under `fr/learn/free-certificate-training/blue-ocean-strategy-fundamentals/`.
+- Arabic and French assessment scripts:
+  - `assets/js/free-certificate-training-blue-ocean.js`
+  - `assets/js/free-certificate-training-blue-ocean-fr.js`
+- Added course cards to Arabic and French free-certificate training indexes.
+- Updated `sw.js` cache names and precache list for the new pages and scripts.
+
+Answer key JSON:
+- Arabic: `{"q1":"A","q2":"C","q3":"B","q4":"D","q5":"B","q6":"C","q7":"A","q8":"D","q9":"B","q10":"C","q11":"A","q12":"B","q13":"D","q14":"C","q15":"A","q16":"B","q17":"D","q18":"C","q19":"B","q20":"A"}`
+- French: `{"q1":"A","q2":"C","q3":"B","q4":"D","q5":"B","q6":"C","q7":"A","q8":"D","q9":"B","q10":"C","q11":"A","q12":"B","q13":"D","q14":"C","q15":"A","q16":"B","q17":"D","q18":"C","q19":"B","q20":"A"}`
+
+n8n note:
+- No n8n workflow export or central email-template file was found in the repository during this implementation.
+- The public course files were not given any webhook secrets or credentials.
+- The requested motivational certificate-email message still needs to be added in the live `ConsuTrain – Unified Certificate Delivery` workflow email-content node if that workflow is managed outside this repository.
