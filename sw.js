@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260711-critical-precache-fix";
-const RUNTIME_CACHE = "consutrain-runtime-v20260711-critical-precache-fix";
+const STATIC_CACHE = "consutrain-v20260711-internal-forms-pricing";
+const RUNTIME_CACHE = "consutrain-runtime-v20260711-internal-forms-pricing";
 
 const PRECACHE_URLS = [
   "./",

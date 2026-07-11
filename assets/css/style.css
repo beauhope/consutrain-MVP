@@ -8836,7 +8836,7 @@ section[id],
   line-height:1.95;
 }
 
-.tally-placeholder{
+.form-placeholder{
   display:grid;
   align-content:center;
   gap:12px;
@@ -8848,12 +8848,12 @@ section[id],
   text-align:right;
 }
 
-.tally-placeholder h3{
+.form-placeholder h3{
   margin:0;
   color:var(--primary);
 }
 
-.tally-placeholder p{
+.form-placeholder p{
   margin:0;
   color:var(--muted);
   line-height:1.9;
@@ -8901,7 +8901,7 @@ section[id],
     padding:18px;
   }
 
-  .tally-placeholder{
+  .form-placeholder{
     min-height:240px;
     border-radius:18px;
     padding:18px;
@@ -8909,11 +8909,11 @@ section[id],
 }
 
 /* =========================================================
-   FEEDBACK PAGE — TALLY EMBED
-   ضبط تضمين نموذج Tally داخل صفحة شاركنا رأيك
+   FEEDBACK PAGE — FORM EMBED
+   ضبط تضمين النموذج داخل صفحة شاركنا رأيك
    ========================================================= */
 
-.tally-embed-wrapper{
+.form-embed-wrapper{
   width:100%;
   min-height:1200px;
   background:#fff;
@@ -8924,7 +8924,7 @@ section[id],
   overflow:visible;
 }
 
-.tally-embed-wrapper iframe{
+.form-embed-wrapper iframe{
   display:block;
   width:100%;
   min-height:1200px;
@@ -8934,20 +8934,20 @@ section[id],
 }
 
 @media (max-width: 768px){
-  .tally-embed-wrapper{
+  .form-embed-wrapper{
     min-height:1200px;
     border-radius:18px;
     padding:0;
   }
 
-  .tally-embed-wrapper iframe{
+  .form-embed-wrapper iframe{
     min-height:1200px;
     border-radius:14px;
   }
 }
 
 /* =========================================================
-   FEEDBACK PAGE — CENTERED TALLY LAYOUT
+   FEEDBACK PAGE — CENTERED FORM LAYOUT
    جعل نص النموذج أعلى، والنموذج في وسط الصفحة
    ========================================================= */
 
@@ -8978,12 +8978,12 @@ section[id],
   margin-right:auto;
 }
 
-.tally-embed-wrapper{
+.form-embed-wrapper{
   max-width:760px;
   margin:0 auto;
 }
 
-.tally-embed-wrapper iframe{
+.form-embed-wrapper iframe{
   min-height:1200px;
 }
 
@@ -9007,18 +9007,18 @@ section[id],
     text-align:right;
   }
 
-  .tally-embed-wrapper{
+  .form-embed-wrapper{
     max-width:100%;
   }
 
-  .tally-embed-wrapper iframe{
+  .form-embed-wrapper iframe{
     min-height:1200px;
   }
 }
 
 /* =========================================================
    CONSULTATION FORM PAGE — نموذج طلب استشارة أو دورة
-   صفحة مستقلة لتضمين نموذج Tally
+   صفحة مستقلة لنموذج داخلي
    ========================================================= */
 
 .consultation-form-hero{
@@ -9108,7 +9108,7 @@ section[id],
   margin-right:auto;
 }
 
-.consultation-tally-wrapper{
+.consultation-embed-wrapper{
   width:100%;
   max-width:760px;
   min-height:620px;
@@ -9121,7 +9121,7 @@ section[id],
   overflow:hidden;
 }
 
-.consultation-tally-wrapper iframe{
+.consultation-embed-wrapper iframe{
   display:block;
   width:100%;
   min-height:620px;
@@ -9173,14 +9173,14 @@ section[id],
     text-align:right;
   }
 
-  .consultation-tally-wrapper{
+  .consultation-embed-wrapper{
     max-width:100%;
     min-height:680px;
     border-radius:18px;
     padding:8px;
   }
 
-  .consultation-tally-wrapper iframe{
+  .consultation-embed-wrapper iframe{
     min-height:680px;
     border-radius:14px;
   }

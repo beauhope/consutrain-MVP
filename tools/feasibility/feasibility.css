@@ -197,7 +197,7 @@
   line-height: 1.9;
 }
 
-.tool-tally-embed{
+.tool-service-request{
   margin-top: 18px;
   padding: 18px;
   border: 1px solid var(--ft-border);
@@ -205,13 +205,13 @@
   background: #ffffff;
 }
 
-.tool-tally-embed h2{
+.tool-service-request h2{
   margin: 0 0 10px;
   color: var(--ft-text);
   font-size: clamp(18px, 2vw, 24px);
 }
 
-.tool-tally-embed iframe{
+.tool-service-request iframe{
   display: block;
   width: 100%;
   min-height: 680px;

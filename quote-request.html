@@ -5,9 +5,7 @@
     =========================================================
     FILE: quote-request.html
     PURPOSE:
-    صفحة داخلية لتضمين نموذج Tally الخاص بطلب عرض سعر أو خدمة مهنية.
-    TALLY FORM:
-    https://tally.so/r/KYW6z8
+    صفحة داخلية لنموذج طلب عرض سعر أو خدمة مهنية.
     =========================================================
   -->
   <meta charset="utf-8">
@@ -26,6 +24,129 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="icon" type="image/png" href="./assets/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
+  <style>
+    .quote-internal-section {
+      background: #f7f9fc;
+    }
+
+    .quote-form-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 18px 42px rgba(15, 39, 71, 0.08);
+      display: grid;
+      gap: 24px;
+      padding: 24px;
+    }
+
+    .internal-quote-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .quote-form-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .quote-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .quote-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .quote-field label,
+    .quote-consent-field {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .quote-field input,
+    .quote-field select,
+    .quote-field textarea {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--primary);
+      font: inherit;
+      line-height: 1.6;
+      padding: 12px 14px;
+      width: 100%;
+    }
+
+    .quote-field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .quote-field small {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .quote-consent-field {
+      align-items: flex-start;
+      background: #f7f9fc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      gap: 10px;
+      line-height: 1.8;
+      padding: 12px 14px;
+    }
+
+    .quote-consent-field input {
+      margin-top: 8px;
+      width: auto;
+    }
+
+    .quote-hidden-field {
+      height: 1px;
+      left: -9999px;
+      overflow: hidden;
+      position: absolute;
+      top: auto;
+      width: 1px;
+    }
+
+    .quote-form-status {
+      background: rgba(212, 166, 58, 0.14);
+      border: 1px solid rgba(212, 166, 58, 0.38);
+      border-radius: 14px;
+      color: var(--primary);
+      display: none;
+      font-weight: 800;
+      line-height: 1.8;
+      padding: 14px 16px;
+    }
+
+    .quote-form-status.show {
+      display: block;
+    }
+
+    .quote-actions {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .quote-form-card {
+        border-radius: 18px;
+        padding: 18px;
+      }
+
+      .quote-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body
@@ -69,9 +190,9 @@
       </div>
     </section>
 
-    <section class="home-section consultation-tally-section" id="quote-request-form" aria-labelledby="quote-form-title">
+    <section class="home-section quote-internal-section" id="quote-request-form" aria-labelledby="quote-form-title">
       <div class="container">
-        <div class="consultation-form-card">
+        <div class="quote-form-card">
           <div class="consultation-form-copy">
             <span class="section-eyebrow">النموذج</span>
             <h2 id="quote-form-title">أرسل طلبك الآن</h2>
@@ -81,17 +202,106 @@
             </p>
           </div>
 
-          <div class="consultation-tally-wrapper" dir="rtl">
-            <iframe
-              src="https://tally.so/r/KYW6z8"
-              width="100%"
-              height="900"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              title="طلب عرض سعر أو خدمة مهنية"
-            ></iframe>
-          </div>
+          <form class="internal-quote-form" id="internalQuoteForm" action="#" method="post">
+            <div class="quote-form-grid">
+              <div class="quote-field">
+                <label for="fullName">الاسم الكامل</label>
+                <input id="fullName" name="fullName" type="text" autocomplete="name" maxlength="120" required>
+              </div>
+
+              <div class="quote-field">
+                <label for="email">البريد الإلكتروني</label>
+                <input id="email" name="email" type="email" autocomplete="email" maxlength="160" required>
+              </div>
+
+              <div class="quote-field">
+                <label for="phone">رقم الهاتف أو واتساب</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40">
+              </div>
+
+              <div class="quote-field">
+                <label for="organization">اسم المؤسسة أو الجهة، إن وجد</label>
+                <input id="organization" name="organization" type="text" autocomplete="organization" maxlength="160">
+              </div>
+
+              <div class="quote-field">
+                <label for="country">الدولة</label>
+                <input id="country" name="country" type="text" autocomplete="country-name" maxlength="100">
+              </div>
+
+              <div class="quote-field">
+                <label for="requestType">نوع الطلب</label>
+                <select id="requestType" name="requestType" required>
+                  <option value="">اختر نوع الطلب</option>
+                  <option value="طلب عرض سعر">طلب عرض سعر</option>
+                  <option value="دورة تدريبية">دورة تدريبية</option>
+                  <option value="خدمة استشارية">خدمة استشارية</option>
+                  <option value="ورشة تطبيقية">ورشة تطبيقية</option>
+                  <option value="دراسة جدوى">دراسة جدوى</option>
+                  <option value="خدمة مؤسسية مخصصة">خدمة مؤسسية مخصصة</option>
+                  <option value="طلب آخر">طلب آخر</option>
+                </select>
+              </div>
+
+              <div class="quote-field quote-field--full">
+                <label for="requestedItem">الخدمة أو الدورة المطلوبة</label>
+                <input id="requestedItem" name="requestedItem" type="text" maxlength="180" required>
+                <small>يمكن تعديل هذا الحقل إذا تم تعبئته تلقائيًا من الرابط.</small>
+              </div>
+
+              <div class="quote-field quote-field--full">
+                <label for="needDescription">وصف الاحتياج</label>
+                <textarea id="needDescription" name="needDescription" maxlength="1500" required></textarea>
+              </div>
+
+              <div class="quote-field quote-field--full">
+                <label for="expectedDeliverables">المخرجات المتوقعة</label>
+                <textarea id="expectedDeliverables" name="expectedDeliverables" maxlength="1200" required></textarea>
+              </div>
+
+              <div class="quote-field">
+                <label for="timeline">المدة أو الموعد المطلوب، إن وجد</label>
+                <input id="timeline" name="timeline" type="text" maxlength="140">
+              </div>
+
+              <div class="quote-field">
+                <label for="preferredLanguage">اللغة المفضلة للتواصل</label>
+                <select id="preferredLanguage" name="preferredLanguage" required>
+                  <option value="">اختر اللغة</option>
+                  <option value="العربية">العربية</option>
+                  <option value="الفرنسية">الفرنسية</option>
+                  <option value="العربية أو الفرنسية">العربية أو الفرنسية</option>
+                </select>
+              </div>
+
+              <div class="quote-field">
+                <label for="preferredContact">وسيلة التواصل المفضلة</label>
+                <select id="preferredContact" name="preferredContact" required>
+                  <option value="">اختر وسيلة التواصل</option>
+                  <option value="البريد الإلكتروني">البريد الإلكتروني</option>
+                  <option value="واتساب">واتساب</option>
+                  <option value="الهاتف">الهاتف</option>
+                </select>
+              </div>
+
+              <div class="quote-hidden-field" aria-hidden="true">
+                <label for="companyWebsite">الموقع الإلكتروني</label>
+                <input id="companyWebsite" name="companyWebsite" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <label class="quote-consent-field quote-field--full">
+                <input name="consent" type="checkbox" required>
+                <span>أوافق على استخدام البيانات المرسلة لغرض فهم الطلب والتواصل بشأنه.</span>
+              </label>
+            </div>
+
+            <p class="quote-form-status" id="quoteFormStatus" role="status" aria-live="polite" tabindex="-1"></p>
+
+            <div class="quote-actions">
+              <button class="btn btn-primary" type="submit">إرسال طلب عرض السعر</button>
+              <a class="btn btn-secondary" href="contact.html">التواصل عبر صفحة التواصل</a>
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -117,6 +327,171 @@
 
   <script src="assets/js/includes.js"></script>
   <script src="assets/js/pwa.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzHz6rqEG_xnyRYuwowvHH_j4HXMpN9Fqh6xI9FhhJdDHdsEw-4MWcbH8qXe8eNwaTM/exec";
+      var form = document.getElementById("internalQuoteForm");
+      var status = document.getElementById("quoteFormStatus");
+      var submitButton = form ? form.querySelector('button[type="submit"]') : null;
+
+      if (!form || !status || !submitButton) return;
+
+      function cleanText(value, maxLength) {
+        if (typeof value !== "string") return "";
+        return value
+          .replace(/[<>]/g, "")
+          .replace(/[\u0000-\u001f\u007f]/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, maxLength);
+      }
+
+      function fieldValue(name) {
+        var field = form.elements[name];
+        return field && typeof field.value === "string" ? cleanText(field.value, 1600) : "";
+      }
+
+      function setStatus(message) {
+        status.textContent = message;
+        status.classList.add("show");
+        status.focus();
+      }
+
+      function setSelectValue(name, value) {
+        var field = form.elements[name];
+        if (!field || !value) return;
+        var matched = false;
+        Array.prototype.some.call(field.options, function (option) {
+          if (option.value === value || option.textContent === value) {
+            field.value = option.value;
+            matched = true;
+            return true;
+          }
+          return false;
+        });
+        if (!matched) {
+          field.value = value;
+        }
+      }
+
+      var params = new URLSearchParams(window.location.search);
+      var requestTypeMap = {
+        course: "دورة تدريبية",
+        training: "دورة تدريبية",
+        workshop: "ورشة تطبيقية",
+        service: "خدمة استشارية",
+        consultation: "خدمة استشارية",
+        feasibility: "دراسة جدوى",
+        quote: "طلب عرض سعر",
+        custom: "خدمة مؤسسية مخصصة",
+        institutional: "خدمة مؤسسية مخصصة",
+        other: "طلب آخر"
+      };
+      var itemLabelMap = {
+        "custom-training": "دورة تدريبية مخصصة",
+        "custom-practical-workshop": "ورشة تطبيقية مخصصة",
+        "practical-workshops": "ورش عمل تطبيقية قصيرة",
+        "objectives-management": "من الهدف إلى الإنجاز: برنامج عملي لإدارة الأهداف ومؤشرات الأداء",
+        "mor-foundation": "دورة تدريبية تأسيسية وفق إطار M_o_R",
+        "strategic-planning-course": "التخطيط الاستراتيجي من التفكير إلى التنفيذ",
+        "balanced-scorecard-performance-management": "بطاقة الأداء المتوازن وإدارة الأداء المؤسسي",
+        "agile-project-management": "إدارة المشاريع الأجايل من الفكرة إلى التسليم",
+        "startup-building": "بناء وإدارة الشركات الناشئة من الفكرة إلى النمو",
+        "iso-9001-internal-auditor": "مدقق داخلي لنظام إدارة الجودة ISO 9001:2015",
+        "integrated-management-system-ims": "بناء وتطبيق نظام الإدارة المتكامل IMS",
+        "institutional-excellence": "التميز المؤسسي من المفهوم إلى التطبيق",
+        "corporate-governance": "الحوكمة المؤسسية من المبادئ إلى التطبيق",
+        "occupational-health-safety-management-system": "بناء وتطبيق نظام إدارة الصحة والسلامة المهنية ISO 45001",
+        "professional-feasibility-study": "إعداد دراسة جدوى احترافية",
+        "professional-service": "خدمة مهنية من ConsuTrain"
+      };
+      var typeParam = cleanText(params.get("type") || params.get("request_type") || "", 80).toLowerCase();
+      var itemParam = cleanText(params.get("item") || params.get("service") || params.get("course") || "", 180);
+      var sourceParam = cleanText(params.get("source") || "", 120);
+      var requestType = requestTypeMap[typeParam] || (typeParam ? "طلب عرض سعر" : "");
+      var itemDisplayValue = itemLabelMap[itemParam.toLowerCase()] || itemParam.replace(/[-_]+/g, " ");
+
+      if (requestType) {
+        setSelectValue("requestType", requestType);
+      }
+
+      if (itemDisplayValue) {
+        form.elements.requestedItem.value = itemDisplayValue;
+      }
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var email = fieldValue("email");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          setStatus("يرجى إدخال بريد إلكتروني صحيح.");
+          return;
+        }
+
+        if (fieldValue("companyWebsite")) {
+          setStatus("تم استلام الطلب. سنراجع البيانات ونتواصل معك عند الحاجة.");
+          form.reset();
+          return;
+        }
+
+        var originalButtonText = submitButton.textContent;
+        var payload = {
+          language: "ar",
+          source_page: "quote-request.html",
+          request_source: sourceParam,
+          request_type_param: typeParam,
+          item_param: itemParam,
+          full_name: fieldValue("fullName"),
+          email: email,
+          phone: fieldValue("phone"),
+          organization: fieldValue("organization"),
+          country: fieldValue("country"),
+          request_type: fieldValue("requestType"),
+          requested_item: fieldValue("requestedItem"),
+          description: fieldValue("needDescription"),
+          expected_deliverables: fieldValue("expectedDeliverables"),
+          timeline: fieldValue("timeline"),
+          preferred_language: fieldValue("preferredLanguage"),
+          preferred_contact: fieldValue("preferredContact"),
+          consent: Boolean(form.elements.consent && form.elements.consent.checked)
+        };
+
+        submitButton.disabled = true;
+        submitButton.textContent = "جاري إرسال الطلب...";
+        setStatus("جاري إرسال طلب عرض السعر...");
+
+        try {
+          var response = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+          var result = await response.json().catch(function () {
+            return {};
+          });
+
+          if (!response.ok || result.ok !== true) {
+            throw new Error("Quote request failed");
+          }
+
+          setStatus("تم استلام طلب عرض السعر بنجاح. سنراجع الاحتياج ونعود إليك بالتفاصيل المناسبة.");
+          form.reset();
+        } catch (error) {
+          setStatus("تعذر إرسال الطلب حاليًا. يرجى المحاولة لاحقًا أو استخدام صفحة التواصل.");
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      });
+    });
+  </script>
 
   <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
     ↑
