@@ -1,0 +1,38 @@
+{
+  "brand": {
+    "name": "ConsuTrain",
+    "tagline": {
+      "ar": "تعلّم • طبّق • طوّر • أنجح",
+      "fr": "Apprendre • Appliquer • Développer • Réussir"
+    }
+  },
+  "website": {
+    "label": "consutrain.com",
+    "url": "https://consutrain.com"
+  },
+  "email": {
+    "label": "consutrain@gmail.com",
+    "url": "mailto:consutrain@gmail.com"
+  },
+  "phone": {
+    "label": "+212 773 275 105",
+    "url": "tel:+212773275105"
+  },
+  "whatsapp": {
+    "label": "+212 773 275 105",
+    "url": "https://wa.me/212773275105"
+  },
+  "guidePage": {
+    "ar": "https://consutrain.com/consutrain-guide.html",
+    "fr": "https://consutrain.com/fr/consutrain-guide.html"
+  },
+  "contactPage": {
+    "ar": "https://consutrain.com/contact.html",
+    "fr": "https://consutrain.com/fr/contact.html"
+  },
+  "quotePage": {
+    "ar": "https://consutrain.com/quote-request.html?type=quote&item=professional-service&source=platform-guide-pdf#quote-request-form",
+    "fr": "https://consutrain.com/fr/quote-request.html?type=quote&item=professional-service&source=platform-guide-pdf#quote-request-form"
+  },
+  "social": []
+}

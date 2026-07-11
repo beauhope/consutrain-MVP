@@ -7,8 +7,10 @@ on:
     paths:
       - "assets/data/platform-guide.json"
       - "assets/data/fr-platform-guide.json"
+      - "assets/data/platform-contact.json"
       - "scripts/generate_platform_guide_pdfs.py"
       - "assets/images/consutrain-logo-horizontal.png"
+      - "assets/images/consutrain-logo-horizontal-fr.png"
       - "assets/fonts/Cairo-Regular.ttf"
       - "assets/fonts/Cairo-Bold.ttf"
   workflow_dispatch:
@@ -33,10 +35,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Playwright and Chromium
+      - name: Install PDF generation dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install playwright
+          python -m pip install playwright "qrcode[pil]"
           python -m playwright install --with-deps chromium
 
       - name: Generate Arabic and French PDFs

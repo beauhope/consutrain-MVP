@@ -1,43 +1,38 @@
 # Automatic latest platform guide PDFs
 
-This package makes every Arabic and French guide download or preview resolve to the latest published PDF.
+The Arabic and French platform guides are generated automatically as branded, marketing-ready PDFs.
 
-## Source of truth
+## Sources of truth
 
 - `assets/data/platform-guide.json`
 - `assets/data/fr-platform-guide.json`
+- `assets/data/platform-contact.json`
 
-When a service, course, certificate training, tool, resource, or learning path changes, update the relevant JSON file.
+The contact file centralizes the website, WhatsApp number, email, guide pages and request links. Updating it refreshes both PDFs on the next workflow run.
+
+## Marketing features generated automatically
+
+- ConsuTrain logo in the header of every page;
+- website, WhatsApp number and pagination in every footer;
+- clickable links on course, service, tool and resource cards;
+- a conversion block after every main section;
+- a final contact page with website, WhatsApp, email and service-request links;
+- QR codes for the latest live guide and WhatsApp;
+- Arabic and French wording adapted to each audience.
 
 ## Automatic generation
 
-The workflow `.github/workflows/update-platform-guide-pdfs.yml` runs after a guide-data, generator, logo, or PDF-font update. It:
+The workflow `.github/workflows/update-platform-guide-pdfs.yml` runs whenever guide content, contact data, the generator, logo or PDF fonts change. It installs Playwright, Chromium and `qrcode`, generates both PDFs, updates the manifest and commits only the generated PDFs and manifest when needed.
 
-1. installs Playwright and Chromium;
-2. generates the Arabic and French PDFs;
-3. creates `assets/data/platform-guide-pdf-manifest.json` with a source hash and current PDF versions;
-4. commits only the two PDFs and the manifest when they changed.
-
-Stable PDF filenames remain compatible with old links:
+Stable filenames remain compatible with all existing links:
 
 - `resources/downloads/profile/ConsuTrain_Profile_and_Services_AR.pdf`
 - `resources/downloads/profile/ConsuTrain_Profile_and_Services_FR.pdf`
 
-## Always-latest links
-
-The website buttons point to resolver pages:
-
-- `resources/downloads/profile/latest-ar.html`
-- `resources/downloads/profile/latest-fr.html`
-
-Each resolver fetches the manifest using `cache: no-store`, adds the current version hash to the PDF URL, then opens or downloads that version. The service worker also treats the profile PDFs and resolver pages as network-first assets and does not precache the PDFs.
-
 ## Manual regeneration
 
 ```bash
-python -m pip install playwright
+python -m pip install playwright "qrcode[pil]"
 python -m playwright install chromium
-python scripts/generate_platform_guide_pdfs.py --root .
+python scripts/generate_platform_guide_pdfs.py --root . --force
 ```
-
-Use `--force` only when you need to rebuild despite an unchanged source hash.
