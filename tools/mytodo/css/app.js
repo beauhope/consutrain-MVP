@@ -493,7 +493,7 @@ plannerBody?.addEventListener("click", (e) => {
     }
 
     if (btn.classList.contains("idea-to-project")) {
-      alert("سيتم تطوير قسم المشاريع لاحقًا 🚀");
+      alert("تحويل الفكرة إلى مشروع غير متاح من هذه الشاشة. يمكنك تحويلها إلى مهمة أو الاحتفاظ بها في قائمة الأفكار.");
       return;
     }
   });

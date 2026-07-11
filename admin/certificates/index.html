@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0f2747">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
   <title>لوحة إدارة الشهادات الرقمية | ConsuTrain</title>
-  <meta name="description" content="واجهة إدارية تجريبية لمتابعة الشهادات الرقمية الصادرة عن اختبارات وبرامج ConsuTrain.">
+  <meta name="description" content="واجهة إدارية لمعاينة الشهادات الرقمية الصادرة عن اختبارات وبرامج ConsuTrain.">
   <style>
     .cert-admin-page {
       background:
@@ -507,12 +507,12 @@
         <span class="eyebrow">إدارة الشهادات الرقمية</span>
         <h1 id="certificates-title">لوحة إدارة الشهادات الرقمية</h1>
         <p>
-          متابعة الشهادات الصادرة عن اختبارات وبرامج ConsuTrain، ومراجعة حالة الإصدار والإرسال ومنع التكرار.
-          صُممت اللوحة لتدعم مستقبلًا اختبارات متعددة، برامج متعددة، أنواع شهادات مختلفة، ونسخًا مختلفة من الاختبارات.
+          معاينة طريقة متابعة الشهادات الصادرة عن اختبارات وبرامج ConsuTrain، ومراجعة حالة الإصدار والإرسال ومنع التكرار.
+          تعرض الصفحة حاليًا بيانات عرض محلية مؤقتة.
         </p>
         <div class="admin-badges" aria-label="حالة مصدر البيانات">
-          <span class="badge">مصدر البيانات الحالي: Google Sheets</span>
-          <span class="badge badge-muted">الحالة: واجهة تجريبية غير مرتبطة بعد</span>
+          <span class="badge">مصدر العرض الحالي: بيانات محلية مؤقتة</span>
+          <span class="badge badge-muted">مخصصة لمعاينة الواجهة</span>
         </div>
       </section>
 
@@ -520,7 +520,7 @@
         <article class="section-card stat-card">
           <span>إجمالي طلبات الشهادات</span>
           <strong>128</strong>
-          <small>تشمل الاختبارات والبرامج المسجلة تجريبيًا.</small>
+          <small>تشمل سجلات معاينة لعدة اختبارات وبرامج.</small>
         </article>
         <article class="section-card stat-card">
           <span>الشهادات الصادرة</span>
@@ -548,7 +548,7 @@
         <div class="section-head">
           <div>
             <h2 id="filters-title">البحث والتصفية</h2>
-            <p>فلاتر شكلية الآن، ويمكن ربطها لاحقًا بمصدر بيانات الشهادات أو Webhook داخلي.</p>
+            <p>فلاتر معاينة تساعد على تصور طريقة البحث عند تفعيل مصدر بيانات الشهادات.</p>
           </div>
         </div>
 
@@ -580,7 +580,7 @@
               <input id="filter-assessment" name="assessmentName" type="text" placeholder="مثال: اختبار إدارة المخاطر">
             </div>
             <div class="field">
-              <label for="filter-code">كود الاختبار assessmentCode</label>
+              <label for="filter-code">كود الاختبار</label>
               <input id="filter-code" name="assessmentCode" type="text" placeholder="MOR-FND-01">
             </div>
             <div class="field">
@@ -635,7 +635,7 @@
           <div class="section-head">
             <div>
               <h2 id="table-title">جدول الشهادات</h2>
-              <p>بيانات تجريبية ثابتة لعرض حالات الإصدار والإرسال ومنع التكرار عبر برامج واختبارات مختلفة.</p>
+              <p>بيانات عرض محلية توضح حالات الإصدار والإرسال ومنع التكرار عبر برامج واختبارات مختلفة.</p>
             </div>
           </div>
 
@@ -754,7 +754,7 @@
 
         <aside class="section-card" aria-labelledby="details-title">
           <h2 id="details-title">تفاصيل الشهادة</h2>
-          <p>لوحة ثابتة تعرض مثالًا لبيانات شهادة واحدة، ويمكن تحويلها لاحقًا إلى تفاصيل ديناميكية عند اختيار سجل من الجدول.</p>
+          <p>لوحة معاينة تعرض مثالًا لبيانات شهادة واحدة من بيانات العرض المحلية.</p>
 
           <dl class="details-list">
             <div class="details-row">
@@ -778,11 +778,11 @@
               <dd>شهادة اختبار ISO 9001</dd>
             </div>
             <div class="details-row">
-              <dt>assessmentCode</dt>
+              <dt>كود الاختبار</dt>
               <dd><span class="code-text">ISO9001-QMS-02</span></dd>
             </div>
             <div class="details-row">
-              <dt>assessmentVersion</dt>
+              <dt>نسخة الاختبار</dt>
               <dd><span class="code-text">v1.3</span></dd>
             </div>
             <div class="details-row">
@@ -790,12 +790,12 @@
               <dd>88%</dd>
             </div>
             <div class="details-row">
-              <dt>certificateKey</dt>
+              <dt>مفتاح منع التكرار</dt>
               <dd><span class="code-text">reem.q@example.com|ISO9001-QMS-02|v1.3</span></dd>
             </div>
             <div class="details-row">
               <dt>رابط ملف PDF</dt>
-              <dd><span class="code-text">/pdf/certificates/demo-iso9001-reem.pdf</span></dd>
+              <dd><span class="code-text">ملف شهادة للمعاينة</span></dd>
             </div>
             <div class="details-row">
               <dt>حالة الإصدار</dt>
@@ -811,7 +811,7 @@
             </div>
             <div class="details-row">
               <dt>رسالة الخطأ</dt>
-              <dd>تعذر إرسال Gmail بسبب عنوان مرفق غير متاح في التشغيل التجريبي.</dd>
+              <dd>تعذر إرسال الرسالة بسبب عدم توفر ملف الشهادة في بيانات العرض المحلية.</dd>
             </div>
           </dl>
 
@@ -827,13 +827,13 @@
       <section class="section-card" style="margin-top: 18px;" aria-labelledby="future-title">
         <h2 id="future-title">ملاحظات مستقبلية للربط</h2>
         <p>
-          هذه الصفحة ثابتة الآن ولا تستدعي أي API. عند الانتقال إلى الربط الفعلي يمكن تحويل البيانات التجريبية إلى مصدر مركزي يدعم التصفية والمراجعة والصلاحيات.
+          تعرض هذه الصفحة بيانات عرض محلية مؤقتة. عند تفعيل مصدر البيانات، يمكن استخدام نفس الواجهة للتصفية والمراجعة وإدارة الصلاحيات.
         </p>
         <ul class="future-list">
-          <li>Google Sheets كمصدر أولي لقراءة الطلبات وتحديث حالة الشهادة.</li>
-          <li>n8n Webhook لإعادة الإرسال أو إعادة محاولة الإصدار من زر إداري واضح.</li>
-          <li>Firebase أو قاعدة بيانات لاحقًا لتخزين الشهادات، نسخ الاختبارات، وسجل الأخطاء.</li>
-          <li>تسجيل دخول إداري قبل الوصول للصفحة، مع صلاحيات للمشاهدة، إعادة الإرسال، وإدارة البرامج.</li>
+          <li>قراءة طلبات الشهادات وتحديث حالتها من مصدر بيانات معتمد.</li>
+          <li>إعادة الإرسال أو إعادة محاولة الإصدار من زر إداري واضح.</li>
+          <li>حفظ الشهادات ونسخ الاختبارات وسجل الأخطاء في مصدر مركزي مناسب.</li>
+          <li>تسجيل دخول إداري قبل الوصول للصفحة، مع صلاحيات للمشاهدة وإعادة الإرسال وإدارة البرامج.</li>
           <li>إضافة حقول للعميل أو الجهة عندما تصبح الشهادات مرتبطة بعقود أو برامج مؤسسية.</li>
         </ul>
       </section>
@@ -845,7 +845,7 @@
       <div class="certificate-modal-header">
         <div>
           <h2 id="certificate-details-modal-title">تفاصيل الشهادة</h2>
-          <p id="certificate-details-modal-subtitle">عرض قراءة فقط من بيانات API</p>
+          <p id="certificate-details-modal-subtitle">عرض قراءة فقط من بيانات العرض المحلية</p>
         </div>
         <button class="btn btn-secondary action-btn" id="certificate-details-close" type="button">إغلاق</button>
       </div>
@@ -859,7 +859,7 @@
         fullName: "سارة المالكي",
         email: "sarah.m@example.com",
         country: "السعودية",
-        organization: "ConsuTrain Demo",
+        organization: "ConsuTrain - بيانات عرض",
         jobTitle: "منسقة تدريب",
         certificateType: "free_test",
         learningType: "free_training",
@@ -871,7 +871,7 @@
         percentage: 90,
         passed: true,
         certificateId: "OBJ-MGT-01",
-        certificateKey: "objectives-management-demo",
+        certificateKey: "objectives-management-sample",
         certificateStatus: "issued",
         certificateIssuedAt: "2026-05-28",
         certificateFileUrl: "",
@@ -879,14 +879,14 @@
         emailSentAt: "2026-05-28",
         errorMessage: "",
         rowNumber: 1,
-        submissionId: "demo-001",
+        submissionId: "sample-001",
         timestamp: "2026-05-28"
       },
       {
         fullName: "خالد الحربي",
         email: "khaled.h@example.com",
         country: "السعودية",
-        organization: "ConsuTrain Demo",
+        organization: "ConsuTrain - بيانات عرض",
         jobTitle: "مدير مخاطر",
         certificateType: "free_test",
         learningType: "free_training",
@@ -898,7 +898,7 @@
         percentage: 75,
         passed: true,
         certificateId: "MOR-FND-01",
-        certificateKey: "mor-foundation-demo",
+        certificateKey: "mor-foundation-sample",
         certificateStatus: "duplicate",
         certificateIssuedAt: "2026-05-27",
         certificateFileUrl: "",
@@ -906,14 +906,14 @@
         emailSentAt: "",
         errorMessage: "",
         rowNumber: 2,
-        submissionId: "demo-002",
+        submissionId: "sample-002",
         timestamp: "2026-05-27"
       },
       {
         fullName: "ريم القحطاني",
         email: "reem.q@example.com",
         country: "السعودية",
-        organization: "ConsuTrain Demo",
+        organization: "ConsuTrain - بيانات عرض",
         jobTitle: "مسؤولة جودة",
         certificateType: "free_test",
         learningType: "free_training",
@@ -925,7 +925,7 @@
         percentage: 85,
         passed: true,
         certificateId: "ISO9001-QMS-02",
-        certificateKey: "iso-9001-demo",
+        certificateKey: "iso-9001-sample",
         certificateStatus: "issued",
         certificateIssuedAt: "2026-05-26",
         certificateFileUrl: "",
@@ -933,14 +933,14 @@
         emailSentAt: "2026-05-26",
         errorMessage: "تعذر إرسال البريد في بيانات العرض.",
         rowNumber: 3,
-        submissionId: "demo-003",
+        submissionId: "sample-003",
         timestamp: "2026-05-26"
       },
       {
         fullName: "عبدالله السالم",
         email: "abdullah.s@example.com",
         country: "السعودية",
-        organization: "ConsuTrain Demo",
+        organization: "ConsuTrain - بيانات عرض",
         jobTitle: "مدير تخطيط",
         certificateType: "program",
         learningType: "blended",
@@ -952,7 +952,7 @@
         percentage: 0,
         passed: false,
         certificateId: "STR-PLAN-03",
-        certificateKey: "strategic-planning-demo",
+        certificateKey: "strategic-planning-sample",
         certificateStatus: "processing",
         certificateIssuedAt: "2026-05-25",
         certificateFileUrl: "",
@@ -960,14 +960,14 @@
         emailSentAt: "",
         errorMessage: "",
         rowNumber: 4,
-        submissionId: "demo-004",
+        submissionId: "sample-004",
         timestamp: "2026-05-25"
       },
       {
         fullName: "نورة الدوسري",
         email: "nora.d@example.com",
         country: "السعودية",
-        organization: "ConsuTrain Demo",
+        organization: "ConsuTrain - بيانات عرض",
         jobTitle: "محللة مخاطر",
         certificateType: "free_test",
         learningType: "free_training",
@@ -979,7 +979,7 @@
         percentage: 50,
         passed: false,
         certificateId: "RISK-MGT-04",
-        certificateKey: "risk-management-demo",
+        certificateKey: "risk-management-sample",
         certificateStatus: "failed",
         certificateIssuedAt: "2026-05-24",
         certificateFileUrl: "",
@@ -987,7 +987,7 @@
         emailSentAt: "",
         errorMessage: "تعذر إصدار الشهادة في بيانات العرض.",
         rowNumber: 5,
-        submissionId: "demo-005",
+        submissionId: "sample-005",
         timestamp: "2026-05-24"
       }
     ];
@@ -1005,9 +1005,9 @@
         allTypes: "كل أنواع الشهادات",
         allLearningTypes: "كل أنماط التعلم",
         allCategories: "كل تصنيفات التدريب",
-        loading: "جاري تحميل بيانات الشهادات من n8n...",
+        loading: "جاري تجهيز بيانات الشهادات للعرض...",
         noResults: "لا توجد شهادات مطابقة لمعايير البحث أو التصفية.",
-        loadError: "تعذر تحميل بيانات الشهادات من API. تأكد من تشغيل n8n وأن رابط الـ webhook متاح.",
+        loadError: "تعذر تجهيز بيانات الشهادات للعرض. يرجى إعادة تحميل الصفحة أو مراجعة مصدر البيانات المعتمد.",
         readOnly: "للقراءة فقط"
       };
 
@@ -1513,7 +1513,7 @@
         if (subtitle) {
           subtitle.textContent = item
             ? `${display(item.fullName)} | ${display(item.certificateId || item.certificateKey || item.submissionId)}`
-            : "عرض قراءة فقط من بيانات API";
+            : "عرض قراءة فقط من بيانات العرض المحلية";
         }
 
         if (!item) {

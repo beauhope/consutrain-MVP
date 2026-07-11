@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260711-internal-forms-pricing";
-const RUNTIME_CACHE = "consutrain-runtime-v20260711-internal-forms-pricing";
+const STATIC_CACHE = "consutrain-v20260711-visitor-content-cleanup";
+const RUNTIME_CACHE = "consutrain-runtime-v20260711-visitor-content-cleanup";
 
 const PRECACHE_URLS = [
   "./",

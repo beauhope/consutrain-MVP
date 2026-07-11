@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0f2747">
   <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
   <title>إدارة طلبات الاستشارة والدورات | ConsuTrain</title>
-  <meta name="description" content="واجهة إدارية تجريبية لمتابعة طلبات الاستشارة والدورات الواردة إلى ConsuTrain.">
+  <meta name="description" content="واجهة إدارية لمعاينة طلبات الاستشارة والدورات الواردة إلى ConsuTrain.">
   <style>
     .requests-admin-page {
       min-height: 100vh;
@@ -419,11 +419,11 @@
         <span class="eyebrow">طلبات الاستشارة والدورات</span>
         <h1 id="requests-title">إدارة طلبات الاستشارة والدورات</h1>
         <p>
-          متابعة الطلبات الواردة من نموذج طلب الاستشارة أو الدورة التدريبية، وتصنيفها حسب النوع والحالة والأولوية.
-          هذه الواجهة تعرض بيانات تجريبية فقط ولا تتصل حاليًا بأي مصدر خارجي.
+          معاينة طريقة متابعة طلبات الاستشارة والدورات وتصنيفها حسب النوع والحالة والأولوية.
+          تعرض هذه الواجهة حاليًا بيانات عرض محلية مؤقتة.
         </p>
         <div class="admin-badges">
-          <span class="badge badge-muted">واجهة تجريبية — غير مرتبطة بعد بالنماذج الداخلية أو Google Sheets</span>
+          <span class="badge badge-muted">بيانات عرض محلية مؤقتة</span>
         </div>
       </section>
 
@@ -431,7 +431,7 @@
         <article class="section-card stat-card">
           <span>إجمالي الطلبات</span>
           <strong>37</strong>
-          <small>طلبات واردة من نماذج تجريبية مختلفة.</small>
+          <small>طلبات ضمن بيانات العرض المحلية.</small>
         </article>
         <article class="section-card stat-card">
           <span>طلبات الاستشارة</span>
@@ -458,7 +458,7 @@
       <section class="section-card" aria-labelledby="filters-title">
         <div class="section-head">
           <h2 id="filters-title">البحث والتصفية</h2>
-          <p>فلاتر شكلية فقط لتوضيح تجربة الإدارة، ولا تنفذ بحثًا أو اتصالًا حقيقيًا الآن.</p>
+          <p>فلاتر معاينة تساعد على تصور طريقة البحث عند تفعيل مصدر البيانات.</p>
         </div>
 
         <form action="#" method="get" aria-label="فلاتر طلبات الاستشارة والدورات" onsubmit="return false;">
@@ -538,7 +538,7 @@
         <section class="section-card" aria-labelledby="table-title">
           <div class="section-head">
             <h2 id="table-title">جدول الطلبات</h2>
-            <p>بيانات تجريبية ثابتة لعرض حالات مختلفة من طلبات الاستشارة والدورات وطلبات عروض الأسعار.</p>
+            <p>بيانات عرض محلية توضح حالات مختلفة من طلبات الاستشارة والدورات وطلبات عروض الأسعار.</p>
           </div>
 
           <div class="table-wrap">
@@ -647,7 +647,7 @@
                   <td class="muted">majed.a@example.com</td>
                   <td>دورة تدريبية</td>
                   <td>تدريب خارج نطاق المنصة</td>
-                  <td>شركة تجريبية</td>
+                  <td>شركة افتراضية</td>
                   <td><span class="status-pill status-unfit">غير مناسب</span></td>
                   <td><span class="status-pill priority-low">منخفضة</span></td>
                   <td>2026-05-23</td>
@@ -666,7 +666,7 @@
 
         <aside class="section-card" aria-labelledby="details-title">
           <h2 id="details-title">تفاصيل الطلب</h2>
-          <p>لوحة ثابتة تعرض مثالًا لطلب واحد، ويمكن ربطها لاحقًا عند اختيار سجل من الجدول.</p>
+          <p>لوحة معاينة تعرض مثالًا لطلب واحد من بيانات العرض المحلية.</p>
 
           <dl class="details-list" style="margin-top: 16px;">
             <div class="details-row">
@@ -728,13 +728,13 @@
       <section class="notes-grid" aria-label="ملاحظات الربط والخصوصية">
         <article class="section-card">
           <h3>ملاحظات الربط المستقبلي</h3>
-          <p>يمكن لاحقًا تحويل البيانات التجريبية إلى بيانات فعلية من نموذج الطلب ومصادر المتابعة.</p>
+          <p>عند تفعيل مصدر البيانات، يمكن استخدام هذه الصفحة لمراجعة الطلبات ومتابعة حالاتها.</p>
           <ul class="future-list">
-            <li>طلبات النماذج الداخلية لقراءة الطلبات الواردة من الموقع.</li>
-            <li>Google Sheets كمرحلة أولى للتجميع والمراجعة.</li>
-            <li>n8n Webhook لتحديث الحالة أو إطلاق إجراءات متابعة.</li>
-            <li>Gmail للردود والمتابعة.</li>
-            <li>حالة المتابعة داخل قاعدة بيانات.</li>
+            <li>قراءة طلبات النماذج الداخلية الواردة من الموقع.</li>
+            <li>مراجعة الطلبات وتصنيفها حسب الحالة والأولوية.</li>
+            <li>تحديث حالة المتابعة من خلال إجراء إداري واضح.</li>
+            <li>تنظيم الردود والمتابعة مع أصحاب الطلبات.</li>
+            <li>حفظ سجل متابعة واضح لكل طلب.</li>
             <li>تنبيهات بريدية أو واتساب لاحقًا عند الطلبات عالية الأولوية.</li>
           </ul>
         </article>

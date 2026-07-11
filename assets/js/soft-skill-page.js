@@ -81,7 +81,7 @@ function buildSoftSkillHtml(skill) {
 
       <section class="soft-detail-section">
         <h2>كيف تظهر هذه المهارة عمليًا؟</h2>
-        ${examplesHtml || "<p>سيتم إضافة أمثلة عملية لاحقًا.</p>"}
+        ${examplesHtml || "<p>يمكن ملاحظة هذه المهارة من خلال طريقة التواصل، اتخاذ القرار، وتنظيم العمل اليومي.</p>"}
       </section>
 
       <section class="soft-detail-section">
@@ -92,7 +92,7 @@ function buildSoftSkillHtml(skill) {
 
       <section class="soft-detail-section">
         <h2>مؤشرات تدل على وجود المهارة</h2>
-        ${indicatorsHtml || "<p>سيتم إضافة مؤشرات أكثر تفصيلًا لاحقًا.</p>"}
+        ${indicatorsHtml || "<p>من مؤشراتها وضوح السلوك، ثبات الأداء، وتحسن جودة التفاعل مع الآخرين.</p>"}
       </section>
     </article>
   `;
