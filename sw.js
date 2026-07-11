@@ -11,14 +11,15 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260711-profile-header-link";
-const RUNTIME_CACHE = "consutrain-runtime-v20260711-profile-header-link";
+const STATIC_CACHE = "consutrain-v20260711-platform-guide";
+const RUNTIME_CACHE = "consutrain-runtime-v20260711-platform-guide";
 
 const PRECACHE_URLS = [
   "./",
   "./index.html",
   "./start-here.html",
   "./about.html",
+  "./consutrain-guide.html",
   "./contact.html",
   "./quote-request.html",
   "./expert.html",
@@ -127,11 +128,13 @@ const PRECACHE_URLS = [
   "./assets/js/glossary.js",
   "./assets/js/soft-skill-page.js",
   "./assets/js/pwa.js",
+  "./assets/js/platform-guide.js",
 
   "./assets/data/articles.json",
   "./assets/data/fr-articles.json",
   "./assets/data/glossary.json",
   "./assets/data/soft-skills.json",
+  "./assets/data/platform-guide.json",
 
   "./assets/fonts/Cairo-Bold.ttf",
   "./assets/fonts/Cairo-Regular.ttf",
@@ -347,6 +350,8 @@ function shouldUseNetworkFirstForUiAsset(url) {
     path.endsWith("/assets/js/free-certificate-training-blue-ocean.js") ||
     path.endsWith("/assets/js/free-certificate-training-blue-ocean-fr.js") ||
     path.endsWith("/assets/js/pwa.js") ||
+    path.endsWith("/assets/js/platform-guide.js") ||
+    path.endsWith("/assets/data/platform-guide.json") ||
     path.endsWith("/assets/css/style.css") ||
     path.endsWith("/manifest.webmanifest")
   );
