@@ -2,9 +2,16 @@
   "meta": {
     "title": "Guide ConsuTrain des services, formations et ressources",
     "description": "Un guide vivant qui réunit les services de conseil, les formations et ateliers, les formations gratuites avec certificat, les outils numériques, les ressources et les parcours d’apprentissage de ConsuTrain.",
-    "lastUpdated": "2026-07-11",
-    "pdfUrl": "resources/downloads/profile/ConsuTrain_Profile_and_Services_AR.pdf",
-    "pdfLabel": "Télécharger le guide PDF (version arabe)"
+    "lastUpdated": "2026-07-12",
+    "pdfUrl": "resources/downloads/profile/ConsuTrain_Profile_and_Services_FR.pdf",
+    "pdfLabel": "Télécharger la dernière version du guide PDF",
+    "pdf": {
+      "version": "2026.07.12",
+      "updatedAt": "2026-07-12",
+      "url": "resources/downloads/profile/ConsuTrain_Profile_and_Services_FR.pdf",
+      "downloadName": "ConsuTrain_Profile_FR_2026-07-12.pdf",
+      "language": "fr"
+    }
   },
   "sections": [
     {

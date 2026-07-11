@@ -1,0 +1,16 @@
+{
+  "sourceHash": "b70fd2b124d452f73173fcc61b445442b0fdcdcd41e940c37af3cbc7bb15fa6f",
+  "updatedAt": "2026-07-11T23:23:11+00:00",
+  "ar": {
+    "url": "resources/downloads/profile/ConsuTrain_Profile_and_Services_AR.pdf",
+    "version": "b70fd2b124d452f7",
+    "fileHash": "a5ce366c4f11666c15be339bb20b4c5b6855ebed1a3cfee20c9e6877ba6e1acb",
+    "downloadName": "ConsuTrain_Profile_AR_Latest.pdf"
+  },
+  "fr": {
+    "url": "resources/downloads/profile/ConsuTrain_Profile_and_Services_FR.pdf",
+    "version": "b70fd2b124d452f7",
+    "fileHash": "0738678dda5e46146c28b2622516a79ec876753c13b2a0a9ef00515a139fee52",
+    "downloadName": "ConsuTrain_Profile_FR_Latest.pdf"
+  }
+}

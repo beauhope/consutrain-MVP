@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260711-platform-guide-fr";
-const RUNTIME_CACHE = "consutrain-runtime-v20260711-platform-guide-fr";
+const STATIC_CACHE = "consutrain-v20260712-auto-guide-pdfs";
+const RUNTIME_CACHE = "consutrain-runtime-v20260712-auto-guide-pdfs";
 
 const PRECACHE_URLS = [
   "./",
@@ -137,6 +137,7 @@ const PRECACHE_URLS = [
   "./assets/data/soft-skills.json",
   "./assets/data/platform-guide.json",
   "./assets/data/fr-platform-guide.json",
+  "./assets/data/platform-guide-pdf-manifest.json",
 
   "./assets/fonts/Cairo-Bold.ttf",
   "./assets/fonts/Cairo-Regular.ttf",
@@ -148,6 +149,8 @@ const PRECACHE_URLS = [
   "./assets/icons/icon-512-maskable-v2.png",
 
   "./resources/index.html",
+  "./resources/downloads/profile/latest-ar.html",
+  "./resources/downloads/profile/latest-fr.html",
   "./courses/index.html",
   "./courses/objectives-management.html",
   "./courses/mor-foundation.html",
@@ -328,6 +331,11 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
+  if (isPlatformGuideProfileAsset(url)) {
+    event.respondWith(networkFirstAsset(request));
+    return;
+  }
+
   if (request.mode === "navigate") {
     event.respondWith(networkFirstPage(request));
     return;
@@ -342,6 +350,14 @@ self.addEventListener("fetch", (event) => {
 });
 
 
+function isPlatformGuideProfileAsset(url) {
+  const path = url.pathname;
+  return (
+    path.includes("/resources/downloads/profile/") &&
+    (path.endsWith(".pdf") || path.endsWith("latest-ar.html") || path.endsWith("latest-fr.html"))
+  );
+}
+
 function shouldUseNetworkFirstForUiAsset(url) {
   const path = url.pathname;
 
@@ -355,6 +371,7 @@ function shouldUseNetworkFirstForUiAsset(url) {
     path.endsWith("/assets/js/platform-guide.js") ||
     path.endsWith("/assets/data/platform-guide.json") ||
     path.endsWith("/assets/data/fr-platform-guide.json") ||
+    path.endsWith("/assets/data/platform-guide-pdf-manifest.json") ||
     path.endsWith("/assets/css/style.css") ||
     path.endsWith("/manifest.webmanifest")
   );

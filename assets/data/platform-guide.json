@@ -2,9 +2,16 @@
   "meta": {
     "title": "دليل ConsuTrain للخدمات والتعلّم والموارد",
     "description": "دليل حيّ يجمع أهم ما توفره منصة ConsuTrain من خدمات استشارية، دورات وورش، تدريبات مجانية مع شهادات، أدوات رقمية، موارد، ومسارات تعلم.",
-    "lastUpdated": "2026-07-11",
+    "lastUpdated": "2026-07-12",
     "pdfUrl": "resources/downloads/profile/ConsuTrain_Profile_and_Services_AR.pdf",
-    "pdfLabel": "تحميل الدليل المختصر بصيغة PDF"
+    "pdfLabel": "تحميل أحدث نسخة من الدليل بصيغة PDF",
+    "pdf": {
+      "version": "2026.07.12",
+      "updatedAt": "2026-07-12",
+      "url": "resources/downloads/profile/ConsuTrain_Profile_and_Services_AR.pdf",
+      "downloadName": "ConsuTrain_Profile_AR_2026-07-12.pdf",
+      "language": "ar"
+    }
   },
   "sections": [
     {
