@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260711-visitor-content-cleanup";
-const RUNTIME_CACHE = "consutrain-runtime-v20260711-visitor-content-cleanup";
+const STATIC_CACHE = "consutrain-v20260711-ar-fr-parity";
+const RUNTIME_CACHE = "consutrain-runtime-v20260711-ar-fr-parity";
 
 const PRECACHE_URLS = [
   "./",
@@ -28,6 +28,7 @@ const PRECACHE_URLS = [
   "./tools.html",
 
   "./fr/index.html",
+  "./fr/quote-request.html",
   "./fr/services.html",
   "./fr/services/consultation-form.html",
   "./fr/courses/strategic-planning.html",
