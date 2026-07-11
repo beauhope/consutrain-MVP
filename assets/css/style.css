@@ -9889,3 +9889,386 @@ section[id],
     border-radius:18px;
   }
 }
+/* =========================================================
+   MANAGEMENT TECH RADAR — ARABIC / FRENCH PARITY
+   توحيد صفحة الرادار ومقالات التحليل بين العربية والفرنسية
+   ========================================================= */
+.tech-radar-page,
+.radar-article-page{
+  background:#f7f9fc;
+}
+
+.tech-radar-page--fr,
+.radar-article-page--fr{
+  direction:ltr;
+  text-align:left;
+}
+
+.tech-radar-page--ar,
+.radar-article-page--ar{
+  direction:rtl;
+  text-align:right;
+}
+
+.radar-hero{
+  background:linear-gradient(135deg, #0b1f3a 0%, #12345a 62%, #25607d 100%);
+  color:#fff;
+  padding:52px 20px 44px;
+  text-align:center;
+}
+
+.radar-hero .container,
+.radar-main{
+  max-width:1180px;
+  margin-inline:auto;
+}
+
+.radar-kicker{
+  display:inline-flex;
+  margin-bottom:14px;
+  padding:7px 13px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  color:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.08);
+  font-size:.88rem;
+  font-weight:800;
+}
+
+.radar-hero h1{
+  margin:0 0 12px;
+  color:#fff;
+  font-size:clamp(1.8rem, 4vw, 2.8rem);
+  line-height:1.35;
+}
+
+.radar-hero p{
+  max-width:800px;
+  margin:0 auto;
+  color:rgba(255,255,255,.9);
+  line-height:1.9;
+}
+
+.radar-main{
+  padding:34px 20px 64px;
+}
+
+.radar-section{
+  margin-top:34px;
+}
+
+.radar-section:first-child{
+  margin-top:0;
+}
+
+.radar-section-head{
+  margin-bottom:16px;
+}
+
+.radar-section-head h2{
+  margin:0 0 7px;
+  color:#0b1f3a;
+  font-size:clamp(1.3rem, 2.4vw, 1.55rem);
+}
+
+.radar-section-head p{
+  margin:0;
+  color:#5f6b7a;
+  line-height:1.85;
+}
+
+.radar-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:18px;
+}
+
+.radar-card{
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+  min-width:0;
+  background:#fff;
+  border:1px solid rgba(11,31,58,.08);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 10px 26px rgba(11,31,58,.06);
+}
+
+.radar-card h3{
+  margin:0;
+  color:#0b1f3a;
+  font-size:1.16rem;
+  line-height:1.55;
+}
+
+.radar-card small{
+  display:block;
+  margin-top:4px;
+  color:#6b7787;
+  font-size:.82rem;
+  font-weight:700;
+  direction:ltr;
+  text-align:start;
+}
+
+.radar-card p{
+  margin:0;
+  color:#4f5d6d;
+  line-height:1.85;
+  font-size:.94rem;
+}
+
+.radar-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.radar-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:5px 10px;
+  border-radius:999px;
+  background:#eef4fb;
+  color:#16385f;
+  font-size:.78rem;
+  font-weight:800;
+}
+
+.radar-pill.priority{
+  background:#eaf8ef;
+  color:#166534;
+}
+
+.radar-note{
+  border-top:1px solid #edf1f5;
+  padding-top:12px;
+  color:#596879;
+  line-height:1.8;
+  font-size:.9rem;
+}
+
+.radar-link{
+  margin-top:auto;
+  padding-top:12px;
+  border-top:1px solid #edf1f5;
+  color:#0b1f3a;
+  font-weight:900;
+  text-decoration:none;
+}
+
+.radar-link:hover,
+.radar-link:focus-visible{
+  color:#1b5fa7;
+}
+
+.radar-guide-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+.radar-guide-card,
+.radar-check-card{
+  background:#fff;
+  border:1px solid rgba(11,31,58,.08);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 10px 26px rgba(11,31,58,.05);
+}
+
+.radar-guide-card span{
+  display:inline-grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  margin-bottom:12px;
+  border-radius:14px;
+  background:linear-gradient(135deg, var(--primary), var(--gold));
+  color:#fff;
+  font-weight:900;
+}
+
+.radar-guide-card h3,
+.radar-check-card h3{
+  margin:0 0 8px;
+  color:#0b1f3a;
+}
+
+.radar-guide-card p,
+.radar-check-card p,
+.radar-check-card li{
+  color:#4f5d6d;
+  line-height:1.8;
+}
+
+.radar-guide-card p{
+  margin:0;
+}
+
+.radar-check-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:18px;
+  margin-top:18px;
+}
+
+.radar-check-card ul{
+  margin:0;
+  padding-inline-start:20px;
+}
+
+.radar-check-card li + li{
+  margin-top:8px;
+}
+
+.radar-cta{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  background:#fff;
+  border:1px solid rgba(11,31,58,.08);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 10px 26px rgba(11,31,58,.06);
+}
+
+.radar-cta h2{
+  margin:0 0 8px;
+  color:#0b1f3a;
+  font-size:1.35rem;
+  line-height:1.5;
+}
+
+.radar-cta p{
+  margin:0;
+  max-width:720px;
+  color:#4f5d6d;
+  line-height:1.85;
+}
+
+.radar-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.radar-archive-actions{
+  margin-top:18px;
+}
+
+/* صفحات التحليل التفصيلية */
+.radar-article{
+  max-width:920px;
+  margin-inline:auto;
+  padding:34px 20px 64px;
+}
+
+.radar-article-card{
+  background:#fff;
+  border:1px solid rgba(11,31,58,.08);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 10px 26px rgba(11,31,58,.06);
+}
+
+.radar-article-card .back-link{
+  display:inline-flex;
+  margin-bottom:18px;
+}
+
+.radar-article-card .eyebrow{
+  display:block;
+  margin-bottom:8px;
+}
+
+.radar-article-card h1{
+  margin:0 0 12px;
+  color:#0b1f3a;
+  font-size:clamp(1.75rem, 3.6vw, 2.5rem);
+  line-height:1.35;
+}
+
+.radar-article-card h2{
+  margin:28px 0 10px;
+  color:#0b1f3a;
+  font-size:1.25rem;
+}
+
+.radar-article-card p,
+.radar-article-card li{
+  color:#4f5d6d;
+  line-height:1.9;
+}
+
+.radar-article-card ul{
+  padding-inline-start:22px;
+}
+
+.radar-article-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0 22px;
+}
+
+.related-box{
+  margin-top:24px;
+  padding:18px;
+  border:1px solid #edf1f5;
+  border-radius:16px;
+  background:#fbfcfe;
+}
+
+.related-box h2{
+  margin-top:0;
+}
+
+.related-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px;
+}
+
+@media (max-width:900px){
+  .radar-guide-grid,
+  .radar-check-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:700px){
+  .radar-hero{
+    padding:40px 16px 34px;
+  }
+
+  .radar-main,
+  .radar-article{
+    padding-inline:12px;
+  }
+
+  .radar-card,
+  .radar-guide-card,
+  .radar-check-card,
+  .radar-article-card,
+  .radar-cta{
+    padding:18px;
+  }
+
+  .radar-actions,
+  .related-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    width:100%;
+  }
+
+  .radar-actions .btn,
+  .related-actions .btn{
+    width:100%;
+  }
+}

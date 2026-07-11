@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260711-ar-fr-parity";
-const RUNTIME_CACHE = "consutrain-runtime-v20260711-ar-fr-parity";
+const STATIC_CACHE = "consutrain-v20260711-tech-radar-parity";
+const RUNTIME_CACHE = "consutrain-runtime-v20260711-tech-radar-parity";
 
 const PRECACHE_URLS = [
   "./",
@@ -123,11 +123,13 @@ const PRECACHE_URLS = [
   "./assets/js/ai-page.js",
 "./assets/js/article-page.js",
   "./assets/js/articles-page.js",
+  "./assets/js/tech-radar-archive.js",
   "./assets/js/glossary.js",
   "./assets/js/soft-skill-page.js",
   "./assets/js/pwa.js",
 
   "./assets/data/articles.json",
+  "./assets/data/fr-articles.json",
   "./assets/data/glossary.json",
   "./assets/data/soft-skills.json",
 
@@ -162,6 +164,10 @@ const PRECACHE_URLS = [
   "./fr/learn/learning-paths.html",
   "./fr/learn/glossary.html",
   "./fr/learn/management-tech-radar.html",
+  "./fr/learn/radar/ai-workflow-integration.html",
+  "./fr/learn/radar/ai-model-flexibility.html",
+  "./fr/learn/radar/ai-governance.html",
+  "./fr/learn/radar/process-automation.html",
   "./fr/learn/free-certificate-training.html",
   "./fr/learn/free-certificate-training/blue-ocean-strategy-fundamentals/index.html",
   "./fr/learn/free-certificate-training/blue-ocean-strategy-fundamentals/final-assessment.html",
