@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260629-blue-ocean-training";
-const RUNTIME_CACHE = "consutrain-runtime-v20260629-blue-ocean-training";
+const STATIC_CACHE = "consutrain-v20260711-critical-precache-fix";
+const RUNTIME_CACHE = "consutrain-runtime-v20260711-critical-precache-fix";
 
 const PRECACHE_URLS = [
   "./",
@@ -42,14 +42,14 @@ const PRECACHE_URLS = [
   "./fr/courses/practical-workshops.html",
   "./fr/courses/professional-internal-communication.html",
   "./templates/operational-plan-template.html",
-  "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
-  "./downloads/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",
+  "./resources/downloads/operational-plans/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
+  "./resources/downloads/operational-plans/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",
   "./templates/operational-plan-checklist.html",
   "./templates/simple-risk-register.html",
-  "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.docx",
-  "./downloads/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.pdf",
-  "./downloads/ConsuTrain_Simple_Risk_Register_AR.docx",
-  "./downloads/ConsuTrain_Simple_Risk_Register_AR.pdf",
+  "./resources/downloads/operational-plans/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.docx",
+  "./resources/downloads/operational-plans/ConsuTrain_Operational_Plan_Readiness_Checklist_AR.pdf",
+  "./resources/downloads/risk-management/ConsuTrain_Simple_Risk_Register_AR.docx",
+  "./resources/downloads/risk-management/ConsuTrain_Simple_Risk_Register_AR.pdf",
   "./learn/ai.html",
   "./learn/digitization-guide.html",
   "./learn/digital-services-evolution.html",
@@ -81,7 +81,6 @@ const PRECACHE_URLS = [
   "./learn/porter-generic-strategies/articles/lesson-03.html",
   "./learn/porter-generic-strategies/articles/lesson-04.html",
   "./learn/porter-generic-strategies/articles/lesson-05.html",
-  "./article.html",
   "./learn/article.html",
   "./learn/articles.html",
   "./learn/glossary.html",
@@ -139,9 +138,6 @@ const PRECACHE_URLS = [
   "./assets/icons/icon-512-v2.png",
   "./assets/icons/icon-192-maskable-v2.png",
   "./assets/icons/icon-512-maskable-v2.png",
-
-  "./assets/screenshots/screenshot-desktop-wide.png",
-  "./assets/screenshots/screenshot-mobile.png",
 
   "./resources/index.html",
   "./courses/index.html",

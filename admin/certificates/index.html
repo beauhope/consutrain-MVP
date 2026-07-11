@@ -854,7 +854,143 @@
   </div>
 
   <script>
-    const CERTIFICATES_API_URL = "http://localhost:5678/webhook/consutrain-admin-certificates-list";
+    const LOCAL_CERTIFICATE_ITEMS = [
+      {
+        fullName: "سارة المالكي",
+        email: "sarah.m@example.com",
+        country: "السعودية",
+        organization: "ConsuTrain Demo",
+        jobTitle: "منسقة تدريب",
+        certificateType: "free_test",
+        learningType: "free_training",
+        trainingCategory: "objectives_management",
+        trainingTitle: "إدارة الأهداف",
+        trainingId: "objectives-management",
+        score: 18,
+        totalQuestions: 20,
+        percentage: 90,
+        passed: true,
+        certificateId: "OBJ-MGT-01",
+        certificateKey: "objectives-management-demo",
+        certificateStatus: "issued",
+        certificateIssuedAt: "2026-05-28",
+        certificateFileUrl: "",
+        emailStatus: "sent",
+        emailSentAt: "2026-05-28",
+        errorMessage: "",
+        rowNumber: 1,
+        submissionId: "demo-001",
+        timestamp: "2026-05-28"
+      },
+      {
+        fullName: "خالد الحربي",
+        email: "khaled.h@example.com",
+        country: "السعودية",
+        organization: "ConsuTrain Demo",
+        jobTitle: "مدير مخاطر",
+        certificateType: "free_test",
+        learningType: "free_training",
+        trainingCategory: "risk_management",
+        trainingTitle: "M_o_R Foundation",
+        trainingId: "mor-foundation",
+        score: 15,
+        totalQuestions: 20,
+        percentage: 75,
+        passed: true,
+        certificateId: "MOR-FND-01",
+        certificateKey: "mor-foundation-demo",
+        certificateStatus: "duplicate",
+        certificateIssuedAt: "2026-05-27",
+        certificateFileUrl: "",
+        emailStatus: "pending",
+        emailSentAt: "",
+        errorMessage: "",
+        rowNumber: 2,
+        submissionId: "demo-002",
+        timestamp: "2026-05-27"
+      },
+      {
+        fullName: "ريم القحطاني",
+        email: "reem.q@example.com",
+        country: "السعودية",
+        organization: "ConsuTrain Demo",
+        jobTitle: "مسؤولة جودة",
+        certificateType: "free_test",
+        learningType: "free_training",
+        trainingCategory: "iso_quality",
+        trainingTitle: "نظام إدارة الجودة ISO 9001",
+        trainingId: "iso-9001-internal-auditor",
+        score: 17,
+        totalQuestions: 20,
+        percentage: 85,
+        passed: true,
+        certificateId: "ISO9001-QMS-02",
+        certificateKey: "iso-9001-demo",
+        certificateStatus: "issued",
+        certificateIssuedAt: "2026-05-26",
+        certificateFileUrl: "",
+        emailStatus: "failed",
+        emailSentAt: "2026-05-26",
+        errorMessage: "تعذر إرسال البريد في بيانات العرض.",
+        rowNumber: 3,
+        submissionId: "demo-003",
+        timestamp: "2026-05-26"
+      },
+      {
+        fullName: "عبدالله السالم",
+        email: "abdullah.s@example.com",
+        country: "السعودية",
+        organization: "ConsuTrain Demo",
+        jobTitle: "مدير تخطيط",
+        certificateType: "program",
+        learningType: "blended",
+        trainingCategory: "strategic_planning",
+        trainingTitle: "التخطيط الاستراتيجي",
+        trainingId: "strategic-planning",
+        score: 0,
+        totalQuestions: 20,
+        percentage: 0,
+        passed: false,
+        certificateId: "STR-PLAN-03",
+        certificateKey: "strategic-planning-demo",
+        certificateStatus: "processing",
+        certificateIssuedAt: "2026-05-25",
+        certificateFileUrl: "",
+        emailStatus: "pending",
+        emailSentAt: "",
+        errorMessage: "",
+        rowNumber: 4,
+        submissionId: "demo-004",
+        timestamp: "2026-05-25"
+      },
+      {
+        fullName: "نورة الدوسري",
+        email: "nora.d@example.com",
+        country: "السعودية",
+        organization: "ConsuTrain Demo",
+        jobTitle: "محللة مخاطر",
+        certificateType: "free_test",
+        learningType: "free_training",
+        trainingCategory: "risk_management",
+        trainingTitle: "إدارة المخاطر",
+        trainingId: "risk-management",
+        score: 10,
+        totalQuestions: 20,
+        percentage: 50,
+        passed: false,
+        certificateId: "RISK-MGT-04",
+        certificateKey: "risk-management-demo",
+        certificateStatus: "failed",
+        certificateIssuedAt: "2026-05-24",
+        certificateFileUrl: "",
+        emailStatus: "pending",
+        emailSentAt: "",
+        errorMessage: "تعذر إصدار الشهادة في بيانات العرض.",
+        rowNumber: 5,
+        submissionId: "demo-005",
+        timestamp: "2026-05-24"
+      }
+    ];
 
     (() => {
       const state = {
@@ -1111,6 +1247,29 @@
           if (title) title.textContent = content[0];
           if (value) value.textContent = content[1];
           if (note) note.textContent = content[2];
+        });
+      }
+
+      function summarizeLocalItems(items) {
+        return items.reduce((summary, item) => {
+          summary.total += 1;
+          if (item.emailStatus === "sent") summary.sent += 1;
+          if (["pending", "processing"].includes(item.emailStatus) || item.certificateStatus === "processing") summary.pending += 1;
+          if (["failed", "error"].includes(item.emailStatus) || ["failed", "error"].includes(item.certificateStatus)) summary.failed += 1;
+          if (item.certificateType === "free_test") summary.freeTests += 1;
+          if (item.certificateType === "paid_course") summary.paidCourses += 1;
+          if (item.certificateType === "workshop") summary.workshops += 1;
+          if (item.certificateType === "program") summary.programs += 1;
+          return summary;
+        }, {
+          total: 0,
+          sent: 0,
+          pending: 0,
+          failed: 0,
+          freeTests: 0,
+          paidCourses: 0,
+          workshops: 0,
+          programs: 0
         });
       }
 
@@ -1472,28 +1631,11 @@
       }
 
       async function loadCertificates() {
-        setTableMessage(labels.loading);
-
-        try {
-          const response = await fetch(CERTIFICATES_API_URL, { headers: { Accept: "application/json" } });
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-          const data = await response.json();
-          if (!data || data.ok === false || !Array.isArray(data.items)) {
-            throw new Error("Invalid certificates API response");
-          }
-
-          state.items = data.items;
-          renderSummary(data.summary || {});
-          populateFilters(state.items);
-          bindFilters();
-          applyFilters();
-        } catch (error) {
-          console.error("Certificates API load failed:", error);
-          renderSummary({});
-          setTableMessage(labels.loadError, true);
-          renderDetails(null);
-        }
+        state.items = LOCAL_CERTIFICATE_ITEMS;
+        renderSummary(summarizeLocalItems(state.items));
+        populateFilters(state.items);
+        bindFilters();
+        applyFilters();
       }
 
       document.addEventListener("DOMContentLoaded", () => {
