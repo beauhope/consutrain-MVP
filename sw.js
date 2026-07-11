@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260711-tech-radar-parity";
-const RUNTIME_CACHE = "consutrain-runtime-v20260711-tech-radar-parity";
+const STATIC_CACHE = "consutrain-v20260711-home-certificate-training";
+const RUNTIME_CACHE = "consutrain-runtime-v20260711-home-certificate-training";
 
 const PRECACHE_URLS = [
   "./",
