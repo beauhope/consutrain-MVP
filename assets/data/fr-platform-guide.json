@@ -1,0 +1,728 @@
+{
+  "meta": {
+    "title": "Guide ConsuTrain des services, formations et ressources",
+    "description": "Un guide vivant qui réunit les services de conseil, les formations et ateliers, les formations gratuites avec certificat, les outils numériques, les ressources et les parcours d’apprentissage de ConsuTrain.",
+    "lastUpdated": "2026-07-11",
+    "pdfUrl": "resources/downloads/profile/ConsuTrain_Profile_and_Services_AR.pdf",
+    "pdfLabel": "Télécharger le guide PDF (version arabe)"
+  },
+  "sections": [
+    {
+      "id": "certificate-training",
+      "eyebrow": "Apprentissage court et résultat attesté",
+      "title": "Formations gratuites courtes avec certificat numérique",
+      "description": "Des parcours en autoformation avec un contenu structuré, une évaluation finale et un certificat numérique après réussite.",
+      "items": [
+        {
+          "title": "Introduction à la transformation numérique",
+          "description": "Comprendre la transformation numérique, ses moteurs, ses composantes essentielles et les premières étapes de sa mise en œuvre.",
+          "url": "fr/learn/free-certificate-training/digital-transformation-intro/index.html",
+          "label": "Commencer la formation",
+          "badge": "Gratuite avec certificat",
+          "tags": [
+            "Transformation numérique",
+            "Certificat",
+            "Évaluation finale"
+          ]
+        },
+        {
+          "title": "Fondamentaux de la marque et de l’expérience client",
+          "description": "Comprendre le lien entre la marque, l’expérience client et l’effet des points de contact sur la confiance et la fidélité.",
+          "url": "fr/learn/free-certificate-training/brand-customer-experience-basics/index.html",
+          "label": "Commencer la formation",
+          "badge": "Gratuite avec certificat",
+          "tags": [
+            "Marque",
+            "Expérience client",
+            "Certificat"
+          ]
+        },
+        {
+          "title": "Kaizen et amélioration continue",
+          "description": "Transformer de petites améliorations régulières en résultats mesurables pour les processus et la qualité du travail.",
+          "url": "fr/learn/free-certificate-training/kaizen-continuous-improvement/index.html",
+          "label": "Commencer la formation",
+          "badge": "Gratuite avec certificat",
+          "tags": [
+            "Kaizen",
+            "Amélioration continue",
+            "Certificat"
+          ]
+        },
+        {
+          "title": "Fondamentaux de la stratégie Océan Bleu",
+          "description": "Créer de nouveaux espaces de valeur et repenser l’offre au-delà de la concurrence traditionnelle directe.",
+          "url": "fr/learn/free-certificate-training/blue-ocean-strategy-fundamentals/index.html",
+          "label": "Commencer la formation",
+          "badge": "Gratuite avec certificat",
+          "tags": [
+            "Océan Bleu",
+            "Innovation-valeur",
+            "Certificat"
+          ]
+        }
+      ],
+      "footerLink": {
+        "url": "fr/learn/free-certificate-training.html",
+        "label": "Voir toutes les formations gratuites avec certificat"
+      }
+    },
+    {
+      "id": "courses-workshops",
+      "eyebrow": "Formation structurée et application pratique",
+      "title": "Formations professionnelles et ateliers pratiques",
+      "description": "Des formations et ateliers destinés aux professionnels, aux équipes et aux organisations, avec des objectifs et des résultats clairement définis.",
+      "items": [
+        {
+          "title": "Planification stratégique",
+          "description": "Analyser la situation, définir l’orientation stratégique et structurer les objectifs, initiatives et indicateurs.",
+          "url": "fr/courses/strategic-planning.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "Stratégie",
+            "Objectifs",
+            "Indicateurs"
+          ]
+        },
+        {
+          "title": "Gestion de projet Agile",
+          "description": "Comprendre Agile, Scrum et Kanban et les utiliser pour organiser les projets et le travail d’équipe.",
+          "url": "fr/courses/agile-project-management.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "Agile",
+            "Scrum",
+            "Kanban"
+          ]
+        },
+        {
+          "title": "Balanced Scorecard et management de la performance",
+          "description": "Transformer la stratégie en objectifs, indicateurs et initiatives, puis relier la performance institutionnelle aux unités et aux personnes.",
+          "url": "fr/courses/balanced-scorecard-performance-management.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "BSC",
+            "KPI",
+            "Performance"
+          ]
+        },
+        {
+          "title": "Système de management intégré IMS",
+          "description": "Intégrer les exigences de qualité, d’environnement et de santé-sécurité dans un système de management cohérent.",
+          "url": "fr/courses/integrated-management-system-ims.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "IMS",
+            "ISO",
+            "Systèmes de management"
+          ]
+        },
+        {
+          "title": "Auditeur interne ISO 9001",
+          "description": "Préparer, réaliser et documenter un audit interne, puis assurer le suivi des constats et actions correctives.",
+          "url": "fr/courses/iso-9001-internal-auditor.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "ISO 9001",
+            "Audit interne"
+          ]
+        },
+        {
+          "title": "Excellence institutionnelle",
+          "description": "Comprendre les principes de l’excellence, structurer les pratiques, les preuves et les résultats mesurables.",
+          "url": "fr/courses/institutional-excellence.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "Excellence",
+            "Preuves",
+            "Résultats"
+          ]
+        },
+        {
+          "title": "Santé, sécurité et environnement",
+          "description": "Développer une compréhension pratique de la gestion des risques HSE, des contrôles et du suivi.",
+          "url": "fr/courses/health-safety-environment.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "HSE",
+            "Risques",
+            "Prévention"
+          ]
+        },
+        {
+          "title": "Gouvernance d’entreprise",
+          "description": "Comprendre les rôles, les responsabilités, les délégations, le contrôle et la prise de décision.",
+          "url": "fr/courses/corporate-governance.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "Gouvernance",
+            "Responsabilités",
+            "Contrôle"
+          ]
+        },
+        {
+          "title": "Création et structuration d’une startup",
+          "description": "Structurer une idée de projet, comprendre le marché, les ressources, le modèle économique et les étapes de lancement.",
+          "url": "fr/courses/startup-creation-structuring.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "Startup",
+            "Entrepreneuriat",
+            "Modèle économique"
+          ]
+        },
+        {
+          "title": "Communication interne professionnelle",
+          "description": "Améliorer la circulation de l’information, la coordination et la qualité de la communication interne.",
+          "url": "fr/courses/professional-internal-communication.html",
+          "label": "Voir la formation",
+          "badge": "Formation professionnelle",
+          "tags": [
+            "Communication interne",
+            "Coordination"
+          ]
+        },
+        {
+          "title": "Ateliers pratiques courts",
+          "description": "Des ateliers concentrés pour produire une fiche KPI, un registre des risques, un objectif SMART ou une matrice de délégation.",
+          "url": "fr/courses/practical-workshops.html",
+          "label": "Voir les ateliers",
+          "badge": "Ateliers pratiques",
+          "tags": [
+            "Application",
+            "Livrables",
+            "3–4 heures"
+          ]
+        }
+      ],
+      "footerLink": {
+        "url": "fr/courses/index.html",
+        "label": "Consulter le catalogue des formations"
+      }
+    },
+    {
+      "id": "services",
+      "eyebrow": "Du diagnostic à la mise en œuvre",
+      "title": "Services de conseil et d’accompagnement",
+      "description": "Des services personnalisables pour les professionnels et les organisations, avec des livrables clairs, utilisables et mesurables.",
+      "items": [
+        {
+          "title": "Planification stratégique",
+          "description": "Diagnostic, vision, mission, objectifs, initiatives, indicateurs et articulation avec l’exécution.",
+          "url": "fr/services/strategic-planning.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "Stratégie",
+            "Indicateurs"
+          ]
+        },
+        {
+          "title": "Plans opérationnels",
+          "description": "Transformer les objectifs en actions, responsabilités, délais, ressources, indicateurs et mécanismes de suivi.",
+          "url": "fr/services/operational-plans.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "Plan opérationnel",
+            "Exécution"
+          ]
+        },
+        {
+          "title": "Management de la performance organisationnelle",
+          "description": "Concevoir les indicateurs, tableaux de bord, rapports, revues de performance et mécanismes d’amélioration.",
+          "url": "fr/services/organizational-performance-management.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "KPI",
+            "Performance"
+          ]
+        },
+        {
+          "title": "Prix d’excellence",
+          "description": "Analyser les critères, structurer le dossier, relier les pratiques aux preuves, aux résultats et aux indicateurs.",
+          "url": "fr/services/excellence-awards.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "Excellence",
+            "Candidature",
+            "Preuves"
+          ]
+        },
+        {
+          "title": "Gouvernance organisationnelle",
+          "description": "Clarifier les rôles, les pouvoirs, la responsabilité, le contrôle et les documents de gouvernance.",
+          "url": "fr/services/governance.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "Gouvernance",
+            "Délégations"
+          ]
+        },
+        {
+          "title": "Management des risques",
+          "description": "Identifier et évaluer les risques, construire les plans de traitement, les registres et le suivi.",
+          "url": "fr/services/risk-management.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "ISO 31000",
+            "Registre des risques"
+          ]
+        },
+        {
+          "title": "Études de faisabilité",
+          "description": "Étudier le marché, le modèle opérationnel, les coûts, les revenus, les risques et la décision d’investissement.",
+          "url": "fr/services/feasibility-studies.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "Faisabilité",
+            "Marché",
+            "Finance"
+          ]
+        },
+        {
+          "title": "Conseil ISO et qualité",
+          "description": "Analyser les écarts, construire les politiques, procédures et modèles, puis préparer les audits.",
+          "url": "fr/services/iso-consulting.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "ISO",
+            "Qualité"
+          ]
+        },
+        {
+          "title": "Système de management intégré",
+          "description": "Organiser et intégrer la qualité, l’environnement et la santé-sécurité dans un cadre commun.",
+          "url": "fr/services/integrated-management-system.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "IMS",
+            "ISO"
+          ]
+        },
+        {
+          "title": "Gestion de projet",
+          "description": "Planifier les phases, tâches, délais, risques, rapports et mécanismes de suivi d’un projet.",
+          "url": "fr/services/project-management.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "Projet",
+            "Planning",
+            "Suivi"
+          ]
+        },
+        {
+          "title": "SOP et manuels opérationnels",
+          "description": "Construire les processus, procédures, instructions, formulaires et manuels opérationnels.",
+          "url": "fr/services/sop-operational-manuals.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "SOP",
+            "Processus",
+            "Procédures"
+          ]
+        },
+        {
+          "title": "Structures organisationnelles",
+          "description": "Analyser les activités et processus, puis concevoir la structure, les unités, rôles et responsabilités.",
+          "url": "fr/services/organizational-structures.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "Structure",
+            "Rôles",
+            "Organisation"
+          ]
+        },
+        {
+          "title": "Feuille de route de transformation digitale",
+          "description": "Évaluer la maturité, définir les priorités, initiatives, règles de gouvernance et étapes d’exécution.",
+          "url": "fr/services/digital-transformation-roadmap.html",
+          "label": "Détails du service",
+          "badge": "Conseil et réalisation",
+          "tags": [
+            "Transformation digitale",
+            "Feuille de route"
+          ]
+        },
+        {
+          "title": "Propositions techniques et documents professionnels",
+          "description": "Préparer des offres techniques, dossiers d’appels d’offres, rapports, manuels et documents professionnels.",
+          "url": "fr/services/technical-proposals-professional-documents.html",
+          "label": "Détails du service",
+          "badge": "Service sur mesure",
+          "tags": [
+            "Offre technique",
+            "Documents",
+            "Appels d’offres"
+          ]
+        }
+      ],
+      "footerLink": {
+        "url": "fr/services.html",
+        "label": "Voir tous les services"
+      }
+    },
+    {
+      "id": "tools",
+      "eyebrow": "Utilisation directe",
+      "title": "Outils numériques gratuits",
+      "description": "Des outils simples pour organiser, calculer, suivre et mettre en pratique certains concepts de management.",
+      "items": [
+        {
+          "title": "Flash management",
+          "description": "Une idée courte de management pour apprendre rapidement et stimuler la réflexion pratique.",
+          "url": "fr/tools/management-flash.html",
+          "label": "Utiliser l’outil",
+          "badge": "Gratuit",
+          "tags": [
+            "Apprentissage rapide",
+            "Management"
+          ]
+        },
+        {
+          "title": "Générateur d’objectifs SMART",
+          "description": "Aider à formuler un objectif plus clair, mesurable, réaliste et suivi dans le temps.",
+          "url": "fr/tools/smart-goal-generator.html",
+          "label": "Utiliser l’outil",
+          "badge": "Gratuit",
+          "tags": [
+            "SMART",
+            "Objectifs"
+          ]
+        },
+        {
+          "title": "Outil de préfaisabilité",
+          "description": "Organiser les informations essentielles d’une idée de projet et obtenir une première lecture structurée.",
+          "url": "fr/tools/feasibility/indexFeasibility.html",
+          "label": "Utiliser l’outil",
+          "badge": "Gratuit",
+          "tags": [
+            "Faisabilité",
+            "Projet"
+          ]
+        },
+        {
+          "title": "Calculatrices de gestion",
+          "description": "Des calculatrices pratiques pour appuyer certaines analyses et suivis de gestion.",
+          "url": "fr/tools/calculators.html",
+          "label": "Ouvrir les calculatrices",
+          "badge": "Gratuit",
+          "tags": [
+            "Calcul",
+            "Indicateurs"
+          ]
+        },
+        {
+          "title": "CRM simplifié",
+          "description": "Organiser les contacts, les suivis, les opportunités et les informations clients.",
+          "url": "fr/tools/crm.html",
+          "label": "Utiliser l’outil",
+          "badge": "Gratuit",
+          "tags": [
+            "CRM",
+            "Clients"
+          ]
+        },
+        {
+          "title": "Créateur de factures",
+          "description": "Préparer une facture structurée pouvant être enregistrée et réutilisée.",
+          "url": "fr/tools/invoice.html",
+          "label": "Utiliser l’outil",
+          "badge": "Gratuit",
+          "tags": [
+            "Facture",
+            "Entreprise"
+          ]
+        },
+        {
+          "title": "Minuteur",
+          "description": "Organiser le temps de travail, les sessions et la durée des activités.",
+          "url": "fr/tools/timer.html",
+          "label": "Utiliser l’outil",
+          "badge": "Gratuit",
+          "tags": [
+            "Temps",
+            "Productivité"
+          ]
+        },
+        {
+          "title": "MyTodo",
+          "description": "Organiser les tâches, les listes et les activités quotidiennes.",
+          "url": "fr/tools/mytodo.html",
+          "label": "Utiliser l’outil",
+          "badge": "Gratuit",
+          "tags": [
+            "Tâches",
+            "Productivité"
+          ]
+        },
+        {
+          "title": "Modèles d’outils",
+          "description": "Une interface qui réunit des modèles et outils complémentaires pour les activités de gestion.",
+          "url": "fr/tools/tool-templates.html",
+          "label": "Voir les modèles",
+          "badge": "Gratuit",
+          "tags": [
+            "Modèles",
+            "Outils"
+          ]
+        }
+      ],
+      "footerLink": {
+        "url": "fr/tools.html",
+        "label": "Voir tous les outils"
+      }
+    },
+    {
+      "id": "resources",
+      "eyebrow": "Commencer par une valeur pratique",
+      "title": "Ressources et modèles gratuits",
+      "description": "Une bibliothèque de modèles Word, listes de contrôle et outils pratiques, organisés par domaine.",
+      "items": [
+        {
+          "title": "Bibliothèque complète des ressources",
+          "description": "Parcourir les modèles, listes de contrôle et ressources disponibles en français.",
+          "url": "fr/resources/index.html",
+          "label": "Ouvrir la bibliothèque",
+          "badge": "Ressources gratuites",
+          "tags": [
+            "Modèles",
+            "Word",
+            "Téléchargement"
+          ]
+        },
+        {
+          "title": "Modèles de planification stratégique",
+          "description": "SWOT, PESTEL et outils pour structurer l’analyse et les priorités stratégiques.",
+          "url": "fr/resources/index.html#french-templates",
+          "label": "Voir les ressources",
+          "badge": "Planification stratégique",
+          "tags": [
+            "SWOT",
+            "PESTEL",
+            "Stratégie"
+          ]
+        },
+        {
+          "title": "Modèles de plans opérationnels et de performance",
+          "description": "Plan opérationnel, préparation, transformation des objectifs en actions et fiche KPI.",
+          "url": "fr/resources/index.html#resources-list",
+          "label": "Voir les ressources",
+          "badge": "Exécution et performance",
+          "tags": [
+            "Plan opérationnel",
+            "KPI"
+          ]
+        },
+        {
+          "title": "Modèles ISO et qualité",
+          "description": "Politique qualité, audit interne, non-conformité, actions correctives et revue de direction.",
+          "url": "fr/resources/index.html#resources-list",
+          "label": "Voir les ressources",
+          "badge": "ISO et qualité",
+          "tags": [
+            "ISO 9001",
+            "Audit",
+            "Qualité"
+          ]
+        },
+        {
+          "title": "Modèles de management des risques",
+          "description": "Registre, matrice d’évaluation, plan de traitement et revue du système de management des risques.",
+          "url": "fr/resources/index.html#resources-list",
+          "label": "Voir les ressources",
+          "badge": "Management des risques",
+          "tags": [
+            "Risques",
+            "Traitement",
+            "Évaluation"
+          ]
+        },
+        {
+          "title": "Modèles d’étude de faisabilité",
+          "description": "Description du projet, analyse du marché, estimation initiale des coûts et liste de préfaisabilité.",
+          "url": "fr/resources/index.html#resources-list",
+          "label": "Voir les ressources",
+          "badge": "Études de faisabilité",
+          "tags": [
+            "Marché",
+            "Coûts",
+            "Projet"
+          ]
+        },
+        {
+          "title": "Modèles de gestion de projet",
+          "description": "Charte de projet, communication, comptes rendus, parties prenantes, tâches et rapport de statut.",
+          "url": "fr/resources/index.html#resources-list",
+          "label": "Voir les ressources",
+          "badge": "Gestion de projet",
+          "tags": [
+            "Charte",
+            "Parties prenantes",
+            "Suivi"
+          ]
+        },
+        {
+          "title": "Modèles de processus et SOP",
+          "description": "Fiche processus, modèle SOP et liste de contrôle pour la revue des procédures.",
+          "url": "fr/resources/index.html#resources-list",
+          "label": "Voir les ressources",
+          "badge": "Processus et SOP",
+          "tags": [
+            "SOP",
+            "Processus",
+            "Procédures"
+          ]
+        }
+      ],
+      "footerLink": {
+        "url": "fr/resources/index.html",
+        "label": "Ouvrir la bibliothèque des ressources"
+      }
+    },
+    {
+      "id": "learning",
+      "eyebrow": "Comprendre avant de décider",
+      "title": "Apprentissage et parcours de connaissances",
+      "description": "Des articles, parcours et concepts qui permettent de comprendre un sujet avant d’utiliser un outil, choisir une formation ou demander un service.",
+      "items": [
+        {
+          "title": "Centre d’apprentissage",
+          "description": "La porte d’entrée vers les articles, parcours, concepts et formations gratuites.",
+          "url": "fr/learn.html",
+          "label": "Ouvrir le centre",
+          "badge": "Portail d’apprentissage",
+          "tags": [
+            "Apprentissage",
+            "Articles",
+            "Parcours"
+          ]
+        },
+        {
+          "title": "Parcours d’apprentissage",
+          "description": "Des parcours structurés pour étudier progressivement un domaine de management.",
+          "url": "fr/learn/learning-paths.html",
+          "label": "Voir les parcours",
+          "badge": "Parcours",
+          "tags": [
+            "Apprentissage structuré",
+            "Progression"
+          ]
+        },
+        {
+          "title": "Bibliothèque des connaissances",
+          "description": "Des articles sur le management, la stratégie, l’intelligence artificielle et les compétences professionnelles.",
+          "url": "fr/learn/articles.html",
+          "label": "Ouvrir la bibliothèque",
+          "badge": "Articles",
+          "tags": [
+            "Articles",
+            "Connaissances"
+          ]
+        },
+        {
+          "title": "Radar des technologies de management",
+          "description": "Des analyses pratiques sur l’intelligence artificielle, l’automatisation, la gouvernance et la transformation digitale.",
+          "url": "fr/learn/management-tech-radar.html",
+          "label": "Ouvrir le radar",
+          "badge": "Radar technologique",
+          "tags": [
+            "IA",
+            "Automatisation",
+            "Gouvernance"
+          ]
+        },
+        {
+          "title": "Glossaire du management",
+          "description": "Des définitions simplifiées des concepts utilisés en management et en développement organisationnel.",
+          "url": "fr/learn/glossary.html",
+          "label": "Ouvrir le glossaire",
+          "badge": "Glossaire",
+          "tags": [
+            "Termes",
+            "Management"
+          ]
+        },
+        {
+          "title": "Compétences managériales",
+          "description": "Un parcours consacré aux compétences de management, de travail, de communication et de décision.",
+          "url": "fr/learn/management-skills.html",
+          "label": "Commencer le parcours",
+          "badge": "Compétences",
+          "tags": [
+            "Management",
+            "Compétences"
+          ]
+        },
+        {
+          "title": "Intelligence artificielle et management",
+          "description": "Comprendre l’intelligence artificielle, ses usages administratifs, ses opportunités et ses risques.",
+          "url": "fr/learn/ai.html",
+          "label": "Ouvrir le sujet",
+          "badge": "Intelligence artificielle",
+          "tags": [
+            "IA",
+            "Management"
+          ]
+        },
+        {
+          "title": "Prompts professionnels pour l’IA",
+          "description": "Des modèles de prompts structurés pour améliorer les usages professionnels de l’intelligence artificielle.",
+          "url": "fr/learn/ai-prompts.html",
+          "label": "Voir les prompts",
+          "badge": "Ressource IA",
+          "tags": [
+            "Prompts",
+            "IA générative"
+          ]
+        },
+        {
+          "title": "Guide de la numérisation",
+          "description": "Comprendre la numérisation des processus et le passage des services traditionnels vers le numérique.",
+          "url": "fr/learn/digitization-guide.html",
+          "label": "Ouvrir le guide",
+          "badge": "Transformation numérique",
+          "tags": [
+            "Numérisation",
+            "Processus"
+          ]
+        },
+        {
+          "title": "Prospective et scénarios",
+          "description": "Des concepts et outils pour repérer les changements, construire des scénarios et mieux préparer l’avenir.",
+          "url": "fr/learn/futures-and-scenarios.html",
+          "label": "Commencer l’apprentissage",
+          "badge": "Prospective",
+          "tags": [
+            "Scénarios",
+            "Avenir",
+            "VUCA"
+          ]
+        }
+      ],
+      "footerLink": {
+        "url": "fr/learn.html",
+        "label": "Voir tous les contenus d’apprentissage"
+      }
+    }
+  ]
+}

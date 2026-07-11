@@ -10881,3 +10881,55 @@ section[id],
     grid-template-columns:1fr;
   }
 }
+
+
+/* =========================================================
+   PLATFORM GUIDE — FRENCH / LTR
+   النسخة الفرنسية من الدليل الحي
+   ========================================================= */
+.fr-platform-guide-page{
+  direction:ltr;
+  text-align:left;
+}
+
+.fr-platform-guide-page .platform-guide-hero__copy,
+.fr-platform-guide-page .platform-guide-summary,
+.fr-platform-guide-page .platform-guide-toolbar,
+.fr-platform-guide-page .platform-guide-section__head,
+.fr-platform-guide-page .platform-guide-card,
+.fr-platform-guide-page .platform-guide-path,
+.fr-platform-guide-page .platform-guide-bottom__panel{
+  direction:ltr;
+  text-align:left;
+}
+
+.fr-platform-guide-page .platform-guide-card__badge{
+  align-self:flex-start;
+}
+
+.fr-platform-guide-page .platform-guide-section__actions{
+  justify-content:center;
+}
+
+.fr-platform-guide-page .platform-guide-quick-nav{
+  justify-content:flex-start;
+}
+
+.fr-platform-guide-page .platform-guide-hero__actions,
+.fr-platform-guide-page .platform-guide-bottom__actions{
+  justify-content:flex-start;
+}
+
+.fr-platform-guide-page .platform-guide-card__link{
+  align-self:flex-start;
+}
+
+.fr-platform-guide-page .breadcrumbs li + li::before{
+  content:"→";
+}
+
+@media (max-width:700px){
+  .fr-platform-guide-page .platform-guide-section__head{
+    align-items:flex-start;
+  }
+}
