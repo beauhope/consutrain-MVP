@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260711-home-certificate-training";
-const RUNTIME_CACHE = "consutrain-runtime-v20260711-home-certificate-training";
+const STATIC_CACHE = "consutrain-v20260711-profile-header-link";
+const RUNTIME_CACHE = "consutrain-runtime-v20260711-profile-header-link";
 
 const PRECACHE_URLS = [
   "./",
