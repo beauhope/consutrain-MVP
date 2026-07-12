@@ -1,175 +1,72 @@
-# PROJECT RULES — ConsuTrain-MVP
+# قواعد مشروع ConsuTrain
 
-## 1. Purpose of this file
-This file records the fixed working rules for the project so they remain clear during development, review, maintenance, and future expansion.
+آخر مراجعة: 2026-07-12
 
----
+هذه القواعد هي المرجع العملي لأي تعديل جديد. اقرأ أيضًا `PROJECT-STATUS.md` و`DECISIONS.md` و`ROADMAP.md` قبل العمل.
 
-## 2. Visitor-facing writing rules
-All texts shown to visitors must be:
-- clear
-- professional
-- direct
-- useful
-- free from internal development language
+## 1. حدود التعديل وGit
 
-### Do not use public-facing phrases like:
-- MVP
-- scalable version
-- first phase
-- internal roadmap language
-- technical planning phrases not relevant to visitors
+- لا ينفذ Codex عمليات `commit` أو `push`. يقتصر دوره على التعديل والتحقق وعرض `git diff` و`git status` للمستخدم.
+- تُحصر التغييرات في الملفات المطلوبة فقط، مع الحفاظ على أي تغييرات موجودة للمستخدم وعدم الكتابة فوقها.
+- عند تعديل جزء محدود، لا تُرسل أو تستبدل حزمة المشروع كاملة؛ سلّم الملفات المتغيرة فقط.
+- قبل العمل افحص `git status`. وإذا كانت هناك commits آلية حديثة على remote، راجع نتيجة GitHub Actions واسحب التحديثات قبل إنشاء تعديل قد يتعارض معها.
+- لا تنشئ ملفًا مرجعيًا مكررًا بسبب اختلاف حالة الأحرف أو تسمية قريبة، ولا تغيّر أسماء الملفات دون ضرورة واضحة.
 
-### Preferred style:
-- explain value clearly
-- speak to the user’s need
-- keep tone professional and accessible
+## 2. لغة المحتوى وتجربة الزائر
 
----
+- حافظ على التكافؤ بين العربية والفرنسية متى كان المحتوى متاحًا باللغتين. لا تعرض أصلًا عربيًا على أنه نسخة فرنسية مترجمة.
+- استخدم لغة نهائية موجهة للزائر. تُمنع عبارات المطور والحزمة والمرحلة المؤقتة مثل: "ضع الرابط هنا" أو "استبدل هذا الملف" أو "سنضيف لاحقًا" داخل الواجهة العامة.
+- لا تُعرض ادعاءات غير مؤكدة، ولا توصف شهادة الإتمام الرقمية بأنها شهادة معتمدة أو ترخيص مهني.
+- لا تُضف روابط شبكات اجتماعية غير مؤكدة. استخدم فقط القنوات المثبتة في بيانات المشروع.
+- لا تُضمّن قسم مصادر داخل مقالات ConsuTrain العربية أو الفرنسية إلا بطلب صريح.
+- حافظ على المصطلحات الفرنسية المتفق عليها في `FR-GLOSSARY.md` عند توسيع النسخة الفرنسية.
 
-## 3. Code commenting rules
-All HTML, CSS, and JavaScript files must contain useful comments.
+## 3. النماذج والتواصل والأمن
 
-### Required commenting approach:
-- explain the purpose of the file at the top
-- explain each major section
-- explain important blocks
-- explain any non-obvious behavior
-- use comments to support maintenance, debugging, learning, and future training
+- استخدم النماذج الداخلية للموقع لطلبات الاستشارة والأسعار والملاحظات، ولا تعد إلى Tally.
+- حافظ على المسارين معًا: رابط واتساب سريع للاتصال المباشر، ونموذج داخلي منظم لجمع الطلبات.
+- لا تضع مفاتيح أو رموز وصول أو بيانات دخول أو عناوين Webhook تشغيلية أو معلومات شخصية حساسة في الوثائق أو الشيفرة العامة.
+- لا تعتبر إخفاء رابط أو صفحة حماية كافيًا للأمن. أي إجراء إداري حساس يحتاج تحققًا وصلاحيات محددة على جهة الخادم أو طبقة الحماية المعتمدة.
+- لا تفعّل إجراءات لوحة الشهادات مثل التعديل أو إعادة الإرسال أو فتح الملفات قبل اكتمال الحماية ومصدر البيانات والتخزين المستقر.
 
-### Comment quality rule:
-Comments must be practical and specific, not decorative.
+## 4. البنية المشتركة والمسارات
 
----
+- استخدم الأجزاء المشتركة بدل نسخ الهيدر والفوتر: `partials/header.html` و`partials/footer.html` للعربية، و`partials/fr-header.html` و`partials/fr-footer.html` للفرنسية.
+- تحقّق من `data-root` في كل صفحة تستخدم الأجزاء المشتركة؛ يجب أن يعكس عمق الصفحة من جذر الموقع.
+- تحقّق من المسارات النسبية للصور وCSS وJavaScript والروابط والتنزيلات عند نقل صفحة أو إضافة صفحة متداخلة.
+- استخدم سمات breadcrumb المعتمدة والعنوان الخاص بالصفحة عند تطبيق نظام الأجزاء المشتركة.
+- لا تكرر محتوى مشتركًا يدويًا إذا كان مصدره جزءًا مشتركًا أو ملف بيانات.
 
-## 4. Design identity rules
-The visual identity of the project is based on:
-- blue gradients
-- gold gradients
-- light gray to white surfaces
+## 5. Service Worker وPWA
 
-### General visual direction:
-- professional
-- elegant
-- calm
-- modern
-- suitable for business, management, and learning
+- عند تعديل ملف موجود في قائمة precache أو إضافة أصل يجب أن يعمل دون اتصال، حدّث اسم كاش Service Worker في `sw.js` وراجع قائمة الملفات المخزنة.
+- لا تضف إلى precache مسارًا غير موجود، وتحقق من أن التحديث لا يعيد نسخة قديمة للزائر.
+- اختبر PWA والكاش والمسار غير المتصل بعد تغييرات الواجهة أو المسارات المؤثرة، وليس بمجرد نجاح الصفحة في تحميل مباشر.
 
----
+## 6. المحتوى القابل للتوسع
 
-## 5. Favicon naming rules
-Approved favicon logic:
-- Main platform: CT-HUB
-- MyTodo: MT
-- Other tools: short clear abbreviations following the same logic
+- الخدمات والدورات والموارد الجديدة يجب أن تتبع بنية مجلدات وتسمية قابلة للتوسع، مع صفحة فهرس ومسارات واضحة بدل روابط خاصة متناثرة.
+- افصل بيانات الفهرسة والمحتوى المتكرر عن العرض متى كانت البنية الحالية تستخدم ملفات بيانات.
+- أضف المقالة إلى ملف البيانات المناسب للغتها، وأنشئ الصفحة في مسار اللغة الصحيح، ثم تحقق من ظهورها وروابطها.
+- عند إضافة دورة أو خدمة، حدّث الفهرس والروابط المشتركة ذات الصلة فقط، ولا تنسخ هيكلًا قديمًا يحتوي نصوصًا مؤقتة أو مسارات غير مناسبة.
 
----
+## 7. دليل المنصة وPDF
 
-## 6. Technical direction for current phase
-Current phase uses:
-- HTML
-- CSS
-- JavaScript
-- GitHub
-- Visual Studio Code
+- بيانات الدليل الحي تُحدّث من `assets/data/platform-guide.json` و`assets/data/fr-platform-guide.json`، وبيانات الاتصال من `assets/data/platform-contact.json`. لا تكرر محتوى الدليل يدويًا داخل صفحتي العرض.
+- يولد `scripts/generate_platform_guide_pdfs.py` ملفي PDF والـmanifest. تعامل مع ملفات PDF المولدة و`assets/data/platform-guide-pdf-manifest.json` كمخرجات أتمتة.
+- لا تعدّل المخرجات المولدة محليًا بالتوازي مع GitHub Actions. راجع workflow، وانتظر اكتماله، ثم اسحب commit الآلي قبل بدء تعديل جديد متعلق بالمصادر نفسها.
+- حافظ على أسماء PDF وروابطهما الثابتة ما لم يصدر قرار صريح بتغييرها.
 
-Advanced technologies are postponed to later phases, especially when Project:Expert becomes more dynamic and requires stronger backend capabilities.
+## 8. جودة التنفيذ والتحقق
 
----
+- لا تفترض اكتمال ميزة من وصف قديم؛ تحقق من الملفات الفعلية، وميّز بين وجود واجهة واكتمال الربط الخارجي.
+- اختبر الصفحة المتأثرة على سطح المكتب والهاتف عند وجود تغيير واجهة، واختبر اللغتين عند وجود مقابل عربي وفرنسي.
+- افحص الروابط والمسارات، وتعارضات Git، و`git diff`، و`git status` قبل التسليم.
+- لا تعدّل ملفات مولدة أو ثنائية أو ملفات عمل آلي خارج نطاق المهمة.
+- حدّث الوثيقة المرجعية المناسبة فقط: الحالة للواقع الحالي، القرارات للخيارات المعتمدة، والخارطة للأعمال المقبلة.
 
-## 7. Development rule
-Do not edit old reference projects directly unless necessary.
-Build the new project cleanly, using previous files only as controlled sources for transfer and improvement.
+## أعمال مكتملة وقواعد مستبدلة
 
----
-
-## 8. Priority rule
-The current priority is:
-1. clean structure
-2. stable navigation
-3. consistent UI
-4. useful content
-5. working tools
-6. clean public presentation
-
----
-
-## 9. Long-term direction
-ConsuTrain is being built as a platform that combines:
-- learning
-- tools
-- services
-- expert-related features later
-
-This rule should guide future expansion decisions.
-
-## 10. Root path rule for shared partials
-This project uses shared partial files such as:
-- header.html
-- footer.html
-
-Because pages exist at different folder levels, each page must define its root level using the `data-root` attribute on the `<body>` tag.
-
-### Rule:
-- Pages in the project root must use:
-  `<body data-root=".">`
-
-- Pages inside first-level folders must use:
-  `<body data-root="..">`
-
-- Pages inside deeper folders must use the appropriate relative root path such as:
-  `<body data-root="../..">`
-
-### Why this rule exists:
-This rule allows shared partials and navigation links to work correctly in:
-- local development
-- Live Server
-- GitHub Pages
-- future project expansion
-
-### Important:
-Any new page added to the project must define the correct `data-root` value before testing navigation.
-
-## 11. Relative asset path rule
-When creating pages inside subfolders, relative paths must be reviewed carefully for:
-- CSS files
-- JavaScript files
-- shared partial loaders
-- links to other pages
-
-Examples:
-- Root page:
-  `assets/js/includes.js`
-
-- First-level subpage:
-  `../assets/js/includes.js`
-
-- Second-level subpage:
-  `../../assets/js/includes.js`
-
-
-  ## 12. Breadcrumb data rule for internal pages
-
-Internal pages that use breadcrumbs must define the appropriate breadcrumb metadata on the `<body>` tag.
-
-### Required attributes:
-- `data-breadcrumb-section`
-- `data-breadcrumb-title`
-
-### Standard rules:
-- Any page inside `learn/` should use:
-  `<body data-root=".." data-breadcrumb-section="التعلّم" data-breadcrumb-title="عنوان الصفحة">`
-
-- Any page inside `services/` should use:
-  `<body data-root=".." data-breadcrumb-section="الخدمات" data-breadcrumb-title="عنوان الصفحة">`
-
-- Any page inside `tools/` at one folder level should use:
-  `<body data-root=".." data-breadcrumb-section="الأدوات" data-breadcrumb-title="عنوان الصفحة">`
-
-- Any page inside `tools/` at two folder levels should use:
-  `<body data-root="../.." data-breadcrumb-section="الأدوات" data-breadcrumb-title="عنوان الصفحة">`
-
-### Important:
-- `data-breadcrumb-title` must use the visitor-facing page title, not the file name.
-- Breadcrumb labels must remain clear, professional, and consistent with public page headings.
-- This rule should be applied to new internal pages unless there is a deliberate reason not to use breadcrumbs.
+- استُبدل الاعتماد السابق على Tally بالنماذج الداخلية؛ أي إشارة قديمة إليه تاريخية وليست توجيهًا للتنفيذ.
+- اكتمل الانتقال الأساسي إلى أجزاء مشتركة عربية وفرنسية؛ إنشاء صفحة جديدة بنسخ هيدر أو فوتر كامل لم يعد أسلوبًا معتمدًا.
+- ملفات دليل المنصة وPDF لها الآن مصدر بيانات ومولد وworkflow محددان؛ التحديث اليدوي المتكرر لمحتوى النسخ المختلفة مستبدل بهذا المسار.
