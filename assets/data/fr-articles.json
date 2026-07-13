@@ -1,6 +1,27 @@
 {
   "articles": [
     {
+      "id": "what-is-ambient-ai",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "L’intelligence artificielle ambiante en management : du déclenchement manuel aux processus sensibles au contexte",
+      "excerpt": "L’intelligence artificielle ambiante fait évoluer l’usage de l’IA : au lieu d’ouvrir une application et de répéter des instructions, l’organisation s’appuie sur des systèmes sensibles au contexte. Cet article analyse sa valeur managériale, ses usages concrets, ses risques, ses exigences de gouvernance et une méthode progressive d’adoption maintenant l’humain dans la décision.",
+      "date": "2026-07-13",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "tech-radar",
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Intelligence artificielle ambiante",
+        "Processus",
+        "Gouvernance"
+      ],
+      "url": "what-is-ambient-ai.html",
+      "image_url": "",
+      "image_alt": ""
+    },
+    {
       "id": "ai-agents-for-marketing-what-they-are-benefits-and-examples",
       "content_type": "article",
       "contentType": "tech-radar",
