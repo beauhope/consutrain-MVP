@@ -1,23 +1,13 @@
 <!doctype html>
 <html lang="ar" dir="rtl" data-fr-link="fr/start-here.html">
 <head>
-  <!--
-    =========================================================
-    FILE: start-here.html
-    PURPOSE: صفحة توجيه عملية مختصرة لمساعدة الزائر على اختيار المسار المناسب.
-    NOTES: تستخدم الهيدر والفوتر المشتركين عبر partials.
-    =========================================================
-  -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>ابدأ من هنا | ConsuTrain</title>
-  <meta
-    name="description"
-    content="صفحة ابدأ من هنا في ConsuTrain تساعدك على اختيار المسار المناسب بسرعة بين الدورات، الورش التطبيقية، الأدوات، الموارد المجانية، والاستشارات."
-  >
+  <meta name="description" content="خريطة بداية داخل ConsuTrain تساعدك على اختيار دورة، شهادة رقمية، ورشة تطبيقية، مسار تعليمي، أداة، قالب، مورد أو استشارة مخصصة.">
 
-  <link rel="stylesheet" href="assets/css/style.css?v=20260512_start_here">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260713_start_here_gateway">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="theme-color" content="#0f2747">
   <meta name="mobile-web-app-capable" content="yes">
@@ -28,44 +18,7 @@
 
   <style>
     .start-here-page .hero-card p {
-      max-width: 760px;
-    }
-
-    .route-links,
-    .compact-list {
-      margin: 14px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 8px;
-    }
-
-    .route-links a {
-      color: var(--primary);
-      font-weight: 700;
-      border-bottom: 1px solid rgba(212, 166, 58, .35);
-    }
-
-    .route-links a:hover {
-      color: var(--gold-2);
-    }
-
-    .compact-list li {
-      color: var(--muted);
-      line-height: 1.8;
-      position: relative;
-      padding-inline-start: 18px;
-    }
-
-    .compact-list li::before {
-      content: "";
-      position: absolute;
-      inset-inline-start: 0;
-      top: .85em;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--gold);
+      max-width: 820px;
     }
 
     .start-step {
@@ -84,6 +37,61 @@
     .section-card .hero-actions {
       margin-top: 16px;
     }
+
+    .start-here-page .hero-grid,
+    .start-here-page .hero-card,
+    .start-here-page .hero-side,
+    .start-here-page .feature-card,
+    .start-here-page .cards-grid,
+    .start-here-page .section-card,
+    .start-here-page .cta-panel {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .start-here-page main,
+      .start-here-page main section {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .start-here-page main .container {
+        width: calc(100vw - 24px);
+        max-width: calc(100vw - 24px);
+        margin-inline: auto;
+      }
+
+      .start-here-page .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .start-here-page .hero {
+        padding-top: 32px;
+      }
+
+      .start-here-page .hero-card,
+      .start-here-page .hero-side,
+      .start-here-page .feature-card,
+      .start-here-page .section-card,
+      .start-here-page .cta-panel {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .start-here-page .hero-card {
+        padding: 24px 18px;
+        overflow: hidden;
+      }
+
+      .start-here-page .hero-card p,
+      .start-here-page .feature-card p,
+      .start-here-page .section-card p,
+      .start-here-page .btn {
+        overflow-wrap: anywhere;
+      }
+    }
   </style>
 </head>
 
@@ -98,16 +106,14 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-card">
-          <span class="eyebrow">موجه طريق سريع</span>
-          <h1>اختر طريقك داخل ConsuTrain خلال دقيقة</h1>
-          <p>
-            لا تحتاج إلى تصفح كل شيء. اختر هدفك، وسنوجهك إلى الدورة، الورشة، الأداة، أو المورد الأنسب لك.
-          </p>
+          <span class="eyebrow">خريطة البداية داخل ConsuTrain</span>
+          <h1>ابدأ من هنا</h1>
+          <p>إذا كنت تزور ConsuTrain لأول مرة، فهذه الصفحة تساعدك على اختيار المسار الأنسب: تعلم، دورة، شهادة، ورشة تطبيقية، أدوات، قوالب، موارد، أو استشارة مخصصة.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="learn.html">أريد التعلم</a>
-            <a class="btn btn-secondary" href="courses/practical-workshops/">أريد ورشة تطبيقية</a>
-            <a class="btn btn-secondary" href="resources/index.html">أريد نموذجًا أو أداة</a>
-            <a class="btn btn-secondary" href="services/consultation-form.html?request_type=consultation#consultation-request-form">أريد استشارة</a>
+            <a class="btn btn-primary" href="#start-options">اختر نقطة البداية</a>
+            <a class="btn btn-secondary" href="learn/free-certificate-training.html">تدريب مع شهادة</a>
+            <a class="btn btn-secondary" href="tools.html">أداة مجانية</a>
+            <a class="btn btn-secondary" href="services/consultation-form.html">استشارة مخصصة</a>
           </div>
         </div>
 
@@ -116,265 +122,111 @@
             <img src="assets/images/visuals/start-here-roadmap.svg" alt="رسم لخريطة طريق وخطوات بداية منظمة">
           </div>
           <article class="feature-card">
-            <h3>تعلم منظم</h3>
-            <p>ابدأ بدورة عندما تحتاج فهمًا مرتبًا للموضوع.</p>
+            <h3>تعلّم</h3>
+            <p>اختر دورة، تدريبًا بشهادة، أو مسارًا تعليميًا منظمًا.</p>
           </article>
           <article class="feature-card">
-            <h3>تطبيق سريع</h3>
-            <p>اختر ورشة عندما تريد مخرجًا عمليًا خلال 3 إلى 4 ساعات.</p>
+            <h3>طبّق</h3>
+            <p>ابدأ بورشة قصيرة، أداة عملية، أو قالب جاهز.</p>
           </article>
           <article class="feature-card">
-            <h3>مورد مجاني</h3>
-            <p>ابدأ بقالب أو أداة إذا كنت تريد تجربة سريعة.</p>
+            <h3>اطلب دعمًا</h3>
+            <p>انتقل إلى استشارة أو دورة مخصصة عندما يحتاج العمل إلى توجيه مباشر.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section" id="start-options">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>اختر ما تحتاجه الآن</h2>
+            <p>ثمانية مداخل مختصرة تقودك مباشرة إلى القسم الأنسب داخل الموقع.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card">
+            <h3>الدورات التدريبية</h3>
+            <p>تصفح الدورات المتاحة واختر الموضوع الأقرب لاحتياجك المهني أو المؤسسي.</p>
+            <div class="hero-actions"><a class="btn btn-primary btn-small" href="courses/index.html">استعرض الدورات</a></div>
+          </article>
+
+          <article class="section-card">
+            <h3>دورات مجانية مع اختبارات وشهادات</h3>
+            <p>تدرّبات قصيرة مجانية يمكن أن تنتهي باختبار وشهادة رقمية بعد اجتياز المتطلبات.</p>
+            <div class="hero-actions"><a class="btn btn-primary btn-small" href="learn/free-certificate-training.html">استكشف الدورات المجانية بالشهادة</a></div>
+          </article>
+
+          <article class="section-card">
+            <h3>ورش تطبيقية قصيرة</h3>
+            <p>ورش مركزة تساعدك على تطبيق مفاهيم محددة بسرعة في التخطيط، الأداء، الجودة، التحول الرقمي أو إدارة المشاريع.</p>
+            <div class="hero-actions"><a class="btn btn-primary btn-small" href="courses/practical-workshops/">استعرض الورش التطبيقية</a></div>
+          </article>
+
+          <article class="section-card">
+            <h3>المسارات التعليمية</h3>
+            <p>اتبع مسارات تعلم منظمة تجمع بين المقالات، الأدوات، القوالب، والتطبيق العملي.</p>
+            <div class="hero-actions"><a class="btn btn-primary btn-small" href="learn/learning-paths.html">استكشف المسارات التعليمية</a></div>
+          </article>
+
+          <article class="section-card">
+            <h3>مقالات الرادار التقني</h3>
+            <p>تابع أحدث المقالات لفهم اتجاهات الإدارة الرقمية والذكاء الاصطناعي والأتمتة من زاوية عملية.</p>
+            <div class="hero-actions"><a class="btn btn-primary btn-small" href="learn/management-tech-radar.html">افتح الرادار التقني</a></div>
+          </article>
+
+          <article class="section-card">
+            <h3>الأدوات المجانية</h3>
+            <p>استخدم أدوات عملية تساعدك على التشخيص، التخطيط، التقييم أو تنظيم الأفكار.</p>
+            <div class="hero-actions"><a class="btn btn-primary btn-small" href="tools.html">استعرض الأدوات</a></div>
+          </article>
+
+          <article class="section-card">
+            <h3>القوالب المجانية</h3>
+            <p>حمّل قوالب جاهزة تساعدك في التخطيط، المتابعة، التحليل وإعداد الملفات الإدارية.</p>
+            <div class="hero-actions"><a class="btn btn-primary btn-small" href="templates/index.html">استعرض القوالب</a></div>
+          </article>
+
+          <article class="section-card">
+            <h3>الموارد المقترحة للإدارة</h3>
+            <p>اكتشف موارد مختارة في الإدارة والتطوير المؤسسي تساعدك على التوسع في التعلم والتطبيق.</p>
+            <div class="hero-actions"><a class="btn btn-primary btn-small" href="resources/index.html">استعرض الموارد</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>ابدأ بخطوة بسيطة</h2>
+            <p>انتقل من تحديد الحاجة إلى التعلم والتطبيق، ثم اطلب دعمًا مخصصًا عند الحاجة.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="section-card"><span class="start-step">1</span><h3>حدد حاجتك</h3><p>اختر النتيجة التي تريد الوصول إليها الآن.</p></article>
+          <article class="section-card"><span class="start-step">2</span><h3>اختر المدخل</h3><p>دورة، شهادة، ورشة، مسار، أداة، قالب أو مورد.</p></article>
+          <article class="section-card"><span class="start-step">3</span><h3>ابدأ وطبّق</h3><p>استخدم ما تعلمته على حالة أو ملف حقيقي.</p></article>
+          <article class="section-card"><span class="start-step">4</span><h3>اطلب التوجيه</h3><p>اطلب مساعدة مخصصة إذا احتجت إلى اختيار أو تطبيق أدق.</p></article>
         </div>
       </div>
     </section>
 
     <section class="home-section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>ماذا تريد أن تنجز الآن؟</h2>
-            <p>اختر أقرب هدف لك، وستجد المسار المناسب دون تشتت.</p>
-          </div>
-        </div>
-
-        <div class="cards-grid">
-          <article class="section-card">
-            <h3>أريد بناء خطة أو مؤشرات</h3>
-            <p>ابدأ من التخطيط الاستراتيجي، بطاقة الأداء المتوازن، الأهداف SMART، ومؤشرات الأداء.</p>
-            <ul class="route-links">
-              <li><a href="courses/strategic-planning/">دورة التخطيط الاستراتيجي</a></li>
-              <li><a href="courses/balanced-scorecard-performance-management/">دورة بطاقة الأداء المتوازن وإدارة الأداء</a></li>
-              <li><a href="courses/practical-workshops/#workshopsList">ورشة صياغة الأهداف SMART</a></li>
-              <li><a href="courses/practical-workshops/#workshopsList">ورشة إعداد بطاقة مؤشر KPI</a></li>
-            </ul>
-            <div class="hero-actions">
-              <a class="btn btn-primary btn-small" href="courses/strategic-planning/">استعرض مسار التخطيط والأداء</a>
-            </div>
-          </article>
-
-          <article class="section-card">
-            <h3>أريد تحسين الجودة أو أنظمة ISO</h3>
-            <p>انتقل إلى دورات الجودة والآيزو، التدقيق الداخلي، ونظام الإدارة المتكامل.</p>
-            <ul class="route-links">
-              <li><a href="courses/iso-9001-internal-auditor/">دورة مدقق داخلي ISO 9001</a></li>
-              <li><a href="courses/integrated-management-system-ims/">دورة نظام الإدارة المتكامل IMS</a></li>
-              <li><a href="courses/practical-workshops/#workshopsList">ورشة كتابة عدم المطابقة والإجراء التصحيحي</a></li>
-            </ul>
-            <div class="hero-actions">
-              <a class="btn btn-primary btn-small" href="courses/iso-9001-internal-auditor/">استعرض مسار الجودة والآيزو</a>
-            </div>
-          </article>
-
-          <article class="section-card">
-            <h3>أريد تطوير التميز والحوكمة</h3>
-            <p>ابدأ من التميز المؤسسي، الحوكمة، مصفوفة الصلاحيات، وتجهيز الأدلة والممارسات.</p>
-            <ul class="route-links">
-              <li><a href="courses/institutional-excellence/">دورة التميز المؤسسي</a></li>
-              <li><a href="courses/corporate-governance/">دورة الحوكمة المؤسسية</a></li>
-              <li><a href="courses/practical-workshops/#workshopsList">ورشة إعداد مصفوفة الصلاحيات</a></li>
-            </ul>
-            <div class="hero-actions">
-              <a class="btn btn-primary btn-small" href="courses/institutional-excellence/">استعرض مسار التميز والحوكمة</a>
-            </div>
-          </article>
-
-          <article class="section-card">
-            <h3>أريد إدارة المخاطر أو السلامة</h3>
-            <p>ابدأ ببناء سجل المخاطر، ثم انتقل إلى أنظمة الصحة والسلامة المهنية وإدارة المخاطر.</p>
-            <ul class="route-links">
-              <li><a href="courses/practical-workshops/#workshopsList">ورشة إعداد سجل المخاطر وتعبئته</a></li>
-              <li><a href="courses/occupational-health-safety-management-system/">دورة الصحة والسلامة المهنية ISO 45001</a></li>
-              <li><a href="courses/integrated-management-system-ims/">دورة نظام الإدارة المتكامل IMS</a></li>
-            </ul>
-            <div class="hero-actions">
-              <a class="btn btn-primary btn-small" href="courses/occupational-health-safety-management-system/">استعرض مسار المخاطر والسلامة</a>
-            </div>
-          </article>
-
-          <article class="section-card">
-            <h3>أريد تطوير مهاراتي المهنية</h3>
-            <p>طور تواصلك، حضورك، قدرتك على العرض، الإقناع، والعمل مع الآخرين.</p>
-            <ul class="route-links">
-              <li><a href="learn/soft-skill.html?id=effective-communication">التواصل الفعال</a></li>
-              <li><a href="learn/soft-skills.html">موارد ومقالات المهارات المهنية</a></li>
-            </ul>
-            <div class="hero-actions">
-              <a class="btn btn-primary btn-small" href="learn/soft-skills.html">استعرض مسار المهارات المهنية</a>
-            </div>
-          </article>
-
-          <article class="section-card">
-            <h3>أريد شيئًا مجانيًا أبدأ به</h3>
-            <p>ابدأ بقوالب، موارد، أدوات، ومحتوى مجاني يساعدك على الفهم والتطبيق.</p>
-            <ul class="route-links">
-              <li><a href="resources/index.html">الموارد المجانية</a></li>
-              <li><a href="tools.html">الأدوات</a></li>
-              <li><a href="tools/management-flash.html">ومضة إدارية</a></li>
-            </ul>
-            <div class="hero-actions">
-              <a class="btn btn-primary btn-small" href="resources/index.html">ابدأ بالموارد المجانية</a>
-            </div>
-          </article>
-
-          <article class="section-card">
-            <h3>أريد خدمة استشارية جاهزة</h3>
-            <p>إذا كنت لا تبحث عن التعلم فقط، بل تحتاج إلى إعداد خطة، نظام، ملف تميز، دراسة جدوى، عرض فني، أو مراجعة متخصصة، انتقل إلى الخدمات الاستشارية.</p>
-            <div class="hero-actions">
-              <a class="btn btn-primary btn-small" href="services.html">استعرض الخدمات</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section home-section--soft">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>كيف تستفيد من ConsuTrain في 10 دقائق؟</h2>
-            <p>ابدأ بخطوة صغيرة، ثم انتقل حسب احتياجك.</p>
-          </div>
-        </div>
-
-        <div class="cards-grid">
-          <article class="section-card"><span class="start-step">1</span><h3>اختر المجال</h3><p>حدد المجال الذي يهمك الآن.</p></article>
-          <article class="section-card"><span class="start-step">2</span><h3>ابدأ مجانًا</h3><p>استخدم موردًا مجانيًا أو أداة بسيطة.</p></article>
-          <article class="section-card"><span class="start-step">3</span><h3>انتقل للتعلم</h3><p>اختر دورة أو ورشة مناسبة.</p></article>
-          <article class="section-card"><span class="start-step">4</span><h3>طبّق عمليًا</h3><p>جرّب على نموذج أو حالة حقيقية.</p></article>
-          <article class="section-card"><span class="start-step">5</span><h3>اطلب مساعدة</h3><p>اطلب مراجعة أو تنفيذًا مخصصًا عند الحاجة.</p></article>
-        </div>
-
-        <div class="cta-panel" style="margin-top:18px;">
-          <p>ابدأ بالقيمة المجانية أولًا. عندما تحتاج إلى تطبيق خاص بمؤسستك، يمكنك الانتقال إلى ورشة أو استشارة.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>أي خيار يناسبك؟</h2>
-            <p>اختر حسب النتيجة التي تريدها.</p>
-          </div>
-        </div>
-
-        <div class="cards-grid">
-          <article class="section-card">
-            <h3>دورة تدريبية</h3>
-            <p>عندما تريد فهم الموضوع بشكل منظم.</p>
-            <strong>النتيجة:</strong>
-            <p>معرفة شاملة وخطة تعلم واضحة.</p>
-          </article>
-          <article class="section-card">
-            <h3>ورشة تطبيقية</h3>
-            <p>عندما تريد إنجاز نموذج محدد خلال وقت قصير.</p>
-            <strong>النتيجة:</strong>
-            <p>بطاقة، سجل، مصفوفة، أو نموذج عملي.</p>
-          </article>
-          <article class="section-card">
-            <h3>استشارة</h3>
-            <p>عندما تريد تطبيقًا خاصًا على مؤسستك.</p>
-            <strong>النتيجة:</strong>
-            <p>مراجعة، بناء، أو تحسين مخصص.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section home-section--soft">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>متى تختار الخدمة الاستشارية؟</h2>
-            <p>اختر الخدمة الاستشارية عندما لا يكفيك التعلم وحده، وتحتاج إلى مخرج جاهز أو مراجعة مهنية أو تطبيق خاص بمؤسستك.</p>
-          </div>
-        </div>
-
-        <div class="cards-grid">
-          <article class="section-card"><h3>فهم الموضوع</h3><p>دورة تدريبية</p></article>
-          <article class="section-card"><h3>تطبيق نموذج خلال ساعات</h3><p>ورشة تطبيقية</p></article>
-          <article class="section-card"><h3>بناء ملف أو نظام كامل</h3><p>خدمة استشارية</p></article>
-          <article class="section-card"><h3>مراجعة عمل قمت به</h3><p>استشارة أو عيادة مهنية</p></article>
-        </div>
-
-        <div class="hero-actions" style="margin-top:18px;">
-          <a class="btn btn-primary" href="services.html">استعرض الخدمات الاستشارية</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section home-section--soft">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>اختر حسب الوقت المتاح لك</h2>
-            <p>ابدأ بما يناسب وقتك الآن.</p>
-          </div>
-        </div>
-
-        <div class="cards-grid">
-          <article class="section-card">
-            <h3>لدي 5 دقائق</h3>
-            <p>اقرأ ومضة إدارية أو استخدم أداة مجانية.</p>
-            <a class="btn btn-primary btn-small" href="tools/management-flash.html">افتح ومضة إدارية</a>
-          </article>
-          <article class="section-card">
-            <h3>لدي 30 دقيقة</h3>
-            <p>اطلع على مورد مجاني أو نموذج عملي.</p>
-            <a class="btn btn-primary btn-small" href="resources/index.html">استعرض الموارد المجانية</a>
-          </article>
-          <article class="section-card">
-            <h3>لدي 3 ساعات</h3>
-            <p>احضر ورشة تطبيقية قصيرة وارجع بمخرج جاهز.</p>
-            <a class="btn btn-primary btn-small" href="courses/practical-workshops/">استعرض الورش التطبيقية</a>
-          </article>
-          <article class="section-card">
-            <h3>أحتاج تطبيقًا كاملًا</h3>
-            <p>اطلب استشارة أو عرضًا مخصصًا حسب احتياجك.</p>
-            <a class="btn btn-primary btn-small" href="services/consultation-form.html?request_type=consultation#consultation-request-form">اطلب استشارة</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>لماذا تبدأ بهذه الطريقة؟</h2>
-            <p>
-              لأن أغلب الزوار لا يحتاجون إلى كل شيء مرة واحدة. الأفضل أن تبدأ باحتياج واضح، ثم تنتقل تدريجيًا من الفهم إلى التطبيق،
-              ومن النموذج العام إلى الحل المناسب لمؤسستك.
-            </p>
-          </div>
-        </div>
-
-        <div class="cards-grid">
-          <article class="section-card"><h3>ابدأ مجانًا</h3><p>تبدأ بمورد أو أداة مجانية.</p></article>
-          <article class="section-card"><h3>تعلم عند الحاجة</h3><p>تتعلم من دورة منظمة عند الحاجة.</p></article>
-          <article class="section-card"><h3>طبّق بسرعة</h3><p>تطبّق من خلال ورشة قصيرة.</p></article>
-          <article class="section-card"><h3>خصص الحل</h3><p>تطلب استشارة فقط عندما تحتاج إلى تخصيص أو مراجعة.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section home-section--soft">
       <div class="container">
         <div class="cta-panel">
           <div>
             <span class="eyebrow">الخطوة التالية</span>
-            <h2>ما الخطوة المناسبة لك الآن؟</h2>
-            <p>اختر أقرب مسار لاحتياجك، أو تواصل معنا إذا لم تكن متأكدًا من البداية المناسبة.</p>
+            <h2>لست متأكدًا من المسار الأنسب؟</h2>
+            <p>أرسل لنا طلبك أو صف احتياجك، وسنساعدك على اختيار المسار المناسب: دورة، ورشة، استشارة، أداة، أو محتوى تعليمي.</p>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="courses/index.html">استعرض الدورات والورش</a>
-            <a class="btn btn-secondary" href="resources/index.html">ابدأ بالموارد المجانية</a>
+            <a class="btn btn-primary" href="services/consultation-form.html">اطلب توجيهًا أو استشارة</a>
             <a class="btn btn-secondary" href="services.html">استعرض الخدمات</a>
-            <a class="btn btn-secondary" href="contact.html">تواصل معنا</a>
           </div>
         </div>
       </div>
@@ -383,7 +235,7 @@
 
   <div id="footer-placeholder"></div>
 
-  <script src="assets/js/includes.js?v=20260512_start_here"></script>
+  <script src="assets/js/includes.js?v=20260713_start_here_gateway"></script>
   <script src="assets/js/pwa.js"></script>
 </body>
 </html>
