@@ -28,6 +28,25 @@
     </section>
 
     <div class="radar-main">
+      <section class="radar-section" aria-labelledby="radar-articles-title">
+        <div class="radar-section-head">
+          <h2 id="radar-articles-title">أحدث مقالات الرادار التقني</h2>
+          <p>تحليلات عملية لأبرز الأدوات والاتجاهات الرقمية ذات الصلة بالإدارة والعمل المؤسسي.</p>
+        </div>
+
+        <div data-tech-radar-archive data-articles-source="../assets/data/articles.json" data-locale="ar" data-read-label="قراءة المقال" data-loading-label="جاري تحميل مقالات الرادار التقني..." data-error-label="تعذر تحميل مقالات الرادار التقني.">
+          <div class="articles-list" data-tech-radar-list></div>
+          <div class="section-card glossary-empty" data-tech-radar-empty hidden>
+            <h3>لا توجد مقالات رادار منشورة حاليًا</h3>
+            <p>ستظهر هنا المقالات المصنفة ضمن الرادار التقني بعد إضافتها إلى ملف البيانات.</p>
+          </div>
+        </div>
+
+        <div class="radar-actions radar-archive-actions">
+          <a class="btn btn-secondary" href="articles.html">عرض جميع المقالات التعليمية</a>
+        </div>
+      </section>
+
       <section class="radar-section" aria-labelledby="radar-topics-title">
         <div class="radar-section-head">
           <h2 id="radar-topics-title">موضوعات الرادار</h2>
@@ -106,25 +125,6 @@
             <h3>احتياطات قبل الاعتماد</h3>
             <ul><li>بسّط العملية قبل أتمتتها.</li><li>اختبر مع عدد محدود من المستخدمين.</li><li>حدد مالكًا واضحًا للأداة أو سير العمل.</li><li>حافظ على المراجعة البشرية في المهام الحساسة.</li></ul>
           </article>
-        </div>
-      </section>
-
-      <section class="radar-section" aria-labelledby="radar-articles-title">
-        <div class="radar-section-head">
-          <h2 id="radar-articles-title">أحدث مقالات الرادار التقني</h2>
-          <p>تحليلات عملية لأبرز الأدوات والاتجاهات الرقمية ذات الصلة بالإدارة والعمل المؤسسي.</p>
-        </div>
-
-        <div data-tech-radar-archive data-articles-source="../assets/data/articles.json" data-locale="ar" data-read-label="قراءة المقال" data-loading-label="جاري تحميل مقالات الرادار التقني..." data-error-label="تعذر تحميل مقالات الرادار التقني.">
-          <div class="articles-list" data-tech-radar-list></div>
-          <div class="section-card glossary-empty" data-tech-radar-empty hidden>
-            <h3>لا توجد مقالات رادار منشورة حاليًا</h3>
-            <p>ستظهر هنا المقالات المصنفة ضمن الرادار التقني بعد إضافتها إلى ملف البيانات.</p>
-          </div>
-        </div>
-
-        <div class="radar-actions radar-archive-actions">
-          <a class="btn btn-secondary" href="articles.html">عرض جميع المقالات التعليمية</a>
         </div>
       </section>
 

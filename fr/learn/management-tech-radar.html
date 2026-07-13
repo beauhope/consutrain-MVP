@@ -28,6 +28,25 @@
     </section>
 
     <div class="radar-main">
+      <section class="radar-section" aria-labelledby="radar-articles-title">
+        <div class="radar-section-head">
+          <h2 id="radar-articles-title">Derniers articles du radar technologique</h2>
+          <p>Des analyses pratiques sur les outils et tendances numériques qui transforment le management et le travail organisationnel.</p>
+        </div>
+
+        <div data-tech-radar-archive data-articles-source="../../assets/data/fr-articles.json" data-locale="fr" data-read-label="Lire l’article" data-loading-label="Chargement des articles du radar technologique..." data-error-label="Impossible de charger les articles du radar technologique.">
+          <div class="articles-list" data-tech-radar-list></div>
+          <div class="section-card glossary-empty" data-tech-radar-empty hidden>
+            <h3>Aucun article du radar n’est disponible pour le moment</h3>
+            <p>Les articles classés dans le radar technologique apparaîtront ici après leur ajout au fichier de données.</p>
+          </div>
+        </div>
+
+        <div class="radar-actions radar-archive-actions">
+          <a class="btn btn-secondary" href="articles.html">Voir tous les articles</a>
+        </div>
+      </section>
+
       <section class="radar-section" aria-labelledby="radar-topics-title">
         <div class="radar-section-head">
           <h2 id="radar-topics-title">Sujets du radar</h2>
@@ -106,25 +125,6 @@
             <h3>Précautions avant adoption</h3>
             <ul><li>Simplifier le processus avant de l’automatiser.</li><li>Tester avec un nombre limité d’utilisateurs.</li><li>Désigner un responsable de l’outil ou du workflow.</li><li>Maintenir une validation humaine pour les tâches sensibles.</li></ul>
           </article>
-        </div>
-      </section>
-
-      <section class="radar-section" aria-labelledby="radar-articles-title">
-        <div class="radar-section-head">
-          <h2 id="radar-articles-title">Derniers articles du radar technologique</h2>
-          <p>Des analyses pratiques sur les outils et tendances numériques qui transforment le management et le travail organisationnel.</p>
-        </div>
-
-        <div data-tech-radar-archive data-articles-source="../../assets/data/fr-articles.json" data-locale="fr" data-read-label="Lire l’article" data-loading-label="Chargement des articles du radar technologique..." data-error-label="Impossible de charger les articles du radar technologique.">
-          <div class="articles-list" data-tech-radar-list></div>
-          <div class="section-card glossary-empty" data-tech-radar-empty hidden>
-            <h3>Aucun article du radar n’est disponible pour le moment</h3>
-            <p>Les articles classés dans le radar technologique apparaîtront ici après leur ajout au fichier de données.</p>
-          </div>
-        </div>
-
-        <div class="radar-actions radar-archive-actions">
-          <a class="btn btn-secondary" href="articles.html">Voir tous les articles</a>
         </div>
       </section>
 
