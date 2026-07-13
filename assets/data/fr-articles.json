@@ -1,6 +1,27 @@
 {
   "articles": [
     {
+      "id": "ai-agents-for-marketing-what-they-are-benefits-and-examples",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "Agents d’intelligence artificielle en marketing : vers une organisation plus intelligente du travail",
+      "excerpt": "Cet article analyse la manière dont les agents d’intelligence artificielle peuvent aider les équipes marketing à coordonner les tâches, exploiter les données, préparer les contenus et suivre les campagnes. Il présente également les risques liés à la qualité, à la confidentialité et à la gouvernance, ainsi qu’une démarche progressive pour tester, mesurer et encadrer leur adoption.",
+      "date": "2026-07-13",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "tech-radar",
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Agents d’intelligence artificielle",
+        "Marketing",
+        "Gouvernance"
+      ],
+      "url": "ai-agents-for-marketing-what-they-are-benefits-and-examples.html",
+      "image_url": "",
+      "image_alt": ""
+    },
+    {
       "id": "management-tech-radar-ai-work-systems",
       "content_type": "article",
       "contentType": "tech-radar",
