@@ -415,6 +415,20 @@
         </div>
 
         <div class="tools-grid">
+          <article class="tool-card" data-category="planning" data-search-keywords="محاكي إدارة المشاريع اختبار إدارة المشاريع تدريب PMP أسئلة إدارة المشاريع اختبار تجريبي Project management simulator">
+            <div class="tool-icon" aria-hidden="true">PM</div>
+            <h3>محاكي إدارة المشاريع الاحترافي</h3>
+            <p>تطبيق تدريبي عربي يضم 500 سؤال أصلي، ويساعد على التدرب على الاختبارات المحاكية، إدارة الوقت، مراجعة الإجابات وتحليل الأداء.</p>
+            <ul>
+              <li>اختبارات كاملة ومتوسطة وسريعة.</li>
+              <li>مراجعة الإجابات والتفسيرات وتحليل النتائج.</li>
+              <li>حفظ التقدم محليًا على جهازك.</li>
+            </ul>
+            <p><small>الأسئلة تدريبية ومحاكية وليست أسئلة فعلية من الاختبار.</small></p>
+            <div class="tool-meta"><span class="tool-badge free">مجاني</span><span class="tool-badge ready">جاهز</span></div>
+            <a class="tool-link" href="tools/project-exam-lab/">ابدأ التدريب</a>
+          </article>
+
           <article class="tool-card" data-category="productivity">
             <div class="tool-icon">🗒️</div>
             <h3>منظّم مهامي</h3>
@@ -719,7 +733,7 @@
 
         toolCards.forEach((card) => {
           const categoryMatch = card.dataset.category === activeCategory;
-          const searchMatch = !query || normalizeText(card.textContent).includes(query);
+          const searchMatch = !query || normalizeText(`${card.textContent} ${card.dataset.searchKeywords || ""}`).includes(query);
           const key = getCardKey(card);
 
           if (categoryMatch && searchMatch && !usedKeys.has(key)) {
@@ -763,7 +777,7 @@
       }
 
       toolCards.forEach((card) => {
-        const isVisible = !query || normalizeText(card.textContent).includes(query);
+        const isVisible = !query || normalizeText(`${card.textContent} ${card.dataset.searchKeywords || ""}`).includes(query);
         card.style.display = isVisible ? "" : "none";
         if (isVisible) visibleCount += 1;
       });
