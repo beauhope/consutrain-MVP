@@ -178,7 +178,7 @@
       "difficulty": "صعب",
       "type": "multi",
       "topic": "Conformité et évolution réglementaire",
-      "prompt": "D’après l’étude de cas, une nouvelle réglementation susceptible d’avoir une incidence sur le produit du projet vient d’être publiée. Quelles sont les DEUX actions les plus appropriées ?",
+      "prompt": "D’après l’étude de cas, une nouvelle réglementation susceptible d’avoir une incidence sur le produit du projet vient d’être publiée. Quelles sont les DEUX actions les plus appropriées ? Sélectionnez DEUX réponses.",
       "options": [
         "Mettre à jour les exigences et les plans, puis soumettre les changements nécessaires par la voie de gouvernance",
         "Poursuivre sans changement jusqu’à la date de l’audit",
@@ -264,7 +264,7 @@
       "difficulty": "صعب",
       "type": "single",
       "topic": "Facilitation et hiérarchisation des priorités",
-      "prompt": "Pendant l’exécution du projet « Agrandissement d’un aéroport régional », qui prévoit un terminal passagers et des installations d’exploitation, deux directions présentent des exigences incompatibles et chacune juge la sienne essentielle. Quelle est l’action LA PLUS appropriée ?",
+      "prompt": "Pendant l’exécution du projet « Extension d’un aéroport régional », qui prévoit un terminal passagers et des installations d’exploitation, deux directions présentent des exigences incompatibles et chacune juge la sienne essentielle. Quelle est l’action LA PLUS appropriée ?",
       "options": [
         "Faciliter la hiérarchisation des priorités selon la valeur, les objectifs et les contraintes, puis documenter la décision",
         "Recueillir secrètement l’avis de l’équipe et retenir l’exigence la plus populaire",
@@ -275,7 +275,7 @@
         "Faciliter la hiérarchisation des priorités selon la valeur, les objectifs et les contraintes, puis documenter la décision"
       ],
       "explanation": "Dans le contexte de l’agrandissement d’un aéroport régional, le conflit doit être résolu à partir de critères transparents liés à la valeur, à la stratégie et aux contraintes. L’influence ou la popularité ne garantit pas la meilleure décision pour le projet.",
-      "context_name": "Agrandissement d’un aéroport régional",
+      "context_name": "Extension d’un aéroport régional",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -572,7 +572,7 @@
       "difficulty": "متوسط",
       "type": "single",
       "topic": "Leadership serviteur et autogestion",
-      "prompt": "Pendant l’exécution du projet « Agrandissement d’un aéroport régional », qui vise à réaliser un terminal passagers et des installations opérationnelles, le facilitateur de l’équipe constate qu’un responsable fonctionnel attribue chaque jour les tâches aux membres d’une équipe auto-organisée. Que devrait-il faire ?",
+      "prompt": "Pendant l’exécution du projet « Extension d’un aéroport régional », qui vise à réaliser un terminal passagers et des installations opérationnelles, le facilitateur de l’équipe constate qu’un responsable fonctionnel attribue chaque jour les tâches aux membres d’une équipe auto-organisée. Que devrait-il faire ?",
       "options": [
         "Orienter le responsable et l’équipe vers les principes d’autogestion et de leadership serviteur",
         "Demander que le responsable soit exclu de toutes les réunions",
@@ -583,7 +583,7 @@
         "Orienter le responsable et l’équipe vers les principes d’autogestion et de leadership serviteur"
       ],
       "explanation": "Dans le contexte de l’agrandissement d’un aéroport régional, une équipe agile choisit comment réaliser le travail dans le cadre d’un objectif clair. Le rôle du responsable consiste à éliminer les obstacles et à développer les capacités, et non à remplacer une forme de délégation par une autre.",
-      "context_name": "Agrandissement d’un aéroport régional",
+      "context_name": "Extension d’un aéroport régional",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -1310,14 +1310,14 @@
       "prompt": "À l’approche de la livraison d’un ensemble résidentiel à faible consommation dans le projet « Habitat durable », l’équipe dépasse les limites d’encours sur le tableau Kanban et les éléments s’accumulent sans être achevés. Que doit faire l’équipe ?",
       "options": [
         "Commencer de nouveaux éléments pour accroître la productivité apparente",
-        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulet d’étranglement",
+        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulot d’étranglement",
         "Augmenter systématiquement les limites d’encours",
         "Masquer les éléments en retard sur le tableau"
       ],
       "correct": [
-        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulet d’étranglement"
+        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulot d’étranglement"
       ],
-      "explanation": "Les limites d’encours améliorent le flux et rendent visibles les goulets d’étranglement. Commencer davantage de travaux augmente l’accumulation et le temps de cycle.",
+      "explanation": "Les limites d’encours améliorent le flux et rendent visibles les goulots d’étranglement. Commencer davantage de travaux augmente l’accumulation et le temps de cycle.",
       "context_name": "Habitat durable",
       "case_id": null,
       "case_title": null,
@@ -1598,13 +1598,13 @@
       "options": [
         "Augmenter systématiquement les limites d’encours",
         "Commencer de nouveaux éléments pour accroître la productivité apparente",
-        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulet d’étranglement",
+        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulot d’étranglement",
         "Masquer les éléments en retard sur le tableau"
       ],
       "correct": [
-        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulet d’étranglement"
+        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulot d’étranglement"
       ],
-      "explanation": "Les limites d’encours améliorent le flux et rendent visibles les goulets d’étranglement. Commencer davantage de travaux augmente l’accumulation et le temps de cycle.",
+      "explanation": "Les limites d’encours améliorent le flux et rendent visibles les goulots d’étranglement. Commencer davantage de travaux augmente l’accumulation et le temps de cycle.",
       "context_name": "Plateforme judiciaire électronique",
       "case_id": null,
       "case_title": null,
@@ -2665,7 +2665,7 @@
       "difficulty": "صعب",
       "type": "single",
       "topic": "Valeur, cycle de vie et durabilité",
-      "prompt": "Dans le projet « Plateforme judiciaire numérique », où les intérêts des avocats, des bénéficiaires et des juges se recoupent, une option plus durable augmente le coût initial, mais réduit les risques opérationnels et les coûts sur l’ensemble du cycle de vie. Quelle est la décision LA PLUS appropriée ?",
+      "prompt": "Dans le projet « Plateforme judiciaire électronique », où les intérêts des avocats, des bénéficiaires et des juges se recoupent, une option plus durable augmente le coût initial, mais réduit les risques opérationnels et les coûts sur l’ensemble du cycle de vie. Quelle est la décision LA PLUS appropriée ?",
       "options": [
         "Choisir cette option sans analyse parce qu’elle est durable",
         "La rejeter immédiatement, car son coût initial est plus élevé",
@@ -2675,8 +2675,8 @@
       "correct": [
         "Analyser la valeur globale, le cycle de vie, la conformité et les risques, puis présenter le compromis au décideur"
       ],
-      "explanation": "Dans le contexte de la Plateforme judiciaire numérique, une décision équilibrée tient compte de la valeur globale, et pas seulement du prix initial, et présente dans le cadre de la gouvernance les effets à long terme, les obligations et les risques.",
-      "context_name": "Plateforme judiciaire numérique",
+      "explanation": "Dans le contexte de la Plateforme judiciaire électronique, une décision équilibrée tient compte de la valeur globale, et pas seulement du prix initial, et présente dans le cadre de la gouvernance les effets à long terme, les obligations et les risques.",
+      "context_name": "Plateforme judiciaire électronique",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -2961,7 +2961,7 @@
       "correct": [
         "Revoir avec l’équipe les rôles, les responsabilités ainsi que les points de transfert et d’approbation"
       ],
-      "explanation": "Au regard des données de l’étude de cas, l’ambiguïté des responsabilités se résout en clarifiant les rôles et les pouvoirs d’approbation, par exemple au moyen d’une matrice RACI ou d’un dispositif équivalent. Accroître l’effort ne traite pas la cause racine.",
+      "explanation": "Au regard des données de l’étude de cas, l’ambiguïté des responsabilités se résout en clarifiant les rôles et les pouvoirs d’approbation, par exemple au moyen d’une matrice RACI ou d’un dispositif équivalent. Accroître l’effort ne traite pas la cause profonde.",
       "context_name": "Système mondial de chaîne d’approvisionnement",
       "case_id": "C2",
       "case_title": "Centrale solaire",
@@ -3018,7 +3018,7 @@
         "Accélérer le projet en ajoutant des ressources aux activités du chemin critique, après analyse des coûts et des risques"
       ],
       "explanation": "Au regard des données de l’étude de cas, la technique d’accélération par ajout de ressources (crashing) consiste à affecter des ressources ou un budget supplémentaires aux activités du chemin critique afin d’en réduire la durée. Il faut en analyser les avantages et les risques, car l’ajout de ressources n’est pas efficace pour toutes les activités.",
-      "context_name": "Plateforme judiciaire en ligne",
+      "context_name": "Plateforme judiciaire électronique",
       "case_id": "C2",
       "case_title": "Centrale solaire",
       "case_scenario": "Une entreprise du secteur de l’énergie réalise un projet de centrale solaire dans le cadre d’un important contrat de construction, avec une date fixe de raccordement au réseau. Un fournisseur clé accuse un retard et le processus d’approvisionnement des transformateurs est devenu critique. La communauté locale demande un engagement environnemental supplémentaire, tandis que l’équipe étudie des options de compression de l’échéancier et de modification de certains contrats.",
@@ -3317,7 +3317,7 @@
       "difficulty": "متوسط",
       "type": "single",
       "topic": "Vision commune et critères de réussite",
-      "prompt": "Dans un environnement de travail distribué, dans le cadre du projet « Agrandissement d’un aéroport régional », une nouvelle charte de projet a été approuvée, mais les principales parties prenantes définissent différemment la réussite du projet. Que devrait faire le chef de projet EN PREMIER ?",
+      "prompt": "Dans un environnement de travail distribué, dans le cadre du projet « Extension d’un aéroport régional », une nouvelle charte de projet a été approuvée, mais les principales parties prenantes définissent différemment la réussite du projet. Que devrait faire le chef de projet EN PREMIER ?",
       "options": [
         "Lancer l’exécution et reporter l’accord sur la réussite à la phase de suivi",
         "Mettre à jour seul la charte de projet selon son appréciation professionnelle",
@@ -3328,7 +3328,7 @@
         "Organiser une séance commune afin de formuler une vision partagée et des critères de réussite convenus"
       ],
       "explanation": "Dans le contexte de l’agrandissement d’un aéroport régional, le chef de projet commence par établir une compréhension commune de la finalité et des résultats attendus. Une séance collaborative réduit les divergences ultérieures et offre une base pour la prise de décision et la mesure de la valeur.",
-      "context_name": "Agrandissement d’un aéroport régional",
+      "context_name": "Extension d’un aéroport régional",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -3401,7 +3401,7 @@
       "difficulty": "متوسط",
       "type": "single",
       "topic": "Leadership serviteur et autogestion",
-      "prompt": "Dans le cadre du projet « Plateforme judiciaire en ligne », où les intérêts des avocats, des bénéficiaires et des juges se recoupent, le facilitateur de l’équipe constate qu’un responsable fonctionnel attribue chaque jour les tâches aux membres d’une équipe autogérée. Quelle est la MEILLEURE action à entreprendre ENSUITE ?",
+      "prompt": "Dans le cadre du projet « Plateforme judiciaire électronique », où les intérêts des avocats, des bénéficiaires et des juges se recoupent, le facilitateur de l’équipe constate qu’un responsable fonctionnel attribue chaque jour les tâches aux membres d’une équipe autogérée. Quelle est la MEILLEURE action à entreprendre ENSUITE ?",
       "options": [
         "Attribuer lui-même les tâches à la place du responsable",
         "Demander que le responsable soit exclu de toutes les réunions",
@@ -3412,7 +3412,7 @@
         "Sensibiliser le responsable et l’équipe aux principes de l’autogestion et du leadership serviteur"
       ],
       "explanation": "Dans le contexte de la plateforme judiciaire en ligne, l’équipe agile choisit la manière d’exécuter le travail dans le cadre d’un objectif clair. Le rôle du leader consiste à éliminer les obstacles et à développer les capacités, et non à remplacer une forme d’attribution des tâches par une autre.",
-      "context_name": "Plateforme judiciaire en ligne",
+      "context_name": "Plateforme judiciaire électronique",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -3495,7 +3495,7 @@
       "correct": [
         "Revoir avec l’équipe les rôles, les responsabilités ainsi que les points de transfert et d’approbation"
       ],
-      "explanation": "Dans le contexte de l’application de transport urbain, l’ambiguïté des responsabilités se résout en clarifiant les rôles et les pouvoirs d’approbation, par exemple au moyen d’une matrice RACI ou d’un dispositif équivalent. Accroître l’effort ne traite pas la cause racine.",
+      "explanation": "Dans le contexte de l’application de transport urbain, l’ambiguïté des responsabilités se résout en clarifiant les rôles et les pouvoirs d’approbation, par exemple au moyen d’une matrice RACI ou d’un dispositif équivalent. Accroître l’effort ne traite pas la cause profonde.",
       "context_name": "Application de transport urbain",
       "case_id": null,
       "case_title": null,
@@ -3513,7 +3513,7 @@
       "difficulty": "سهل",
       "type": "single",
       "topic": "Planification et gestion de la communication",
-      "prompt": "Pendant l’exécution du projet « Agrandissement d’un aéroport régional », qui porte sur un terminal passagers et des installations d’exploitation, le sponsor souhaite recevoir chaque semaine une synthèse d’une page, tandis que l’équipe technique a besoin d’informations détaillées au quotidien. Comment faut-il concevoir la communication ?",
+      "prompt": "Pendant l’exécution du projet « Extension d’un aéroport régional », qui porte sur un terminal passagers et des installations d’exploitation, le sponsor souhaite recevoir chaque semaine une synthèse d’une page, tandis que l’équipe technique a besoin d’informations détaillées au quotidien. Comment faut-il concevoir la communication ?",
       "options": [
         "Communiquer uniquement les données brutes afin d’éviter tout biais",
         "Adresser le même rapport à toutes les parties",
@@ -3524,7 +3524,7 @@
         "Adapter le niveau et la fréquence des informations à chaque catégorie de destinataires et instaurer une boucle de retour d’information"
       ],
       "explanation": "Dans le contexte de l’agrandissement d’un aéroport régional, une communication efficace est adaptée aux besoins et au rôle de chaque destinataire. Il faut également vérifier périodiquement que les rapports sont compris et facilitent la prise de décision.",
-      "context_name": "Agrandissement d’un aéroport régional",
+      "context_name": "Extension d’un aéroport régional",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -3627,7 +3627,7 @@
       "difficulty": "صعب",
       "type": "single",
       "topic": "Facilitation et priorisation",
-      "prompt": "Dans le cadre du projet « Plateforme judiciaire en ligne », où les intérêts des avocats, des bénéficiaires et des juges se recoupent, deux directions formulent des exigences contradictoires et chacune considère la sienne comme essentielle. Quelle est l’action professionnelle LA PLUS appropriée ?",
+      "prompt": "Dans le cadre du projet « Plateforme judiciaire électronique », où les intérêts des avocats, des bénéficiaires et des juges se recoupent, deux directions formulent des exigences contradictoires et chacune considère la sienne comme essentielle. Quelle est l’action professionnelle LA PLUS appropriée ?",
       "options": [
         "Recueillir secrètement les avis de l’équipe et retenir l’exigence la plus populaire",
         "Retenir la demande de l’entité la plus influente",
@@ -3638,7 +3638,7 @@
         "Faciliter la priorisation en fonction de la valeur, des objectifs et des contraintes, puis consigner la décision"
       ],
       "explanation": "Dans le contexte de la plateforme judiciaire en ligne, la résolution du conflit doit reposer sur des critères transparents liés à la valeur, à la stratégie et aux contraintes. L’influence ou la popularité ne garantissent pas la meilleure décision pour le projet.",
-      "context_name": "Plateforme judiciaire en ligne",
+      "context_name": "Plateforme judiciaire électronique",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -3826,7 +3826,7 @@
       "difficulty": "متوسط",
       "type": "single",
       "topic": "Gestion des conflits",
-      "prompt": "Lors d’une réunion rassemblant des représentants des avocats, des bénéficiaires et des juges du projet « Plateforme judiciaire en ligne », un conflit portant sur la solution technique éclate entre deux membres d’une équipe agile et affecte la progression de l’itération en cours. Que devrait faire le leader du projet EN PREMIER ?",
+      "prompt": "Lors d’une réunion rassemblant des représentants des avocats, des bénéficiaires et des juges du projet « Plateforme judiciaire électronique », un conflit portant sur la solution technique éclate entre deux membres d’une équipe agile et affecte la progression de l’itération en cours. Que devrait faire le leader du projet EN PREMIER ?",
       "options": [
         "Choisir lui-même la solution technique et l’imposer à l’équipe",
         "Remplacer l’un des deux membres afin d’éviter tout retard supplémentaire",
@@ -3837,7 +3837,7 @@
         "Faciliter un dialogue direct fondé sur les faits et les accords de fonctionnement de l’équipe"
       ],
       "explanation": "Dans le contexte de la plateforme judiciaire en ligne, l’approche privilégiée consiste à résoudre le conflit dans un esprit de collaboration et de transparence, en s’appuyant sur les accords de l’équipe et les données techniques. Une décision autoritaire ou un report ne traitent que les symptômes et ne favorisent pas l’engagement collectif.",
-      "context_name": "Plateforme judiciaire en ligne",
+      "context_name": "Plateforme judiciaire électronique",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -4249,7 +4249,7 @@
       "difficulty": "سهل",
       "type": "single",
       "topic": "Clôture du projet ou de la phase",
-      "prompt": "Après le passage du « Programme de transformation numérique de l’éducation » à une phase d’exécution sensible, tous les livrables sont achevés et prêts à être transférés aux opérations. Que faut-il faire avant de considérer le projet comme clôturé ?",
+      "prompt": "Après le passage du « Programme de transformation numérique de l’enseignement » à une phase d’exécution sensible, tous les livrables sont achevés et prêts à être transférés aux opérations. Que faut-il faire avant de considérer le projet comme clôturé ?",
       "options": [
         "Se limiter à envoyer un message de réussite au sponsor",
         "Dissoudre immédiatement l’équipe pour réduire les coûts",
@@ -4259,8 +4259,8 @@
       "correct": [
         "Obtenir l’acceptation formelle, effectuer la transition, consigner les leçons apprises, archiver les dossiers et libérer les ressources"
       ],
-      "explanation": "Dans le contexte du Programme de transformation numérique de l’éducation, une clôture structurée formalise l’acceptation, assure la transition et la durabilité, préserve les connaissances et met fin aux obligations contractuelles et administratives.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "explanation": "Dans le contexte du Programme de transformation numérique de l’enseignement, une clôture structurée formalise l’acceptation, assure la transition et la durabilité, préserve les connaissances et met fin aux obligations contractuelles et administratives.",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -4473,7 +4473,7 @@
       "difficulty": "سهل",
       "type": "single",
       "topic": "Livraison fondée sur la valeur",
-      "prompt": "Après le passage du « Programme de transformation numérique de l’éducation » à une phase d’exécution sensible, le marché est incertain et l’organisation doit tester une hypothèse clé avant d’investir l’intégralité du budget. Quelle stratégie de livraison est LA PLUS appropriée ?",
+      "prompt": "Après le passage du « Programme de transformation numérique de l’enseignement » à une phase d’exécution sensible, le marché est incertain et l’organisation doit tester une hypothèse clé avant d’investir l’intégralité du budget. Quelle stratégie de livraison est LA PLUS appropriée ?",
       "options": [
         "Geler toutes les exigences pendant un an",
         "Développer la solution complète en secret, puis la lancer en une seule fois",
@@ -4483,8 +4483,8 @@
       "correct": [
         "Livrer le plus petit incrément offrant une valeur mesurable et recueillir le retour d’information"
       ],
-      "explanation": "Dans le contexte du Programme de transformation numérique de l’éducation, la livraison progressive réduit les risques et permet de tester tôt les hypothèses à l’aide de données réelles. Un investissement total avant tout apprentissage peut entraîner un gaspillage de ressources.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "explanation": "Dans le contexte du Programme de transformation numérique de l’enseignement, la livraison progressive réduit les risques et permet de tester tôt les hypothèses à l’aide de données réelles. Un investissement total avant tout apprentissage peut entraîner un gaspillage de ressources.",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -4813,7 +4813,7 @@
       "difficulty": "سهل",
       "type": "single",
       "topic": "Choix de l’approche de développement",
-      "prompt": "Après le passage du « Programme de transformation numérique de l’éducation » à une phase d’exécution sensible, un dispositif médical est développé avec des échéances réglementaires fixes, tandis que l’expérience utilisateur numérique reste incertaine et peut fortement évoluer. Quelle approche de développement est LA PLUS appropriée ?",
+      "prompt": "Après le passage du « Programme de transformation numérique de l’enseignement » à une phase d’exécution sensible, un dispositif médical est développé avec des échéances réglementaires fixes, tandis que l’expérience utilisateur numérique reste incertaine et peut fortement évoluer. Quelle approche de développement est LA PLUS appropriée ?",
       "options": [
         "Commencer l’exécution sans choisir d’approche précise",
         "Une approche entièrement agile, sans jalons d’approbation fixes",
@@ -4823,8 +4823,8 @@
       "correct": [
         "Une approche hybride : planification prédictive des exigences réglementaires et développement adaptatif de l’expérience numérique"
       ],
-      "explanation": "Dans le contexte du Programme de transformation numérique de l’éducation, le volet réglementaire exige maîtrise, documentation et échéances claires, tandis que le volet numérique bénéficie du retour d’information et des itérations. L’approche hybride distingue ce qui requiert de la stabilité de ce qui exige de l’adaptation.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "explanation": "Dans le contexte du Programme de transformation numérique de l’enseignement, le volet réglementaire exige maîtrise, documentation et échéances claires, tandis que le volet numérique bénéficie du retour d’information et des itérations. L’approche hybride distingue ce qui requiert de la stabilité de ce qui exige de l’adaptation.",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -7030,15 +7030,15 @@
       "topic": "Kanban et gestion du flux",
       "prompt": "Lors d’une réunion réunissant des représentants des équipes d’exploitation, des fournisseurs et des clients dans le cadre du projet « Entrepôt logistique intelligent », l’équipe dépasse les limites d’encours sur le tableau Kanban et les éléments s’accumulent sans être achevés. Que doit faire l’équipe ?",
       "options": [
-        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulet d’étranglement",
+        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulot d’étranglement",
         "Commencer de nouveaux éléments pour accroître la productivité apparente",
         "Masquer les éléments en retard sur le tableau",
         "Augmenter systématiquement les limites d’encours"
       ],
       "correct": [
-        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulet d’étranglement"
+        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulot d’étranglement"
       ],
-      "explanation": "Les limites d’encours améliorent le flux et rendent visibles les goulets d’étranglement. Commencer davantage de travaux augmente l’accumulation et le temps de cycle.",
+      "explanation": "Les limites d’encours améliorent le flux et rendent visibles les goulots d’étranglement. Commencer davantage de travaux augmente l’accumulation et le temps de cycle.",
       "context_name": "Entrepôt logistique intelligent",
       "case_id": null,
       "case_title": null,
@@ -7056,7 +7056,7 @@
       "difficulty": "سهل",
       "type": "single",
       "topic": "Choix du type de contrat",
-      "prompt": "Dans le cadre du projet « Programme de transformation numérique de l’éducation » mené par une université, le périmètre est clair et stable, et l’acheteur souhaite transférer au fournisseur la plus grande part possible du risque de dépassement des coûts. Quel type de contrat est LE PLUS approprié ?",
+      "prompt": "Dans le cadre du projet « Programme de transformation numérique de l’enseignement » mené par une université, le périmètre est clair et stable, et l’acheteur souhaite transférer au fournisseur la plus grande part possible du risque de dépassement des coûts. Quel type de contrat est LE PLUS approprié ?",
       "options": [
         "Contrat à coûts remboursables sans plafond",
         "Contrat à prix forfaitaire ferme",
@@ -7067,7 +7067,7 @@
         "Contrat à prix forfaitaire ferme"
       ],
       "explanation": "Un contrat à prix forfaitaire convient lorsque le périmètre est bien défini et transfère au fournisseur une plus grande part du risque lié aux coûts.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -7398,7 +7398,7 @@
       "difficulty": "سهل",
       "type": "single",
       "topic": "Kanban et gestion du flux",
-      "prompt": "Dans le cadre du projet « Programme de transformation numérique de l’éducation » mené par une université, l’équipe dépasse les limites d’encours sur le tableau Kanban et les éléments s’accumulent sans être achevés. Que doit faire l’équipe ?",
+      "prompt": "Dans le cadre du projet « Programme de transformation numérique de l’enseignement » mené par une université, l’équipe dépasse les limites d’encours sur le tableau Kanban et les éléments s’accumulent sans être achevés. Que doit faire l’équipe ?",
       "options": [
         "Augmenter systématiquement les limites d’encours",
         "Masquer les éléments en retard sur le tableau",
@@ -7409,7 +7409,7 @@
         "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulot d’étranglement"
       ],
       "explanation": "Les limites d’encours améliorent le flux et rendent visibles les goulots d’étranglement. Commencer davantage de travaux augmente l’accumulation et le temps de cycle.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -7685,13 +7685,13 @@
       "topic": "Gestion de la configuration et des versions",
       "prompt": "Lors d’une revue par phase du projet « Ligne de production automatisée », confronté à des enjeux de sécurité et d’interruption des opérations, l’équipe découvre qu’elle utilise différentes versions des exigences et de la conception, ce qui a entraîné des incohérences et des erreurs. Quelle est l’action LA PLUS appropriée ?",
       "options": [
-        "Mettre en œuvre la gestion de la configuration, le contrôle des versions et un référentiel approuvé",
+        "Mettre en œuvre la gestion de la configuration, le contrôle des versions et un référentiel officiel",
         "Multiplier les réunions sans changer les outils",
         "Supprimer toutes les versions précédentes sans les archiver",
         "Permettre à chaque équipe de conserver sa propre version"
       ],
       "correct": [
-        "Mettre en œuvre la gestion de la configuration, le contrôle des versions et un référentiel approuvé"
+        "Mettre en œuvre la gestion de la configuration, le contrôle des versions et un référentiel officiel"
       ],
       "explanation": "Dans ce contexte, la gestion de la configuration permet d’identifier la version approuvée et de suivre les changements ainsi que les relations entre les composants. La multiplication incontrôlée des versions entraîne des reprises et des risques liés à la qualité.",
       "context_name": "Ligne de production automatisée",
@@ -7722,7 +7722,7 @@
         "Le Product Owner, en collaboration avec les parties prenantes et l’équipe"
       ],
       "explanation": "Dans ce contexte, le Product Owner est responsable de maximiser la valeur du produit et de prioriser le Product Backlog, en s’appuyant sur les informations fournies par l’équipe et les parties prenantes.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -7890,7 +7890,7 @@
         "Le projet dépasse le budget et est en retard sur l’échéancier"
       ],
       "explanation": "Dans ce contexte, l’indice de performance des coûts CPI = 80/100 = 0,80 et l’indice de performance de l’échéancier SPI = 80/90 ≈ 0,89. Tous deux sont inférieurs à 1, ce qui indique un dépassement de coûts et un retard sur l’échéancier.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -8034,7 +8034,7 @@
         "Évaluer la confidentialité, les biais et la sécurité, et utiliser des outils approuvés"
       ],
       "explanation": "Dans ce contexte, l’intelligence artificielle est un outil d’aide et ne remplace pas le jugement professionnel. Une utilisation responsable implique la vérification, la transparence, la protection des données ainsi que l’examen des biais et des risques.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -8338,7 +8338,7 @@
         "Désigner un responsable des bénéfices et définir un plan de transition, de mesure et de revue après le projet"
       ],
       "explanation": "Dans ce contexte, la réalisation des bénéfices exige une responsabilité claire et un mécanisme de suivi après la livraison du projet. Sans transition structurée, les livrables risquent d’exister sans produire d’effet réel.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -8366,7 +8366,7 @@
         "La réussite du projet est incomplète, car la valeur, les résultats et l’adoption ne se sont pas concrétisés"
       ],
       "explanation": "Dans ce contexte, la conception moderne de la réussite englobe la valeur et les résultats obtenus pour les parties prenantes, en plus du respect du délai, du coût et du périmètre.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -10387,15 +10387,15 @@
       "topic": "Kanban et gestion du flux",
       "prompt": "Lors de l’exécution du projet « Extension d’un aéroport régional », qui vise la construction d’un terminal passagers et d’installations d’exploitation, l’équipe dépasse les limites d’encours sur le tableau Kanban et les éléments s’accumulent sans être achevés. Que doit faire l’équipe ?",
       "options": [
-        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulet d’étranglement",
+        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulot d’étranglement",
         "Commencer de nouveaux éléments pour accroître la productivité apparente",
         "Masquer les éléments en retard sur le tableau",
         "Augmenter systématiquement les limites d’encours"
       ],
       "correct": [
-        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulet d’étranglement"
+        "Cesser de tirer de nouveaux travaux, se concentrer sur l’achèvement des éléments en cours et analyser le goulot d’étranglement"
       ],
-      "explanation": "Les limites d’encours améliorent le flux et rendent visibles les goulets d’étranglement. Commencer davantage de travaux augmente l’accumulation et le temps de cycle.",
+      "explanation": "Les limites d’encours améliorent le flux et rendent visibles les goulots d’étranglement. Commencer davantage de travaux augmente l’accumulation et le temps de cycle.",
       "context_name": "Extension d’un aéroport régional",
       "case_id": null,
       "case_title": null,
@@ -10497,7 +10497,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Réserves et financement",
-      "prompt": "À l’approche de la livraison d’une ligne de fabrication automatisée dans le cadre du projet « Ligne de production automatisée », quelles sont les deux affirmations exactes concernant les réserves financières ? Choisissez deux réponses.",
+      "prompt": "À l’approche de la livraison d’une ligne de fabrication automatisée dans le cadre du projet « Ligne de production automatisée », quelles sont les deux affirmations exactes concernant les réserves financières ? Sélectionnez DEUX réponses.",
       "options": [
         "La réserve pour aléas est destinée aux risques identifiés et connus",
         "La réserve de gestion fait toujours partie de la référence de base des coûts",
@@ -10906,7 +10906,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Conformité et évolution réglementaire",
-      "prompt": "Dans un environnement de travail distribué au sein du projet « Programme d’amélioration de l’expérience client », une nouvelle réglementation susceptible d’affecter le produit du projet est publiée. Quelles sont les deux actions LES PLUS appropriées ? Choisissez deux réponses.",
+      "prompt": "Dans un environnement de travail distribué au sein du projet « Programme d’amélioration de l’expérience client », une nouvelle réglementation susceptible d’affecter le produit du projet est publiée. Quelles sont les deux actions LES PLUS appropriées ? Sélectionnez DEUX réponses.",
       "options": [
         "Évaluer l’applicabilité de la réglementation et son impact avec les experts compétents",
         "Poursuivre sans changement jusqu’à la date de l’audit",
@@ -11076,7 +11076,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Utilisation responsable de l’intelligence artificielle",
-      "prompt": "Dans un environnement de travail distribué au sein du projet « Système de planification des ressources de l’entreprise », l’équipe utilise un outil d’intelligence artificielle pour établir des prévisions d’échéancier. Quelles sont les deux pratiques qui favorisent une utilisation responsable ? Choisissez deux réponses.",
+      "prompt": "Dans un environnement de travail distribué au sein du projet « Système de planification des ressources de l’entreprise », l’équipe utilise un outil d’intelligence artificielle pour établir des prévisions d’échéancier. Quelles sont les deux pratiques qui favorisent une utilisation responsable ? Sélectionnez DEUX réponses.",
       "options": [
         "Vérifier la qualité des données et des résultats, tout en maintenant la responsabilité humaine de la décision",
         "Évaluer les enjeux de protection des données, les biais et la sécurité, et utiliser des outils approuvés",
@@ -11286,7 +11286,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Utilisation responsable de l’intelligence artificielle",
-      "prompt": "Après le passage du projet « Développement d’un nouveau médicament » à une phase d’exécution sensible, l’équipe utilise un outil d’intelligence artificielle pour établir des prévisions d’échéancier. Quelles sont les deux pratiques qui favorisent une utilisation responsable ? Choisissez deux réponses.",
+      "prompt": "Après le passage du projet « Développement d’un nouveau médicament » à une phase d’exécution sensible, l’équipe utilise un outil d’intelligence artificielle pour établir des prévisions d’échéancier. Quelles sont les deux pratiques qui favorisent une utilisation responsable ? Sélectionnez DEUX réponses.",
       "options": [
         "Adopter automatiquement les résultats parce que cette méthode est plus rapide",
         "Saisir des informations confidentielles dans n’importe quel outil public",
@@ -11932,7 +11932,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Culture d’autonomisation",
-      "prompt": "Dans le projet « Initiative de santé communautaire », quels sont les DEUX comportements qui favorisent une culture d’autonomisation ? Choisissez deux réponses.",
+      "prompt": "Dans le projet « Initiative de santé communautaire », quels sont les DEUX comportements qui favorisent une culture d’autonomisation ? Sélectionnez DEUX réponses.",
       "options": [
         "Éliminer les obstacles et encourager l’équipe à s’approprier le travail",
         "Attribuer en détail toutes les tâches",
@@ -12078,7 +12078,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Culture d’autonomisation",
-      "prompt": "À l’approche de la livraison du projet « Ligne de production automatisée », quels sont les DEUX comportements qui favorisent une culture d’autonomisation ? Choisissez deux réponses.",
+      "prompt": "À l’approche de la livraison du projet « Ligne de production automatisée », quels sont les DEUX comportements qui favorisent une culture d’autonomisation ? Sélectionnez DEUX réponses.",
       "options": [
         "Éliminer les obstacles et encourager l’appropriation du travail",
         "Attribuer toutes les tâches en détail",
@@ -12304,7 +12304,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Culture d’autonomisation",
-      "prompt": "Dans le projet « Modernisation d’un réseau de télécommunications », quels sont les DEUX comportements qui favorisent l’autonomisation ? Choisissez deux réponses.",
+      "prompt": "Dans le projet « Modernisation d’un réseau de télécommunications », quels sont les DEUX comportements qui favorisent l’autonomisation ? Sélectionnez DEUX réponses.",
       "options": [
         "Exiger l’approbation du chef de projet",
         "Attribuer toutes les tâches en détail",
@@ -12362,7 +12362,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Culture d’autonomisation",
-      "prompt": "Dans un environnement distribué de l’« Application de transport urbain », quels sont les DEUX comportements qui favorisent l’autonomisation ? Choisissez deux réponses.",
+      "prompt": "Dans un environnement distribué de l’« Application de transport urbain », quels sont les DEUX comportements qui favorisent l’autonomisation ? Sélectionnez DEUX réponses.",
       "options": [
         "Définir clairement les résultats et les limites décisionnelles",
         "Attribuer toutes les tâches en détail",
@@ -12560,7 +12560,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Réserves et financement",
-      "prompt": "Lors d’une revue par phase du projet « Système de surveillance environnementale », confronté à des enjeux de qualité des données et de zones isolées, quelles sont les deux affirmations exactes concernant les réserves financières ? Choisissez deux réponses.",
+      "prompt": "Lors d’une revue par phase du projet « Système de surveillance environnementale », confronté à des enjeux de qualité des données et de zones isolées, quelles sont les deux affirmations exactes concernant les réserves financières ? Sélectionnez DEUX réponses.",
       "options": [
         "La réserve pour aléas est destinée uniquement aux opportunités",
         "La réserve de gestion fait toujours partie de la référence de base des coûts",
@@ -13234,7 +13234,7 @@
       "difficulty": "سهل",
       "type": "single",
       "topic": "Compression de l’échéancier",
-      "prompt": "Dans le cadre du projet « Programme de transformation numérique de l’éducation » mené par une université, la direction souhaite raccourcir la durée du projet sans réduire le périmètre et accepte d’engager un surcoût maîtrisé. Quelle technique convient ?",
+      "prompt": "Dans le cadre du projet « Programme de transformation numérique de l’enseignement » mené par une université, la direction souhaite raccourcir la durée du projet sans réduire le périmètre et accepte d’engager un surcoût maîtrisé. Quelle technique convient ?",
       "options": [
         "Augmenter uniquement la réserve pour aléas",
         "Retarder les activités non critiques",
@@ -13245,7 +13245,7 @@
         "Accélérer le projet en ajoutant des ressources aux activités du chemin critique, après analyse des coûts et des risques"
       ],
       "explanation": "Dans ce contexte, la technique d’accélération par ajout de ressources (crashing) consiste à affecter des ressources ou un budget supplémentaires aux activités du chemin critique afin d’en réduire la durée. Il faut en analyser les avantages et les risques, car l’ajout de ressources n’est pas efficace pour toutes les activités.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -13678,7 +13678,7 @@
         "Examiner les exigences juridiques relatives à la protection et au transfert des données, puis mettre en place les garanties et obtenir les autorisations requises"
       ],
       "explanation": "Dans ce contexte, l’externalisation ne dégage pas l’organisation de sa responsabilité en matière de conformité. Il faut vérifier la base juridique, les garanties, la sécurité et les restrictions applicables aux transferts transfrontaliers avant tout traitement.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -13695,7 +13695,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Utilisation responsable de l’intelligence artificielle",
-      "prompt": "Lors d’une revue par phase du projet « Lancement d’un produit bancaire numérique », confronté à des enjeux de conformité et de cybersécurité, l’équipe utilise un outil d’intelligence artificielle pour établir des prévisions d’échéancier. Quelles sont les deux pratiques qui favorisent une utilisation responsable ? Choisissez deux réponses.",
+      "prompt": "Lors d’une revue par phase du projet « Lancement d’un produit bancaire numérique », confronté à des enjeux de conformité et de cybersécurité, l’équipe utilise un outil d’intelligence artificielle pour établir des prévisions d’échéancier. Quelles sont les deux pratiques qui favorisent une utilisation responsable ? Sélectionnez DEUX réponses.",
       "options": [
         "Supprimer le journal des décisions pour éviter toute obligation de rendre compte",
         "Vérifier la qualité des données et des résultats, tout en maintenant la responsabilité humaine de la décision",
@@ -13736,7 +13736,7 @@
         "Analyser la valeur globale, le cycle de vie, la conformité et les risques, puis présenter le compromis au décideur"
       ],
       "explanation": "Dans ce contexte, une décision équilibrée tient compte de la valeur globale, et non du seul prix initial. Les effets à long terme, les obligations et les risques doivent être présentés dans le cadre de la gouvernance.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -13792,7 +13792,7 @@
         "Réévaluer l’analyse de rentabilité et les bénéfices avec l’instance de gouvernance, puis déterminer s’il convient d’adapter ou d’arrêter le projet"
       ],
       "explanation": "Dans ce contexte, le projet doit rester aligné sur la valeur et la stratégie tout au long de son cycle de vie. Un changement majeur appelle une revue de gouvernance, et non la poursuite automatique d’un périmètre qui a perdu sa valeur.",
-      "context_name": "Programme de transformation numérique de l’éducation",
+      "context_name": "Programme de transformation numérique de l’enseignement",
       "case_id": null,
       "case_title": null,
       "case_scenario": null,
@@ -14197,7 +14197,7 @@
       "difficulty": "متوسط",
       "type": "multi",
       "topic": "Conformité et évolution réglementaire",
-      "prompt": "Lors d’une réunion réunissant des représentants des avocats, des bénéficiaires et des juges dans le cadre du projet « Plateforme judiciaire électronique », une nouvelle réglementation susceptible d’affecter le produit du projet est publiée. Quelles sont les deux actions LES PLUS appropriées ? Choisissez deux réponses.",
+      "prompt": "Lors d’une réunion réunissant des représentants des avocats, des bénéficiaires et des juges dans le cadre du projet « Plateforme judiciaire électronique », une nouvelle réglementation susceptible d’affecter le produit du projet est publiée. Quelles sont les deux actions LES PLUS appropriées ? Sélectionnez DEUX réponses.",
       "options": [
         "Poursuivre sans changement jusqu’à la date de l’audit",
         "Mettre à jour les exigences et les plans, puis soumettre les changements nécessaires par la voie de gouvernance",
