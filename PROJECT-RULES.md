@@ -3,7 +3,7 @@
 ## قواعد النسخة الفرنسية للمحاكي
 
 - مسارها `fr/tools/project-exam-lab/` وبادئة تخزينها `projectExamLab_fr_`، ولا يجوز خلط بياناتها أو كاشها مع النسخة العربية.
-- اكتملت FR-2 إلى FR-5 للأسئلة Q001–Q400. تبقى Q401–Q500 مطابقة للبنك العربي إلى حين FR-6، وتظل `noindex,nofollow` إلزامية حتى اعتماد FR-7.
+- اكتملت FR-2 إلى FR-6 للأسئلة Q001–Q500 ودراسات الحالة الخمس. تظل `noindex,nofollow` إلزامية ولا يتم الربط العام حتى اعتماد FR-7.
 - لا تربط `fr/tools.html` بالنسخة الفرنسية ولا تضفها إلى Sitemap قبل FR-7.
 - التطبيق ملك ConsuTrain وموجه للجمهور العام؛ يمنع تخصيص نصوصه لشخص بعينه.
 
@@ -15,6 +15,7 @@
 - أضيفت في FR-3: `marge totale`, `chemin critique`, `accélération par ajout de ressources (crashing)`, `sécurité psychologique`, `autogestion`, `définition de fini`, `transfert de connaissances`, `communication inclusive`, `retours d’information`, `escalade appropriée` و`adaptation (tailoring)`.
 - أضيفت في FR-4: `culture d’apprentissage`, `juste responsabilisation`, `coût de la non-qualité`, `indicateurs de résultats et d’adoption`, `utilisation responsable de l’intelligence artificielle`, `gestion des équipes virtuelles`, `boucles de revue`, `maîtrise intégrée des changements`, `valeur monétaire attendue (EMV)`, `feuille de route de versions`, `jalons d’interface`, `contrat à prix forfaitaire ferme`, `contrôle des versions`, `cybersécurité`, `continuité des activités`, `site de reprise`, `test de basculement`, `analyse de sensibilité`, `stock de sécurité` و`reconception des rôles`.
 - أضيفت في FR-5: `intégration des plans et des dépendances`, `lissage des ressources`, `nivellement des ressources`, `voie d’escalade`, `responsabilisation collective`, `accords de travail`, `cadence de communication`, `traitement des difficultés de l’équipe`, `compression de l’échéancier`, `expérimentation à petite échelle`, `indicateurs de réalisation des bénéfices`, `taux de transactions reprises ou défectueuses`, `Net Promoter Score` و`seuil d’escalade`.
+- أضيفت في FR-6: `corps enseignant`, `plateforme d’apprentissage`, `livraison axée sur la valeur`, `accompagnement pratique`, `connaissances tacites`, `réalisation des bénéfices`, `clôture et transition`, `analyse de l’environnement externe`, `veille technologique`, `preuve de concept`, `analyse de scénarios`, `étapes d’adoption du changement`, `prise de conscience` و`renforcement`.
 
 آخر مراجعة: 2026-08-14
 
