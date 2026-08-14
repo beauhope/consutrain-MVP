@@ -3,9 +3,17 @@
 ## قواعد النسخة الفرنسية للمحاكي
 
 - مسارها `fr/tools/project-exam-lab/` وبادئة تخزينها `projectExamLab_fr_`، ولا يجوز خلط بياناتها أو كاشها مع النسخة العربية.
-- بنك FR-1 المؤقت مطابق حرفيًا للبنك العربي. لا تُترجم أو تُعدّل حقول الأسئلة قبل دفعات FR-2–FR-6، ولا تزال `noindex,nofollow` إلزامية حتى اعتماد FR-7.
+- اكتملت FR-2 إلى FR-4 للأسئلة Q001–Q300. تبقى Q301–Q500 مطابقة للبنك العربي إلى حين دفعتي FR-5 وFR-6، وتظل `noindex,nofollow` إلزامية حتى اعتماد FR-7.
 - لا تربط `fr/tools.html` بالنسخة الفرنسية ولا تضفها إلى Sitemap قبل FR-7.
 - التطبيق ملك ConsuTrain وموجه للجمهور العام؛ يمنع تخصيص نصوصه لشخص بعينه.
+
+## French Project Management Terminology
+
+- استخدم بصورة ثابتة: `partie prenante`, `chef de projet`, `équipe projet`, `sponsor`, `périmètre`, `échéancier`, `demande de changement`, `registre des risques`, `critères d’acceptation`, `livrables`, `gouvernance`, `durabilité` و`intelligence artificielle`.
+- استخدم `approche prédictive`, `approche agile`, `approche hybride`, `leadership serviteur`, `autonomisation`, `gestion de la configuration`, `gestion de la valeur acquise`, `réserve pour aléas` و`réserve de gestion`.
+- احتفظ بالمصطلحات المهنية الرسمية `Scrum`, `Kanban`, `Sprint`, `Product Owner`, `Product Backlog`, `Sprint Backlog` و`MVP` دون تعريب أو بدائل غير مستقرة.
+- أضيفت في FR-3: `marge totale`, `chemin critique`, `accélération par ajout de ressources (crashing)`, `sécurité psychologique`, `autogestion`, `définition de fini`, `transfert de connaissances`, `communication inclusive`, `retours d’information`, `escalade appropriée` و`adaptation (tailoring)`.
+- أضيفت في FR-4: `culture d’apprentissage`, `juste responsabilisation`, `coût de la non-qualité`, `indicateurs de résultats et d’adoption`, `utilisation responsable de l’intelligence artificielle`, `gestion des équipes virtuelles`, `boucles de revue`, `maîtrise intégrée des changements`, `valeur monétaire attendue (EMV)`, `feuille de route de versions`, `jalons d’interface`, `contrat à prix forfaitaire ferme`, `contrôle des versions`, `cybersécurité`, `continuité des activités`, `site de reprise`, `test de basculement`, `analyse de sensibilité`, `stock de sécurité` و`reconception des rôles`.
 
 آخر مراجعة: 2026-08-14
 
