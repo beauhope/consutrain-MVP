@@ -1,0 +1,14 @@
+{
+  "name": "Simulateur professionnel de gestion de projet",
+  "short_name": "Simulateur projet",
+  "description": "Plateforme d’entraînement ConsuTrain pour les examens professionnels de gestion de projet",
+  "lang": "fr",
+  "dir": "ltr",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6f8",
+  "theme_color": "#0d5c63",
+  "icons": [{"src":"./assets/icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
