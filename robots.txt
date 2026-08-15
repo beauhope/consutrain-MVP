@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /partials/
+Disallow: /templates/certificates/
+Disallow: /tools/project-exam-lab/partials/
+Disallow: /fr/tools/project-exam-lab/partials/
+Disallow: /tools/mytodo/templates/
+
+Sitemap: https://consutrain.com/sitemap.xml
