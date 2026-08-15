@@ -10,13 +10,17 @@
 */
 
 (function () {
+  if (window.__consutrainPwaInitialized) return;
+  window.__consutrainPwaInitialized = true;
+
   if (!("serviceWorker" in navigator)) return;
 
   let deferredPrompt = null;
   const BANNER_ID = "pwa-install-banner";
-  const DISMISS_KEY = "consutrain-pwa-banner-dismissed";
+  const isFrench = (document.documentElement.lang || "").toLowerCase().startsWith("fr");
+  const DISMISS_KEY = `consutrain-pwa-banner-dismissed-${isFrench ? "fr" : "ar"}`;
 
-  window.addEventListener("load", async () => {
+  async function initializePwa() {
     try {
       const pwaScriptUrl = document.currentScript ? document.currentScript.src : new URL("assets/js/pwa.js", window.location.origin + "/").href;
       const swUrl = new URL("../../sw.js", pwaScriptUrl);
@@ -35,7 +39,13 @@
         showIOSBanner();
       }
     }
-  });
+  }
+
+  if (document.readyState === "complete") {
+    initializePwa();
+  } else {
+    window.addEventListener("load", initializePwa, { once: true });
+  }
 
   window.addEventListener("beforeinstallprompt", (event) => {
     event.preventDefault();
@@ -96,6 +106,21 @@
       </div>
     `;
 
+    if (isFrench) {
+      banner.innerHTML = `
+        <div class="pwa-install-banner__content">
+          <div class="pwa-install-banner__text">
+            <strong>Installez l’application ConsuTrain</strong>
+            <span>Accédez plus rapidement à ConsuTrain depuis votre téléphone ou votre ordinateur.</span>
+          </div>
+          <div class="pwa-install-banner__actions">
+            <button class="pwa-install-btn pwa-install-btn--primary" id="pwaInstallBtn">Installer</button>
+            <button class="pwa-install-btn pwa-install-btn--secondary" id="pwaDismissBtn">Plus tard</button>
+          </div>
+        </div>
+      `;
+    }
+
     document.body.appendChild(banner);
 
     document.getElementById("pwaInstallBtn")?.addEventListener("click", async () => {
@@ -145,6 +170,21 @@
       </div>
     </div>
   `;
+
+  if (isFrench) {
+    banner.innerHTML = `
+      <div class="pwa-install-banner__content">
+        <div class="pwa-install-banner__text">
+          <strong>Installez ConsuTrain sur votre iPhone</strong>
+          <span>Dans Safari, touchez le bouton de partage puis choisissez <b>Sur l’écran d’accueil</b>.</span>
+        </div>
+        <div class="pwa-install-banner__actions">
+          <button class="pwa-install-btn pwa-install-btn--primary" id="pwaIosOkBtn">Compris</button>
+          <button class="pwa-install-btn pwa-install-btn--secondary" id="pwaDismissBtn">Plus tard</button>
+        </div>
+      </div>
+    `;
+  }
 
   document.body.appendChild(banner);
 

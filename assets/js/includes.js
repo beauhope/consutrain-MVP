@@ -983,3 +983,19 @@ function getFriendlyNextStepsBySection(section, root) {
 
   return [];
 }
+
+/* Load the shared PWA runtime once on pages that declare a site-level manifest. */
+function ensureSitePwaRuntime() {
+  const manifestLink = document.querySelector('link[rel="manifest"]');
+  if (!manifestLink || document.querySelector('script[data-consutrain-pwa-runtime]')) return;
+
+  const manifestUrl = new URL(manifestLink.href, document.baseURI);
+  if (!/\/manifest(?:-fr)?\.webmanifest$/.test(manifestUrl.pathname)) return;
+
+  const script = document.createElement("script");
+  script.src = new URL(`${getRootPath()}/assets/js/pwa.js`, document.baseURI).href;
+  script.dataset.consutrainPwaRuntime = "true";
+  document.head.appendChild(script);
+}
+
+ensureSitePwaRuntime();

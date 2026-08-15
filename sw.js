@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260712-auto-guide-pdfs";
-const RUNTIME_CACHE = "consutrain-runtime-v20260712-auto-guide-pdfs";
+const STATIC_CACHE = "consutrain-v20260815-localized-pwa";
+const RUNTIME_CACHE = "consutrain-runtime-v20260815-localized-pwa";
 
 const PRECACHE_URLS = [
   "./",
@@ -282,7 +282,9 @@ const PRECACHE_URLS = [
   "./tools/mytodo/templates/page-shell.html",
 
   "./manifest.webmanifest",
-  "./offline.html"
+  "./manifest-fr.webmanifest",
+  "./offline.html",
+  "./fr/offline.html"
 ];
 
 self.addEventListener("install", (event) => {
@@ -373,7 +375,8 @@ function shouldUseNetworkFirstForUiAsset(url) {
     path.endsWith("/assets/data/fr-platform-guide.json") ||
     path.endsWith("/assets/data/platform-guide-pdf-manifest.json") ||
     path.endsWith("/assets/css/style.css") ||
-    path.endsWith("/manifest.webmanifest")
+    path.endsWith("/manifest.webmanifest") ||
+    path.endsWith("/manifest-fr.webmanifest")
   );
 }
 
@@ -400,7 +403,10 @@ async function networkFirstPage(request) {
     const cachedResponse = await caches.match(request);
     if (cachedResponse) return cachedResponse;
 
-    const fallbackPage = await caches.match("./offline.html");
+    const fallbackUrl = new URL(request.url).pathname.startsWith("/fr/")
+      ? "./fr/offline.html"
+      : "./offline.html";
+    const fallbackPage = await caches.match(fallbackUrl);
     if (fallbackPage) return fallbackPage;
 
     const cachedIndex = await caches.match("./index.html");

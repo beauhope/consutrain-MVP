@@ -1,14 +1,13 @@
 {
-  "id": "./index.html",
-  "name": "ConsuTrain",
-  "short_name": "ConsuTrain",
-  "description": "منصة للتعلّم والأدوات والخدمات الإدارية",
+  "id": "/index.html",
+  "name": "كونسوترين — تعلم وأدوات وخدمات إدارية",
+  "short_name": "كونسوترين",
+  "description": "منصة عربية للتعلم والأدوات والخدمات الإدارية العملية.",
   "lang": "ar",
   "dir": "rtl",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
   "background_color": "#f7f9fc",
   "theme_color": "#0f2747",
   "icons": [
@@ -35,21 +34,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "./assets/screenshots/screenshot-desktop-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "الواجهة الرئيسية لمنصة ConsuTrain على سطح المكتب"
-    },
-    {
-      "src": "./assets/screenshots/screenshot-mobile.png",
-      "sizes": "720x1280",
-      "type": "image/png",
-      "label": "الواجهة الرئيسية لمنصة ConsuTrain على الهاتف"
     }
   ]
 }
