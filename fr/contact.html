@@ -240,6 +240,37 @@
       }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://consutrain.com/fr/contact.html#contactpage",
+        "url": "https://consutrain.com/fr/contact.html",
+        "name": "Contact",
+        "description": "Contactez ConsuTrain pour une demande de consultation, une question generale, une formation, un partenariat ou une demande institutionnelle.",
+        "inLanguage": "fr",
+        "mainEntity": { "@id": "https://consutrain.com/#organization" },
+        "breadcrumb": { "@id": "https://consutrain.com/fr/contact.html#breadcrumb" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://consutrain.com/#organization",
+        "name": "ConsuTrain",
+        "url": "https://consutrain.com/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://consutrain.com/fr/contact.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://consutrain.com/fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://consutrain.com/fr/contact.html" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="fr-contact-page" data-root=".." data-ar-link="../contact.html" data-breadcrumb-section="Contact" data-breadcrumb-title="Contact">
