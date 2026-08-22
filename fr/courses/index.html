@@ -80,6 +80,45 @@
     }
     .fr-courses-page .cta-panel { align-items: start; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://consutrain.com/fr/courses/#collection",
+        "url": "https://consutrain.com/fr/courses/",
+        "name": "Formations ConsuTrain",
+        "description": "Formations ConsuTrain en français : parcours et ateliers pratiques en management, stratégie, qualité, projet et excellence institutionnelle.",
+        "inLanguage": "fr",
+        "isPartOf": {
+          "@id": "https://consutrain.com/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://consutrain.com/fr/courses/#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://consutrain.com/fr/courses/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://consutrain.com/fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Formations",
+            "item": "https://consutrain.com/fr/courses/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="fr-courses-page" data-root="../.." data-ar-link="../../courses/index.html" data-breadcrumb-section="Formations" data-breadcrumb-title="Formations">
