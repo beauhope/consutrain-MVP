@@ -7,6 +7,9 @@
   const TOTAL_QUESTIONS = 20;
   const PASSING_SCORE = 14;
   const PENDING_SUBMISSIONS_KEY = "consutrain_pending_certificate_submissions";
+  const LANGUAGE = "fr";
+  const PENDING_TTL_MS = 24 * 60 * 60 * 1000;
+  let isRetryingPendingSubmissions = false;
 
   const questions = [
     { id: "q1", text: "Quelle est la meilleure définition d’une marque ?", correct: "B", options: { A: "Le logo uniquement", B: "L’impression, la promesse et l’expérience associées au projet", C: "Le nom légal de l’entreprise", D: "Les couleurs graphiques" } },
@@ -85,16 +88,57 @@
     }, 0);
   }
 
-  function savePendingSubmission(payload) {
+  function savePendingQueue(queue) {
     try {
-      const storedValue = window.localStorage.getItem(PENDING_SUBMISSIONS_KEY);
-      const pending = storedValue ? JSON.parse(storedValue) : [];
-      pending.push({ queuedAt: new Date().toISOString(), payload: payload });
-      window.localStorage.setItem(PENDING_SUBMISSIONS_KEY, JSON.stringify(pending));
+      if (queue.length) window.localStorage.setItem(PENDING_SUBMISSIONS_KEY, JSON.stringify(queue));
+      else window.localStorage.removeItem(PENDING_SUBMISSIONS_KEY);
     } catch (error) {
-      console.error("Could not save pending certificate submission:", error);
+      console.error("Could not update pending certificate submissions:", error);
     }
   }
+  function getPendingQueue() {
+    let parsed;
+    try { const storedValue = window.localStorage.getItem(PENDING_SUBMISSIONS_KEY); if (!storedValue) return []; parsed = JSON.parse(storedValue); }
+    catch (error) { savePendingQueue([]); return []; }
+    if (!Array.isArray(parsed)) { savePendingQueue([]); return []; }
+    const now = Date.now();
+    const valid = parsed.reduce(function (queue, entry) {
+      if (!entry || typeof entry !== "object" || !entry.payload || typeof entry.payload !== "object") return queue;
+      const queuedAt = typeof entry.queuedAt === "number" ? entry.queuedAt : Date.parse(entry.queuedAt);
+      if (!Number.isFinite(queuedAt) || queuedAt <= 0 || queuedAt > now || now - queuedAt > PENDING_TTL_MS) return queue;
+      if (typeof entry.payload.trainingId !== "string" || typeof entry.payload.language !== "string") return queue;
+      queue.push({ queuedAt: queuedAt, payload: entry.payload }); return queue;
+    }, []);
+    if (JSON.stringify(valid) !== JSON.stringify(parsed)) savePendingQueue(valid);
+    return valid;
+  }
+  function isCurrentPendingEntry(entry) { return entry.payload.trainingId === TRAINING_ID && entry.payload.language === LANGUAGE; }
+  function savePendingSubmission(payload) {
+    const queue = getPendingQueue(); const stableId = payload.submissionId || payload.certificateKey;
+    if (stableId && queue.some(function (entry) { return isCurrentPendingEntry(entry) && (entry.payload.submissionId || entry.payload.certificateKey) === stableId; })) return;
+    queue.push({ queuedAt: Date.now(), payload: payload }); savePendingQueue(queue);
+  }
+  function ensurePendingControls() {
+    let retryButton = resultActions.querySelector("[data-pending-retry]"); let discardButton = resultActions.querySelector("[data-pending-discard]");
+    if (!retryButton) { retryButton = document.createElement("button"); retryButton.type = "button"; retryButton.className = "btn btn-secondary"; retryButton.dataset.pendingRetry = "true"; retryButton.textContent = "Réessayer maintenant"; resultActions.appendChild(retryButton); }
+    if (!discardButton) { discardButton = document.createElement("button"); discardButton.type = "button"; discardButton.className = "btn btn-secondary"; discardButton.dataset.pendingDiscard = "true"; discardButton.textContent = "Supprimer la demande en attente"; resultActions.appendChild(discardButton); }
+    return { retryButton: retryButton, discardButton: discardButton };
+  }
+  function refreshPendingUI() {
+    const controls = ensurePendingControls(); const hasPending = getPendingQueue().some(isCurrentPendingEntry);
+    controls.retryButton.hidden = !hasPending; controls.discardButton.hidden = !hasPending;
+    if (hasPending) { setStatus("Une demande d’attestation précédente est conservée temporairement dans ce navigateur pendant 24 heures au maximum. Elle ne sera pas renvoyée automatiquement ; vous pouvez réessayer maintenant ou la supprimer.", "warning"); resultActions.hidden = false; }
+  }
+  async function retryPendingSubmissions() {
+    if (isRetryingPendingSubmissions) return;
+    const queue = getPendingQueue(); const matching = queue.filter(isCurrentPendingEntry); if (!matching.length) { refreshPendingUI(); return; }
+    isRetryingPendingSubmissions = true; const controls = ensurePendingControls(); controls.retryButton.disabled = true; const failed = [];
+    for (const entry of matching) { try { await submitPayload(entry.payload); } catch (error) { failed.push(entry); } }
+    const matchingSet = new Set(matching); savePendingQueue(queue.filter(function (entry) { return !matchingSet.has(entry); }).concat(failed));
+    isRetryingPendingSubmissions = false; controls.retryButton.disabled = false;
+    refreshPendingUI(); setStatus(failed.length ? "Certaines demandes n’ont pas pu être renvoyées. Elles restent temporairement conservées jusqu’à leur expiration ou leur suppression." : "Les demandes en attente ont été envoyées.", failed.length ? "error" : "success");
+  }
+  function discardPendingSubmissions() { savePendingQueue(getPendingQueue().filter(function (entry) { return !isCurrentPendingEntry(entry); })); setStatus("La demande en attente a été supprimée de ce navigateur.", "info"); refreshPendingUI(); }
 
   function buildPayload(score, answers) {
     const percentage = Math.round((score / TOTAL_QUESTIONS) * 100);
@@ -180,6 +224,7 @@
       savePendingSubmission(payload);
       setStatus(`Vous avez réussi l’évaluation, mais l’envoi n’a pas abouti. La demande a été conservée localement pour une nouvelle tentative. Score : ${score}/${TOTAL_QUESTIONS} (${percentage}%).`, "warning");
       resultActions.hidden = false;
+      refreshPendingUI();
       console.error("Certificate submission failed:", error);
     } finally {
       submitButton.disabled = false;
@@ -192,6 +237,11 @@
     clearStatus();
     resultActions.hidden = true;
   });
+  resultActions.addEventListener("click", function (event) {
+    if (event.target.matches("[data-pending-retry]")) retryPendingSubmissions();
+    if (event.target.matches("[data-pending-discard]")) discardPendingSubmissions();
+  });
 
   renderQuestions();
+  refreshPendingUI();
 }());

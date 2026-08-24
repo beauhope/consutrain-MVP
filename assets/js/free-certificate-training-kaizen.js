@@ -11,6 +11,8 @@
   const TOTAL_QUESTIONS = 20;
   const PASSING_SCORE = 14;
   const PENDING_SUBMISSIONS_KEY = "consutrain_pending_certificate_submissions";
+  const PENDING_TTL_MS = 24 * 60 * 60 * 1000;
+  let isRetryingPendingSubmissions = false;
 
   const questions = [
     {
@@ -305,24 +307,62 @@
     return field && typeof field.value === "string" ? field.value.trim() : "";
   }
 
+  function savePendingQueue(queue) {
+    try {
+      if (queue.length) window.localStorage.setItem(PENDING_SUBMISSIONS_KEY, JSON.stringify(queue));
+      else window.localStorage.removeItem(PENDING_SUBMISSIONS_KEY);
+    } catch (error) {
+      console.error("Could not update pending certificate submissions:", error);
+    }
+  }
   function getPendingSubmissions() {
+    let parsed;
     try {
       const storedValue = window.localStorage.getItem(PENDING_SUBMISSIONS_KEY);
-      return storedValue ? JSON.parse(storedValue) : [];
-    } catch (error) {
-      return [];
-    }
+      if (!storedValue) return [];
+      parsed = JSON.parse(storedValue);
+    } catch (error) { savePendingQueue([]); return []; }
+    if (!Array.isArray(parsed)) { savePendingQueue([]); return []; }
+    const now = Date.now();
+    const valid = parsed.reduce(function (queue, entry) {
+      if (!entry || typeof entry !== "object" || !entry.payload || typeof entry.payload !== "object") return queue;
+      const queuedAt = typeof entry.queuedAt === "number" ? entry.queuedAt : Date.parse(entry.queuedAt);
+      if (!Number.isFinite(queuedAt) || queuedAt <= 0 || queuedAt > now || now - queuedAt > PENDING_TTL_MS) return queue;
+      if (typeof entry.payload.trainingId !== "string" || typeof entry.payload.language !== "string") return queue;
+      queue.push({ queuedAt: queuedAt, payload: entry.payload }); return queue;
+    }, []);
+    if (JSON.stringify(valid) !== JSON.stringify(parsed)) savePendingQueue(valid);
+    return valid;
   }
-
+  function isCurrentPendingEntry(entry) { return entry.payload.trainingId === TRAINING_ID && entry.payload.language === LANGUAGE; }
   function savePendingSubmission(payload) {
-    try {
-      const pending = getPendingSubmissions();
-      pending.push(payload);
-      window.localStorage.setItem(PENDING_SUBMISSIONS_KEY, JSON.stringify(pending));
-    } catch (error) {
-      console.error("Could not save pending certificate submission:", error);
-    }
+    const queue = getPendingSubmissions();
+    const stableId = payload.submissionId || payload.certificateKey;
+    if (stableId && queue.some(function (entry) { return isCurrentPendingEntry(entry) && (entry.payload.submissionId || entry.payload.certificateKey) === stableId; })) return;
+    queue.push({ queuedAt: Date.now(), payload: payload });
+    savePendingQueue(queue);
   }
+  function ensurePendingControls() {
+    let retryButton = resultActions.querySelector("[data-pending-retry]"); let discardButton = resultActions.querySelector("[data-pending-discard]");
+    if (!retryButton) { retryButton = document.createElement("button"); retryButton.type = "button"; retryButton.className = "btn btn-secondary"; retryButton.dataset.pendingRetry = "true"; retryButton.textContent = "إعادة المحاولة الآن"; resultActions.appendChild(retryButton); }
+    if (!discardButton) { discardButton = document.createElement("button"); discardButton.type = "button"; discardButton.className = "btn btn-secondary"; discardButton.dataset.pendingDiscard = "true"; discardButton.textContent = "حذف الطلب المعلّق"; resultActions.appendChild(discardButton); }
+    return { retryButton: retryButton, discardButton: discardButton };
+  }
+  function refreshPendingUI() {
+    const controls = ensurePendingControls(); const hasPending = getPendingSubmissions().some(isCurrentPendingEntry);
+    controls.retryButton.hidden = !hasPending; controls.discardButton.hidden = !hasPending;
+    if (hasPending) { setStatus("يوجد طلب شهادة سابق محفوظ مؤقتًا في هذا المتصفح لمدة تصل إلى 24 ساعة. لن يُعاد إرساله تلقائيًا؛ يمكنك إعادة المحاولة الآن أو حذفه.", "warning"); resultActions.hidden = false; }
+  }
+  async function retryPendingSubmissions() {
+    if (isRetryingPendingSubmissions) return;
+    const queue = getPendingSubmissions(); const matching = queue.filter(isCurrentPendingEntry); if (!matching.length) { refreshPendingUI(); return; }
+    isRetryingPendingSubmissions = true; const controls = ensurePendingControls(); controls.retryButton.disabled = true; const failed = [];
+    for (const entry of matching) { try { await submitPayload(entry.payload); } catch (error) { failed.push(entry); } }
+    const matchingSet = new Set(matching); savePendingQueue(queue.filter(function (entry) { return !matchingSet.has(entry); }).concat(failed));
+    isRetryingPendingSubmissions = false; controls.retryButton.disabled = false;
+    refreshPendingUI(); setStatus(failed.length ? "تعذرت إعادة إرسال بعض الطلبات. ستبقى محفوظة مؤقتًا حتى انتهاء المدة أو حذفها." : "تم إرسال الطلبات المعلقة بنجاح.", failed.length ? "error" : "success");
+  }
+  function discardPendingSubmissions() { savePendingQueue(getPendingSubmissions().filter(function (entry) { return !isCurrentPendingEntry(entry); })); setStatus("تم حذف الطلب المعلّق من هذا المتصفح.", "info"); refreshPendingUI(); }
 
   function buildPayload(score, answers) {
     const percentage = Math.round((score / TOTAL_QUESTIONS) * 100);
@@ -391,6 +431,7 @@
       savePendingSubmission(payload);
       setStatus(`تم اجتياز الاختبار بنجاح، لكن تعذر إرسال الطلب الآن. تم حفظه محليًا للمحاولة لاحقًا. نتيجتك ${score} من ${TOTAL_QUESTIONS} (${percentage}%).`, "warning");
       resultActions.hidden = false;
+      refreshPendingUI();
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "إرسال طلب الشهادة";
@@ -405,5 +446,11 @@
     });
   }
 
+  resultActions.addEventListener("click", function (event) {
+    if (event.target.matches("[data-pending-retry]")) retryPendingSubmissions();
+    if (event.target.matches("[data-pending-discard]")) discardPendingSubmissions();
+  });
+
   renderQuestions();
+  refreshPendingUI();
 }());

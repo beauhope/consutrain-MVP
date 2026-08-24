@@ -11,6 +11,8 @@
   const TOTAL_QUESTIONS = 20;
   const PASSING_SCORE = 14;
   const PENDING_SUBMISSIONS_KEY = "consutrain_pending_certificate_submissions";
+  const PENDING_TTL_MS = 24 * 60 * 60 * 1000;
+  let isRetryingPendingSubmissions = false;
 
   const questions = [
     { id: "q1", text: "Que désigne un Océan Rouge ?", correct: "A", options: { A: "Un marché saturé où les acteurs se battent sur les mêmes clients et critères", B: "Un marché sans aucun concurrent ni alternative", C: "Une méthode de comptabilité interne", D: "Une simple baisse de prix sans réflexion sur la valeur" } },
@@ -81,16 +83,68 @@
       return answers[question.id] === question.correct ? score + 1 : score;
     }, 0);
   }
-  function savePendingSubmission(payload) {
+  function savePendingQueue(queue) {
     try {
-      const storedValue = window.localStorage.getItem(PENDING_SUBMISSIONS_KEY);
-      const pending = storedValue ? JSON.parse(storedValue) : [];
-      pending.push({ queuedAt: new Date().toISOString(), payload: payload });
-      window.localStorage.setItem(PENDING_SUBMISSIONS_KEY, JSON.stringify(pending));
+      if (queue.length) window.localStorage.setItem(PENDING_SUBMISSIONS_KEY, JSON.stringify(queue));
+      else window.localStorage.removeItem(PENDING_SUBMISSIONS_KEY);
     } catch (error) {
-      console.error("Could not save pending certificate submission:", error);
+      console.error("Could not update pending certificate submissions:", error);
     }
   }
+  function getPendingQueue() {
+    let parsed;
+    try {
+      const storedValue = window.localStorage.getItem(PENDING_SUBMISSIONS_KEY);
+      if (!storedValue) return [];
+      parsed = JSON.parse(storedValue);
+    } catch (error) { savePendingQueue([]); return []; }
+    if (!Array.isArray(parsed)) { savePendingQueue([]); return []; }
+    const now = Date.now();
+    const valid = parsed.reduce(function (queue, entry) {
+      if (!entry || typeof entry !== "object" || !entry.payload || typeof entry.payload !== "object") return queue;
+      const queuedAt = typeof entry.queuedAt === "number" ? entry.queuedAt : Date.parse(entry.queuedAt);
+      if (!Number.isFinite(queuedAt) || queuedAt <= 0 || queuedAt > now || now - queuedAt > PENDING_TTL_MS) return queue;
+      if (typeof entry.payload.trainingId !== "string" || typeof entry.payload.language !== "string") return queue;
+      queue.push({ queuedAt: queuedAt, payload: entry.payload });
+      return queue;
+    }, []);
+    if (JSON.stringify(valid) !== JSON.stringify(parsed)) savePendingQueue(valid);
+    return valid;
+  }
+  function isCurrentPendingEntry(entry) { return entry.payload.trainingId === TRAINING_ID && entry.payload.language === LANGUAGE; }
+  function savePendingSubmission(payload) {
+    const queue = getPendingQueue();
+    const stableId = payload.submissionId || payload.certificateKey;
+    if (stableId && queue.some(function (entry) { const candidate = entry.payload.submissionId || entry.payload.certificateKey; return isCurrentPendingEntry(entry) && candidate === stableId; })) return;
+    queue.push({ queuedAt: Date.now(), payload: payload });
+    savePendingQueue(queue);
+  }
+  function ensurePendingControls() {
+    let retryButton = resultActions.querySelector("[data-pending-retry]");
+    let discardButton = resultActions.querySelector("[data-pending-discard]");
+    if (!retryButton) { retryButton = document.createElement("button"); retryButton.type = "button"; retryButton.className = "btn btn-secondary"; retryButton.dataset.pendingRetry = "true"; retryButton.textContent = "Réessayer maintenant"; resultActions.appendChild(retryButton); }
+    if (!discardButton) { discardButton = document.createElement("button"); discardButton.type = "button"; discardButton.className = "btn btn-secondary"; discardButton.dataset.pendingDiscard = "true"; discardButton.textContent = "Supprimer la demande en attente"; resultActions.appendChild(discardButton); }
+    return { retryButton: retryButton, discardButton: discardButton };
+  }
+  function refreshPendingUI() {
+    const controls = ensurePendingControls();
+    const hasPending = getPendingQueue().some(isCurrentPendingEntry);
+    controls.retryButton.hidden = !hasPending; controls.discardButton.hidden = !hasPending;
+    if (hasPending) { setStatus("Une demande d’attestation précédente est conservée temporairement dans ce navigateur pendant 24 heures au maximum. Elle ne sera pas renvoyée automatiquement ; vous pouvez réessayer maintenant ou la supprimer.", "warning"); resultActions.hidden = false; }
+  }
+  async function retryPendingSubmissions() {
+    if (isRetryingPendingSubmissions) return;
+    const queue = getPendingQueue(); const matching = queue.filter(isCurrentPendingEntry);
+    if (!matching.length) { refreshPendingUI(); return; }
+    isRetryingPendingSubmissions = true; const controls = ensurePendingControls(); controls.retryButton.disabled = true; const failed = [];
+    for (const entry of matching) { try { await submitPayload(entry.payload); } catch (error) { failed.push(entry); } }
+    const matchingSet = new Set(matching);
+    savePendingQueue(queue.filter(function (entry) { return !matchingSet.has(entry); }).concat(failed));
+    isRetryingPendingSubmissions = false; controls.retryButton.disabled = false;
+    refreshPendingUI();
+    setStatus(failed.length ? "Certaines demandes n’ont pas pu être renvoyées. Elles restent temporairement conservées jusqu’à leur expiration ou leur suppression." : "Les demandes en attente ont été envoyées.", failed.length ? "error" : "success");
+  }
+  function discardPendingSubmissions() { savePendingQueue(getPendingQueue().filter(function (entry) { return !isCurrentPendingEntry(entry); })); setStatus("La demande en attente a été supprimée de ce navigateur.", "info"); refreshPendingUI(); }
   function createSubmissionId() {
     return `${TRAINING_ID}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   }
@@ -165,6 +219,7 @@
       savePendingSubmission(payload);
       setStatus(`Évaluation réussie, mais l'envoi est momentanément impossible. La demande a été conservée localement. Score : ${score}/${TOTAL_QUESTIONS} (${percentage}%).`, "warning");
       resultActions.hidden = false;
+      refreshPendingUI();
       console.error("Certificate submission failed:", error);
     } finally {
       submitButton.disabled = false;
@@ -176,5 +231,10 @@
     clearStatus();
     resultActions.hidden = true;
   });
+  resultActions.addEventListener("click", function (event) {
+    if (event.target.matches("[data-pending-retry]")) retryPendingSubmissions();
+    if (event.target.matches("[data-pending-discard]")) discardPendingSubmissions();
+  });
   renderQuestions();
+  refreshPendingUI();
 }());

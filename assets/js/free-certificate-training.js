@@ -7,6 +7,8 @@
   const TOTAL_QUESTIONS = 12;
   const PASSING_SCORE = 9;
   const PENDING_SUBMISSIONS_KEY = "consutrain_pending_certificate_submissions";
+  const LANGUAGE = "ar";
+  const PENDING_TTL_MS = 24 * 60 * 60 * 1000;
 
   const questions = [
     {
@@ -200,16 +202,31 @@
   }
 
   function getPendingSubmissions() {
+    let parsedValue;
     try {
       const storedValue = window.localStorage.getItem(PENDING_SUBMISSIONS_KEY);
       if (!storedValue) return [];
-
-      const parsedValue = JSON.parse(storedValue);
-      return Array.isArray(parsedValue) ? parsedValue : [];
+      parsedValue = JSON.parse(storedValue);
     } catch (error) {
       console.error("Could not read pending certificate submissions:", error);
+      savePendingSubmissions([]);
       return [];
     }
+    if (!Array.isArray(parsedValue)) {
+      savePendingSubmissions([]);
+      return [];
+    }
+    const now = Date.now();
+    const validSubmissions = parsedValue.reduce(function (submissions, entry) {
+      if (!entry || typeof entry !== "object" || !entry.payload || typeof entry.payload !== "object") return submissions;
+      const queuedAt = typeof entry.queuedAt === "number" ? entry.queuedAt : Date.parse(entry.queuedAt);
+      if (!Number.isFinite(queuedAt) || queuedAt <= 0 || queuedAt > now || now - queuedAt > PENDING_TTL_MS) return submissions;
+      if (typeof entry.payload.trainingId !== "string" || typeof entry.payload.language !== "string") return submissions;
+      submissions.push({ queuedAt: queuedAt, payload: entry.payload });
+      return submissions;
+    }, []);
+    if (JSON.stringify(validSubmissions) !== JSON.stringify(parsedValue)) savePendingSubmissions(validSubmissions);
+    return validSubmissions;
   }
 
   function savePendingSubmissions(submissions) {
@@ -227,11 +244,20 @@
 
   function queuePendingSubmission(payload) {
     const pendingSubmissions = getPendingSubmissions();
+    const stableId = payload.submissionId || payload.certificateKey;
+    if (stableId && pendingSubmissions.some(function (entry) {
+      const candidate = entry.payload.submissionId || entry.payload.certificateKey;
+      return isCurrentPendingSubmission(entry) && candidate === stableId;
+    })) return;
     pendingSubmissions.push({
-      queuedAt: new Date().toISOString(),
+      queuedAt: Date.now(),
       payload: payload
     });
     savePendingSubmissions(pendingSubmissions);
+  }
+
+  function isCurrentPendingSubmission(submission) {
+    return submission.payload.trainingId === TRAINING_ID && submission.payload.language === LANGUAGE;
   }
 
   function ensureRetryButton() {
@@ -245,23 +271,33 @@
     retryButton.className = "btn btn-secondary";
     retryButton.type = "button";
     retryButton.dataset.certificateRetrySave = "true";
-    retryButton.textContent = "إعادة محاولة الحفظ";
+    retryButton.textContent = "إعادة المحاولة الآن";
     resultActions.appendChild(retryButton);
 
     return retryButton;
   }
 
-  function showPendingSubmissionsNotice() {
-    if (getPendingSubmissions().length) {
-      ensureRetryButton();
-      setStatus("توجد نتائج لم تُرسل بعد. يمكنك إعادة محاولة الحفظ.", "info");
-      resultActions.hidden = false;
-    }
+  function ensureDiscardButton() {
+    let discardButton = resultActions.querySelector("[data-certificate-discard-save]");
+    if (discardButton) return discardButton;
+    discardButton = document.createElement("button");
+    discardButton.className = "btn btn-secondary";
+    discardButton.type = "button";
+    discardButton.dataset.certificateDiscardSave = "true";
+    discardButton.textContent = "حذف الطلب المعلّق";
+    resultActions.appendChild(discardButton);
+    return discardButton;
   }
 
-  function retryPendingSubmissionsAutomatically() {
-    if (getPendingSubmissions().length) {
-      retryPendingSubmissions({ automatic: true });
+  function showPendingSubmissionsNotice() {
+    const hasPending = getPendingSubmissions().some(isCurrentPendingSubmission);
+    const retryButton = ensureRetryButton();
+    const discardButton = ensureDiscardButton();
+    retryButton.hidden = !hasPending;
+    discardButton.hidden = !hasPending;
+    if (hasPending) {
+      setStatus("يوجد طلب شهادة سابق محفوظ مؤقتًا في هذا المتصفح لمدة تصل إلى 24 ساعة. لن يُعاد إرساله تلقائيًا؛ يمكنك إعادة المحاولة الآن أو حذفه.", "info");
+      resultActions.hidden = false;
     }
   }
 
@@ -392,60 +428,61 @@
   }
 }
 
-  async function retryPendingSubmissions(options) {
-    const retryOptions = options || {};
-    const isAutomaticRetry = retryOptions.automatic === true;
-
+  async function retryPendingSubmissions() {
     if (isRetryingPendingSubmissions) {
       return;
     }
 
     const retryButton = ensureRetryButton();
-    const pendingSubmissions = getPendingSubmissions();
+    const allPendingSubmissions = getPendingSubmissions();
+    const pendingSubmissions = allPendingSubmissions.filter(isCurrentPendingSubmission);
 
     if (!pendingSubmissions.length) {
-      if (!isAutomaticRetry) {
-        setStatus("لا توجد نتائج معلقة للحفظ.", "info");
-      }
+      setStatus("لا توجد طلبات معلقة لهذه الدورة واللغة.", "info");
+      showPendingSubmissionsNotice();
       return;
     }
 
     isRetryingPendingSubmissions = true;
-
-    if (!isAutomaticRetry) {
-      retryButton.disabled = true;
-      retryButton.textContent = "جاري إعادة محاولة الحفظ...";
-    }
+    retryButton.disabled = true;
+    retryButton.textContent = "جاري إعادة المحاولة...";
 
     const failedSubmissions = [];
 
     for (const submission of pendingSubmissions) {
       try {
-        await sendToWebhook(submission.payload || submission);
+        await sendToWebhook(submission.payload);
       } catch (error) {
         failedSubmissions.push(submission);
         console.error("Pending certificate submission retry failed:", error);
       }
     }
 
-    savePendingSubmissions(failedSubmissions);
+    const matchingSet = new Set(pendingSubmissions);
+    savePendingSubmissions(allPendingSubmissions.filter(function (submission) {
+      return !matchingSet.has(submission);
+    }).concat(failedSubmissions));
 
+    showPendingSubmissionsNotice();
     if (failedSubmissions.length) {
-      if (!isAutomaticRetry) {
-        setStatus("تعذر حفظ بعض النتائج المعلقة الآن. تم الإبقاء عليها مؤقتًا على هذا الجهاز لإعادة المحاولة لاحقًا.", "error");
-        resultActions.hidden = false;
-      }
+      setStatus("تعذر إرسال بعض الطلبات المعلقة. ستبقى محفوظة مؤقتًا حتى انتهاء المدة أو حذفها.", "error");
+      resultActions.hidden = false;
     } else {
-      setStatus(isAutomaticRetry ? "تم حفظ النتائج المعلقة بنجاح." : "تم حفظ جميع النتائج المعلقة بنجاح.", "success");
+      setStatus("تم إرسال الطلبات المعلقة بنجاح.", "success");
       resultActions.hidden = false;
     }
 
-    if (!isAutomaticRetry) {
-      retryButton.disabled = false;
-      retryButton.textContent = "إعادة محاولة الحفظ";
-    }
-
+    retryButton.disabled = false;
+    retryButton.textContent = "إعادة المحاولة الآن";
     isRetryingPendingSubmissions = false;
+  }
+
+  function discardPendingSubmissions() {
+    savePendingSubmissions(getPendingSubmissions().filter(function (submission) {
+      return !isCurrentPendingSubmission(submission);
+    }));
+    setStatus("تم حذف الطلب المعلّق من هذا المتصفح.", "info");
+    showPendingSubmissionsNotice();
   }
 
   function showResult(score, passed) {
@@ -508,6 +545,7 @@
   queuePendingSubmission(payload);
   setStatus("تم احتساب نتيجتك، لكن تعذر إرسال طلب الشهادة الآن. تم حفظ الطلب مؤقتًا على هذا الجهاز، ويمكنك إعادة المحاولة عند توفر الاتصال.", "error");
   resultActions.hidden = false;
+  showPendingSubmissionsNotice();
   console.error("Certificate submission failed:", error);
 } finally {
   submitButton.disabled = false;
@@ -524,12 +562,13 @@
     if (event.target.matches("[data-certificate-retry-save]")) {
       retryPendingSubmissions();
     }
+    if (event.target.matches("[data-certificate-discard-save]")) {
+      discardPendingSubmissions();
+    }
   });
 
   renderQuestions();
   ensureRetryButton();
+  ensureDiscardButton();
   showPendingSubmissionsNotice();
-  retryPendingSubmissionsAutomatically();
-  window.addEventListener("online", retryPendingSubmissionsAutomatically);
-  window.setInterval(retryPendingSubmissionsAutomatically, 60000);
 })();
