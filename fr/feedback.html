@@ -375,14 +375,21 @@
         setStatus("Envoi de votre contribution...");
 
         try {
-          await fetch(WEBHOOK_URL, {
+          var response = await fetch(WEBHOOK_URL, {
             method: "POST",
-            mode: "no-cors",
             headers: {
-              "Content-Type": "text/plain;charset=utf-8"
+              "Content-Type": "application/json"
             },
             body: JSON.stringify(payload)
           });
+
+          var result = await response.json().catch(function () {
+            return {};
+          });
+
+          if (!response.ok || result.ok !== true) {
+            throw new Error("Feedback submission failed");
+          }
 
           setStatus("Votre contribution a bien été reçue. Merci de contribuer à l’amélioration de ConsuTrain.");
           form.reset();

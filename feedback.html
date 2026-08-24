@@ -271,14 +271,21 @@
         setStatus("جاري إرسال المشاركة...");
 
         try {
-          await fetch(WEBHOOK_URL, {
+          var response = await fetch(WEBHOOK_URL, {
             method: "POST",
-            mode: "no-cors",
             headers: {
-              "Content-Type": "text/plain;charset=utf-8"
+              "Content-Type": "application/json"
             },
             body: JSON.stringify(payload)
           });
+
+          var result = await response.json().catch(function () {
+            return {};
+          });
+
+          if (!response.ok || result.ok !== true) {
+            throw new Error("Feedback submission failed");
+          }
 
           setStatus("تم استلام مشاركتك بنجاح. شكرًا لمساهمتك في تطوير ConsuTrain.");
           form.reset();
