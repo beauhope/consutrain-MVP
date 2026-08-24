@@ -214,22 +214,22 @@
             <div class="form-grid">
               <div class="form-field">
                 <label for="fullName">الاسم الكامل</label>
-                <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+                <input id="fullName" name="fullName" type="text" autocomplete="name" maxlength="120" required>
               </div>
 
               <div class="form-field">
                 <label for="email">البريد الإلكتروني</label>
-                <input id="email" name="email" type="email" autocomplete="email" required>
+                <input id="email" name="email" type="email" autocomplete="email" maxlength="160" required>
               </div>
 
               <div class="form-field">
                 <label for="phone">رقم الهاتف / واتساب</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required>
               </div>
 
               <div class="form-field">
                 <label for="location">الدولة / المدينة</label>
-                <input id="location" name="location" type="text" autocomplete="address-level2">
+                <input id="location" name="location" type="text" autocomplete="address-level2" maxlength="120">
               </div>
 
               <div class="form-field">
@@ -253,17 +253,17 @@
 
               <div class="form-field">
                 <label for="organization">اسم الجهة / المؤسسة، إن وجد</label>
-                <input id="organization" name="organization" type="text" autocomplete="organization">
+                <input id="organization" name="organization" type="text" autocomplete="organization" maxlength="160">
               </div>
 
               <div class="form-field">
                 <label for="subject">الموضوع الرئيسي</label>
-                <input id="subject" name="subject" type="text" required>
+                <input id="subject" name="subject" type="text" maxlength="180" required>
               </div>
 
               <div class="form-field">
                 <label for="timeline">الموعد أو المدة المتوقعة</label>
-                <input id="timeline" name="timeline" type="text">
+                <input id="timeline" name="timeline" type="text" maxlength="140">
               </div>
 
               <div class="form-field">
@@ -278,7 +278,7 @@
 
               <div class="form-field form-field--full">
                 <label for="needDescription">وصف مختصر للاحتياج</label>
-                <textarea id="needDescription" name="needDescription" required></textarea>
+                <textarea id="needDescription" name="needDescription" maxlength="1500" required></textarea>
               </div>
 
               <label class="consent-field form-field--full">
@@ -309,6 +309,7 @@
       var form = document.getElementById("internalConsultationForm");
       var status = document.getElementById("consultationFormStatus");
       var submitButton = form ? form.querySelector('button[type="submit"]') : null;
+      var phoneField = form ? form.elements.phone : null;
 
       if (!form || !status || !submitButton) return;
 
@@ -321,6 +322,18 @@
         status.textContent = message;
         status.classList.add("show");
         status.focus();
+      }
+
+      function isMeaningfulPhone(value) {
+        var digits = value.replace(/\D/g, "");
+        return /^[+\d\s().-]+$/.test(value) && digits.length >= 7 && digits.length <= 15;
+      }
+
+      if (phoneField) {
+        phoneField.addEventListener("input", function () {
+          phoneField.setCustomValidity("");
+          phoneField.removeAttribute("aria-invalid");
+        });
       }
 
       var requestTypeOptions = {
@@ -348,6 +361,15 @@
 
         if (!form.checkValidity()) {
           form.reportValidity();
+          return;
+        }
+
+        if (!isMeaningfulPhone(fieldValue("phone"))) {
+          phoneField.setCustomValidity("يرجى إدخال رقم هاتف دولي صالح يتضمن أرقامًا كافية.");
+          phoneField.setAttribute("aria-invalid", "true");
+          setStatus("يرجى إدخال رقم هاتف صالح باستخدام الأرقام، ويمكن استخدام + أو المسافات أو الأقواس أو الشرطات.");
+          phoneField.reportValidity();
+          phoneField.focus();
           return;
         }
 

@@ -353,6 +353,8 @@
       var form = document.getElementById("frQuoteForm");
       var status = document.getElementById("quoteFormStatus");
       var submitButton = form ? form.querySelector('button[type="submit"]') : null;
+      var phoneField = form ? form.elements.phone : null;
+      var preferredContactField = form ? form.elements.preferredContact : null;
 
       if (!form || !status || !submitButton) return;
 
@@ -387,6 +389,17 @@
           }
           return false;
         });
+      }
+
+      function clearConditionalPhoneError() {
+        if (!phoneField) return;
+        phoneField.setCustomValidity("");
+        phoneField.removeAttribute("aria-invalid");
+      }
+
+      if (phoneField && preferredContactField) {
+        phoneField.addEventListener("input", clearConditionalPhoneError);
+        preferredContactField.addEventListener("change", clearConditionalPhoneError);
       }
 
       var params = new URLSearchParams(window.location.search);
@@ -446,6 +459,17 @@
         var email = fieldValue("email");
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
           setStatus("Veuillez saisir une adresse email valide.");
+          return;
+        }
+
+        var preferredContact = fieldValue("preferredContact");
+        var phoneIsRequired = preferredContact === "WhatsApp" || preferredContact === "Téléphone";
+        if (phoneIsRequired && !fieldValue("phone")) {
+          phoneField.setCustomValidity("Veuillez saisir un numéro de téléphone si vous choisissez le téléphone ou WhatsApp.");
+          phoneField.setAttribute("aria-invalid", "true");
+          setStatus("Veuillez saisir un numéro de téléphone si vous choisissez le téléphone ou WhatsApp.");
+          phoneField.reportValidity();
+          phoneField.focus();
           return;
         }
 

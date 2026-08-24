@@ -397,22 +397,22 @@
             <div class="fr-form-grid">
               <div class="fr-form-field">
                 <label for="frFullName">Nom complet</label>
-                <input id="frFullName" name="fullName" type="text" autocomplete="name" required>
+                <input id="frFullName" name="fullName" type="text" autocomplete="name" maxlength="120" required>
               </div>
 
               <div class="fr-form-field">
                 <label for="frEmail">Email</label>
-                <input id="frEmail" name="email" type="email" autocomplete="email" required>
+                <input id="frEmail" name="email" type="email" autocomplete="email" maxlength="160" required>
               </div>
 
               <div class="fr-form-field">
                 <label for="frPhone">Téléphone / WhatsApp</label>
-                <input id="frPhone" name="phone" type="tel" autocomplete="tel" required>
+                <input id="frPhone" name="phone" type="tel" autocomplete="tel" maxlength="40" required>
               </div>
 
               <div class="fr-form-field">
                 <label for="frLocation">Pays / Ville</label>
-                <input id="frLocation" name="location" type="text" autocomplete="address-level2">
+                <input id="frLocation" name="location" type="text" autocomplete="address-level2" maxlength="120">
               </div>
 
               <div class="fr-form-field">
@@ -434,17 +434,17 @@
 
               <div class="fr-form-field">
                 <label for="frOrganization">Organisation / Entreprise, le cas échéant</label>
-                <input id="frOrganization" name="organization" type="text" autocomplete="organization">
+                <input id="frOrganization" name="organization" type="text" autocomplete="organization" maxlength="160">
               </div>
 
               <div class="fr-form-field">
                 <label for="frSubject">Sujet principal</label>
-                <input id="frSubject" name="subject" type="text" required>
+                <input id="frSubject" name="subject" type="text" maxlength="180" required>
               </div>
 
               <div class="fr-form-field">
                 <label for="frTimeline">Délai souhaité</label>
-                <input id="frTimeline" name="timeline" type="text">
+                <input id="frTimeline" name="timeline" type="text" maxlength="140">
               </div>
 
               <div class="fr-form-field">
@@ -459,7 +459,7 @@
 
               <div class="fr-form-field fr-form-field--full">
                 <label for="frNeedDescription">Description du besoin</label>
-                <textarea id="frNeedDescription" name="needDescription" required></textarea>
+                <textarea id="frNeedDescription" name="needDescription" maxlength="1500" required></textarea>
               </div>
 
               <label class="fr-consent-field fr-form-field--full">
@@ -489,6 +489,7 @@
       var form = document.getElementById("frInternalConsultationForm");
       var status = document.getElementById("frConsultationFormStatus");
       var submitButton = form ? form.querySelector('button[type="submit"]') : null;
+      var phoneField = form ? form.elements.phone : null;
 
       if (!form || !status || !submitButton) return;
 
@@ -503,11 +504,32 @@
         status.focus();
       }
 
+      function isMeaningfulPhone(value) {
+        var digits = value.replace(/\D/g, "");
+        return /^[+\d\s().-]+$/.test(value) && digits.length >= 7 && digits.length <= 15;
+      }
+
+      if (phoneField) {
+        phoneField.addEventListener("input", function () {
+          phoneField.setCustomValidity("");
+          phoneField.removeAttribute("aria-invalid");
+        });
+      }
+
       form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         if (!form.checkValidity()) {
           form.reportValidity();
+          return;
+        }
+
+        if (!isMeaningfulPhone(fieldValue("phone"))) {
+          phoneField.setCustomValidity("Veuillez saisir un numéro de téléphone international valide comportant suffisamment de chiffres.");
+          phoneField.setAttribute("aria-invalid", "true");
+          setStatus("Veuillez saisir un numéro valide avec des chiffres ; vous pouvez utiliser +, des espaces, des parenthèses ou des tirets.");
+          phoneField.reportValidity();
+          phoneField.focus();
           return;
         }
 

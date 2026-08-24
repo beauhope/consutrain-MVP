@@ -266,12 +266,12 @@
             <div class="feedback-form-grid">
               <div class="feedback-form-field">
                 <label for="frFeedbackFullName">Nom complet</label>
-                <input id="frFeedbackFullName" name="fullName" type="text" autocomplete="name" required>
+                <input id="frFeedbackFullName" name="fullName" type="text" autocomplete="name" maxlength="120" required>
               </div>
 
               <div class="feedback-form-field">
                 <label for="frFeedbackEmail">Adresse e-mail</label>
-                <input id="frFeedbackEmail" name="email" type="email" autocomplete="email" required>
+                <input id="frFeedbackEmail" name="email" type="email" autocomplete="email" maxlength="160" required>
               </div>
 
               <div class="feedback-form-field">
@@ -288,12 +288,12 @@
 
               <div class="feedback-form-field">
                 <label for="frFeedbackSubject">Sujet</label>
-                <input id="frFeedbackSubject" name="subject" type="text" required>
+                <input id="frFeedbackSubject" name="subject" type="text" maxlength="180" required>
               </div>
 
               <div class="feedback-form-field feedback-form-field--full">
                 <label for="frFeedbackMessage">Message ou suggestion</label>
-                <textarea id="frFeedbackMessage" name="message" required></textarea>
+                <textarea id="frFeedbackMessage" name="message" maxlength="1500" required></textarea>
               </div>
             </div>
 

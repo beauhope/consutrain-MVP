@@ -335,6 +335,8 @@
       var form = document.getElementById("internalQuoteForm");
       var status = document.getElementById("quoteFormStatus");
       var submitButton = form ? form.querySelector('button[type="submit"]') : null;
+      var phoneField = form ? form.elements.phone : null;
+      var preferredContactField = form ? form.elements.preferredContact : null;
 
       if (!form || !status || !submitButton) return;
 
@@ -374,6 +376,17 @@
         if (!matched) {
           field.value = value;
         }
+      }
+
+      function clearConditionalPhoneError() {
+        if (!phoneField) return;
+        phoneField.setCustomValidity("");
+        phoneField.removeAttribute("aria-invalid");
+      }
+
+      if (phoneField && preferredContactField) {
+        phoneField.addEventListener("input", clearConditionalPhoneError);
+        preferredContactField.addEventListener("change", clearConditionalPhoneError);
       }
 
       var params = new URLSearchParams(window.location.search);
@@ -432,6 +445,17 @@
         var email = fieldValue("email");
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
           setStatus("يرجى إدخال بريد إلكتروني صحيح.");
+          return;
+        }
+
+        var preferredContact = fieldValue("preferredContact");
+        var phoneIsRequired = preferredContact === "واتساب" || preferredContact === "الهاتف";
+        if (phoneIsRequired && !fieldValue("phone")) {
+          phoneField.setCustomValidity("يرجى إدخال رقم الهاتف عند اختيار الهاتف أو واتساب.");
+          phoneField.setAttribute("aria-invalid", "true");
+          setStatus("يرجى إدخال رقم الهاتف عند اختيار الهاتف أو واتساب.");
+          phoneField.reportValidity();
+          phoneField.focus();
           return;
         }
 
