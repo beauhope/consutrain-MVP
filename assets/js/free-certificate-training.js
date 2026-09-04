@@ -428,6 +428,66 @@
   }
 }
 
+  const TERMINAL_BACKEND_STATUSES = new Set([
+    "issued",
+    "duplicate",
+    "validation_failed",
+    "assessment_failed",
+    "delivery_failed",
+    "configuration_error",
+    "success" // LEGACY C2 TRANSITION: remove after the C2 backend migration is complete.
+  ]);
+
+  function getBackendStatus(result) {
+    if (!result || typeof result !== "object" || typeof result.status !== "string") return "";
+    return result.status.trim().toLowerCase();
+  }
+
+  function isTerminalBackendResult(result) {
+    return TERMINAL_BACKEND_STATUSES.has(getBackendStatus(result));
+  }
+
+  function getSafeBackendMessage(result, fallback) {
+    const message = result && typeof result.message === "string" ? result.message.trim() : "";
+    if (!message || message.length > 300 || /[\r\n]|https?:\/\/|file:\/\/|[a-zA-Z]:\\|(?:^|\s)\/(?:home|tmp|var|usr|opt|root|Users)\/|\bn8n\b|\bat\s+\S+\s*\(/i.test(message)) return fallback;
+    return message;
+  }
+
+  function showBackendResult(result, score, passed) {
+    const status = getBackendStatus(result);
+    if (status === "issued") {
+      setStatus("تم إصدار الشهادة وإرسالها إلى بريدك الإلكتروني.", "success");
+      return true;
+    }
+    if (status === "success") {
+      // LEGACY C2 TRANSITION: keep the current success behavior until C2 is published.
+      showResult(score, passed);
+      return true;
+    }
+    if (status === "duplicate") {
+      setStatus(getSafeBackendMessage(result, "يوجد طلب سابق لهذا البريد في هذا التدريب. يرجى مراجعة بريدك أو التواصل مع الدعم عند الحاجة."), "info");
+      return true;
+    }
+    if (status === "validation_failed") {
+      setStatus(getSafeBackendMessage(result, "تعذر التحقق من الطلب. راجع بياناتك أو تواصل مع الدعم."), "error");
+      return true;
+    }
+    if (status === "assessment_failed") {
+      setStatus(getSafeBackendMessage(result, "لم تحقق النتيجة المعتمدة درجة النجاح المطلوبة."), "fail");
+      return true;
+    }
+    if (status === "delivery_failed") {
+      setStatus(getSafeBackendMessage(result, "تمت معالجة الطلب، لكن تعذر تسليم الشهادة. يرجى التواصل مع الدعم."), "error");
+      return true;
+    }
+    if (status === "configuration_error") {
+      setStatus(getSafeBackendMessage(result, "تعذر إكمال الطلب بسبب مشكلة مؤقتة في الخدمة. يرجى التواصل مع الدعم."), "error");
+      return true;
+    }
+    setStatus("تعذر تأكيد نتيجة الطلب من الخدمة. يرجى المحاولة لاحقًا أو التواصل مع الدعم.", "error");
+    return false;
+  }
+
   async function retryPendingSubmissions() {
     if (isRetryingPendingSubmissions) {
       return;
@@ -448,10 +508,18 @@
     retryButton.textContent = "جاري إعادة المحاولة...";
 
     const failedSubmissions = [];
+    let lastTerminalResult = null;
+    let lastTerminalSubmission = null;
 
     for (const submission of pendingSubmissions) {
       try {
-        await sendToWebhook(submission.payload);
+        const result = await sendToWebhook(submission.payload);
+        if (isTerminalBackendResult(result)) {
+          lastTerminalResult = result;
+          lastTerminalSubmission = submission;
+        } else {
+          failedSubmissions.push(submission);
+        }
       } catch (error) {
         failedSubmissions.push(submission);
         console.error("Pending certificate submission retry failed:", error);
@@ -468,7 +536,7 @@
       setStatus("تعذر إرسال بعض الطلبات المعلقة. ستبقى محفوظة مؤقتًا حتى انتهاء المدة أو حذفها.", "error");
       resultActions.hidden = false;
     } else {
-      setStatus("تم إرسال الطلبات المعلقة بنجاح.", "success");
+      showBackendResult(lastTerminalResult, lastTerminalSubmission.payload.score, lastTerminalSubmission.payload.passed);
       resultActions.hidden = false;
     }
 
@@ -531,14 +599,7 @@
     try {
   const webhookResult = await sendToWebhook(payload);
 
-  if (webhookResult && webhookResult.status === "duplicate") {
-    setStatus(
-      webhookResult.message || "تم إصدار شهادة لهذا البريد في هذا التدريب سابقًا. يرجى مراجعة بريدك الإلكتروني.",
-      "info"
-    );
-  } else {
-    showResult(score, passed);
-  }
+  showBackendResult(webhookResult, score, passed);
 
   resultActions.hidden = false;
 } catch (error) {

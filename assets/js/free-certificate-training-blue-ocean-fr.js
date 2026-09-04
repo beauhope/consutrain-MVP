@@ -136,15 +136,33 @@
     if (isRetryingPendingSubmissions) return;
     const queue = getPendingQueue(); const matching = queue.filter(isCurrentPendingEntry);
     if (!matching.length) { refreshPendingUI(); return; }
-    isRetryingPendingSubmissions = true; const controls = ensurePendingControls(); controls.retryButton.disabled = true; const failed = [];
-    for (const entry of matching) { try { await submitPayload(entry.payload); } catch (error) { failed.push(entry); } }
+    isRetryingPendingSubmissions = true; const controls = ensurePendingControls(); controls.retryButton.disabled = true; const failed = []; let lastResult = null;
+    for (const entry of matching) { try { const result = await submitPayload(entry.payload); if (isTerminalBackendResult(result)) lastResult = result; else failed.push(entry); } catch (error) { failed.push(entry); } }
     const matchingSet = new Set(matching);
     savePendingQueue(queue.filter(function (entry) { return !matchingSet.has(entry); }).concat(failed));
     isRetryingPendingSubmissions = false; controls.retryButton.disabled = false;
     refreshPendingUI();
-    setStatus(failed.length ? "Certaines demandes n’ont pas pu être renvoyées. Elles restent temporairement conservées jusqu’à leur expiration ou leur suppression." : "Les demandes en attente ont été envoyées.", failed.length ? "error" : "success");
+    if (failed.length) setStatus("Certaines demandes n’ont pas pu être renvoyées ou confirmées. Elles restent temporairement conservées jusqu’à leur expiration ou leur suppression.", "error");
+    else showBackendResult(lastResult, "Les demandes en attente ont été envoyées.");
   }
   function discardPendingSubmissions() { savePendingQueue(getPendingQueue().filter(function (entry) { return !isCurrentPendingEntry(entry); })); setStatus("La demande en attente a été supprimée de ce navigateur.", "info"); refreshPendingUI(); }
+  const TERMINAL_BACKEND_STATUSES = new Set(["issued", "duplicate", "validation_failed", "assessment_failed", "delivery_failed", "configuration_error", "success"]);
+  function getBackendStatus(result) { return result && typeof result === "object" && typeof result.status === "string" ? result.status.trim().toLowerCase() : ""; }
+  function isTerminalBackendResult(result) { return TERMINAL_BACKEND_STATUSES.has(getBackendStatus(result)); }
+  function getSafeBackendMessage(result, fallback) { const message = result && typeof result.message === "string" ? result.message.trim() : ""; return !message || message.length > 300 || /[\r\n]|https?:\/\/|file:\/\/|[a-zA-Z]:\\|(?:^|\s)\/(?:home|tmp|var|usr|opt|root|Users)\/|\bn8n\b|\bat\s+\S+\s*\(/i.test(message) ? fallback : message; }
+  function showBackendResult(result, successMessage) {
+    const status = getBackendStatus(result);
+    if (status === "issued") { setStatus("Votre attestation a été émise et envoyée par e-mail.", "success"); return true; }
+    if (status === "success") { // LEGACY C2 TRANSITION
+      setStatus(successMessage, "success"); return true;
+    }
+    if (status === "duplicate") { setStatus(getSafeBackendMessage(result, "Une demande existe déjà pour cette adresse e-mail et cette formation."), "info"); return true; }
+    if (status === "validation_failed") { setStatus(getSafeBackendMessage(result, "La demande n’a pas pu être validée. Vérifiez vos informations ou contactez le support."), "error"); return true; }
+    if (status === "assessment_failed") { setStatus(getSafeBackendMessage(result, "Le résultat validé n’atteint pas le seuil de réussite requis."), "error"); return true; }
+    if (status === "delivery_failed") { setStatus(getSafeBackendMessage(result, "La demande a été traitée, mais l’attestation n’a pas pu être livrée. Contactez le support."), "error"); return true; }
+    if (status === "configuration_error") { setStatus(getSafeBackendMessage(result, "La demande ne peut pas être finalisée en raison d’un problème temporaire du service. Contactez le support."), "error"); return true; }
+    setStatus("La réponse du service n’a pas permis de confirmer le résultat. Réessayez plus tard ou contactez le support.", "error"); return false;
+  }
   function createSubmissionId() {
     return `${TRAINING_ID}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   }
@@ -209,11 +227,7 @@
     submitButton.textContent = "Envoi de la demande...";
     try {
       const result = await submitPayload(payload);
-      if (result && result.status === "duplicate") {
-        setStatus(result.message || "Une demande d'attestation existe déjà pour cet e-mail et cette formation.", "success");
-      } else {
-        setStatus(`Évaluation réussie. Votre score est ${score}/${TOTAL_QUESTIONS} (${percentage}%). La demande d'attestation a été envoyée.`, "success");
-      }
+      showBackendResult(result, `Évaluation réussie. Votre score est ${score}/${TOTAL_QUESTIONS} (${percentage}%). La demande d'attestation a été envoyée.`);
       resultActions.hidden = false;
     } catch (error) {
       savePendingSubmission(payload);

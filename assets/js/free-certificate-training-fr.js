@@ -375,6 +375,71 @@
     }
   }
 
+  const SUPPORTED_BACKEND_STATUSES = new Set([
+    "issued",
+    "duplicate",
+    "validation_failed",
+    "assessment_failed",
+    "delivery_failed",
+    "configuration_error",
+    "pending",
+    "success" // LEGACY C2 TRANSITION: remove after the C2 backend migration is complete.
+  ]);
+
+  function getBackendStatus(result) {
+    if (!result || typeof result !== "object" || typeof result.status !== "string") return "";
+    const status = result.status.trim().toLowerCase();
+    return SUPPORTED_BACKEND_STATUSES.has(status) ? status : "";
+  }
+
+  function getSafeBackendMessage(result, fallback) {
+    const message = result && typeof result.message === "string" ? result.message.trim() : "";
+    if (!message || message.length > 300 || /[\r\n]|https?:\/\/|file:\/\/|[a-zA-Z]:\\|(?:^|\s)\/(?:home|tmp|var|usr|opt|root|Users)\/|\bn8n\b|\bat\s+\S+\s*\(/i.test(message)) return fallback;
+    return message;
+  }
+
+  function showBackendSubmissionResult(result) {
+    const status = getBackendStatus(result);
+    if (status === "issued") {
+      submissionFinished = true;
+      setSubmissionStatus("Votre attestation a été émise et envoyée par e-mail.", "success");
+      return;
+    }
+    if (status === "success") {
+      // LEGACY C2 TRANSITION: keep the current success behavior until C2 is published.
+      submissionFinished = true;
+      setSubmissionStatus("Votre demande a été enregistrée. L’attestation sera traitée après vérification de votre réussite.", "success");
+      return;
+    }
+    if (status === "duplicate") {
+      submissionFinished = true;
+      setSubmissionStatus(getSafeBackendMessage(result, "Une demande existe déjà pour cette formation et cette adresse e-mail."), "info");
+      return;
+    }
+    if (status === "pending") {
+      submissionFinished = true;
+      setSubmissionStatus("Votre demande est déjà en cours de traitement. Veuillez consulter votre boîte e-mail ultérieurement.", "info");
+      return;
+    }
+    if (status === "validation_failed") {
+      setSubmissionStatus(getSafeBackendMessage(result, "La demande n’a pas pu être validée. Vérifiez vos informations ou contactez le support."), "error");
+      return;
+    }
+    if (status === "assessment_failed") {
+      setSubmissionStatus(getSafeBackendMessage(result, "Le résultat validé n’atteint pas le seuil de réussite requis."), "fail");
+      return;
+    }
+    if (status === "delivery_failed") {
+      setSubmissionStatus(getSafeBackendMessage(result, "La demande a été traitée, mais l’attestation n’a pas pu être livrée. Contactez le support."), "error");
+      return;
+    }
+    if (status === "configuration_error") {
+      setSubmissionStatus(getSafeBackendMessage(result, "La demande ne peut pas être finalisée en raison d’un problème temporaire du service. Contactez le support."), "error");
+      return;
+    }
+    setSubmissionStatus("La réponse du service n’a pas permis de confirmer le résultat. Réessayez plus tard ou contactez le support.", "error");
+  }
+
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     clearStatus();
@@ -477,25 +542,7 @@
     try {
       const result = await sendCertificateSubmission(payload);
 
-      if (result && result.status === "duplicate") {
-        submissionFinished = true;
-        setSubmissionStatus(
-          result.message || "Une demande d’attestation existe déjà pour cette formation et cette adresse e-mail.",
-          "success"
-        );
-      } else if (result && result.status === "pending") {
-        submissionFinished = true;
-        setSubmissionStatus(
-          "Votre demande est déjà en cours de traitement. Veuillez consulter votre boîte e-mail ultérieurement.",
-          "success"
-        );
-      } else {
-        submissionFinished = true;
-        setSubmissionStatus(
-          "Votre demande a été enregistrée. L’attestation sera traitée après vérification de votre réussite.",
-          "success"
-        );
-      }
+      showBackendSubmissionResult(result);
     } catch (error) {
       setSubmissionStatus(
         "Une difficulté technique empêche l’enregistrement de votre demande. Vérifiez votre connexion puis réessayez.",

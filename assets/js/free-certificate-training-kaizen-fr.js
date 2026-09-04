@@ -359,6 +359,29 @@
     };
   }
 
+  function getBackendStatus(result) {
+    return result && typeof result === "object" && typeof result.status === "string" ? result.status.trim().toLowerCase() : "";
+  }
+
+  function getSafeBackendMessage(result, fallback) {
+    const message = result && typeof result.message === "string" ? result.message.trim() : "";
+    return !message || message.length > 300 || /[\r\n]|https?:\/\/|file:\/\/|[a-zA-Z]:\\|(?:^|\s)\/(?:home|tmp|var|usr|opt|root|Users)\/|\bn8n\b|\bat\s+\S+\s*\(/i.test(message) ? fallback : message;
+  }
+
+  function showBackendSubmissionResult(result) {
+    const status = getBackendStatus(result);
+    if (status === "issued") { submissionFinished = true; setSubmissionStatus("Votre attestation a été émise et envoyée par e-mail.", "success"); return; }
+    if (status === "success") { // LEGACY C2 TRANSITION
+      submissionFinished = true; setSubmissionStatus("Votre demande d’attestation a été envoyée. Vérifiez votre boîte mail après traitement.", "success"); return;
+    }
+    if (status === "duplicate") { submissionFinished = true; setSubmissionStatus(getSafeBackendMessage(result, "Une demande existe déjà pour cette adresse e-mail et cette formation."), "info"); return; }
+    if (status === "validation_failed") { submissionFinished = true; setSubmissionStatus(getSafeBackendMessage(result, "La demande n’a pas pu être validée. Vérifiez vos informations ou contactez le support."), "error"); return; }
+    if (status === "assessment_failed") { submissionFinished = true; setSubmissionStatus(getSafeBackendMessage(result, "Le résultat validé n’atteint pas le seuil de réussite requis."), "error"); return; }
+    if (status === "delivery_failed") { submissionFinished = true; setSubmissionStatus(getSafeBackendMessage(result, "La demande a été traitée, mais l’attestation n’a pas pu être livrée. Contactez le support."), "error"); return; }
+    if (status === "configuration_error") { submissionFinished = true; setSubmissionStatus(getSafeBackendMessage(result, "La demande ne peut pas être finalisée en raison d’un problème temporaire du service. Contactez le support."), "error"); return; }
+    setSubmissionStatus("La réponse du service n’a pas permis de confirmer le résultat. Réessayez plus tard ou contactez le support.", "error");
+  }
+
   function updateAssessmentState() {
     provisionalPassIsCurrent = false;
     provisionalPassSignature = "";
@@ -424,9 +447,12 @@
         body: JSON.stringify(buildSubmissionPayload(score, answers))
       });
       if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
-
-      submissionFinished = true;
-      setSubmissionStatus("Votre demande d’attestation a été envoyée. Vérifiez votre boîte mail après traitement.", "success");
+      const responseText = await response.text();
+      let result = null;
+      if (responseText.trim()) {
+        try { result = JSON.parse(responseText); } catch (error) { console.warn("Webhook returned invalid JSON:", error); }
+      }
+      showBackendSubmissionResult(result);
     } catch (error) {
       setSubmissionStatus("L’envoi n’a pas abouti. Vérifiez votre connexion puis réessayez.", "error");
       setFinalSubmitEnabled(true);

@@ -132,13 +132,30 @@
   async function retryPendingSubmissions() {
     if (isRetryingPendingSubmissions) return;
     const queue = getPendingQueue(); const matching = queue.filter(isCurrentPendingEntry); if (!matching.length) { refreshPendingUI(); return; }
-    isRetryingPendingSubmissions = true; const controls = ensurePendingControls(); controls.retryButton.disabled = true; const failed = [];
-    for (const entry of matching) { try { await submitPayload(entry.payload); } catch (error) { failed.push(entry); } }
+    isRetryingPendingSubmissions = true; const controls = ensurePendingControls(); controls.retryButton.disabled = true; const failed = []; let lastResult = null;
+    for (const entry of matching) { try { const result = await submitPayload(entry.payload); if (isTerminalBackendResult(result)) lastResult = result; else failed.push(entry); } catch (error) { failed.push(entry); } }
     const matchingSet = new Set(matching); savePendingQueue(queue.filter(function (entry) { return !matchingSet.has(entry); }).concat(failed));
     isRetryingPendingSubmissions = false; controls.retryButton.disabled = false;
-    refreshPendingUI(); setStatus(failed.length ? "تعذرت إعادة إرسال بعض الطلبات. ستبقى محفوظة مؤقتًا حتى انتهاء المدة أو حذفها." : "تم إرسال الطلبات المعلقة بنجاح.", failed.length ? "error" : "success");
+    refreshPendingUI(); if (failed.length) setStatus("تعذرت إعادة إرسال بعض الطلبات أو تأكيد نتيجتها. ستبقى محفوظة مؤقتًا حتى انتهاء المدة أو حذفها.", "error"); else showBackendResult(lastResult, "تم إرسال الطلبات المعلقة بنجاح.");
   }
   function discardPendingSubmissions() { savePendingQueue(getPendingQueue().filter(function (entry) { return !isCurrentPendingEntry(entry); })); setStatus("تم حذف الطلب المعلّق من هذا المتصفح.", "info"); refreshPendingUI(); }
+  const TERMINAL_BACKEND_STATUSES = new Set(["issued", "duplicate", "validation_failed", "assessment_failed", "delivery_failed", "configuration_error", "success"]);
+  function getBackendStatus(result) { return result && typeof result === "object" && typeof result.status === "string" ? result.status.trim().toLowerCase() : ""; }
+  function isTerminalBackendResult(result) { return TERMINAL_BACKEND_STATUSES.has(getBackendStatus(result)); }
+  function getSafeBackendMessage(result, fallback) { const message = result && typeof result.message === "string" ? result.message.trim() : ""; return !message || message.length > 300 || /[\r\n]|https?:\/\/|file:\/\/|[a-zA-Z]:\\|(?:^|\s)\/(?:home|tmp|var|usr|opt|root|Users)\/|\bn8n\b|\bat\s+\S+\s*\(/i.test(message) ? fallback : message; }
+  function showBackendResult(result, successMessage) {
+    const status = getBackendStatus(result);
+    if (status === "issued") { setStatus("تم إصدار الشهادة وإرسالها إلى بريدك الإلكتروني.", "success"); return true; }
+    if (status === "success") { // LEGACY C2 TRANSITION
+      setStatus(successMessage, "success"); return true;
+    }
+    if (status === "duplicate") { setStatus(getSafeBackendMessage(result, "يوجد طلب سابق لهذا البريد في هذا التدريب."), "info"); return true; }
+    if (status === "validation_failed") { setStatus(getSafeBackendMessage(result, "تعذر التحقق من الطلب. راجع بياناتك أو تواصل مع الدعم."), "error"); return true; }
+    if (status === "assessment_failed") { setStatus(getSafeBackendMessage(result, "لم تحقق النتيجة المعتمدة درجة النجاح المطلوبة."), "error"); return true; }
+    if (status === "delivery_failed") { setStatus(getSafeBackendMessage(result, "تمت معالجة الطلب، لكن تعذر تسليم الشهادة. يرجى التواصل مع الدعم."), "error"); return true; }
+    if (status === "configuration_error") { setStatus(getSafeBackendMessage(result, "تعذر إكمال الطلب بسبب مشكلة مؤقتة في الخدمة. يرجى التواصل مع الدعم."), "error"); return true; }
+    setStatus("تعذر تأكيد نتيجة الطلب من الخدمة. يرجى المحاولة لاحقًا أو التواصل مع الدعم.", "error"); return false;
+  }
 
   function buildPayload(score, answers) {
     const percentage = Math.round((score / TOTAL_QUESTIONS) * 100);
@@ -214,11 +231,7 @@
 
     try {
       const result = await submitPayload(payload);
-      if (result && result.status === "duplicate") {
-        setStatus(result.message || "يوجد طلب شهادة سابق لهذا البريد في هذا التدريب.", "success");
-      } else {
-        setStatus(`تم اجتياز الاختبار بنجاح. نتيجتك ${score} من ${TOTAL_QUESTIONS} (${percentage}%). تم إرسال طلب الشهادة.`, "success");
-      }
+      showBackendResult(result, `تم اجتياز الاختبار بنجاح. نتيجتك ${score} من ${TOTAL_QUESTIONS} (${percentage}%). تم إرسال طلب الشهادة.`);
       resultActions.hidden = false;
     } catch (error) {
       savePendingSubmission(payload);
