@@ -274,8 +274,11 @@
 
   <script src="assets/js/includes.js?v=20260905_certificate_verification"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    function initializeCertificateVerification() {
       "use strict";
+
+      if (document.documentElement.dataset.certificateVerificationInitialized === "true") return;
+      document.documentElement.dataset.certificateVerificationInitialized = "true";
 
       var ENDPOINT = "https://hooks.consutrain.com/webhook/consutrain-certificate-verification";
       var CODE_PATTERN = /^CT-\d{2}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/;
@@ -477,11 +480,16 @@
       applyInterfaceLanguage("ar");
 
       var queryCode = new URLSearchParams(window.location.search).get("code");
-      if (queryCode) {
-        input.value = queryCode.trim().toUpperCase();
-        verifyCode(input.value);
+      if (queryCode !== null && queryCode.trim() !== "") {
+        verifyCode(queryCode);
       }
-    });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initializeCertificateVerification, { once: true });
+    } else {
+      initializeCertificateVerification();
+    }
   </script>
 </body>
 </html>
