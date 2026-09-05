@@ -185,6 +185,26 @@
       line-height: 1.5;
       overflow-wrap: anywhere;
     }
+    .verification-link {
+  display: block;
+  color: var(--navy);
+  font-size: 3.8mm;
+  font-weight: 800;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.verification-code {
+  display: block;
+  margin-top: 1.5mm;
+  color: var(--muted);
+  font-size: 2.8mm;
+  font-weight: 700;
+  line-height: 1.4;
+  direction: ltr;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+}
 
     .footer-line {
       display: flex;
@@ -279,10 +299,21 @@
             <span class="meta-value">{{certificateId}}</span>
           </div>
 
-          <div class="meta-item">
-            <span class="meta-label">رابط التحقق</span>
-            <span class="meta-value">{{verificationUrl}}</span>
-          </div>
+         <div class="meta-item">
+  <span class="meta-label">رابط التحقق</span>
+
+  <a
+    class="verification-link"
+    href="{{verificationUrl}}"
+    target="_blank"
+  >
+    تحقق من الشهادة
+  </a>
+
+  <span class="verification-code">
+    {{verificationCode}}
+  </span>
+</div>
 
           <div class="meta-item signature" aria-label="توقيع مدير منصة ConsuTrain">
             <div class="signature-line">التوقيع</div>

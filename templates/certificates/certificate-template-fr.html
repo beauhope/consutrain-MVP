@@ -184,6 +184,27 @@
       overflow-wrap: anywhere;
     }
 
+    .verification-link {
+      display: block;
+      color: var(--navy);
+      font-size: 3.8mm;
+      font-weight: 800;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .verification-code {
+      display: block;
+      margin-top: 1.5mm;
+      color: var(--muted);
+      font-size: 2.8mm;
+      font-weight: 700;
+      line-height: 1.4;
+      direction: ltr;
+      unicode-bidi: isolate;
+      white-space: nowrap;
+    }
+
     .signature {
       display: grid;
       gap: .8mm;
@@ -240,6 +261,7 @@
 <body>
   <main class="certificate-page" aria-label="Attestation de réussite ConsuTrain">
     <article class="certificate" aria-labelledby="certificate-title">
+
       <img
         class="certificate-watermark"
         src="../../assets/images/consutrain-logo-mark.png"
@@ -248,6 +270,7 @@
       >
 
       <div class="certificate-content">
+
         <header class="brand" aria-label="ConsuTrain">
           <img
             class="brand-logo"
@@ -256,37 +279,96 @@
           >
         </header>
 
-        <h1 class="certificate-title" id="certificate-title">Attestation de réussite</h1>
+        <h1
+          class="certificate-title"
+          id="certificate-title"
+        >
+          Attestation de réussite
+        </h1>
 
-        <section class="certificate-copy" aria-label="Bénéficiaire et formation">
-          <p class="intro">La plateforme ConsuTrain atteste que</p>
-          <p class="learner-name">{{fullName}}</p>
-          <p class="completion-text">a réussi l’évaluation gratuite associée à la formation :</p>
-          <p class="training-title">{{trainingTitle}}</p>
+        <section
+          class="certificate-copy"
+          aria-label="Bénéficiaire et formation"
+        >
+          <p class="intro">
+            La plateforme ConsuTrain atteste que
+          </p>
+
+          <p class="learner-name">
+            {{fullName}}
+          </p>
+
+          <p class="completion-text">
+            a réussi l’évaluation gratuite associée à la formation :
+          </p>
+
+          <p class="training-title">
+            {{trainingTitle}}
+          </p>
         </section>
 
-        <section class="certificate-meta" aria-label="Informations de l’attestation">
+        <section
+          class="certificate-meta"
+          aria-label="Informations de l’attestation"
+        >
+
           <div class="meta-item">
-            <span class="meta-label">Date de délivrance :</span>
-            <span class="meta-value">{{issueDate}}</span>
+            <span class="meta-label">
+              Date de délivrance :
+            </span>
+
+            <span class="meta-value">
+              {{issueDate}}
+            </span>
           </div>
 
           <div class="meta-item">
-            <span class="meta-label">Référence de l’attestation :</span>
-            <span class="meta-value">{{certificateId}}</span>
+            <span class="meta-label">
+              Référence de l’attestation :
+            </span>
+
+            <span class="meta-value">
+              {{certificateId}}
+            </span>
           </div>
 
           <div class="meta-item">
-            <span class="meta-label">Vérification :</span>
-            <span class="meta-value">{{verificationUrl}}</span>
+            <span class="meta-label">
+              Lien de vérification :
+            </span>
+
+            <a
+              class="verification-link"
+              href="{{verificationUrl}}"
+              target="_blank"
+            >
+              Vérifier l’attestation
+            </a>
+
+            <span class="verification-code">
+              {{verificationCode}}
+            </span>
           </div>
 
-          <div class="meta-item signature" aria-label="Signature du responsable de la plateforme ConsuTrain">
-            <div class="signature-line">Signature</div>
-            <div class="signature-name">Youssef Joul</div>
-            <div class="signature-title">Responsable de la plateforme ConsuTrain</div>
+          <div
+            class="meta-item signature"
+            aria-label="Signature du responsable de la plateforme ConsuTrain"
+          >
+            <div class="signature-line">
+              Signature
+            </div>
+
+            <div class="signature-name">
+              Youssef Joul
+            </div>
+
+            <div class="signature-title">
+              Responsable de la plateforme ConsuTrain
+            </div>
           </div>
+
         </section>
+
       </div>
     </article>
   </main>
