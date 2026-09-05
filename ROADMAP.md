@@ -12,6 +12,9 @@
 - بنية PWA تشمل manifest وService Worker وصفحة عدم اتصال.
 - أجزاء مشتركة للهيدر والفوتر بالعربية والفرنسية مع تحميل مركزي.
 - بنية عربية وفرنسية للصفحات العامة الأساسية.
+- Batch `4C-3B-1 Article Structured Data Enrichment` مكتمل ومغلق عبر commit `dab6031` (`SEO: enrich article structured data`): شمل 62 صفحة مقال فردي، وحقق تغطية 62/62 لكل من `Article` و`image` المطابق لـ`og:image` و`author` المؤسسي لـConsuTrain (`https://consutrain.com/#organization`) و`isPartOf` (`https://consutrain.com/#website`)، مع صلاحية JSON-LD في 62/62. لم تتغير canonical أو `mainEntityOfPage` أو `headline` أو `description` أو `inLanguage` أو `publisher` أو `BreadcrumbList`، ولم تتأثر ملفات HTML خارج النطاق. لم تُضف `datePublished` أو `dateModified` لعدم توفر تواريخ موثوقة. كانت بنية `Article` الأساسية موجودة منذ commit `beff93e04b949d4b4242be737fbc6156287fba27`، لذا كانت الدفعة إثراءً وإنهاءً وليست إعادة بناء.
+- Batch `4C-3A Learn / Collections` للـStructured Data مكتمل ومغلق: 30 صفحة، منها 17 عربية و13 فرنسية، تستخدم `CollectionPage` و`BreadcrumbList` عند وجود breadcrumb فعلي، مع canonical و`inLanguage` و`name` و`description` و`isPartOf` المتسقة. لا حاجة إلى `ItemList` إضافي أو تكرار `Organization` و`WebSite`. يستخدم `learn/ai-prompts.html` `CollectionPage` فقط بصورة صحيحة لغياب breadcrumb في الواجهة. التنفيذ موجود أساسًا في `8225f04`، وفهرسا التدريبات المجانية في `d612ec7`، ولا حاجة إلى تعديل أو إعادة تنفيذ.
+- Batch `4C-2 Services` للـStructured Data مكتمل ومغلق: commit `ac3a990e5f493dd5211c0ae62b35bfa844132ac0` (`final QA`) يشمل صفحتي `CollectionPage` و24 صفحة `Service` ضمن 26 ملفًا، وهو موجود في `origin/main` دون تغييرات لاحقة على الصفحات. لا حاجة إلى إعادة التنفيذ؛ ورسالة commit العامة هي سبب الالتباس السابق حول تسجيل العمل.
 
 ### المحتوى والخدمات
 
