@@ -12,6 +12,7 @@
 - بنية PWA تشمل manifest وService Worker وصفحة عدم اتصال.
 - أجزاء مشتركة للهيدر والفوتر بالعربية والفرنسية مع تحميل مركزي.
 - بنية عربية وفرنسية للصفحات العامة الأساسية.
+- **Final Launch Gate — READY TO LAUNCH:** اجتازت Git وPrivacy Fix وTool Service Worker Fix والمسارات الرئيسية والشهادات وPWA جميعها حالة **PASS**، مع `P0 = 0` و`P1 = 0`. ConsuTrain MVP / PWA جاهز للإطلاق العام. البنود المتبقية P2/P3 تحسينات لما بعد الإطلاق ولا تمنع الإطلاق.
 - مرحلة **SEO / Structured Data** مكتملة ومغلقة نهائيًا. أظهر التدقيق النهائي 356 صفحة HTML عامة، منها 296 ببيانات JSON-LD و60 دونها (83.1%)، مع تغطية 296/296 من صفحات Sitemap (100%) و296/297 من الصفحات القابلة للفهرسة (99.7%). تحمل 59/60 من الصفحات غير المغطاة `noindex`، وتبقى إضافة `WebPage` إلى `certificate-verification.html` تحسينًا اختياريًا فقط. اجتازت الصفحات المغطاة فحوص صلاحية JSON-LD ومطابقة canonical وعدم التكرار أو التعارض أو القيم الفارغة و`null` والـplaceholders والروابط غير الصالحة وتعارضات النطاق واللغة وhreflang. تستخدم المنظومة `https://consutrain.com/#organization` و`https://consutrain.com/#website` كمعرّفين عالميين ثابتين. تغطية Core وServices وLearn Collections وArticles وTraining وTemplates مكتملة، وTools مكتملة للصفحات المنشورة، ولا توجد فجوات مطلوبة في Forms أو Legal أو Other. commits المرجعية: `e5cae68`، `8225f04`، `beff93e`، `bb9ed97`، `d612ec7`، `1a29858`، `98b33bb`، `de5734f`، `ac3a990`، `dab6031`، و`bb3a629`.
 - Batch `4C-3B-1 Article Structured Data Enrichment` مكتمل ومغلق عبر commit `dab6031` (`SEO: enrich article structured data`): شمل 62 صفحة مقال فردي، وحقق تغطية 62/62 لكل من `Article` و`image` المطابق لـ`og:image` و`author` المؤسسي لـConsuTrain (`https://consutrain.com/#organization`) و`isPartOf` (`https://consutrain.com/#website`)، مع صلاحية JSON-LD في 62/62. لم تتغير canonical أو `mainEntityOfPage` أو `headline` أو `description` أو `inLanguage` أو `publisher` أو `BreadcrumbList`، ولم تتأثر ملفات HTML خارج النطاق. لم تُضف `datePublished` أو `dateModified` لعدم توفر تواريخ موثوقة. كانت بنية `Article` الأساسية موجودة منذ commit `beff93e04b949d4b4242be737fbc6156287fba27`، لذا كانت الدفعة إثراءً وإنهاءً وليست إعادة بناء.
 - Batch `4C-3A Learn / Collections` للـStructured Data مكتمل ومغلق: 30 صفحة، منها 17 عربية و13 فرنسية، تستخدم `CollectionPage` و`BreadcrumbList` عند وجود breadcrumb فعلي، مع canonical و`inLanguage` و`name` و`description` و`isPartOf` المتسقة. لا حاجة إلى `ItemList` إضافي أو تكرار `Organization` و`WebSite`. يستخدم `learn/ai-prompts.html` `CollectionPage` فقط بصورة صحيحة لغياب breadcrumb في الواجهة. التنفيذ موجود أساسًا في `8225f04`، وفهرسا التدريبات المجانية في `d612ec7`، ولا حاجة إلى تعديل أو إعادة تنفيذ.
@@ -77,8 +78,9 @@
 6. تحسين آلية تحديث دليل المنصة وPDF لمنع تعارض التعديلات المحلية مع commits التي ينشئها GitHub Actions.
 7. تنفيذ مراجعة دورية للروابط والمسارات و`data-root` والملفات الموجودة في precache.
 
-## 4. تحسينات لاحقة
+## 4. Post-Launch Improvements
 
+- هذه البنود تحسينات P2/P3 لما بعد الإطلاق، وليست مهام عاجلة ولا شروطًا لفتح MVP العام.
 - توسيع التدريبات المجانية مع التقييم والشهادات باللغتين.
 - توسيع الخدمات والموارد والقوالب والدورات العربية والفرنسية وفق بنية قابلة للتوسع.
 - زيادة عدد الأصول الفرنسية القابلة للتنزيل، مع عدم عرض ملف عربي كنسخة فرنسية.
