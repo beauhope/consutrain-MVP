@@ -3450,6 +3450,12 @@ z-index:1100;
   height:auto;
 }
 
+.article-visual--inline{
+  width:100%;
+  max-width:960px;
+  margin:24px auto;
+}
+
 .article-extra-card{
   margin-top:24px;
   padding:22px;

@@ -68,6 +68,12 @@ function buildArticleHtml(article, allArticles = []) {
   const date = formatArabicDate(article.date || "");
   const imageUrl = article.image_url || article.imageUrl || "";
   const imageAlt = escapeHtml(article.image_alt || article.imageAlt || title);
+  const content = article.content || [];
+  const imageAfterIndex = article.image_after_content_index;
+  const hasInlineImage = Array.isArray(content)
+    && Number.isInteger(imageAfterIndex)
+    && imageAfterIndex >= 0
+    && imageAfterIndex < content.length;
   const videoTitle = escapeHtml(article.video_title || article.videoTitle || "شرح الفيديو المرتبط بالمقال");
   const videoUrl = article.video_url || article.videoUrl || "";
 
@@ -76,7 +82,7 @@ function buildArticleHtml(article, allArticles = []) {
     .join("");
 
   const imageHtml = imageUrl
-    ? `<figure class="article-visual">
+    ? `<figure class="article-visual${hasInlineImage ? " article-visual--inline" : ""}">
         <img src="${escapeHtml(imageUrl)}" alt="${imageAlt}" loading="lazy">
       </figure>`
     : "";
@@ -133,8 +139,8 @@ function buildArticleHtml(article, allArticles = []) {
     بعض الفقرات تحتوي على HTML بسيط مثل <strong> أو روابط داخلية.
     لذلك سنعرضها كما هي مباشرة لأنها محتوى موثوق من ملف البيانات الخاص بالموقع.
   */
-  const contentHtml = (article.content || [])
-    .map(paragraph => `<p>${paragraph}</p>`)
+  const contentHtml = content
+    .map((paragraph, index) => `<p>${paragraph}</p>${hasInlineImage && index === imageAfterIndex ? imageHtml : ""}`)
     .join("");
 
   return `
@@ -157,7 +163,7 @@ function buildArticleHtml(article, allArticles = []) {
         </div>
       </header>
 
-      ${imageHtml}
+      ${hasInlineImage ? "" : imageHtml}
       ${videoHtml}
 
       <section class="article-full-content">
