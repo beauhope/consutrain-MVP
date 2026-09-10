@@ -147,6 +147,7 @@ function buildArticleHtml(article, allArticles = []) {
     <article class="article-full section-card">
       <div class="article-full-top">
         <a class="back-link" href="articles.html">← العودة إلى المقالات</a>
+        ${article.fr_url ? `<a class="btn btn-secondary btn-small" href="${escapeHtml(article.fr_url)}" lang="fr" hreflang="fr" dir="ltr">Lire en français</a>` : ""}
       </div>
 
       <header class="article-full-header">
@@ -239,6 +240,26 @@ async function loadSingleArticle() {
       تحديث عنوان الصفحة ديناميكيًا
     */
     document.title = `${article.title} | ConsuTrain`;
+    if (article.fr_url) {
+      document.body.dataset.frLink = article.fr_url;
+      if (typeof syncLocalizedLanguageLink === "function") {
+        syncLocalizedLanguageLink();
+      }
+
+      // Only translated records declare alternates; Arabic URLs remain unchanged.
+      const arabicUrl = `https://consutrain.com/learn/article.html?id=${encodeURIComponent(article.id)}`;
+      const frenchUrl = new URL(article.fr_url, "https://consutrain.com/learn/article.html").href;
+      for (const [language, href] of [["ar", arabicUrl], ["fr", frenchUrl], ["x-default", arabicUrl]]) {
+        let link = document.head.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
+        if (!link) {
+          link = document.createElement("link");
+          link.rel = "alternate";
+          link.hreflang = language;
+          document.head.appendChild(link);
+        }
+        link.href = href;
+      }
+    }
 
     /*
       عرض المقال

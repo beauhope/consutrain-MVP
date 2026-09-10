@@ -11,10 +11,15 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260910-article-fixes";
-const RUNTIME_CACHE = "consutrain-runtime-v20260910-article-fixes";
+const STATIC_CACHE = "consutrain-v20260910-priority-fr-articles";
+const RUNTIME_CACHE = "consutrain-runtime-v20260910-priority-fr-articles";
 
 const PRECACHE_URLS = [
+  "./fr/learn/ai-admin.html",
+  "./fr/learn/project-management-basics.html",
+  "./fr/learn/project-management-methodologies-selection.html",
+  "./fr/learn/foresight-scenario-planning-introduction.html",
+  "./fr/learn/essential-management-skills-intro.html",
   "./",
   "./index.html",
   "./start-here.html",
