@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260815-localized-pwa";
-const RUNTIME_CACHE = "consutrain-runtime-v20260815-localized-pwa";
+const STATIC_CACHE = "consutrain-v20260910-article-fixes";
+const RUNTIME_CACHE = "consutrain-runtime-v20260910-article-fixes";
 
 const PRECACHE_URLS = [
   "./",

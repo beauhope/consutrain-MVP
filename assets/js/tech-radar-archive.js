@@ -48,6 +48,9 @@
     const date = escapeHtml(formatDate(article.date));
     const category = escapeHtml(article.category || "Radar technologique");
     const url = escapeHtml(article.url || "#");
+    const image = locale === "fr" && article.image_url
+      ? `<figure class="article-visual"><img src="${escapeHtml(article.image_url)}" alt="${escapeHtml(article.image_alt || article.title)}" loading="lazy"></figure>`
+      : "";
 
     return `
       <article class="section-card article-card">
@@ -56,6 +59,7 @@
           <span class="article-category-pill">${category}</span>
         </div>
         <h3>${title}</h3>
+        ${image}
         ${excerpt ? `<p>${excerpt}</p>` : ""}
         <div class="article-tags">
           <span class="article-tag">${category}</span>

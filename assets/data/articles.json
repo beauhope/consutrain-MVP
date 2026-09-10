@@ -308,8 +308,8 @@
         "الفرص المستقبلية",
         "التهديدات المستقبلية"
       ],
-      "image_url": "../assets/images/articles/horizon-scanning-early-signals.svg",
-      "image_alt": "رسم يوضح مسح الأفق من مصادر المعلومات إلى الإشارات المبكرة والتحليل",
+      "image_url": "../assets/images/articles/foresight-scenario-planning-key-terms.svg",
+      "image_alt": "رسم يوضح الانتقال من الإشارات الضعيفة والمتغيرات إلى الاتجاهات والقوى المحركة والسيناريوهات",
       "video_title": "F&S-06 | مسح الأفق Horizon Scanning",
       "video_url": "https://www.youtube.com/watch?v=n5PFpYOcwY8&t=628s",
       "source_material": [
@@ -2614,6 +2614,7 @@
     },
     {
       "id": "digitization-guide",
+      "url": "digitization-guide.html",
       "content_type": "article",
       "title": "كيف تتم رقمنة المؤسسات؟",
       "excerpt": "دليل عملي يشرح كيف تنتقل المؤسسة من العمل الورقي أو اليدوي إلى عمل رقمي منظم، مع مراحل الرقمنة، تبسيط الإجراءات، اختيار الأدوات، وأخطاء التنفيذ الشائعة.",
@@ -2649,6 +2650,7 @@
     },
     {
       "id": "digital-services-evolution",
+      "url": "digital-services-evolution.html",
       "content_type": "article",
       "title": "من الخدمة الورقية إلى الخدمة الذاتية الذكية",
       "excerpt": "دليل يشرح تطور الخدمات من الورق والحضور الشخصي إلى المواقع الإلكترونية والتطبيقات الذكية والخدمات الذاتية المدعومة بالذكاء الاصطناعي، وما الذي يجب أن تتعلمه المؤسسات من هذا التحول.",
