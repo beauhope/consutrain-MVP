@@ -1,6 +1,25 @@
 {
   "articles": [
     {
+      "id": "clarte-organisationnelle-raci-gouvernance",
+      "content_type": "article",
+      "language": "fr",
+      "title": "Le manque de clarté fatigue parfois plus que la charge de travail",
+      "excerpt": "Pourquoi la clarté des rôles, des priorités et des décisions peut réduire la fatigue des équipes plus efficacement qu’une simple réduction de la charge de travail.",
+      "date": "2026-09-13",
+      "category": "Gouvernance et organisation",
+      "tags": [
+        "Gouvernance",
+        "Organisation",
+        "RACI",
+        "Clarté organisationnelle",
+        "Management"
+      ],
+      "url": "clarte-organisationnelle-raci-gouvernance.html",
+      "image_url": "../../assets/images/articles/raci-clarte-organisationnelle.png",
+      "image_alt": "Illustration du manque de clarté au travail et des rôles RACI : Responsible, Accountable, Consulted et Informed."
+    },
+    {
       "id": "what-is-ambient-ai",
       "content_type": "article",
       "contentType": "tech-radar",
