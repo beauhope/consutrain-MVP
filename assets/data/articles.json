@@ -1,6 +1,27 @@
 {
   "articles": [
     {
+      "id": "organizational-clarity-raci-governance",
+      "fr_url": "../fr/learn/clarte-organisationnelle-raci-gouvernance.html",
+      "content_type": "article",
+      "language": "ar",
+      "title": "ليس دائمًا عبء العمل ما يُرهق الموظفين… أحيانًا يكون نقص الوضوح",
+      "excerpt": "كيف يساعد وضوح الأدوار والمسؤوليات والقرارات في تقليل إرهاق الفرق وتحسين الأداء باستخدام أدوات بسيطة مثل مصفوفة RACI.",
+      "date": "2026-09-13",
+      "category": "الحوكمة والتنظيم",
+      "tags": [
+        "الحوكمة والتنظيم",
+        "وضوح الأدوار",
+        "المسؤوليات",
+        "RACI",
+        "الإدارة"
+      ],
+      "url": "organizational-clarity-raci-governance.html",
+      "image_url": "../assets/images/articles/raci-clarity-governance-ar.png",
+      "card_image_url": "../assets/images/articles/raci-clarity-governance-ar.png",
+      "image_alt": "نقص الوضوح في العمل مقابل وضوح الأدوار والحوكمة والسياسات التنظيمية باستخدام مصفوفة RACI."
+    },
+    {
       "id": "foresight-scenario-planning-introduction",
       "fr_url": "../fr/learn/foresight-scenario-planning-introduction.html",
       "content_type": "learning_path_lesson",

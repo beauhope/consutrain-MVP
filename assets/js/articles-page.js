@@ -139,6 +139,9 @@ function buildArticleCard(article) {
   const excerpt = escapeHtml(article.excerpt || "");
   const date = formatArabicDate(article.date || "");
   const hasVideo = Boolean(getArticleVideoUrl(article));
+  const imageHtml = article.card_image_url
+    ? `<figure class="article-visual"><img src="${escapeHtml(article.card_image_url)}" alt="${escapeHtml(article.image_alt || article.title || "")}" loading="lazy"></figure>`
+    : "";
 
   const tagsHtml = (article.tags || [])
     .map(tag => `<span class="article-tag">${escapeHtml(tag)}</span>`)
@@ -152,6 +155,7 @@ function buildArticleCard(article) {
       </div>
 
       <h3>${title}</h3>
+      ${imageHtml}
       <p>${excerpt}</p>
 
       <div class="article-tags">
@@ -412,6 +416,8 @@ async function loadArticlesData() {
       .filter((article) => article.content_type === "article")
       .map((article) => ({
         id: article.id || "",
+        card_image_url: article.card_image_url || "",
+        image_alt: article.image_alt || "",
         title: article.title || "",
         excerpt: article.excerpt || "",
         date: article.date || "",

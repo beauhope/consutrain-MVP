@@ -11,8 +11,8 @@
 
 
 
-const STATIC_CACHE = "consutrain-v20260913-raci-fr-article";
-const RUNTIME_CACHE = "consutrain-runtime-v20260913-raci-fr-article";
+const STATIC_CACHE = "consutrain-v20260913-raci-bilingual-articles";
+const RUNTIME_CACHE = "consutrain-runtime-v20260913-raci-bilingual-articles";
 
 const PRECACHE_URLS = [
   "./fr/learn/ai-admin.html",
