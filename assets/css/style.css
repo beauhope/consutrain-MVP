@@ -10956,3 +10956,22 @@ section[id],
       !important;
   }
 }
+/* =========================================================
+   Article cards — compact thumbnails
+   ========================================================= */
+
+.article-card .article-visual,
+.fr-learn-card .article-visual {
+  aspect-ratio: 4 / 3;
+  margin: 0 0 16px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.article-card .article-visual img,
+.fr-learn-card .article-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
