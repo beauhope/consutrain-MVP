@@ -94,7 +94,8 @@ ConsuTrain منصة ويب ثابتة ثنائية اللغة في مرحلة MV
 
 - يوجد فهرس دورات عربي في `courses/index.html` وبنية دورات موضوعية تحت `courses/`.
 - توجد واجهة دورات فرنسية في `fr/courses/` تشمل الفهرس وصفحات تعريف متعددة.
-- توجد ورش تطبيقية قصيرة ضمن `courses/practical-workshops/`، ودورة اتصال داخلي مهنية متعددة الجلسات.
+- توجد ورش تطبيقية قصيرة ضمن `courses/practical-workshops/`.
+- أزيلت دورة الاتصال الداخلي المهنية القديمة `courses/communication-interne-professionnelle/` وصفحتها الفرنسية المرتبطة بها، ونُظفت مراجعها التشغيلية من الفهارس وSitemap وService Worker ودليل المنصة.
 - البنية الحالية قابلة لإضافة دورات وورش جديدة، مع ضرورة الحفاظ على التكافؤ اللغوي حين يتوفر المحتوى باللغتين.
 
 ## التدريبات المجانية والشهادات الرقمية
@@ -144,6 +145,41 @@ ConsuTrain منصة ويب ثابتة ثنائية اللغة في مرحلة MV
 
 ## أعمال مكتملة مؤخرًا
 
+### CT-01 — Platform & Website Current-State Closure — 2026-09-22
+
+- اكتملت مرحلة `CT-01 Legacy Migration` واعتمد `CT-01 Master Consolidated Record` كمرجع الحالة الحالي.
+- اكتملت `CT-01 Current-State Read-Only Verification` لجميع المرشحين الـ13.
+- اكتملت `CT-01 Current-State Remediation` للثغرات والتحسينات المؤكدة في هذه الجولة.
+- اكتملت `CT-01 Final Live Regression QA` على الموقع الإنتاجي.
+
+أهم المعالجات المنفذة:
+- إضافة صفحة `404.html` مخصصة ومتوافقة مع المسارات العميقة.
+- استكمال favicon وApple Touch Icon عبر الصفحات العامة.
+- منع نشر ملفات الحوكمة والتطوير الداخلية عبر GitHub Pages.
+- إصلاح المساحة الآمنة في Footer على الشاشات الصغيرة لمنع تداخل Quick Contact.
+- تصحيح بنية H1 في أداة دراسة الجدوى.
+- إزالة `console.log` المعلوماتية وتنظيف ملفات MyTodo JavaScript المكررة غير المستخدمة.
+- حذف دورة `communication-interne-professionnelle` القديمة وصفحتها الفرنسية ومراجعها التشغيلية.
+- تحسين صور RACI وصور المقالات الافتراضية باستخدام WebP لمسار العرض مع إبقاء PNG لبيانات المشاركة الاجتماعية وStructured Data.
+- تحقق حي من MyTodo وCRM وصور RACI و404 وQuick Contact وصور المقالات المحسنة.
+
+الحالة النهائية:
+- `Current Confirmed Bugs = 0`
+- Candidate 10 — إضافة `WebPage` إلى `certificate-verification.html` = Optional / Deferred.
+- `assets/images/consutrain identity.png` و`assets/images/consutrain-banner.png` = Unused Asset Cleanup Candidates وليستا عيبين تشغيليين.
+- الأعمال المغلقة لا يعاد فتحها دون Regression مثبت أو مطلب تطوير جديد.
+
+Commits المرجعية لهذه الجولة:
+- `9fa8f24` — exclude internal dev and governance files from Pages
+- `0134feaa` — add root 404 and mobile footer safe space
+- `fa816b0f` — complete favicon coverage
+- `58e7477f` — clean H1 semantics and console dev traces
+- `8bb05860` — remove obsolete internal communication course
+- `d0faa65b` — optimize RACI article images with WebP
+- `994d08bf` — optimize default article image with WebP
+- `d2383364` — fix French RACI WebP filename casing
+
+**CT-01 — Platform & Website = 🟩 Stable / Closed for current cycle**
 - أُغلق **Final Launch Gate** للمشروع بحالة **READY TO LAUNCH**. اجتازت Git وPrivacy Fix وTool Service Worker Fix والمسارات الرئيسية والشهادات وPWA جميعها حالة **PASS**، مع `P0 = 0` و`P1 = 0`. أصبح ConsuTrain MVP / PWA جاهزًا للإطلاق العام؛ وما تبقى من البنود المصنفة P2/P3 هو تحسينات لما بعد الإطلاق ولا يمنع الإطلاق.
 - أُغلقت مرحلة **SEO / Structured Data** نهائيًا بحالة **COMPLETED / CLOSED**. شمل التدقيق النهائي 356 صفحة HTML عامة: تحتوي 296 صفحة على JSON-LD، مقابل 60 صفحة دون JSON-LD، بتغطية إجمالية 83.1%. تغطية صفحات Sitemap كاملة 296/296 (100%)، وتغطية الصفحات القابلة للفهرسة، مع احتساب صفحة التحقق من الشهادة، هي 296/297 (99.7%). تحمل 59 من الصفحات الستين غير المغطاة توجيه `noindex`؛ والاستثناء الوحيد القابل للفهرسة هو `certificate-verification.html`، وإضافة `WebPage` إليها تحسين اختياري غير مطلوب.
 - اجتازت الصفحات المغطاة QA نهائيًا: JSON-LD صالح 296/296، وcanonical موجود ومطابق لرابط الصفحة 296/296، دون كتل JSON-LD مكررة أو أنواع Schema متعارضة أو قيم فارغة أو `null` أو placeholders غير مستبدلة أو روابط كيانات غير صالحة أو اختلافات `http`/`www` أو تعارضات لغة فعلية أو hreflang غير صالح/مكرر. الكيانان العالميان المعتمدان هما Organization بالمعرّف `https://consutrain.com/#organization` وWebSite بالمعرّف `https://consutrain.com/#website`.
