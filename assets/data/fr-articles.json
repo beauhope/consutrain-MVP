@@ -1,6 +1,26 @@
 {
   "articles": [
     {
+  "id": "communication-gouvernance-clarte-roles",
+  "content_type": "article",
+  "language": "fr",
+  "title": "Quand le problème n’est pas la communication, mais la gouvernance",
+  "excerpt": "Certaines difficultés semblent venir de la communication alors que leur origine réelle est l’ambiguïté des rôles, des responsabilités et des mécanismes de décision.",
+  "date": "2026-09-22",
+  "category": "Gouvernance et organisation",
+  "tags": [
+    "Gouvernance",
+    "Communication organisationnelle",
+    "Clarté des rôles",
+    "Responsabilités",
+    "RACI",
+    "Prise de décision"
+  ],
+  "url": "communication-gouvernance-clarte-roles.html",
+  "image_url": "../../assets/images/articles/communication-governance-role-clarity.webp",
+  "image_alt": "Une équipe passe d’une communication confuse et de responsabilités ambiguës à une organisation plus claire des rôles, des décisions et de la gouvernance."
+},
+    {
       "id": "clarte-organisationnelle-raci-gouvernance",
       "content_type": "article",
       "language": "fr",

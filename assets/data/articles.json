@@ -1,6 +1,31 @@
 {
   "articles": [
     {
+  "id": "communication-governance-role-clarity",
+  "fr_url": "../fr/learn/communication-gouvernance-clarte-roles.html",
+  "content_type": "article",
+  "language": "ar",
+  "title": "حين لا تكون المشكلة في التواصل بل في الحوكمة",
+  "excerpt": "قد تبدو بعض المشكلات التنظيمية وكأنها ضعف في التواصل، بينما يكون السبب الحقيقي غموض المسؤوليات والصلاحيات وآلية اتخاذ القرار. كيف نفرق بين الحالتين؟",
+  "date": "2026-09-22",
+  "category": "الحوكمة والتنظيم",
+  "tags": [
+    "الحوكمة",
+    "التواصل المؤسسي",
+    "وضوح الأدوار",
+    "المسؤوليات",
+    "RACI",
+    "اتخاذ القرار"
+  ],
+  "url": "communication-governance-role-clarity.html",
+  "image_url": "../assets/images/articles/communication-governance-role-clarity.webp",
+  "card_image_url": "../assets/images/articles/communication-governance-role-clarity.webp",
+  "image_alt": "فريق عمل ينتقل من تداخل الاتصالات وغموض المسؤوليات إلى وضوح الأدوار والقرارات والحوكمة.",
+  "related_articles": [
+    "organizational-clarity-raci-governance"
+  ]
+},
+    {
       "id": "organizational-clarity-raci-governance",
       "fr_url": "../fr/learn/clarte-organisationnelle-raci-gouvernance.html",
       "content_type": "article",
