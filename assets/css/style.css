@@ -10975,3 +10975,24 @@ section[id],
   object-fit: cover;
   object-position: center;
 }
+/* =========================================================
+   Arabic knowledge library — responsive article grid
+   ========================================================= */
+
+@media (min-width: 1100px) {
+  .articles-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1099px) {
+  .articles-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .articles-list {
+    grid-template-columns: 1fr;
+  }
+}
