@@ -10939,3 +10939,20 @@ section[id],
     align-items:flex-start;
   }
 }
+
+
+/* =========================================================
+   MOBILE SAFE SPACE — FIXED FOOTER ACTIONS
+   يمنع زر التواصل السريع وأزرار الحركة الثابتة من تغطية
+   حقوق النشر في أسفل الفوتر على الشاشات الضيقة.
+   ========================================================= */
+
+@media (max-width: 640px){
+  .site-footer .footer-bottom{
+    padding:
+      10px
+      8px
+      calc(82px + env(safe-area-inset-bottom, 0px))
+      !important;
+  }
+}
