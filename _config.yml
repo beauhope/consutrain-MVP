@@ -1,0 +1,16 @@
+exclude:
+  - PROJECT-STATUS.md
+  - PROJECT-RULES.md
+  - DECISIONS.md
+  - ROADMAP.md
+  - CERTIFICATE-SYSTEM.md
+  - CHANGELOG.md
+  - FR-GLOSSARY.md
+  - README.md
+  - README.txt
+  - README-auto-guide-pdfs.md
+  - README-home-certificate-training.md
+  - README-radar-parity.md
+  - AGENTS
+  - scripts
+  
