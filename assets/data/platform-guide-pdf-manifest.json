@@ -1,17 +1,17 @@
 {
-  "sourceHash": "ef12baf497aa4ed86ab15c0bb67f0cb022628c0ecb39e2d6d32acca8123294b5",
-  "updatedAt": "2026-07-11T23:52:56+00:00",
+  "sourceHash": "21ea0e1cc4b73846ebc2bb619c18fbbc42d0990da4536a47cec543642ac4a6a3",
+  "updatedAt": "2026-09-22T02:55:36+00:00",
   "contactSource": "assets/data/platform-contact.json",
   "ar": {
     "url": "resources/downloads/profile/ConsuTrain_Profile_and_Services_AR.pdf",
-    "version": "ef12baf497aa4ed8",
-    "fileHash": "286ab986746c12d8f4d40ec80feef8eb8e66b5a1a940ad3a82ff4143d5a68b0f",
+    "version": "21ea0e1cc4b73846",
+    "fileHash": "f26c369b7e760a2c8f36326d1f112a9666721b486425e89db13736362b32b398",
     "downloadName": "ConsuTrain_Profile_AR_Latest.pdf"
   },
   "fr": {
     "url": "resources/downloads/profile/ConsuTrain_Profile_and_Services_FR.pdf",
-    "version": "ef12baf497aa4ed8",
-    "fileHash": "fd2005eda317208cbc80143b4e0e39186c1bc8c0ba16a45eb08b47d12ac39c11",
+    "version": "21ea0e1cc4b73846",
+    "fileHash": "531026b66f0e9697d9139419f983f808b77232f68c6c23382dc0e4c5329c13cf",
     "downloadName": "ConsuTrain_Profile_FR_Latest.pdf"
   }
 }
