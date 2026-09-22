@@ -44,5 +44,3 @@ onAuthStateChanged(auth, (user) => {
     statusText.textContent = "Not logged in";
   }
 });
-
-console.log("Auth loaded");

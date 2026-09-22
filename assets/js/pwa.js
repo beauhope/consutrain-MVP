@@ -26,8 +26,7 @@
       const swUrl = new URL("../../sw.js", pwaScriptUrl);
       const swScope = new URL("../../", pwaScriptUrl);
       await navigator.serviceWorker.register(swUrl, { scope: swScope.pathname });
-      console.log("Service Worker registered successfully from:", swUrl.pathname, "scope:", swScope.pathname);
-    } catch (error) {
+         } catch (error) {
       console.error("Service Worker registration failed:", error);
     }
 
@@ -61,8 +60,7 @@
     deferredPrompt = null;
     removeBanner();
     localStorage.removeItem(DISMISS_KEY);
-    console.log("ConsuTrain app installed.");
-  });
+     });
 
   function shouldShowIOSInstallHelp() {
     const ua = window.navigator.userAgent;
@@ -130,8 +128,7 @@
       const choiceResult = await deferredPrompt.userChoice;
 
       if (choiceResult.outcome !== "accepted") {
-        console.log("User dismissed the install prompt.");
-      }
+              }
 
       deferredPrompt = null;
       removeBanner();

@@ -24,4 +24,3 @@ enableIndexedDbPersistence(db).catch((err) => {
 });
 
 export { auth, db };
-console.log("PROJECT ID:", firebaseConfig.projectId);
