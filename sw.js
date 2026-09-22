@@ -8,12 +8,8 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-
-
-
-const STATIC_CACHE = "consutrain-v20260913-raci-bilingual-articles";
-const RUNTIME_CACHE = "consutrain-runtime-v20260913-raci-bilingual-articles";
-
+const STATIC_CACHE = "consutrain-v20260922-course-cleanup";
+const RUNTIME_CACHE = "consutrain-runtime-v20260922-course-cleanup";
 const PRECACHE_URLS = [
   "./fr/learn/ai-admin.html",
   "./fr/learn/project-management-basics.html",
@@ -32,7 +28,6 @@ const PRECACHE_URLS = [
   "./services.html",
   "./services/digital-transformation-roadmap.html",
   "./tools.html",
-
   "./fr/index.html",
   "./fr/consutrain-guide.html",
   "./fr/quote-request.html",
@@ -48,7 +43,6 @@ const PRECACHE_URLS = [
   "./fr/courses/corporate-governance.html",
   "./fr/courses/startup-creation-structuring.html",
   "./fr/courses/practical-workshops.html",
-  "./fr/courses/professional-internal-communication.html",
   "./templates/operational-plan-template.html",
   "./resources/downloads/operational-plans/ConsuTrain_Free_Operational_Plan_Template_AR.docx",
   "./resources/downloads/operational-plans/ConsuTrain_Free_Operational_Plan_Template_AR.pdf",
@@ -117,7 +111,6 @@ const PRECACHE_URLS = [
 
   "./assets/images/consutrain-logo-horizontal.png",
   "./assets/images/consutrain-logo-mark.png",
-  "./assets/images/consutrain-banner.png",
   "./assets/images/articles/ai-introduction.svg",
   "./assets/images/articles/ai-sense.svg",
   "./assets/images/articles/ai-vuca.svg",

@@ -116,17 +116,6 @@
           ]
         },
         {
-          "title": "التواصل الداخلي المهني",
-          "description": "تطوير ممارسات التواصل الداخلي والتنسيق ونقل المعلومة داخل بيئة العمل.",
-          "url": "courses/communication-interne-professionnelle/index.html",
-          "label": "عرض الدورة",
-          "badge": "برنامج تدريبي",
-          "tags": [
-            "التواصل الداخلي",
-            "المهارات المهنية"
-          ]
-        },
-        {
           "title": "الحوكمة المؤسسية",
           "description": "فهم أدوار الحوكمة والصلاحيات والرقابة والمساءلة ودعم اتخاذ القرار.",
           "url": "courses/corporate-governance/index.html",
