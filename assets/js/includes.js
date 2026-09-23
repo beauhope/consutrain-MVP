@@ -151,6 +151,16 @@ function initCloudflareAnalytics() {
   document.body.appendChild(script);
 }
 
+
+function ensureSubscriberCaptureRuntime() {
+  if (document.querySelector('script[data-consutrain-subscriber-runtime]')) return;
+
+  const script = document.createElement("script");
+  script.src = new URL(`${getRootPath()}/assets/js/subscriber-capture.js`, document.baseURI).href;
+  script.dataset.consutrainSubscriberRuntime = "true";
+  document.body.appendChild(script);
+}
+
 /*
   ---------------------------------------------------------
   FUNCTION: loadPartial
@@ -639,6 +649,7 @@ function initGlobalShareButton() {
   ---------------------------------------------------------
 */
 document.addEventListener("DOMContentLoaded", () => {
+  ensureSubscriberCaptureRuntime();
   const partialsBase = getPartialsBasePath();
 
   loadPartial("#header-placeholder", `${partialsBase}/${getLocalizedPartialFileName("header.html")}`);
