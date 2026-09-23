@@ -11023,11 +11023,11 @@ section[id],
   padding:8px 13px;
   border:0;
   border-radius:999px;
-  background:#e8ebef;
+  background:var(--gold);
   color:var(--primary);
-  box-shadow:0 3px 10px rgba(15,39,71,.06);
+  box-shadow:0 3px 9px rgba(15,39,71,.06);
   font:inherit;
-  font-size:.9rem;
+  font-size:.84rem;
   font-weight:800;
   cursor:pointer;
   transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
@@ -11035,8 +11035,8 @@ section[id],
 
 .subscriber-global-trigger:hover{
   transform:translateY(-1px);
-  background:#dde2e8;
-  box-shadow:0 5px 14px rgba(15,39,71,.08);
+  background:var(--gold-2);
+  box-shadow:0 4px 12px rgba(15,39,71,.08);
 }
 
 .subscriber-global-trigger:focus-visible{
