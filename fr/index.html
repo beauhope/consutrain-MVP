@@ -450,7 +450,40 @@
       </div>
     </section>
 
-    <section class="home-section">
+    
+    <section class="home-section subscriber-capture subscriber-capture--home" aria-labelledby="homeSubscriberTitle">
+      <div class="container">
+        <div class="subscriber-card">
+          <div class="subscriber-copy">
+            <span class="subscriber-eyebrow">Restez informé</span>
+            <h2 id="homeSubscriberTitle">Ne manquez pas les nouveautés de ConsuTrain</h2>
+            <p>Recevez directement par e-mail nos nouveaux outils, ressources pratiques, articles, formations gratuites et contenus professionnels sélectionnés.</p>
+            <p class="subscriber-note">Nous vous envoyons uniquement les nouveautés qui méritent votre attention. Vous pouvez vous désabonner à tout moment.</p>
+          </div>
+
+          <form class="subscriber-form" data-subscriber-form data-cta-location="home_main" novalidate>
+            <div class="subscriber-form-row">
+              <label class="subscriber-sr-only" for="homeSubscriberEmail">Votre adresse e-mail</label>
+              <input id="homeSubscriberEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Votre adresse e-mail" required>
+              <button class="btn btn-primary" type="submit">Recevoir les nouveautés</button>
+            </div>
+
+            <label class="subscriber-consent">
+              <input name="consent" type="checkbox" value="yes" required>
+              <span>J’accepte de recevoir par e-mail les actualités et contenus professionnels de ConsuTrain. Je peux me désabonner à tout moment.</span>
+            </label>
+
+            <p class="subscriber-privacy-note"><a href="privacy.html">Politique de confidentialité</a></p>
+            <div class="subscriber-hp" aria-hidden="true">
+              <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <p class="subscriber-status" data-subscriber-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+<section class="home-section">
       <div class="container">
         <div class="cta-panel">
           <div>
