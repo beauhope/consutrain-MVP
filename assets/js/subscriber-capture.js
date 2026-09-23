@@ -192,17 +192,27 @@
   }
 
   function mountGlobalSubscriberUi() {
-    if (document.querySelector("[data-subscriber-global-entry]")) return true;
-
     const headerPlaceholder = document.getElementById("header-placeholder");
     if (!headerPlaceholder) return false;
 
     const siteHeader = headerPlaceholder.querySelector(".site-header");
     if (!siteHeader) return false;
 
-    const { shell, modal } = buildGlobalUi();
-    siteHeader.insertAdjacentElement("afterend", shell);
-    document.body.appendChild(modal);
+    const existingShell = document.querySelector("[data-subscriber-global-entry]");
+    const existingModal = document.getElementById("subscriberGlobalModal");
+
+    if (!existingShell || !existingModal) {
+      const { shell, modal } = buildGlobalUi();
+
+      if (!existingShell) {
+        siteHeader.insertAdjacentElement("afterend", shell);
+      }
+
+      if (!existingModal) {
+        document.body.appendChild(modal);
+      }
+    }
+
     return true;
   }
 
