@@ -28,10 +28,10 @@
 
   const copy = {
     ar: {
-      trigger: "اشترك في التحديثات",
+      trigger: "احصل على الجديد أولًا",
       eyebrow: "ابقَ على اطلاع",
       title: "لا تفوّت الجديد من ConsuTrain",
-      intro: "اشترك لتصلك أهم الإضافات المهنية الجديدة مباشرة إلى بريدك الإلكتروني.",
+      intro: "اشترك لتصلك أهم الإضافات المهنية الجديدة مباشرة إلى بريدك."
       benefits: [
         "أدوات وقوالب وموارد عملية جديدة.",
         "مقالات ودورات وتدريبات مجانية.",
@@ -53,10 +53,10 @@
       sending: "جارٍ تسجيل اشتراكك..."
     },
     fr: {
-      trigger: "S’inscrire aux actualités",
+      trigger: "Recevez les nouveautés en premier",
       eyebrow: "Restez informé",
       title: "Ne manquez pas les nouveautés de ConsuTrain",
-      intro: "Inscrivez-vous pour recevoir directement par e-mail les principales nouveautés professionnelles de ConsuTrain.",
+      intro: "Recevez directement par e-mail les principales nouveautés professionnelles de ConsuTrain."
       benefits: [
         "Nouveaux outils, modèles et ressources pratiques.",
         "Articles, formations et contenus gratuits.",
