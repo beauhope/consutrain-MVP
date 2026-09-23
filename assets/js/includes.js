@@ -156,7 +156,7 @@ function ensureSubscriberCaptureRuntime() {
   if (document.querySelector('script[data-consutrain-subscriber-runtime]')) return;
 
   const script = document.createElement("script");
-  script.src = new URL(`${getRootPath()}/assets/js/subscriber-capture.js?v=20260923_global_subscriber_v9_cta`, document.baseURI).href;
+  script.src = new URL(`${getRootPath()}/assets/js/subscriber-capture.js?v=20260923_global_subscriber_v13_inline_cta`, document.baseURI).href;
   script.dataset.consutrainSubscriberRuntime = "true";
   document.body.appendChild(script);
 }
