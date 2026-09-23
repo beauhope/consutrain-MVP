@@ -10996,3 +10996,234 @@ section[id],
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   SUBSCRIBER CAPTURE MVP
+   Homepage + Article End + Global Footer
+   ========================================================= */
+.subscriber-capture{
+  scroll-margin-top:96px;
+}
+
+.subscriber-card{
+  display:grid;
+  grid-template-columns:minmax(0, 1.05fr) minmax(320px, .95fr);
+  gap:28px;
+  align-items:center;
+  padding:30px;
+  border:1px solid var(--border);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at top right, rgba(212,166,58,.16), transparent 34%),
+    linear-gradient(135deg, #ffffff, #f7f9fc);
+  box-shadow:var(--shadow);
+}
+
+.subscriber-copy h2,
+.subscriber-copy h3{
+  margin:8px 0 10px;
+  color:var(--primary);
+}
+
+.subscriber-copy p{
+  margin:0 0 8px;
+  color:var(--muted);
+  line-height:1.85;
+}
+
+.subscriber-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:var(--gold-soft);
+  color:var(--primary);
+  font-size:.88rem;
+  font-weight:800;
+}
+
+.subscriber-note{
+  font-weight:700;
+  color:var(--primary) !important;
+}
+
+.subscriber-form{
+  min-width:0;
+}
+
+.subscriber-form-row{
+  display:flex;
+  align-items:stretch;
+  gap:10px;
+}
+
+.subscriber-form-row input[type="email"]{
+  flex:1 1 auto;
+  min-width:0;
+  width:100%;
+  min-height:48px;
+  padding:11px 14px;
+  border:1px solid #cfd7e3;
+  border-radius:12px;
+  background:#fff;
+  color:var(--text);
+  font:inherit;
+}
+
+.subscriber-form-row input[type="email"]:focus{
+  outline:3px solid rgba(212,166,58,.22);
+  border-color:var(--gold);
+}
+
+.subscriber-form-row .btn{
+  flex:0 0 auto;
+  min-height:48px;
+  white-space:nowrap;
+}
+
+.subscriber-form-row .btn:disabled{
+  opacity:.65;
+  cursor:wait;
+}
+
+.subscriber-consent{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  margin-top:12px;
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.7;
+  cursor:pointer;
+}
+
+.subscriber-consent input{
+  flex:0 0 auto;
+  width:18px;
+  height:18px;
+  margin-top:4px;
+  accent-color:var(--primary);
+}
+
+.subscriber-privacy-note{
+  margin:8px 0 0;
+  font-size:.88rem;
+}
+
+.subscriber-privacy-note a{
+  color:var(--primary);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.subscriber-status{
+  min-height:1.5em;
+  margin:9px 0 0;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.subscriber-status[data-state="success"]{
+  color:#18794e;
+}
+
+.subscriber-status[data-state="error"]{
+  color:#b42318;
+}
+
+.subscriber-status[data-state="info"]{
+  color:var(--primary);
+}
+
+.subscriber-sr-only{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important;
+  border:0 !important;
+}
+
+.subscriber-hp{
+  position:absolute !important;
+  inline-size:1px !important;
+  block-size:1px !important;
+  overflow:hidden !important;
+  clip-path:inset(50%) !important;
+  white-space:nowrap !important;
+}
+
+.subscriber-capture--article{
+  margin-top:36px;
+}
+
+.subscriber-capture--article .subscriber-card{
+  grid-template-columns:1fr;
+  padding:24px;
+}
+
+.subscriber-footer-shell{
+  padding-top:32px;
+}
+
+.subscriber-card--footer{
+  margin:0;
+  padding:22px;
+  border-color:rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  box-shadow:none;
+}
+
+.subscriber-card--footer .subscriber-copy h3,
+.subscriber-card--footer .subscriber-copy p,
+.subscriber-card--footer .subscriber-consent,
+.subscriber-card--footer .subscriber-status{
+  color:#fff;
+}
+
+.subscriber-card--footer .subscriber-eyebrow{
+  background:rgba(255,255,255,.14);
+  color:#fff;
+}
+
+.subscriber-card--footer .subscriber-privacy-note a{
+  color:#fff;
+}
+
+.subscriber-card--footer .subscriber-form-row input[type="email"]{
+  border-color:rgba(255,255,255,.34);
+}
+
+@media (max-width: 900px){
+  .subscriber-card{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .subscriber-card{
+    padding:22px 18px;
+    border-radius:20px;
+  }
+
+  .subscriber-form-row{
+    flex-direction:column;
+  }
+
+  .subscriber-form-row .btn{
+    width:100%;
+  }
+
+  .subscriber-consent{
+    font-size:.88rem;
+  }
+
+  .subscriber-footer-shell{
+    padding-top:24px;
+  }
+}
+
