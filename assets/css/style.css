@@ -11219,10 +11219,128 @@ section[id],
   font-size:.84rem;
 }
 
-.subscriber-privacy-note a{
+.subscriber-privacy-note a,
+.subscriber-privacy-toggle{
   color:var(--primary);
   text-decoration:underline;
   text-underline-offset:3px;
+}
+
+.subscriber-privacy-toggle{
+  padding:0;
+  border:0;
+  background:transparent;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.subscriber-privacy-toggle:hover,
+.subscriber-privacy-toggle:focus-visible{
+  color:var(--gold-2);
+}
+
+.subscriber-modal__dialog.is-privacy-open{
+  width:min(980px, calc(100vw - 32px));
+}
+
+.subscriber-privacy-panel[hidden]{
+  display:none !important;
+}
+
+.subscriber-privacy-panel{
+  margin-top:12px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#f8fafc;
+  overflow:hidden;
+}
+
+.subscriber-privacy-panel__head{
+  position:sticky;
+  top:0;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:10px 14px;
+  border-bottom:1px solid var(--border);
+  background:#fff;
+  color:var(--primary);
+}
+
+.subscriber-privacy-panel__hide{
+  padding:6px 10px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#fff;
+  color:var(--primary);
+  font:inherit;
+  font-size:.82rem;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.subscriber-privacy-panel__content{
+  max-height:42vh;
+  max-height:42dvh;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:12px;
+  scroll-behavior:smooth;
+}
+
+.subscriber-privacy-source{
+  display:grid;
+  gap:10px;
+}
+
+.subscriber-privacy-source .section-card{
+  margin:0;
+  padding:14px;
+  border-radius:14px;
+  box-shadow:none;
+  background:#fff;
+}
+
+.subscriber-privacy-source .section-card h2{
+  margin:0 0 6px;
+  font-size:1rem;
+  line-height:1.5;
+  color:var(--primary);
+}
+
+.subscriber-privacy-source .section-card p,
+.subscriber-privacy-source .section-card li{
+  margin:0 0 6px;
+  font-size:.88rem;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+.subscriber-privacy-source .section-card p:last-child{
+  margin-bottom:0;
+}
+
+.subscriber-privacy-source .section-card .btn{
+  margin-top:8px;
+  min-height:auto;
+  padding:7px 11px;
+  font-size:.82rem;
+}
+
+.subscriber-privacy-loading,
+.subscriber-privacy-error{
+  margin:0;
+  padding:10px;
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.7;
+}
+
+.subscriber-privacy-error{
+  color:#b42318;
 }
 
 .subscriber-status{
@@ -11307,6 +11425,21 @@ body.subscriber-modal-open{
 
   .subscriber-form-row .btn{
     width:100%;
+  }
+
+  .subscriber-modal__dialog.is-privacy-open{
+    width:100%;
+  }
+
+  .subscriber-privacy-panel__content{
+    max-height:44vh;
+    max-height:44dvh;
+    padding:10px;
+  }
+
+  .subscriber-privacy-panel__head{
+    align-items:flex-start;
+    flex-direction:column;
   }
 }
 
