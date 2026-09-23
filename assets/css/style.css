@@ -11219,25 +11219,37 @@ section[id],
   font-size:.84rem;
 }
 
-.subscriber-privacy-note a,
-.subscriber-privacy-toggle{
+.subscriber-privacy-note a{
   color:var(--primary);
   text-decoration:underline;
   text-underline-offset:3px;
 }
 
-.subscriber-privacy-toggle{
-  padding:0;
-  border:0;
-  background:transparent;
-  font:inherit;
-  font-weight:700;
+.subscriber-privacy-note .subscriber-privacy-toggle{
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  padding:6px 10px !important;
+  border:0 !important;
+  border-radius:10px !important;
+  background:#fff !important;
+  color:var(--primary) !important;
+  box-shadow:0 2px 8px rgba(15,39,71,.06) !important;
+  font:inherit !important;
+  font-weight:700 !important;
+  line-height:1.4 !important;
+  text-decoration:none !important;
   cursor:pointer;
 }
 
-.subscriber-privacy-toggle:hover,
-.subscriber-privacy-toggle:focus-visible{
-  color:var(--gold-2);
+.subscriber-privacy-note .subscriber-privacy-toggle:hover{
+  background:#f8fafc !important;
+  color:var(--gold-2) !important;
+  box-shadow:0 3px 10px rgba(15,39,71,.08) !important;
+}
+
+.subscriber-privacy-note .subscriber-privacy-toggle:focus-visible{
+  outline:2px solid rgba(212,166,58,.35);
+  outline-offset:2px;
 }
 
 .subscriber-modal__dialog.is-privacy-open{
@@ -11262,24 +11274,12 @@ section[id],
   z-index:2;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-start;
   gap:14px;
   padding:10px 14px;
   border-bottom:1px solid var(--border);
   background:#fff;
   color:var(--primary);
-}
-
-.subscriber-privacy-panel__hide{
-  padding:6px 10px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  background:#fff;
-  color:var(--primary);
-  font:inherit;
-  font-size:.82rem;
-  font-weight:700;
-  cursor:pointer;
 }
 
 .subscriber-privacy-panel__content{
@@ -11437,9 +11437,5 @@ body.subscriber-modal-open{
     padding:10px;
   }
 
-  .subscriber-privacy-panel__head{
-    align-items:flex-start;
-    flex-direction:column;
-  }
 }
 
