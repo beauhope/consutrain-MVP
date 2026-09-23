@@ -1,4 +1,33 @@
 <footer class="site-footer">
+  <div class="container subscriber-footer-shell">
+    <div class="subscriber-card subscriber-card--footer">
+      <div class="subscriber-copy">
+        <span class="subscriber-eyebrow">ابقَ على اطلاع</span>
+        <h3>جديد ConsuTrain مباشرة إلى بريدك</h3>
+        <p>اشترك ليصلك جديد الأدوات والموارد والمحتوى المهني.</p>
+      </div>
+
+      <form class="subscriber-form subscriber-form--footer" data-subscriber-form data-cta-location="footer_global" novalidate>
+        <div class="subscriber-form-row">
+          <label class="subscriber-sr-only" for="footerSubscriberEmail">بريدك الإلكتروني</label>
+          <input id="footerSubscriberEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="بريدك الإلكتروني" required>
+          <button class="btn btn-primary" type="submit">اشترك</button>
+        </div>
+
+        <label class="subscriber-consent">
+          <input name="consent" type="checkbox" value="yes" required>
+          <span>أوافق على تلقي تحديثات ConsuTrain عبر البريد الإلكتروني، ويمكنني إلغاء الاشتراك في أي وقت.</span>
+        </label>
+
+        <p class="subscriber-privacy-note"><a href="__ROOT__/privacy.html">سياسة الخصوصية</a></p>
+        <div class="subscriber-hp" aria-hidden="true">
+          <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <p class="subscriber-status" data-subscriber-status role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
   <div class="container footer-grid">
     <div class="footer-brand">
       <a href="__ROOT__/index.html" class="footer-brand-compact" aria-label="العودة إلى الصفحة الرئيسية">
