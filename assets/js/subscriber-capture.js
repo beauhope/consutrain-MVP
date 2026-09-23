@@ -123,13 +123,14 @@
       <div class="container">
         <button
           class="subscriber-global-trigger"
+          style="background:var(--gold);color:var(--primary);font-size:.70rem;font-weight:400;min-height:32px;padding:5px 10px;border:0;border-radius:999px;box-shadow:0 2px 6px rgba(15,39,71,.05);"
           type="button"
           data-subscriber-open
           aria-haspopup="dialog"
           aria-controls="subscriberGlobalModal"
           dir="${language === "fr" ? "ltr" : "rtl"}"
         >
-          <span class="subscriber-global-trigger__icon" aria-hidden="true">✉</span>
+          <span class="subscriber-global-trigger__icon" style="background:transparent;color:var(--primary);width:22px;height:22px;font-size:.76rem;" aria-hidden="true">✉</span>
           <span>${strings.trigger}</span>
         </button>
       </div>
