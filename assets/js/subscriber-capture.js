@@ -17,6 +17,10 @@
 (() => {
   "use strict";
 
+  if (window.ConsuTrainSubscriber?.initialized) {
+    return;
+  }
+
   const CONSENT_VERSION = "email_updates_v1";
 
   /*
@@ -428,4 +432,10 @@
 
   document.addEventListener("submit", handleSubmit);
   waitForHeaderAndMount();
+
+  window.ConsuTrainSubscriber = {
+    initialized: true,
+    open: openModal,
+    close: closeModal
+  };
 })();
