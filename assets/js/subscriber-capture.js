@@ -47,6 +47,9 @@
       submit: "اشترك في التحديثات",
       consent: "أوافق على تلقي تحديثات ومحتوى مهني من ConsuTrain عبر البريد الإلكتروني، ويمكنني إلغاء الاشتراك في أي وقت.",
       privacy: "سياسة الخصوصية",
+      privacyHide: "إخفاء سياسة الخصوصية",
+      privacyLoading: "جارٍ تحميل سياسة الخصوصية...",
+      privacyError: "تعذر تحميل سياسة الخصوصية داخل النافذة حاليًا. يمكنك فتحها من الرابط الثابت في أسفل الموقع.",
       close: "إغلاق نافذة الاشتراك",
       emptyEmail: "يرجى إدخال بريدك الإلكتروني.",
       invalidEmail: "يرجى إدخال بريد إلكتروني صالح.",
@@ -72,6 +75,9 @@
       submit: "Recevoir les nouveautés",
       consent: "J’accepte de recevoir par e-mail les actualités et contenus professionnels de ConsuTrain. Je peux me désabonner à tout moment.",
       privacy: "Politique de confidentialité",
+      privacyHide: "Masquer la politique de confidentialité",
+      privacyLoading: "Chargement de la politique de confidentialité...",
+      privacyError: "Impossible de charger la politique de confidentialité dans cette fenêtre. Vous pouvez toujours l’ouvrir depuis le lien permanent en bas du site.",
       close: "Fermer la fenêtre d’inscription",
       emptyEmail: "Veuillez saisir votre adresse e-mail.",
       invalidEmail: "Veuillez saisir une adresse e-mail valide.",
@@ -180,7 +186,38 @@
               <span>${strings.consent}</span>
             </label>
 
-            <p class="subscriber-privacy-note"><a href="${privacyHref}">${strings.privacy}</a></p>
+            <p class="subscriber-privacy-note">
+              <button
+                class="subscriber-privacy-toggle"
+                type="button"
+                data-subscriber-privacy-toggle
+                aria-expanded="false"
+                aria-controls="subscriberPrivacyPanel"
+              >${strings.privacy}</button>
+            </p>
+
+            <section
+              class="subscriber-privacy-panel"
+              id="subscriberPrivacyPanel"
+              data-subscriber-privacy-panel
+              data-privacy-url="${privacyHref}"
+              hidden
+              aria-label="${strings.privacy}"
+            >
+              <div class="subscriber-privacy-panel__head">
+                <strong>${strings.privacy}</strong>
+                <button
+                  class="subscriber-privacy-panel__hide"
+                  type="button"
+                  data-subscriber-privacy-toggle
+                >${strings.privacyHide}</button>
+              </div>
+              <div
+                class="subscriber-privacy-panel__content"
+                data-subscriber-privacy-content
+                tabindex="0"
+              ></div>
+            </section>
 
             <div class="subscriber-hp" aria-hidden="true">
               <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
@@ -254,10 +291,107 @@
 
     modal.hidden = true;
     document.body.classList.remove("subscriber-modal-open");
+    resetPrivacyPanel();
 
     if (lastFocusedElement instanceof HTMLElement) {
       lastFocusedElement.focus();
     }
+  }
+
+  function setPrivacyToggleState(panel, expanded) {
+    const modal = panel.closest(".subscriber-modal");
+    const strings = copy[getLanguage()];
+    const toggles = modal?.querySelectorAll("[data-subscriber-privacy-toggle]") || [];
+
+    toggles.forEach((button, index) => {
+      button.setAttribute("aria-expanded", String(expanded));
+
+      if (index === 0) {
+        button.textContent = expanded ? strings.privacyHide : strings.privacy;
+      }
+    });
+
+    modal?.querySelector(".subscriber-modal__dialog")?.classList.toggle("is-privacy-open", expanded);
+  }
+
+  async function loadPrivacyContent(panel) {
+    if (panel.dataset.loaded === "true") return;
+
+    const content = panel.querySelector("[data-subscriber-privacy-content]");
+    if (!content) return;
+
+    const strings = copy[getLanguage()];
+    content.innerHTML = `<p class="subscriber-privacy-loading">${strings.privacyLoading}</p>`;
+
+    try {
+      const privacyUrl = new URL(panel.dataset.privacyUrl || getPrivacyHref(getLanguage()), document.baseURI).href;
+      const response = await fetch(privacyUrl, {
+        method: "GET",
+        cache: "no-store",
+        headers: {
+          "Accept": "text/html"
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Privacy page request failed with HTTP ${response.status}`);
+      }
+
+      const html = await response.text();
+      const parsed = new DOMParser().parseFromString(html, "text/html");
+      const source = parsed.querySelector("main.inner-page .home-section .container");
+
+      if (!source) {
+        throw new Error("Privacy content container was not found.");
+      }
+
+      const fragment = document.createElement("div");
+      fragment.className = "subscriber-privacy-source";
+      fragment.innerHTML = source.innerHTML;
+
+      fragment.querySelectorAll("a[href]").forEach((link) => {
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        try {
+          link.href = new URL(href, privacyUrl).href;
+          link.target = "_blank";
+          link.rel = "noopener";
+        } catch (error) {
+          // Keep the original href if URL normalization is not possible.
+        }
+      });
+
+      content.replaceChildren(fragment);
+      panel.dataset.loaded = "true";
+    } catch (error) {
+      console.error("Subscriber privacy content error:", error);
+      content.innerHTML = `<p class="subscriber-privacy-error">${strings.privacyError}</p>`;
+    }
+  }
+
+  async function togglePrivacyPanel() {
+    const panel = document.querySelector("[data-subscriber-privacy-panel]");
+    if (!panel) return;
+
+    const willOpen = panel.hidden;
+    panel.hidden = !willOpen;
+    setPrivacyToggleState(panel, willOpen);
+
+    if (willOpen) {
+      await loadPrivacyContent(panel);
+      window.requestAnimationFrame(() => {
+        panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      });
+    }
+  }
+
+  function resetPrivacyPanel() {
+    const panel = document.querySelector("[data-subscriber-privacy-panel]");
+    if (!panel) return;
+
+    panel.hidden = true;
+    setPrivacyToggleState(panel, false);
   }
 
   function setStatus(form, message, state = "") {
@@ -415,6 +549,12 @@
     if (openButton) {
       event.preventDefault();
       openModal(openButton);
+      return;
+    }
+
+    if (event.target.closest("[data-subscriber-privacy-toggle]")) {
+      event.preventDefault();
+      togglePrivacyPanel();
       return;
     }
 
