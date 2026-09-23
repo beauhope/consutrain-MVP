@@ -2,11 +2,11 @@
   =========================================================
   FILE: assets/js/subscriber-capture.js
   PURPOSE:
-  - تشغيل نماذج الاشتراك في تحديثات ConsuTrain
+  - إظهار زر اشتراك عالمي مصغر تحت الهيدر
+  - فتح نافذة اشتراك موحدة دون مغادرة الصفحة
   - التحقق من البريد والموافقة
   - دعم العربية والفرنسية
-  - إضافة نموذج نهاية المقال للصفحات المعرفة كمقالات
-  - تجهيز Payload موحد لربطه لاحقًا بمسار CT-05
+  - تجهيز Payload موحد لربطه بمسار CT-05
 
   IMPORTANT:
   - لا يظهر نجاح إلا بعد استجابة HTTP ناجحة من الـEndpoint.
@@ -26,8 +26,24 @@
   */
   const SUBSCRIBER_ENDPOINT = "";
 
-  const messages = {
+  const copy = {
     ar: {
+      trigger: "اشترك في التحديثات",
+      eyebrow: "ابقَ على اطلاع",
+      title: "لا تفوّت الجديد من ConsuTrain",
+      intro: "اشترك لتصلك أهم الإضافات المهنية الجديدة مباشرة إلى بريدك الإلكتروني.",
+      benefits: [
+        "أدوات وقوالب وموارد عملية جديدة.",
+        "مقالات ودورات وتدريبات مجانية.",
+        "تحديثات مهنية مختارة تستحق المتابعة."
+      ],
+      note: "نستخدم بريدك الإلكتروني لهذا الغرض فقط، ويمكنك إلغاء الاشتراك في أي وقت.",
+      emailLabel: "بريدك الإلكتروني",
+      emailPlaceholder: "بريدك الإلكتروني",
+      submit: "اشترك في التحديثات",
+      consent: "أوافق على تلقي تحديثات ومحتوى مهني من ConsuTrain عبر البريد الإلكتروني، ويمكنني إلغاء الاشتراك في أي وقت.",
+      privacy: "سياسة الخصوصية",
+      close: "إغلاق نافذة الاشتراك",
       emptyEmail: "يرجى إدخال بريدك الإلكتروني.",
       invalidEmail: "يرجى إدخال بريد إلكتروني صالح.",
       consentRequired: "يرجى تأكيد موافقتك على استلام التحديثات عبر البريد الإلكتروني.",
@@ -37,6 +53,22 @@
       sending: "جارٍ تسجيل اشتراكك..."
     },
     fr: {
+      trigger: "S’inscrire aux actualités",
+      eyebrow: "Restez informé",
+      title: "Ne manquez pas les nouveautés de ConsuTrain",
+      intro: "Inscrivez-vous pour recevoir directement par e-mail les principales nouveautés professionnelles de ConsuTrain.",
+      benefits: [
+        "Nouveaux outils, modèles et ressources pratiques.",
+        "Articles, formations et contenus gratuits.",
+        "Actualités professionnelles sélectionnées."
+      ],
+      note: "Nous utilisons votre adresse e-mail uniquement à cette fin. Vous pouvez vous désabonner à tout moment.",
+      emailLabel: "Votre adresse e-mail",
+      emailPlaceholder: "Votre adresse e-mail",
+      submit: "Recevoir les nouveautés",
+      consent: "J’accepte de recevoir par e-mail les actualités et contenus professionnels de ConsuTrain. Je peux me désabonner à tout moment.",
+      privacy: "Politique de confidentialité",
+      close: "Fermer la fenêtre d’inscription",
       emptyEmail: "Veuillez saisir votre adresse e-mail.",
       invalidEmail: "Veuillez saisir une adresse e-mail valide.",
       consentRequired: "Veuillez confirmer votre accord pour recevoir les actualités par e-mail.",
@@ -46,6 +78,8 @@
       sending: "Inscription en cours..."
     }
   };
+
+  let lastFocusedElement = null;
 
   function getLanguage() {
     return (document.documentElement.lang || "").toLowerCase().startsWith("fr") ? "fr" : "ar";
@@ -62,8 +96,154 @@
       : `${root}/privacy.html`;
   }
 
-  function getMessage(key) {
-    return messages[getLanguage()][key];
+  function t(key) {
+    return copy[getLanguage()][key];
+  }
+
+  function buildGlobalUi() {
+    const language = getLanguage();
+    const strings = copy[language];
+    const privacyHref = getPrivacyHref(language);
+    const benefits = strings.benefits.map((item) => `<li>${item}</li>`).join("");
+
+    const shell = document.createElement("div");
+    shell.className = "subscriber-global-entry";
+    shell.dataset.subscriberGlobalEntry = "true";
+    shell.innerHTML = `
+      <div class="container">
+        <button
+          class="subscriber-global-trigger"
+          type="button"
+          data-subscriber-open
+          aria-haspopup="dialog"
+          aria-controls="subscriberGlobalModal"
+          dir="${language === "fr" ? "ltr" : "rtl"}"
+        >
+          <span class="subscriber-global-trigger__icon" aria-hidden="true">✉</span>
+          <span>${strings.trigger}</span>
+        </button>
+      </div>
+    `;
+
+    const modal = document.createElement("div");
+    modal.className = "subscriber-modal";
+    modal.id = "subscriberGlobalModal";
+    modal.hidden = true;
+    modal.innerHTML = `
+      <div class="subscriber-modal__backdrop" data-subscriber-close></div>
+
+      <section
+        class="subscriber-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="subscriberModalTitle"
+        aria-describedby="subscriberModalIntro"
+        dir="${language === "fr" ? "ltr" : "rtl"}"
+      >
+        <div class="subscriber-modal__head">
+          <span class="subscriber-modal__eyebrow">${strings.eyebrow}</span>
+          <button
+            class="subscriber-modal__close"
+            type="button"
+            data-subscriber-close
+            aria-label="${strings.close}"
+          >×</button>
+        </div>
+
+        <div class="subscriber-modal__body">
+          <h2 id="subscriberModalTitle">${strings.title}</h2>
+          <p class="subscriber-modal__intro" id="subscriberModalIntro">${strings.intro}</p>
+          <ul class="subscriber-modal__benefits">${benefits}</ul>
+          <p class="subscriber-modal__note">${strings.note}</p>
+
+          <form class="subscriber-form" data-subscriber-form data-cta-location="global_subscribe" novalidate>
+            <div class="subscriber-form-row">
+              <label class="subscriber-sr-only" for="globalSubscriberEmail">${strings.emailLabel}</label>
+              <input
+                id="globalSubscriberEmail"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="${strings.emailPlaceholder}"
+                required
+              >
+              <button class="btn btn-primary" type="submit">${strings.submit}</button>
+            </div>
+
+            <label class="subscriber-consent">
+              <input name="consent" type="checkbox" value="yes" required>
+              <span>${strings.consent}</span>
+            </label>
+
+            <p class="subscriber-privacy-note"><a href="${privacyHref}">${strings.privacy}</a></p>
+
+            <div class="subscriber-hp" aria-hidden="true">
+              <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+            </div>
+
+            <p class="subscriber-status" data-subscriber-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    `;
+
+    return { shell, modal };
+  }
+
+  function mountGlobalSubscriberUi() {
+    if (document.querySelector("[data-subscriber-global-entry]")) return true;
+
+    const headerPlaceholder = document.getElementById("header-placeholder");
+    if (!headerPlaceholder) return false;
+
+    const siteHeader = headerPlaceholder.querySelector(".site-header");
+    if (!siteHeader) return false;
+
+    const { shell, modal } = buildGlobalUi();
+    siteHeader.insertAdjacentElement("afterend", shell);
+    document.body.appendChild(modal);
+    return true;
+  }
+
+  function waitForHeaderAndMount() {
+    if (mountGlobalSubscriberUi()) return;
+
+    const headerPlaceholder = document.getElementById("header-placeholder");
+    if (!headerPlaceholder) return;
+
+    const observer = new MutationObserver(() => {
+      if (mountGlobalSubscriberUi()) {
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(headerPlaceholder, { childList: true, subtree: true });
+  }
+
+  function openModal(trigger) {
+    const modal = document.getElementById("subscriberGlobalModal");
+    if (!modal) return;
+
+    lastFocusedElement = trigger || document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add("subscriber-modal-open");
+
+    window.requestAnimationFrame(() => {
+      modal.querySelector('input[type="email"]')?.focus();
+    });
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("subscriberGlobalModal");
+    if (!modal || modal.hidden) return;
+
+    modal.hidden = true;
+    document.body.classList.remove("subscriber-modal-open");
+
+    if (lastFocusedElement instanceof HTMLElement) {
+      lastFocusedElement.focus();
+    }
   }
 
   function setStatus(form, message, state = "") {
@@ -81,7 +261,7 @@
     if (isSubmitting) {
       button.dataset.originalText = button.textContent;
       button.disabled = true;
-      button.textContent = getMessage("sending");
+      button.textContent = t("sending");
       return;
     }
 
@@ -118,19 +298,19 @@
     const data = getFormData(form);
 
     if (!data.email) {
-      setStatus(form, getMessage("emptyEmail"), "error");
+      setStatus(form, t("emptyEmail"), "error");
       form.querySelector('input[type="email"]')?.focus();
       return null;
     }
 
     if (!isValidEmail(data.email)) {
-      setStatus(form, getMessage("invalidEmail"), "error");
+      setStatus(form, t("invalidEmail"), "error");
       form.querySelector('input[type="email"]')?.focus();
       return null;
     }
 
     if (!data.consent) {
-      setStatus(form, getMessage("consentRequired"), "error");
+      setStatus(form, t("consentRequired"), "error");
       form.querySelector('input[name="consent"]')?.focus();
       return null;
     }
@@ -144,7 +324,7 @@
       consent: true,
       consentVersion: CONSENT_VERSION,
       language: getLanguage(),
-      ctaLocation: form.dataset.ctaLocation || "unknown"
+      ctaLocation: form.dataset.ctaLocation || "global_subscribe"
     };
   }
 
@@ -189,13 +369,7 @@
     const data = validateForm(form);
     if (!data) return;
 
-    /*
-      Honeypot:
-      إذا تم ملؤه غالبًا الطلب آلي. نظهر نجاحًا شكليًا دون إرسال أي بيانات.
-    */
     if (data.honeypot) {
-      form.reset();
-      setStatus(form, getMessage("success"), "success");
       return;
     }
 
@@ -209,132 +383,39 @@
       const status = String(result?.status || "").toLowerCase();
 
       if (["already_subscribed", "duplicate", "exists"].includes(status)) {
-        setStatus(form, getMessage("duplicate"), "info");
+        setStatus(form, t("duplicate"), "info");
       } else {
         form.reset();
-        setStatus(form, getMessage("success"), "success");
+        setStatus(form, t("success"), "success");
       }
     } catch (error) {
       console.error("Subscriber capture error:", error);
-      setStatus(form, getMessage("technical"), "error");
+      setStatus(form, t("technical"), "error");
     } finally {
       setSubmitting(form, false);
     }
   }
 
-  function hasArticleStructuredData() {
-    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
-
-    function containsArticleType(value) {
-      if (Array.isArray(value)) return value.some(containsArticleType);
-      if (!value || typeof value !== "object") return false;
-
-      const type = value["@type"];
-      const types = Array.isArray(type) ? type : [type];
-      if (types.some((item) => ["Article", "BlogPosting", "NewsArticle"].includes(item))) {
-        return true;
-      }
-
-      return Object.values(value).some(containsArticleType);
+  document.addEventListener("click", (event) => {
+    const openButton = event.target.closest("[data-subscriber-open]");
+    if (openButton) {
+      event.preventDefault();
+      openModal(openButton);
+      return;
     }
 
-    return Array.from(scripts).some((script) => {
-      try {
-        return containsArticleType(JSON.parse(script.textContent || "{}"));
-      } catch (error) {
-        return false;
-      }
-    });
-  }
-
-  function getPrimaryArticle() {
-    const articles = Array.from(document.querySelectorAll("main article"));
-    if (!articles.length) return null;
-
-    return articles.sort((a, b) =>
-      (b.textContent || "").length - (a.textContent || "").length
-    )[0];
-  }
-
-  function getArticleCaptureMarkup() {
-    const language = getLanguage();
-    const privacyHref = getPrivacyHref(language);
-
-    if (language === "fr") {
-      return `
-        <section class="subscriber-capture subscriber-capture--article" data-article-subscriber-capture aria-labelledby="articleSubscriberTitle">
-          <div class="subscriber-card">
-            <div class="subscriber-copy">
-              <span class="subscriber-eyebrow">Restez informé</span>
-              <h2 id="articleSubscriberTitle">Ce contenu vous a été utile ?</h2>
-              <p>Recevez les prochains articles, outils et ressources pratiques publiés par ConsuTrain.</p>
-            </div>
-
-            <form class="subscriber-form" data-subscriber-form data-cta-location="article_end" novalidate>
-              <div class="subscriber-form-row">
-                <label class="subscriber-sr-only" for="articleSubscriberEmail">Votre adresse e-mail</label>
-                <input id="articleSubscriberEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Votre adresse e-mail" required>
-                <button class="btn btn-primary" type="submit">Recevoir les nouveautés</button>
-              </div>
-
-              <label class="subscriber-consent">
-                <input name="consent" type="checkbox" value="yes" required>
-                <span>J’accepte de recevoir par e-mail les actualités et contenus professionnels de ConsuTrain. Je peux me désabonner à tout moment.</span>
-              </label>
-
-              <p class="subscriber-privacy-note"><a href="${privacyHref}">Politique de confidentialité</a></p>
-              <div class="subscriber-hp" aria-hidden="true">
-                <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
-              </div>
-              <p class="subscriber-status" data-subscriber-status role="status" aria-live="polite"></p>
-            </form>
-          </div>
-        </section>
-      `;
+    if (event.target.closest("[data-subscriber-close]")) {
+      event.preventDefault();
+      closeModal();
     }
+  });
 
-    return `
-      <section class="subscriber-capture subscriber-capture--article" data-article-subscriber-capture aria-labelledby="articleSubscriberTitle">
-        <div class="subscriber-card">
-          <div class="subscriber-copy">
-            <span class="subscriber-eyebrow">ابقَ على اطلاع</span>
-            <h2 id="articleSubscriberTitle">هل كان هذا المحتوى مفيدًا؟</h2>
-            <p>اشترك ليصلك جديد المقالات والأدوات والموارد المهنية من ConsuTrain.</p>
-          </div>
-
-          <form class="subscriber-form" data-subscriber-form data-cta-location="article_end" novalidate>
-            <div class="subscriber-form-row">
-              <label class="subscriber-sr-only" for="articleSubscriberEmail">بريدك الإلكتروني</label>
-              <input id="articleSubscriberEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="بريدك الإلكتروني" required>
-              <button class="btn btn-primary" type="submit">أرسل لي الجديد</button>
-            </div>
-
-            <label class="subscriber-consent">
-              <input name="consent" type="checkbox" value="yes" required>
-              <span>أوافق على تلقي تحديثات ومحتوى مهني من ConsuTrain عبر البريد الإلكتروني، ويمكنني إلغاء الاشتراك في أي وقت.</span>
-            </label>
-
-            <p class="subscriber-privacy-note"><a href="${privacyHref}">سياسة الخصوصية</a></p>
-            <div class="subscriber-hp" aria-hidden="true">
-              <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
-            </div>
-            <p class="subscriber-status" data-subscriber-status role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </section>
-    `;
-  }
-
-  function injectArticleCapture() {
-    if (document.querySelector("[data-article-subscriber-capture]")) return;
-    if (!hasArticleStructuredData()) return;
-
-    const article = getPrimaryArticle();
-    if (!article) return;
-
-    article.insertAdjacentHTML("beforeend", getArticleCaptureMarkup());
-  }
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
 
   document.addEventListener("submit", handleSubmit);
-  injectArticleCapture();
+  waitForHeaderAndMount();
 })();
