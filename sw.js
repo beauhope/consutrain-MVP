@@ -8,8 +8,8 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20260922-course-cleanup";
-const RUNTIME_CACHE = "consutrain-runtime-v20260922-course-cleanup";
+const STATIC_CACHE = "consutrain-v20260923-subscriber-capture-v1";
+const RUNTIME_CACHE = "consutrain-runtime-v20260923-subscriber-capture-v1";
 const PRECACHE_URLS = [
   "./fr/learn/ai-admin.html",
   "./fr/learn/project-management-basics.html",
@@ -116,6 +116,7 @@ const PRECACHE_URLS = [
   "./assets/images/articles/ai-vuca.svg",
 
   "./assets/js/includes.js",
+  "./assets/js/subscriber-capture.js",
   "./assets/js/free-certificate-training.js",
   "./assets/js/free-certificate-training-blue-ocean.js",
   "./assets/js/free-certificate-training-blue-ocean-fr.js",
@@ -364,6 +365,7 @@ function shouldUseNetworkFirstForUiAsset(url) {
   return (
     path.includes("/partials/") ||
     path.endsWith("/assets/js/includes.js") ||
+    path.endsWith("/assets/js/subscriber-capture.js") ||
     path.endsWith("/assets/js/free-certificate-training.js") ||
     path.endsWith("/assets/js/free-certificate-training-blue-ocean.js") ||
     path.endsWith("/assets/js/free-certificate-training-blue-ocean-fr.js") ||
