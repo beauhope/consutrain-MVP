@@ -212,7 +212,40 @@
       </div>
     </section>
 
-    <section class="home-section home-section--soft">
+    
+    <section class="home-section subscriber-capture subscriber-capture--home" aria-labelledby="homeSubscriberTitle">
+      <div class="container">
+        <div class="subscriber-card">
+          <div class="subscriber-copy">
+            <span class="subscriber-eyebrow">ابقَ على اطلاع</span>
+            <h2 id="homeSubscriberTitle">لا تفوّت الجديد من ConsuTrain</h2>
+            <p>احصل على أهم الأدوات والموارد والمقالات والدورات المجانية والتحديثات المهنية الجديدة مباشرة إلى بريدك الإلكتروني.</p>
+            <p class="subscriber-note">نرسل لك فقط ما يستحق المتابعة، ويمكنك إلغاء الاشتراك في أي وقت.</p>
+          </div>
+
+          <form class="subscriber-form" data-subscriber-form data-cta-location="home_main" novalidate>
+            <div class="subscriber-form-row">
+              <label class="subscriber-sr-only" for="homeSubscriberEmail">بريدك الإلكتروني</label>
+              <input id="homeSubscriberEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="بريدك الإلكتروني" required>
+              <button class="btn btn-primary" type="submit">اشترك في التحديثات</button>
+            </div>
+
+            <label class="subscriber-consent">
+              <input name="consent" type="checkbox" value="yes" required>
+              <span>أوافق على تلقي تحديثات ومحتوى مهني من ConsuTrain عبر البريد الإلكتروني، ويمكنني إلغاء الاشتراك في أي وقت.</span>
+            </label>
+
+            <p class="subscriber-privacy-note"><a href="privacy.html">سياسة الخصوصية</a></p>
+            <div class="subscriber-hp" aria-hidden="true">
+              <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <p class="subscriber-status" data-subscriber-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+<section class="home-section home-section--soft">
       <div class="container">
         <div class="section-head">
           <div>
