@@ -206,11 +206,6 @@
             >
               <div class="subscriber-privacy-panel__head">
                 <strong>${strings.privacy}</strong>
-                <button
-                  class="subscriber-privacy-panel__hide"
-                  type="button"
-                  data-subscriber-privacy-toggle
-                >${strings.privacyHide}</button>
               </div>
               <div
                 class="subscriber-privacy-panel__content"
@@ -301,15 +296,12 @@
   function setPrivacyToggleState(panel, expanded) {
     const modal = panel.closest(".subscriber-modal");
     const strings = copy[getLanguage()];
-    const toggles = modal?.querySelectorAll("[data-subscriber-privacy-toggle]") || [];
+    const toggle = modal?.querySelector("[data-subscriber-privacy-toggle]");
 
-    toggles.forEach((button, index) => {
-      button.setAttribute("aria-expanded", String(expanded));
-
-      if (index === 0) {
-        button.textContent = expanded ? strings.privacyHide : strings.privacy;
-      }
-    });
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", String(expanded));
+      toggle.textContent = expanded ? strings.privacyHide : strings.privacy;
+    }
 
     modal?.querySelector(".subscriber-modal__dialog")?.classList.toggle("is-privacy-open", expanded);
   }
