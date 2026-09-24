@@ -6,6 +6,10 @@ import {
   handleResendWebhook,
 } from "./resend-webhook.js";
 
+import {
+  readSpreadsheetMetadata,
+} from "./google-sheets.js";
+
 const CONFIG = {
   allowedOrigin: "https://consutrain.com",
   subscribePath: "/v1/subscribers",
@@ -13,6 +17,7 @@ const CONFIG = {
   resubscribePath: "/v1/resubscribe",
   resendWebhookPath: "/v1/webhooks/resend",
   consentVersion: "email_updates_v1",
+  googleSheetsTestPath: "/v1/internal/google-sheets-test",
   ctaLocation: "global_subscribe",
   allowedLanguages: new Set(["ar", "fr"]),
   maxBodyBytes: 4096,
@@ -23,20 +28,30 @@ export default {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin");
        if (
-      url.pathname !== CONFIG.subscribePath &&
-      url.pathname !== CONFIG.unsubscribePath &&
-      url.pathname !== CONFIG.resubscribePath &&
-      url.pathname !== CONFIG.resendWebhookPath
-    ) {
-      return jsonResponse(
-        {
-          ok: false,
-          status: "not_found",
-        },
-        404,
-        origin
-      );
-    }
+  url.pathname !== CONFIG.subscribePath &&
+  url.pathname !== CONFIG.unsubscribePath &&
+  url.pathname !== CONFIG.resubscribePath &&
+  url.pathname !== CONFIG.resendWebhookPath &&
+  url.pathname !== CONFIG.googleSheetsTestPath
+) {
+  return jsonResponse(
+    {
+      ok: false,
+      status: "not_found",
+    },
+    404,
+    origin
+  );
+}
+
+    if (
+  url.pathname === CONFIG.googleSheetsTestPath
+) {
+  return handleGoogleSheetsTest(
+    request,
+    env
+  );
+}
 
     if (
       url.pathname === CONFIG.resendWebhookPath
@@ -1081,6 +1096,105 @@ async function handleUnsubscribe(
   }
 }
 
+/* =========================================================
+   Google Sheets Protected Connection Test
+   ========================================================= */
+
+async function handleGoogleSheetsTest(
+  request,
+  env
+) {
+  if (request.method !== "GET") {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "method_not_allowed",
+      },
+      405,
+      null,
+      {
+        Allow: "GET",
+      }
+    );
+  }
+
+  if (
+    !env.GOOGLE_SHEETS_TEST_TOKEN
+  ) {
+    console.error(
+      "GOOGLE_SHEETS_TEST_TOKEN is missing"
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status: "configuration_error",
+      },
+      503,
+      null
+    );
+  }
+
+  const authorization =
+    request.headers.get(
+      "Authorization"
+    ) || "";
+
+  const expectedAuthorization =
+    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`;
+
+  if (
+    authorization !==
+    expectedAuthorization
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "unauthorized",
+      },
+      401,
+      null
+    );
+  }
+
+  try {
+    const metadata =
+      await readSpreadsheetMetadata(
+        env
+      );
+
+    return jsonResponse(
+      {
+        ok: true,
+        status:
+          "google_sheets_connected",
+        spreadsheet: {
+          title:
+            metadata.title,
+          sheets:
+            metadata.sheets,
+        },
+      },
+      200,
+      null
+    );
+  } catch (error) {
+    console.error(
+      "Google Sheets connection test failed",
+      error
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status:
+          "google_sheets_connection_failed",
+      },
+      502,
+      null
+    );
+  }
+}
 
 /* =========================================================
    Rate Limiting
