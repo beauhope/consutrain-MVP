@@ -61,6 +61,80 @@ export async function readSpreadsheetMetadata(env) {
   };
 }
 
+export async function readSheetRange(
+  env,
+  range
+) {
+  if (!env.GOOGLE_SPREADSHEET_ID) {
+    throw new Error(
+      "GOOGLE_SPREADSHEET_ID is missing"
+    );
+  }
+
+  if (
+    typeof range !== "string" ||
+    range.trim() === ""
+  ) {
+    throw new Error(
+      "Google Sheets range is required"
+    );
+  }
+
+  const accessToken =
+    await getGoogleSheetsAccessToken(env);
+
+  const encodedRange =
+    encodeURIComponent(
+      range.trim()
+    );
+
+  const url =
+    new URL(
+      `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(
+        env.GOOGLE_SPREADSHEET_ID
+      )}/values/${encodedRange}`
+    );
+
+  url.searchParams.set(
+    "majorDimension",
+    "ROWS"
+  );
+
+  const response =
+    await fetch(
+      url.toString(),
+      {
+        method: "GET",
+        headers: {
+          Authorization:
+            `Bearer ${accessToken}`,
+        },
+      }
+    );
+
+  const data =
+    await response.json();
+
+  if (!response.ok) {
+    console.error(
+      "Google Sheets range read failed",
+      data
+    );
+
+    throw new Error(
+      `Google Sheets range read failed (${response.status})`
+    );
+  }
+
+  return {
+    range:
+      data.range || range,
+    values:
+      Array.isArray(data.values)
+        ? data.values
+        : [],
+  };
+}
 
 async function getGoogleSheetsAccessToken(env) {
   if (!env.GOOGLE_SERVICE_ACCOUNT_JSON) {

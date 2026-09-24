@@ -10,6 +10,10 @@ import {
   readSpreadsheetMetadata,
 } from "./google-sheets.js";
 
+import {
+  dryRunSubscribersSync,
+} from "./subscribers-sync.js";
+
 const CONFIG = {
   allowedOrigin: "https://consutrain.com",
   subscribePath: "/v1/subscribers",
@@ -18,6 +22,7 @@ const CONFIG = {
   resendWebhookPath: "/v1/webhooks/resend",
   consentVersion: "email_updates_v1",
   googleSheetsTestPath: "/v1/internal/google-sheets-test",
+  subscribersSyncDryRunPath: "/v1/internal/subscribers-sync-dry-run",
   ctaLocation: "global_subscribe",
   allowedLanguages: new Set(["ar", "fr"]),
   maxBodyBytes: 4096,
@@ -32,7 +37,8 @@ export default {
   url.pathname !== CONFIG.unsubscribePath &&
   url.pathname !== CONFIG.resubscribePath &&
   url.pathname !== CONFIG.resendWebhookPath &&
-  url.pathname !== CONFIG.googleSheetsTestPath
+  url.pathname !== CONFIG.googleSheetsTestPath &&
+  url.pathname !== CONFIG.subscribersSyncDryRunPath
 ) {
   return jsonResponse(
     {
@@ -52,7 +58,15 @@ export default {
     env
   );
 }
-
+if (
+  url.pathname ===
+  CONFIG.subscribersSyncDryRunPath
+) {
+  return handleSubscribersSyncDryRun(
+    request,
+    env
+  );
+}
     if (
       url.pathname === CONFIG.resendWebhookPath
     ) {
@@ -1189,6 +1203,95 @@ async function handleGoogleSheetsTest(
         ok: false,
         status:
           "google_sheets_connection_failed",
+      },
+      502,
+      null
+    );
+  }
+}
+
+/* =========================================================
+   Subscribers Sync Dry Run
+   ========================================================= */
+
+async function handleSubscribersSyncDryRun(
+  request,
+  env
+) {
+  if (request.method !== "GET") {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "method_not_allowed",
+      },
+      405,
+      null,
+      {
+        Allow: "GET",
+      }
+    );
+  }
+
+  if (
+    !env.GOOGLE_SHEETS_TEST_TOKEN
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "configuration_error",
+      },
+      503,
+      null
+    );
+  }
+
+  const authorization =
+    request.headers.get(
+      "Authorization"
+    ) || "";
+
+  if (
+    authorization !==
+    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "unauthorized",
+      },
+      401,
+      null
+    );
+  }
+
+  try {
+    const dryRun =
+      await dryRunSubscribersSync(
+        env
+      );
+
+    return jsonResponse(
+      {
+        ok: true,
+        status:
+          "subscribers_sync_dry_run",
+        dry_run:
+          dryRun,
+      },
+      200,
+      null
+    );
+  } catch (error) {
+    console.error(
+      "Subscribers sync dry run failed",
+      error
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status:
+          "subscribers_sync_dry_run_failed",
       },
       502,
       null
