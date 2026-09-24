@@ -8,8 +8,8 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20260924-unsubscribe-v1";
-const RUNTIME_CACHE = "consutrain-runtime-v20260924-unsubscribe-v1";
+const STATIC_CACHE = "consutrain-v20260924-unsubscribe-v2-frontend-fix";
+const RUNTIME_CACHE = "consutrain-runtime-v20260924-unsubscribe-v2-frontend-fix";
 const PRECACHE_URLS = [
   "./fr/learn/ai-admin.html",
   "./fr/learn/project-management-basics.html",
