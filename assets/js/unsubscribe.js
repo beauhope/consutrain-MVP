@@ -27,7 +27,7 @@
       alreadyTitle: "الاشتراك ملغى بالفعل",
       alreadyText: "هذا الاشتراك ملغى بالفعل، ولا يلزم اتخاذ أي إجراء إضافي.",
       invalidTitle: "رابط إلغاء الاشتراك غير صالح",
-      invalidText: "هذا الرابط غير صالح أو غير قابل للاستخدام. إذا استمرت المشكلة، يمكنك التواصل مع ConsuTrain.",
+      invalidText: "رابط إلغاء الاشتراك غير صالح أو لم يعد قابلًا للاستخدام.",
       errorTitle: "تعذر إكمال الطلب",
       errorText: "تعذر إلغاء الاشتراك حاليًا. يرجى المحاولة مرة أخرى لاحقًا.",
       retry: "المحاولة مرة أخرى"
@@ -42,7 +42,7 @@
       alreadyTitle: "Abonnement déjà désactivé",
       alreadyText: "Cet abonnement est déjà désactivé. Aucune action supplémentaire n’est nécessaire.",
       invalidTitle: "Lien de désinscription invalide",
-      invalidText: "Ce lien est invalide ou ne peut plus être utilisé. Si le problème persiste, vous pouvez contacter ConsuTrain.",
+      invalidText: "Ce lien de désinscription est invalide ou ne peut plus être utilisé.",
       errorTitle: "Impossible de finaliser la demande",
       errorText: "La désinscription n’a pas pu être effectuée pour le moment. Veuillez réessayer plus tard.",
       retry: "Réessayer"
@@ -73,6 +73,8 @@
     if (kind === "unsubscribed") {
       title.textContent = strings.successTitle;
       message.textContent = strings.successText;
+      button.disabled = true;
+      button.textContent = strings.submit;
       button.hidden = true;
       setStatusText("", "success");
       setVisualState("success");
@@ -82,6 +84,8 @@
     if (kind === "already_unsubscribed") {
       title.textContent = strings.alreadyTitle;
       message.textContent = strings.alreadyText;
+      button.disabled = true;
+      button.textContent = strings.submit;
       button.hidden = true;
       setStatusText("", "info");
       setVisualState("info");
@@ -91,6 +95,8 @@
     if (kind === "invalid_unsubscribe_token") {
       title.textContent = strings.invalidTitle;
       message.textContent = strings.invalidText;
+      button.disabled = true;
+      button.textContent = strings.submit;
       button.hidden = true;
       setStatusText("", "error");
       setVisualState("error");
@@ -182,8 +188,18 @@
         ""
       ).trim().toLowerCase();
 
+      const responseReason = String(
+        body?.reason ||
+        ""
+      ).trim().toLowerCase();
+
       if (["unsubscribed", "already_unsubscribed", "invalid_unsubscribe_token"].includes(responseStatus)) {
         setResult(responseStatus);
+        return;
+      }
+
+      if (responseStatus === "validation_failed" && responseReason === "invalid_unsubscribe_token") {
+        setResult("invalid_unsubscribe_token");
         return;
       }
 
