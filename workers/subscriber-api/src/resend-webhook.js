@@ -256,20 +256,32 @@ export async function handleResendWebhook(
         receivedAt
       );
 
-  const updateOutbox =
-    env.SUBSCRIBERS_DB.prepare(`
-      UPDATE subscriber_email_outbox
-      SET
-        delivery_status = ?1,
-        delivery_updated_at = ?2,
-        updated_at = ?3
-      WHERE provider = 'resend'
-        AND provider_message_id = ?4
-        AND (
-          delivery_updated_at IS NULL
-          OR delivery_updated_at <= ?2
+      const updateOutbox =
+  env.SUBSCRIBERS_DB.prepare(`
+    UPDATE subscriber_email_outbox
+    SET
+      delivery_status = ?1,
+      delivery_updated_at = ?2,
+      updated_at = ?3
+    WHERE provider = 'resend'
+      AND provider_message_id = ?4
+      AND (
+        delivery_status = 'unknown'
+
+        OR (
+          delivery_status = 'delivered'
+          AND ?1 IN ('bounced', 'complained')
         )
-    `)
+
+        OR (
+          delivery_status = ?1
+          AND (
+            delivery_updated_at IS NULL
+            OR delivery_updated_at <= ?2
+          )
+        )
+      )
+  `)
       .bind(
         deliveryStatus,
         eventTimestamp,
