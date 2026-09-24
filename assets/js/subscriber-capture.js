@@ -28,7 +28,11 @@
     ضع هنا Webhook / API endpoint النهائي بعد اعتماده واختباره.
     يجب أن يقبل POST JSON ويعيد HTTP 2xx فقط عند نجاح المعالجة.
   */
-  const SUBSCRIBER_ENDPOINT = "";
+  const SUBSCRIBER_ENDPOINT =
+    "https://api.consutrain.com/v1/subscribers";
+
+  const RESUBSCRIBE_ENDPOINT =
+    "https://api.consutrain.com/v1/resubscribe";
 
   const copy = {
     ar: {
@@ -56,6 +60,9 @@
       consentRequired: "يرجى تأكيد موافقتك على استلام التحديثات عبر البريد الإلكتروني.",
       success: "تم الاشتراك. شكرًا لك!",
       duplicate: "أنت مشترك بالفعل.",
+      resubscribePrompt: "سبق أن ألغيت الاشتراك بهذا البريد. اضغط مرة أخرى لتأكيد إعادة تفعيل اشتراكك.",
+      resubscribeSubmit: "إعادة تفعيل الاشتراك",
+      resubscribed: "تمت إعادة تفعيل اشتراكك. شكرًا لك!",
       technical: "تعذر إكمال الاشتراك حاليًا. يرجى المحاولة مرة أخرى.",
       sending: "جارٍ تسجيل اشتراكك..."
     },
@@ -84,6 +91,9 @@
       consentRequired: "Veuillez confirmer votre accord pour recevoir les actualités par e-mail.",
       success: "Inscription confirmée. Merci !",
       duplicate: "Vous êtes déjà inscrit.",
+      resubscribePrompt: "Vous vous êtes déjà désabonné avec cette adresse. Cliquez à nouveau pour confirmer la réactivation de votre inscription.",
+      resubscribeSubmit: "Réactiver mon inscription",
+      resubscribed: "Votre inscription a été réactivée. Merci !",
       technical: "L’inscription n’a pas pu être finalisée. Veuillez réessayer.",
       sending: "Inscription en cours..."
     }
@@ -469,12 +479,12 @@
     };
   }
 
-  async function submitSubscription(form, payload) {
-    if (!SUBSCRIBER_ENDPOINT) {
+  async function submitSubscription(form, payload, endpoint = SUBSCRIBER_ENDPOINT) {
+    if (!endpoint) {
       throw new Error("Subscriber endpoint is not configured.");
     }
 
-    const response = await fetch(SUBSCRIBER_ENDPOINT, {
+    const response = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -514,26 +524,90 @@
       return;
     }
 
+    if (
+      form.dataset.resubscribePending === "true" &&
+      form.dataset.resubscribeEmail !== data.email
+    ) {
+      delete form.dataset.resubscribePending;
+      delete form.dataset.resubscribeEmail;
+    }
+
+    const isResubscribe =
+      form.dataset.resubscribePending === "true" &&
+      form.dataset.resubscribeEmail === data.email;
+
     const payload = buildPayload(form, data);
+
+    if (isResubscribe) {
+      payload.confirmResubscribe = true;
+    }
 
     setStatus(form, "", "");
     setSubmitting(form, true);
 
     try {
-      const result = await submitSubscription(form, payload);
+      const result = await submitSubscription(
+        form,
+        payload,
+        isResubscribe
+          ? RESUBSCRIBE_ENDPOINT
+          : SUBSCRIBER_ENDPOINT
+      );
+
       const status = String(result?.status || "").toLowerCase();
 
       if (["already_subscribed", "duplicate", "exists"].includes(status)) {
+        delete form.dataset.resubscribePending;
+        delete form.dataset.resubscribeEmail;
+
         setStatus(form, t("duplicate"), "info");
-      } else {
-        form.reset();
-        setStatus(form, t("success"), "success");
+        return;
       }
+
+      if (status === "resubscribed") {
+        form.reset();
+
+        delete form.dataset.resubscribePending;
+        delete form.dataset.resubscribeEmail;
+
+        setStatus(form, t("resubscribed"), "success");
+        return;
+      }
+
+      form.reset();
+
+      delete form.dataset.resubscribePending;
+      delete form.dataset.resubscribeEmail;
+
+      setStatus(form, t("success"), "success");
+
     } catch (error) {
+      const status = String(error?.body?.status || "").toLowerCase();
+
+      if (status === "resubscribe_required") {
+        form.dataset.resubscribePending = "true";
+        form.dataset.resubscribeEmail = data.email;
+
+        setStatus(form, t("resubscribePrompt"), "info");
+        return;
+      }
+
       console.error("Subscriber capture error:", error);
       setStatus(form, t("technical"), "error");
+
     } finally {
       setSubmitting(form, false);
+
+      const button = form.querySelector('button[type="submit"]');
+
+      if (button) {
+        button.textContent =
+          form.dataset.resubscribePending === "true"
+            ? t("resubscribeSubmit")
+            : t("submit");
+
+        delete button.dataset.originalText;
+      }
     }
   }
 
