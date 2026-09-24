@@ -141,6 +141,7 @@ function applyRootPath(htmlText) {
 }
 
 function initCloudflareAnalytics() {
+  if (document.body?.dataset.disableAnalytics === "true") return;
   if (document.getElementById("cloudflare-web-analytics")) return;
 
   const script = document.createElement("script");
@@ -153,6 +154,7 @@ function initCloudflareAnalytics() {
 
 
 function ensureSubscriberCaptureRuntime() {
+  if (document.body?.dataset.disableSubscriberCapture === "true") return;
   if (document.querySelector('script[data-consutrain-subscriber-runtime]')) return;
 
   const script = document.createElement("script");
