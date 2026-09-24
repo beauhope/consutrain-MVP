@@ -8,6 +8,7 @@ const SUPPORTED_EVENTS =
     "email.delivered",
     "email.bounced",
     "email.complained",
+    "email.suppressed",
   ]);
 
 
@@ -137,7 +138,25 @@ export async function handleResendWebhook(
       200
     );
   }
+  const existingEvent =
+  await env.SUBSCRIBERS_DB.prepare(`
+    SELECT webhook_event_id
+    FROM subscriber_email_events
+    WHERE webhook_event_id = ?1
+    LIMIT 1
+  `)
+    .bind(webhookId)
+    .first();
 
+if (existingEvent) {
+  return webhookResponse(
+    {
+      ok: true,
+      status: "duplicate",
+    },
+    200
+  );
+}
   const providerMessageId =
     typeof event?.data?.email_id === "string"
       ? event.data.email_id
@@ -162,38 +181,44 @@ export async function handleResendWebhook(
       : null;
 
   const eventTimestamp =
-    typeof event?.created_at === "string" &&
-    event.created_at.length > 0
-      ? event.created_at
-      : new Date().toISOString();
+  typeof event?.created_at === "string" &&
+  event.created_at.length > 0
+    ? event.created_at
+    : new Date().toISOString();
 
-  const bounce =
-    eventType === "email.bounced" &&
-    event?.data?.bounce &&
-    typeof event.data.bounce === "object"
-      ? event.data.bounce
-      : null;
+const bounce =
+  eventType === "email.bounced" &&
+  event?.data?.bounce &&
+  typeof event.data.bounce === "object"
+    ? event.data.bounce
+    : null;
 
-  const bounceType =
-    typeof bounce?.type === "string"
-      ? bounce.type
-      : null;
+const bounceType =
+  typeof bounce?.type === "string"
+    ? bounce.type
+    : null;
 
-  const bounceSubtype =
-    typeof bounce?.subType === "string"
-      ? bounce.subType
-      : null;
+const bounceSubtype =
+  typeof bounce?.subType === "string"
+    ? bounce.subType
+    : null;
 
-  const bounceMessage =
-    typeof bounce?.message === "string"
-      ? bounce.message.slice(0, 2000)
-      : null;
+const bounceMessage =
+  typeof bounce?.message === "string"
+    ? bounce.message.slice(0, 2000)
+    : null;
 
-  const deliveryStatus =
-    mapDeliveryStatus(eventType);
+const suppressionReason =
+  getSuppressionReason(
+    eventType,
+    bounceType
+  );
 
-  const receivedAt =
-    new Date().toISOString();
+const deliveryStatus =
+  mapDeliveryStatus(eventType);
+
+const receivedAt =
+  new Date().toISOString();
 
   const insertEvent =
     env.SUBSCRIBERS_DB.prepare(`
@@ -270,7 +295,7 @@ export async function handleResendWebhook(
 
         OR (
           delivery_status = 'delivered'
-          AND ?1 IN ('bounced', 'complained')
+          AND ?1 IN ('bounced', 'complained', 'suppressed')
         )
 
         OR (
@@ -288,12 +313,47 @@ export async function handleResendWebhook(
         receivedAt,
         providerMessageId
       );
+      const updateSubscriberSuppression =
+  suppressionReason
+    ? env.SUBSCRIBERS_DB.prepare(`
+        UPDATE subscribers
+        SET
+          email_send_status = 'suppressed',
+          suppression_reason = ?1,
+          suppression_timestamp = ?2,
+          suppression_updated_at = ?3,
+          updated_at = ?3
+        WHERE subscriber_id = (
+          SELECT subscriber_id
+          FROM subscriber_email_outbox
+          WHERE provider = 'resend'
+            AND provider_message_id = ?4
+          LIMIT 1
+        )
+          AND email_send_status = 'eligible'
+      `)
+        .bind(
+          suppressionReason,
+          eventTimestamp,
+          receivedAt,
+          providerMessageId
+        )
+    : null;
 
+const databaseStatements = [
+  insertEvent,
+  updateOutbox,
+];
+
+if (updateSubscriberSuppression) {
+  databaseStatements.push(
+    updateSubscriberSuppression
+  );
+}
   try {
-    await env.SUBSCRIBERS_DB.batch([
-      insertEvent,
-      updateOutbox,
-    ]);
+    await env.SUBSCRIBERS_DB.batch(
+  databaseStatements
+);
   } catch (error) {
     console.error(
       "Unable to persist Resend webhook event",
@@ -334,10 +394,34 @@ function mapDeliveryStatus(
     return "complained";
   }
 
+  if (eventType === "email.suppressed") {
+    return "suppressed";
+  }
+
   return "unknown";
 }
+function getSuppressionReason(
+  eventType,
+  bounceType
+) {
+  if (eventType === "email.complained") {
+    return "complaint";
+  }
 
+  if (eventType === "email.suppressed") {
+    return "resend_suppressed";
+  }
 
+  if (
+    eventType === "email.bounced" &&
+    typeof bounceType === "string" &&
+    bounceType.toLowerCase() === "permanent"
+  ) {
+    return "hard_bounce";
+  }
+
+  return null;
+}
 function webhookResponse(
   body,
   status,
