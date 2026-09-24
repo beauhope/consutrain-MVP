@@ -8,8 +8,8 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20260923-global-subscriber-modal-v13-inline-cta";
-const RUNTIME_CACHE = "consutrain-runtime-v20260923-global-subscriber-modal-v2";
+const STATIC_CACHE = "consutrain-v20260924-unsubscribe-v1";
+const RUNTIME_CACHE = "consutrain-runtime-v20260924-unsubscribe-v1";
 const PRECACHE_URLS = [
   "./fr/learn/ai-admin.html",
   "./fr/learn/project-management-basics.html",
@@ -337,6 +337,11 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  if (isSensitiveTokenPage(url)) {
+    event.respondWith(fetch(request, { cache: "no-store" }));
+    return;
+  }
+
   if (request.mode === "navigate") {
     event.respondWith(networkFirstPage(request));
     return;
@@ -350,6 +355,11 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(cacheFirstAsset(request));
 });
 
+
+function isSensitiveTokenPage(url) {
+  const path = url.pathname.toLowerCase();
+  return path.endsWith("/unsubscribe.html");
+}
 
 function isPlatformGuideProfileAsset(url) {
   const path = url.pathname;
@@ -366,6 +376,7 @@ function shouldUseNetworkFirstForUiAsset(url) {
     path.includes("/partials/") ||
     path.endsWith("/assets/js/includes.js") ||
     path.endsWith("/assets/js/subscriber-capture.js") ||
+    path.endsWith("/assets/js/unsubscribe.js") ||
     path.endsWith("/assets/js/free-certificate-training.js") ||
     path.endsWith("/assets/js/free-certificate-training-blue-ocean.js") ||
     path.endsWith("/assets/js/free-certificate-training-blue-ocean-fr.js") ||
