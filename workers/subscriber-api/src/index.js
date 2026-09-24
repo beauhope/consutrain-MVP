@@ -2,11 +2,16 @@ import {
   deliverWelcomeEmail,
 } from "./welcome-delivery.js";
 
+import {
+  handleResendWebhook,
+} from "./resend-webhook.js";
+
 const CONFIG = {
   allowedOrigin: "https://consutrain.com",
   subscribePath: "/v1/subscribers",
   unsubscribePath: "/v1/unsubscribe",
   resubscribePath: "/v1/resubscribe",
+  resendWebhookPath: "/v1/webhooks/resend",
   consentVersion: "email_updates_v1",
   ctaLocation: "global_subscribe",
   allowedLanguages: new Set(["ar", "fr"]),
@@ -17,11 +22,11 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin");
-
-    if (
+       if (
       url.pathname !== CONFIG.subscribePath &&
       url.pathname !== CONFIG.unsubscribePath &&
-      url.pathname !== CONFIG.resubscribePath
+      url.pathname !== CONFIG.resubscribePath &&
+      url.pathname !== CONFIG.resendWebhookPath
     ) {
       return jsonResponse(
         {
@@ -33,7 +38,16 @@ export default {
       );
     }
 
-    if (request.method === "OPTIONS") {
+    if (
+      url.pathname === CONFIG.resendWebhookPath
+    ) {
+      return handleResendWebhook(
+        request,
+        env
+      );
+    }
+
+      if (request.method === "OPTIONS") {
       if (origin !== CONFIG.allowedOrigin) {
         return new Response(null, {
           status: 403,

@@ -41,9 +41,10 @@
     }
   ],
 
-  "secrets": {
+ "secrets": {
   "required": [
-    "UNSUBSCRIBE_SIGNING_SECRET"
+    "UNSUBSCRIBE_SIGNING_SECRET",
+    "RESEND_WEBHOOK_SECRET"
   ]
 },
 }
