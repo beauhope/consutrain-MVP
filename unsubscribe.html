@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-fr-link="fr/unsubscribe.html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+
+  <title>إلغاء الاشتراك | ConsuTrain</title>
+  <meta name="description" content="صفحة تأكيد إلغاء الاشتراك من تحديثات ConsuTrain عبر البريد الإلكتروني.">
+
+  <link rel="canonical" href="https://consutrain.com/unsubscribe.html">
+  <link rel="alternate" hreflang="ar" href="https://consutrain.com/unsubscribe.html">
+  <link rel="alternate" hreflang="fr" href="https://consutrain.com/fr/unsubscribe.html">
+  <link rel="alternate" hreflang="x-default" href="https://consutrain.com/unsubscribe.html">
+
+  <link rel="stylesheet" href="assets/css/style.css?v=20260924_unsubscribe_v1">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0f2747">
+  <link rel="icon" type="image/png" href="./assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+
+  <style>
+    .unsubscribe-page .subscriber-global-entry{display:none!important}
+    .unsubscribe-page .inner-page{min-height:65vh}
+    .unsubscribe-shell{width:min(100% - 32px,780px);margin-inline:auto}
+    .unsubscribe-card{padding:30px;border:1px solid var(--border);border-radius:24px;background:#fff;box-shadow:var(--shadow);text-align:center}
+    .unsubscribe-icon{width:58px;height:58px;margin:0 auto 14px;display:grid;place-items:center;border-radius:50%;background:var(--gold-soft);color:var(--primary);font-size:1.45rem}
+    .unsubscribe-card h2{margin:0 0 10px;color:var(--primary)}
+    .unsubscribe-card p{margin:0 auto 18px;max-width:650px;color:var(--muted);line-height:1.9}
+    .unsubscribe-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .unsubscribe-status{min-height:1.6em;margin-top:14px;font-weight:700}
+    .unsubscribe-card[data-state="success"] .unsubscribe-icon{background:#e7f6ee;color:#18794e}
+    .unsubscribe-card[data-state="error"] .unsubscribe-icon{background:#fff0ee;color:#b42318}
+    .unsubscribe-card[data-state="info"] .unsubscribe-icon{background:#eef3f8;color:var(--primary)}
+    .unsubscribe-note{margin-top:16px!important;font-size:.9rem}
+    @media(max-width:640px){.unsubscribe-card{padding:22px 18px}.unsubscribe-actions .btn{width:100%}}
+  </style>
+</head>
+
+<body
+  class="unsubscribe-page"
+  data-root="."
+  data-disable-analytics="true"
+  data-disable-subscriber-capture="true"
+  data-breadcrumb-section="الخصوصية"
+  data-breadcrumb-title="إلغاء الاشتراك"
+>
+  <div id="header-placeholder"></div>
+  <div id="breadcrumbs-placeholder"></div>
+
+  <main class="inner-page">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">إدارة الاشتراك</span>
+        <h1>إلغاء الاشتراك من تحديثات ConsuTrain</h1>
+        <p>فتح هذه الصفحة لا يلغي اشتراكك تلقائيًا. يتم الإلغاء فقط بعد تأكيدك بالضغط على الزر أدناه.</p>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="unsubscribe-shell">
+        <article class="unsubscribe-card" data-unsubscribe-card data-state="ready">
+          <div class="unsubscribe-icon" aria-hidden="true">✉</div>
+          <h2 id="unsubscribeStateTitle">هل تريد إلغاء الاشتراك؟</h2>
+          <p id="unsubscribeStateMessage">بعد التأكيد، لن نرسل إلى هذا الاشتراك تحديثات ConsuTrain عبر البريد الإلكتروني. يمكنك الاشتراك من جديد مستقبلًا بموافقة جديدة.</p>
+
+          <div class="unsubscribe-actions">
+            <button class="btn btn-primary" id="unsubscribeConfirmButton" type="button" disabled>إلغاء الاشتراك</button>
+            <a class="btn btn-secondary" href="index.html">العودة إلى ConsuTrain</a>
+          </div>
+
+          <p class="unsubscribe-status" id="unsubscribeStatus" role="status" aria-live="polite"></p>
+          <p class="unsubscribe-note"><a href="privacy.html">سياسة الخصوصية</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="assets/js/includes.js?v=20260924_unsubscribe_v1"></script>
+  <script src="assets/js/unsubscribe.js?v=20260924_1"></script>
+  <script src="assets/js/pwa.js"></script>
+  <button id="scrollTopBtn" class="scroll-top-left" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">↑</button>
+</body>
+</html>
