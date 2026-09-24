@@ -76,6 +76,7 @@
       button.disabled = true;
       button.textContent = strings.submit;
       button.hidden = true;
+      button.style.display = "none";
       setStatusText("", "success");
       setVisualState("success");
       return;
@@ -87,6 +88,7 @@
       button.disabled = true;
       button.textContent = strings.submit;
       button.hidden = true;
+      button.style.display = "none";
       setStatusText("", "info");
       setVisualState("info");
       return;
@@ -98,6 +100,7 @@
       button.disabled = true;
       button.textContent = strings.submit;
       button.hidden = true;
+      button.style.display = "none";
       setStatusText("", "error");
       setVisualState("error");
       return;
@@ -106,6 +109,7 @@
     title.textContent = strings.errorTitle;
     message.textContent = strings.errorText;
     button.hidden = false;
+    button.style.removeProperty("display");
     button.disabled = false;
     button.textContent = strings.retry;
     setStatusText("", "error");
