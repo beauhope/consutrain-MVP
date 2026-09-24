@@ -334,3 +334,128 @@ function pemToArrayBuffer(pem) {
 
   return bytes.buffer;
 }
+
+export async function updateSheetValues(
+  env,
+  range,
+  values
+) {
+  const accessToken =
+    await getGoogleSheetsAccessToken(env);
+
+  const encodedRange =
+    encodeURIComponent(range);
+
+  const url =
+    new URL(
+      `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(
+        env.GOOGLE_SPREADSHEET_ID
+      )}/values/${encodedRange}`
+    );
+
+  url.searchParams.set(
+    "valueInputOption",
+    "RAW"
+  );
+
+  const response =
+    await fetch(
+      url.toString(),
+      {
+        method: "PUT",
+        headers: {
+          Authorization:
+            `Bearer ${accessToken}`,
+          "Content-Type":
+            "application/json",
+        },
+        body:
+          JSON.stringify({
+            range,
+            majorDimension: "ROWS",
+            values,
+          }),
+      }
+    );
+
+  const data =
+    await response.json();
+
+  if (!response.ok) {
+    console.error(
+      "Google Sheets update failed",
+      data
+    );
+
+    throw new Error(
+      `Google Sheets update failed (${response.status})`
+    );
+  }
+
+  return data;
+}
+
+
+export async function appendSheetValues(
+  env,
+  range,
+  values
+) {
+  const accessToken =
+    await getGoogleSheetsAccessToken(env);
+
+  const encodedRange =
+    encodeURIComponent(range);
+
+  const url =
+    new URL(
+      `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(
+        env.GOOGLE_SPREADSHEET_ID
+      )}/values/${encodedRange}:append`
+    );
+
+  url.searchParams.set(
+    "valueInputOption",
+    "RAW"
+  );
+
+  url.searchParams.set(
+    "insertDataOption",
+    "INSERT_ROWS"
+  );
+
+  const response =
+    await fetch(
+      url.toString(),
+      {
+        method: "POST",
+        headers: {
+          Authorization:
+            `Bearer ${accessToken}`,
+          "Content-Type":
+            "application/json",
+        },
+        body:
+          JSON.stringify({
+            majorDimension: "ROWS",
+            values,
+          }),
+      }
+    );
+
+  const data =
+    await response.json();
+
+  if (!response.ok) {
+    console.error(
+      "Google Sheets append failed",
+      data
+    );
+
+    throw new Error(
+      `Google Sheets append failed (${response.status})`
+    );
+  }
+
+  return data;
+}
