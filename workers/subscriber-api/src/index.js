@@ -1474,16 +1474,16 @@ async function handleSubscribersSyncRun(
       env,
       {
         syncName:
-          "subscribers_to_sheets",
+          "subscriber_events_to_sheets",
 
         sourceTable:
-          "subscribers",
+          "subscriber_events",
 
         targetTab:
-          "Subscribers",
+          "Subscription_Events",
 
         runSync: () =>
-          syncSubscribersBatch(
+          syncSubscriptionEventsBatch(
             env
           ),
       }
@@ -1493,7 +1493,7 @@ async function handleSubscribersSyncRun(
     {
       ok: true,
       status:
-        "subscribers_sync_completed",
+        "subscription_events_sync_completed",
 
       sync:
         result.sync,
@@ -1667,8 +1667,23 @@ async function handleSubscriptionEventsSyncRun(
 
   try {
     const result =
-      await syncSubscriptionEventsBatch(
-        env
+      await runSyncWithLog(
+        env,
+        {
+          syncName:
+            "subscriber_events_to_sheets",
+
+          sourceTable:
+            "subscriber_events",
+
+          targetTab:
+            "Subscription_Events",
+
+          runSync: () =>
+            syncSubscriptionEventsBatch(
+              env
+            ),
+        }
       );
 
     return jsonResponse(
@@ -1676,8 +1691,12 @@ async function handleSubscriptionEventsSyncRun(
         ok: true,
         status:
           "subscription_events_sync_completed",
+
         sync:
-          result,
+          result.sync,
+
+        audit:
+          result.audit,
       },
       200,
       null
@@ -1792,7 +1811,6 @@ async function handleEmailOutboxSyncDryRun(
 /* =========================================================
    Email Outbox Sync Run
    ========================================================= */
-
 async function handleEmailOutboxSyncRun(
   request,
   env
@@ -1844,9 +1862,24 @@ async function handleEmailOutboxSyncRun(
   }
 
   try {
-    const sync =
-      await syncEmailOutboxBatch(
-        env
+    const result =
+      await runSyncWithLog(
+        env,
+        {
+          syncName:
+            "email_outbox_to_sheets",
+
+          sourceTable:
+            "subscriber_email_outbox",
+
+          targetTab:
+            "Email_Outbox",
+
+          runSync: () =>
+            syncEmailOutboxBatch(
+              env
+            ),
+        }
       );
 
     return jsonResponse(
@@ -1854,7 +1887,12 @@ async function handleEmailOutboxSyncRun(
         ok: true,
         status:
           "email_outbox_sync_completed",
-        sync,
+
+        sync:
+          result.sync,
+
+        audit:
+          result.audit,
       },
       200,
       null
@@ -1876,7 +1914,6 @@ async function handleEmailOutboxSyncRun(
     );
   }
 }
-
 /* =========================================================
    Email Delivery Events Sync Dry Run
    ========================================================= */
@@ -1969,8 +2006,7 @@ async function handleEmailDeliveryEventsSyncDryRun(
 /* =========================================================
    Email Delivery Events Sync Run
    ========================================================= */
-
-async function handleEmailDeliveryEventsSyncRun(
+   async function handleEmailDeliveryEventsSyncRun(
   request,
   env
 ) {
@@ -2021,9 +2057,24 @@ async function handleEmailDeliveryEventsSyncRun(
   }
 
   try {
-    const sync =
-      await syncEmailDeliveryEventsBatch(
-        env
+    const result =
+      await runSyncWithLog(
+        env,
+        {
+          syncName:
+            "email_delivery_events_to_sheets",
+
+          sourceTable:
+            "subscriber_email_events",
+
+          targetTab:
+            "Email_Delivery_Events",
+
+          runSync: () =>
+            syncEmailDeliveryEventsBatch(
+              env
+            ),
+        }
       );
 
     return jsonResponse(
@@ -2031,7 +2082,12 @@ async function handleEmailDeliveryEventsSyncRun(
         ok: true,
         status:
           "email_delivery_events_sync_completed",
-        sync,
+
+        sync:
+          result.sync,
+
+        audit:
+          result.audit,
       },
       200,
       null
@@ -2053,7 +2109,6 @@ async function handleEmailDeliveryEventsSyncRun(
     );
   }
 }
-
 /* =========================================================
    Sync Log Dry Run
    ========================================================= */
