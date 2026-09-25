@@ -17,6 +17,7 @@ import {
 
 import {
   dryRunSubscriptionEventsSync,
+  syncSubscriptionEventsBatch,
 } from "./subscription-events-sync.js";
 
 const CONFIG = {
@@ -30,6 +31,7 @@ const CONFIG = {
   subscribersSyncDryRunPath: "/v1/internal/subscribers-sync-dry-run",
   subscribersSyncRunPath: "/v1/internal/subscribers-sync-run",
   subscriptionEventsSyncDryRunPath: "/v1/internal/subscription-events-sync-dry-run",
+  subscriptionEventsSyncRunPath: "/v1/internal/subscription-events-sync-run",
   ctaLocation: "global_subscribe",
   allowedLanguages: new Set(["ar", "fr"]),
   maxBodyBytes: 4096,
@@ -47,7 +49,8 @@ export default {
   url.pathname !== CONFIG.googleSheetsTestPath &&
   url.pathname !== CONFIG.subscribersSyncDryRunPath &&
   url.pathname !== CONFIG.subscribersSyncRunPath  &&
-  url.pathname !== CONFIG.subscriptionEventsSyncDryRunPath
+  url.pathname !== CONFIG.subscriptionEventsSyncDryRunPath &&
+  url.pathname !== CONFIG.subscriptionEventsSyncRunPath
 ) {
   return jsonResponse(
     {
@@ -64,6 +67,16 @@ if (
   CONFIG.subscriptionEventsSyncDryRunPath
 ) {
   return handleSubscriptionEventsSyncDryRun(
+    request,
+    env
+  );
+}
+
+if (
+  url.pathname ===
+  CONFIG.subscriptionEventsSyncRunPath
+) {
+  return handleSubscriptionEventsSyncRun(
     request,
     env
   );
@@ -1498,6 +1511,95 @@ async function handleSubscriptionEventsSyncDryRun(
         ok: false,
         status:
           "subscription_events_sync_dry_run_failed",
+      },
+      502,
+      null
+    );
+  }
+}
+
+/* =========================================================
+   Subscription Events Sync Run
+   ========================================================= */
+
+async function handleSubscriptionEventsSyncRun(
+  request,
+  env
+) {
+  if (request.method !== "POST") {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "method_not_allowed",
+      },
+      405,
+      null,
+      {
+        Allow: "POST",
+      }
+    );
+  }
+
+  if (
+    !env.GOOGLE_SHEETS_TEST_TOKEN
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "configuration_error",
+      },
+      503,
+      null
+    );
+  }
+
+  const authorization =
+    request.headers.get(
+      "Authorization"
+    ) || "";
+
+  if (
+    authorization !==
+    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "unauthorized",
+      },
+      401,
+      null
+    );
+  }
+
+  try {
+    const result =
+      await syncSubscriptionEventsBatch(
+        env
+      );
+
+    return jsonResponse(
+      {
+        ok: true,
+        status:
+          "subscription_events_sync_completed",
+        sync:
+          result,
+      },
+      200,
+      null
+    );
+  } catch (error) {
+    console.error(
+      "Subscription events sync failed",
+      error
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status:
+          "subscription_events_sync_failed",
       },
       502,
       null

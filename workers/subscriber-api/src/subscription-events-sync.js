@@ -1,5 +1,6 @@
 import {
   readSheetRange,
+  appendSheetValues,
 } from "./google-sheets.js";
 
 
@@ -247,4 +248,336 @@ function headersAreEqual(
     (header, index) =>
       actual[index] === header
   );
+}
+
+export async function syncSubscriptionEventsBatch(
+  env
+) {
+  const headerResult =
+    await readSheetRange(
+      env,
+      "'Subscription_Events'!A1:J1"
+    );
+
+  const actualHeaders =
+    Array.isArray(
+      headerResult.values?.[0]
+    )
+      ? headerResult.values[0]
+      : [];
+
+  if (
+    !headersAreEqual(
+      actualHeaders,
+      EXPECTED_HEADERS
+    )
+  ) {
+    throw new Error(
+      "Subscription Events sheet headers do not match expected schema"
+    );
+  }
+
+  const checkpoint =
+    await env.SUBSCRIBERS_DB
+      .prepare(`
+        SELECT
+          sync_name,
+          cursor_timestamp,
+          cursor_id,
+          last_success_at
+        FROM sync_checkpoints
+        WHERE sync_name = ?1
+        LIMIT 1
+      `)
+      .bind(
+        SUBSCRIPTION_EVENTS_SYNC_NAME
+      )
+      .first();
+
+  if (!checkpoint) {
+    throw new Error(
+      "Subscription events sync checkpoint is missing"
+    );
+  }
+
+  let batchResult;
+
+  if (
+    checkpoint.cursor_timestamp &&
+    checkpoint.cursor_id
+  ) {
+    batchResult =
+      await env.SUBSCRIBERS_DB
+        .prepare(`
+          SELECT
+            e.event_id,
+            e.subscriber_id,
+            s.email,
+            e.event_type,
+            e.consent_version,
+            e.language,
+            e.cta_location,
+            e.event_timestamp,
+            e.details_json
+          FROM subscriber_events e
+          LEFT JOIN subscribers s
+            ON s.subscriber_id =
+               e.subscriber_id
+          WHERE
+            e.event_timestamp > ?1
+            OR (
+              e.event_timestamp = ?1
+              AND e.event_id > ?2
+            )
+          ORDER BY
+            e.event_timestamp ASC,
+            e.event_id ASC
+          LIMIT ?3
+        `)
+        .bind(
+          checkpoint.cursor_timestamp,
+          checkpoint.cursor_id,
+          SUBSCRIPTION_EVENTS_BATCH_SIZE
+        )
+        .all();
+  } else {
+    batchResult =
+      await env.SUBSCRIBERS_DB
+        .prepare(`
+          SELECT
+            e.event_id,
+            e.subscriber_id,
+            s.email,
+            e.event_type,
+            e.consent_version,
+            e.language,
+            e.cta_location,
+            e.event_timestamp,
+            e.details_json
+          FROM subscriber_events e
+          LEFT JOIN subscribers s
+            ON s.subscriber_id =
+               e.subscriber_id
+          ORDER BY
+            e.event_timestamp ASC,
+            e.event_id ASC
+          LIMIT ?1
+        `)
+        .bind(
+          SUBSCRIPTION_EVENTS_BATCH_SIZE
+        )
+        .all();
+  }
+
+  const rows =
+    Array.isArray(
+      batchResult?.results
+    )
+      ? batchResult.results
+      : [];
+
+  const mode =
+    checkpoint.cursor_timestamp &&
+    checkpoint.cursor_id
+      ? "incremental"
+      : "full";
+
+  if (rows.length === 0) {
+    const now =
+      new Date().toISOString();
+
+    await env.SUBSCRIBERS_DB
+      .prepare(`
+        UPDATE sync_checkpoints
+        SET
+          last_success_at = ?1,
+          updated_at = ?1
+        WHERE sync_name = ?2
+      `)
+      .bind(
+        now,
+        SUBSCRIPTION_EVENTS_SYNC_NAME
+      )
+      .run();
+
+    return {
+      mode,
+      batch_count: 0,
+      inserted: 0,
+      skipped: 0,
+      checkpoint_updated: true,
+      last_success_at: now,
+    };
+  }
+
+  const existingResult =
+    await readSheetRange(
+      env,
+      "'Subscription_Events'!A2:J"
+    );
+
+  const existingRows =
+    Array.isArray(
+      existingResult.values
+    )
+      ? existingResult.values
+      : [];
+
+  const existingEventIds =
+    new Set();
+
+  for (const sheetRow of existingRows) {
+    const eventId =
+      Array.isArray(sheetRow)
+        ? sheetRow[0]
+        : "";
+
+    if (!eventId) {
+      continue;
+    }
+
+    if (
+      existingEventIds.has(
+        eventId
+      )
+    ) {
+      throw new Error(
+        `Duplicate event_id in Subscription_Events sheet: ${eventId}`
+      );
+    }
+
+    existingEventIds.add(
+      eventId
+    );
+  }
+
+  const syncedAt =
+    new Date().toISOString();
+
+  const rowsToAppend = [];
+
+  let inserted = 0;
+  let skipped = 0;
+
+  for (const event of rows) {
+    if (
+      existingEventIds.has(
+        event.event_id
+      )
+    ) {
+      skipped += 1;
+      continue;
+    }
+
+    rowsToAppend.push([
+      toSheetValue(
+        event.event_id
+      ),
+      toSheetValue(
+        event.subscriber_id
+      ),
+      toSheetValue(
+        event.email
+      ),
+      toSheetValue(
+        event.event_type
+      ),
+      toSheetValue(
+        event.consent_version
+      ),
+      toSheetValue(
+        event.language
+      ),
+      toSheetValue(
+        event.cta_location
+      ),
+      toSheetValue(
+        event.event_timestamp
+      ),
+      toSheetValue(
+        event.details_json
+      ),
+      syncedAt,
+    ]);
+
+    inserted += 1;
+  }
+
+  if (rowsToAppend.length > 0) {
+    await appendSheetValues(
+      env,
+      "'Subscription_Events'!A:J",
+      rowsToAppend
+    );
+  }
+
+  const lastRow =
+    rows[
+      rows.length - 1
+    ];
+
+  const checkpointResult =
+    await env.SUBSCRIBERS_DB
+      .prepare(`
+        UPDATE sync_checkpoints
+        SET
+          cursor_timestamp = ?1,
+          cursor_id = ?2,
+          last_success_at = ?3,
+          updated_at = ?3
+        WHERE sync_name = ?4
+      `)
+      .bind(
+        lastRow.event_timestamp,
+        lastRow.event_id,
+        syncedAt,
+        SUBSCRIPTION_EVENTS_SYNC_NAME
+      )
+      .run();
+
+  if (
+    !checkpointResult.success ||
+    Number(
+      checkpointResult.meta?.changes ||
+      0
+    ) !== 1
+  ) {
+    throw new Error(
+      "Subscription events sync checkpoint update failed"
+    );
+  }
+
+  return {
+    mode,
+    batch_count:
+      rows.length,
+    inserted,
+    skipped,
+
+    checkpoint_updated:
+      true,
+
+    checkpoint: {
+      cursor_timestamp:
+        lastRow.event_timestamp,
+      cursor_id:
+        lastRow.event_id,
+      last_success_at:
+        syncedAt,
+    },
+  };
+}
+
+
+function toSheetValue(
+  value
+) {
+  if (
+    value === null ||
+    value === undefined
+  ) {
+    return "";
+  }
+
+  return String(value);
 }
