@@ -1,4 +1,4 @@
-import {
+﻿import {
   deliverWelcomeEmail,
 } from "./welcome-delivery.js";
 
@@ -1300,10 +1300,10 @@ async function handleGoogleSheetsTest(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     console.error(
-      "GOOGLE_SHEETS_TEST_TOKEN is missing"
+      "INTERNAL_SYNC_TOKEN is missing"
     );
 
     return jsonResponse(
@@ -1322,7 +1322,7 @@ async function handleGoogleSheetsTest(
     ) || "";
 
   const expectedAuthorization =
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`;
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`;
 
   if (
     authorization !==
@@ -1399,7 +1399,7 @@ async function handleGoogleSheetsTest(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -1418,7 +1418,7 @@ async function handleGoogleSheetsTest(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
@@ -1487,7 +1487,7 @@ async function handleSubscribersSyncRun(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -1506,7 +1506,7 @@ async function handleSubscribersSyncRun(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
@@ -1595,7 +1595,7 @@ async function handleSubscriptionEventsSyncDryRun(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -1614,7 +1614,7 @@ async function handleSubscriptionEventsSyncDryRun(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
@@ -1684,7 +1684,7 @@ async function handleSubscriptionEventsSyncRun(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -1703,7 +1703,7 @@ async function handleSubscriptionEventsSyncRun(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
@@ -1792,7 +1792,7 @@ async function handleEmailOutboxSyncDryRun(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -1811,7 +1811,7 @@ async function handleEmailOutboxSyncDryRun(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
@@ -1880,7 +1880,7 @@ async function handleEmailOutboxSyncRun(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -1899,7 +1899,7 @@ async function handleEmailOutboxSyncRun(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
@@ -1987,7 +1987,7 @@ async function handleEmailDeliveryEventsSyncDryRun(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -2006,7 +2006,7 @@ async function handleEmailDeliveryEventsSyncDryRun(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
@@ -2075,7 +2075,7 @@ async function handleEmailDeliveryEventsSyncDryRun(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -2094,7 +2094,7 @@ async function handleEmailDeliveryEventsSyncDryRun(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
@@ -2182,7 +2182,7 @@ async function handleSyncLogDryRun(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -2201,7 +2201,7 @@ async function handleSyncLogDryRun(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
@@ -2271,7 +2271,7 @@ async function handleSyncAllRun(
   }
 
   if (
-    !env.GOOGLE_SHEETS_TEST_TOKEN
+    !env.INTERNAL_SYNC_TOKEN
   ) {
     return jsonResponse(
       {
@@ -2290,7 +2290,7 @@ async function handleSyncAllRun(
 
   if (
     authorization !==
-    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+    `Bearer ${env.INTERNAL_SYNC_TOKEN}`
   ) {
     return jsonResponse(
       {
