@@ -16,6 +16,10 @@ import {
 } from "./subscribers-sync.js";
 
 import {
+  dryRunEmailOutboxSync,
+} from "./email-outbox-sync.js";
+
+import {
   dryRunSubscriptionEventsSync,
   syncSubscriptionEventsBatch,
 } from "./subscription-events-sync.js";
@@ -32,6 +36,7 @@ const CONFIG = {
   subscribersSyncRunPath: "/v1/internal/subscribers-sync-run",
   subscriptionEventsSyncDryRunPath: "/v1/internal/subscription-events-sync-dry-run",
   subscriptionEventsSyncRunPath: "/v1/internal/subscription-events-sync-run",
+  emailOutboxSyncDryRunPath: "/v1/internal/email-outbox-sync-dry-run",
   ctaLocation: "global_subscribe",
   allowedLanguages: new Set(["ar", "fr"]),
   maxBodyBytes: 4096,
@@ -50,7 +55,8 @@ export default {
   url.pathname !== CONFIG.subscribersSyncDryRunPath &&
   url.pathname !== CONFIG.subscribersSyncRunPath  &&
   url.pathname !== CONFIG.subscriptionEventsSyncDryRunPath &&
-  url.pathname !== CONFIG.subscriptionEventsSyncRunPath
+  url.pathname !== CONFIG.subscriptionEventsSyncRunPath &&
+  url.pathname !== CONFIG.emailOutboxSyncDryRunPath
 ) {
   return jsonResponse(
     {
@@ -130,6 +136,16 @@ if (
         headers: corsHeaders(origin),
       });
     }
+
+    if (
+  url.pathname ===
+  CONFIG.emailOutboxSyncDryRunPath
+) {
+  return handleEmailOutboxSyncDryRun(
+    request,
+    env
+  );
+}
 
     if (url.pathname === CONFIG.subscribePath) {
       return handleSubscribe(
@@ -1600,6 +1616,95 @@ async function handleSubscriptionEventsSyncRun(
         ok: false,
         status:
           "subscription_events_sync_failed",
+      },
+      502,
+      null
+    );
+  }
+}
+
+/* =========================================================
+   Email Outbox Sync Dry Run
+   ========================================================= */
+
+async function handleEmailOutboxSyncDryRun(
+  request,
+  env
+) {
+  if (request.method !== "GET") {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "method_not_allowed",
+      },
+      405,
+      null,
+      {
+        Allow: "GET",
+      }
+    );
+  }
+
+  if (
+    !env.GOOGLE_SHEETS_TEST_TOKEN
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "configuration_error",
+      },
+      503,
+      null
+    );
+  }
+
+  const authorization =
+    request.headers.get(
+      "Authorization"
+    ) || "";
+
+  if (
+    authorization !==
+    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "unauthorized",
+      },
+      401,
+      null
+    );
+  }
+
+  try {
+    const dryRun =
+      await dryRunEmailOutboxSync(
+        env
+      );
+
+    return jsonResponse(
+      {
+        ok: true,
+        status:
+          "email_outbox_sync_dry_run",
+        dry_run:
+          dryRun,
+      },
+      200,
+      null
+    );
+  } catch (error) {
+    console.error(
+      "Email outbox sync dry run failed",
+      error
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status:
+          "email_outbox_sync_dry_run_failed",
       },
       502,
       null
