@@ -241,11 +241,45 @@ if (
       );
     }
 
-    return handleUnsubscribe(
+        return handleUnsubscribe(
       request,
       env,
       origin
     );
+  },
+
+  async scheduled(
+    controller,
+    env,
+    ctx
+  ) {
+    const result =
+      await runAllGoogleSheetsSyncs(
+        env
+      );
+
+    console.log(
+      "Scheduled Google Sheets sync completed",
+      {
+        cron:
+          controller.cron,
+
+        sync_run_id:
+          result.sync_run_id,
+
+        succeeded:
+          result.succeeded,
+
+        failed:
+          result.failed,
+      }
+    );
+
+    if (result.failed > 0) {
+      throw new Error(
+        `Scheduled Google Sheets sync completed with ${result.failed} failed job(s)`
+      );
+    }
   },
 };
 
