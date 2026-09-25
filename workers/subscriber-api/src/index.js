@@ -92,6 +92,16 @@ if (
 
 if (
   url.pathname ===
+  CONFIG.emailDeliveryEventsSyncRunPath
+) {
+  return handleEmailDeliveryEventsSyncRun(
+    request,
+    env
+  );
+}
+
+if (
+  url.pathname ===
   CONFIG.subscriptionEventsSyncDryRunPath
 ) {
   return handleSubscriptionEventsSyncDryRun(
@@ -1387,19 +1397,6 @@ async function handleGoogleSheetsTest(
     );
   }
 }
-
-if (
-  url.pathname ===
-  CONFIG.emailDeliveryEventsSyncRunPath
-) {
-  return handleEmailDeliveryEventsSyncRun(
-    request,
-    env
-  );
-}
-
-
-
 /* =========================================================
    Subscribers Sync Run
    ========================================================= */
