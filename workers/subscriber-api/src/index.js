@@ -12,6 +12,7 @@ import {
 
 import {
   dryRunEmailDeliveryEventsSync,
+  syncEmailDeliveryEventsBatch,
 } from "./email-delivery-events-sync.js";
 
 import {
@@ -40,6 +41,7 @@ const CONFIG = {
   subscribersSyncDryRunPath: "/v1/internal/subscribers-sync-dry-run",
   subscribersSyncRunPath: "/v1/internal/subscribers-sync-run",
   subscriptionEventsSyncDryRunPath: "/v1/internal/subscription-events-sync-dry-run",
+  emailDeliveryEventsSyncRunPath: "/v1/internal/email-delivery-events-sync-run",
   subscriptionEventsSyncRunPath: "/v1/internal/subscription-events-sync-run",
   emailOutboxSyncDryRunPath: "/v1/internal/email-outbox-sync-dry-run",
   emailOutboxSyncRunPath: "/v1/internal/email-outbox-sync-run",
@@ -65,7 +67,8 @@ export default {
   url.pathname !== CONFIG.subscriptionEventsSyncRunPath &&
   url.pathname !== CONFIG.emailOutboxSyncDryRunPath &&
   url.pathname !== CONFIG.emailOutboxSyncRunPath &&
-  url.pathname !== CONFIG.emailDeliveryEventsSyncDryRunPath
+  url.pathname !== CONFIG.emailDeliveryEventsSyncDryRunPath  &&
+  url.pathname !== CONFIG.emailDeliveryEventsSyncRunPath
 ) {
   return jsonResponse(
     {
@@ -1385,6 +1388,16 @@ async function handleGoogleSheetsTest(
   }
 }
 
+if (
+  url.pathname ===
+  CONFIG.emailDeliveryEventsSyncRunPath
+) {
+  return handleEmailDeliveryEventsSyncRun(
+    request,
+    env
+  );
+}
+
 
 
 /* =========================================================
@@ -1913,6 +1926,94 @@ async function handleEmailDeliveryEventsSyncDryRun(
         ok: false,
         status:
           "email_delivery_events_sync_dry_run_failed",
+      },
+      502,
+      null
+    );
+  }
+}
+
+/* =========================================================
+   Email Delivery Events Sync Run
+   ========================================================= */
+
+async function handleEmailDeliveryEventsSyncRun(
+  request,
+  env
+) {
+  if (request.method !== "POST") {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "method_not_allowed",
+      },
+      405,
+      null,
+      {
+        Allow: "POST",
+      }
+    );
+  }
+
+  if (
+    !env.GOOGLE_SHEETS_TEST_TOKEN
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "configuration_error",
+      },
+      503,
+      null
+    );
+  }
+
+  const authorization =
+    request.headers.get(
+      "Authorization"
+    ) || "";
+
+  if (
+    authorization !==
+    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "unauthorized",
+      },
+      401,
+      null
+    );
+  }
+
+  try {
+    const sync =
+      await syncEmailDeliveryEventsBatch(
+        env
+      );
+
+    return jsonResponse(
+      {
+        ok: true,
+        status:
+          "email_delivery_events_sync_completed",
+        sync,
+      },
+      200,
+      null
+    );
+  } catch (error) {
+    console.error(
+      "Email delivery events sync failed",
+      error
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status:
+          "email_delivery_events_sync_failed",
       },
       502,
       null
