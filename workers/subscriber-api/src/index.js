@@ -17,6 +17,7 @@ import {
 
 import {
   dryRunEmailOutboxSync,
+  syncEmailOutboxBatch,
 } from "./email-outbox-sync.js";
 
 import {
@@ -37,6 +38,7 @@ const CONFIG = {
   subscriptionEventsSyncDryRunPath: "/v1/internal/subscription-events-sync-dry-run",
   subscriptionEventsSyncRunPath: "/v1/internal/subscription-events-sync-run",
   emailOutboxSyncDryRunPath: "/v1/internal/email-outbox-sync-dry-run",
+  emailOutboxSyncRunPath: "/v1/internal/email-outbox-sync-run",
   ctaLocation: "global_subscribe",
   allowedLanguages: new Set(["ar", "fr"]),
   maxBodyBytes: 4096,
@@ -56,6 +58,7 @@ export default {
   url.pathname !== CONFIG.subscribersSyncRunPath  &&
   url.pathname !== CONFIG.subscriptionEventsSyncDryRunPath &&
   url.pathname !== CONFIG.subscriptionEventsSyncRunPath &&
+  url.pathname !== CONFIG.emailOutboxSyncDryRunPath &&
   url.pathname !== CONFIG.emailOutboxSyncDryRunPath
 ) {
   return jsonResponse(
@@ -142,6 +145,16 @@ if (
   CONFIG.emailOutboxSyncDryRunPath
 ) {
   return handleEmailOutboxSyncDryRun(
+    request,
+    env
+  );
+}
+
+if (
+  url.pathname ===
+  CONFIG.emailOutboxSyncRunPath
+) {
+  return handleEmailOutboxSyncRun(
     request,
     env
   );
@@ -1356,6 +1369,8 @@ async function handleGoogleSheetsTest(
   }
 }
 
+
+
 /* =========================================================
    Subscribers Sync Run
    ========================================================= */
@@ -1712,6 +1727,93 @@ async function handleEmailOutboxSyncDryRun(
   }
 }
 
+/* =========================================================
+   Email Outbox Sync Run
+   ========================================================= */
+
+async function handleEmailOutboxSyncRun(
+  request,
+  env
+) {
+  if (request.method !== "POST") {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "method_not_allowed",
+      },
+      405,
+      null,
+      {
+        Allow: "POST",
+      }
+    );
+  }
+
+  if (
+    !env.GOOGLE_SHEETS_TEST_TOKEN
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "configuration_error",
+      },
+      503,
+      null
+    );
+  }
+
+  const authorization =
+    request.headers.get(
+      "Authorization"
+    ) || "";
+
+  if (
+    authorization !==
+    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "unauthorized",
+      },
+      401,
+      null
+    );
+  }
+
+  try {
+    const sync =
+      await syncEmailOutboxBatch(
+        env
+      );
+
+    return jsonResponse(
+      {
+        ok: true,
+        status:
+          "email_outbox_sync_completed",
+        sync,
+      },
+      200,
+      null
+    );
+  } catch (error) {
+    console.error(
+      "Email outbox sync failed",
+      error
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status:
+          "email_outbox_sync_failed",
+      },
+      502,
+      null
+    );
+  }
+}
 /* =========================================================
    Rate Limiting
    ========================================================= */
