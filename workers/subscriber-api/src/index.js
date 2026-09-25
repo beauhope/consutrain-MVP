@@ -59,7 +59,7 @@ export default {
   url.pathname !== CONFIG.subscriptionEventsSyncDryRunPath &&
   url.pathname !== CONFIG.subscriptionEventsSyncRunPath &&
   url.pathname !== CONFIG.emailOutboxSyncDryRunPath &&
-  url.pathname !== CONFIG.emailOutboxSyncDryRunPath
+  url.pathname !== CONFIG.emailOutboxSyncRunPath
 ) {
   return jsonResponse(
     {
