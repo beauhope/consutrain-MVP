@@ -8,6 +8,10 @@ import {
 } from "./sync-log.js";
 
 import {
+  runAllGoogleSheetsSyncs,
+} from "./sync-all.js";
+
+import {
   handleResendWebhook,
 } from "./resend-webhook.js";
 
@@ -52,6 +56,7 @@ const CONFIG = {
   emailOutboxSyncRunPath: "/v1/internal/email-outbox-sync-run",
   emailDeliveryEventsSyncDryRunPath: "/v1/internal/email-delivery-events-sync-dry-run",
   syncLogDryRunPath: "/v1/internal/sync-log-dry-run",
+  syncAllRunPath:   "/v1/internal/sync-all-run",
   ctaLocation: "global_subscribe",
   allowedLanguages: new Set(["ar", "fr"]),
   maxBodyBytes: 4096,
@@ -75,7 +80,8 @@ export default {
   url.pathname !== CONFIG.emailOutboxSyncRunPath &&
   url.pathname !== CONFIG.emailDeliveryEventsSyncDryRunPath  &&
   url.pathname !== CONFIG.emailDeliveryEventsSyncRunPath  &&
-  url.pathname !== CONFIG.syncLogDryRunPath
+  url.pathname !== CONFIG.syncLogDryRunPath &&
+  url.pathname !== CONFIG.syncAllRunPath
 ) {
   return jsonResponse(
     {
@@ -92,6 +98,16 @@ if (
   CONFIG.syncLogDryRunPath
 ) {
   return handleSyncLogDryRun(
+    request,
+    env
+  );
+}
+
+if (
+  url.pathname ===
+  CONFIG.syncAllRunPath
+) {
+  return handleSyncAllRun(
     request,
     env
   );
@@ -2191,6 +2207,105 @@ async function handleSyncLogDryRun(
         ok: false,
         status:
           "sync_log_dry_run_failed",
+      },
+      502,
+      null
+    );
+  }
+}
+
+/* =========================================================
+   Sync All Run
+   ========================================================= */
+
+async function handleSyncAllRun(
+  request,
+  env
+) {
+  if (request.method !== "POST") {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "method_not_allowed",
+      },
+      405,
+      null,
+      {
+        Allow: "POST",
+      }
+    );
+  }
+
+  if (
+    !env.GOOGLE_SHEETS_TEST_TOKEN
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "configuration_error",
+      },
+      503,
+      null
+    );
+  }
+
+  const authorization =
+    request.headers.get(
+      "Authorization"
+    ) || "";
+
+  if (
+    authorization !==
+    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "unauthorized",
+      },
+      401,
+      null
+    );
+  }
+
+  try {
+    const result =
+      await runAllGoogleSheetsSyncs(
+        env
+      );
+
+    const allSucceeded =
+      result.failed === 0;
+
+    return jsonResponse(
+      {
+        ok:
+          allSucceeded,
+
+        status:
+          allSucceeded
+            ? "sync_all_completed"
+            : "sync_all_completed_with_errors",
+
+        sync_all:
+          result,
+      },
+      allSucceeded
+        ? 200
+        : 207,
+      null
+    );
+  } catch (error) {
+    console.error(
+      "Sync all failed",
+      error
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status:
+          "sync_all_failed",
       },
       502,
       null
