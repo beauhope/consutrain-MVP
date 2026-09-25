@@ -11,6 +11,10 @@ import {
 } from "./google-sheets.js";
 
 import {
+  dryRunEmailDeliveryEventsSync,
+} from "./email-delivery-events-sync.js";
+
+import {
   dryRunSubscribersSync,
   syncSubscribersBatch,
 } from "./subscribers-sync.js";
@@ -39,6 +43,7 @@ const CONFIG = {
   subscriptionEventsSyncRunPath: "/v1/internal/subscription-events-sync-run",
   emailOutboxSyncDryRunPath: "/v1/internal/email-outbox-sync-dry-run",
   emailOutboxSyncRunPath: "/v1/internal/email-outbox-sync-run",
+  emailDeliveryEventsSyncDryRunPath: "/v1/internal/email-delivery-events-sync-dry-run",
   ctaLocation: "global_subscribe",
   allowedLanguages: new Set(["ar", "fr"]),
   maxBodyBytes: 4096,
@@ -59,7 +64,8 @@ export default {
   url.pathname !== CONFIG.subscriptionEventsSyncDryRunPath &&
   url.pathname !== CONFIG.subscriptionEventsSyncRunPath &&
   url.pathname !== CONFIG.emailOutboxSyncDryRunPath &&
-  url.pathname !== CONFIG.emailOutboxSyncRunPath
+  url.pathname !== CONFIG.emailOutboxSyncRunPath &&
+  url.pathname !== CONFIG.emailDeliveryEventsSyncDryRunPath
 ) {
   return jsonResponse(
     {
@@ -68,6 +74,16 @@ export default {
     },
     404,
     origin
+  );
+}
+
+if (
+  url.pathname ===
+  CONFIG.emailDeliveryEventsSyncDryRunPath
+) {
+  return handleEmailDeliveryEventsSyncDryRun(
+    request,
+    env
   );
 }
 
@@ -1814,6 +1830,96 @@ async function handleEmailOutboxSyncRun(
     );
   }
 }
+
+/* =========================================================
+   Email Delivery Events Sync Dry Run
+   ========================================================= */
+
+async function handleEmailDeliveryEventsSyncDryRun(
+  request,
+  env
+) {
+  if (request.method !== "GET") {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "method_not_allowed",
+      },
+      405,
+      null,
+      {
+        Allow: "GET",
+      }
+    );
+  }
+
+  if (
+    !env.GOOGLE_SHEETS_TEST_TOKEN
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "configuration_error",
+      },
+      503,
+      null
+    );
+  }
+
+  const authorization =
+    request.headers.get(
+      "Authorization"
+    ) || "";
+
+  if (
+    authorization !==
+    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "unauthorized",
+      },
+      401,
+      null
+    );
+  }
+
+  try {
+    const dryRun =
+      await dryRunEmailDeliveryEventsSync(
+        env
+      );
+
+    return jsonResponse(
+      {
+        ok: true,
+        status:
+          "email_delivery_events_sync_dry_run",
+        dry_run:
+          dryRun,
+      },
+      200,
+      null
+    );
+  } catch (error) {
+    console.error(
+      "Email delivery events sync dry run failed",
+      error
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status:
+          "email_delivery_events_sync_dry_run_failed",
+      },
+      502,
+      null
+    );
+  }
+}
+
 /* =========================================================
    Rate Limiting
    ========================================================= */
