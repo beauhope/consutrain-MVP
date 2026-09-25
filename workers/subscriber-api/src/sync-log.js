@@ -241,3 +241,325 @@ function toSheetValue(
 
   return String(value);
 }
+
+export async function runSyncWithLog(
+  env,
+  options
+) {
+  const {
+    syncName,
+    sourceTable,
+    targetTab,
+    runSync,
+    syncRunId:
+      providedSyncRunId = null,
+  } = options;
+
+  if (
+    !syncName ||
+    !sourceTable ||
+    !targetTab ||
+    typeof runSync !== "function"
+  ) {
+    throw new Error(
+      "Sync log runner options are incomplete"
+    );
+  }
+
+  const syncRunId =
+    providedSyncRunId ||
+    crypto.randomUUID();
+
+  const syncLogId =
+    crypto.randomUUID();
+
+  const startedMs =
+    Date.now();
+
+  const startedAt =
+    new Date(
+      startedMs
+    ).toISOString();
+
+  const checkpointBefore =
+    await readCheckpoint(
+      env,
+      syncName
+    );
+
+  const derivedMode =
+    checkpointBefore
+      ?.cursor_timestamp &&
+    checkpointBefore
+      ?.cursor_id
+      ? "incremental"
+      : "full";
+
+  try {
+    const sync =
+      await runSync();
+
+    const completedMs =
+      Date.now();
+
+    const completedAt =
+      new Date(
+        completedMs
+      ).toISOString();
+
+    const checkpointAfter =
+      await readCheckpoint(
+        env,
+        syncName
+      );
+
+    let logWritten =
+      false;
+
+    let logError =
+      null;
+
+    try {
+      await appendSyncLog(
+        env,
+        {
+          sync_log_id:
+            syncLogId,
+
+          sync_run_id:
+            syncRunId,
+
+          source_table:
+            sourceTable,
+
+          target_tab:
+            targetTab,
+
+          sync_mode:
+            sync.mode ||
+            derivedMode,
+
+          started_at:
+            startedAt,
+
+          completed_at:
+            completedAt,
+
+          status:
+            "success",
+
+          records_read:
+            sync.batch_count ??
+            0,
+
+          records_inserted:
+            sync.inserted ??
+            0,
+
+          records_updated:
+            sync.updated ??
+            0,
+
+          records_skipped:
+            sync.skipped ??
+            0,
+
+          records_failed:
+            0,
+
+          checkpoint_before:
+            checkpointBefore,
+
+          checkpoint_after:
+            checkpointAfter,
+
+          error_message:
+            "",
+
+          duration_ms:
+            completedMs -
+            startedMs,
+        }
+      );
+
+      logWritten =
+        true;
+    } catch (error) {
+      console.error(
+        "Sync log write failed",
+        error
+      );
+
+      logError =
+        errorToMessage(
+          error
+        );
+    }
+
+    return {
+      sync,
+
+      audit: {
+        sync_run_id:
+          syncRunId,
+
+        sync_log_id:
+          syncLogId,
+
+        log_written:
+          logWritten,
+
+        log_error:
+          logError,
+      },
+    };
+  } catch (error) {
+    const completedMs =
+      Date.now();
+
+    const completedAt =
+      new Date(
+        completedMs
+      ).toISOString();
+
+    let checkpointAfter =
+      null;
+
+    try {
+      checkpointAfter =
+        await readCheckpoint(
+          env,
+          syncName
+        );
+    } catch (
+      checkpointError
+    ) {
+      console.error(
+        "Failed to read checkpoint after sync error",
+        checkpointError
+      );
+    }
+
+    try {
+      await appendSyncLog(
+        env,
+        {
+          sync_log_id:
+            syncLogId,
+
+          sync_run_id:
+            syncRunId,
+
+          source_table:
+            sourceTable,
+
+          target_tab:
+            targetTab,
+
+          sync_mode:
+            derivedMode,
+
+          started_at:
+            startedAt,
+
+          completed_at:
+            completedAt,
+
+          status:
+            "failed",
+
+          records_read:
+            0,
+
+          records_inserted:
+            0,
+
+          records_updated:
+            0,
+
+          records_skipped:
+            0,
+
+          records_failed:
+            0,
+
+          checkpoint_before:
+            checkpointBefore,
+
+          checkpoint_after:
+            checkpointAfter,
+
+          error_message:
+            errorToMessage(
+              error
+            ),
+
+          duration_ms:
+            completedMs -
+            startedMs,
+        }
+      );
+    } catch (
+      logError
+    ) {
+      console.error(
+        "Failed sync log write also failed",
+        logError
+      );
+    }
+
+    throw error;
+  }
+}
+
+
+async function readCheckpoint(
+  env,
+  syncName
+) {
+  const checkpoint =
+    await env.SUBSCRIBERS_DB
+      .prepare(`
+        SELECT
+          cursor_timestamp,
+          cursor_id,
+          last_success_at
+        FROM sync_checkpoints
+        WHERE sync_name = ?1
+        LIMIT 1
+      `)
+      .bind(
+        syncName
+      )
+      .first();
+
+  if (!checkpoint) {
+    throw new Error(
+      `Sync checkpoint not found: ${syncName}`
+    );
+  }
+
+  return {
+    cursor_timestamp:
+      checkpoint.cursor_timestamp,
+    cursor_id:
+      checkpoint.cursor_id,
+    last_success_at:
+      checkpoint.last_success_at,
+  };
+}
+
+
+function errorToMessage(
+  error
+) {
+  const message =
+    error instanceof Error
+      ? error.message
+      : String(error);
+
+  return message.slice(
+    0,
+    1000
+  );
+}

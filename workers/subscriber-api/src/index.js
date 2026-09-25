@@ -4,6 +4,7 @@ import {
 
 import {
   dryRunSyncLog,
+  runSyncWithLog,
 } from "./sync-log.js";
 
 import {
@@ -1468,22 +1469,41 @@ async function handleSubscribersSyncRun(
   }
 
   try {
-    const result =
-      await syncSubscribersBatch(
-        env
-      );
-
-    return jsonResponse(
+  const result =
+    await runSyncWithLog(
+      env,
       {
-        ok: true,
-        status:
-          "subscribers_sync_completed",
-        sync:
-          result,
-      },
-      200,
-      null
+        syncName:
+          "subscribers_to_sheets",
+
+        sourceTable:
+          "subscribers",
+
+        targetTab:
+          "Subscribers",
+
+        runSync: () =>
+          syncSubscribersBatch(
+            env
+          ),
+      }
     );
+
+  return jsonResponse(
+    {
+      ok: true,
+      status:
+        "subscribers_sync_completed",
+
+      sync:
+        result.sync,
+
+      audit:
+        result.audit,
+    },
+    200,
+    null
+  );
   } catch (error) {
     console.error(
       "Subscribers sync failed",
