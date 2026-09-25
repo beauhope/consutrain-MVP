@@ -3,6 +3,10 @@ import {
 } from "./welcome-delivery.js";
 
 import {
+  dryRunSyncLog,
+} from "./sync-log.js";
+
+import {
   handleResendWebhook,
 } from "./resend-webhook.js";
 
@@ -46,6 +50,7 @@ const CONFIG = {
   emailOutboxSyncDryRunPath: "/v1/internal/email-outbox-sync-dry-run",
   emailOutboxSyncRunPath: "/v1/internal/email-outbox-sync-run",
   emailDeliveryEventsSyncDryRunPath: "/v1/internal/email-delivery-events-sync-dry-run",
+  syncLogDryRunPath: "/v1/internal/sync-log-dry-run",
   ctaLocation: "global_subscribe",
   allowedLanguages: new Set(["ar", "fr"]),
   maxBodyBytes: 4096,
@@ -68,7 +73,8 @@ export default {
   url.pathname !== CONFIG.emailOutboxSyncDryRunPath &&
   url.pathname !== CONFIG.emailOutboxSyncRunPath &&
   url.pathname !== CONFIG.emailDeliveryEventsSyncDryRunPath  &&
-  url.pathname !== CONFIG.emailDeliveryEventsSyncRunPath
+  url.pathname !== CONFIG.emailDeliveryEventsSyncRunPath  &&
+  url.pathname !== CONFIG.syncLogDryRunPath
 ) {
   return jsonResponse(
     {
@@ -77,6 +83,16 @@ export default {
     },
     404,
     origin
+  );
+}
+
+if (
+  url.pathname ===
+  CONFIG.syncLogDryRunPath
+) {
+  return handleSyncLogDryRun(
+    request,
+    env
   );
 }
 
@@ -2011,6 +2027,95 @@ async function handleEmailDeliveryEventsSyncRun(
         ok: false,
         status:
           "email_delivery_events_sync_failed",
+      },
+      502,
+      null
+    );
+  }
+}
+
+/* =========================================================
+   Sync Log Dry Run
+   ========================================================= */
+
+async function handleSyncLogDryRun(
+  request,
+  env
+) {
+  if (request.method !== "GET") {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "method_not_allowed",
+      },
+      405,
+      null,
+      {
+        Allow: "GET",
+      }
+    );
+  }
+
+  if (
+    !env.GOOGLE_SHEETS_TEST_TOKEN
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "configuration_error",
+      },
+      503,
+      null
+    );
+  }
+
+  const authorization =
+    request.headers.get(
+      "Authorization"
+    ) || "";
+
+  if (
+    authorization !==
+    `Bearer ${env.GOOGLE_SHEETS_TEST_TOKEN}`
+  ) {
+    return jsonResponse(
+      {
+        ok: false,
+        status: "unauthorized",
+      },
+      401,
+      null
+    );
+  }
+
+  try {
+    const dryRun =
+      await dryRunSyncLog(
+        env
+      );
+
+    return jsonResponse(
+      {
+        ok: true,
+        status:
+          "sync_log_dry_run",
+        dry_run:
+          dryRun,
+      },
+      200,
+      null
+    );
+  } catch (error) {
+    console.error(
+      "Sync log dry run failed",
+      error
+    );
+
+    return jsonResponse(
+      {
+        ok: false,
+        status:
+          "sync_log_dry_run_failed",
       },
       502,
       null
