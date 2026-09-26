@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "consutrain-ai-gateway",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-26",
+  "workers_dev": true,
+  "ai": {
+    "binding": "AI"
+  },
+  "vars": {
+    "PRIMARY_AI_MODEL": "@cf/google/gemma-4-26b-a4b-it",
+    "FALLBACK_AI_MODEL": "@cf/zai-org/glm-4.7-flash"
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    }
+  },
+  "secrets": {
+    "required": [
+      "AI_GATEWAY_TOKEN"
+    ]
+  },
+  "preview_urls": false
+}
