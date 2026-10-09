@@ -1,25 +1,45 @@
 {
   "articles": [
     {
-  "id": "communication-gouvernance-clarte-roles",
-  "content_type": "article",
-  "language": "fr",
-  "title": "Quand le problème n’est pas la communication, mais la gouvernance",
-  "excerpt": "Certaines difficultés semblent venir de la communication alors que leur origine réelle est l’ambiguïté des rôles, des responsabilités et des mécanismes de décision.",
-  "date": "2026-09-22",
-  "category": "Gouvernance et organisation",
-  "tags": [
-    "Gouvernance",
-    "Communication organisationnelle",
-    "Clarté des rôles",
-    "Responsabilités",
-    "RACI",
-    "Prise de décision"
-  ],
-  "url": "communication-gouvernance-clarte-roles.html",
-  "image_url": "../../assets/images/articles/communication-governance-role-clarity.webp",
-  "image_alt": "Une équipe passe d’une communication confuse et de responsabilités ambiguës à une organisation plus claire des rôles, des décisions et de la gouvernance."
-},
+      "id": "what-is-claude-code",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "De l'idée à l'exécution : Comment l'IA de codage redéfinit l'efficacité managériale",
+      "excerpt": "Cet article analyse l'impact des outils de codage pilotés par l'IA, tels que Claude Code, sur l'efficacité opérationnelle. Nous explorons comment les dirigeants peuvent transformer une vision stratégique en flux de travail concrets, réduisant ainsi l'écart entre la gestion et la technique. L'article aborde également les enjeux de gouvernance, les risques de sécurité et les étapes clés pour une intégration réussie.",
+      "date": "2026-10-08",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "tech-radar",
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "claude",
+        "code"
+      ],
+      "url": "what-is-claude-code.html",
+      "image_url": "../../assets/images/articles/what-is-claude-code.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à De l'idée à l'exécution : Comment l'IA de codage redéfinit l'efficacité managériale"
+    },
+    {
+      "id": "communication-gouvernance-clarte-roles",
+      "content_type": "article",
+      "language": "fr",
+      "title": "Quand le problème n’est pas la communication, mais la gouvernance",
+      "excerpt": "Certaines difficultés semblent venir de la communication alors que leur origine réelle est l’ambiguïté des rôles, des responsabilités et des mécanismes de décision.",
+      "date": "2026-09-22",
+      "category": "Gouvernance et organisation",
+      "tags": [
+        "Gouvernance",
+        "Communication organisationnelle",
+        "Clarté des rôles",
+        "Responsabilités",
+        "RACI",
+        "Prise de décision"
+      ],
+      "url": "communication-gouvernance-clarte-roles.html",
+      "image_url": "../../assets/images/articles/communication-governance-role-clarity.webp",
+      "image_alt": "Une équipe passe d’une communication confuse et de responsabilités ambiguës à une organisation plus claire des rôles, des décisions et de la gouvernance."
+    },
     {
       "id": "clarte-organisationnelle-raci-gouvernance",
       "content_type": "article",

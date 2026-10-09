@@ -1,30 +1,61 @@
 {
   "articles": [
     {
-  "id": "communication-governance-role-clarity",
-  "fr_url": "../fr/learn/communication-gouvernance-clarte-roles.html",
-  "content_type": "article",
-  "language": "ar",
-  "title": "حين لا تكون المشكلة في التواصل بل في الحوكمة",
-  "excerpt": "قد تبدو بعض المشكلات التنظيمية وكأنها ضعف في التواصل، بينما يكون السبب الحقيقي غموض المسؤوليات والصلاحيات وآلية اتخاذ القرار. كيف نفرق بين الحالتين؟",
-  "date": "2026-09-22",
-  "category": "الحوكمة والتنظيم",
-  "tags": [
-    "الحوكمة",
-    "التواصل المؤسسي",
-    "وضوح الأدوار",
-    "المسؤوليات",
-    "RACI",
-    "اتخاذ القرار"
-  ],
-  "url": "communication-governance-role-clarity.html",
-  "image_url": "../assets/images/articles/communication-governance-role-clarity.webp",
-  "card_image_url": "../assets/images/articles/communication-governance-role-clarity.webp",
-  "image_alt": "فريق عمل ينتقل من تداخل الاتصالات وغموض المسؤوليات إلى وضوح الأدوار والقرارات والحوكمة.",
-  "related_articles": [
-    "organizational-clarity-raci-governance"
-  ]
-},
+      "id": "what-is-claude-code",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "ar",
+      "title": "من الفكرة إلى التنفيذ: كيف تعيد أدوات البرمجة بالذكاء الاصطناعي صياغة الكفاءة الإدارية",
+      "excerpt": "يستعرض هذا المقال التحول الجذري الذي تفرضه أدوات البرمجة المدعومة بالذكاء الاصطناعي، مثل Claude Code، على العمليات التنظيمية. نناقش كيف يمكن للقادة تحويل الأفكار إلى نماذج عمل ملموسة، وتقليل الفجوة بين الرؤية الإدارية والتنفيذ التقني، مع تسليط الضوء على استراتيجيات الحوكمة، وإدارة المخاطر، والخطوات العملية لتبني هذه التقنيات لتعزيز الكفاءة وتقليل الأخطاء البشرية.",
+      "date": "2026-10-08",
+      "category": "الذكاء الاصطناعي والإدارة",
+      "tags": [
+        "tech-radar",
+        "الرادار التقني",
+        "الذكاء الاصطناعي والإدارة",
+        "claude",
+        "code"
+      ],
+      "url": "what-is-claude-code.html",
+      "image_url": "../assets/images/articles/what-is-claude-code.jpg",
+      "image_alt": "صورة توضيحية لمقال ConsuTrain حول من الفكرة إلى التنفيذ: كيف تعيد أدوات البرمجة بالذكاء الاصطناعي صياغة الكفاءة الإدارية",
+      "video_title": "",
+      "video_url": "",
+      "source_material": [],
+      "related_terms": [
+        "claude",
+        "code"
+      ],
+      "related_articles": [],
+      "content": [
+        "يستعرض هذا المقال التحول الجذري الذي تفرضه أدوات البرمجة المدعومة بالذكاء الاصطناعي، مثل Claude Code، على العمليات التنظيمية. نناقش كيف يمكن للقادة تحويل الأفكار إلى نماذج عمل ملموسة، وتقليل الفجوة بين الرؤية الإدارية والتنفيذ التقني، مع تسليط الضوء على استراتيجيات الحوكمة، وإدارة المخاطر، والخطوات العملية لتبني هذه التقنيات لتعزيز الكفاءة وتقليل الأخطاء البشرية."
+      ]
+    },
+    {
+      "id": "communication-governance-role-clarity",
+      "fr_url": "../fr/learn/communication-gouvernance-clarte-roles.html",
+      "content_type": "article",
+      "language": "ar",
+      "title": "حين لا تكون المشكلة في التواصل بل في الحوكمة",
+      "excerpt": "قد تبدو بعض المشكلات التنظيمية وكأنها ضعف في التواصل، بينما يكون السبب الحقيقي غموض المسؤوليات والصلاحيات وآلية اتخاذ القرار. كيف نفرق بين الحالتين؟",
+      "date": "2026-09-22",
+      "category": "الحوكمة والتنظيم",
+      "tags": [
+        "الحوكمة",
+        "التواصل المؤسسي",
+        "وضوح الأدوار",
+        "المسؤوليات",
+        "RACI",
+        "اتخاذ القرار"
+      ],
+      "url": "communication-governance-role-clarity.html",
+      "image_url": "../assets/images/articles/communication-governance-role-clarity.webp",
+      "card_image_url": "../assets/images/articles/communication-governance-role-clarity.webp",
+      "image_alt": "فريق عمل ينتقل من تداخل الاتصالات وغموض المسؤوليات إلى وضوح الأدوار والقرارات والحوكمة.",
+      "related_articles": [
+        "organizational-clarity-raci-governance"
+      ]
+    },
     {
       "id": "organizational-clarity-raci-governance",
       "fr_url": "../fr/learn/clarte-organisationnelle-raci-gouvernance.html",
