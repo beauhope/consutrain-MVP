@@ -226,6 +226,31 @@
           </div>
         </div>
 
+        <!-- =====================================================
+             DYNAMIC TECH RADAR ARTICLES
+             Automatically loaded from fr-articles.json
+             ===================================================== -->
+        <div id="frDynamicTechRadarSection" hidden>
+
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Radar technologique</span>
+
+              <h2>Derniers articles du radar technologique</h2>
+
+              <p>
+                Les nouvelles analyses du radar ConsuTrain sont ajoutées
+                automatiquement à partir de la bibliothèque de données.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="cards-grid"
+            id="frDynamicTechRadarArticles"
+          ></div>
+
+        </div>
         <div class="cards-grid">
 
           <!-- Nouvel article : Communication & gouvernance -->
@@ -662,5 +687,175 @@
 
   <script src="../../assets/js/includes.js?v=20260616_fr_learn_batch_one"></script>
 
+
+  <script>
+    (function () {
+      function escapeHtml(value) {
+        const div = document.createElement("div");
+        div.textContent = value || "";
+        return div.innerHTML;
+      }
+
+      function isTechRadarArticle(article) {
+        const tags = Array.isArray(article.tags) ? article.tags : [];
+
+        return (
+          article.contentType === "tech-radar" ||
+          article.content_type === "tech-radar" ||
+          article.category === "tech-radar" ||
+          tags.includes("tech-radar")
+        );
+      }
+
+      function articleTime(article) {
+        const time = new Date(article.date || "").getTime();
+        return Number.isNaN(time) ? 0 : time;
+      }
+
+      function buildDynamicArticleCard(article) {
+        const title = escapeHtml(article.title);
+        const excerpt = escapeHtml(article.excerpt);
+        const category = escapeHtml(
+          article.category || "Radar technologique"
+        );
+
+        const url = escapeHtml(article.url || "#");
+
+        const imageUrl =
+          article.card_image_url ||
+          article.image_url ||
+          "";
+
+        const imageAlt = escapeHtml(
+          article.image_alt ||
+          article.title ||
+          ""
+        );
+
+        const imageHtml = imageUrl
+          ? `
+            <figure class="article-visual">
+              <img
+                loading="lazy"
+                src="${escapeHtml(imageUrl)}"
+                alt="${imageAlt}"
+              >
+            </figure>
+          `
+          : "";
+
+        return `
+          <article
+            class="section-card fr-learn-card"
+            data-french-dynamic-tech-radar-card
+          >
+
+            <span class="eyebrow">
+              ${category}
+            </span>
+
+            <h3>
+              ${title}
+            </h3>
+
+            ${imageHtml}
+
+            ${excerpt ? `<p>${excerpt}</p>` : ""}
+
+            <a
+              class="btn btn-secondary btn-small"
+              href="${url}"
+            >
+              Lire l’article
+            </a>
+
+          </article>
+        `;
+      }
+
+      async function loadDynamicTechRadarArticles() {
+        const section =
+          document.getElementById("frDynamicTechRadarSection");
+
+        const container =
+          document.getElementById("frDynamicTechRadarArticles");
+
+        if (!section || !container) return;
+
+        try {
+          const response = await fetch(
+            `../../assets/data/fr-articles.json?v=${Date.now()}`,
+            { cache: "no-store" }
+          );
+
+          if (!response.ok) {
+            throw new Error(
+              "Unable to load fr-articles.json"
+            );
+          }
+
+          const data = await response.json();
+
+          const sourceArticles =
+            Array.isArray(data)
+              ? data
+              : Array.isArray(data.articles)
+                ? data.articles
+                : [];
+
+          /*
+           * URLs already represented by the manually maintained
+           * French cards are excluded to prevent duplicates.
+           */
+          const existingUrls = new Set(
+            Array.from(
+              document.querySelectorAll(
+                "[data-french-article-card] a[href]"
+              )
+            )
+              .map((link) => link.getAttribute("href"))
+              .filter(Boolean)
+          );
+
+          const dynamicArticles = sourceArticles
+            .filter(isTechRadarArticle)
+            .filter(
+              (article) =>
+                article.url &&
+                !existingUrls.has(article.url)
+            )
+            .sort(
+              (a, b) =>
+                articleTime(b) - articleTime(a)
+            );
+
+          if (!dynamicArticles.length) {
+            section.hidden = true;
+            return;
+          }
+
+          container.innerHTML =
+            dynamicArticles
+              .map(buildDynamicArticleCard)
+              .join("");
+
+          section.hidden = false;
+
+        } catch (error) {
+          console.error(
+            "French dynamic Tech Radar loading error:",
+            error
+          );
+
+          section.hidden = true;
+        }
+      }
+
+      document.addEventListener(
+        "DOMContentLoaded",
+        loadDynamicTechRadarArticles
+      );
+    })();
+  </script>
 </body>
 </html>
