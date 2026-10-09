@@ -13,23 +13,25 @@
         "tech-radar",
         "Radar technologique",
         "Intelligence artificielle et management",
-        "76",
-        "automating",
-        "doing",
-        "making",
-        "next",
-        "owners",
-        "safely",
-        "smb",
-        "step",
-        "sure",
-        "they",
-        "work"
+        "Automatisation",
+        "Gouvernance",
+        "Gestion des risques",
+        "PME",
+        "Flux de travail",
+        "Supervision humaine"
       ],
       "url": "76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely.html",
       "image_url": "../../assets/images/articles/76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely.jpg",
       "card_image_url": "../../assets/images/articles/76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely.jpg",
-      "image_alt": "Illustration de l’article ConsuTrain consacré à De l'enthousiasme à la gouvernance : Transformer l'automatisation en un levier de gestion structuré"
+      "image_alt": "Illustration de l’article ConsuTrain consacré à De l'enthousiasme à la gouvernance : Transformer l'automatisation en un levier de gestion structuré",
+      "related_terms": [
+        "Automatisation",
+        "Gouvernance",
+        "Gestion des risques",
+        "PME",
+        "Flux de travail",
+        "Supervision humaine"
+      ]
     },
     {
       "id": "what-is-claude-code",
