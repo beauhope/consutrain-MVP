@@ -1,6 +1,58 @@
 {
   "articles": [
     {
+      "id": "76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "ar",
+      "title": "من الحماس إلى الحوكمة: كيف تحول الأتمتة من مجرد تجربة إلى نظام إداري مستدام؟",
+      "excerpt": "تشير الإحصاءات إلى أن 76% من الشركات الصغيرة والمتوسطة بدأت بالفعل في اعتماد الأتمتة. ومع ذلك، يكمن التحدي الحقيقي في الانتقال من مرحلة الحماس الأولي إلى مرحلة الحوكمة المنظمة. يستعرض هذا المقال كيفية بناء سير عمل إداري آمن يقلل الأخطاء ويضمن الرقابة البشرية الفعالة.",
+      "date": "2026-10-09",
+      "category": "الذكاء الاصطناعي والإدارة",
+      "tags": [
+        "tech-radar",
+        "الرادار التقني",
+        "الذكاء الاصطناعي والإدارة",
+        "76",
+        "automating",
+        "doing",
+        "making",
+        "next",
+        "owners",
+        "safely",
+        "smb",
+        "step",
+        "sure",
+        "they",
+        "work"
+      ],
+      "url": "76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely.html",
+      "image_url": "../assets/images/articles/76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely.jpg",
+      "card_image_url": "../assets/images/articles/76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely.jpg",
+      "image_alt": "صورة توضيحية لمقال ConsuTrain حول من الحماس إلى الحوكمة: كيف تحول الأتمتة من مجرد تجربة إلى نظام إداري مستدام؟",
+      "video_title": "",
+      "video_url": "",
+      "source_material": [],
+      "related_terms": [
+        "76",
+        "automating",
+        "doing",
+        "making",
+        "next",
+        "owners",
+        "safely",
+        "smb",
+        "step",
+        "sure",
+        "they",
+        "work"
+      ],
+      "related_articles": [],
+      "content": [
+        "تشير الإحصاءات إلى أن 76% من الشركات الصغيرة والمتوسطة بدأت بالفعل في اعتماد الأتمتة. ومع ذلك، يكمن التحدي الحقيقي في الانتقال من مرحلة الحماس الأولي إلى مرحلة الحوكمة المنظمة. يستعرض هذا المقال كيفية بناء سير عمل إداري آمن يقلل الأخطاء ويضمن الرقابة البشرية الفعالة."
+      ]
+    },
+    {
       "id": "what-is-claude-code",
       "content_type": "article",
       "contentType": "tech-radar",
