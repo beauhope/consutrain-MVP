@@ -1,6 +1,37 @@
 {
   "articles": [
     {
+      "id": "76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "De l'enthousiasme à la gouvernance : Transformer l'automatisation en un levier de gestion structuré",
+      "excerpt": "Alors que 76 % des PME adoptent déjà l'automatisation, le véritable défi réside dans la sécurisation de ces processus. Cet article explore comment passer d'une adoption impulsive à une stratégie de gouvernance maîtrisée, garantissant ainsi l'efficacité opérationnelle tout en minimisant les risques liés à l'intelligence artificielle.",
+      "date": "2026-10-09",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "tech-radar",
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "76",
+        "automating",
+        "doing",
+        "making",
+        "next",
+        "owners",
+        "safely",
+        "smb",
+        "step",
+        "sure",
+        "they",
+        "work"
+      ],
+      "url": "76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely.html",
+      "image_url": "../../assets/images/articles/76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely.jpg",
+      "card_image_url": "../../assets/images/articles/76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à De l'enthousiasme à la gouvernance : Transformer l'automatisation en un levier de gestion structuré"
+    },
+    {
       "id": "what-is-claude-code",
       "content_type": "article",
       "contentType": "tech-radar",
