@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "id": "the-5-best-kanban-tools-in-2026",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "La gestion visuelle des flux : Comment la méthode Kanban redéfinit l'efficacité organisationnelle",
+      "excerpt": "Cet article explore le rôle de la méthodologie Kanban dans la transformation des processus complexes en flux visuels organisés. L'analyse examine comment les dirigeants peuvent optimiser la productivité dans le marketing, les ventes et l'expérience client, tout en soulignant les stratégies d'adoption progressive, la gestion des risques et les questions clés pour un succès durable.",
+      "date": "2026-10-10",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Gestion des risques",
+        "Marketing",
+        "Transformation numérique",
+        "Expérience client"
+      ],
+      "url": "the-5-best-kanban-tools-in-2026.html",
+      "image_url": "../../assets/images/articles/the-5-best-kanban-tools-in-2026.jpg",
+      "card_image_url": "../../assets/images/articles/the-5-best-kanban-tools-in-2026.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à La gestion visuelle des flux : Comment la méthode Kanban redéfinit l'efficacité organisationnelle",
+      "related_terms": [
+        "Gestion des risques",
+        "Marketing",
+        "Transformation numérique",
+        "Expérience client"
+      ]
+    },
+    {
       "id": "76-of-smb-owners-are-automating-work-the-next-step-is-making-sure-they-re-doing-it-safely",
       "content_type": "article",
       "contentType": "tech-radar",
