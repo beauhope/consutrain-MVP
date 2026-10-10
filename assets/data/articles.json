@@ -1,43 +1,6 @@
 {
   "articles": [
     {
-      "id": "gemini-connectors-how-to-connect-gemini-enterprise-to-the-rest-of-your-tech-stack",
-      "content_type": "article",
-      "contentType": "tech-radar",
-      "language": "ar",
-      "title": "تكامل الذكاء الاصطناعي عبر المنظومة التقنية: من جزر البيانات المنعزلة إلى تدفقات العمل الذكية",
-      "excerpt": "يستعرض هذا المقال أهمية ربط نماذج الذكاء الاصطناعي مثل Gemini بكافة الأدوات المؤسسية (CRM، إدارة المشاريع، إلخ) لكسر عزلة البيانات. نناقش كيف يمكن للمديرين تحويل هذه التقنية إلى سير عمل مؤتمت يقلل الأخطاء البشرية، مع التركيز على الحوكمة، والمخاطر، ومنهجية التبني التدريجي لضمان تحقيق أقصى قيمة تنظيمية.",
-      "date": "2026-10-10",
-      "category": "الذكاء الاصطناعي والإدارة",
-      "tags": [
-        "الرادار التقني",
-        "الذكاء الاصطناعي والإدارة",
-        "الحوكمة",
-        "إدارة المخاطر",
-        "سير العمل",
-        "إدارة البيانات",
-        "إدارة المشاريع"
-      ],
-      "url": "gemini-connectors-how-to-connect-gemini-enterprise-to-the-rest-of-your-tech-stack.html",
-      "image_url": "../assets/images/articles/gemini-connectors-how-to-connect-gemini-enterprise-to-the-rest-of-your-tech-stack.jpg",
-      "card_image_url": "../assets/images/articles/gemini-connectors-how-to-connect-gemini-enterprise-to-the-rest-of-your-tech-stack.jpg",
-      "image_alt": "صورة توضيحية لمقال ConsuTrain حول تكامل الذكاء الاصطناعي عبر المنظومة التقنية: من جزر البيانات المنعزلة إلى تدفقات العمل الذكية",
-      "video_title": "",
-      "video_url": "",
-      "source_material": [],
-      "related_terms": [
-        "الحوكمة",
-        "إدارة المخاطر",
-        "سير العمل",
-        "إدارة البيانات",
-        "إدارة المشاريع"
-      ],
-      "related_articles": [],
-      "content": [
-        "يستعرض هذا المقال أهمية ربط نماذج الذكاء الاصطناعي مثل Gemini بكافة الأدوات المؤسسية (CRM، إدارة المشاريع، إلخ) لكسر عزلة البيانات. نناقش كيف يمكن للمديرين تحويل هذه التقنية إلى سير عمل مؤتمت يقلل الأخطاء البشرية، مع التركيز على الحوكمة، والمخاطر، ومنهجية التبني التدريجي لضمان تحقيق أقصى قيمة تنظيمية."
-      ]
-    },
-    {
       "id": "the-5-best-kanban-tools-in-2026",
       "content_type": "article",
       "contentType": "tech-radar",

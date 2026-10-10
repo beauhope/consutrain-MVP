@@ -1,36 +1,6 @@
 {
   "articles": [
     {
-      "id": "gemini-connectors-how-to-connect-gemini-enterprise-to-the-rest-of-your-tech-stack",
-      "content_type": "article",
-      "contentType": "tech-radar",
-      "language": "fr",
-      "title": "L'IA intégrée à l'écosystème technologique : De l'isolement des données à l'orchestration intelligente des flux de travail",
-      "excerpt": "Cet article explore l'importance de connecter les modèles d'IA comme Gemini à l'ensemble de la pile technologique (CRM, gestion de projet, etc.) pour briser les silos de données. Nous analysons comment les dirigeants peuvent transformer cette connectivité en flux de travail automatisés, tout en abordant la gouvernance, les risques et une stratégie d'adoption progressive.",
-      "date": "2026-10-10",
-      "category": "Intelligence artificielle et management",
-      "tags": [
-        "Radar technologique",
-        "Intelligence artificielle et management",
-        "Gouvernance",
-        "Gestion des risques",
-        "Flux de travail",
-        "Gestion des données",
-        "Gestion de projet"
-      ],
-      "url": "gemini-connectors-how-to-connect-gemini-enterprise-to-the-rest-of-your-tech-stack.html",
-      "image_url": "../../assets/images/articles/gemini-connectors-how-to-connect-gemini-enterprise-to-the-rest-of-your-tech-stack.jpg",
-      "card_image_url": "../../assets/images/articles/gemini-connectors-how-to-connect-gemini-enterprise-to-the-rest-of-your-tech-stack.jpg",
-      "image_alt": "Illustration de l’article ConsuTrain consacré à L'IA intégrée à l'écosystème technologique : De l'isolement des données à l'orchestration intelligente des flux de travail",
-      "related_terms": [
-        "Gouvernance",
-        "Gestion des risques",
-        "Flux de travail",
-        "Gestion des données",
-        "Gestion de projet"
-      ]
-    },
-    {
       "id": "the-5-best-kanban-tools-in-2026",
       "content_type": "article",
       "contentType": "tech-radar",
