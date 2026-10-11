@@ -35,6 +35,7 @@
   >
 
   <link rel="stylesheet" href="assets/css/style.css?v=20260711_home_certificate_training">
+  <link rel="stylesheet" href="assets/css/home-hero-slideshow.css?v=1">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="theme-color" content="#0f2747">
   <meta name="mobile-web-app-capable" content="yes">
@@ -145,7 +146,24 @@
 
         <div class="hero-side">
           <div class="page-visual hero-visual">
-            <img src="assets/images/visuals/home-growth.svg" alt="رسم نمو ومتابعة الأداء">
+            <div class="home-hero-slideshow" data-home-hero-slideshow role="region" aria-roledescription="عرض شرائح" aria-label="منهجيات الإدارة من ConsuTrain">
+              <div class="home-hero-slideshow__stage">
+              <img class="home-hero-slideshow__slide is-active" src="assets/images/hero-slides/pdca.png" loading="eager" fetchpriority="high" width="1536" height="1024" alt="منهجية PDCA مع التوثيق" aria-hidden="false">
+              <img class="home-hero-slideshow__slide" data-src="assets/images/hero-slides/scrum.png" width="1536" height="1024" alt="إطار Scrum مع التوثيق" aria-hidden="true">
+              <img class="home-hero-slideshow__slide" data-src="assets/images/hero-slides/agile.png" width="1536" height="1024" alt="العمل بمنهجية Agile مع التوثيق" aria-hidden="true">
+              <img class="home-hero-slideshow__slide" data-src="assets/images/hero-slides/radar.png" width="1536" height="1024" alt="منهجية RADAR للتميز مع التوثيق" aria-hidden="true">
+              <img class="home-hero-slideshow__slide" data-src="assets/images/hero-slides/six-sigma-dmaic.png" width="1536" height="1024" alt="منهجية Six Sigma DMAIC مع التوثيق" aria-hidden="true">
+              <img class="home-hero-slideshow__slide" data-src="assets/images/hero-slides/schema.png" width="1536" height="1024" alt="منهجية SCHEMA مع التوثيق" aria-hidden="true">
+              </div>
+              <div class="home-hero-slideshow__controls" role="group" aria-label="التنقل بين الشرائح">
+              <button type="button" class="home-hero-slideshow__dot" aria-label="عرض الشريحة 1: PDCA" aria-current="true"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="عرض الشريحة 2: SCRUM"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="عرض الشريحة 3: AGILE"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="عرض الشريحة 4: RADAR"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="عرض الشريحة 5: DMAIC"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="عرض الشريحة 6: SCHEMA"></button>
+              </div>
+            </div>
           </div>
           <article class="feature-card">
             <h3>دورات وورش</h3>
@@ -498,5 +516,6 @@
 
   <script src="assets/js/includes.js?v=20260512_home_services"></script>
   <script src="assets/js/pwa.js"></script>
+  <script src="assets/js/home-hero-slideshow.js?v=1" defer></script>
 </body>
 </html>
