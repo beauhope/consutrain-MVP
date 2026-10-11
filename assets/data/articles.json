@@ -1,6 +1,66 @@
 {
   "articles": [
     {
+      "id": "the-12-best-free-writing-software-in-2026",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "ar",
+      "title": "استراتيجيات اختيار أدوات الكتابة الرقمية: من التشتت التقني إلى الكفاءة المؤسسية",
+      "excerpt": "تستعرض هذه المقالة كيفية انتقال المؤسسات من فوضى تعدد الأدوات المجانية إلى تبني منظومة كتابة رقمية متكاملة. نناقش المعايير الإدارية لاختيار البرمجيات التي تعزز التعاون والإنتاجية، مع التركيز على موازنة التكاليف، حماية البيانات، وإدارة التحول نحو أدوات الكتابة المدعومة بالذكاء الاصطناعي لضمان جودة الوثائق المؤسسية.",
+      "date": "2026-10-11",
+      "category": "الذكاء الاصطناعي والإدارة",
+      "tags": [
+        "الرادار التقني",
+        "الذكاء الاصطناعي والإدارة",
+        "إدارة البيانات"
+      ],
+      "url": "the-12-best-free-writing-software-in-2026.html",
+      "image_url": "../assets/images/articles/the-12-best-free-writing-software-in-2026.jpg",
+      "card_image_url": "../assets/images/articles/the-12-best-free-writing-software-in-2026.jpg",
+      "image_alt": "صورة توضيحية لمقال ConsuTrain حول استراتيجيات اختيار أدوات الكتابة الرقمية: من التشتت التقني إلى الكفاءة المؤسسية",
+      "video_title": "",
+      "video_url": "",
+      "source_material": [],
+      "related_terms": [
+        "إدارة البيانات"
+      ],
+      "related_articles": [],
+      "content": [
+        "تستعرض هذه المقالة كيفية انتقال المؤسسات من فوضى تعدد الأدوات المجانية إلى تبني منظومة كتابة رقمية متكاملة. نناقش المعايير الإدارية لاختيار البرمجيات التي تعزز التعاون والإنتاجية، مع التركيز على موازنة التكاليف، حماية البيانات، وإدارة التحول نحو أدوات الكتابة المدعومة بالذكاء الاصطناعي لضمان جودة الوثائق المؤسسية."
+      ]
+    },
+    {
+      "id": "what-is-ai-orchestration-a-guide-to-intelligent-systems",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "ar",
+      "title": "تنسيق الذكاء الاصطناعي (AI Orchestration): من فوضى الأدوات المنفصلة إلى الأنظمة الذكية المتكاملة",
+      "excerpt": "يستعرض هذا التقرير مفهوم تنسيق الذكاء الاصطناعي كحل إداري لمواجهة تشتت الأدوات التقنية. بدلاً من الاعتماد على نماذج معزولة، يركز التنسيق على ربط قدرات الذكاء الاصطناعي المختلفة في تدفقات عمل موحدة، مما يعزز الكفاءة التشغيلية، ويقلل الهدر التقني، ويقدم رؤية استراتيجية لكيفية تبني هذه الأنظمة داخل المؤسسات بفعالية وأمان.",
+      "date": "2026-10-11",
+      "category": "الذكاء الاصطناعي والإدارة",
+      "tags": [
+        "الرادار التقني",
+        "الذكاء الاصطناعي والإدارة",
+        "إدارة المخاطر",
+        "سير العمل"
+      ],
+      "url": "what-is-ai-orchestration-a-guide-to-intelligent-systems.html",
+      "image_url": "../assets/images/articles/what-is-ai-orchestration-a-guide-to-intelligent-systems.jpg",
+      "card_image_url": "../assets/images/articles/what-is-ai-orchestration-a-guide-to-intelligent-systems.jpg",
+      "image_alt": "صورة توضيحية لمقال ConsuTrain حول تنسيق الذكاء الاصطناعي (AI Orchestration): من فوضى الأدوات المنفصلة إلى الأنظمة الذكية المتكاملة",
+      "video_title": "",
+      "video_url": "",
+      "source_material": [],
+      "related_terms": [
+        "إدارة المخاطر",
+        "سير العمل"
+      ],
+      "related_articles": [],
+      "content": [
+        "يستعرض هذا التقرير مفهوم تنسيق الذكاء الاصطناعي كحل إداري لمواجهة تشتت الأدوات التقنية. بدلاً من الاعتماد على نماذج معزولة، يركز التنسيق على ربط قدرات الذكاء الاصطناعي المختلفة في تدفقات عمل موحدة، مما يعزز الكفاءة التشغيلية، ويقلل الهدر التقني، ويقدم رؤية استراتيجية لكيفية تبني هذه الأنظمة داخل المؤسسات بفعالية وأمان."
+      ]
+    },
+    {
       "id": "the-5-best-kanban-tools-in-2026",
       "content_type": "article",
       "contentType": "tech-radar",
@@ -18,8 +78,8 @@
         "تجربة العميل"
       ],
       "url": "the-5-best-kanban-tools-in-2026.html",
-      "image_url": "../assets/images/articles/the-5-best-kanban-tools-in-2026.jpg",
-      "card_image_url": "../assets/images/articles/the-5-best-kanban-tools-in-2026.jpg",
+      "image_url": "../assets/images/articles/the-5-best-kanban-tools-in-2026.jpg?v=20261010",
+      "card_image_url": "../assets/images/articles/the-5-best-kanban-tools-in-2026.jpg?v=20261010",
       "image_alt": "صورة توضيحية لمقال ConsuTrain حول إدارة التدفق المرئي: كيف تعيد منهجية 'كانبان' صياغة الكفاءة التنظيمية",
       "video_title": "",
       "video_url": "",
