@@ -1,6 +1,30 @@
 {
   "articles": [
     {
+      "id": "what-is-ai-orchestration-a-guide-to-intelligent-systems",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "L'orchestration de l'IA : Passer du chaos des outils isolés à des systèmes intelligents intégrés",
+      "excerpt": "Ce rapport explore le concept d'orchestration de l'IA comme solution managériale face à la fragmentation des outils technologiques. Plutôt que de s'appuyer sur des modèles isolés, l'orchestration connecte diverses capacités d'IA dans des flux de travail unifiés, optimisant l'efficacité opérationnelle et offrant une vision stratégique pour une adoption institutionnelle sécurisée et efficace.",
+      "date": "2026-10-11",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Gestion des risques",
+        "Flux de travail"
+      ],
+      "url": "what-is-ai-orchestration-a-guide-to-intelligent-systems.html",
+      "image_url": "../../assets/images/articles/what-is-ai-orchestration-a-guide-to-intelligent-systems.jpg",
+      "card_image_url": "../../assets/images/articles/what-is-ai-orchestration-a-guide-to-intelligent-systems.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à L'orchestration de l'IA : Passer du chaos des outils isolés à des systèmes intelligents intégrés",
+      "related_terms": [
+        "Gestion des risques",
+        "Flux de travail"
+      ]
+    },
+    {
       "id": "the-5-best-kanban-tools-in-2026",
       "content_type": "article",
       "contentType": "tech-radar",

@@ -1,6 +1,37 @@
 {
   "articles": [
     {
+      "id": "what-is-ai-orchestration-a-guide-to-intelligent-systems",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "ar",
+      "title": "تنسيق الذكاء الاصطناعي (AI Orchestration): من فوضى الأدوات المنفصلة إلى الأنظمة الذكية المتكاملة",
+      "excerpt": "يستعرض هذا التقرير مفهوم تنسيق الذكاء الاصطناعي كحل إداري لمواجهة تشتت الأدوات التقنية. بدلاً من الاعتماد على نماذج معزولة، يركز التنسيق على ربط قدرات الذكاء الاصطناعي المختلفة في تدفقات عمل موحدة، مما يعزز الكفاءة التشغيلية، ويقلل الهدر التقني، ويقدم رؤية استراتيجية لكيفية تبني هذه الأنظمة داخل المؤسسات بفعالية وأمان.",
+      "date": "2026-10-11",
+      "category": "الذكاء الاصطناعي والإدارة",
+      "tags": [
+        "الرادار التقني",
+        "الذكاء الاصطناعي والإدارة",
+        "إدارة المخاطر",
+        "سير العمل"
+      ],
+      "url": "what-is-ai-orchestration-a-guide-to-intelligent-systems.html",
+      "image_url": "../assets/images/articles/what-is-ai-orchestration-a-guide-to-intelligent-systems.jpg",
+      "card_image_url": "../assets/images/articles/what-is-ai-orchestration-a-guide-to-intelligent-systems.jpg",
+      "image_alt": "صورة توضيحية لمقال ConsuTrain حول تنسيق الذكاء الاصطناعي (AI Orchestration): من فوضى الأدوات المنفصلة إلى الأنظمة الذكية المتكاملة",
+      "video_title": "",
+      "video_url": "",
+      "source_material": [],
+      "related_terms": [
+        "إدارة المخاطر",
+        "سير العمل"
+      ],
+      "related_articles": [],
+      "content": [
+        "يستعرض هذا التقرير مفهوم تنسيق الذكاء الاصطناعي كحل إداري لمواجهة تشتت الأدوات التقنية. بدلاً من الاعتماد على نماذج معزولة، يركز التنسيق على ربط قدرات الذكاء الاصطناعي المختلفة في تدفقات عمل موحدة، مما يعزز الكفاءة التشغيلية، ويقلل الهدر التقني، ويقدم رؤية استراتيجية لكيفية تبني هذه الأنظمة داخل المؤسسات بفعالية وأمان."
+      ]
+    },
+    {
       "id": "the-5-best-kanban-tools-in-2026",
       "content_type": "article",
       "contentType": "tech-radar",
