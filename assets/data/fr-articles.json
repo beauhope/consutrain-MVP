@@ -1,6 +1,28 @@
 {
   "articles": [
     {
+      "id": "the-12-best-free-writing-software-in-2026",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "Stratégies de sélection des outils de rédaction numérique : de la fragmentation technique à l'efficacité organisationnelle",
+      "excerpt": "Cet article examine comment les organisations peuvent passer du chaos des outils gratuits fragmentés à un écosystème de rédaction numérique cohérent. Nous analysons les critères de gestion pour choisir des logiciels boostant la collaboration et la productivité, tout en équilibrant coûts, sécurité des données et intégration de l'IA pour garantir la qualité documentaire.",
+      "date": "2026-10-11",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Gestion des données"
+      ],
+      "url": "the-12-best-free-writing-software-in-2026.html",
+      "image_url": "../../assets/images/articles/the-12-best-free-writing-software-in-2026.jpg",
+      "card_image_url": "../../assets/images/articles/the-12-best-free-writing-software-in-2026.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à Stratégies de sélection des outils de rédaction numérique : de la fragmentation technique à l'efficacité organisationnelle",
+      "related_terms": [
+        "Gestion des données"
+      ]
+    },
+    {
       "id": "what-is-ai-orchestration-a-guide-to-intelligent-systems",
       "content_type": "article",
       "contentType": "tech-radar",
