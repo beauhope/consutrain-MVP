@@ -1,6 +1,38 @@
 {
   "articles": [
     {
+      "id": "how-to-conduct-an-ai-agent-security-audit",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "Gouvernance et efficacité : Guide managérial pour l'audit de sécurité des agents IA",
+      "excerpt": "Cet article examine la nécessité de passer d'une utilisation aléatoire de l'IA à un modèle de gouvernance institutionnelle. L'analyse se concentre sur l'audit de sécurité des agents IA, soulignant le rôle des auditeurs dans l'évaluation des accès, la gestion des données sensibles et la garantie d'un contrôle humain avant toute expansion numérique.",
+      "date": "2026-10-12",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Gouvernance",
+        "Gestion des risques",
+        "Supervision humaine",
+        "Agents d’intelligence artificielle",
+        "Cybersécurité",
+        "Transformation numérique"
+      ],
+      "url": "how-to-conduct-an-ai-agent-security-audit.html",
+      "image_url": "../../assets/images/articles/how-to-conduct-an-ai-agent-security-audit.jpg",
+      "card_image_url": "../../assets/images/articles/how-to-conduct-an-ai-agent-security-audit.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à Gouvernance et efficacité : Guide managérial pour l'audit de sécurité des agents IA",
+      "related_terms": [
+        "Gouvernance",
+        "Gestion des risques",
+        "Supervision humaine",
+        "Agents d’intelligence artificielle",
+        "Cybersécurité",
+        "Transformation numérique"
+      ]
+    },
+    {
       "id": "the-12-best-free-writing-software-in-2026",
       "content_type": "article",
       "contentType": "tech-radar",
