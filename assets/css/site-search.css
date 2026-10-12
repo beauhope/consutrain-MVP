@@ -30,7 +30,7 @@
 .ct-search-result small{color:var(--gold-2)}
 .ct-search-status{min-height:25px;color:var(--muted)}
 @media(min-width:701px) and (max-width:1024px){.ct-global-search{flex-basis:240px;width:240px}}
-@media(max-width:700px){.subscriber-global-entry .container.ct-global-search-bar{flex-direction:column;align-items:stretch;gap:8px}.ct-global-search{width:100%;max-width:100%;flex:none}.subscriber-global-entry .ct-global-search-bar>.subscriber-global-trigger{align-self:flex-start}}
+@media(max-width:700px){.subscriber-global-entry .container.ct-global-search-bar{flex-direction:row;align-items:center;gap:8px;flex-wrap:nowrap}.subscriber-global-entry .container.ct-global-search-bar:has(.ct-global-search[dir="rtl"]){flex-direction:row-reverse}.subscriber-global-entry .ct-global-search-bar>.subscriber-global-trigger{flex:0 0 auto;align-self:center;max-width:55%;min-width:0;white-space:nowrap}.ct-global-search{flex:1 1 0;width:auto;max-width:none;min-width:0}.ct-global-search__input{min-width:0;padding-inline:8px;font-size:.75rem}.ct-global-search__submit{width:28px;min-width:28px}}
 
 /* Locale-specific results layout: isolate LTR/RTL from shared Arabic-first styles. */
 html[lang="fr"] .ct-search-page{direction:ltr;text-align:left}
