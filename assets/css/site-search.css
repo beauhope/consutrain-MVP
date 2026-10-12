@@ -30,3 +30,15 @@
 .ct-search-result small{color:var(--gold-2)}
 .ct-search-status{min-height:25px;color:var(--muted)}
 @media(max-width:700px){.subscriber-global-entry .container.ct-global-search-bar{flex-direction:column;align-items:stretch;gap:8px}.ct-global-search{width:100%;flex:none}.subscriber-global-entry .ct-global-search-bar>.subscriber-global-trigger{align-self:flex-start}}
+
+/* Locale-specific results layout: isolate LTR/RTL from shared Arabic-first styles. */
+html[lang="fr"] .ct-search-page{direction:ltr;text-align:left}
+html[lang="fr"] .ct-search-page h1,
+html[lang="fr"] .ct-search-page__form input,
+html[lang="fr"] .ct-search-result,
+html[lang="fr"] .ct-search-status{direction:ltr;text-align:left}
+html[lang="fr"] .ct-search-page__form,
+html[lang="fr"] .ct-search-filters{direction:ltr;justify-content:flex-start}
+html[lang="ar"] .ct-search-page{direction:rtl;text-align:right}
+html[lang="ar"] .ct-search-page__form,
+html[lang="ar"] .ct-search-filters{direction:rtl;justify-content:flex-start}
