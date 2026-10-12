@@ -4,7 +4,7 @@ import fs from "node:fs";
 const audit=JSON.parse(fs.readFileSync("search-audit/report.json","utf8"));
 const files=audit.included;
 const groups=["learn","courses","tools","resources","services"];
-const categorise=p=>{let x=p.startsWith("fr/")?p.slice(3):p;if(x==="tools.html"||x.startsWith("tools/"))return "tools";if(x==="services.html"||x.startsWith("services/"))return "services";if(x.startsWith("learn/"))return "learn";if(x.startsWith("courses/"))return "courses";if(x.startsWith("resources/")||x.startsWith("templates/"))return "resources";return null};
+const categorise=p=>{let x=p.startsWith("fr/")?p.slice(3):p;if(x==="tools.html"||x.startsWith("tools/"))return "tools";if(x==="services.html"||x.startsWith("services/"))return "services";if(x==="learn.html"||x.startsWith("learn/"))return "learn";if(x.startsWith("courses/"))return "courses";if(x.startsWith("resources/")||x.startsWith("templates/"))return "resources";return null};
 assert(files.length>0,"index must not be empty");
 assert.equal(new Set(files).size,files.length,"no duplicates");
 for(const file of files){
