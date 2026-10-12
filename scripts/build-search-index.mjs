@@ -2,11 +2,9 @@
 // Run with node scripts/build-search-index.mjs after: npm install --no-save pagefind
 import fs from "node:fs";
 import path from "node:path";
-import {pathToFileURL} from "node:url";
 import * as pagefind from "pagefind";
-const cwd=process.cwd();
 const sitemap=fs.readFileSync("sitemap.xml","utf8");
-const urls=[...sitemap.matchAll(/<loc>\\s*(https:\/\/consutrain\.com\/[^<]*)<\/loc>/g)].map(m=>m[1]);
+const urls=[...sitemap.matchAll(/<loc>\s*(https:\/\/consutrain\.com\/[^<]*)<\/loc>/g)].map(m=>m[1]);
 const categories=[/^\/(?:fr\/)?learn(?:\/|\.html$)/,/^\/(?:fr\/)?courses\//,/^\/(?:fr\/)?tools(?:\/|\.html$)/,/^\/(?:fr\/)?(?:templates|resources)\//,/^\/(?:fr\/)?services(?:\/|\.html$)/];
 const disallowed=/(?:^|\/)(?:admin|certificate-request|final-assessment|unsubscribe|quote-request|consultation-form)(?:\/|\.|$)/i;
 const articleData=(p)=>JSON.parse(fs.readFileSync(p,"utf8")).articles||[];
