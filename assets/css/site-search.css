@@ -1,5 +1,6 @@
 /* CT-01 Global Search — isolated component */
 .subscriber-global-entry .container.ct-global-search-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;direction:ltr}
+.ct-global-search-bar:has(.ct-global-search[dir="rtl"]){flex-direction:row-reverse}
 .ct-global-search{position:relative;flex:0 1 420px;min-width:190px;direction:ltr}
 .ct-global-search[dir="rtl"]{direction:rtl}
 .ct-global-search__form{display:flex;align-items:center;border:1px solid #cfd7e3;border-radius:999px;background:#fff;min-height:38px;overflow:hidden}
