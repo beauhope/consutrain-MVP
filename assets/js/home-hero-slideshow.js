@@ -11,6 +11,8 @@
 
   function preload(i) {
     var img = slides[i];
+    var source = img.parentElement.querySelector("source[data-srcset]");
+    if (source) { source.srcset = source.dataset.srcset; delete source.dataset.srcset; }
     if (img.dataset.src) {
       img.src = img.dataset.src;
       delete img.dataset.src;
