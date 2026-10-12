@@ -8,8 +8,8 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20261012-home-hero-v1";
-const RUNTIME_CACHE = "consutrain-runtime-v20261012-home-hero-v1";
+const STATIC_CACHE = "consutrain-v20261012-global-search-v1";
+const RUNTIME_CACHE = "consutrain-runtime-v20261012-global-search-v1";
 const PRECACHE_URLS = [
   "./fr/learn/ai-admin.html",
   "./fr/learn/project-management-basics.html",
@@ -376,6 +376,9 @@ function shouldUseNetworkFirstForUiAsset(url) {
   const path = url.pathname;
 
   return (
+    path.includes("/pagefind/") ||
+    path.endsWith("/assets/js/site-search.js") ||
+    path.endsWith("/assets/css/site-search.css") ||
     path.includes("/partials/") ||
     path.endsWith("/assets/js/includes.js") ||
     path.endsWith("/assets/js/subscriber-capture.js") ||
