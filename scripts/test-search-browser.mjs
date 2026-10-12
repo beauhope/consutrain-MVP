@@ -57,5 +57,25 @@ try {
    assert(x && x.x>=-2 && x.x+x.width<=377,"mobile search bar horizontal overflow");
    await page.close();
  });
+
+ await test("responsive header search width across breakpoints",async()=>{
+   for(const width of [1440,1024,800,700,412,320]){
+     const page=await browser.newPage({viewport:{width,height:850}});
+     await page.goto(origin+"/fr/index.html",{waitUntil:"domcontentloaded"});
+     const input=page.locator("#header-placeholder .ct-global-search");
+     await input.waitFor({timeout:20000});
+     const box=await input.boundingBox();
+     const strip=await page.locator(".subscriber-global-entry .ct-global-search-bar").boundingBox();
+     const subscription=await page.locator(".subscriber-global-trigger").boundingBox();
+     assert(box && strip && subscription,"missing search or subscriber geometry");
+     assert(box.width<=width+1,"search overflowing viewport at "+width);
+     if(width>1024) assert(Math.abs(box.width-280)<2,"desktop width incorrect: "+box.width);
+     else if(width>700) assert(Math.abs(box.width-240)<2,"tablet width incorrect: "+box.width);
+     else assert(Math.abs(box.width-strip.width)<3,"mobile search is not full-width");
+     if(width>700) assert(Math.abs((box.y+box.height/2)-(subscription.y+subscription.height/2))<9,"desktop CTA and search not aligned");
+     console.log("responsive header:",width,"search:",Math.round(box.width));
+     await page.close();
+   }
+ });
 }finally{await browser.close()}
 if(failures.length){console.error("CT-01 browser failures:\n"+failures.join("\n"));process.exitCode=1}else console.log("CT-01 browser smoke tests passed");
