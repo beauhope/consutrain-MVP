@@ -71,7 +71,7 @@ try {
      assert(box.width<=width+1,"search overflowing viewport at "+width);
      if(width>1024) assert(Math.abs(box.width-280)<2,"desktop width incorrect: "+box.width);
      else if(width>700) assert(Math.abs(box.width-240)<2,"tablet width incorrect: "+box.width);
-     else assert(Math.abs(box.width-strip.width)<3,"mobile search is not full-width");
+     else {assert(box.width>=65,"mobile search is unusably narrow at "+width);assert(Math.abs((box.y+box.height/2)-(subscription.y+subscription.height/2))<9,"mobile CTA and search not on same row");assert(box.x>=-2 && box.x+box.width<=width+2,"mobile search outside viewport");}
      if(width>700) assert(Math.abs((box.y+box.height/2)-(subscription.y+subscription.height/2))<9,"desktop CTA and search not aligned");
      console.log("responsive header:",width,"search:",Math.round(box.width));
      await page.close();
