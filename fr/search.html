@@ -3,11 +3,30 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Recherche sur ConsuTrain | ConsuTrain</title><meta name="robots" content="noindex,follow">
 <link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/site-search.css">
+<link rel="stylesheet" href="../assets/css/site-search.css?v=ct01-fr-alignment-v2">
+<style>
+/* CT-01 French search page: explicit LTR containment, isolated from global RTL. */
+html[lang="fr"] body main.ct-search-page,
+html[lang="fr"] body main.ct-search-page h1,
+html[lang="fr"] body main.ct-search-page .ct-search-result,
+html[lang="fr"] body main.ct-search-page .ct-search-result p,
+html[lang="fr"] body main.ct-search-page .ct-search-result h2,
+html[lang="fr"] body main.ct-search-page .ct-search-result small,
+html[lang="fr"] body main.ct-search-page .ct-search-status,
+html[lang="fr"] body main.ct-search-page [data-ct-search-input] {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="fr"] body main.ct-search-page .ct-search-page__form,
+html[lang="fr"] body main.ct-search-page .ct-search-filters {
+  direction: ltr !important;
+  justify-content: flex-start !important;
+}
+</style>
 </head>
 <body data-root="..">
 <div id="header-placeholder"></div>
-<main class="ct-search-page" data-ct-search-page>
+<main class="ct-search-page" data-ct-search-page dir="ltr">
 <h1>Recherche sur ConsuTrain</h1>
 <form class="ct-search-page__form" method="get" role="search">
 <input name="q" type="search" data-ct-search-input placeholder="Rechercher sur le site..." aria-label="Rechercher sur le site..." required>
