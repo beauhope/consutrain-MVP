@@ -26,6 +26,8 @@ jobs:
         run: npm install --no-save --no-package-lock pagefind@1.4.0
       - name: Build public allowlisted index
         run: node scripts/build-search-index.mjs
+      - name: Print public index audit
+        run: cat search-audit/report.json | head -n 32
       - name: Verify generated search bundle
         run: |
           test -s pagefind/pagefind.js
