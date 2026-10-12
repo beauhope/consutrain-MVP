@@ -20,6 +20,17 @@ try {
    await page.waitForFunction(()=>{const e=document.querySelector("[data-ct-search-status]");return e && !/جارٍ البحث|Recherche\.\.\./.test(e.textContent)}, {timeout:30000});
    const status=await page.locator("[data-ct-search-status]").innerText();
    assert(!/غير متاح|indisponible/.test(status),"search engine unavailable: "+status);
+   if(item.lang==="fr") {
+     const styles=await page.evaluate(()=>{
+       const get=s=>{const e=document.querySelector(s);return e?{direction:getComputedStyle(e).direction,textAlign:getComputedStyle(e).textAlign,justifyContent:getComputedStyle(e).justifyContent}:null};
+       return {main:get("main.ct-search-page"),heading:get("main.ct-search-page h1"),form:get(".ct-search-page__form"),filters:get(".ct-search-filters"),input:get("[data-ct-search-input]"),result:get(".ct-search-result")};
+     });
+     console.log("French computed alignment:",JSON.stringify(styles));
+     for(const key of ["main","heading","form","filters","input","result"])assert.equal(styles[key]?.direction,"ltr",key+" not LTR");
+     for(const key of ["main","heading","input","result"])assert.equal(styles[key]?.textAlign,"left",key+" not left-aligned");
+     assert.equal(styles.form.justifyContent,"flex-start","form not left");
+     assert.equal(styles.filters.justifyContent,"flex-start","filters not left");
+   }
    const rows=page.locator(".ct-search-result");
    const count=await rows.count();
    assert(count>0,"no indexed results for "+item.q+"; status="+status);
