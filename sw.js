@@ -8,14 +8,16 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20261012-management-flash-v3";
-const RUNTIME_CACHE = "consutrain-runtime-v20261012-management-flash-v3";
+const STATIC_CACHE = "consutrain-v20261012-latest-article-v1";
+const RUNTIME_CACHE = "consutrain-runtime-v20261012-latest-article-v1";
 const PRECACHE_URLS = [
   "./tools/management-flash.html",
   "./assets/js/management-flash-data.js?v=ct01-flash-v1",
   "./assets/js/management-flash-core.js?v=ct01-flash-v1",
   "./assets/js/home-management-flash.js?v=ct01-flash-v1",
   "./assets/css/home-management-flash.css?v=ct01-flash-v1",
+  "./assets/css/home-latest-article.css?v=ct01-latest-v1",
+  "./assets/js/home-latest-article.js?v=ct01-latest-v1",
   "./fr/learn/ai-admin.html",
   "./fr/learn/project-management-basics.html",
   "./fr/learn/project-management-methodologies-selection.html",
@@ -397,6 +399,8 @@ function shouldUseNetworkFirstForUiAsset(url) {
     path.endsWith("/assets/js/free-certificate-training-blue-ocean-fr.js") ||
     path.endsWith("/assets/js/pwa.js") ||
     path.endsWith("/assets/js/platform-guide.js") ||
+    path.endsWith("/assets/data/articles.json") ||
+    path.endsWith("/assets/data/fr-articles.json") ||
     path.endsWith("/assets/data/platform-guide.json") ||
     path.endsWith("/assets/data/fr-platform-guide.json") ||
     path.endsWith("/assets/data/platform-guide-pdf-manifest.json") ||
@@ -439,7 +443,11 @@ async function matchCachedAsset(request) {
 
   // Fallback for versioned static resources already cached
   // under the same path without a query string.
-  if (url.search && expectedType) {
+  if (url.search && (
+    expectedType ||
+    url.pathname.endsWith("/assets/data/articles.json") ||
+    url.pathname.endsWith("/assets/data/fr-articles.json")
+  )) {
     const fallback = await caches.match(request, {
       ignoreSearch: true
     });
