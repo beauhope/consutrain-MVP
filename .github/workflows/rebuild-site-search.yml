@@ -1,0 +1,32 @@
+name: CT-01 Rebuild Public Search Index
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'pagefind/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ct01-search-index
+  cancel-in-progress: true
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Pagefind
+        run: npm install --no-save --no-package-lock pagefind@1.4.0
+      - name: Build public allowlisted index
+        run: node scripts/build-search-index.mjs
+      - name: Commit generated search assets
+        run: |
+          git add pagefind
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "CT-01: refresh public Pagefind index [skip ci]"
+          git push
