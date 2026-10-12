@@ -8,9 +8,14 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20261012-global-search-v1";
-const RUNTIME_CACHE = "consutrain-runtime-v20261012-global-search-v1";
+const STATIC_CACHE = "consutrain-v20261012-management-flash-v1";
+const RUNTIME_CACHE = "consutrain-runtime-v20261012-management-flash-v1";
 const PRECACHE_URLS = [
+  "./tools/management-flash.html",
+  "./assets/js/management-flash-data.js?v=ct01-flash-v1",
+  "./assets/js/management-flash-core.js?v=ct01-flash-v1",
+  "./assets/js/home-management-flash.js?v=ct01-flash-v1",
+  "./assets/css/home-management-flash.css?v=ct01-flash-v1",
   "./fr/learn/ai-admin.html",
   "./fr/learn/project-management-basics.html",
   "./fr/learn/project-management-methodologies-selection.html",

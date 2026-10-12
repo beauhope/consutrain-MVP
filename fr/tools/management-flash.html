@@ -346,96 +346,36 @@
 
   <div id="footer-placeholder"></div>
   <script src="../../assets/js/includes.js?v=20260616_fr_tools_batch_one"></script>
+  <script src="../../assets/js/management-flash-data.js?v=ct01-flash-v1"></script>
+  <script src="../../assets/js/management-flash-core.js?v=ct01-flash-v1"></script>
   <script>
-    const flashBank = [
-      {
-        level: "Débutant",
-        theme: "Priorités",
-        title: "Choisir une priorité",
-        text: "Ne gardez qu’une priorité principale pour aujourd’hui. Une seule action bien faite vaut mieux qu’une liste longue et floue.",
-        action: "Écrivez la priorité, puis ajoutez une action observable."
-      },
-      {
-        level: "Débutant",
-        theme: "Réunions",
-        title: "Réunion utile",
-        text: "Avant d’ajouter une réunion, demandez-vous quel résultat concret doit en sortir. Sans résultat attendu, la réunion devient un échange sans direction.",
-        action: "Définissez le résultat attendu en une phrase."
-      },
-      {
-        level: "Débutant",
-        theme: "Communication",
-        title: "Message clair",
-        text: "Un message managérial utile tient souvent en trois points: contexte, décision attendue, prochaine étape.",
-        action: "Réécrivez un message long en trois phrases."
-      },
-      {
-        level: "Intermédiaire",
-        theme: "Pilotage",
-        title: "Indicateur utile",
-        text: "Un bon indicateur aide à décider. S’il n’influence aucune action, il mérite souvent d’être simplifié ou remplacé.",
-        action: "Vérifiez la décision que l’indicateur doit éclairer."
-      },
-      {
-        level: "Intermédiaire",
-        theme: "Qualité",
-        title: "Amélioration continue",
-        text: "Une petite amélioration régulière vaut mieux qu’une refonte lourde et rare. Cherchez d’abord le point de friction le plus simple à corriger.",
-        action: "Identifiez une friction et une correction simple."
-      },
-      {
-        level: "Intermédiaire",
-        theme: "Risques",
-        title: "Risque prioritaire",
-        text: "Un risque prioritaire est un risque qui peut vraiment modifier le résultat, le délai ou la qualité attendue.",
-        action: "Classez le risque selon son impact réel."
-      },
-      {
-        level: "Avancé",
-        theme: "Priorités",
-        title: "Arbitrage",
-        text: "Le management consiste souvent à choisir ce qu’il faut faire maintenant, ce qu’il faut reporter et ce qu’il faut arrêter.",
-        action: "Notez une action à lancer, une à reporter et une à arrêter."
-      },
-      {
-        level: "Avancé",
-        theme: "Réunions",
-        title: "Décision de réunion",
-        text: "Une réunion efficace produit une décision, un responsable, un délai ou une prochaine étape très claire.",
-        action: "Ajoutez systématiquement un point d’issue à la fin de chaque réunion."
-      },
-      {
-        level: "Avancé",
-        theme: "Pilotage",
-        title: "Lecture du résultat",
-        text: "Lorsque les chiffres varient, cherchez d’abord l’explication opérationnelle avant de modifier l’objectif ou le tableau de bord.",
-        action: "Reliez le chiffre à un fait concret du terrain."
-      }
-    ];
-
     const flashLevel = document.getElementById("flashLevel");
     const flashTheme = document.getElementById("flashTheme");
     const flashTitle = document.getElementById("flashTitle");
     const flashOutput = document.getElementById("flashOutput");
     const flashCopyStatus = document.getElementById("flashCopyStatus");
 
-    function pickFlash() {
-      const level = flashLevel.value;
-      const theme = flashTheme.value;
-      const candidates = flashBank.filter((item) => {
-        const levelMatch = level === "Tous" || item.level === level;
-        const themeMatch = theme === "Tous" || item.theme === theme;
-        return levelMatch && themeMatch;
-      });
+    const flashApi = window.ConsuTrainManagementFlash;
+    const savedPreferences = flashApi.readPreferences("fr");
+    flashLevel.value = savedPreferences.level;
+    flashTheme.value = savedPreferences.theme;
 
-      return candidates.length ? candidates[Math.floor(Math.random() * candidates.length)] : flashBank[0];
+    function pickFlash() {
+      const preferences = flashApi.savePreferences("fr", {
+        level: flashLevel.value,
+        theme: flashTheme.value
+      });
+      return flashApi.select("fr", preferences);
     }
 
     function renderFlash() {
-      const item = pickFlash();
+      const selection = pickFlash();
+      if (!selection) return;
+      const item = selection.item;
       flashTitle.textContent = `${item.title} — ${item.level} / ${item.theme}`;
       flashOutput.textContent = `${item.text} ${item.action}`;
       flashCopyStatus.textContent = "";
+      flashApi.recordDisplay("fr", item.id);
     }
 
     async function copyFlash() {
