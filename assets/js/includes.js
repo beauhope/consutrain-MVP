@@ -212,7 +212,7 @@ async function loadPartial(selector, filePath) {
       }
       if (window.ConsuTrainSiteSearchReady) {
         document.dispatchEvent(new Event("ct:header-ready"));
-      } else if (!document.querySelector('script[data-ct-global-search-js]')) {
+      } else if (!document.querySelector('script[data-ct-global-search-js]') && !document.querySelector('script[src*="site-search.js"]')) {
         const searchScript = document.createElement("script");
         searchScript.dataset.ctGlobalSearchJs = "true";
         searchScript.src = new URL(`${getRootPath()}/assets/js/site-search.js?v=ct01-v1`, document.baseURI).href;
