@@ -8,9 +8,14 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20261012-global-search-v1";
-const RUNTIME_CACHE = "consutrain-runtime-v20261012-global-search-v1";
+const STATIC_CACHE = "consutrain-v20261012-management-flash-v3";
+const RUNTIME_CACHE = "consutrain-runtime-v20261012-management-flash-v3";
 const PRECACHE_URLS = [
+  "./tools/management-flash.html",
+  "./assets/js/management-flash-data.js?v=ct01-flash-v1",
+  "./assets/js/management-flash-core.js?v=ct01-flash-v1",
+  "./assets/js/home-management-flash.js?v=ct01-flash-v1",
+  "./assets/css/home-management-flash.css?v=ct01-flash-v1",
   "./fr/learn/ai-admin.html",
   "./fr/learn/project-management-basics.html",
   "./fr/learn/project-management-methodologies-selection.html",
@@ -111,7 +116,11 @@ const PRECACHE_URLS = [
   "./assets/css/home-hero-slideshow.css",
   "./assets/js/home-hero-slideshow.js",
   "./assets/images/hero-slides/pdca.webp",
-
+  "./assets/images/hero-slides/scrum.webp",
+"./assets/images/hero-slides/agile.webp",
+"./assets/images/hero-slides/radar.webp",
+"./assets/images/hero-slides/six-sigma-dmaic.webp",
+"./assets/images/hero-slides/schema.webp",
   "./assets/images/consutrain-logo-horizontal.png",
   "./assets/images/consutrain-logo-mark.png",
   "./assets/images/articles/ai-introduction.svg",
@@ -396,7 +405,49 @@ function shouldUseNetworkFirstForUiAsset(url) {
     path.endsWith("/manifest-fr.webmanifest")
   );
 }
+async function matchCachedAsset(request) {
+  const url = new URL(request.url);
+  const expectedType = url.pathname.endsWith(".js")
+    ? "javascript"
+    : url.pathname.endsWith(".css")
+      ? "text/css"
+      : null;
 
+  async function isValid(response) {
+    if (!response || !response.ok) return false;
+
+    const contentType = (
+      response.headers.get("content-type") || ""
+    ).toLowerCase();
+
+    if (expectedType === "javascript") {
+      return (
+        contentType.includes("javascript") ||
+        contentType.includes("ecmascript")
+      );
+    }
+
+    if (expectedType === "text/css") {
+      return contentType.includes("text/css");
+    }
+
+    return true;
+  }
+
+  const exact = await caches.match(request);
+  if (await isValid(exact)) return exact;
+
+  // Fallback for versioned static resources already cached
+  // under the same path without a query string.
+  if (url.search && expectedType) {
+    const fallback = await caches.match(request, {
+      ignoreSearch: true
+    });
+    if (await isValid(fallback)) return fallback;
+  }
+
+  return undefined;
+}
 async function networkFirstAsset(request) {
   try {
     const networkResponse = await fetch(request, { cache: "no-store" });
@@ -404,7 +455,7 @@ async function networkFirstAsset(request) {
     runtimeCache.put(request, networkResponse.clone());
     return networkResponse;
   } catch (error) {
-    const cachedResponse = await caches.match(request);
+    const cachedResponse = await matchCachedAsset(request);
     if (cachedResponse) return cachedResponse;
     throw error;
   }
@@ -443,6 +494,10 @@ async function cacheFirstAsset(request) {
     runtimeCache.put(request, networkResponse.clone());
     return networkResponse;
   } catch (error) {
-    return caches.match("./assets/icons/icon-192-v2.png");
+    const fallback = await matchCachedAsset(request);
+    if (fallback) return fallback;
+
+    // Do not return an image for a missing JS or CSS file.
+    throw error;
   }
 }

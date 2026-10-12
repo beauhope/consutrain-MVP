@@ -1,0 +1,15 @@
+/* CT-01: styles are limited to the independent homepage flash. */
+.ct-home-flash{padding:12px 0 20px;text-align:start}
+.ct-home-flash__card{padding:18px 22px;border:1px solid var(--border);border-inline-start:4px solid var(--gold);border-radius:16px;background:#f4ead1;color:var(--primary)}
+.ct-home-flash__head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px 18px}
+.ct-home-flash .ct-home-flash__heading{margin:0;font-size:1.1rem;line-height:1.6}
+.ct-home-flash__meta{color:var(--muted);font-size:.8rem}
+.ct-home-flash__title{display:block;margin-top:7px;font-size:.95rem}
+.ct-home-flash p{margin:6px 0 0;line-height:1.8;font-size:.95rem}
+.ct-home-flash .ct-home-flash__action{color:var(--muted);font-size:.88rem}
+.ct-home-flash__links{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 20px;margin-top:5px}
+.ct-home-flash a{display:inline-flex;align-items:center;min-height:44px;max-width:100%;font-size:.82rem;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.ct-home-flash a:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:3px}
+.ct-home-flash .ct-home-flash__status{font-size:.85rem;color:var(--muted)}
+.ct-home-flash [hidden]{display:none!important}
+@media(max-width:640px){.ct-home-flash__card{padding:14px 16px}.ct-home-flash__head{align-items:flex-start;flex-direction:column;gap:2px}.ct-home-flash__links{gap:0 16px}}
