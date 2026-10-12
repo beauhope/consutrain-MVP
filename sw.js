@@ -8,8 +8,8 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20260924-unsubscribe-v2-resubscribe-v1";
-const RUNTIME_CACHE = "consutrain-runtime-v20260924-unsubscribe-v2-resubscribe-v1";
+const STATIC_CACHE = "consutrain-v20261012-home-hero-v1";
+const RUNTIME_CACHE = "consutrain-runtime-v20261012-home-hero-v1";
 const PRECACHE_URLS = [
   "./fr/learn/ai-admin.html",
   "./fr/learn/project-management-basics.html",
@@ -108,6 +108,9 @@ const PRECACHE_URLS = [
   "./partials/fr-footer.html",
 
   "./assets/css/style.css",
+  "./assets/css/home-hero-slideshow.css",
+  "./assets/js/home-hero-slideshow.js",
+  "./assets/images/hero-slides/pdca.webp",
 
   "./assets/images/consutrain-logo-horizontal.png",
   "./assets/images/consutrain-logo-mark.png",

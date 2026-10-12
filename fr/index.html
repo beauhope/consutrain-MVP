@@ -20,6 +20,9 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>/* Homepage-only: reserve room for the async navigation header */
+    body.home-page #header-placeholder{min-height:77px}
+  </style>
 
   <title>ConsuTrain | Conseil, formation et outils pour la performance organisationnelle</title>
   <meta
@@ -28,6 +31,7 @@
   >
 
   <link rel="stylesheet" href="../assets/css/style.css?v=20260711_home_certificate_training">
+  <link rel="stylesheet" href="../assets/css/home-hero-slideshow.css?v=20261012_stable">
   <link rel="manifest" href="../manifest-fr.webmanifest">
   <meta name="theme-color" content="#0f2747">
   <meta name="mobile-web-app-capable" content="yes">
@@ -228,7 +232,30 @@
 
         <div class="hero-side">
           <div class="page-visual hero-visual">
-            <img src="../assets/images/visuals/home-growth.svg" alt="Illustration de croissance et de suivi">
+            <div class="home-hero-slideshow" data-home-hero-slideshow role="region" aria-roledescription="Diaporama" aria-label="Méthodes de management ConsuTrain">
+              <div class="home-hero-slideshow__stage">
+              <picture><source type="image/webp" srcset="../assets/images/hero-slides/pdca.webp">
+<img class="home-hero-slideshow__slide is-active" src="../assets/images/hero-slides/pdca.png" loading="eager" fetchpriority="high" width="1536" height="1024" alt="Cycle PDCA avec documentation" aria-hidden="false"></picture>
+              <picture><source type="image/webp" data-srcset="../assets/images/hero-slides/scrum.webp">
+<img class="home-hero-slideshow__slide" data-src="../assets/images/hero-slides/scrum.png" width="1536" height="1024" alt="Cadre Scrum avec documentation" aria-hidden="true"></picture>
+              <picture><source type="image/webp" data-srcset="../assets/images/hero-slides/agile.webp">
+<img class="home-hero-slideshow__slide" data-src="../assets/images/hero-slides/agile.png" width="1536" height="1024" alt="Travail agile itératif avec documentation" aria-hidden="true"></picture>
+              <picture><source type="image/webp" data-srcset="../assets/images/hero-slides/radar.webp">
+<img class="home-hero-slideshow__slide" data-src="../assets/images/hero-slides/radar.png" width="1536" height="1024" alt="Méthode RADAR EFQM avec documentation" aria-hidden="true"></picture>
+              <picture><source type="image/webp" data-srcset="../assets/images/hero-slides/six-sigma-dmaic.webp">
+<img class="home-hero-slideshow__slide" data-src="../assets/images/hero-slides/six-sigma-dmaic.png" width="1536" height="1024" alt="Méthode Six Sigma DMAIC avec documentation" aria-hidden="true"></picture>
+              <picture><source type="image/webp" data-srcset="../assets/images/hero-slides/schema.webp">
+<img class="home-hero-slideshow__slide" data-src="../assets/images/hero-slides/schema.png" width="1536" height="1024" alt="Méthode SCHEMA avec documentation" aria-hidden="true"></picture>
+              </div>
+              <div class="home-hero-slideshow__controls" role="group" aria-label="Navigation entre les diapositives">
+              <button type="button" class="home-hero-slideshow__dot" aria-label="Afficher la diapositive 1 : PDCA" aria-current="true"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="Afficher la diapositive 2 : SCRUM"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="Afficher la diapositive 3 : AGILE"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="Afficher la diapositive 4 : RADAR"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="Afficher la diapositive 5 : DMAIC"></button>
+              <button type="button" class="home-hero-slideshow__dot" aria-label="Afficher la diapositive 6 : SCHEMA"></button>
+              </div>
+            </div>
           </div>
           <article class="feature-card">
             <h3>Conseil structuré</h3>
@@ -490,5 +517,6 @@
       }
     }());
   </script>
+  <script src="../assets/js/home-hero-slideshow.js?v=20261012_stable" defer></script>
 </body>
 </html>
