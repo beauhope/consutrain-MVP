@@ -9,7 +9,7 @@ const category=(url)=>{let p=new URL(url,location.origin).pathname;if(p.startsWi
 const catLabel=(key)=>({ar:{learn:"التعلم",courses:"الدورات",tools:"الأدوات المجانية",resources:"القوالب المجانية",services:"الخدمات"},fr:{learn:"Apprendre",courses:"Formations",tools:"Outils gratuits",resources:"Modèles gratuits",services:"Services"}}[french()?"fr":"ar"][key]||key);
 let enginePromise;
 function engine(){return enginePromise||(enginePromise=import(new URL("pagefind/pagefind.js",root()).href).then(async m=>{await m.init();return m}).catch(e=>{enginePromise=null;throw e}))}
-async function search(q){if(q.trim().length<2)return [];const api=await engine();const data=await api.search(q);return Promise.all((data?.results||[]).slice(0,350).map(x=>x.data()))}
+async function search(q){if(q.trim().length<2)return [];const api=await engine();const data=await api.search(q);{const rows=(data?.results||[]);const detail=await Promise.all(rows.slice(0,400).map(x=>x.data()));return detail.filter(x=>{const p=new URL(x.url,location.origin).pathname;return french()?p.startsWith("/fr/"):!p.startsWith("/fr/")})}}
 function node(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n}
 function safeHref(path){try{const u=new URL(path,location.origin);return u.origin===location.origin?u.href:null}catch{return null}}
 function formatResult(x){const url=safeHref(x.url);if(!url)return null;const cat=category(url);const item=node("a","ct-global-search__item");item.href=url;item.append(node("small","",catLabel(cat)),node("strong","",x.meta?.title||x.title||url));return item}
