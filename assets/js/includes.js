@@ -202,6 +202,22 @@ async function loadPartial(selector, filePath) {
       setActiveNavLink();
       restoreHomeHashScroll();
       ensureSubscriberCaptureRuntime();
+      // CT-01 Global Search: load independent assets only after header injection.
+      if (!document.querySelector('link[data-ct-global-search-css]')) {
+        const searchCss = document.createElement("link");
+        searchCss.rel = "stylesheet";
+        searchCss.dataset.ctGlobalSearchCss = "true";
+        searchCss.href = new URL(`${getRootPath()}/assets/css/site-search.css?v=ct01-v1`, document.baseURI).href;
+        document.head.appendChild(searchCss);
+      }
+      if (window.ConsuTrainSiteSearchReady) {
+        document.dispatchEvent(new Event("ct:header-ready"));
+      } else if (!document.querySelector('script[data-ct-global-search-js]')) {
+        const searchScript = document.createElement("script");
+        searchScript.dataset.ctGlobalSearchJs = "true";
+        searchScript.src = new URL(`${getRootPath()}/assets/js/site-search.js?v=ct01-v1`, document.baseURI).href;
+        document.head.appendChild(searchScript);
+      }
     }
 
     if (selector === "#footer-placeholder") {
