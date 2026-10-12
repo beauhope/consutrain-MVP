@@ -28,7 +28,7 @@ const types=["all","learn","courses","tools","resources","services"];const label
 const render=()=>{list.replaceChildren();const shown=rows.filter(x=>active==="all"||category(x.url)===active).slice(0,100);status.textContent=shown.length?String(shown.length)+" "+(french()?"résultat(s)":"نتيجة"):lang.none;shown.forEach(x=>{const u=safeHref(x.url);if(!u)return;const article=node("article","ct-search-result");article.append(node("small","",catLabel(category(u))));const h=node("h2");const a=node("a","",x.meta?.title||x.title||u);a.href=u;h.append(a);const desc=node("p","",x.meta?.description||x.excerpt?.replace(/<[^>]+>/g,"")||"");article.append(h,desc);list.append(article)})};
 types.forEach(type=>{const b=node("button","",label(type));b.type="button";b.setAttribute("aria-pressed",type===active?"true":"false");b.onclick=()=>{active=type;filters.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));render()};filters.append(b)});render();
 }
-function mount(){setupHeader();setupResults()}
+function mount(){window.ConsuTrainSiteSearchReady=true;setupHeader();setupResults()}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mount);else mount();
 document.addEventListener("ct:header-ready",setupHeader);
 })();
