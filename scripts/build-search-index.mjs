@@ -26,7 +26,7 @@ for(const raw of urls){
  let html=fs.readFileSync(file,"utf8");
  if(/<meta[^>]+(?:name=["']robots["'][^>]+content=["'][^"']*noindex|content=["'][^"']*noindex[^>]+name=["']robots)/i.test(html))continue;
  const isRadar=/20260713_tech_radar_article|data-tech-radar|\/assets\/images\/articles\/[^"' ]+\.jpg/i.test(html);
- if(isRadar){const id=path.posix.basename(file,".html");const allowed=file.startsWith("fr/")?publishedFr:publishedAr;if(!allowed.has(id)){audit.rejected.push({file,reason:"unpublished Tech Radar"});continue}}
+ if(isRadar && !pathname.endsWith("/learn/management-tech-radar.html")){const id=path.posix.basename(file,".html");const allowed=file.startsWith("fr/")?publishedFr:publishedAr;if(!allowed.has(id)){audit.rejected.push({file,reason:"unpublished Tech Radar"});continue}}
  // Index visible semantic content only; pagefind ignores navigation/scripts.
  const {errors}=await index.addHTMLFile({sourcePath:file,content:html});
  if(errors?.length)throw Error(file+": "+errors.join("; "));
