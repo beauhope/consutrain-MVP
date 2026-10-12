@@ -1,6 +1,6 @@
 /* CT-01: styles are limited to the independent homepage flash. */
 .ct-home-flash{padding:12px 0 20px;text-align:start}
-.ct-home-flash__card{padding:18px 22px;border:1px solid var(--border);border-inline-start:4px solid var(--gold);border-radius:16px;background:var(--surface,#fff);color:var(--primary)}
+.ct-home-flash__card{padding:18px 22px;border:1px solid var(--border);border-inline-start:4px solid var(--gold);border-radius:16px;background:#f4ead1;color:var(--primary)}
 .ct-home-flash__head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px 18px}
 .ct-home-flash .ct-home-flash__heading{margin:0;font-size:1.1rem;line-height:1.6}
 .ct-home-flash__meta{color:var(--muted);font-size:.8rem}
