@@ -1,6 +1,37 @@
 {
   "articles": [
     {
+      "id": "how-to-use-gemini-a-detailed-beginner-s-guide",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "ar",
+      "title": "إدارة البيانات في عصر الذكاء الاصطناعي التوليدي: استراتيجيات الاستفادة من Gemini في بيئة العمل",
+      "excerpt": "تستعرض هذه المقالة كيفية توظيف أداة Gemini من Google لتعزيز الكفاءة الإدارية عبر التكامل مع منظومة Google Workspace. نركز على كيفية استخدام الذكاء الاصطناعي لتنظيم البيانات وتحليلها، مع تسليط الضوء على أهمية الحوكمة البشرية والمراجعة الدقيقة لضمان اتخاذ قرارات مدروسة وتجنب الاعتماد الكلي على المخرجات الآلية.",
+      "date": "2026-10-13",
+      "category": "الذكاء الاصطناعي والإدارة",
+      "tags": [
+        "الرادار التقني",
+        "الذكاء الاصطناعي والإدارة",
+        "الحوكمة",
+        "إدارة البيانات"
+      ],
+      "url": "how-to-use-gemini-a-detailed-beginner-s-guide.html",
+      "image_url": "../assets/images/articles/how-to-use-gemini-a-detailed-beginner-s-guide.jpg",
+      "card_image_url": "../assets/images/articles/how-to-use-gemini-a-detailed-beginner-s-guide.jpg",
+      "image_alt": "صورة توضيحية لمقال ConsuTrain حول إدارة البيانات في عصر الذكاء الاصطناعي التوليدي: استراتيجيات الاستفادة من Gemini في بيئة العمل",
+      "video_title": "",
+      "video_url": "",
+      "source_material": [],
+      "related_terms": [
+        "الحوكمة",
+        "إدارة البيانات"
+      ],
+      "related_articles": [],
+      "content": [
+        "تستعرض هذه المقالة كيفية توظيف أداة Gemini من Google لتعزيز الكفاءة الإدارية عبر التكامل مع منظومة Google Workspace. نركز على كيفية استخدام الذكاء الاصطناعي لتنظيم البيانات وتحليلها، مع تسليط الضوء على أهمية الحوكمة البشرية والمراجعة الدقيقة لضمان اتخاذ قرارات مدروسة وتجنب الاعتماد الكلي على المخرجات الآلية."
+      ]
+    },
+    {
       "id": "how-to-conduct-an-ai-agent-security-audit",
       "content_type": "article",
       "contentType": "tech-radar",

@@ -1,6 +1,30 @@
 {
   "articles": [
     {
+      "id": "how-to-use-gemini-a-detailed-beginner-s-guide",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "Gestion des données à l'ère de l'IA générative : Stratégies d'utilisation de Gemini en milieu professionnel",
+      "excerpt": "Cet article explore comment exploiter l'outil Gemini de Google pour accroître l'efficacité managériale grâce à son intégration avec Google Workspace. Nous analysons l'usage de l'IA pour l'organisation et l'analyse des données, tout en soulignant l'importance de la gouvernance humaine et de la vérification critique pour garantir des décisions éclairées.",
+      "date": "2026-10-13",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Gouvernance",
+        "Gestion des données"
+      ],
+      "url": "how-to-use-gemini-a-detailed-beginner-s-guide.html",
+      "image_url": "../../assets/images/articles/how-to-use-gemini-a-detailed-beginner-s-guide.jpg",
+      "card_image_url": "../../assets/images/articles/how-to-use-gemini-a-detailed-beginner-s-guide.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à Gestion des données à l'ère de l'IA générative : Stratégies d'utilisation de Gemini en milieu professionnel",
+      "related_terms": [
+        "Gouvernance",
+        "Gestion des données"
+      ]
+    },
+    {
       "id": "how-to-conduct-an-ai-agent-security-audit",
       "content_type": "article",
       "contentType": "tech-radar",
