@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "programCode": "CT-BABD360",
+    "titleAr": "تحليل وتطوير الأعمال في عصر الرقمنة والذكاء الاصطناعي",
+    "guideTitle": "دليل برنامج تحليل وتطوير الأعمال في عصر الرقمنة والذكاء الاصطناعي — CT-BABD360",
+    "guideVersion": "v1.0",
+    "guideDate": "14 أكتوبر 2026",
+    "language": "ar",
+    "level": "متوسط إلى متقدم",
+    "structure": "3 أجزاء تدريبية مترابطة",
+    "slides": 123,
+    "durationPublic": "تُحدد وفق خطة التنفيذ المعتمدة لكل دفعة",
+    "deliveryPublic": "يُحدد نمط التنفيذ وجدولته عند طلب العرض التدريبي",
+    "courseUrl": "https://consutrain.com/courses/ct-babd360.html",
+    "pdfUrl": "https://consutrain.com/assets/downloads/ct-babd360/ct-babd360-program-guide-ar.pdf",
+    "quoteUrl": "https://consutrain.com/quote-request.html?type=training&item=ct-babd360&source=ct-babd360-course#quote-request-form"
+  },
+  "intro": {
+    "headline": "من فهم المشكلة إلى قرار أعمال مدعوم بالأدلة والقيمة",
+    "body": "يجمع CT-BABD360 بين تحليل الأعمال وتطوير الأعمال والرقمنة والذكاء الاصطناعي في مسار واحد يربط المشكلة والعملية والمتطلبات والبيانات بالفرصة والقيمة وBusiness Case ثم خارطة التنفيذ وقياس المنافع. صُمم المحتوى لمهنيين لديهم معرفة أولية ببيئة الأعمال ويرغبون في بناء قدرة تحليلية وتطويرية أكثر تكاملًا."
+  },
+  "audience": [
+    "محللو الأعمال ومسؤولو تحليل المتطلبات والعمليات",
+    "مسؤولو تطوير الأعمال والنمو والشراكات",
+    "مسؤولو الاستراتيجية والتخطيط والتطوير المؤسسي",
+    "مسؤولو تحسين العمليات والجودة والتميز المؤسسي",
+    "مديرو ومنسقو المشاريع والمنتجات",
+    "مسؤولو التحول الرقمي والابتكار",
+    "المديرون والمشرفون الذين يستخدمون البيانات لدعم القرار"
+  ],
+  "prerequisites": [
+    "معرفة أولية ببيئة العمل المؤسسي والعمليات.",
+    "إلمام أساسي بالبيانات والجداول الإلكترونية مثل Excel أو ما يعادلها مفيد للتطبيق.",
+    "لا توجد متطلبات برمجية إلزامية معلنة في هذه النسخة."
+  ],
+  "outcomes": [
+    "التمييز بين المشكلة والعَرَض والحاجة والحل وصياغة Problem Statement واضح.",
+    "تحليل أصحاب المصلحة والسياق والأسباب الجذرية والفجوات.",
+    "تحليل العمليات الحالية وتصميم الوضع المستقبلي باستخدام أدوات رسم العمليات.",
+    "تحليل المتطلبات وترتيبها وربطها بمعايير القبول وقابلية التتبع.",
+    "تحويل البيانات من Data إلى Insight ثم Decision وAction.",
+    "تصميم مؤشرات أداء ولوحات متابعة تدعم القرار.",
+    "تحليل السوق والعملاء والمنافسين واكتشاف فرص تطوير الأعمال.",
+    "تحويل الفرصة إلى Value Proposition ونموذج أعمال وBusiness Case أولي.",
+    "تقييم فرص الرقمنة والأتمتة وحالات استخدام الذكاء الاصطناعي.",
+    "استخدام GenAI كمساعد للتحليل مع التحقق البشري وتطبيق مبادئ AI Governance.",
+    "ربط المبادرات الرقمية بالقيمة والمخاطر وخارطة الطريق وقياس المنافع."
+  ],
+  "methodology": {
+    "statement": "Concept → Framework → Example → Exercise / Case",
+    "note": "المنهجية الفعلية للمحتوى تطبيقية بوضوح، لكن لم تُعتمد نسبة رقمية نهائية بين الشرح والتطبيق.",
+    "activities": [
+      "Mini Cases",
+      "Case Studies",
+      "Workshops",
+      "Exercises",
+      "Self-assessment Questions",
+      "Process Mapping Activities",
+      "Opportunity Analysis",
+      "Prompt Exercise",
+      "Capstone Project"
+    ]
+  },
+  "parts": [
+    {
+      "number": 1,
+      "title": "تحليل الأعمال: من المشكلة إلى القرار",
+      "slides": 41,
+      "duration": "غير معلنة كمدة نهائية",
+      "topics": [
+        "Business Analysis وBACCM وعقلية المحلل",
+        "Stakeholder Analysis وElicitation",
+        "Problem vs Symptom و5 Whys وFishbone وPareto",
+        "Gap Analysis وCurrent State / Future State",
+        "SIPOC وFlowchart وBPMN وProcess Mining",
+        "Requirements Hierarchy وUser Stories وAcceptance Criteria وMoSCoW",
+        "Data → Insight → Action وAnalytics Levels وKPI وDashboard Design"
+      ],
+      "application": "تشخيص مشكلة أعمال وتحليل أسبابها وعملياتها ومتطلباتها وبياناتها.",
+      "outcome": "الانتقال من المشكلة إلى تحليل موثق يدعم القرار."
+    },
+    {
+      "number": 2,
+      "title": "تطوير الأعمال والنمو الاستراتيجي",
+      "slides": 38,
+      "duration": "غير معلنة كمدة نهائية",
+      "topics": [
+        "Business Development وGrowth Logic",
+        "PESTEL وPorter Five Forces وCompetitive Intelligence وBenchmarking",
+        "Customer Segmentation وPersona وJobs to Be Done وCustomer Journey",
+        "TAM / SAM / SOM واكتشاف مصادر الفرص وترتيبها",
+        "Value Proposition وValue Proposition Canvas وBusiness Model Canvas",
+        "Revenue Models وPricing وAnsoff وBlue Ocean",
+        "Partnerships وChannels وFunnel وCRM",
+        "Unit Economics وROI وPayback وBusiness Case وGrowth Risks"
+      ],
+      "application": "Workshop لاكتشاف فرصة نمو، إضافة إلى حالة تطبيقية B2B.",
+      "outcome": "تحويل فرصة إلى عرض قيمة ونموذج أعمال وBusiness Case أولي."
+    },
+    {
+      "number": 3,
+      "title": "تحليل الأعمال في عصر الرقمنة والذكاء الاصطناعي",
+      "slides": 44,
+      "duration": "غير معلنة كمدة نهائية",
+      "topics": [
+        "Digitization / Digitalization / Transformation وDigital Operating Model",
+        "ERP وCRM وBI وWorkflow وRPA وLow-Code وCloud وAPI وIntegration",
+        "AI4BA وBA4AI وGenAI Use Cases",
+        "Prompt Engineering وتحليل الوثائق والمقابلات والمتطلبات بالذكاء الاصطناعي",
+        "AI + Process Mining وAI for Data Analysis",
+        "AI Risks وHuman-in-the-Loop وAI Governance وAI Use Case Canvas",
+        "Agentic AI وDigital Maturity وDigital Opportunity Scoring",
+        "Digital Business Case وDigital Roadmap وAgile Business Analysis",
+        "Benefits Realization وKPI Tree و30–60–90 Day Application Roadmap"
+      ],
+      "application": "Capstone + Prompt Workshop.",
+      "outcome": "تقييم وتصميم مبادرة رقمية أو AI Use Case وربطها بالحاجة والقيمة والحوكمة والقياس."
+    }
+  ],
+  "applications": [
+    "تحليل أصحاب المصلحة وبناء Power / Interest Matrix.",
+    "صياغة Problem Statement وتحليل الأسباب الجذرية.",
+    "رسم Current State / Future State وSIPOC وBPMN.",
+    "صياغة User Stories وAcceptance Criteria وترتيب المتطلبات بـMoSCoW.",
+    "تصميم KPI ولوحة متابعة مرتبطة بالقرار.",
+    "تحليل السوق والعملاء والمنافسين وتقدير TAM / SAM / SOM.",
+    "بناء Value Proposition ونموذج أعمال أولي.",
+    "إعداد Business Case وتقييم ROI وPayback والمخاطر.",
+    "تصميم Digital / AI Use Case مع Human-in-the-Loop وGovernance.",
+    "إعداد Digital Roadmap و30–60–90 Day Application Roadmap."
+  ],
+  "capstone": {
+    "title": "المشروع الختامي — Capstone",
+    "purpose": "دمج قدرات تحليل المشكلة والعمليات والبيانات وتطوير الأعمال والحل الرقمي أو المدعوم بالذكاء الاصطناعي في حالة واحدة.",
+    "confirmedOutput": "يبدأ ملف المخرجات بـ Problem Brief ويتبعه مجموعة مخرجات تحليلية مرتبطة بالحالة.",
+    "duration": "لم تُعتمد مدة مستقلة للمشروع.",
+    "assessment": "لا توجد أوزان أو Rubric نهائية معلنة في هذه النسخة."
+  },
+  "learningMaterials": {
+    "usedInDelivery": [
+      "ثلاثة عروض تدريبية مترابطة بإجمالي 123 شريحة.",
+      "تمارين وورش وحالات تطبيقية وأسئلة تقييم ذاتي داخل المحتوى.",
+      "تعليمات Capstone ضمن الجزء الثالث.",
+      "عناصر بصرية ورسوم أُعدت لدعم الشرح والتطبيق."
+    ],
+    "publicDistributionNote": "لا تُعد ملفات PowerPoint الحالية Public Downloads، ولا يُفترض تسليمها للمشارك ما لم يُعتمد ذلك لاحقًا ضمن حزمة Participant Materials.",
+    "internal": [
+      "النسخ الكاملة من العروض التي تحتوي ملاحظات المدرب التفصيلية.",
+      "شرح الأدوات والأكرونيمات والأمثلة والأسئلة والإرشادات الخاصة بالمدرب.",
+      "حزم ZIP وملفات الإنتاج والصور الداعمة.",
+      "أي مفاتيح أو إجابات أو مواد داخلية يتم تطويرها لاحقًا."
+    ]
+  },
+  "assessment": {
+    "current": [
+      "Self-assessment Questions",
+      "Exercises",
+      "Workshops",
+      "Mini Cases",
+      "Case Studies",
+      "Capstone"
+    ],
+    "governance": "لا يعلن هذا الإصدار عن نظام درجات أو اختبار نهائي أو Passing Score أو شرط حضور نهائي لأن هذه العناصر لم تُعتمد بعد.",
+    "certificate": "لا يعلن هذا الإصدار عن اعتماد خارجي أو شهادة مهنية خارجية. أي شهادة إتمام مستقبلية تُحدد شروطها قبل التنفيذ."
+  },
+  "delivery": {
+    "statement": "تنسيق التنفيذ والمدد التفصيلية لكل جزء يُحدد عند إعداد خطة الدفعة أو العرض التدريبي.",
+    "selfPaced": "لا توجد حاليًا نسخة Self-paced مكتملة أو LMS Package.",
+    "technical": [
+      "حاسوب محمول لكل مشارك مفيد للتمارين.",
+      "Excel أو ما يعادله مفيد للتطبيقات المتعلقة بالبيانات.",
+      "قد تُستخدم أدوات مثل Power BI وCRM وERP وProcess Mining وGenAI لأغراض العرض أو المحاكاة بحسب نسخة التنفيذ.",
+      "لا توجد في هذه النسخة متطلبات تثبيت إلزامية معلنة."
+    ]
+  },
+  "customization": [
+    "مواءمة Case Studies مع قطاع الجهة.",
+    "استخدام عمليات وبيانات تدريبية قريبة من واقع المؤسسة.",
+    "تكييف Personas وCustomer Journeys وحالات Process Analysis.",
+    "تخصيص Digital / AI Use Cases ومؤشرات الأداء وسيناريوهات الورش.",
+    "الحفاظ على التسلسل الأساسي: Problem → Process → Requirements → Data → Opportunity → Value → Digital/AI Solution → Business Case → Benefits."
+  ],
+  "sourceGovernance": {
+    "sourceOfTruth": "العروض الثلاثة النهائية والنسخ المطابقة التي تحتوي Trainer Notes، إلى حين اعتماد Curriculum Master مستقل.",
+    "copyrightNote": "قبل تحويل أي عرض أو أصل بصري إلى Public Download يجب إجراء مراجعة حقوق النشر والإسناد للصور والرسومات والتعريفات والأطر المسماة والمراجع."
+  },
+  "professionalCapabilities": [
+    "إجراء تشخيص أولي لمشكلة أعمال وربطها بالعملية والبيانات والمتطلبات.",
+    "تحويل نتائج التحليل إلى توصية قابلة للدفاع عنها بدل الاكتفاء بالوصف.",
+    "اكتشاف فرص النمو وتقييمها وترتيبها وفق القيمة والجدوى والمخاطر.",
+    "بناء Business Case أولي وربط القرار بمؤشرات أداء ومنافع قابلة للقياس.",
+    "تقييم فرص الرقمنة والأتمتة والذكاء الاصطناعي ضمن ضوابط الحوكمة والتحقق البشري.",
+    "بناء خارطة طريق تطبيقية تربط المشكلة والفرصة والحل والقيمة."
+  ]
+}
