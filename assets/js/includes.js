@@ -667,6 +667,16 @@ function initGlobalShareButton() {
   - يتم تحميل الفوتر
   ---------------------------------------------------------
 */
+// TECH-04: Start loading shared search styles before the asynchronous header fetch.
+// The existing guard inside loadPartial prevents a duplicate stylesheet.
+if (!document.querySelector('link[data-ct-global-search-css]')) {
+  const searchCss = document.createElement("link");
+  searchCss.rel = "stylesheet";
+  searchCss.dataset.ctGlobalSearchCss = "true";
+  searchCss.href = new URL(`${getRootPath()}/assets/css/site-search.css?v=ct01-v1`, document.baseURI).href;
+  document.head.appendChild(searchCss);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   ensureSubscriberCaptureRuntime();
   const partialsBase = getPartialsBasePath();
