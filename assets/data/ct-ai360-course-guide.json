@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "programCode": "CT-AI360",
+    "titleAr": "الذكاء الاصطناعي التطبيقي وChatGPT: من الأساسيات إلى الوكلاء والأتمتة",
+    "titleFr": "ChatGPT & Intelligence Artificielle Appliquée : des fondamentaux aux agents et à l’automatisation",
+    "titleEn": "Applied AI & ChatGPT: From Fundamentals to Agents and Automation",
+    "guideTitle": "دليل برنامج الذكاء الاصطناعي التطبيقي وChatGPT — CT-AI360",
+    "guideVersion": "v1.0",
+    "guideDate": "14 أكتوبر 2026",
+    "language": "fr",
+    "languageLabel": "الفرنسية",
+    "durationHours": 30,
+    "levelsCount": 3,
+    "slides": 180,
+    "thematicModules": 36,
+    "levelPath": "Fondamental → Professionnel → Avancé",
+    "courseUrl": "https://consutrain.com/courses/ct-ai360.html",
+    "pdfUrl": "https://consutrain.com/assets/downloads/ct-ai360/ct-ai360-program-guide-ar.pdf",
+    "quoteUrl": "https://consutrain.com/quote-request.html?type=training&item=ct-ai360&source=ct-ai360-course#quote-request-form"
+  },
+  "intro": {
+    "headline": "من الاستخدام الأساسي لـChatGPT إلى تصميم أنظمة عمل ذكية قابلة للقياس والتحكم",
+    "body": "يأخذ CT-AI360 المشارك في مسار متدرج يبدأ بفهم الذكاء الاصطناعي وChatGPT والـPrompt Engineering، ثم ينتقل إلى الاستخدام المهني للبحث والملفات والبيانات والمشروعات والأدوات المتصلة، وينتهي بفهم وتصميم AI Agents وAgentic AI وRAG وAPIs والأتمتة ضمن ضوابط التحقق والحوكمة."
+  },
+  "audience": [
+    "الجمهور العام الراغب في استخدام ChatGPT بفعالية أكبر.",
+    "الطلاب والمتعلمون الذين يريدون الاستفادة من الذكاء الاصطناعي في البحث والتعلم.",
+    "الموظفون والمهنيون الذين يستخدمون ChatGPT في الكتابة والتحليل والبحث واتخاذ القرار.",
+    "المستقلون وأصحاب المشاريع الصغيرة الراغبون في بناء workflows أكثر كفاءة.",
+    "المستخدمون الذين يريدون الانتقال من الاستخدام الفردي للأداة إلى أنظمة عمل ذكية وأتمتة قابلة للقياس."
+  ],
+  "outcomes": [
+    "فهم أساسيات IA وMachine Learning وDeep Learning وIA générative وLLM وTransformer وTokens وContext.",
+    "التمييز بين نموذج الذكاء الاصطناعي وتطبيق ChatGPT والأدوات وأنماط التفكير.",
+    "استخدام Chat والملفات والصور والصوت والبحث على الويب بصورة أكثر منهجية.",
+    "صياغة Prompts واضحة ومنظمة وقابلة لإعادة الاستخدام والتحسين.",
+    "اكتشاف hallucinations وتحديد الحالات التي تتطلب تحققًا أو مصدرًا إضافيًا.",
+    "استخدام Projects وDeep Research والملفات وتحليل البيانات لخدمة أعمال أطول وأكثر تعقيدًا.",
+    "ربط ChatGPT بأدوات وApps وScheduled Tasks ضمن سياق عمل مهني.",
+    "فهم دور Codex والقدرات التقنية المرتبطة بالبرمجة والمهام التقنية.",
+    "التمييز بين AI Agent وAgentic AI وWorkflow وAutomation.",
+    "فهم Tools وMemory وRAG وAPI وMCP وOrchestration ودورها في الأنظمة الذكية.",
+    "تصميم workflows أكثر أمانًا وقابلية للملاحظة والتحقق.",
+    "بناء تصور MVP وTests وKPIs وRoadmap لنظام Assistant / Consultant IA."
+  ],
+  "methodology": {
+    "sequence": [
+      "شرح",
+      "Demonstration",
+      "Practice",
+      "Verification",
+      "Capitalisation"
+    ],
+    "activities": [
+      "Demonstrations guidées",
+      "Micro-exercices",
+      "Quiz",
+      "Cas pratiques",
+      "Analyse de documents",
+      "Analyse de données",
+      "Exercices de prompting",
+      "Mini-projet",
+      "Cartographie de workflow",
+      "Ateliers Agentic AI",
+      "Projet final",
+      "Tests et KPIs"
+    ],
+    "learningThread": "Mini-projet في المستوى الأول → cartographie d’un workflow في المستوى المهني → conception agentique et projet final في المستوى المتقدم."
+  },
+  "levels": [
+    {
+      "number": 1,
+      "name": "Niveau Fondamental",
+      "slides": 59,
+      "promise": "فهم الذكاء الاصطناعي وChatGPT وبناء استخدام صحيح وقابل للتحقق.",
+      "modules": [
+        {
+          "n": 1,
+          "title": "Comprendre l’IA",
+          "topics": "IA، Machine Learning، Deep Learning، IA générative، LLM، Transformer، tokens، contexte، entraînement، inférence."
+        },
+        {
+          "n": 2,
+          "title": "Qu’est-ce que ChatGPT ?",
+          "topics": "OpenAI، GPT vs ChatGPT، modèle vs application، fonctionnement général، multimodalité."
+        },
+        {
+          "n": 3,
+          "title": "Les modèles ChatGPT",
+          "topics": "اختيار النموذج، السرعة مقابل reasoning، مستويات التفكير، limits وquotas."
+        },
+        {
+          "n": 4,
+          "title": "Maîtriser le Chat",
+          "topics": "Conversations، contexte، fichiers، images، tableaux، liens، Web Search."
+        },
+        {
+          "n": 5,
+          "title": "Prompt Engineering",
+          "topics": "Rôle، contexte، objectif، contraintes، format، exemples، itération."
+        },
+        {
+          "n": 6,
+          "title": "Techniques avancées de prompting",
+          "topics": "Zero-shot، few-shot، décomposition، critique، vérification، structured prompts، meta-prompts."
+        },
+        {
+          "n": 7,
+          "title": "Raisonnement avec ChatGPT",
+          "topics": "حل المشكلات، المقارنة، اتخاذ القرار، السيناريوهات والتحليل النقدي."
+        },
+        {
+          "n": 8,
+          "title": "Recherche Web",
+          "topics": "Recherche actuelle، sources، citations، vérification."
+        }
+      ],
+      "application": "Mini-projet — Résoudre un problème réel avec ChatGPT."
+    },
+    {
+      "number": 2,
+      "name": "Niveau Professionnel",
+      "slides": 59,
+      "promise": "الانتقال من الحصول على إجابة إلى جعل ChatGPT يساهم في تقدم عملية عمل فعلية.",
+      "modules": [
+        {
+          "n": 9,
+          "title": "Deep Research"
+        },
+        {
+          "n": 10,
+          "title": "Travailler avec les fichiers"
+        },
+        {
+          "n": 11,
+          "title": "Data Analysis"
+        },
+        {
+          "n": 12,
+          "title": "Images et multimodalité"
+        },
+        {
+          "n": 13,
+          "title": "Voice"
+        },
+        {
+          "n": 14,
+          "title": "Memory"
+        },
+        {
+          "n": 15,
+          "title": "Projects"
+        },
+        {
+          "n": 16,
+          "title": "Library"
+        },
+        {
+          "n": 17,
+          "title": "ChatGPT Work"
+        },
+        {
+          "n": 18,
+          "title": "Scheduled Tasks"
+        },
+        {
+          "n": 19,
+          "title": "Plugins et Apps connectées"
+        },
+        {
+          "n": 20,
+          "title": "Codex"
+        },
+        {
+          "n": 21,
+          "title": "GPTs personnalisés"
+        },
+        {
+          "n": 22,
+          "title": "Mode Study et usages pédagogiques"
+        }
+      ],
+      "application": "Travail inter-volume — Cartographier un workflow réel."
+    },
+    {
+      "number": 3,
+      "name": "Niveau Avancé",
+      "slides": 62,
+      "promise": "فهم الأنظمة الوكيلة والأتمتة وتحويل الطلب المعقد إلى عمل قابل للتتبع والتحقق.",
+      "modules": [
+        {
+          "n": 23,
+          "title": "AI Agent"
+        },
+        {
+          "n": 24,
+          "title": "Agentic AI"
+        },
+        {
+          "n": 25,
+          "title": "Architecture agentique"
+        },
+        {
+          "n": 26,
+          "title": "Computer Use et navigateur"
+        },
+        {
+          "n": 27,
+          "title": "Automatisation et orchestration"
+        },
+        {
+          "n": 28,
+          "title": "ChatGPT vs API OpenAI"
+        },
+        {
+          "n": 29,
+          "title": "RAG et bases documentaires"
+        },
+        {
+          "n": 30,
+          "title": "Sécurité et confidentialité"
+        },
+        {
+          "n": 31,
+          "title": "Hallucinations et limites"
+        },
+        {
+          "n": 32,
+          "title": "Éthique et gouvernance IA"
+        },
+        {
+          "n": 33,
+          "title": "ChatGPT au travail"
+        },
+        {
+          "n": 34,
+          "title": "Construire son système de travail IA"
+        },
+        {
+          "n": 35,
+          "title": "Atelier Agentique"
+        },
+        {
+          "n": 36,
+          "title": "Projet final"
+        }
+      ],
+      "application": "Projet final — Construire son Assistant / Consultant IA."
+    }
+  ],
+  "finalProject": {
+    "title": "Construire son Assistant / Consultant IA",
+    "purpose": "تجميع القدرات المكتسبة في مهمة حقيقية كاملة وقابلة للقياس.",
+    "needs": [
+      "recherche",
+      "apprentissage",
+      "gestion documentaire",
+      "veille",
+      "reporting",
+      "accompagnement client",
+      "productivité personnelle"
+    ],
+    "designFlow": "utilisateur → problème → données → contraintes → critères de réussite",
+    "capabilities": "Chat / Project / Deep Research / Data Analysis / Work / Plugin-App / API / automatisation",
+    "controls": "Quality Control + Human-in-the-loop",
+    "workflow": "Recherche → Analyse → Décision → Production → Contrôle",
+    "measures": [
+      "Qualité",
+      "Temps",
+      "Fiabilité",
+      "Coût",
+      "Adoption"
+    ],
+    "roadmap": [
+      "0–30 jours: MVP simple",
+      "31–60 jours: Fiabilisation",
+      "61–90 jours: Automatisation contrôlée"
+    ]
+  },
+  "professionalCapabilities": [
+    "تحويل طلب غامض إلى instruction exploitable وقابلة للتحسين.",
+    "بناء Prompts منظمة واستخدام البحث والملفات والبيانات ضمن سير عمل واضح.",
+    "التمييز بين الأدوات المختلفة واختيار القدرة المناسبة للمهمة بدل استخدام Chat فقط.",
+    "تحويل استخدام ChatGPT من إجابات منفصلة إلى دعم عملية عمل مهنية.",
+    "تحليل واختبار المخرجات وتطبيق التحقق البشري عند الحاجة.",
+    "تصميم workflow يجمع البحث والتحليل والقرار والإنتاج والمراقبة.",
+    "فهم البنية الأساسية للوكلاء والأنظمة Agentic واستخدام RAG وAPIs وMCP كمفاهيم تكامل.",
+    "تحديد MVP وTests وKPIs وRoadmap لنظام مساعد أو مستشار ذكي."
+  ]
+}
