@@ -1,0 +1,13 @@
+{
+  "sourceHash": "a683708fafe28c1af9b9d48360a8f5eefb461125e570e670c8300ee7eeaa3fe0",
+  "updatedAt": "2026-10-14T07:39:10+00:00",
+  "source": "assets/data/ct-ai360-course-guide.json",
+  "contactSource": "assets/data/platform-contact.json",
+  "pdf": {
+    "url": "assets/downloads/ct-ai360/ct-ai360-program-guide-ar.pdf",
+    "version": "v1.0",
+    "documentDate": "14 أكتوبر 2026",
+    "fileHash": "b7257898b0b3372c16f5c41e2c2ab508c857d7fef69c09c779a95f6b769c730d",
+    "downloadName": "ConsuTrain_CT-AI360_Program_Guide_AR.pdf"
+  }
+}
