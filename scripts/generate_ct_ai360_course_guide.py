@@ -1,3 +1,4 @@
+# CT-AI360 public guide generator - controlled by CT-03
 #!/usr/bin/env python3
 from __future__ import annotations
 import argparse, base64, datetime as dt, hashlib, html, io, json, os
