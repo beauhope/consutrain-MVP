@@ -8,8 +8,8 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20261012-latest-article-v1";
-const RUNTIME_CACHE = "consutrain-runtime-v20261012-latest-article-v1";
+const STATIC_CACHE = "consutrain-v20261014-pdf-download-fix-v1";
+const RUNTIME_CACHE = "consutrain-runtime-v20261014-pdf-download-fix-v1";
 const PRECACHE_URLS = [
   "./tools/management-flash.html",
   "./assets/js/management-flash-data.js?v=ct01-flash-v1",
@@ -351,6 +351,11 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  if (isPdfAsset(url)) {
+    event.respondWith(networkFirstAsset(request));
+    return;
+  }
+
   if (isSensitiveTokenPage(url)) {
     event.respondWith(fetch(request, { cache: "no-store" }));
     return;
@@ -381,6 +386,10 @@ function isPlatformGuideProfileAsset(url) {
     path.includes("/resources/downloads/profile/") &&
     (path.endsWith(".pdf") || path.endsWith("latest-ar.html") || path.endsWith("latest-fr.html"))
   );
+}
+
+function isPdfAsset(url) {
+  return url.pathname.toLowerCase().endsWith(".pdf");
 }
 
 function shouldUseNetworkFirstForUiAsset(url) {
@@ -459,8 +468,10 @@ async function matchCachedAsset(request) {
 async function networkFirstAsset(request) {
   try {
     const networkResponse = await fetch(request, { cache: "no-store" });
-    const runtimeCache = await caches.open(RUNTIME_CACHE);
-    runtimeCache.put(request, networkResponse.clone());
+    if (networkResponse && networkResponse.ok) {
+      const runtimeCache = await caches.open(RUNTIME_CACHE);
+      await runtimeCache.put(request, networkResponse.clone());
+    }
     return networkResponse;
   } catch (error) {
     const cachedResponse = await matchCachedAsset(request);
@@ -472,8 +483,10 @@ async function networkFirstAsset(request) {
 async function networkFirstPage(request) {
   try {
     const networkResponse = await fetch(request);
-    const runtimeCache = await caches.open(RUNTIME_CACHE);
-    runtimeCache.put(request, networkResponse.clone());
+    if (networkResponse && networkResponse.ok) {
+      const runtimeCache = await caches.open(RUNTIME_CACHE);
+      await runtimeCache.put(request, networkResponse.clone());
+    }
     return networkResponse;
   } catch (error) {
     const cachedResponse = await caches.match(request);
@@ -498,8 +511,10 @@ async function cacheFirstAsset(request) {
 
   try {
     const networkResponse = await fetch(request);
-    const runtimeCache = await caches.open(RUNTIME_CACHE);
-    runtimeCache.put(request, networkResponse.clone());
+    if (networkResponse && networkResponse.ok) {
+      const runtimeCache = await caches.open(RUNTIME_CACHE);
+      await runtimeCache.put(request, networkResponse.clone());
+    }
     return networkResponse;
   } catch (error) {
     const fallback = await matchCachedAsset(request);
