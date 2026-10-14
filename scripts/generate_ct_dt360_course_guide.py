@@ -74,7 +74,7 @@ def main():
     root=Path(a.root).resolve()
     dp=root/'assets/data/ct-dt360-course-guide.json'
     cp=root/'assets/data/platform-contact.json'
-    out=root/'assets/course-guides/ct-dt360-ar.pdf'
+    out=root/'assets/downloads/ct-dt360/ct-dt360-program-guide-ar.pdf'
     mp=root/'assets/data/ct-dt360-course-guide-manifest.json'
     d=J(dp); c=J(cp)
     h=hashlib.sha256()

@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/course-guides/ct-dt360-ar.pdf assets/data/ct-dt360-course-guide-manifest.json
+          git add assets/downloads/ct-dt360/ct-dt360-program-guide-ar.pdf assets/data/ct-dt360-course-guide-manifest.json
           if git diff --cached --quiet; then
             echo "No guide changes to commit."
             exit 0
