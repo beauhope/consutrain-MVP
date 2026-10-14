@@ -1,13 +1,13 @@
 {
-  "sourceHash": "1a52688933f26e981e3c0939512d16e41b4a6f8792887f50d59e6f5b14f7e6c2",
-  "updatedAt": "2026-10-14T07:07:00+00:00",
+  "sourceHash": "87de807f5f1f76eaebf95fa0e6e9b598f4e68cb70d6d5db6d72f35c124fedb08",
+  "updatedAt": "2026-10-14T07:20:36+00:00",
   "source": "assets/data/ct-babd360-course-guide.json",
   "contactSource": "assets/data/platform-contact.json",
   "pdf": {
     "url": "assets/downloads/ct-babd360/ct-babd360-program-guide-ar.pdf",
     "version": "v1.0",
     "documentDate": "14 أكتوبر 2026",
-    "fileHash": "7c2d3549dc9543ba0ea9cd5eee858a22675040cd461af509d5296f7f9298c2e2",
+    "fileHash": "bef114dc462991f7d6d564d2dc3009d263d99bebf8840c28ec2a67a2d696ed09",
     "downloadName": "ConsuTrain_CT-BABD360_Program_Guide_AR.pdf"
   }
 }
