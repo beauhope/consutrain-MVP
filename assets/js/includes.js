@@ -184,7 +184,7 @@ async function loadPartial(selector, filePath) {
     const cacheSafePath = `${filePath}${separator}${version}`;
 
     const res = await fetch(cacheSafePath, {
-      cache: "no-store"
+      cache: "no-cache"
     });
 
     if (!res.ok) {
