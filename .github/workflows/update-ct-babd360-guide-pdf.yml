@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - "ct-03/ct-babd360-course-guide"
-      - "ct-03/public-copy-cleanup"
     paths:
       - "assets/data/ct-babd360-course-guide.json"
       - "assets/data/platform-contact.json"
