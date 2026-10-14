@@ -13,4 +13,4 @@ exclude:
   - README-radar-parity.md
   - AGENTS
   - scripts
-  
+    - admin
