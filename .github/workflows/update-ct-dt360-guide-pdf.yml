@@ -1,0 +1,52 @@
+name: Update CT-DT360 Guide PDF
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "ct-03/ct-dt360-course-guide"
+    paths:
+      - "assets/data/ct-dt360-course-guide.json"
+      - "assets/data/platform-contact.json"
+      - "scripts/generate_ct_dt360_course_guide.py"
+      - "assets/images/consutrain-logo-horizontal.png"
+      - "assets/fonts/Cairo-Regular.ttf"
+      - "assets/fonts/Cairo-Bold.ttf"
+      - ".github/workflows/update-ct-dt360-guide-pdf.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PDF generator dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "qrcode[pil]" playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Generate CT-DT360 guide
+        run: |
+          python scripts/generate_ct_dt360_course_guide.py --root . --force
+
+      - name: Commit generated PDF and manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/course-guides/ct-dt360-ar.pdf assets/data/ct-dt360-course-guide-manifest.json
+          if git diff --cached --quiet; then
+            echo "No guide changes to commit."
+            exit 0
+          fi
+          git commit -m "Auto-update CT-DT360 guide PDF"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
