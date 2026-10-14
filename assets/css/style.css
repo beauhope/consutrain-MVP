@@ -6508,6 +6508,13 @@ html[lang="fr"] .breadcrumbs li + li::before{
   --sticky-header-offset: 92px;
 }
 
+/* TECH-04: Reserve the two existing header rows only until the async partial arrives.
+   Navigation: 76px minimum; subscriber row: 8px + 34px + 8px + 1px. */
+#header-placeholder:empty,
+body.home-page #header-placeholder:empty{
+  min-height: calc(76px + 8px + 34px + 8px + 1px);
+}
+
 #header-placeholder{
   position: sticky;
   top: 0;
