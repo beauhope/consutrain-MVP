@@ -110,7 +110,11 @@ self.addEventListener("fetch", (event) => {
 
 function isSensitiveTokenPage(url) {
   const path = url.pathname.toLowerCase();
-  return path.endsWith("/unsubscribe.html");
+  return (
+    path === "/admin" ||
+    path.startsWith("/admin/") ||
+    path.endsWith("/unsubscribe.html")
+  );
 }
 
 function isPlatformGuideProfileAsset(url) {
