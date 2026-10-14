@@ -1,13 +1,13 @@
 {
-  "sourceHash": "49b003f95cd061bcd94d5c5dfd3e607b6aef2b2db5202c57901b2f0ebfadd1d2",
-  "updatedAt": "2026-10-14T06:16:30+00:00",
+  "sourceHash": "a2db84cc51fe5ed1efb8d38103513837ce8253a26d700b06c63ff5db515e8269",
+  "updatedAt": "2026-10-14T06:32:10+00:00",
   "source": "assets/data/ct-dt360-course-guide.json",
   "contactSource": "assets/data/platform-contact.json",
   "pdf": {
     "url": "assets/course-guides/ct-dt360-ar.pdf",
     "version": "v1.0",
     "documentDate": "14 أكتوبر 2026",
-    "fileHash": "a65c7ad97957fbaddc94df60438e8e10d9c748818bf32e0d1dc5d77f7a4a0d30",
+    "fileHash": "0a00d4a1378e776e881965bf1aa93ba5da6e7160d08f4728e0ff7510dc045083",
     "downloadName": "ConsuTrain_CT-DT360_Program_Guide_AR.pdf"
   }
 }
