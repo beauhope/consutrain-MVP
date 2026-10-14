@@ -6508,11 +6508,12 @@ html[lang="fr"] .breadcrumbs li + li::before{
   --sticky-header-offset: 92px;
 }
 
-/* TECH-04: Reserve the two existing header rows only until the async partial arrives.
-   Navigation: 76px minimum; subscriber row: 8px + 34px + 8px + 1px. */
-#header-placeholder:empty,
-body.home-page #header-placeholder:empty{
-  min-height: calc(76px + 8px + 34px + 8px + 1px);
+/* TECH-04: Keep both header rows reserved before and after async injection.
+   131px derives from measured AR/FR desktop/mobile header height (~130.4px).
+   min-height lets navigation expand naturally when content needs more room. */
+#header-placeholder,
+body.home-page #header-placeholder{
+  min-height: 131px;
 }
 
 #header-placeholder{
