@@ -395,6 +395,11 @@
         <div class="fr-form-shell">
           <form class="fr-internal-form" id="frInternalConsultationForm" action="#" method="post">
             <div class="fr-form-grid">
+              <div class="consultation-hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                <label for="frConsultationWebsite">Ne pas remplir ce champ</label>
+                <input id="frConsultationWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
               <div class="fr-form-field">
                 <label for="frFullName">Nom complet</label>
                 <input id="frFullName" name="fullName" type="text" autocomplete="name" maxlength="120" required>
@@ -524,6 +529,20 @@
           return;
         }
 
+        var requiredNames = ["fullName", "email", "phone", "requestType", "subject", "preferredContact", "needDescription"];
+        var badField = requiredNames.map(function (name) { return form.elements[name]; }).find(function (field) {
+          return !field || !fieldValue(field.name);
+        });
+        if (badField) {
+          setStatus("Veuillez remplir correctement tous les champs obligatoires.");
+          if (badField.focus) badField.focus();
+          return;
+        }
+        if (fieldValue("website")) {
+          setStatus("Impossible d’envoyer la demande pour le moment.");
+          return;
+        }
+
         if (!isMeaningfulPhone(fieldValue("phone"))) {
           phoneField.setCustomValidity("Veuillez saisir un numéro de téléphone international valide comportant suffisamment de chiffres.");
           phoneField.setAttribute("aria-invalid", "true");
@@ -547,7 +566,9 @@
           description: fieldValue("needDescription"),
           timeline: fieldValue("timeline"),
           preferred_contact: fieldValue("preferredContact"),
-          consent: Boolean(form.elements.consent && form.elements.consent.checked)
+          consent: Boolean(form.elements.consent && form.elements.consent.checked),
+          form_type: "consultation",
+          website: fieldValue("website")
         };
 
         submitButton.disabled = true;
