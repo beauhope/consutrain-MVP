@@ -1,6 +1,30 @@
 {
   "articles": [
     {
+      "id": "the-6-best-ai-resume-builders-in-2026",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "Générateurs de CV par IA : Analyse managériale des mutations du recrutement et des compétences",
+      "excerpt": "Ce rapport examine l'essor des outils de création de CV assistés par l'IA et leur impact sur les stratégies de recrutement. L'analyse explore la valeur organisationnelle de ces technologies, leurs cas d'usage pour le développement de carrière, tout en soulignant les risques liés à l'exactitude et à la gouvernance, offrant ainsi une feuille de route aux managers.",
+      "date": "2026-10-15",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Gouvernance",
+        "Gestion des risques"
+      ],
+      "url": "the-6-best-ai-resume-builders-in-2026.html",
+      "image_url": "../../assets/images/articles/the-6-best-ai-resume-builders-in-2026.jpg",
+      "card_image_url": "../../assets/images/articles/the-6-best-ai-resume-builders-in-2026.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à Générateurs de CV par IA : Analyse managériale des mutations du recrutement et des compétences",
+      "related_terms": [
+        "Gouvernance",
+        "Gestion des risques"
+      ]
+    },
+    {
       "id": "how-to-use-gemini-a-detailed-beginner-s-guide",
       "content_type": "article",
       "contentType": "tech-radar",
