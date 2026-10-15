@@ -212,6 +212,11 @@
 
           <form class="internal-consultation-form" id="internalConsultationForm" action="#" method="post">
             <div class="form-grid">
+              <div class="consultation-hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                <label for="consultationWebsite">اترك هذا الحقل فارغًا</label>
+                <input id="consultationWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
               <div class="form-field">
                 <label for="fullName">الاسم الكامل</label>
                 <input id="fullName" name="fullName" type="text" autocomplete="name" maxlength="120" required>
@@ -364,6 +369,20 @@
           return;
         }
 
+        var requiredNames = ["fullName", "email", "phone", "requestType", "subject", "preferredContact", "needDescription"];
+        var badField = requiredNames.map(function (name) { return form.elements[name]; }).find(function (field) {
+          return !field || !fieldValue(field.name);
+        });
+        if (badField) {
+          setStatus("يرجى تعبئة جميع الحقول المطلوبة بمعلومات صحيحة.");
+          if (badField.focus) badField.focus();
+          return;
+        }
+        if (fieldValue("website")) {
+          setStatus("تعذر إرسال الطلب حاليًا.");
+          return;
+        }
+
         if (!isMeaningfulPhone(fieldValue("phone"))) {
           phoneField.setCustomValidity("يرجى إدخال رقم هاتف دولي صالح يتضمن أرقامًا كافية.");
           phoneField.setAttribute("aria-invalid", "true");
@@ -387,7 +406,9 @@
           description: fieldValue("needDescription"),
           timeline: fieldValue("timeline"),
           preferred_contact: fieldValue("preferredContact"),
-          consent: Boolean(form.elements.consent && form.elements.consent.checked)
+          consent: Boolean(form.elements.consent && form.elements.consent.checked),
+          form_type: "consultation",
+          website: fieldValue("website")
         };
 
         submitButton.disabled = true;
