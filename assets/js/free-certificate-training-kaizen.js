@@ -1,7 +1,23 @@
 (function () {
   "use strict";
 
-  const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
+  const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwqXE2__bb_XIx07-TTiAz_vYzpG-FAYUnE7I7IarGLPEhDOuCoKHq5DjydVHHKckq9/exec";
+
+  async function sendToCloud(url, options) {
+    const payload = JSON.parse(options.body);
+    if (!payload.submissionId) payload.submissionId = "cloud-" + crypto.randomUUID();
+    const controller = new AbortController();
+    const timer = setTimeout(function () { controller.abort(); }, 30000);
+    try {
+      return await fetch(url, {
+        ...options,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify({ ...payload, form_type: "certificate_submission" }),
+        redirect: "follow",
+        signal: controller.signal
+      });
+    } finally { clearTimeout(timer); }
+  }
   const TRAINING_ID = "kaizen-continuous-improvement";
   const TRAINING_TITLE = "كايزن: التحسين المستمر في بيئة العمل";
   const CERTIFICATE_TYPE = "free_test";
@@ -353,7 +369,7 @@
     controls.retryButton.hidden = !hasPending; controls.discardButton.hidden = !hasPending;
     if (hasPending) { setStatus("يوجد طلب شهادة سابق محفوظ مؤقتًا في هذا المتصفح لمدة تصل إلى 24 ساعة. لن يُعاد إرساله تلقائيًا؛ يمكنك إعادة المحاولة الآن أو حذفه.", "warning"); resultActions.hidden = false; }
   }
-  const TERMINAL_BACKEND_STATUSES = new Set(["issued", "duplicate", "validation_failed", "assessment_failed", "delivery_failed", "configuration_error", "success"]);
+  const TERMINAL_BACKEND_STATUSES = new Set(["accepted", "issued", "duplicate", "validation_failed", "assessment_failed", "delivery_failed", "configuration_error", "success"]);
   function getBackendStatus(result) { return result && typeof result === "object" && typeof result.status === "string" ? result.status.trim().toLowerCase() : ""; }
   function isTerminalBackendResult(result) { return TERMINAL_BACKEND_STATUSES.has(getBackendStatus(result)); }
   function getSafeBackendMessage(result, fallback) {
@@ -362,6 +378,7 @@
   }
   function showBackendResult(result, successMessage) {
     const status = getBackendStatus(result);
+    if (status === "accepted") { setStatus("تم استلام طلبك وحفظه. ستُرسل الشهادة إلى بريدك الإلكتروني بعد اكتمال المعالجة.", "success"); return true; }
     if (status === "issued") { setStatus("تم إصدار الشهادة وإرسالها إلى بريدك الإلكتروني.", "success"); return true; }
     if (status === "success") { // LEGACY C2 TRANSITION
       setStatus(successMessage, "success"); return true;
@@ -412,7 +429,7 @@
   }
 
   async function submitPayload(payload) {
-    const response = await fetch(WEBHOOK_URL, {
+    const response = await sendToCloud(WEBHOOK_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
@@ -477,3 +494,4 @@
   renderQuestions();
   refreshPendingUI();
 }());
+

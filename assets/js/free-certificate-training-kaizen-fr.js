@@ -1,7 +1,23 @@
 (function () {
   "use strict";
 
-  const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
+  const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwqXE2__bb_XIx07-TTiAz_vYzpG-FAYUnE7I7IarGLPEhDOuCoKHq5DjydVHHKckq9/exec";
+
+  async function sendToCloud(url, options) {
+    const payload = JSON.parse(options.body);
+    if (!payload.submissionId) payload.submissionId = "cloud-" + crypto.randomUUID();
+    const controller = new AbortController();
+    const timer = setTimeout(function () { controller.abort(); }, 30000);
+    try {
+      return await fetch(url, {
+        ...options,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify({ ...payload, form_type: "certificate_submission" }),
+        redirect: "follow",
+        signal: controller.signal
+      });
+    } finally { clearTimeout(timer); }
+  }
   const TRAINING_ID = "kaizen-continuous-improvement";
   const LANGUAGE = "fr";
   const TRAINING_TITLE = "Kaizen : l’amélioration continue au travail";
@@ -370,6 +386,7 @@
 
   function showBackendSubmissionResult(result) {
     const status = getBackendStatus(result);
+    if (status === "accepted") { submissionFinished = true; setSubmissionStatus("Votre demande a été enregistrée. Votre attestation sera envoyée par e-mail après traitement.", "success"); return; }
     if (status === "issued") { submissionFinished = true; setSubmissionStatus("Votre attestation a été émise et envoyée par e-mail.", "success"); return; }
     if (status === "success") { // LEGACY C2 TRANSITION
       submissionFinished = true; setSubmissionStatus("Votre demande d’attestation a été envoyée. Vérifiez votre boîte mail après traitement.", "success"); return;
@@ -441,7 +458,7 @@
     finalSubmitButton.textContent = "Envoi en cours...";
 
     try {
-      const response = await fetch(WEBHOOK_URL, {
+      const response = await sendToCloud(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(buildSubmissionPayload(score, answers))
@@ -480,3 +497,4 @@
   renderQuestions();
   setFinalSubmitEnabled(false);
 }());
+

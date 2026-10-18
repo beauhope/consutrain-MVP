@@ -1,7 +1,23 @@
 (function () {
   "use strict";
 
-  const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
+  const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwqXE2__bb_XIx07-TTiAz_vYzpG-FAYUnE7I7IarGLPEhDOuCoKHq5DjydVHHKckq9/exec";
+
+  async function sendToCloud(url, options) {
+    const payload = JSON.parse(options.body);
+    if (!payload.submissionId) payload.submissionId = "cloud-" + crypto.randomUUID();
+    const controller = new AbortController();
+    const timer = setTimeout(function () { controller.abort(); }, 30000);
+    try {
+      return await fetch(url, {
+        ...options,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify({ ...payload, form_type: "certificate_submission" }),
+        redirect: "follow",
+        signal: controller.signal
+      });
+    } finally { clearTimeout(timer); }
+  }
   const TRAINING_ID = "digital-transformation-intro";
   const TRAINING_TITLE = "مدخل إلى الرقمنة والتحول الرقمي";
   const TOTAL_QUESTIONS = 12;
@@ -403,7 +419,7 @@
     submissionId: payload.submissionId || createSubmissionId()
   };
 
-  const response = await fetch(WEBHOOK_URL, {
+  const response = await sendToCloud(WEBHOOK_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -428,7 +444,7 @@
   }
 }
 
-  const TERMINAL_BACKEND_STATUSES = new Set([
+  const TERMINAL_BACKEND_STATUSES = new Set(["accepted", 
     "issued",
     "duplicate",
     "validation_failed",
@@ -455,6 +471,7 @@
 
   function showBackendResult(result, score, passed) {
     const status = getBackendStatus(result);
+    if (status === "accepted") { setStatus("تم استلام طلبك وحفظه. ستُرسل الشهادة إلى بريدك الإلكتروني بعد اكتمال المعالجة.", "success"); return true; }
     if (status === "issued") {
       setStatus("تم إصدار الشهادة وإرسالها إلى بريدك الإلكتروني.", "success");
       return true;
@@ -633,3 +650,4 @@
   ensureDiscardButton();
   showPendingSubmissionsNotice();
 })();
+

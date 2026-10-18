@@ -1,7 +1,23 @@
 (function () {
   "use strict";
 
-  const WEBHOOK_URL = "https://hooks.consutrain.com/webhook/consutrain-certificate-submission";
+  const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwqXE2__bb_XIx07-TTiAz_vYzpG-FAYUnE7I7IarGLPEhDOuCoKHq5DjydVHHKckq9/exec";
+
+  async function sendToCloud(url, options) {
+    const payload = JSON.parse(options.body);
+    if (!payload.submissionId) payload.submissionId = "cloud-" + crypto.randomUUID();
+    const controller = new AbortController();
+    const timer = setTimeout(function () { controller.abort(); }, 30000);
+    try {
+      return await fetch(url, {
+        ...options,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify({ ...payload, form_type: "certificate_submission" }),
+        redirect: "follow",
+        signal: controller.signal
+      });
+    } finally { clearTimeout(timer); }
+  }
   const TRAINING_ID = "digital-transformation-intro";
   const TRAINING_TITLE = "Introduction à la digitalisation et à la transformation numérique";
   const TOTAL_QUESTIONS = 12;
@@ -350,7 +366,7 @@
   }
 
   async function sendCertificateSubmission(payload) {
-    const response = await fetch(WEBHOOK_URL, {
+    const response = await sendToCloud(WEBHOOK_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -375,7 +391,7 @@
     }
   }
 
-  const SUPPORTED_BACKEND_STATUSES = new Set([
+  const SUPPORTED_BACKEND_STATUSES = new Set(["accepted", 
     "issued",
     "duplicate",
     "validation_failed",
@@ -400,6 +416,7 @@
 
   function showBackendSubmissionResult(result) {
     const status = getBackendStatus(result);
+    if (status === "accepted") { submissionFinished = true; setSubmissionStatus("Votre demande a été enregistrée. Votre attestation sera envoyée par e-mail après traitement.", "success"); return; }
     if (status === "issued") {
       submissionFinished = true;
       setSubmissionStatus("Votre attestation a été émise et envoyée par e-mail.", "success");
@@ -595,3 +612,4 @@
   void TRAINING_ID;
   void TRAINING_TITLE;
 })();
+
