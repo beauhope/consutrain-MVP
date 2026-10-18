@@ -8,8 +8,8 @@
   - إظهار صفحة fallback عند تعذر تحميل الصفحات
   =========================================================
 */
-const STATIC_CACHE = "consutrain-v20261015-shell-scope-v1";
-const RUNTIME_CACHE = "consutrain-runtime-v20261015-shell-scope-v1";
+const STATIC_CACHE = "consutrain-v20261018-certificate-footer-v1";
+const RUNTIME_CACHE = "consutrain-runtime-v20261018-certificate-footer-v1";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
