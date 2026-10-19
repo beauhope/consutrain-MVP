@@ -6,3 +6,4 @@ _private-sources/
 # Local n8n startup files for ConsuTrain certificate workflow
 start-n8n-consutrain.bat
 start-n8n-consutrain.ps1
+.ct03-review/
