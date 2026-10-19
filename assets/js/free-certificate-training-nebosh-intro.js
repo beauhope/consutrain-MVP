@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const CERTIFICATE_ENABLED = false; // Switch only after approved Sheet records and E2E verification.
+  const CERTIFICATE_ENABLED = true; // Cloud certificate intake; server validates score and eligibility.
   const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwqXE2__bb_XIx07-TTiAz_vYzpG-FAYUnE7I7IarGLPEhDOuCoKHq5DjydVHHKckq9/exec";
 
   async function sendToCloud(url, options) {
