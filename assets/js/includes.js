@@ -197,6 +197,7 @@ async function loadPartial(selector, filePath) {
     target.innerHTML = html;
 
     if (selector === "#header-placeholder") {
+      syncBreadcrumbHeaderOffset();
       syncLocalizedLanguageLink();
       initHeaderNavigation();
       setActiveNavLink();
@@ -722,6 +723,30 @@ function restoreHomeHashScroll() {
   >
   ---------------------------------------------------------
 */
+/* CT-01 — Synchronize sticky Breadcrumb with actual header height. */
+let breadcrumbHeaderObserver = null;
+
+function syncBreadcrumbHeaderOffset() {
+  const header = document.getElementById("header-placeholder");
+  if (!header) return;
+
+  const update = () => {
+    const height = Math.ceil(header.getBoundingClientRect().height);
+    if (height > 0) {
+      document.documentElement.style.setProperty(
+        "--breadcrumbs-sticky-top",
+        `${height}px`
+      );
+    }
+  };
+
+  update();
+
+  if (!breadcrumbHeaderObserver && "ResizeObserver" in window) {
+    breadcrumbHeaderObserver = new ResizeObserver(update);
+    breadcrumbHeaderObserver.observe(header);
+  }
+}
 function initBreadcrumbs() {
   const root = getRootPath();
   const section = document.body.dataset.breadcrumbSection;
