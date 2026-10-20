@@ -1,6 +1,36 @@
 {
   "articles": [
     {
+      "id": "how-ethan-schwandt-helped-jobber-turn-ai-adoption-into-a-building-culture",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "Au-delà des outils : Bâtir une culture d'adoption de l'IA en se concentrant sur le travail plutôt que sur la technologie",
+      "excerpt": "Cet article explore comment transformer l'adoption de l'IA d'un simple déploiement technique en une véritable transformation culturelle. Plutôt que de se focaliser sur les modèles, nous analysons l'importance d'identifier les opportunités opérationnelles, de mettre en place une gouvernance claire et de maintenir une supervision humaine pour garantir un succès durable.",
+      "date": "2026-10-20",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Gouvernance",
+        "Gestion des risques",
+        "Flux de travail",
+        "Supervision humaine",
+        "Transformation numérique"
+      ],
+      "url": "how-ethan-schwandt-helped-jobber-turn-ai-adoption-into-a-building-culture.html",
+      "image_url": "../../assets/images/articles/how-ethan-schwandt-helped-jobber-turn-ai-adoption-into-a-building-culture.jpg",
+      "card_image_url": "../../assets/images/articles/how-ethan-schwandt-helped-jobber-turn-ai-adoption-into-a-building-culture.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à Au-delà des outils : Bâtir une culture d'adoption de l'IA en se concentrant sur le travail plutôt que sur la technologie",
+      "related_terms": [
+        "Gouvernance",
+        "Gestion des risques",
+        "Flux de travail",
+        "Supervision humaine",
+        "Transformation numérique"
+      ]
+    },
+    {
       "id": "the-7-best-employee-management-software-and-apps-in-2026",
       "content_type": "article",
       "contentType": "tech-radar",

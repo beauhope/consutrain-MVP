@@ -1,6 +1,43 @@
 {
   "articles": [
     {
+      "id": "how-ethan-schwandt-helped-jobber-turn-ai-adoption-into-a-building-culture",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "ar",
+      "title": "ما وراء الأدوات: بناء ثقافة تبني الذكاء الاصطناعي من خلال التركيز على العمل لا التقنية",
+      "excerpt": "تستعرض هذه المقالة كيفية تحويل تبني الذكاء الاصطناعي من مجرد شراء تراخيص تقنية إلى تحول ثقافي عميق. بدلاً من التركيز على النماذج البرمجية، نناقش أهمية تحديد فرص التحسين في سير العمل، ووضع أطر حوكمة واضحة، وضمان الدور البشري المحوري لضمان نجاح التحول الرقمي المستدام في المؤسسات.",
+      "date": "2026-10-20",
+      "category": "الذكاء الاصطناعي والإدارة",
+      "tags": [
+        "الرادار التقني",
+        "الذكاء الاصطناعي والإدارة",
+        "الحوكمة",
+        "إدارة المخاطر",
+        "سير العمل",
+        "الرقابة البشرية",
+        "التحول الرقمي"
+      ],
+      "url": "how-ethan-schwandt-helped-jobber-turn-ai-adoption-into-a-building-culture.html",
+      "image_url": "../assets/images/articles/how-ethan-schwandt-helped-jobber-turn-ai-adoption-into-a-building-culture.jpg",
+      "card_image_url": "../assets/images/articles/how-ethan-schwandt-helped-jobber-turn-ai-adoption-into-a-building-culture.jpg",
+      "image_alt": "صورة توضيحية لمقال ConsuTrain حول ما وراء الأدوات: بناء ثقافة تبني الذكاء الاصطناعي من خلال التركيز على العمل لا التقنية",
+      "video_title": "",
+      "video_url": "",
+      "source_material": [],
+      "related_terms": [
+        "الحوكمة",
+        "إدارة المخاطر",
+        "سير العمل",
+        "الرقابة البشرية",
+        "التحول الرقمي"
+      ],
+      "related_articles": [],
+      "content": [
+        "تستعرض هذه المقالة كيفية تحويل تبني الذكاء الاصطناعي من مجرد شراء تراخيص تقنية إلى تحول ثقافي عميق. بدلاً من التركيز على النماذج البرمجية، نناقش أهمية تحديد فرص التحسين في سير العمل، ووضع أطر حوكمة واضحة، وضمان الدور البشري المحوري لضمان نجاح التحول الرقمي المستدام في المؤسسات."
+      ]
+    },
+    {
       "id": "the-7-best-employee-management-software-and-apps-in-2026",
       "content_type": "article",
       "contentType": "tech-radar",
