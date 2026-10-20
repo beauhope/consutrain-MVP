@@ -1,6 +1,45 @@
 {
   "articles": [
     {
+      "id": "human-in-the-loop-in-ai-workflows-hitl-meaning-benefits-and-practical-patterns",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "ar",
+      "title": "حوكمة الذكاء الاصطناعي: دمج الرقابة البشرية في سير العمل المؤتمت",
+      "excerpt": "تستعرض هذه المقالة مفهوم 'الإنسان في الحلقة' (HITL) كضرورة إدارية لضمان دقة أنظمة الذكاء الاصطناعي. نناقش كيفية تصميم نقاط موافقة بشرية، وتحديد مسارات التصعيد، وإدارة المخاطر الناتجة عن الاعتماد الكلي على الأتمتة، مع تقديم إطار عمل للمديرين لدمج الرقابة البشرية بفعالية في التحول الرقمي.",
+      "date": "2026-10-19",
+      "category": "الذكاء الاصطناعي والإدارة",
+      "tags": [
+        "الرادار التقني",
+        "الذكاء الاصطناعي والإدارة",
+        "الأتمتة",
+        "الحوكمة",
+        "إدارة المخاطر",
+        "سير العمل",
+        "الرقابة البشرية",
+        "التحول الرقمي"
+      ],
+      "url": "human-in-the-loop-in-ai-workflows-hitl-meaning-benefits-and-practical-patterns.html",
+      "image_url": "../assets/images/articles/human-in-the-loop-in-ai-workflows-hitl-meaning-benefits-and-practical-patterns.jpg",
+      "card_image_url": "../assets/images/articles/human-in-the-loop-in-ai-workflows-hitl-meaning-benefits-and-practical-patterns.jpg",
+      "image_alt": "صورة توضيحية لمقال ConsuTrain حول حوكمة الذكاء الاصطناعي: دمج الرقابة البشرية في سير العمل المؤتمت",
+      "video_title": "",
+      "video_url": "",
+      "source_material": [],
+      "related_terms": [
+        "الأتمتة",
+        "الحوكمة",
+        "إدارة المخاطر",
+        "سير العمل",
+        "الرقابة البشرية",
+        "التحول الرقمي"
+      ],
+      "related_articles": [],
+      "content": [
+        "تستعرض هذه المقالة مفهوم 'الإنسان في الحلقة' (HITL) كضرورة إدارية لضمان دقة أنظمة الذكاء الاصطناعي. نناقش كيفية تصميم نقاط موافقة بشرية، وتحديد مسارات التصعيد، وإدارة المخاطر الناتجة عن الاعتماد الكلي على الأتمتة، مع تقديم إطار عمل للمديرين لدمج الرقابة البشرية بفعالية في التحول الرقمي."
+      ]
+    },
+    {
       "id": "the-6-best-ai-resume-builders-in-2026",
       "content_type": "article",
       "contentType": "tech-radar",
