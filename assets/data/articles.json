@@ -1,6 +1,39 @@
 {
   "articles": [
     {
+      "id": "the-7-best-employee-management-software-and-apps-in-2026",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "ar",
+      "title": "استراتيجيات اختيار برامج إدارة الموظفين: تعزيز الكفاءة التنظيمية دون المساس بالثقة",
+      "excerpt": "دليل إداري للمؤسسات الصغيرة والمتوسطة حول كيفية اختيار برامج إدارة الموظفين بفعالية. يركز المقال على الموازنة بين أتمتة العمليات وتحسين تجربة الموظف، مع تجنب الرقابة المفرطة، وتقديم منهجية تدريجية للتبني الرقمي تضمن حماية البيانات وتحقيق العائد التنظيمي المستدام.",
+      "date": "2026-10-20",
+      "category": "الذكاء الاصطناعي والإدارة",
+      "tags": [
+        "الرادار التقني",
+        "الذكاء الاصطناعي والإدارة",
+        "الأتمتة",
+        "الشركات الصغيرة والمتوسطة",
+        "إدارة البيانات"
+      ],
+      "url": "the-7-best-employee-management-software-and-apps-in-2026.html",
+      "image_url": "../assets/images/articles/the-7-best-employee-management-software-and-apps-in-2026.jpg",
+      "card_image_url": "../assets/images/articles/the-7-best-employee-management-software-and-apps-in-2026.jpg",
+      "image_alt": "صورة توضيحية لمقال ConsuTrain حول استراتيجيات اختيار برامج إدارة الموظفين: تعزيز الكفاءة التنظيمية دون المساس بالثقة",
+      "video_title": "",
+      "video_url": "",
+      "source_material": [],
+      "related_terms": [
+        "الأتمتة",
+        "الشركات الصغيرة والمتوسطة",
+        "إدارة البيانات"
+      ],
+      "related_articles": [],
+      "content": [
+        "دليل إداري للمؤسسات الصغيرة والمتوسطة حول كيفية اختيار برامج إدارة الموظفين بفعالية. يركز المقال على الموازنة بين أتمتة العمليات وتحسين تجربة الموظف، مع تجنب الرقابة المفرطة، وتقديم منهجية تدريجية للتبني الرقمي تضمن حماية البيانات وتحقيق العائد التنظيمي المستدام."
+      ]
+    },
+    {
       "id": "human-in-the-loop-in-ai-workflows-hitl-meaning-benefits-and-practical-patterns",
       "content_type": "article",
       "contentType": "tech-radar",

@@ -1,6 +1,32 @@
 {
   "articles": [
     {
+      "id": "the-7-best-employee-management-software-and-apps-in-2026",
+      "content_type": "article",
+      "contentType": "tech-radar",
+      "language": "fr",
+      "title": "Stratégies de choix des logiciels de gestion du personnel : Optimiser l'efficacité sans compromettre la confiance",
+      "excerpt": "Un guide managérial destiné aux PME sur le choix stratégique des logiciels de gestion du personnel. Cet article explore l'équilibre entre automatisation des processus et expérience collaborateur, tout en évitant la surveillance excessive. Il propose une méthodologie d'adoption progressive garantissant la protection des données et un retour sur investissement organisationnel durable.",
+      "date": "2026-10-20",
+      "category": "Intelligence artificielle et management",
+      "tags": [
+        "Radar technologique",
+        "Intelligence artificielle et management",
+        "Automatisation",
+        "PME",
+        "Gestion des données"
+      ],
+      "url": "the-7-best-employee-management-software-and-apps-in-2026.html",
+      "image_url": "../../assets/images/articles/the-7-best-employee-management-software-and-apps-in-2026.jpg",
+      "card_image_url": "../../assets/images/articles/the-7-best-employee-management-software-and-apps-in-2026.jpg",
+      "image_alt": "Illustration de l’article ConsuTrain consacré à Stratégies de choix des logiciels de gestion du personnel : Optimiser l'efficacité sans compromettre la confiance",
+      "related_terms": [
+        "Automatisation",
+        "PME",
+        "Gestion des données"
+      ]
+    },
+    {
       "id": "human-in-the-loop-in-ai-workflows-hitl-meaning-benefits-and-practical-patterns",
       "content_type": "article",
       "contentType": "tech-radar",
